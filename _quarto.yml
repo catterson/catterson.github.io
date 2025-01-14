@@ -4,18 +4,6 @@ project:
 
 book:
   title: "Why Statistics?"
-  navbar: 
-    background: primary
-    search: true
-    left:
-      - text: "Home" 
-        href: index.qmd
-      - text: "Labs"
-        href: labs.qmd
-      - text: "R Code You Need"
-        href: Rcode.qmd
-      - text: "About"
-        href: about.qmd
   sidebar: 
     style: docked
     alignment: "left"
@@ -27,24 +15,24 @@ book:
     - part: Why Statistics, Research Methods, and R?
       chapters: 
         - index.qmd
-        - ./chapters/1R_WhyStats.qmd
-        - ./chapters/2R_WhyResearch.qmd
+        - 1R_WhyStats.qmd
+        - 2R_WhyResearch.qmd
     - part : Describing Data 
       chapters: 
-        - /chapters/3R_Data.qmd
-        - /chapters/4R_Description.qmd
-        - /chapters/5R_Scales.qmd
+        - 3R_Data.qmd
+        - 4R_Description.qmd
+        - 5R_Scales.qmd
     - part : Predicting Data
       chapters: 
-        - /chapters/6R_LinearModels.qmd
-        - /chapters/7R_CategoricalIV.qmd
-        - /chapters/8R_Assumptions.qmd
+        - 6R_LinearModels.qmd
+        - 7R_CategoricalIV.qmd
+        - 8R_Assumptions.qmd
     - part : Predicting People
       chapters: 
-        - /chapters/9R_SamplingError.qmd
-        - /chapters/10R_NHSTPower.qmd
-        - /chapters/11R_MultipleRegression.qmd
-        - /chapters/12R_Conclusion2Introduction.qmd
+        - 9R_SamplingError.qmd
+        - 10R_NHSTPower.qmd
+        - 11R_MultipleRegression.qmd
+        - 12R_Conclusion2Introduction.qmd
     - references.qmd
 
 bibliography: references.bib
