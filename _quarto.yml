@@ -1,0 +1,71 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Why Statistics?"
+  navbar: 
+    background: primary
+    search: true
+    left:
+      - text: "Home" 
+        href: index.qmd
+      - text: "Labs"
+        href: labs.qmd
+      - text: "R Code You Need"
+        href: Rcode.qmd
+      - text: "About"
+        href: about.qmd
+  sidebar: 
+    style: docked
+    alignment: "left"
+    subtitle: "Table of Contents"
+    logo: images/cover_page.png
+    collapse-level: 2
+  date: "12/11/2024"
+  chapters:
+    - part: Why Statistics, Research Methods, and R?
+      chapters: 
+        - index.qmd
+        - ./chapters/1R_WhyStats.qmd
+        - ./chapters/2R_WhyResearch.qmd
+    - part : Describing Data 
+      chapters: 
+        - /chapters/3R_Data.qmd
+        - /chapters/4R_Description.qmd
+        - /chapters/5R_Scales.qmd
+    - part : Predicting Data
+      chapters: 
+        - /chapters/6R_LinearModels.qmd
+        - /chapters/7R_CategoricalIV.qmd
+        - /chapters/8R_Assumptions.qmd
+    - part : Predicting People
+      chapters: 
+        - /chapters/9R_SamplingError.qmd
+        - /chapters/10R_NHSTPower.qmd
+        - /chapters/11R_MultipleRegression.qmd
+        - /chapters/12R_Conclusion2Introduction.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    number-depth: 2
+    theme: cosmo
+    toc: true
+    toc-depth: 2
+    toc-location: right
+    toc-title: In This Chapter
+  pdf:
+    documentclass: scrreprt
+    include-in-header: 
+      text: |
+        \usepackage{makeidx}
+        \makeindex
+    include-after-body: 
+      text: |
+        \printindex
+
+
+editor: visual
