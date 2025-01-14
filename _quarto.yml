@@ -9,8 +9,8 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - text: Why Stats? [textbook]
-        href: https://catterson.github.io/ystats/
+      - href: https://catterson.github.io/ystats/
+        text: Why Stats? [textbook]
     pinned: true
     collapse: false
 format:
