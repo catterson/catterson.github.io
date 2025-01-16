@@ -1,15 +1,15 @@
 # Psych 205 (Graduate Statistics)
 
-Hi Class! Welcome to our course.
+Hi Class! Welcome.
 
 ## Semester Agenda
 
 | Week | Lecture Topic | Assignment | **Support Readings** |
 |------------|------------|------------|-----------------------------------|
-| 1/24 | Introduction to Data and Analysis (in R) | Lab 1 | WS 1-2; LSR 3-4 |
+| 1/24 | [Introduction to Data and Analysis (in R)](./gradlabs/1_gradintro.qmd) | Lab 1 | WS 1-2; LSR 3-4 |
 | 1/31 | Description | Lab 2 | WS 3-4; LSR 5-6 |
-| 2/7 | Probability and Sampling Error | Lab 3 | WS 8; LSR 9-10 |
-| 2/14 | Visualizing Data in ggplot2 | Lab 4 | [Data Viz Chapter](https://ggplot2.tidyverse.org/#learning-ggplot2) |
+| 2/7 | Visualizing Data in ggplot2 | Lab 3 | [Data Viz Chapter](https://ggplot2.tidyverse.org/#learning-ggplot2) |
+| 2/14 | Probability and Sampling Error | Lab 4 | WS 8; LSR 9-10 |
 | 2/21 | Mini Exam + Linear Models Pt. 1 (Lines!) |  | WS 5-7; LSR 15.1 - 15.2 |
 | 2/28 | Linear Models Pt. 2 (Tests & Assumptions) | Lab 5 | LSR 15.5 - 15.11 |
 | 3/7 | Linear Models Pt. 3 (Multiple Regression) | Lab 6 | WS 9; LSR 15.3 |
