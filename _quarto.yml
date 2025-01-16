@@ -10,7 +10,9 @@ website:
       - href: index.qmd
         text: Home
       - href: https://catterson.github.io/ystats/
-        text: Why Stats? [textbook]
+        text: Why Stats? [Psych 101 textbook]
+      - href: ./gradstats/gradstats.qmd
+        text: Grad Stats [Psych 205]
     pinned: true
     collapse: false
 format:

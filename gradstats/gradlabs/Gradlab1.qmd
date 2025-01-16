@@ -1,0 +1,32 @@
+# Psych 205 - Lab 1
+
+The goal of this lab is to get more practice working in R and Quarto, and practice loading (and evaluating) datasets.
+
+## In Lecture.
+We will work on these questions together in lecture!
+
+1. 
+
+2. One advantage of R Markdown is that you can run code in a document. You do this using a "code block". 
+
+```{r}
+
+```
+
+3. In the space below, create an R code block, and define a numeric variable in this code block.
+
+4. 
+
+## In Discussion Section.
+You will work with your TA on these questions.
+
+5. In lecture, we wrote a for-loop to simulate the "Monty Hall" problem. Adapt this for-loop such that there are 100 doors (where the contestant chooses one, then Monty opens 98 other doors.) Under these conditions, what is the probability of winning if you switch? If you don't switch?
+
+6. 
+
+## On Your Own.
+Please try to complete these problems on your own. If you get stuck, post to the class "discord" (and feel free to help others.) If you really get stuck, just explain what you tried. Thanks!
+
+7. Look over the supplemental readings for instructions on how to load a dataset from a .csv file. Load each of the four datasets posted to our "Datasets" folder. 
+
+8. Read the article
