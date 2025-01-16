@@ -1,30 +1,46 @@
 # Welcome to Psych 205
 
 ## Goals of this Lecture
-1. Introductions to the course, professor, and students.
-2. Introductions to statistics.
-3. Introductions to the program R.
+
+1.  Introductions to the course, professor, and students.
+2.  Introductions to statistics.
+3.  Introductions to the program R.
 
 ## Why Statistics in Psychology??
+
 Why is this class required?
 
+### Psychology as a Science
 
 ### Statistics as a Language
 
 ### R is a Programming Language
 
 #### The Console
-- The console 
 
+-   The console is where R does its work.
 
-#### The Source File (.R)
-- An R script is a document that you use to write (and organize) code
+<!-- -->
 
+-   **ACTIVITY :** Look at the image below. What do you see? What makes sense / what seems confusing?
 
-#### A Quarto Document (.qmd)
-- A Quarto Document is a fancy R script that can do several special things.
+#### ![](images/clipboard-3010296644.png){width="449"}
 
-1. Run R code
-2. 
+-   **ACTIVTY :** open up R and type some MATH into the console. Yeah! You are programming!!!
 
-####
+#### R Studio and the Source File (.R)
+
+In this class, I'll be using RStudio. RStudio is an IDE (Integrated Development Environment) that includes the console along with other useful windows and tools.
+
+-   **The Console** is at the bottom left of the IDE. Hi console!
+-   **The R script** is at the top left of the IDE, and is a document that you use to write (and organize) code. You will want to do most of your work in the R script, and feel an appropriate level of anxiety when you notice that your Rscript is unsaved (as indicated by the red text and \*).
+-   **The Environment** is at the top right of the IDE, and shows you all of the "objects" that you have defined in R.
+-   **The** **File Window** is at the bottom right of the IDE, and shows you the files. Note that there are tabs here for Plots (where graphs will pop up), Packages (things you can download to give R extra features), a Help viewer (sometimes very useful!).
+
+![](images/clipboard-1807596003.png)
+
+## Writing Good Code
+
+### Good Code is Organized Code
+
+### Code is Meant for Computers

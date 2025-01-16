@@ -3,30 +3,97 @@
 The goal of this lab is to get more practice working in R and Quarto, and practice loading (and evaluating) datasets.
 
 ## In Lecture.
+
 We will work on these questions together in lecture!
 
-1. 
-
-2. One advantage of R Markdown is that you can run code in a document. You do this using a "code block". 
+1.  One advantage of R Markdown is that you can run code in a document. You do this using a "code block". Enter in a math equation that used to give you difficulty as a kid to the code block below, and run the code to see the result.
 
 ```{r}
 
 ```
 
-3. In the space below, create an R code block, and define a numeric variable in this code block.
+2.  In the space below, insert an R code block, and define a numeric variable in this code block.
 
-4. 
+3. In class, we will build a dataframe. Create that dataframe here, and use R code to answer the following questions.
+
+    -   the number of individuals (rows) in the dataset.
+
+    -   the number of variables (columns) in the dataset.
+
+    -   the names of the variables in the dataset.
+
+    -   the value of the 5th row, 2nd column in the dataset.
+
+    -   print a numeric variable from the dataset
+
+    -   print a categorical variable from the dataset
+    
+```{r}
+
+```
+
+4.  R also has some built in datasets. The chickwts dataset contains data on the weights of chickens, and the types of food that they ate. You can access this datasets by just typing chickwts (the name of the data object) into R. Use this dataset to answer the following questions:
+
+    -   the number of individuals (rows) in the dataset.
+
+    -   the number of variables (columns) in the dataset.
+
+    -   the names of the variables in the dataset.
+
+    -   the value of the 5th row, 2nd column in the dataset.
+
+    -   print a numeric variable from the dataset
+
+    -   print a categorical variable from the dataset
+
+```{r}
+
+```
 
 ## In Discussion Section.
-You will work with your TA on these questions.
 
-5. In lecture, we wrote a for-loop to simulate the "Monty Hall" problem. Adapt this for-loop such that there are 100 doors (where the contestant chooses one, then Monty opens 98 other doors.) Under these conditions, what is the probability of winning if you switch? If you don't switch?
+*You will work with your TA on these questions.*
 
-6. 
+5.  In lecture, we created a dataframe in R with two variables. Work with your classmates to create another dataframe with three variables - at least one numeric and one "string". Then, use R to report the following from this dataset:
+
+    -   the number of individuals (rows) in the dataset.
+
+    -   the number of variables (columns) in the dataset.
+
+    -   the names of the variables in the dataset.
+
+    -   the value of the 5th row, 2nd column in the dataset.
+
+    -   print a numeric variable from the dataset
+
+    -   print a categorical variable from the dataset
+
+6.  In lecture, we wrote a for-loop to simulate the "Monty Hall" problem. Adapt this for-loop such that there are 100 doors (where the contestant chooses one, then Monty opens 98 other doors.) Under these conditions, what is the probability of winning if you switch? If you don't switch?
 
 ## On Your Own.
-Please try to complete these problems on your own. If you get stuck, post to the class "discord" (and feel free to help others.) If you really get stuck, just explain what you tried. Thanks!
 
-7. Look over the supplemental readings for instructions on how to load a dataset from a .csv file. Load each of the four datasets posted to our "Datasets" folder. 
+*Please try to complete these problems on your own after section. If you get stuck, post to the class "discord" (and feel free to help others.) If you really get stuck, just explain what you tried. Thanks!*
 
-8. Read the article 
+7.  Look over the supplemental readings for instructions on how to load and navigate a dataset into R from a .csv file. Load each of the three datasets posted to our "Datasets" folder (make sure to give the dataset a name; check the headers, and set stringsAsFactors = T). For each dataset, use R to report the following statistics:
+
+    -   the number of individuals (rows) in the dataset.
+
+    -   the number of variables (columns) in the dataset.
+
+    -   the names of the variables in the dataset.
+
+    -   the value of the 5th row, 2nd column in the dataset.
+
+    -   print a numeric variable from the dataset
+
+    -   print a categorical variable from the dataset
+
+    ```{r}
+
+    ```
+
+8.  **Read the article "Data Organization in Spreadsheets"** posted to the course website. Choose one of the datasets uploaded to the Datasets folder, and look over the dataset (and corresponding Data Dictionary). What are some ways that this dataset adhered to these "best practices"? What are some ways that the dataset did not? What is something from this article that you learned? What did you have a question about?
+
+9.  **Challenge Problem**[^1_gradlab-1]**.** Quarto (and Markdown) can also be used to make a website. Make yourself a personal website, and use one of the methods to host this \[I like github.\] Yeah!
+
+[^1_gradlab-1]: Optional, but potentially fun and useful if you have the time and interest.
