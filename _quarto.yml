@@ -11,8 +11,6 @@ website:
         text: Home
       - href: https://catterson.github.io/ystats/
         text: Why Stats? [Psych 101]
-      - href: ./gradstats/gradstats.qmd
-        text: Grad Stats [Psych 205]
     pinned: true
     collapse: false
 format:
