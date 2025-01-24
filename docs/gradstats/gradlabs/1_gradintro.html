@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -67,7 +101,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://catterson.github.io/ystats/"> 
-<span class="menu-text">Why Stats? [Psych 101]</span></a>
+<span class="menu-text">Why Statistics?</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../gradstats/gradstats.html"> 
+<span class="menu-text">Grad Stats [Psych 205]</span></a>
   </li>  
 </ul>
           <div class="quarto-navbar-tools">
@@ -88,44 +126,336 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="welcome-to-psych-205" class="level1">
 <h1>Welcome to Psych 205</h1>
+<p>You can access this document by visiting our course webpage and clicking on Lecture 1 : <a href="https://catterson.github.io/gradstats/gradstats.html" class="uri">https://catterson.github.io/gradstats/gradstats.html</a></p>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSd2tFDLR_Qh8OUW0hq3jU51YwNzosyd0cN0NuXYPxeX0LbX0w/viewform?usp=header">Please take this short survey</a> (which will serve as your attendance for today.)</p>
+<p>Help yourself to coffee &amp; donuts if you’d like. We will get started soon!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/tumblr_nmeh1h0r1Y1qe6g3qo1_640.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a happy cartoon computer illustrating a bar graph" width="368"></p>
+</figure>
+</div>
 <section id="goals-of-this-lecture" class="level2">
 <h2 class="anchored" data-anchor-id="goals-of-this-lecture">Goals of this Lecture</h2>
 <ol type="1">
-<li>Introductions to the course, professor, and students.</li>
+<li>Introductions to the class.</li>
 <li>Introductions to statistics.</li>
 <li>Introductions to the program R.</li>
 </ol>
+<div style="page-break-after: always;"></div>
 </section>
-<section id="why-statistics-in-psychology" class="level2">
-<h2 class="anchored" data-anchor-id="why-statistics-in-psychology">Why Statistics in Psychology??</h2>
-<p>Why is this class required?</p>
+<section id="introductions-to-the-class" class="level2">
+<h2 class="anchored" data-anchor-id="introductions-to-the-class">Introductions to the Class</h2>
+<section id="the-professor-and-ta-and-students." class="level3">
+<h3 class="anchored" data-anchor-id="the-professor-and-ta-and-students.">The Professor and TA and Students.</h3>
+<p>We learn from each other!<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><img src="images/1_dogmascot.jpg" class="img-fluid" width="516"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Some brief introductions [ ~ 30 seconds!]
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>What’s your name and where are you from?</th>
+<th>Why are you at UC Berkeley?</th>
+<th>What’s your research interest in one sentence?</th>
+<th>Favorite place to eat in the Bay Area?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="the-course" class="level3">
+<h3 class="anchored" data-anchor-id="the-course">The Course</h3>
+<ul>
+<li><p><strong>Online :</strong></p>
+<ul>
+<li><a href="https://catterson.github.io/gradstats/gradstats.html"><strong>website</strong></a><strong>:</strong> syllabus and all course content.</li>
+<li><strong>bCourses:</strong> datasets; submitting assignments (labs and discussions); grades.</li>
+<li><strong>Class Discord:</strong> place to ask for help / build community.</li>
+</ul></li>
+<li><p><strong>IRL :</strong></p>
+<ul>
+<li><p>Friday Class 9:00 AM - 12:00 PM</p>
+<ul>
+<li><p>professor lecture</p></li>
+<li><p>student work time</p></li>
+<li><p>article presentations &amp; discussions</p></li>
+</ul></li>
+<li><p>Discussion Section 1:00 - 2:00 PM</p>
+<ul>
+<li>review</li>
+<li>work on assignments</li>
+</ul></li>
+<li><p>Wednesdays : reading discussions due by NOON.</p></li>
+</ul></li>
+<li><p><strong>Syllabus overview / questions / concerns?</strong></p></li>
+</ul>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="introductions-to-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="introductions-to-statistics">Introductions to Statistics</h2>
+<section id="why-statistics-why-is-this-class-required-for-graduate-students" class="level3">
+<h3 class="anchored" data-anchor-id="why-statistics-why-is-this-class-required-for-graduate-students">Why Statistics? Why is this Class Required for graduate students?</h3>
+<ul>
+<li>student ideas go here!</li>
+</ul>
+<div style="page-break-after: always;"></div>
+</section>
 <section id="psychology-as-a-science" class="level3">
 <h3 class="anchored" data-anchor-id="psychology-as-a-science">Psychology as a Science</h3>
+<ul>
+<li><p><strong>Science is….</strong></p>
+<ul>
+<li><p>Description :</p></li>
+<li><p>Prediction :</p></li>
+<li><p>Power :</p></li>
+</ul></li>
+<li><p><strong>Is Psychology a Science?</strong></p></li>
+<li><p><strong>Should Psychology be a Science?</strong></p></li>
+</ul>
 </section>
 <section id="statistics-as-a-language" class="level3">
 <h3 class="anchored" data-anchor-id="statistics-as-a-language">Statistics as a Language</h3>
+<p>What happens in a good language class?</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Human Language</th>
+<th>Computer Language</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="r-is-a-programming-language" class="level3">
-<h3 class="anchored" data-anchor-id="r-is-a-programming-language">R is a Programming Language</h3>
-<section id="the-console" class="level4">
-<h4 class="anchored" data-anchor-id="the-console">The Console</h4>
-<ul>
-<li>The console is where R does its work.</li>
-</ul>
-<!-- -->
+</section>
+<section id="introductions-to-r-a-programming-language" class="level2">
+<h2 class="anchored" data-anchor-id="introductions-to-r-a-programming-language">Introductions to R (a Programming Language)</h2>
+<section id="the-console" class="level3">
+<h3 class="anchored" data-anchor-id="the-console">The Console</h3>
+<p>The console is where R does its work.</p>
 <ul>
 <li><strong>ACTIVITY :</strong> Look at the image below. What do you see? What makes sense / what seems confusing?</li>
 </ul>
 </section>
-<section id="section" class="level4">
-<h4 class="anchored" data-anchor-id="section"><img src="images/clipboard-3010296644.png" class="img-fluid" width="449"></h4>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section"><img src="images/clipboard-3010296644.png" class="img-fluid" width="449"></h3>
 <ul>
 <li><strong>ACTIVTY :</strong> open up R and type some MATH into the console. Yeah! You are programming!!!</li>
 </ul>
 </section>
-<section id="r-studio-and-the-source-file-.r" class="level4">
-<h4 class="anchored" data-anchor-id="r-studio-and-the-source-file-.r">R Studio and the Source File (.R)</h4>
-<p>In this class, I’ll be using RStudio. RStudio is an IDE (Integrated Development Environment) that includes the console along with other useful windows and tools.</p>
+<section id="r-studio-and-the-source-file-.r" class="level3">
+<h3 class="anchored" data-anchor-id="r-studio-and-the-source-file-.r">R Studio and the Source File (.R)</h3>
+<p>In this class, we’ll be using RStudio. RStudio is an IDE (Integrated Development Environment) that includes the console along with other useful windows and tools.</p>
 <ul>
 <li><strong>The Console</strong> is at the bottom left of the IDE. Hi console!</li>
 <li><strong>The R script</strong> is at the top left of the IDE, and is a document that you use to write (and organize) code. You will want to do most of your work in the R script, and feel an appropriate level of anxiety when you notice that your Rscript is unsaved (as indicated by the red text and *).</li>
@@ -134,22 +464,241 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><img src="images/clipboard-1807596003.png" class="img-fluid"></p>
 </section>
+<section id="working-in-an-r-script" class="level3">
+<h3 class="anchored" data-anchor-id="working-in-an-r-script">Working in an R Script</h3>
+<p><a href="https://www.dropbox.com/scl/fi/568tanzamnpsqf2udt4xc/1_RBasics.R?rlkey=4kl8x4a3iyjbrdyzlkf58ca84&amp;dl=0"><strong>Here’s a link to an RScript!</strong></a>You can download this to your computer, and open it in RStudio.</p>
+<p><strong>Topics We Will Review</strong></p>
+<ul>
+<li><p><strong>math :</strong> common operators and functions</p></li>
+<li><p><strong>variables :</strong> string and numeric vectors</p></li>
+<li><p><strong>datasets :</strong> data.frame(); datasets::</p></li>
+<li><p><strong>functions :</strong> descriptive statistics, base graphics, generating random numbers</p></li>
+<li><p><strong>good code :</strong> troubleshooting errors; naming datasets; white space; keeping code and files organized</p></li>
+</ul>
+</section>
+<section id="working-in-quarto" class="level3">
+<h3 class="anchored" data-anchor-id="working-in-quarto">Working in Quarto</h3>
+<p><a href="https://quarto.org"><strong>Quarto</strong></a> is a version of R Markdown, which is a version of Markdown, which is a powerful way to author code that is meant for both humans and computers to read.</p>
+<ul>
+<li><p>Advantages :</p>
+<ul>
+<li>can create a document that works for R code, can create a presentation, or a website</li>
+<li>much faster to get your code from R to something that humans can read
+<ul>
+<li>no more copy-paste graphs or output.</li>
+<li>can update graphs and output as your needs / datset changes</li>
+</ul></li>
+<li>lots of features - open-source heritage and culture, but supported financially my Micro$oft.
+<ul>
+<li>ability to format your code; render it as a website, pdf, book, etc.</li>
+<li>interactive documents (Shiny; html-live; etc.)</li>
+</ul></li>
+</ul></li>
+<li><p>Disadvantages :</p>
+<ul>
+<li>code must be “perfect” in order to correctly render.</li>
+<li>can go down formatting and feature rabbit holes that are not necessarily condusive to good science.</li>
+<li>another dialect of the language you are trying to learn
+<ul>
+<li>in R : code is the default; human comments added with #s</li>
+<li>in Quarto : human text is the default; you insert a code block when you want R to do something (and can then comment in that code)</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">1</span> <span class="co"># like this</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div></li>
+<li><p>In this class, we will work with both .R scripts and .qmd Quarto Markdown Files</p>
+<ul>
+<li>.R Scripts for tinkering with data (in-class tutorials; initial analyses)</li>
+<li>.qmd files for “final” products (Lecture notes, lab documents, your project)</li>
+</ul></li>
+<li><p>There are many thorough guides on how to use Quarto, but honestly the <a href="https://quarto.org/docs/reference/">official Quarto reference book</a> is almost constantly open on my computer (in multiple tabs….sigh.) Let me know if you find another cool resource?!</p></li>
+</ul>
 </section>
 </section>
-<section id="writing-good-code" class="level2">
-<h2 class="anchored" data-anchor-id="writing-good-code">Writing Good Code</h2>
-<section id="good-code-is-organized-code" class="level3">
-<h3 class="anchored" data-anchor-id="good-code-is-organized-code">Good Code is Organized Code</h3>
+<section id="is-there-time-left-a-fun-r-demonstration" class="level2">
+<h2 class="anchored" data-anchor-id="is-there-time-left-a-fun-r-demonstration">Is there time left? A fun R demonstration :)</h2>
+<section id="the-monty-hall-problem." class="level3">
+<h3 class="anchored" data-anchor-id="the-monty-hall-problem.">The <a href="https://en.wikipedia.org/wiki/Monty_Hall_problem">Monty Hall Problem</a>.</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 63%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><img src="images/clipboard-564050059.png" class="img-fluid" width="189"></td>
+<td><img src="images/clipboard-573879897.png" class="img-fluid"></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="code-is-meant-for-computers" class="level3">
-<h3 class="anchored" data-anchor-id="code-is-meant-for-computers">Code is Meant for Computers</h3>
+<section id="use-r-to-simulate-the-monty-hall-problem." class="level3">
+<h3 class="anchored" data-anchor-id="use-r-to-simulate-the-monty-hall-problem.">Use R to simulate the Monty Hall Problem.</h3>
+<p>You’ll need to use the following bits of code :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>variable <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">""</span>) <span class="co"># create a string variable (for the options)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>() <span class="co"># to "randomly" sample from this variable</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">setdiff</span>() <span class="co"># to differentiate </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You’re welcome to try this on your own, but below are steps to help guide your work if you’d like (and some extra hints if you’d like more specific instructions.)</p>
+<p>Totally okay if you struggle with this! The point is to try and do something fun (and potentially challenging) in R, and see how computers can be used to address research questions.</p>
+<ol type="1">
+<li>Define the options to choose from (three doors)</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+HINT
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Create a string variable with three options : door1, door2, and door3</p>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Define player choice and treasure location.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+HINT
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>use the sample() function to define two variables named choice and treasure; each a random door.</p>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Define what doors Monty can open.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+HINT
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use the setdiff() function to identify all the doors that are not what the player chose or where the treasure is.</p>
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Define what Monty <em>does</em> open.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+HINT
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use the sample function to select one random door from the variable that defines what doors Monty can open.</p>
+</div>
+</div>
+</div>
+<ol start="5" type="1">
+<li>What happens if we switch?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+HINT
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Define a new variable that identifies the choice if we switch; this should selects one random option from the list of doors that are NOT what Monty opened or what the player initially chose. NOTE : You will need to use the sample and setdiff functions together.</p>
+</div>
+</div>
+</div>
+<ol start="6" type="1">
+<li>Test whether the player won or not.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+HINT
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use the if-else function to define a “WIN” as whether the choice variable matches the treasure variable. Then repeat this step for whether the switch choice variable matches the treasure variable.</p>
+</div>
+</div>
+</div>
+<ol start="7" type="1">
+<li>Repeat these steps 1000 times.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+HINT
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Define an empty array to save the result of each test. Then define a for-loop to simulate the Monty Hall 1000 times.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="conclusion-and-next-time" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-and-next-time">Conclusion and Next Time</h2>
+<ul>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdTmJrMn9vXkevKvIvVy16jbgFvxy-PQArvoHyJ15Nfus7kBQ/viewform?usp=header">Exit Survey</a></li>
+<li>Complete Lab 1</li>
+<li>Sign up for an Article Presentation</li>
+<li>Read (&amp; Discussion Post) Article 1</li>
+</ul>
 
 
 </section>
 </section>
-</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Thanks to Frederic Theunnisen &amp; Steve Pantiadosi for sharing their knowledge and materials with me.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -1,36 +1,149 @@
+---
+format: html
+---
+
 # Welcome to Psych 205
+
+You can access this document by visiting our course webpage and clicking on Lecture 1 : <https://catterson.github.io/gradstats/gradstats.html>
+
+[Please take this short survey](https://docs.google.com/forms/d/e/1FAIpQLSd2tFDLR_Qh8OUW0hq3jU51YwNzosyd0cN0NuXYPxeX0LbX0w/viewform?usp=header) (which will serve as your attendance for today.)
+
+Help yourself to coffee & donuts if you'd like. We will get started soon!
+
+![](images/tumblr_nmeh1h0r1Y1qe6g3qo1_640.jpg){fig-alt="a happy cartoon computer illustrating a bar graph" fig-align="center" width="368"}
 
 ## Goals of this Lecture
 
-1.  Introductions to the course, professor, and students.
+1.  Introductions to the class.
 2.  Introductions to statistics.
 3.  Introductions to the program R.
 
-## Why Statistics in Psychology??
+{{< pagebreak >}}
 
-Why is this class required?
+## Introductions to the Class
+
+### The Professor and TA and Students.
+
+We learn from each other![^1]
+
+[^1]: Thanks to Frederic Theunnisen & Steve Pantiadosi for sharing their knowledge and materials with me.
+
+![](images/1_dogmascot.jpg){width="516"}
+
+::: {.callout-tip collapse="true"}
+#### Some brief introductions \[ \~ 30 seconds!\]
+
+| What's your name and where are you from? | Why are you at UC Berkeley? | What's your research interest in one sentence? | Favorite place to eat in the Bay Area? |
+|------------------|------------------|------------------|------------------|
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+:::
+
+{{< pagebreak >}}
+
+### The Course
+
+-   **Online :**
+
+    -   [**website**](https://catterson.github.io/gradstats/gradstats.html)**:** syllabus and all course content.
+    -   **bCourses:** datasets; submitting assignments (labs and discussions); grades.
+    -   **Class Discord:** place to ask for help / build community.
+
+-   **IRL :**
+
+    -   Friday Class 9:00 AM - 12:00 PM
+
+        -   professor lecture
+
+        -   student work time
+
+        -   article presentations & discussions
+
+    -   Discussion Section 1:00 - 2:00 PM
+
+        -   review
+        -   work on assignments
+
+    -   Wednesdays : reading discussions due by NOON.
+
+-   **Syllabus overview / questions / concerns?**
+
+{{< pagebreak >}}
+
+## Introductions to Statistics
+
+### Why Statistics? Why is this Class Required for graduate students?
+
+-   student ideas go here!
+
+{{< pagebreak >}}
 
 ### Psychology as a Science
 
+-   **Science is....**
+
+    -   Description :
+
+    -   Prediction :
+
+    -   Power :
+
+-   **Is Psychology a Science?**
+
+-   **Should Psychology be a Science?**
+
 ### Statistics as a Language
 
-### R is a Programming Language
+What happens in a good language class?
 
-#### The Console
+| Human Language | Computer Language |
+|----------------|-------------------|
+|                |                   |
+|                |                   |
 
--   The console is where R does its work.
+## Introductions to R (a Programming Language)
 
-<!-- -->
+### The Console
+
+The console is where R does its work.
 
 -   **ACTIVITY :** Look at the image below. What do you see? What makes sense / what seems confusing?
 
-#### ![](images/clipboard-3010296644.png){width="449"}
+### ![](images/clipboard-3010296644.png){width="449"}
 
 -   **ACTIVTY :** open up R and type some MATH into the console. Yeah! You are programming!!!
 
-#### R Studio and the Source File (.R)
+### R Studio and the Source File (.R)
 
-In this class, I'll be using RStudio. RStudio is an IDE (Integrated Development Environment) that includes the console along with other useful windows and tools.
+In this class, we'll be using RStudio. RStudio is an IDE (Integrated Development Environment) that includes the console along with other useful windows and tools.
 
 -   **The Console** is at the bottom left of the IDE. Hi console!
 -   **The R script** is at the top left of the IDE, and is a document that you use to write (and organize) code. You will want to do most of your work in the R script, and feel an appropriate level of anxiety when you notice that your Rscript is unsaved (as indicated by the red text and \*).
@@ -39,8 +152,136 @@ In this class, I'll be using RStudio. RStudio is an IDE (Integrated Development 
 
 ![](images/clipboard-1807596003.png)
 
-## Writing Good Code
+### Working in an R Script
 
-### Good Code is Organized Code
+[**Here's a link to an RScript!**](https://www.dropbox.com/scl/fi/568tanzamnpsqf2udt4xc/1_RBasics.R?rlkey=4kl8x4a3iyjbrdyzlkf58ca84&dl=0)You can download this to your computer, and open it in RStudio.
 
-### Code is Meant for Computers
+**Topics We Will Review**
+
+-   **math :** common operators and functions
+
+-   **variables :** string and numeric vectors
+
+-   **datasets :** data.frame(); datasets::
+
+-   **functions :** descriptive statistics, base graphics, generating random numbers
+
+-   **good code :** troubleshooting errors; naming datasets; white space; keeping code and files organized
+
+### Working in Quarto
+
+[**Quarto**](https://quarto.org) is a version of R Markdown, which is a version of Markdown, which is a powerful way to author code that is meant for both humans and computers to read.
+
+-   Advantages :
+
+    -   can create a document that works for R code, can create a presentation, or a website
+    -   much faster to get your code from R to something that humans can read
+        -   no more copy-paste graphs or output.
+        -   can update graphs and output as your needs / datset changes
+    -   lots of features - open-source heritage and culture, but supported financially my Micro\$oft.
+        -   ability to format your code; render it as a website, pdf, book, etc.
+        -   interactive documents (Shiny; html-live; etc.)
+
+-   Disadvantages :
+
+    -   code must be "perfect" in order to correctly render.
+    -   can go down formatting and feature rabbit holes that are not necessarily condusive to good science.
+    -   another dialect of the language you are trying to learn
+        -   in R : code is the default; human comments added with #s
+        -   in Quarto : human text is the default; you insert a code block when you want R to do something (and can then comment in that code)
+
+    ```{r}
+    1+1 # like this
+    ```
+
+-   In this class, we will work with both .R scripts and .qmd Quarto Markdown Files
+
+    -   .R Scripts for tinkering with data (in-class tutorials; initial analyses)
+    -   .qmd files for "final" products (Lecture notes, lab documents, your project)
+
+-   There are many thorough guides on how to use Quarto, but honestly the [official Quarto reference book](https://quarto.org/docs/reference/) is almost constantly open on my computer (in multiple tabs....sigh.) Let me know if you find another cool resource?!
+
+## Is there time left? A fun R demonstration :)
+
+### The [Monty Hall Problem](https://en.wikipedia.org/wiki/Monty_Hall_problem).
+
+|  |  |
+|--------------------------|----------------------------------------------|
+| ![](images/clipboard-564050059.png){width="189"} | ![](images/clipboard-573879897.png) |
+
+### Use R to simulate the Monty Hall Problem.
+
+You'll need to use the following bits of code :
+
+``` r
+variable <- c("") # create a string variable (for the options)
+sample() # to "randomly" sample from this variable
+setdiff() # to differentiate 
+```
+
+You're welcome to try this on your own, but below are steps to help guide your work if you'd like (and some extra hints if you'd like more specific instructions.)
+
+Totally okay if you struggle with this! The point is to try and do something fun (and potentially challenging) in R, and see how computers can be used to address research questions.
+
+1.  Define the options to choose from (three doors)
+
+::: {.callout-tip collapse="true"}
+#### HINT
+
+Create a string variable with three options : door1, door2, and door3
+:::
+
+2.  Define player choice and treasure location.
+
+::: {.callout-tip collapse="true"}
+#### HINT
+
+use the sample() function to define two variables named choice and treasure; each a random door.
+:::
+
+3.  Define what doors Monty can open.
+
+::: {.callout-tip collapse="true"}
+#### HINT
+
+Use the setdiff() function to identify all the doors that are not what the player chose or where the treasure is.
+:::
+
+4.  Define what Monty *does* open.
+
+::: {.callout-tip collapse="true"}
+#### HINT
+
+Use the sample function to select one random door from the variable that defines what doors Monty can open.
+:::
+
+5.  What happens if we switch?
+
+::: {.callout-tip collapse="true"}
+#### HINT
+
+Define a new variable that identifies the choice if we switch; this should selects one random option from the list of doors that are NOT what Monty opened or what the player initially chose. NOTE : You will need to use the sample and setdiff functions together.
+:::
+
+6.  Test whether the player won or not.
+
+::: {.callout-tip collapse="true"}
+#### HINT
+
+Use the if-else function to define a "WIN" as whether the choice variable matches the treasure variable. Then repeat this step for whether the switch choice variable matches the treasure variable.
+:::
+
+7.  Repeat these steps 1000 times.
+
+::: {.callout-tip collapse="true"}
+#### HINT
+
+Define an empty array to save the result of each test. Then define a for-loop to simulate the Monty Hall 1000 times.
+:::
+
+## Conclusion and Next Time
+
+-   [Exit Survey](https://docs.google.com/forms/d/e/1FAIpQLSdTmJrMn9vXkevKvIvVy16jbgFvxy-PQArvoHyJ15Nfus7kBQ/viewform?usp=header)
+-   Complete Lab 1
+-   Sign up for an Article Presentation
+-   Read (& Discussion Post) Article 1
