@@ -21,7 +21,7 @@ Hi class! Welcome to our class.
 ## Semester Agenda
 
 | Week | Lecture Topic | Assignment | **Support Readings** |
-|--------|-----------------------------|------------------|-------------------|
+|----|----|----|----|
 | 1/24 | [Introductions](./gradlabs/1_gradintro.qmd) \[[RScript](https://www.dropbox.com/scl/fi/568tanzamnpsqf2udt4xc/1_RBasics.R?rlkey=4kl8x4a3iyjbrdyzlkf58ca84&dl=0)\] | [Lab 1](./gradlabs/1_gradlab.qmd) \[.qmd\] + Key \[.pdf\] | WS 1-2; LSR 3-4 |
 | 1/31 | Description | Lab 2 | WS 3-4; LSR 5-6 |
 | 2/7 | Visualizing Data in ggplot2 | Lab 3 | [Data Viz Chapter](https://ggplot2.tidyverse.org/#learning-ggplot2) |
@@ -55,11 +55,11 @@ Letter grades will be based on the following : A+ is \> 96.5; A is \> 92.5; A- i
 
 -   **Attendance (Lecture and Discussion Section):** Because we all learn from each other; attendance is required. You may miss up to two lectures and two discussion sections with no penalty.
 
--   **Article Discussion.** Each week, students will be responsible for leading class discussion of one article. All students should plan to read the article, and post comments to a discussion forum on bCourses. See the [Student Presentation \| Description and Rubric] for a list of articles, a link to sign up, and a description of what is required for these student-led presentations. Let me know if you have other ideas for ways to engage the class in discussion about an article (or another article you think you would be good for the class to read.)
+-   **Article Discussion.** Each week, students will be responsible for leading class discussion of one article. All students should plan to read the article, and post comments to a discussion forum on bCourses. See the [Student Presentation - Description and Rubric] for a list of articles, a link to sign up, and a description of what is required for these student-led presentations. Let me know if you have other ideas for ways to engage the class in discussion about an article (or another article you think you would be good for the class to read.)
 
 -   **Lab Assignments :** Most weeks, you will work through a “lab” assignment that is designed to help practice the skills we review in lecture and readings. You can expect to work on these in lecture, in your discussion section, and at home as needed. Each lab document will have a set of questions to answer - you should submit answers to these questions as a separate document to bCourses. Lab assignments are due the week after they are assigned; late lab assignments will not be accepted. You can drop your lowest submitted lab assignment.
 
--   **Final Project (Research Paper) :** You’ll apply the skills you have learned this semester to analyze, interpret, and share results from a research question relevant to your research interests. There will be several milestones to support this assignment. See the [Final Project \| Description and Rubric] for more information.
+-   **Final Project (Research Paper) :** You’ll apply the skills you have learned this semester to analyze, interpret, and share results from a research question relevant to your research interests. There will be several milestones to support this assignment. See the [Final Project - Description and Rubric] for more information.
 
 -   **R Exam :** For each exam, I’ll give you a novel dataset and you’ll use R to answer questions based on the dataset. The exam will be open-book and open note - you must work alone, but may use any resource available to you (including the Internet). A practice exam will be posted at least one week before the exam. The mini exam should take no more than 50 minutes to complete (we will have class afterward), and you will have the full 3-hours to complete the mega exam.
 
@@ -99,14 +99,14 @@ Letter grades will be based on the following : A+ is \> 96.5; A is \> 92.5; A- i
 
 -   **Students from Low-Income Backgrounds :** The Extended Opportunity Program (EOP) provides college support services for low-income students. Services include additional counseling, financial assistance (study-time parent grants, work-study assignments, and book vouchers), child-care opportunities, and assistance transferring to four-year colleges. \[119 César E. Chavez Student Center \| 510-642-7224 \|  <https://eop.berkeley.edu/>\]
 
-## **Final Project \| Description and Rubric**
+## Final Project - Description and Rubric
 
 The goals of this final project are to 1) demonstrate the research and data analytic skills that we have learned in this class, and 2) work on something that will be useful to your research career. 
 
 *Note : this is my first semester assigning this assignment for a graduate course, and open to other ideas about how this assignment might better serve as a relevant reflection of what you have learned in the class, and your interests as a researcher.*
 
 |  |  |
-|----------------------------------------------------|--------------------|
+|----|----|
 | **Criterion** | **Points \[Out of 4\]** |
 | Student specified a specific research question to ask, articulated how this research question is relevant to their interests, background, and past psychological research, and identified a dataset that will allow them to answer this research question. |  |
 | Student submitted a pre-registration plan that details the data cleaning and analyses they expect to do in order to answer their research question, a list of a post-hoc analyses that deviated from the pre-registered plan, and a link to the data and RCode. |  |
@@ -114,7 +114,7 @@ The goals of this final project are to 1) demonstrate the research and data anal
 | Student included clear, presentation-ready figures to illustrate their key analyses (descriptive, predictive, and inferential statistics). |  |
 | Student shared the project in a way that clearly communicates their findings and why they matter (to psychological research and / or society), articulates limitations of the project, and advances next steps / future research directions they might pursue. |  |
 
-## **Student Presentation \| Description and Rubric**
+## Student Presentation - Description and Rubric
 
 [**Sign-Ups + List of Readings**](https://docs.google.com/spreadsheets/d/1zQClUHVzmYOMETVwGsFGnDNCX-eMeBQ6nby46EPyHEM/edit?usp=sharing) 
 
@@ -127,7 +127,7 @@ Each week, I’ve assigned an article for the class to read. (Let me know if you
 This presentation will be graded on the following criteria. Though I’m very open to ideas and suggestions about alternative ways you think we could effectively use this time!
 
 |  |  |
-|----------------------------------------------|--------------------------|
+|----|----|
 | **Criterion** | **Points \[Out of 4\]** |
 | Students gave a quick (5 min) summary of the key points from the assigned article. |  |
 | Students drew from submitted discussion posts to lead a class discussion that helped answer common questions, debate ideas, and connect readings to our work as researchers. |  |
