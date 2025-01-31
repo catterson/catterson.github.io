@@ -61,15 +61,33 @@ hist(d$class.skills)
   ## general uncertainty and no preconceived notions (I AM BIAS FREE)
   ## they are super smart and no one can live up to their expectations.
   ## they feel anxious and this is motivated reasoning (everyone is also gonna struggle, right?!?!?!)
-  ## 
+## 
 par(mfrow = c(1,2))
 hist(d$self.skills, main = "", xlab = "Self-Perceptions of Skills",
      ylim = c(0,20))
+abline(v = mean(d$self.skills, na.rm = T), lwd = 5)
+
 hist(d$class.skills, main = "", xlab = "Perceptions of Classmates' Skills",
      ylim = c(0,20)) 
+abline(v = mean(d$class.skills, na.rm = T), lwd = 5)
+
+mean(d$self.skills, na.rm = T)
+mean(d$class.skills, na.rm = T)
 
 ## BREAK TIME : MEET BACK AT 10:55
 
 # Below each graph, report the mean and standard deviation of both variables, and interpret what these statistics tell you about the individuals in our class. (Who cares? What do these statistics tell us?)
 
+par(mfrow = c(1,1))
+plot(d$self.skills)
+abline(h = mean(d$self.skills, na.rm = T), lwd = 5)
+
+diffy <- d$self.skills - mean(d$self.skills, na.rm = T) # how far each person is from the mean
+
+sum.square.diffy <- sum(diffy^2, na.rm = T)
+
+sum.square.diffy/length(diffy)
+
+sqrt(sum.square.diffy/((length(diffy)-1)))
+sd(d$self.skills, na.rm = T)
 

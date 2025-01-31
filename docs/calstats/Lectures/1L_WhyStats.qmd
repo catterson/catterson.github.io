@@ -1,0 +1,421 @@
+---
+title: "Lecture 1 | Welcome to Psych 101"
+format: html
+---
+
+# Check-In, Agenda and Announcements
+
+## Welcome and Check-In!
+
+**access these lecture notes on bCourses!**
+
+[**click on this link to check-in (or visit : tinyurl.com/first101class)**](https://docs.google.com/forms/d/e/1FAIpQLSekU91xhyXiYxxOsWbSGuJ3pAmPOazq9L_24hkcQpej-n0bBg/viewform?usp=header)
+
+![](lecture_images/1L_digitalstyle.webp){fig-alt="a cartoon computer enthusiastically leads a collection of cartoon animals and muppets through a cartoon digital landscape" fig-align="center"}
+
+## Course Announcements
+
+-   **Section Swap :** post on bCourses to find someone to swap with.
+-   **Waitlisted Students :** Thanks for your patience! Nothing I can do :(
+-   **Join the Class Discord :** link on bCourses
+-   **Next Week :**
+    -   Attend Discussion Section
+    -   Complete Lab 1 (will start in lecture!)
+    -   Read Chapter 2
+    -   Complete Quiz 2
+
+## Agenda
+
+-   2:10 - 2:20 \| Check-In & Announcements
+-   2:20 - 3:10 \| RECAP : Science as Prediction
+-   3:10 - 3:20 \| Break #1
+-   3:20 - 3:50 \| Positivism and Linear Models
+-   3:50 - 3:55 \| Break #2
+-   3:55 - 4:30 \| In R : Defining Variables
+-   4:30 - 5:00 \| So you're interested in being a researcher / going to graduate school?
+
+# RECAP : Psychological Life is Variation
+
+## Activity : Variables and Variation in the Room
+
+**Class Activity.** Let's create a list of variables that we observe in this classroom.
+
+-   hair style
+
+-   hair color
+
+-   ethnicity
+
+-   eye color
+
+-   body size
+
+-   devices
+
+-   gender
+
+-   identity
+
+    -   affect : feeling of affinity for fitting in w/ your culture.
+
+    -   behavior : how you express it
+
+    -   cognition : self-perception (do you think about this identity / perceive it in others?)
+
+-   glasses
+
+-   hats vs. no hats
+
+**Key Terms.** From the readings.
+
+-   Affect, Behavior, Cognition
+
+-   Between vs. Within-Person Variation
+
+**\[7 Minutes\] Answer the following questions with your buddy.**
+
+Find a buddy in the class! (There's a discord thread if you prefer to communicate with someone online.)
+
+-   If you could have dinner with anyone in the world (living or dead) who would it be?
+
+-   Why are you a psychology major? What interests you about people (or non-human animals)?
+
+-   How would you label this interest as a variable?
+
+    -   Are you interested in the between-person or within-person version of this variable?
+
+    -   Are you interested in the Affective, Behavioral, or Cognitive aspect of this variable?
+
+**Student Examples**
+
+-   Hamza : motivation for goal changes over time \[within person - starts as affect –\> behavior\]
+
+-   Max : emotional effect of languages (how much the same word in a western language influences someone compared to that word in an eastern language) \[between person - comparing people who speak one language to people who speak another.\]
+
+-   Camille : Moral regret (you did something bad and feel bad about it) and how that changes over time.
+
+# R : Defining Variables
+
+## Thinking about Programming (Free Association Activity)
+
+-   Close your eyes
+-   Take a deep breath (inhale / exhale)
+-   Visualize an image based on the word that you hear me say.
+-   What do you observe?
+
+## R is Your Friend
+
+### The Console
+
+The console is where R does its work.
+
+-   **ACTIVITY :** Look at the image below. What do you see? What makes sense / what seems confusing?
+
+### ![](lecture_images/1_RConsole.png){width="522"}
+
+### Some Additional Notes on R Studio and the Source File (.R)
+
+In this class, we'll be using RStudio. RStudio is an IDE (Integrated Development Environment) that includes the console along with other useful windows and tools.
+
+-   **The Console** is at the bottom left of the IDE. Hi console!
+-   **The R script** is at the top left of the IDE, and is a document that you use to write (and organize) code. You will want to do most of your work in the R script, and feel an appropriate level of anxiety when you notice that your Rscript is unsaved (as indicated by the red text and \*).
+-   **The Environment** is at the top right of the IDE, and shows you all of the "objects" that you have defined in R.
+-   **The** **File Window** is at the bottom right of the IDE, and shows you the files. Note that there are tabs here for Plots (where graphs will pop up), Packages (things you can download to give R extra features), a Help viewer (sometimes very useful!).
+
+![](lecture_images/clipboard-1807596003.png)
+
+### **ACTIVTY :** open up RStudio
+
+1.  Type some math into an Rscript, and send it to the console. Yeah, you are programming!
+2.  Define two variables in R - one numeric and one string variable (these can be unrelated to your project topic!) Make sure to collect at least ten data points for each variable, and show that you successfully defined the variable in R by "printing" it in R. Yeah, you're programming!
+3.  Copy/paste (or screenshot) your code and output from the question above to a document to answer Lab 1, Question 1.
+
+### 
+
+## In R : Variables and Variation
+
+### Numeric Variables in R
+
++---------------------------------+----------------------------------------------------------------------------------------------------+
+| Code                            | Description                                                                                        |
++=================================+====================================================================================================+
+| ``` r                           | **variable** = an object that you will define in R                                                 |
+| variable <- c(#, #, #, #, etc.) |                                                                                                    |
+|                                 | **\<-** = “assign”; tells R to save whatever comes on the right to whatever object is on the left. |
+|                                 |                                                                                                    |
+|                                 | **c** = combine : tells R to combine whatever happens in the parentheses                           |
+| tired <- c(1,2,3,4)             |                                                                                                    |
+| ```                             | **()** = parentheses to group related terms                                                        |
+|                                 |                                                                                                    |
+|                                 | **\# =** what you store in the variable; each item should be separated by a comma and space.       |
++---------------------------------+----------------------------------------------------------------------------------------------------+
+| ``` r                           | **For continuous variables :** draws a histogram.                                                  |
+| hist(dat$variable)              |                                                                                                    |
+| ```                             |                                                                                                    |
++---------------------------------+----------------------------------------------------------------------------------------------------+
+
+### Example : Creating Numeric Variables
+
+```{r}
+counting <- c(1,2,3,4,5) # the numbers one through five
+print(counting) # one way to "print" the variable
+counting # another way to "print" the variable
+hist(counting) # a way to graph the variable (a histogram)
+```
+
+### String Variables
+
++------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``` r                                          | **variable** = an object that you will define in R                                                                                                              |
+| variable <- c(“name1”, “name2”, “name1”, etc.) |                                                                                                                                                                 |
+|                                                | **\<-** = “assign”; tells R to save whatever comes on the right to whatever object is on the left.                                                              |
+| emotion <- c(“sad”, “happy”, “sad”)            |                                                                                                                                                                 |
+| ```                                            | **c** = combine : tells R to combine whatever happens in the parentheses                                                                                        |
+|                                                |                                                                                                                                                                 |
+|                                                | **()** = parentheses to group related terms                                                                                                                     |
+|                                                |                                                                                                                                                                 |
+|                                                | **\# =** what you store in the variable; each item should be separated by a comma and space.                                                                    |
++------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``` r                                          | **as.factor()** \# converts a string variable into a categorical factor                                                                                         |
+| as.factor(variable)                            |                                                                                                                                                                 |
+|                                                |                                                                                                                                                                 |
+| as.factor(emotion)                             |                                                                                                                                                                 |
+| ```                                            |                                                                                                                                                                 |
++------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ```                                            | **\# “**saves” this conversion as the original variable                                                                                                         |
+| variable <- as.factor(variable)                |                                                                                                                                                                 |
+| ```                                            |                                                                                                                                                                 |
++------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``` r                                          | **For categorical variables :** draws a barplot. For continuous variables :  illustrates values of the variable (y-axis) as a function of their index (x-axis). |
+| plot(dat$variable)                             |                                                                                                                                                                 |
+| ```                                            |                                                                                                                                                                 |
++------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+### Example : Creating Non-Numeric Variables
+
+The data below describe the categories of family laundry that was hanging in my apartment to dry.
+
+```{r}
+laundryhang <- c("shirt", "shirt", "leggings", "leggings", "shirt", 
+             "shirt", "leggings", "pants", "sweater", "sweater") # defining a string variable
+print(laundryhang)
+laundryhang # another way to "print" the variable
+
+laundryhang <- as.factor(laundryhang) # changing the format of the sting variable into a categorical factor
+plot(laundryhang) # a way to graph the non-numeric variable
+```
+
+## Break Time: Meet Back at 3:25
+
+![](lecture_images/1L_breakhugme.avif){fig-align="center"}
+
+## Prediction & Power
+
+### Predictions in Real Life
+
+-   Will it rain tonight?
+    -   **Knowledge (what information did you use to make the prediction)?**
+    -   **Power (ways your predictions influence future behaviors)**
+-   Professor predicted that attendance would be HIGH today, but will dip later in the semester :(
+    -   **Knowledge (what information did you use to make the prediction)?**
+        -   first day of the semester; students are STOKED and MINIMALLY STRESSED.
+        -   pattern seen in almost every past semester.
+        -   Friday afternoons are basiscally the weekend.
+    -   **Power (ways your predictions influence future behaviors)**
+        -   prepared; made sure to arrive on time; tucked in shirt.
+        -   remind students to attend with weekly announcements.
+        -   create a positive classroom environment where students feel supported and like attendance is helpful.
+        -   created an example that serves as meta-commentary on the importance of attendance.
+    -   **Was Professor Valid?** TBD! \<3
+-   **Work on Lab 1, Question 1. \[In Lecture\]** What’s a prediction about people that you made today? What information did you use to make this prediction? How did (or could) you use this prediction to influence outcomes? Were you valid in your predictions?
+    -   JESSICA :
+        -   prediction : this professor is awesome!
+        -   knowledge : other people told me the class was managable and friendly.
+        -   power : felt excited to enter the class
+        -   valid : maybe? let's see.
+    -   TRISHA :
+        -   prediction : thought people would come out of apartments when fire alarm went off in building; there was an emergency.
+        -   knowledge : we are taught to do this
+        -   power : left my apartment (without thinking too much about grabbing my keys)
+        -   valid : no, I was the only one outside.
+        -   **model : behavior in response to fire alarm \~ training + motivation not to die + social norms + error**
+
+### Scientific Predictions
+
+Psychological scientists seek to better understand variation, in order to help make valid predictions in ways that help exert power over our environments.
+
++----------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
+| Topic                                                                | Other Questions We Might Ask?                                                                                         |
++======================================================================+=======================================================================================================================+
+| ![](lecture_images/1L_prosthetic.mp4)                       |                                                                                                                       |
++----------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
+| ![](lecture_images/1L_fb.png){width="600"}[^1l_whystats-1]  | Are there differences between how long people actually use social media and how long people want to use social media? |
+|                                                                      |                                                                                                                       |
+|                                                                      | What dopamine reactions do people get after using social media?                                                       |
+|                                                                      |                                                                                                                       |
+|                                                                      | How do reactions to visual cues in the environemnt differ when people are on their phones?                            |
+|                                                                      |                                                                                                                       |
+|                                                                      | What factors keep people off social media long-term?                                                                  |
+|                                                                      |                                                                                                                       |
+|                                                                      | Do the engineers who create infinite scrolling feel guilty.                                                           |
++----------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
+| ![](lecture_images/1L_blm.png){width="600"}[^1l_whystats-2] |                                                                                                                       |
++----------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
+
+[^1l_whystats-1]: Here's [a link to the article](https://www.nytimes.com/2016/05/06/business/facebook-bends-the-rules-of-audience-engagement-to-its-advantage.html) where this headline comes from. These data are a little dated, and I couldn't immediately find more recent data - my guess is Meta does not really want to advertise that people are using the product more and more. However, in [reports to investors](https://s21.q4cdn.com/399680738/files/doc_financials/2024/q2/Earnings-Presentation-Q2-2024.pdf) reports consistent growth in metrics like "ad impressions" and "daily active users". Let me know if you find other sources to show how technology companies are capturing more and more of our attention!
+
+[^1l_whystats-2]: Oscar Grant, Trayvon Martin, Philando Castile, Eric Garner, George Floyd, Tamir Rice, Breonna Taylor, Ahmaud Aubrey, Jacob Blake. Here’s a [more comprehensive list](https://en.wikipedia.org/wiki/List_of_unarmed_African_Americans_killed_by_law_enforcement_officers_in_the_United_States), and [here’s a summary article](https://www.apa.org/monitor/2016/12/cover-policing) on policing and race.\
+
+## The Linear Model
+
+### Definition
+
+**Statistical Model :** DV \~ IV1 + IV2 + … + IVk + error
+
+-   **DV = dependent variable** = the variable you want to predict
+
+-   **IV = independent variable(s)** = the variable(s) you think will predict the DV
+
+    -   k = any number = there can be MANY IVs
+
+    -   **any variable can be an IV or DV - it’s up to the researcher to choose**
+
+-   **\~ = a squiggly line / tilde =** our model is uncertain (not equal)
+
+-   **error** = other factors that are not part of your model that would also explain the DV
+
+-   **We say: “the DV is a function of…”; “the DV depends on the IV(s)”**
+
+### Examples
+
+-   rain \~ number of umbrellas other people have + personal experience + weather app + clouds + sun + smell + pressure + error
+
+-   class quality \~ communication + study habits + lecture [***attendance***]{.underline} *+* quality of lecturing + mood / vibes + professor and student adaptability to the class + workload + participation + time management + hunger + sleep + life shit + 3 hours lectures on a friday afternoon + respect + right amount of material that is relevant and interetsting + study buddy + LEARNING somethign useful and relevant + ERROR
+
+### Another Example
+
+**KEY IDEA : Linear Models Help Make and Quantify Prediction**
+
+-   what information (IV) is related to the DV (predict)
+-   which IV allows us to make the best predictions (effect size)
+-   the amount of error in your prediction (error can come from our measures, our models, and maybe is just inherent to science?)
+
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcXn1H6Tcp4pWwkbuqkGa9Pw2BW5X8LTLtU4oDmpQwVPHAh-OkVuuWRz7Ir6K3vGW_BYcRgnFsA5baC9KErNgMksdqxswLEeDKZkhyR2n-hZ7CPb8-CJnx_kx8Rd2atrHMxRQuvBR6gE1m61LL1NXi92g1Q?key=-c8GtewYj7xaFRpMDwKIPQ){fig-align="center" width="391"}
+
+## Work on Lab 1 : Predictions & Research Questions.
+
+### On Your Own
+
+**During our break, think a little bit about what research questions you might want to address for the project in this class. Below are some ideas to help you get started thinking of a research question if you are feeling stuck!**
+
+-   Is there a real-world issue that you care about? What variables make up this questions?
+-   What is something about people (your friends, parents, classmates) that you think is interesting or confusing? What variables are the focus of this interest or question?
+-   What's a future career you might want to pursue with your psychology degree? What's a variable that is related to this career? What questions might you ask abut this variable?
+
+**Question 3 (In Lecture / On Your Own). Get started on the final project by thinking through a research question you might be interested in studying as a psychology researcher. (Totally fine to change this, but great to start focusing on a question.)**
+
+-   What is your question? Why do you care about this question (and / or why does this question matter to others)? How interested in this question are you on a scale from 0 (just doing to get credit for this question) to 10 (this is what motivates you to wake up each day and you will answer this question with the energy and passion of 1000 suns)?
+-   How do your past experiences and background inform this question?
+-   What is the variable that is the focus of this question? How does this variable relate to affect, behavior, and cognition? Which aspect of this variable are you most interested in focusing on for your project?
+-   What is the between-person form of variation for this variable? What is the within-person form of variation for this variable? Note: for the final project, I strongly recommend focusing on a between-person variation version of the variable for the final project.
+-   Do you have ideas about what might predict or explain this variable (the answer to your question)? How would you write this out as a linear model?
+
+### **Student Examples**
+
+-   
+
+# So You Think You Want to Be a Researcher?
+
+## Getting Research Experience as an RA
+
+-   **RA = Research Assistant**
+
+    -   Mostly Unpaid Experiences
+
+    -   Some paid experiences exist!
+
+        -   From the berkeley website…
+
+        -   [Busine\$\$ \$chool](https://haas.berkeley.edu/mors/faculty/)
+
+        -   Stanford \[maybe paid\]
+
+        -   [A list a student sent me that they found](https://docs.google.com/spreadsheets/d/1IX7f1N_VXUkSnnJPTpLg-pUto0427XBK_jxRxNFhmps/edit?gid=1345132026#gid=1345132026).
+
+        -   “Cold calling” labs who are doing work you think is cool.
+
+        -   Chat with your TAs / Professors
+
+-   **As an RA :**
+
+    -   work with data : transcribing data; behavioral coding data; recruiting and participants to collect data; setting up psychophysiological recordings; cleaning data; etc.
+
+    -   **other opportunities to gain skills you can demonstrate :**
+
+        -   reading & discussing papers
+
+        -   working with IRB (institutional review board - an ethics thing)
+
+        -   analyzing data → presenting research at a conference (poster) or submitting a paper for publication \[your golden ticket\]
+
+        -   general mentorship (how to apply to grad school; where to apply; who to talk to & e-mail; etc.)
+
+        -   NOTE : this work and these skills apply to other work outside of research applications \[time management; coordinating schedules; juggling responsibilities; etc.\]
+
+    -   **get a sense of whether this \[work or lab\] is for you?**
+
+        -   do you enjoy the work? are you going to look forward to showing up and doing the work / fulfilling the commitment? 
+
+        -   are you working with a horrible monster?
+
+            -   not responsive
+
+            -   inconsistent work / no plan for your work
+
+            -   kind of a bully (emotionally abusive → stealing your work) 
+
+        -   or are you working with someone who is super cool and a positive influence on mentoring young minds!?!?! \[YES!!!!\]
+
+## Applying to Graduate School
+
+-   **You are applying to work on research with a specific professor(s) at a school.**
+
+    -   Should have a sense of the topic you want to pursue.
+
+    -   Good to have a narrative about how your past work and studies have prepared you for this topic / demonstrate an enduring interest in the topic.
+
+-   **Independent Thesis / Research Project :**
+
+    -   **an official honors’ thesis**
+
+    -   **undergraduate research project (e.g., SURF; Psych 101!)**
+
+    -   **your own independent study / advanced work you did as an RA**
+
+-   **Personal Statement : Experiences with Research You Can Write About**
+
+    -   ~~I’m fascinated by people…Over the last year, I worked on an independent research study to better understand….~~
+
+    -   Working as an RA; your research project; attending / presenting at a conference; etc.
+
+-   **3-4 Letters of Recommendation :** folks who can speak personally to your ability to do research.
+
+-   **Clinical Students : some kind of clinical internship / experience 😟**
+
+-   **Talk to people who are doing the thing you want to be doing about their journey**
+
+### The Academic Job Market
+
+Some Data \[[Source](https://ncses.nsf.gov/pubs/nsf24300/report/postgraduation-trends#definite-commitments-at-graduation)\]
+
+|                      |                                           |
+|----------------------|-------------------------------------------|
+| PhDs get jobs?       | ![](lecture_images/1L_jobs1.png) |
+| but not in academia… | ![](lecture_images/1L_jobs2.png) |
+| \$\$\$\$\$\$\$\$     | ![](lecture_images/1L_jobs3.png) |
+
+# Next Time on Psych 101.
+
+-   Take this Exit Survey Now : tinyurl.com/onlinebyeintro
+-   Attend Discussion Section & Complete Lab 1
+-   Read Chapter 2 & take Quiz 2

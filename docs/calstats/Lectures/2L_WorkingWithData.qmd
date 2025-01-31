@@ -1,0 +1,187 @@
+---
+format: html
+---
+
+# Class 2 | Working With Data
+
+### Check-In, Agenda, and Announcements
+
+Welcome Back! Access this Document Here : https://catterson.github.io/calstats/calstatsSP25.html
+
+[**PLEASE COMPLETE THIS CHECK-IN : tinyurl.com/againmodels**](https://docs.google.com/forms/d/e/1FAIpQLSeRxOyLnGN7GO7ZQYziTuElo8k39b1feE915glmQMqI-1JBTA/viewform?usp=sf_link)
+
+![](lecture_images/2L_KermitCouch.png){fig-align="center" width="401"}
+
+# PART 1 : No Statistics In This Class
+
+## A Picture Is Worth 1000 Words
+
+### Florence Nightingale :
+
+1.  Did you learn about Florence Nightingale in other classes?
+2.  What did you remember learning about Florence Nightingale in other classes?
+
+|  |  |
+|---------------------------|---------------------------------------------|
+| ![](lecture_images/2L_Florence.png) | ![](lecture_images/2L_FlorenceData.png) |
+
+### Discussion.
+
+Look at the graph below, and use it to answer the following questions.
+
+1.  **Ice Breaker :** What's the worst time you've been sick? What's your best way of trying to feel better / self-care when sick?
+2.  **Look at the graph below :** What’s going on in this graph / who cares / how can we use this knowledge??
+3.  **It's all linear models :** What are the variables in this graph? How would you organize these as a linear model?
+
+![](lecture_images/2L_FlorenceGraph.png){fig-align="center"}
+
+### KEY IDEA : Visuals Matter
+
+-   What is better about the way the barchart[^2l_workingwithdata-1] visualizes these data?
+
+-   What is worse (or still confusing)?
+
+[^2l_workingwithdata-1]: https://www.r-bloggers.com/2013/02/extracting-the-epidemic-model-going-beyond-florence-nightingale-part-ii/
+
+![](lecture_images/2L_FlorenceBarchart.png){fig-align="center"}
+
+## Learning from Histograms (No Statistics Terms!)
+
+Below are some data that I graphed[^2l_workingwithdata-2]. Take 1-2 minutes and SILENTLY (on your own) think about what you learn about the variable from this graph. Avoid FANCY STATS LANGUAGE - just explain the main ideas without those labels for now.
+
+[^2l_workingwithdata-2]: You will work with these later in the semester once we review how to create a likert scale (that combines 10 questions into one variable).
+
+```{r}
+#| include: false
+d <- read.csv("../datasets/Self-Esteem Dataset/data.csv", stringsAsFactors = T, na.strings = "0", sep = "\t")
+head(d)
+names(d)
+summary(as.factor(d$Q4))
+SELFES.df <- data.frame(d[,c(1:2,4,6,7)], 5-d[,c(3,5,8:10)])
+summary(SELFES.df)
+library(psych)
+alpha(SELFES.df)
+d$SELFES <- rowMeans(SELFES.df, na.rm = T)
+```
+
+```{r}
+hist(d$SELFES, col = 'black', bor = 'white', 
+     main = "Histogram of Self-Esteem", 
+     xlab = "Self-Esteem Score", breaks = 15)
+```
+
+**Things We Learned From the Graph**
+
+-   go here.
+
+**Things We Cannot Learn From the Graph**
+
+-   go here.
+
+# BREAK TIME : MEET BACK AT
+
+![](lecture_images/2L_Matrix.png){fig-alt="an image from the movie THE MATRIX, where we see a man sitting at a variety of computer terminals with many wires." fig-align="center"}
+
+# PART 2 : Working in R
+
+## CODE BOOK : The Covid-19 Behavior Dataset
+
+-   **Look over the codebook (below).**
+
+    -   What is one variable from the dataset that is interesting to you (if any)?
+
+    -   Is this categorical or numeric data?
+
+    -   What predictions do you have about this variable?
+
+    -   How might you use this variable in a linear model (as a DV or as a IV?)
+
+-   **Loading Data Issues :**
+
+    -   **rename this to something short!**
+
+    -   **posit.cloud :** clicking on the name to load (vs. the “Import Dataset”)
+
+[Link to Data (also on bCourses)](https://www.dropbox.com/s/is3i75yovjiveht/covid_behavior_data.csv?dl=0)
+
+![](lecture_images/2L_covidCODE.png){fig-align="center"}
+
+## IN R : The Covid-19 Behavior Dataset
+
+Things we will do.
+
+-   Open up Lab 2
+
+-   Create an RScript
+
+-   Load the Covid-19 Behavior Dataset (.csv file) and the CODE BOOK (.pdf)
+
+    -   the CODEBOOK explains what the variables measured
+
+    -   the .csv data file contains the data.
+
+    -   Make sure the data loaded correctly into R
+
+-   Graph some variables and learn about the individuals from this graph
+
+    -   numeric data
+
+    -   categorical data
+
+-   Save your work for Lab 2, Questions 1 and 2 and 3. Yeah!
+
+# PART 3 : Defining Data
+
+## Creating a Mini Class Dataset
+
+-   Here's a list of the variables that y'all thought would be interesting to measure in the class (and I approved) from the check-in.
+    -   List
+
+    -   Goes
+
+    -   Here
+-   **DISCUSS :** which of these variables would be best measured with numbers (e.g., a scale from 0 to 10)? Which variables would best be measured with categories? (what would the factor and levels be?)
+    -   Numeric Data Variables :
+    -   Categorical Data :
+
+## Operationalization, Construct, and Measurement Error
+
+-   **operationalization** : how researchers define the variable(s) they will study; this is a process; often the focus of a researcher’s question in the scientific method.
+-   **construct** : some operationalized psychological phenomenon of interest. some examples below :
+    -   voxel : three dimensional area of brain activation
+    -   self-esteem : how a person feels about themselves
+    -   secure attachment style : how much a person seeks out and trusts a relationship partner.
+-   **measurement error :** when there is a lack of validity in our measures. The more error in our measures, the more error there will be in our predictions (“garbage in → garbage out”).
+
+**KEY IDEA :** the way a variable is measured is CRITICAL.
+
+-   **The News Article :** What comes to mind when you think of a "Cognitive Test"?
+
+![](lecture_images/2L_TrumpMedia.png){fig-align="center"}
+
+-   **The Scientific Operationalization of this "Cognitive Test"**
+
+![](lecture_images/2L_MOCA.png){fig-align="center"}
+
+## ACTIVITY : Counting Interruptions
+
+[**Check-in :**](https://docs.google.com/forms/d/e/1FAIpQLSd4GahfYtKFiSEFL5blw0lAG6jZepRzmnAewfUI9_iUf3dv9w/viewform?usp=sf_link)[**tinyurl.com/dudesinterrupting**](http://tinyurl.com/dudesinterrupting)
+
+1.  Count the number of interruptions in the video (which professor will play below). 
+
+2.  Submit your answer, **then wait for the letter of the day.**
+
+![](lecture_images/1_interruption_oreilly&frank_operationalization.m4v)
+
+**DISCUSSION TOPICS :**
+
+-   How do we OPERATIONALIZE an INTERRUPTION?
+
+-   What PREDICTIONS can we make about counting interruptions a second time?
+
+# FOR NEXT WEEK
+
+1.  [**Check-Out : tinyurl.com/miniclassexit**](https://docs.google.com/forms/d/e/1FAIpQLScvBoQcnSzw_vi5cS5GazYaAAuH0HPcDIi2uCnZuhVWBSTVfg/viewform?usp=sf_link)
+2.  Discussion Section :
+3.  Lab 2
+4.  Read Chapter 3 and Complete Quiz 3
