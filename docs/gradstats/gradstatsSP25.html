@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -127,13 +127,13 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>1/24</td>
 <td><a href="../gradstats/gradlabs/1_gradintro.html">Introductions</a> [<a href="https://www.dropbox.com/scl/fi/568tanzamnpsqf2udt4xc/1_RBasics.R?rlkey=4kl8x4a3iyjbrdyzlkf58ca84&amp;dl=0">RScript</a>]</td>
-<td><a href="../gradstats/gradlabs/1_gradlab.html">Lab 1</a> [<a href="https://www.dropbox.com/scl/fi/mim7wprara1e322ffjwcs/1_introtoR.R?rlkey=4pfo40g4z5pl84nsgwsxp8sf1&amp;dl=0">.R</a>] + Key [.pdf]</td>
+<td><a href="../gradstats/gradlabs/1_gradlab.html">Lab 1</a> [<a href="https://www.dropbox.com/scl/fi/mim7wprara1e322ffjwcs/1_introtoR.R?rlkey=4pfo40g4z5pl84nsgwsxp8sf1&amp;dl=0">.R</a>] + <a href="https://www.dropbox.com/scl/fi/far4lz3n2zcudrbsew7kh/1_gradlabKEY.pdf?rlkey=3tmi2o3d2m6jox3dgc2stmhc6&amp;dl=0">Key [.pdf]</a></td>
 <td>WS 1-2; LSR 3-4</td>
 </tr>
 <tr class="even">
 <td>1/31</td>
 <td><a href="../gradstats/gradlabs/2_Description.html">Description</a></td>
-<td><a href="./2Lab_DataDescription.qmd">Lab 2</a> [.qmd] + Key [.pdf]</td>
+<td><a href="../gradstats/gradlabs/2Lab_DataDescription.html">Lab 2</a> [<a href="https://www.dropbox.com/scl/fi/ckitk2kh0eh1ii8fqemel/2Lab_DataDescription.qmd?rlkey=6p35v1yiaxsmcgr4gfmkco1pl&amp;dl=0">.qmd</a>] + Key [.pdf]</td>
 <td>WS 3-4; LSR 5-6</td>
 </tr>
 <tr class="odd">
@@ -402,7 +402,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -434,29 +445,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -464,7 +453,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
