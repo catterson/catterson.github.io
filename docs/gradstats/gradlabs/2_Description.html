@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>description</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+          <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://catterson.github.io/ystats/"> 
+<span class="menu-text">Why Statistics?</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../gradstats/gradstatsSP25.html"> 
+<span class="menu-text">Grad Stats [Psych 205]</span></a>
+  </li>  
+</ul>
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="lecture-2-describing-data-with-pictures-and-numbers" class="level1">
+<h1>Lecture 2 : Describing Data with Pictures and Numbers</h1>
+<section id="check-in-loading-data" class="level2">
+<h2 class="anchored" data-anchor-id="check-in-loading-data"><a href="https://docs.google.com/forms/d/e/1FAIpQLSeEAtYuXfVI9y1YY3cMHsVe9ij-1T4H5ggkj_6AmDnTZZeTlA/viewform?usp=header">Check-In (Loading Data)</a></h2>
+<p>Hi class, please work on the check-in. We will get started soon.</p>
+</section>
+<section id="agenda-and-goals" class="level2">
+<h2 class="anchored" data-anchor-id="agenda-and-goals">Agenda and Goals</h2>
+<p>This week, we’ll learn how to describe data using R and statistics and human language.</p>
+<ul>
+<li><p><strong>Check-In, Announcements, and Week 1 Review (20 Minutes)</strong></p>
+<ul>
+<li>Presentations:</li>
+<li>Begin today (professor)</li>
+<li>Sign-Up Sheet Updated w/ another presentation.</li>
+<li>Comments / Questions from Week 1.
+<ul>
+<li><strong>Shifting Mini Exam to 2/28</strong>
+<ul>
+<li>More time to practice</li>
+<li>Can cover (and review) Linear Models [foundational!]</li>
+<li>No class “after” the exam. Just the exam. That’s enough.</li>
+<li><em>2/28 presentation moved to 2/21</em></li>
+</ul></li>
+<li><strong>Do we want a class discord (community / troubleshooting?)</strong></li>
+</ul></li>
+</ul></li>
+<li><p><strong>PART 1 : Describing Data with R, Statistics, and Human Language (50 Minutes)</strong></p>
+<ul>
+<li>Describing Categorical Data</li>
+<li>Describing Numeric Data</li>
+<li>Using Quarto to Make and Share Nice Reports</li>
+</ul></li>
+<li><p><strong>BREAK TIME (10 Minutes) + Article Presentation (20 Minutes)</strong></p></li>
+<li><p><strong>PART 2 : The Mean (50 Minutes)</strong></p>
+<ul>
+<li>The Mean as Prediction</li>
+<li>The Mean Minimizes Residual Error</li>
+<li>The Mean is Sensitive to Outliers</li>
+<li>The Mean is a Social Construction</li>
+</ul></li>
+</ul>
+</section>
+<section id="week-1-recap-and-review" class="level2">
+<h2 class="anchored" data-anchor-id="week-1-recap-and-review">Week 1 Recap and Review</h2>
+<section id="the-monty-hall-problem-100-door-version" class="level3">
+<h3 class="anchored" data-anchor-id="the-monty-hall-problem-100-door-version">The Monty-Hall Problem [100 Door Version]</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## CREATING 100 DOORS</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>door100 <span class="ot">&lt;-</span> <span class="fu">array</span>() <span class="co"># this defines an empty array; a place to "store" my values</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)){ <span class="co"># this starts the for-loop, and tells R I want to repeat some process 100 times, and keep track with the variable i</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  door100[i] <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"door"</span>, i, <span class="at">sep =</span> <span class="st">""</span>) <span class="co"># the paste() function sticks the string "door" and the variable i together, separated by no value</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                                           <span class="co"># since i updates every time we iterate through the loop, each door will increase from 1 to 100.</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                                           <span class="co"># the assign &lt;- sticks this value to the variable door100 in position i</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>} <span class="co"># this ends the loop</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>door100 <span class="co"># testing to see if the loop works. it did.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] "door1"   "door2"   "door3"   "door4"   "door5"   "door6"   "door7"  
+  [8] "door8"   "door9"   "door10"  "door11"  "door12"  "door13"  "door14" 
+ [15] "door15"  "door16"  "door17"  "door18"  "door19"  "door20"  "door21" 
+ [22] "door22"  "door23"  "door24"  "door25"  "door26"  "door27"  "door28" 
+ [29] "door29"  "door30"  "door31"  "door32"  "door33"  "door34"  "door35" 
+ [36] "door36"  "door37"  "door38"  "door39"  "door40"  "door41"  "door42" 
+ [43] "door43"  "door44"  "door45"  "door46"  "door47"  "door48"  "door49" 
+ [50] "door50"  "door51"  "door52"  "door53"  "door54"  "door55"  "door56" 
+ [57] "door57"  "door58"  "door59"  "door60"  "door61"  "door62"  "door63" 
+ [64] "door64"  "door65"  "door66"  "door67"  "door68"  "door69"  "door70" 
+ [71] "door71"  "door72"  "door73"  "door74"  "door75"  "door76"  "door77" 
+ [78] "door78"  "door79"  "door80"  "door81"  "door82"  "door83"  "door84" 
+ [85] "door85"  "door86"  "door87"  "door88"  "door89"  "door90"  "door91" 
+ [92] "door92"  "door93"  "door94"  "door95"  "door96"  "door97"  "door98" 
+ [99] "door99"  "door100"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## WHAT HAPPENS IF THERE ARE 100 DOORS?</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>win.stay100 <span class="ot">&lt;-</span> <span class="fu">array</span>() <span class="co"># defining a new place to save values when we have 100 doors. I could call this anything.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>win.switch100 <span class="ot">&lt;-</span> <span class="fu">array</span>() <span class="co"># defining a new place to save values when we have 100 doors. I could call this anything.</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>)){ <span class="co"># running 10000 simulations.</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  choice <span class="ot">&lt;-</span> <span class="fu">sample</span>(door100, <span class="dv">1</span>) <span class="co"># the new set of 100 doors</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  treasure <span class="ot">&lt;-</span> <span class="fu">sample</span>(door100, <span class="dv">1</span>) </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  can.open <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(door100, <span class="fu">c</span>(choice, treasure))</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  monty.open <span class="ot">&lt;-</span> <span class="fu">sample</span>(can.open, <span class="dv">98</span>) <span class="co"># monty will open 98 other doors, leaving my choice + the treasure.</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  choice.switch <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">setdiff</span>(door100, <span class="fu">c</span>(monty.open, choice)), <span class="dv">1</span>) <span class="co"># if switch, I can still only choose from whatever is left.</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  win.stay100[i] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(choice <span class="sc">==</span> treasure, <span class="st">"WIN"</span>, <span class="st">"LOSE"</span>) <span class="co"># this is the result if we stay with our initial choice</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  win.switch100[i] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(choice.switch <span class="sc">==</span> treasure, <span class="st">"WIN"</span>, <span class="st">"LOSE"</span>) <span class="co"># this is the result if we switch</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(win.stay100 <span class="sc">==</span> <span class="st">"WIN"</span>)<span class="sc">/</span><span class="fu">length</span>(win.stay100) <span class="co"># probability if I stay. Note that rather than divide by 1000, I'm dividing by the value of length(). If I change the # of simulations to run above, I don't have to update my code here. This is GOOD PRACTICE.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.0112</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(win.switch100 <span class="sc">==</span> <span class="st">"WIN"</span>)<span class="sc">/</span><span class="fu">length</span>(win.switch100) <span class="co"># YEAH!!!!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9888</code></pre>
+</div>
+</div>
+</section>
+<section id="data-organization-and-loading" class="level3">
+<h3 class="anchored" data-anchor-id="data-organization-and-loading">Data Organization and Loading</h3>
+<p>Below are the twelve (12) criteria Broman &amp; Woo (2018) articulated for thinking about data. Review the list. What practices below have you encountered or struggled with in working with data so far? What terms or ideas do you have questions about? Is there anything else that should be added to this list?</p>
+<ol type="1">
+<li>Consistency</li>
+<li>Good Names</li>
+<li>Write Dates as YYYY-MMM-DD</li>
+<li>No Empty Cells</li>
+<li>Put Just One Thing in a Cell</li>
+<li>Make it a rectangle.</li>
+<li>Data Dictionary</li>
+<li>No calculations in the raw data file.</li>
+<li>No font color or highlighting as data.</li>
+<li>Make backups</li>
+<li>Data validation to avoid errors.</li>
+<li>Saving data in plaintext.</li>
+</ol>
+</section>
+<section id="check-in-loading-and-navigating-data" class="level3">
+<h3 class="anchored" data-anchor-id="check-in-loading-and-navigating-data">Check-In : Loading and Navigating Data</h3>
+</section>
+</section>
+<section id="part-1-describing-data-with-r-statistics-and-human-language" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-describing-data-with-r-statistics-and-human-language">PART 1 : Describing Data with R, Statistics, and Human Language</h2>
+<section id="categorical-data" class="level3">
+<h3 class="anchored" data-anchor-id="categorical-data">Categorical Data</h3>
+<ul>
+<li><p><code>summary()</code> or <code>table()</code>: to count frequencies of categorical data</p></li>
+<li><p><code>as.factor()</code> and <code>as.numeric()</code> : to translate data</p></li>
+<li><p><code>levels()</code> or <code>factor()</code> : to relevel or change factor names</p></li>
+<li><p><code>plot</code> : graphing categorical data</p></li>
+</ul>
+</section>
+<section id="numeric-data" class="level3">
+<h3 class="anchored" data-anchor-id="numeric-data">Numeric Data</h3>
+<ul>
+<li><p><code>summary()</code> or <code>psych::describe() # this comes from the psych package which you must install</code> : to summarize data</p>
+<ul>
+<li><p><code>mean()</code></p></li>
+<li><p><code>median()</code></p></li>
+<li><p><code>sd()</code></p></li>
+<li><p><code>range()</code></p></li>
+<li><p>note : if there are missing data (often!) you must manually tell R to remove the missing data : <code>mean(d$variable, na.rm = T)</code></p></li>
+</ul></li>
+<li><p><strong><code>hist()</code></strong> or <code>boxplot()</code> <strong>:</strong> graphing numeric data</p></li>
+</ul>
+</section>
+<section id="using-quarto-to-make-and-share-nice-reports" class="level3">
+<h3 class="anchored" data-anchor-id="using-quarto-to-make-and-share-nice-reports">Using Quarto to Make and Share Nice Reports</h3>
+<p><a href="https://quarto.org"><strong>Quarto</strong></a> is a version of R Markdown, which is a version of Markdown, which is a powerful way to author code that is meant for both humans and computers to read.</p>
+<ul>
+<li><p>Advantages :</p>
+<ul>
+<li>can create a document that works for R code, can create a presentation, or a website</li>
+<li>much faster to get your code from R to something that humans can read
+<ul>
+<li>no more copy-paste graphs or output.</li>
+<li>can update graphs and output as your needs / datset changes</li>
+</ul></li>
+<li>lots of features - open-source heritage and culture, but supported financially my Micro$oft.
+<ul>
+<li>ability to format your code; render it as a website, pdf, book, etc.</li>
+<li>interactive documents (Shiny; html-live; etc.)</li>
+</ul></li>
+</ul></li>
+<li><p>Disadvantages :</p>
+<ul>
+<li>code must be “perfect” in order to correctly render.</li>
+<li>can go down formatting and feature rabbit holes that are not necessarily condusive to good science.</li>
+<li>another dialect of the language you are trying to learn
+<ul>
+<li>in R : code is the default; human comments added with #s</li>
+<li>in Quarto : human text is the default; you insert a code block when you want R to do something (and can then comment in that code)</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">1</span> <span class="co"># like this</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div></li>
+<li><p>In this class, we will work with both .R scripts and .qmd Quarto Markdown Files</p>
+<ul>
+<li>.R Scripts for tinkering with data (in-class tutorials; initial analyses)</li>
+<li>.qmd files for “final” products (Lecture notes, lab documents, your project)</li>
+</ul></li>
+<li><p>There are many thorough guides on how to use Quarto, but honestly the <a href="https://quarto.org/docs/reference/">official Quarto reference book</a> is almost constantly open on my computer (in multiple tabs….sigh.) But let me know if you find another cool resource!</p></li>
+<li><p><strong>Things to do in Quarto :</strong></p>
+<ul>
+<li><p>write in human text</p></li>
+<li><p>insert a code block</p></li>
+<li><p>insert inline code</p></li>
+<li><p>render everything with no pain and drama as a .pdf or .html file and share this with others.</p></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="break-time-article-presentation" class="level2">
+<h2 class="anchored" data-anchor-id="break-time-article-presentation">BREAK TIME &amp; ARTICLE PRESENTATION</h2>
+</section>
+<section id="part-2-mean-thoughts-r-demo" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-mean-thoughts-r-demo">PART 2 : Mean Thoughts [R Demo]</h2>
+<p>We will see how far we get in exploring these ideas!</p>
+<section id="the-mean-is-prediction" class="level3">
+<h3 class="anchored" data-anchor-id="the-mean-is-prediction">The Mean is Prediction</h3>
+<ul>
+<li><p>Illustrating the mean as a “line of best fit” [our first linear model!]</p></li>
+<li><p>Illustrating the standard deviation as the “average” amount of residual error.</p></li>
+</ul>
+</section>
+<section id="the-mean-minimizes-residual-error" class="level3">
+<h3 class="anchored" data-anchor-id="the-mean-minimizes-residual-error">The Mean Minimizes Residual Error</h3>
+<ul>
+<li><p>Illustrating that the mean is the value that reduces the sum of our residual error.</p></li>
+</ul>
+</section>
+<section id="the-mean-is-sensitive-to-outliers" class="level3">
+<h3 class="anchored" data-anchor-id="the-mean-is-sensitive-to-outliers">The Mean is Sensitive to Outliers</h3>
+<ul>
+<li><p>Illustrating how the mean is more sensitive to outliers than the median</p></li>
+</ul>
+</section>
+<section id="the-mean-is-a-social-construction" class="level3">
+<h3 class="anchored" data-anchor-id="the-mean-is-a-social-construction">The Mean Is a Social Construction</h3>
+<ul>
+<li><p>Testing whether anyone is actually described by “the mean”?</p></li>
+<li><p>What is average, anyway?</p></li>
+</ul>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

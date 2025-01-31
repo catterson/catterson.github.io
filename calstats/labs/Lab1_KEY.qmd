@@ -1,0 +1,81 @@
+# Lab 1 - KEY
+::: {.callout-tip appearance="minimal"}
+Professor Answers below in these green boxes. Note that normally the key will post 1-week after the Lab deadline. I've posted this one so you can use it as a guide as we start the semester.
+:::
+**Create a Google Doc to answer these questions.** Please number your responses to help your GSI grade. There’s no word count, and we won’t penalize students for grammar or spelling. Do your best to explain your ideas in your own words, and if you get stuck or confused, post on Discord / ask your GSI / explain why you got stuck and what you tried to do to figure things out. 
+
+1.  **\[In Lecture\]** What’s a prediction about people that you made today? What information did you use to make this prediction? How did (or could) you use this prediction to influence outcomes? Were you valid in your predictions?
+
+::: {.callout-tip appearance="minimal"}
+I predicted that my child would not remember that I told him we could play "Hoot Hoot Owl" when he woke up in the morning (after he threw a temper tantrum because we ran out of time to play last night.) I used the information that he is three years old and often has many interests to make this prediction. After making this prediction, I hit snooze on my alarm clock and got some extra sleep since I didn't think I needed to get breakfast and lunch ready to make time for a board game in the morning. I was not valid, and he immediately asked to play the game. (We rushed breakfast and we found time to play.)
+:::
+
+2.  **\[In Lecture\]** Get started on the final project by thinking through a research question you might be interested in studying as a psychology researcher. (Totally fine to change this, but great to start focusing on a question.)
+
+    -   What is your question? Why do you care about this question (and / or why does this question matter to others)? How interested in this question are you on a scale from 0 (just doing to get credit for this question) to 10 (this is what motivates you to wake up each day and you will answer this question with the energy and passion of 1000 suns)?
+
+    ::: {.callout-tip appearance="minimal"}
+    My question is what's the consequence of seeing bombed out images of war-torn countries on people's perceptions of the inhabitants of the countries that were bombed / war-torn?
+
+    I think this matters because we live in a very violent society, and are exposed to lots of images of destruction. I think on one hand, these images can motivate people to feel empathy and compassion toward the victims of bombing. On the other hand, I wonder if it desensitizes people, and dehumanizes people in some ways - if all my exposure to a group of people is seeing them as victims, then I may not see them as full humans. This is my question though!
+
+    I'm very interested in this question; been thinking about it the past few years - just want and need to find the time? Let me know if you are reading this and also interested and maybe we can start an informal reading group?
+    :::
+
+    -   How do your past experiences and background inform this question?
+
+    ::: {.callout-tip appearance="minimal"}
+    Hmm, I'm half-Iranian, and have family / travelled to Iran, so have some emotional and experiential connection to these places. I also have been very anti-war - think I was influenced by my parents here; my mom runs a "Peace Studies" program and my dad was suspended from school for leading an anti-Vietnam war protest. I also have a buddy in grad school who studies dehumanization, so was likely influenced to think about these issues from that perspective.
+    :::
+
+    -   What is the variable that is the focus of this question? How does this variable relate to affect, behvaior, and cognition? Which aspect of this variable are you most interested in focusing on for your project?
+
+    ::: {.callout-tip appearance="minimal"}
+    There are two variables here - exposure to violent images in the news and people's perceptions of the inhabitants of countries that are bombed. The focus of the question is really about people's perceptions of the inhabitants of the countries that are bombed.
+
+    -   **affect :** emotional feelings toward the victims : compassion, interest,
+
+    -   **behavior :** helping behaviors toward victims; desire to seek out more information about victims / war.
+
+    -   **cognition :** perceptions of humanization / dehumanization; prejudice for / against the victims.
+
+    I think all 3 are interesting, though I'm more interested in the affect and cognition pieces of this question.
+    :::
+
+    -   What is the between-person form of variation for this variable? What is the within-person form of variation for this variable? **Note : for the final project, I strongly recommend focusing on a between-person variation version of the variable for the final project.**
+
+    ::: {.callout-tip appearance="minimal"}
+    **Between person variation :** how much someone who sees war images differs in their perception of dehumanization compared to someone who sees non-war images.
+
+    **Within-person variation :** how much someone's perceptions of dehumanization change after seeing war images.
+    :::
+
+3.  **\[In Lecture / Discussion Section / Chapter 2\]** Define two variables in R - one numeric and one string variable (these can be unrelated to your project topic!) Make sure to collect at least ten data points for each variable, and show that you successfully defined the variable in R by "printing" it in R. Yeah, you're programming!
+
+::: {.callout-tip appearance="minimal"}
+```{r}
+hats <- c("butterfly", "union", "hummingbird", "grogu", "texas4000",
+          "luckyduck", "padre island", "A's", "dad's hat", "floppystraw")
+
+book.shelf <- c(42, 52, 11, 45, 33, 59, 40, 34, 71, 33)
+
+hats
+book.shelf
+```
+:::
+
+4.  **\[In Discussion Section\]** With your discussion section,define each of the six biases described in the Goldacre (2010) reading on cognitive biases, and come up with an example from real-life.
+
+    ::: {.callout-tip appearance="minimal"}
+    I'm going to let you work on this with your TA in discussion section! Curious to see y'alls answers :)
+    :::
+
+|                        |                |                       |
+|------------------------|----------------|-----------------------|
+| **Bias**               | **Definition** | **Real-Life Example** |
+| Positive Evidence      |                |                       |
+| Previous Belief        |                |                       |
+| Patterns in Randomness |                |                       |
+| Availability Bias      |                |                       |
+| Social Influence       |                |                       |
+| Regression to the Mean |                |                       |

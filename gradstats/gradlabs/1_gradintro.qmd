@@ -184,39 +184,6 @@ In this class, we'll be using RStudio. RStudio is an IDE (Integrated Development
 
 -   **good code :** troubleshooting errors; naming datasets; white space; keeping code and files organized
 
-### Working in Quarto
-
-[**Quarto**](https://quarto.org) is a version of R Markdown, which is a version of Markdown, which is a powerful way to author code that is meant for both humans and computers to read.
-
--   Advantages :
-
-    -   can create a document that works for R code, can create a presentation, or a website
-    -   much faster to get your code from R to something that humans can read
-        -   no more copy-paste graphs or output.
-        -   can update graphs and output as your needs / datset changes
-    -   lots of features - open-source heritage and culture, but supported financially my Micro\$oft.
-        -   ability to format your code; render it as a website, pdf, book, etc.
-        -   interactive documents (Shiny; html-live; etc.)
-
--   Disadvantages :
-
-    -   code must be "perfect" in order to correctly render.
-    -   can go down formatting and feature rabbit holes that are not necessarily condusive to good science.
-    -   another dialect of the language you are trying to learn
-        -   in R : code is the default; human comments added with #s
-        -   in Quarto : human text is the default; you insert a code block when you want R to do something (and can then comment in that code)
-
-    ```{r}
-    1+1 # like this
-    ```
-
--   In this class, we will work with both .R scripts and .qmd Quarto Markdown Files
-
-    -   .R Scripts for tinkering with data (in-class tutorials; initial analyses)
-    -   .qmd files for "final" products (Lecture notes, lab documents, your project)
-
--   There are many thorough guides on how to use Quarto, but honestly the [official Quarto reference book](https://quarto.org/docs/reference/) is almost constantly open on my computer (in multiple tabs....sigh.) Let me know if you find another cool resource?!
-
 ## Is there time left? A fun R demonstration :)
 
 ### The [Monty Hall Problem](https://en.wikipedia.org/wiki/Monty_Hall_problem).

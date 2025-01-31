@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -513,48 +513,6 @@ Some brief introductions [ ~ 30 seconds!]
 <li><p><strong>good code :</strong> troubleshooting errors; naming datasets; white space; keeping code and files organized</p></li>
 </ul>
 </section>
-<section id="working-in-quarto" class="level3">
-<h3 class="anchored" data-anchor-id="working-in-quarto">Working in Quarto</h3>
-<p><a href="https://quarto.org"><strong>Quarto</strong></a> is a version of R Markdown, which is a version of Markdown, which is a powerful way to author code that is meant for both humans and computers to read.</p>
-<ul>
-<li><p>Advantages :</p>
-<ul>
-<li>can create a document that works for R code, can create a presentation, or a website</li>
-<li>much faster to get your code from R to something that humans can read
-<ul>
-<li>no more copy-paste graphs or output.</li>
-<li>can update graphs and output as your needs / datset changes</li>
-</ul></li>
-<li>lots of features - open-source heritage and culture, but supported financially my Micro$oft.
-<ul>
-<li>ability to format your code; render it as a website, pdf, book, etc.</li>
-<li>interactive documents (Shiny; html-live; etc.)</li>
-</ul></li>
-</ul></li>
-<li><p>Disadvantages :</p>
-<ul>
-<li>code must be “perfect” in order to correctly render.</li>
-<li>can go down formatting and feature rabbit holes that are not necessarily condusive to good science.</li>
-<li>another dialect of the language you are trying to learn
-<ul>
-<li>in R : code is the default; human comments added with #s</li>
-<li>in Quarto : human text is the default; you insert a code block when you want R to do something (and can then comment in that code)</li>
-</ul></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">1</span> <span class="co"># like this</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div></li>
-<li><p>In this class, we will work with both .R scripts and .qmd Quarto Markdown Files</p>
-<ul>
-<li>.R Scripts for tinkering with data (in-class tutorials; initial analyses)</li>
-<li>.qmd files for “final” products (Lecture notes, lab documents, your project)</li>
-</ul></li>
-<li><p>There are many thorough guides on how to use Quarto, but honestly the <a href="https://quarto.org/docs/reference/">official Quarto reference book</a> is almost constantly open on my computer (in multiple tabs….sigh.) Let me know if you find another cool resource?!</p></li>
-</ul>
-</section>
 </section>
 <section id="is-there-time-left-a-fun-r-demonstration" class="level2">
 <h2 class="anchored" data-anchor-id="is-there-time-left-a-fun-r-demonstration">Is there time left? A fun R demonstration :)</h2>
@@ -576,9 +534,9 @@ Some brief introductions [ ~ 30 seconds!]
 <section id="use-r-to-simulate-the-monty-hall-problem." class="level3">
 <h3 class="anchored" data-anchor-id="use-r-to-simulate-the-monty-hall-problem.">Use R to simulate the Monty Hall Problem.</h3>
 <p>You’ll need to use the following bits of code :</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>variable <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">""</span>) <span class="co"># create a string variable (for the options)</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>() <span class="co"># to "randomly" sample from this variable</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">setdiff</span>() <span class="co"># to differentiate </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>variable <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">""</span>) <span class="co"># create a string variable (for the options)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>() <span class="co"># to "randomly" sample from this variable</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">setdiff</span>() <span class="co"># to differentiate </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You’re welcome to try this on your own, but below are steps to help guide your work if you’d like (and some extra hints if you’d like more specific instructions.)</p>
 <p>Totally okay if you struggle with this! The point is to try and do something fun (and potentially challenging) in R, and see how computers can be used to address research questions.</p>
 <ol type="1">
@@ -771,18 +729,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -814,7 +761,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -822,7 +791,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

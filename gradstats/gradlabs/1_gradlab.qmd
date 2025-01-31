@@ -1,8 +1,8 @@
 # Psych 205 - Lab 1
 
-The goal of this lab is to get more practice working in R and Quarto, and practice loading (and evaluating) datasets.
+The goal of this lab is to get more practice working in R, and practice loading (and evaluating) datasets.
 
-1.  Enter in a math equation that used to give you difficulty as a kid to the code block below, and run the code to see the result.
+1.  Enter in a math equation that used to give you difficulty as a kid below, and run the code to see the result.
 
 2.  Work with your classmates in section to create another dataframe with three variables - at least one numeric and one "string". Create that dataframe here, and use R code to answer the following questions.
 
@@ -39,8 +39,4 @@ The goal of this lab is to get more practice working in R and Quarto, and practi
     -   print a categorical variable from the dataset
     -   Print two variables from the dataset - what do you learn from just looking at these data? No need for summary statistics yet :)
     -   What is a question you might ask about a variable from this dataset? Why might this question matter?
-
-```{=html}
-<!-- -->
-```
 6.  **Read the article "[Data Organization in Spreadsheets](https://www.dropbox.com/scl/fi/4ucbwkxc8890n83n5noe7/1_DataOrganization.pdf?rlkey=h4jxxg7hjxv0h4asghdv9hr7b&dl=0)"**. Choose one of the datasets uploaded to the Datasets folder on bCourses, and look over the dataset (and corresponding Codebook). What are some ways that this dataset adhered to these "best practices"? What are some ways that the dataset did not? What is something from this article that you learned? What did you have a question about?
