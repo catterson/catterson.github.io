@@ -21,7 +21,7 @@ Hi class! Welcome to our class.
 ## Semester Agenda
 
 | Week | Lecture Topic | Assignment | **Support Readings** |
-|--------|-----------------------------|------------------|------------------|
+|----|----|----|----|
 | 1/24 | [Introductions](./gradlabs/1_gradintro.qmd) \[[RScript](https://www.dropbox.com/scl/fi/568tanzamnpsqf2udt4xc/1_RBasics.R?rlkey=4kl8x4a3iyjbrdyzlkf58ca84&dl=0)\] | [Lab 1](./gradlabs/1_gradlab.qmd) \[[.R](https://www.dropbox.com/scl/fi/mim7wprara1e322ffjwcs/1_introtoR.R?rlkey=4pfo40g4z5pl84nsgwsxp8sf1&dl=0)\] + Key \[.pdf\] | WS 1-2; LSR 3-4 |
 | 1/31 | [Description](./gradlabs/2_Description.qmd) | [Lab 2](./2Lab_DataDescription.qmd) \[.qmd\] + Key \[.pdf\] | WS 3-4; LSR 5-6 |
 | 2/7 | Visualizing Data in ggplot2 | Lab 3 | [Data Viz Chapter](https://ggplot2.tidyverse.org/#learning-ggplot2) |
@@ -106,7 +106,7 @@ The goals of this final project are to 1) demonstrate the research and data anal
 *Note : this is my first semester assigning this assignment for a graduate course, and open to other ideas about how this assignment might better serve as a relevant reflection of what you have learned in the class, and your interests as a researcher.*
 
 |  |  |
-|------------------------------------|------------------------------------|
+|----|----|
 | **Criterion** | **Points \[Out of 4\]** |
 | Student specified a specific research question to ask, articulated how this research question is relevant to their interests, background, and past psychological research, and identified a dataset that will allow them to answer this research question. |  |
 | Student submitted a pre-registration plan that details the data cleaning and analyses they expect to do in order to answer their research question, a list of a post-hoc analyses that deviated from the pre-registered plan, and a link to the data and RCode. |  |
@@ -127,7 +127,7 @@ Each week, I’ve assigned an article for the class to read. (Let me know if you
 This presentation will be graded on the following criteria. Though I’m very open to ideas and suggestions about alternative ways you think we could effectively use this time!
 
 |  |  |
-|------------------------------------|------------------------------------|
+|----|----|
 | **Criterion** | **Points \[Out of 4\]** |
 | Students gave a quick (5 min) summary of the key points from the assigned article. |  |
 | Students drew from submitted discussion posts to lead a class discussion that helped answer common questions, debate ideas, and connect readings to our work as researchers. |  |
