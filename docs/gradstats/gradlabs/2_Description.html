@@ -228,11 +228,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(win.stay100 <span class="sc">==</span> <span class="st">"WIN"</span>)<span class="sc">/</span><span class="fu">length</span>(win.stay100) <span class="co"># probability if I stay. Note that rather than divide by 1000, I'm dividing by the value of length(). If I change the # of simulations to run above, I don't have to update my code here. This is GOOD PRACTICE.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0101</code></pre>
+<pre><code>[1] 0.0118</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(win.switch100 <span class="sc">==</span> <span class="st">"WIN"</span>)<span class="sc">/</span><span class="fu">length</span>(win.switch100) <span class="co"># YEAH!!!!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9899</code></pre>
+<pre><code>[1] 0.9882</code></pre>
 </div>
 </div>
 </section>
@@ -335,6 +335,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="break-time-article-presentation" class="level2">
 <h2 class="anchored" data-anchor-id="break-time-article-presentation">BREAK TIME &amp; ARTICLE PRESENTATION</h2>
+<ul>
+<li><a href="https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing">See the article presentation slideshow</a> [warning : everyone has edit access. be careful!]</li>
+</ul>
 </section>
 <section id="part-2-mean-thoughts-r-demo" class="level2">
 <h2 class="anchored" data-anchor-id="part-2-mean-thoughts-r-demo">PART 2 : Mean Thoughts [R Demo]</h2>
@@ -346,8 +349,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Illustrating the standard deviation as the “average” amount of residual error.</p></li>
 </ul>
 </section>
-<section id="the-mean-minimizes-residual-error" class="level3">
-<h3 class="anchored" data-anchor-id="the-mean-minimizes-residual-error">The Mean Minimizes Residual Error</h3>
+<section id="the-mean-best-minimizes-residual-error" class="level3">
+<h3 class="anchored" data-anchor-id="the-mean-best-minimizes-residual-error">The Mean “Best” Minimizes Residual Error</h3>
 <ul>
 <li><p>Illustrating that the mean is the value that reduces the sum of our residual error.</p></li>
 </ul>
@@ -361,8 +364,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="the-mean-is-a-social-construction" class="level3">
 <h3 class="anchored" data-anchor-id="the-mean-is-a-social-construction">The Mean Is a Social Construction</h3>
 <ul>
+<li>What is average, anyway? And who “invented” it?</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Critical Race Theory DEI Alert!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Francis Galton was a super racist, eugenicist, and inventor of many statistics that we use today. He had a motivated agenda to use statistics to demonstrate there was a hierarchy to individual “eminence.” In his own words:</p>
+<p><em>To conclude, the range of mental power between—I will not say the highest Caucasian and the lowest savage—but between the greatest and least of English intellects, is enormous. … I propose in this chapter to range men according to their natural abilities, putting them into classes separated by equal degrees of merit, and to show the relative number of individuals included in the several classes…..The method I shall employ for discovering all this, is an application of the very curious theoretical law of “deviation from an average.” First, I will explain the law, and then I will show that the production of natural intellectual gifts comes justly within its scope. -</em> Galton, Hereditary Genius (1869). <a href="https://galton.org/books/hereditary-genius/text/v5/galton-1869-hereditary-genius-v5.htm">Linked here</a>.</p>
+<p><strong>Why does it matter that a super racist invented statistics? I have a few ideas, but would like to hear your thoughts first :)</strong></p>
+</div>
+</div>
+<ul>
 <li><p>Testing whether anyone is actually described by “the mean”?</p></li>
-<li><p>What is average, anyway?</p></li>
 </ul>
 
 
