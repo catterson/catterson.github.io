@@ -2,7 +2,7 @@
 format: html
 ---
 
-# Class 2 | Working With Data
+# Class 2 \| Working With Data
 
 ### Check-In, Agenda, and Announcements
 
@@ -21,7 +21,7 @@ Welcome Back! Access this Document Here : https://catterson.github.io/calstats/c
 1.  Did you learn about Florence Nightingale in other classes?
 2.  What did you remember learning about Florence Nightingale in other classes?
 
-|  |  |
+|                                     |                                         |
 |---------------------------|---------------------------------------------|
 | ![](lecture_images/2L_Florence.png) | ![](lecture_images/2L_FlorenceData.png) |
 
@@ -31,25 +31,29 @@ Look at the graph below, and use it to answer the following questions.
 
 1.  **Ice Breaker :** What's the worst time you've been sick? What's your best way of trying to feel better / self-care when sick?
 2.  **Look at the graph below :** What’s going on in this graph / who cares / how can we use this knowledge??
+    1.  showing death from diseases, other causes, wounds.
+    2.  time is split into twelve months (but also maybe there's something going on with season??)
+    3.  hard to accurately represent deaths by triangles.
 3.  **It's all linear models :** What are the variables in this graph? How would you organize these as a linear model?
+    1.  mortality (among soldiers) \~ cause of death + time + ERROR
 
 ![](lecture_images/2L_FlorenceGraph.png){fig-align="center"}
 
 ### KEY IDEA : Visuals Matter
 
--   What is better about the way the barchart[^2l_workingwithdata-1] visualizes these data?
+-   What is better about the way the barchart[^1] visualizes these data?
 
 -   What is worse (or still confusing)?
 
-[^2l_workingwithdata-1]: https://www.r-bloggers.com/2013/02/extracting-the-epidemic-model-going-beyond-florence-nightingale-part-ii/
+[^1]: https://www.r-bloggers.com/2013/02/extracting-the-epidemic-model-going-beyond-florence-nightingale-part-ii/
 
 ![](lecture_images/2L_FlorenceBarchart.png){fig-align="center"}
 
 ## Learning from Histograms (No Statistics Terms!)
 
-Below are some data that I graphed[^2l_workingwithdata-2]. Take 1-2 minutes and SILENTLY (on your own) think about what you learn about the variable from this graph. Avoid FANCY STATS LANGUAGE - just explain the main ideas without those labels for now.
+Below are some data that I graphed[^2]. Take 1-2 minutes and SILENTLY (on your own) think about what you learn about the variable from this graph. Avoid FANCY STATS LANGUAGE - just explain the main ideas without those labels for now.
 
-[^2l_workingwithdata-2]: You will work with these later in the semester once we review how to create a likert scale (that combines 10 questions into one variable).
+[^2]: You will work with these later in the semester once we review how to create a likert scale (that combines 10 questions into one variable).
 
 ```{r}
 #| include: false
@@ -72,13 +76,76 @@ hist(d$SELFES, col = 'black', bor = 'white',
 
 **Things We Learned From the Graph**
 
--   go here.
+-   self-esteem scores are between 1 and 4.
+-   more people have really high self-esteem than really low self-esteem
+-   there's a lot of people in the data
+-   the variable is self-esteem.
+-   people have lots of different self-esteems
+-   a lot of people are in the middle \[2.5???\]; it looks like a bell!
+-   
 
 **Things We Cannot Learn From the Graph**
 
--   go here.
+-   "more people have really high self-esteem than really low self-esteem"
+    -   self-esteem \~ age + error (and this dataset is maybe mostly older people?)
+    -   "self-presentation" (people are presenting a desirable version of the self)
+-   other variables that might be relevant to self-esteem!
+    -   personality types
+    -   attitudes
+    -   self-perceptions of ego :P
+-   who are all these people in this study???
 
-# BREAK TIME : MEET BACK AT
+## Creating a Mini Class Dataset
+
+-   Here's a list of the variables that y'all thought would be interesting to measure in the class (and I approved) from the check-in.
+    -   height \[numeric\]
+
+        -   as categorical : group people in "buckets"
+
+    -   \# of languages you speak (polyglots) \[numeric : discreet values
+
+        -   fluency in language —\> more continuous
+
+        -   are you multilingual : Y / N = categorical.
+
+    -   r u an intended psych major
+
+    -   where are you from?
+
+    -   hat / no hat
+
+        -   as categorical : Y / N
+
+        -   as numeric : \# of hats
+
+        -   as continuous : \# of seconds you've worn a hat on your head.
+
+    -   age
+
+    -   SPORT PLAYER
+
+    -   birth month / date
+
+    -   glasses or not
+
+    -   alcohol consumption
+
+    -   screen time
+
+    -   happiness
+
+        -   categorical : R U HAPPY Y/N
+
+        -   scale : On a scale from 0 to 100....
+
+    -   inner monologue or not
+
+    -   self-consciousness / self-awareness
+-   **DISCUSS :** which of these variables would be best measured with numbers (e.g., a scale from 0 to 10)? Which variables would best be measured with categories? (what would the factor and levels be?)
+    -   Numeric Data Variables :
+    -   Categorical Data :
+
+# BREAK TIME : MEET BACK AT 3:23!!!!
 
 ![](lecture_images/2L_Matrix.png){fig-alt="an image from the movie THE MATRIX, where we see a man sitting at a variety of computer terminals with many wires." fig-align="center"}
 
@@ -132,18 +199,6 @@ Things we will do.
 
 # PART 3 : Defining Data
 
-## Creating a Mini Class Dataset
-
--   Here's a list of the variables that y'all thought would be interesting to measure in the class (and I approved) from the check-in.
-    -   List
-
-    -   Goes
-
-    -   Here
--   **DISCUSS :** which of these variables would be best measured with numbers (e.g., a scale from 0 to 10)? Which variables would best be measured with categories? (what would the factor and levels be?)
-    -   Numeric Data Variables :
-    -   Categorical Data :
-
 ## Operationalization, Construct, and Measurement Error
 
 -   **operationalization** : how researchers define the variable(s) they will study; this is a process; often the focus of a researcher’s question in the scientific method.
@@ -177,7 +232,15 @@ Things we will do.
 
 -   How do we OPERATIONALIZE an INTERRUPTION?
 
+    -   when the guest on the right STOPS his sentence and has to restart.
+
+    -   the number of times the guest on the right is INTERRUPTED by the host on the left.
+
 -   What PREDICTIONS can we make about counting interruptions a second time?
+
+    -   the number of interruptions at T2 will go down, since we narrowed it to a) stopping one person and b) just counting one person.
+
+    -   the number of interruptions at T2 will be more similar to each other.
 
 # FOR NEXT WEEK
 
