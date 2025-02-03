@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -108,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Teaching Assistant |</strong> Sierra Semko Krouse [she / her] | sierra_semko@berkeley.edu</p>
 <ul>
 <li><strong>Sections :</strong> Fridays, 1:00 - 2:00 PM in 1213 Berkeley Way West</li>
-<li><strong>Office Hours :</strong> Wednesdays 2:00 - 3:00 PM via Zoom (<a href="https://calendly.com/sierra_semko/sierra-s-office-hours-psych-205">click here</a> to sign-up for a 15-minute slot)</li>
+<li><strong>Office Hours :</strong> Wednesdays 11:00 - 12:00 PM via Zoom (click <a href="https://calendly.com/sierra_semko/sierra-office-hours-psych-205?month=2025-02">here</a> to sign-up for a 15-minute slot)</li>
 </ul></li>
 </ul>
 </section>
@@ -138,27 +138,28 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>2/7</td>
-<td>Visualizing Data in ggplot2</td>
+<td>Normal Distributions</td>
 <td>Lab 3</td>
-<td><a href="https://ggplot2.tidyverse.org/#learning-ggplot2">Data Viz Chapter</a></td>
+<td>WS 8; LSR 9-10</td>
 </tr>
 <tr class="even">
 <td>2/14</td>
-<td>Probability and Sampling Error</td>
+<td>Linear Models Pt. 1 (Lines!)</td>
 <td>Lab 4</td>
-<td>WS 8; LSR 9-10</td>
+<td>WS 5-7; LSR 15.1 - 15.2</td>
 </tr>
 <tr class="odd">
 <td>2/21</td>
-<td>Mini Exam + Linear Models Pt. 1 (Lines!)</td>
-<td></td>
-<td>WS 5-7; LSR 15.1 - 15.2</td>
+<td>Linear Models Pt. 2 (Tests and ggplot2)</td>
+<td>Lab 5 [Practice Exam]</td>
+<td><p>LSR 15.5 - 15.11</p>
+<p><a href="https://ggplot2.tidyverse.org/#learning-ggplot2">Data Viz Chapter</a></p></td>
 </tr>
 <tr class="even">
 <td>2/28</td>
-<td>Linear Models Pt. 2 (Tests &amp; Assumptions)</td>
-<td>Lab 5</td>
-<td>LSR 15.5 - 15.11</td>
+<td>Mini Exam</td>
+<td></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>3/7</td>
@@ -168,15 +169,15 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>3/14</td>
-<td>Linear Models Pt. 4 (Logistic / GLM)</td>
+<td>Linear Models Pt. 4 (Assumptions)</td>
 <td>Lab 7</td>
-<td><a href="https://m-clark.github.io/book-of-models/generalized_linear_models.html">Generalized Linear Models</a></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>3/21</td>
-<td>Review / Catch-Up :)</td>
-<td>Lab 8</td>
-<td></td>
+<td>Linear Models Pt. 5 (Logistic / GLM)</td>
+<td>Lab 8 [Practice Exam]</td>
+<td><a href="https://m-clark.github.io/book-of-models/generalized_linear_models.html">Generalized Linear Models</a></td>
 </tr>
 <tr class="even">
 <td>3/28</td>
@@ -192,13 +193,13 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>4/11</td>
-<td>Linear Models Pt. 5a (Mixed Models)</td>
+<td>Linear Models Pt. 6a (Mixed Models)</td>
 <td>Lab 9</td>
 <td><a href="https://m-clark.github.io/mixed-models-with-R/introduction.html#overview">Mixed Models with R</a></td>
 </tr>
 <tr class="odd">
 <td>4/18</td>
-<td>Linear Models Pt. 5b (Mixed Models)</td>
+<td>Linear Models Pt. 6b (Mixed Models)</td>
 <td>Milestone 2</td>
 <td><a href="https://m-clark.github.io/mixed-models-with-R/introduction.html#overview">Mixed Models with R</a></td>
 </tr>
@@ -224,7 +225,7 @@ ul.task-list li input[type="checkbox"] {
 <table class="caption-top table">
 <colgroup>
 <col style="width: 28%">
-<col style="width: 34%">
+<col style="width: 33%">
 <col style="width: 36%">
 </colgroup>
 <tbody>
@@ -284,8 +285,8 @@ ul.task-list li input[type="checkbox"] {
 <p><em>Note : this is my first semester assigning this assignment for a graduate course, and open to other ideas about how this assignment might better serve as a relevant reflection of what you have learned in the class, and your interests as a researcher.</em></p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 91%">
-<col style="width: 8%">
+<col style="width: 90%">
+<col style="width: 9%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -402,18 +403,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -445,7 +435,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -453,7 +465,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
