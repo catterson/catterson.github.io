@@ -169,8 +169,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Look at the graph below, and use it to answer the following questions.</p>
 <ol type="1">
 <li><strong>Ice Breaker :</strong> What’s the worst time you’ve been sick? What’s your best way of trying to feel better / self-care when sick?</li>
-<li><strong>Look at the graph below :</strong> What’s going on in this graph / who cares / how can we use this knowledge??</li>
-<li><strong>It’s all linear models :</strong> What are the variables in this graph? How would you organize these as a linear model?</li>
+<li><strong>Look at the graph below :</strong> What’s going on in this graph / who cares / how can we use this knowledge??
+<ol type="1">
+<li>showing death from diseases, other causes, wounds.</li>
+<li>time is split into twelve months (but also maybe there’s something going on with season??)</li>
+<li>hard to accurately represent deaths by triangles.</li>
+</ol></li>
+<li><strong>It’s all linear models :</strong> What are the variables in this graph? How would you organize these as a linear model?
+<ol type="1">
+<li>mortality (among soldiers) ~ cause of death + time + ERROR</li>
+</ol></li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -208,16 +216,76 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p><strong>Things We Learned From the Graph</strong></p>
 <ul>
-<li>go here.</li>
+<li>self-esteem scores are between 1 and 4.</li>
+<li>more people have really high self-esteem than really low self-esteem</li>
+<li>there’s a lot of people in the data</li>
+<li>the variable is self-esteem.</li>
+<li>people have lots of different self-esteems</li>
+<li>a lot of people are in the middle [2.5???]; it looks like a bell!</li>
+<li></li>
 </ul>
 <p><strong>Things We Cannot Learn From the Graph</strong></p>
 <ul>
-<li>go here.</li>
+<li>“more people have really high self-esteem than really low self-esteem”
+<ul>
+<li>self-esteem ~ age + error (and this dataset is maybe mostly older people?)</li>
+<li>“self-presentation” (people are presenting a desirable version of the self)</li>
+</ul></li>
+<li>other variables that might be relevant to self-esteem!
+<ul>
+<li>personality types</li>
+<li>attitudes</li>
+<li>self-perceptions of ego :P</li>
+</ul></li>
+<li>who are all these people in this study???</li>
+</ul>
+</section>
+<section id="creating-a-mini-class-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-mini-class-dataset">Creating a Mini Class Dataset</h2>
+<ul>
+<li>Here’s a list of the variables that y’all thought would be interesting to measure in the class (and I approved) from the check-in.
+<ul>
+<li><p>height [numeric]</p>
+<ul>
+<li>as categorical : group people in “buckets”</li>
+</ul></li>
+<li><p># of languages you speak (polyglots) [numeric : discreet values</p>
+<ul>
+<li><p>fluency in language —&gt; more continuous</p></li>
+<li><p>are you multilingual : Y / N = categorical.</p></li>
+</ul></li>
+<li><p>r u an intended psych major</p></li>
+<li><p>where are you from?</p></li>
+<li><p>hat / no hat</p>
+<ul>
+<li><p>as categorical : Y / N</p></li>
+<li><p>as numeric : # of hats</p></li>
+<li><p>as continuous : # of seconds you’ve worn a hat on your head.</p></li>
+</ul></li>
+<li><p>age</p></li>
+<li><p>SPORT PLAYER</p></li>
+<li><p>birth month / date</p></li>
+<li><p>glasses or not</p></li>
+<li><p>alcohol consumption</p></li>
+<li><p>screen time</p></li>
+<li><p>happiness</p>
+<ul>
+<li><p>categorical : R U HAPPY Y/N</p></li>
+<li><p>scale : On a scale from 0 to 100….</p></li>
+</ul></li>
+<li><p>inner monologue or not</p></li>
+<li><p>self-consciousness / self-awareness</p></li>
+</ul></li>
+<li><strong>DISCUSS :</strong> which of these variables would be best measured with numbers (e.g., a scale from 0 to 10)? Which variables would best be measured with categories? (what would the factor and levels be?)
+<ul>
+<li>Numeric Data Variables :</li>
+<li>Categorical Data :</li>
+</ul></li>
 </ul>
 </section>
 </section>
-<section id="break-time-meet-back-at" class="level1">
-<h1>BREAK TIME : MEET BACK AT</h1>
+<section id="break-time-meet-back-at-323" class="level1">
+<h1>BREAK TIME : MEET BACK AT 3:23!!!!</h1>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="lecture_images/2L_Matrix.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="an image from the movie THE MATRIX, where we see a man sitting at a variety of computer terminals with many wires."></p>
@@ -272,22 +340,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="part-3-defining-data" class="level1">
 <h1>PART 3 : Defining Data</h1>
-<section id="creating-a-mini-class-dataset" class="level2">
-<h2 class="anchored" data-anchor-id="creating-a-mini-class-dataset">Creating a Mini Class Dataset</h2>
-<ul>
-<li>Here’s a list of the variables that y’all thought would be interesting to measure in the class (and I approved) from the check-in.
-<ul>
-<li><p>List</p></li>
-<li><p>Goes</p></li>
-<li><p>Here</p></li>
-</ul></li>
-<li><strong>DISCUSS :</strong> which of these variables would be best measured with numbers (e.g., a scale from 0 to 10)? Which variables would best be measured with categories? (what would the factor and levels be?)
-<ul>
-<li>Numeric Data Variables :</li>
-<li>Categorical Data :</li>
-</ul></li>
-</ul>
-</section>
 <section id="operationalization-construct-and-measurement-error" class="level2">
 <h2 class="anchored" data-anchor-id="operationalization-construct-and-measurement-error">Operationalization, Construct, and Measurement Error</h2>
 <ul>
@@ -328,8 +380,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><video src="lecture_images/1_interruption_oreilly&amp;frank_operationalization.m4v" class="img-fluid" controls=""><a href="lecture_images/1_interruption_oreilly&amp;frank_operationalization.m4v">Video</a></video></p>
 <p><strong>DISCUSSION TOPICS :</strong></p>
 <ul>
-<li><p>How do we OPERATIONALIZE an INTERRUPTION?</p></li>
-<li><p>What PREDICTIONS can we make about counting interruptions a second time?</p></li>
+<li><p>How do we OPERATIONALIZE an INTERRUPTION?</p>
+<ul>
+<li><p>when the guest on the right STOPS his sentence and has to restart.</p></li>
+<li><p>the number of times the guest on the right is INTERRUPTED by the host on the left.</p></li>
+</ul></li>
+<li><p>What PREDICTIONS can we make about counting interruptions a second time?</p>
+<ul>
+<li><p>the number of interruptions at T2 will go down, since we narrowed it to a) stopping one person and b) just counting one person.</p></li>
+<li><p>the number of interruptions at T2 will be more similar to each other.</p></li>
+</ul></li>
 </ul>
 </section>
 </section>
