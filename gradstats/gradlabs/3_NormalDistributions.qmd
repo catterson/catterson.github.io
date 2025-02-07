@@ -89,14 +89,13 @@ abline(h = mean(lils$SELFES, na.rm = T), lwd = 5)
 ```{r}
 ## quantifying errors (residuals)
 residuals <- selfes$SELFES - mean(selfes$SELFES, na.rm = T)
-SST <- sum(residuals^2)
+SST <- sum(residuals^2, na.rm = T)
 SST
 
 SST/length(residuals) # average of squared residuals (variance)
 sqrt(SST/length(residuals)) # average of residuals, unsquared (standard deviation)
 
-sd(selfes$SELFES) # slightly higher
-sqrt(SST/(length(residuals)-1)) # the 'real' equation; n-1 to inflate / adjust for small samples
+sd(selfes$SELFES, na.rm = T) # 
 ```
 :::
 
