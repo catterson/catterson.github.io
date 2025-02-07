@@ -54,16 +54,15 @@ format: html
 
 **Download the “interruption” data from bCourses, and import this data into R. This dataset has two variables of the number of interruptions counted before (int1) and after (int2) our operationalization.**
 
-1. Load the data (I'll call it d if you want to follow along with my code), check to make sure it loaded correctly, and report the sample size and names of the variables.
+1.  Load the data (I'll call it d if you want to follow along with my code), check to make sure it loaded correctly, and report the sample size and names of the variables.
 
-2. Graph these variables as a histogram (use the par() function to graph them side by side). Change the arguments so the graphs have the same x-axis and y-axis ranges, and nice labels.
+2.  Graph these variables as a histogram (use the par() function to graph them side by side). Change the arguments so the graphs have the same x-axis and y-axis ranges, and nice labels.
 
-3. Report the mean, median, range, and standard deviation for both variables. Then, calculate the standard deviation “by hand” for int1 (you should get a similar, but not exact, number, as what R gives you.) 
+3.  Report the mean, median, range, and standard deviation for both variables. Then, calculate the standard deviation “by hand” for int1 (you should get a similar, but not exact, number, as what R gives you.)
 
-4. Describe how these statistics changed after operationalizing an interruption, and why these changes make sense given the nature of our operationalizations. Then, decide whether our operationalization would be good enough if we were researchers trying to scientifically study interruptions.
+4.  Describe how these statistics changed after operationalizing an interruption, and why these changes make sense given the nature of our operationalizations. Then, decide whether our operationalization would be good enough if we were researchers trying to scientifically study interruptions.
 
-5. Graph a categorical variable from the dataset and report the frequency of each group.
-
+5.  Graph a categorical variable from the dataset and report the frequency of each group.
 
 ### KEY IDEA : The Mean as Prediction
 
@@ -77,21 +76,31 @@ format: html
 
     ```
 
-<!-- -->
-
 -   Where would a vertical line best fit through these data?
 
-    ```{r}
-    mini <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/cal_mini_SP25.csv")
-    plot(mini$hrs.sleep)
-    ```
+::: panel-tabset
+
+#### Where the Line?
+```{r}
+mini <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/cal_mini_SP25.csv")
+plot(mini$hrs.sleep)
+```
+
+#### There the Line!
+```{r}
+plot(mini$hrs.sleep)
+abline(h = mean(mini$hrs.sleep, na.rm = T), col = 'red', lwd = 5)
+```
+
+
+:::
 
 ### The Mean As Prediction (and Error)
 
-The following equation formalizes this idea, that an individual's score is related to the mean and error. 
+The following equation formalizes this idea, that an individual's score is related to the mean and error.
 
 $$
-\Large y_i = \bar{Y} + \epsilon_i
+\Huge y_i = \bar{Y} + \epsilon_i
 $$
 
 We can break this up into the following components :

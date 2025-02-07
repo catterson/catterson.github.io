@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Class 3 | Description</title>
+<title>Lab 3</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -84,35 +50,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -156,7 +93,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Class 3 | Description</h1>
+<h1 class="title">Lab 3</h1>
 </div>
 
 
@@ -173,49 +110,9 @@ window.Quarto = {
 </header>
 
 
-<section id="check-in-tinyurl.cominterruptlifewithr" class="level2">
-<h2 class="anchored" data-anchor-id="check-in-tinyurl.cominterruptlifewithr"><a href="https://docs.google.com/forms/d/e/1FAIpQLSeHOpY9ubskHAQmCAVLRCD0tAy6Hd_feajTSHn9ilutA_S3qQ/viewform?usp=sf_link">check-in : tinyurl.com/interruptlifewithR</a></h2>
-<ul>
-<li><p><a href="https://www.dropbox.com/scl/fi/tyxiyi2tbyir1svp34lxi/3T_Description.R?rlkey=lde2z1xcbbzk922iokcfk0edh&amp;dl=0">link to RScript</a> [also on course page]</p></li>
-<li><p><a href="https://www.dropbox.com/scl/fi/po99tlxnypp48ojdvx0qs/interruption_SP25.csv?rlkey=cmrr7urowz6tlf0ai3xde0x0y&amp;dl=0">data are here</a> [also on the data dropbox folder on bCourses]</p></li>
-<li><p>name the dataset <code>d</code> to follow along w/ professor</p></li>
-</ul>
-<p><img src="lecture_images/3L_KikiArt.png" class="img-fluid"><br>
-</p>
-<p><strong>Professor Check-In Code Goes Here</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## CHECK-IN : the interruption dataset</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  Download the "interruption" dataset and import the data to RStudio.</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Q1. How many individuals are in this dataset?</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Q2. How many variables are in this dataset?</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Q3. What is the value of the second row, third column of this dataset?</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Q4. How many individuals said "yes, I can relax my feet"?</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Q5. How many individuals said "no, my feet were already totally relaxed"?</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># BONUS QUESTION (AND DEMONSTRATION): I'm going to randomly call on 10 students.</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="do">## I'll ask them to report the number of instagram accounts they follow. </span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="do">## Predict these 10 numbers by filling in your guesses below.</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="do">## my guesses : </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>Agenda and Announcements</strong></p>
-<ul>
-<li><p>2:10 - 2:30 | Check-In &amp; Announcements</p></li>
-<li><p>2:30 - 3:30 | Describing Data in R (and Removing Outliers)</p></li>
-<li><p>3:45 - 4:00 | BREAK TIME</p></li>
-<li><p>4:00 - 4:20 | Student Show and Tell</p></li>
-<li><p>4:20 - 5:00 | Final Project Workshop</p></li>
-</ul>
-</section>
-<section id="part-1-describing-data" class="level2">
-<h2 class="anchored" data-anchor-id="part-1-describing-data">Part 1 : Describing Data</h2>
-<section id="lab-3-problem-1.-interruption-problems" class="level3">
-<h3 class="anchored" data-anchor-id="lab-3-problem-1.-interruption-problems">Lab 3, Problem 1. Interruption Problems</h3>
+<p>Use R to answer the following questions. Make sure that you show your R code and the output (result or graphs.) You can do this by taking a screenshot and pasting into your Google / Word Document, or (for students wanting an extra challenge) working in a Quarto document.</p>
+<section id="problem-1.-interrpution-problems." class="level2">
+<h2 class="anchored" data-anchor-id="problem-1.-interrpution-problems.">Problem 1. Interrpution Problems.</h2>
 <p><strong>Download the “interruption” data from bCourses, and import this data into R. This dataset has two variables of the number of interruptions counted before (int1) and after (int2) our operationalization.</strong></p>
 <ol type="1">
 <li><p>Load the data (I’ll call it d if you want to follow along with my code), check to make sure it loaded correctly, and report the sample size and names of the variables.</p></li>
@@ -225,99 +122,21 @@ window.Quarto = {
 <li><p>Graph a categorical variable from the dataset and report the frequency of each group.</p></li>
 </ol>
 </section>
-<section id="key-idea-the-mean-as-prediction" class="level3">
-<h3 class="anchored" data-anchor-id="key-idea-the-mean-as-prediction">KEY IDEA : The Mean as Prediction</h3>
-<ul>
-<li>How would you feel if I told you that the average last semester was a 50%? A 90%? Why would you feel this way?</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="lecture_images/3L_ChatGPTFrogWizard.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a frog wizard sitting on a toadstool wearing a hat and holding a crystal ball as illustrated by ChatGPT as an oil painting" width="360"></p>
-</figure>
-</div>
-<ul>
-<li><p>Did professor guess better than you about the # of instagram followers? Let’s find out.</p></li>
-<li><p>Where would a vertical line best fit through these data?</p></li>
-</ul>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Where the Line?</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">There the Line!</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mini <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/Class Datasets/cal_mini_SP25.csv"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mini<span class="sc">$</span>hrs.sleep)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="3L_Description_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mini<span class="sc">$</span>hrs.sleep)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">mean</span>(mini<span class="sc">$</span>hrs.sleep, <span class="at">na.rm =</span> T), <span class="at">col =</span> <span class="st">'red'</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="3L_Description_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<section id="problem-2.-mini-problems" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2.-mini-problems">Problem 2. Mini Problems</h2>
+<p><strong>Load the mini dataset (that you used in Lab 2), check to make sure the data loaded correctly and use this dataset to answer the questions below.</strong></p>
+<ol type="1">
+<li><p>Focus on the variable insta.followers - this measures the number of followers a person says they have on instagram (a social networking website owned by Mark Zuckerberg). Graph this variable as a histogram, and report the mean, median, standard deviation, and range. Make sure to do any necessary data cleaning (e.g., outlier removal), make the graph look nice, and draw vertical lines to illustrate the mean, median, and standard deviation (above and below the mean). Below the graph, describe what each statistic teaches you about the people in the dataset.</p></li>
+<li><p>Choose another numeric variable from the dataset (see the codebook for a guide). Graph this variable as a histogram, and report the mean, median, standard deviation, and range. Make sure to do any necessary data cleaning (e.g., outlier removal), make the graph look nice, and describe what each descriptive statistic teaches you about the people in the dataset (you do not need to draw them again on the graph, unless you want to / find this helpful!)</p></li>
+</ol>
 </section>
-<section id="the-mean-as-prediction-and-error" class="level3">
-<h3 class="anchored" data-anchor-id="the-mean-as-prediction-and-error">The Mean As Prediction (and Error)</h3>
-<p>The following equation formalizes this idea, that an individual’s score is related to the mean and error.</p>
-<p><span class="math display">\[
-\Huge y_i = \bar{Y} + \epsilon_i
-\]</span></p>
-<p>We can break this up into the following components :</p>
-<ul>
-<li><span class="math inline">\(y_i\)</span> = the individual’s (<span class="math inline">\(_i\)</span>) actual score of a variable (<span class="math inline">\(y\)</span>) we are trying to predict.
-<ul>
-<li>on the graph : each individual dot; the value on the y-axis is the individual’s score; value of the x-axis is the person’s index (when people submitted the survey).</li>
-</ul></li>
-<li><span class="math inline">\(\bar{Y}\)</span> = our prediction (the mean, in this case)
-<ul>
-<li>on the graph : the solid line is drawn at the mean for the variable.</li>
-</ul></li>
-<li><span class="math inline">\(\epsilon_i\)</span> = residual error
-<ul>
-<li>on the graph : the vertical distance between the predicted values of y (the line) and the individual’s actual value of y (the dot)</li>
-</ul></li>
-</ul>
-<p>I like to remember that an individual’s actual score comes first in the equation, because as researchers we (supposedly) care about REAL PEOPLE and not just data or predictions.</p>
+<section id="problem-3-in-discussion-section.-more-description-problems." class="level2">
+<h2 class="anchored" data-anchor-id="problem-3-in-discussion-section.-more-description-problems.">Problem 3 (In Discussion Section). More Description Problems.</h2>
+<p><strong>Repeat the steps for Problem 2, with another dataset (and variable) from the class datasets.</strong></p>
 </section>
-</section>
-<section id="break-time-meet-back-at-400" class="level2">
-<h2 class="anchored" data-anchor-id="break-time-meet-back-at-400">BREAK TIME : MEET BACK AT 4:00</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="lecture_images/3L_SleepyTotoro.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a triptych of three images of totoro - a soft monster from the ghibli films - sleeping" width="458"></p>
-</figure>
-</div>
-</section>
-<section id="part-2-more-r-practice" class="level2">
-<h2 class="anchored" data-anchor-id="part-2-more-r-practice">Part 2 : More R Practice</h2>
-<p><strong>Work on Lab 3, Problem 2.2.</strong> Choose another numeric variable from the dataset (see the codebook for a guide). Graph this variable as a histogram, and report the mean, median, standard deviation, and range. Make sure to do any necessary data cleaning (e.g., outlier removal), make the graph look nice, and describe what each descriptive statistic teaches you about the people in the dataset (you do not need to draw them again on the graph, unless you want to / find this helpful!)</p>
-<p><strong>Share Your Work With the Class!</strong> Post a screenshot of your graph on the class Discord; and then come up to the front to talk about your variable! Yeah?!?</p>
-</section>
-<section id="part-3-final-project-workshop" class="level2">
-<h2 class="anchored" data-anchor-id="part-3-final-project-workshop">Part 3 : Final Project Workshop</h2>
-<p><strong>This Week : Decide on a Dependent Variable</strong></p>
-<ul>
-<li>Student ideas go here.</li>
-</ul>
-<p><strong>Next Week : Decide on How to Measure the Dependent Variable (Probably a Self-Report Survey!)</strong></p>
-<ul>
-<li>Professor ideas go here.</li>
-</ul>
+<section id="problem-4-in-discussion-section.-mode-problems" class="level2">
+<h2 class="anchored" data-anchor-id="problem-4-in-discussion-section.-mode-problems">Problem 4 (In Discussion Section). Mode Problems</h2>
+<p><strong>R does not have a built-in function to calculate the mode. Use your favorite search engine to find a method - make sure to cite your source, and describe what you learned from the code that you found. Then check that your method works by defining two variables in R - one with a set of numbers that has one mode, and one with a set of numbers that has two modes. [For example : variable1 &lt;- c(1, 1, 2) has two modes]. Use the mode function on each variable to confirm that the mode function works. Then, use the mode function on the variable you focused on in Problem 3.</strong></p>
 
 
 </section>

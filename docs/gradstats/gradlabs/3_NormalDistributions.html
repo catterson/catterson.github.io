@@ -433,15 +433,15 @@ Q10 0.24 0.33 0.22 0.22 0.00</code></pre>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>?sample</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(coinflip, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0</code></pre>
+<pre><code>[1] 1</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">replicate</span>(<span class="dv">10</span>, <span class="fu">sample</span>(coinflip, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0 1 0 1 0 0 1 0 0 0</code></pre>
+<pre><code> [1] 0 0 0 0 1 1 0 1 1 1</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">replicate</span>(<span class="dv">10</span>, <span class="fu">sample</span>(coinflip, <span class="dv">1</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
+<pre><code>[1] 5</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>life <span class="ot">&lt;-</span> <span class="fu">array</span>()</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>)){</span>
@@ -449,34 +449,48 @@ Q10 0.24 0.33 0.22 0.22 0.00</code></pre>
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>life</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   [1] 4 7 5 5 6 4 4 5 3 7 5 8 4 6 1 5 3 5 5 7 5 6 5 6 4 4 5 2 6 3 5 2 6 6 3 3 6
-  [38] 5 5 6 5 3 5 7 5 7 5 9 4 6 6 2 6 5 3 5 4 5 4 5 6 6 5 3 5 5 6 2 6 3 8 7 5 5
-  [75] 5 4 2 4 6 6 5 6 3 5 7 4 4 5 4 8 6 4 6 4 6 6 3 5 4 6 4 5 9 5 5 4 4 6 4 5 4
- [112] 6 9 5 4 5 7 6 5 1 7 4 4 8 6 7 3 4 3 6 5 3 5 5 6 8 4 6 5 7 7 5 8 6 3 2 4 5
- [149] 5 6 5 9 4 5 3 6 4 6 3 5 7 4 6 7 2 8 7 3 3 4 3 5 6 5 8 4 4 7 1 7 7 4 5 6 2
- [186] 5 5 6 4 4 4 6 4 2 7 5 6 7 6 2 5 6 2 5 4 8 5 3 3 6 6 3 5 6 4 3 4 4 3 4 4 4
- [223] 3 6 4 4 6 5 6 4 6 4 5 4 5 8 5 4 8 4 7 5 4 4 4 4 4 6 5 5 7 9 3 6 6 8 7 1 7
- [260] 6 2 7 6 7 8 3 5 4 4 6 6 6 6 6 5 5 5 4 5 4 4 5 4 8 5 6 6 9 5 3 6 4 6 5 4 6
- [297] 6 4 6 5 5 4 6 6 6 5 5 1 4 4 5 5 6 4 7 4 6 6 4 6 2 4 5 4 5 8 6 7 4 5 6 7 8
- [334] 6 6 3 7 2 3 5 4 6 6 3 6 4 6 3 8 6 5 7 4 8 6 4 4 5 6 7 3 7 7 6 4 5 6 6 4 5
- [371] 7 5 3 6 7 6 2 6 5 6 4 3 4 5 4 7 4 6 6 7 4 4 5 5 5 4 6 4 5 4 4 5 3 2 4 5 7
- [408] 6 4 6 4 2 4 6 4 4 5 4 3 4 3 3 3 6 6 5 3 5 6 4 5 8 6 4 4 3 6 7 5 4 6 6 6 3
- [445] 5 5 3 5 6 9 8 5 7 8 4 5 6 5 5 7 9 3 7 5 7 1 5 5 5 5 3 5 3 4 3 5 4 7 2 3 4
- [482] 3 5 7 6 8 6 4 5 7 5 5 4 7 6 7 6 4 6 6 4 7 7 4 3 5 6 6 6 5 6 7 2 4 6 6 3 6
- [519] 5 5 5 5 6 5 6 3 5 3 6 6 9 7 9 5 8 5 4 7 7 3 6 2 3 4 6 4 6 2 5 4 4 6 4 8 7
- [556] 5 4 4 4 7 6 5 8 3 3 4 2 2 4 6 3 6 6 2 7 4 8 2 3 5 4 4 4 4 4 6 3 5 6 5 7 4
- [593] 2 4 4 8 4 4 2 4 2 7 4 3 6 6 5 3 3 8 4 8 6 7 5 6 5 5 5 4 6 4 7 5 7 4 5 8 3
- [630] 6 5 4 5 6 6 4 1 1 7 5 3 6 7 5 5 4 6 4 5 5 4 5 4 5 3 7 6 5 4 7 4 4 3 5 5 6
- [667] 2 7 7 5 6 3 5 5 6 3 5 5 5 6 5 2 5 6 7 7 4 4 6 3 5 8 5 6 7 4 5 7 6 4 7 3 6
- [704] 4 5 5 4 4 5 5 3 4 6 7 3 4 6 4 7 3 5 6 5 6 5 4 4 4 6 5 4 5 4 4 4 7 7 6 4 6
- [741] 6 4 5 9 5 5 2 6 4 7 5 5 7 6 6 4 3 6 6 4 4 4 5 5 3 4 7 5 3 5 4 4 8 5 5 5 5
- [778] 2 5 6 5 5 6 2 4 4 5 1 5 9 3 5 7 4 7 5 6 4 4 3 9 8 5 6 8 7 5 6 4 3 4 7 3 3
- [815] 4 6 3 9 4 3 6 6 3 6 8 6 5 6 7 5 5 6 6 4 3 7 5 5 7 5 3 6 5 4 4 1 6 6 5 5 4
- [852] 4 5 5 4 3 2 6 6 5 4 7 3 3 7 6 5 5 4 6 7 3 6 7 4 4 5 6 4 3 5 4 4 3 5 4 2 5
- [889] 6 6 5 5 6 3 6 4 7 6 7 8 5 5 6 3 5 7 8 6 5 3 5 6 5 7 7 4 5 7 5 9 5 6 8 4 7
- [926] 2 6 3 7 2 5 6 7 6 7 4 4 5 3 6 5 5 4 4 2 5 4 3 6 5 7 4 5 5 4 4 7 8 7 6 4 4
- [963] 6 5 3 4 6 4 7 5 6 7 5 6 6 7 6 4 6 3 5 6 3 6 5 4 8 7 5 8 5 4 3 5 4 4 5 5 6
-[1000] 7</code></pre>
+<pre><code>   [1]  8  4  7  4  5  6  5  6  6  6  6  8  6  5  6  5  7  5  8  5  3  4  3  5
+  [25]  2  5  4  4  2  2  5  5  5  3  5  6  7  3  4  2  3  2  5  6  4  5  4  6
+  [49]  5  6  5  4  5  2  5  5  5  6  4  3  3  4  4  6  4  5  5  6  2  3  5  5
+  [73]  5  6  3  8  7  5  5  4  6  4  1  4  4  5  2  5  3  7  3  2  4  5  5  5
+  [97]  8  3  5  5  4  8  5  3  5  4  4  2  5  4  6  3  5  4  2  2  6  3  4  5
+ [121]  3  5  7  3  4  2  7  6  5  6  6  3  5  6  4  7  5  5  1  7  4  3  8  5
+ [145]  7  3  6  2  4  6  7  4  4  4  4  5  5  6  5  4  2  5  8  7  3  5  6  4
+ [169]  4  5  6  6  1  4  6  7  4  7  8  3  7  1  5  5  7  4  4  6  5  3  5  5
+ [193]  6  7  4  7  6  7  5  2  4  3  7  7  8  3  4  2  1  4  5  8  6  5  1  4
+ [217]  4  5  7  4  5  7  6  8  7  9  2  4  5  6  7  5  7  5  6  5  5  5  3  8
+ [241]  5  6  4  3  6  6  5  5  6  7  4  4  4  6  3  7  4  4  5  2  3  8  7  6
+ [265]  7  5  6  3  5  5  7  5  4  5  4  3  4  3  5  7  5  4  4  2  4  6  5  4
+ [289]  4  4  1  3  4  9  8  2  4  5  6  5  6  5  5  7  5  6  5  6  5  8  6  5
+ [313]  5  5  4  4  5  6  5  5  6  2  6  4  3  3  6  6  6  3  4  4  3  4  3  9
+ [337]  5  4  7  3  6  5  4  5  3  4  2  3  4  6  3  6  3  8  4  5  5  5  5  4
+ [361]  6  5  4  7  6  5  5  8  7  4  4  2  4  3  8  3  6  5  4  4  5  6  4  6
+ [385]  7  2  7  4  6  6  6  8  6  5  6  3  4  5  6  6  4  4  5  4  6  5  4  4
+ [409]  6  5  7  7  5  7  4  6  9  5  5  5  6  3  7  6  5  5  5  5  6  3  4  4
+ [433]  4  5  3  5  5  7  4  4  5  4  6  5  5  6  9  4  6  4  6  5  4  3  3  6
+ [457]  6  5  6  5  3  7  5  3  7  4  3  5  5  3  5  3  6  3  9  6  3  5  4  4
+ [481]  4  2  4  3  5  6  5  5  8  4  5  3  4  5  5  4  6  6  5  5  5  3  7  7
+ [505]  5  4  4  5  4  8  3  6  6  4  6  7  8  6  4  5  6  5  6  7  5  5  5  8
+ [529]  4  6  4  4  2  5  5  6  6  6  6  7  4  5  4  6  7  4  5  5  2  3  3  3
+ [553]  6  4  9  2  3  4  5  6  4  6  4  3  7  3  6  4  4  6  5  4  4  2  7  5
+ [577]  6  7  5  7  8  3  4  5  6  4  4  5  5  5  5  3  3  5  6  1  7  7  7  6
+ [601]  3  7  6  3  3  4  7  8  4  8  6  7  4  6  8  5  3  5  5  4  2  5  8  8
+ [625]  4  5  5  8  4  5  4  6  5  7  5  2  7  6  4  7  5  2  6  5  5  8  4  4
+ [649]  3  5  6  7  3  4  5  5  6  7  4  4  5  4  5  3  2  7  3  6  9  6  4  6
+ [673]  3  6  7  2  4  5  2  7  3  4  2  2  5  4  4  2  4  5  4  5  4  4  5  4
+ [697]  3  5  3  6  2  5  7  5  4  5  5  6  5  2  6  6  9  6  4  4  4  6  9  5
+ [721]  5  3  5  4  4  7  5  8  5  3  6  6  4  5  5  7  6  6  7  3  3  5  3  4
+ [745]  3  7  4  7  7  3  5  4  5  6  3  7  5  2  7  5 10  5  7  3  6  6  4  7
+ [769]  4  7  6  5  8  7  1  8  5  7  3  5  3  4  6  5  5  6  5  5  5  6  4  5
+ [793]  7  5  6  5  6  4  6  5  5  3  6  5  6  6  4  5  6  4  2  6  5  4  5  5
+ [817]  8  3  8  3  3  6  5  7  3  5  6  5  4  7  5  6  5  3  3  5  3  8  3  3
+ [841]  3  4  5  7  5  6  5  5  5  6  6  7  4  6  6  7  5  5  5  6  5  7  4  5
+ [865]  4  7  6  5  6  5  6  7  5  4  2  4  6  7  7  6  4  6  3  7  4  5  8  6
+ [889]  3  4  3  5  7  7  4  6  6  6  6  4  5  2  6  3  7  4  2  6  7  5  7  4
+ [913]  2  4  4  7  3  3  5  8  7  7  6  2  4  5  6  5  8  7  6  5  5  5  5  3
+ [937]  7  7  3  2  7  4  7  5  5  6  6  4  6  6  7  5  4  6  6  3  6  6  5  7
+ [961]  4  4  3  7  7  0  5  5  5  7  7  7  2  6  6  4  5  5  6  3  6  5  2  6
+ [985]  5  4  5  8  3  4  4  3  2  3  7  6  3  3  5  5</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(life)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -510,48 +524,48 @@ Q10 0.24 0.33 0.22 0.22 0.00</code></pre>
 <span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>unfairlife</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   [1]  7  9  8  7  7  8  6  7  4  9  6 10  7  7  6  8  8  6  6  9  8  9 10  6
-  [25]  7  9  8  7  7  8  6  8  6  7  5  6  8  8  7  8  6  7  8  7  8  8  5  8
-  [49]  7  8  8  7  6  7  7  7  8  5  8  6  7  8  7  8  6  7  7  8  8  5  8  7
-  [73]  8  5  5  6  8  9  5  8  3  7  8  6  8  7  8  6  9  6  8  6  9  4  7  6
-  [97]  5  7  7  8  5  8  9  7  6  7  7  8  7  6  6  8  8  5  7  8  5  4  7  7
- [121]  6  4  8  6  8  8  9  5  6  7  6  8  6  7  7  8  5  7  7  8  8  8  5  8
- [145]  8  6  9  7  7  7  7  5  4  7  6  7  7  8  7  7  6  7  7  8  4  9  7  8
- [169] 10  7  5  8 10  8  7  8  8  7  9  7  5  9  6  9  6  5  9  6  6  9  8  5
- [193]  8  5  9  6  8  9  6  9  6  8  3  6  5  6  6  8  7  9  4  7  8  3  4  8
- [217]  5  7  8  9  5  7  7  8  5  7  7  7  8  9  9  5  4  6  8  4  7  7  9  6
- [241]  6  7  7  6  9  5  9  8  7  6  9  9  7  6  6  4  7  7  6  5  9  7  7  6
- [265]  7  7  5  8  9  8  8  8  8  5  5  8  6  6  9  7 10  9  7  8  6  6  8  7
- [289]  7 10  7  7  8  8  9  6  7  9  7  6  7  7  8  9  6  5  6  8  8  6  7  7
- [313]  7  8  6  6  7  9  7  8  7 10  5  9  8  8  9  6  6  4  4  7  8  7  8  8
- [337]  8  7  8  6  7  7  9  7  5  7  6  7  5  7  9  7  6  8  8  7  9  6  5  6
- [361]  5 10  8  7  7  9  2  9  8  8  7  8 10  6  6  8  9  7  8  9  5  7  5  7
- [385]  8  8  7  7  8  6  6  8  7  4  5  8  8  7  8  5  6  7  7  6  6  6  7  8
- [409]  6  5  8  7  9  7  5  6  9  8  5  6  7  6  6  8  5  8  7  9  8  6  9  7
- [433]  8  6  7  8  6  9  6  8  8  9  7  6  8  5  8  8  8  6  6  9  5  8  7  5
- [457]  8  4  8  7  8  9  8  8  7  6  9  6  7  5  7  6  6  7  5  7  5  7  7  8
- [481]  8  7  5  7  5  3 10  8  9  8  8  5 10  8  8  5  8  7  8  7  7  8  7  8
- [505] 10 10  8  7  8  8  6  6  7  5  5  9  7  4  8  8  8  7  9  6  8  5  4  5
- [529]  7  6  6  7  7  8  5  6  6  6  6  7  8  8  8  6  8  7  5  8  6  5  5  9
- [553]  9  8  6  4  4  5  7  9  8  8  7  6  7  7  9  6  8  8  7  6  5  7  8  6
- [577]  6  5  9  7  6  5  8  7  3  7  8  8  6  9  7 10  6  7  7  8  8  7  7  8
- [601]  7  5  5  4  7  8  6  8 10  6  7  4  7  8  5  5  8  6  4  5  9  6  6  7
- [625]  9  8  7  8  6  9  8  7  6  5  5  7  8  6  9  6  9  7  7  6  4  9  6  6
- [649]  8  8  4  6  7  7  6  9  5  7  4  6  5 10  6  8  8  7  8  8  7  7  8  6
- [673]  7  9  8  7  8  6  9  9  5  4  6  7  7 10  6  9 10  6  8  8  8  5  5  5
- [697]  6  6  8  9  7  8  8  5  4  7  6  5  8  5  5  5  9  7  8  7  6  6  9 10
- [721]  5  4  8  8  6  9  6  8  9  9  5  6  6  9  5  7  5  5  4  5  9  5  4  8
- [745]  4  6  8  8  8  8  8  7  9  6  7  5  8  6  7  6  6  5  8  4  9  6  7  8
- [769]  4  7  6  8  5  7  9  7  8  7  7  8  6  5  4 10  7  6  8  9  8  7  8  6
- [793]  8  8  6  5  9  8  7  8  7  7  6  9  8  5 10 10  7  6  9  6  7  4  7  7
- [817]  9  6  8  4  6  9  8  6  7  7  8  4  2  8  9  8  6 10  7  6  7  7  7  9
- [841]  5  5  8  6  7  6  5  7  8  8  7  8  9  5  5 10  7  7  8  6  7  8  8  8
- [865]  7  7  7  9  9  5  6  9  4  6  7  4  7  6  6  7  7  7  3  7  8  7  8  8
- [889]  8  6  6  9  7  5  9  6  7  6  6  5  9  6  8  9  8  6  8  4  5  7  8  5
- [913]  7  8  7  7  7  5  8  6  9  9  7  6  7  6  7  6  8  7  7  5  8  7  7  9
- [937]  6 10  8  7  6  5  7  8  9  6  6  6  9  5  6  9  6  7  9  9  7  9  8  8
- [961]  7  7  7  7  7  6  7  8  9  4  3  8  6  7  7 10  6  7  8  6  7  5  8 10
- [985]  7  6  7  8  6  7  6  4  7  7  8  8  9  7  8  5</code></pre>
+<pre><code>   [1]  8  6  5  6  8  4  8  7  7  8  4  8  5  8  6 10  8  8  7  6  9  6  6  8
+  [25] 10  8  7  7  8  5  8  9  4  8  5  5  7  4  8  6  7  7  7  5  6  8  7  5
+  [49]  7  9  7  7  8  7  8  8  7  9  7  8  8  7  9  7  6  5  6  7  8  6  9  4
+  [73]  6  8  7  7  8  7  5  8  9  5  4  9  7  6  8  9  7  8  8  9  7  8  6  6
+  [97]  8  7  7  8  8  4  8  7  9  7  7  8  6  6  7  6  8 10  9  7  5  7  7 10
+ [121]  8  9  6  7  7  5  6  7  7  9  7  7  7  8  9  6  8  4  9  6  4  7  6  6
+ [145]  7  8  7  5  6  6 10  9  8  5  6  6  5  7  3  4  7  8  6  5  9  7  5  9
+ [169]  9  7  9  4  8  6  9  5  7  7  8  7  6  8  7  7  7  7  7  7  8  4  7  9
+ [193]  7  8  7  9  7  7  9 10  7  7  7  8  9  6  5  9  6  4  7  8  7  7  6  7
+ [217]  9  6  7  7  8  5  6  7  5  5  8  7  8  7  7  5  8  7  8  7  6  9  5  7
+ [241]  6  7  6  9 10  8  7  6  5  7  7  7  6  4  7  8  7  8  6  7  8  7  7  9
+ [265]  6  8  8  7  5  9  9  8  8  7  9  7  7  9  7  6 10  8  6  9  8  6  7  9
+ [289]  9  8  9  9  7  8  6  5  7  6  9  7  9  8  8  9  8  8  9  7  7  5  8  8
+ [313]  8  9  7  9  6  4  8  7  8  8  6  8  9  7  7  9  7  8  6  7  5  7  7  6
+ [337]  7  7  5  7  8  9  5  5  7  5  5  7  8  8 10  7  7  9  6  6  8  8  7  9
+ [361]  6  8  5  9  5 10  6  9  6  7  6  8  9  6  4  7  9  7  7  7  7  5  8  7
+ [385] 10  7  5  8  5  7  5  8  9  8  5  6  7  8  9  7  9  7  8  6  6  8  5  6
+ [409]  9  7  6  6  8  7  8  6  7  6 10  5  7  9  7  8  8  7  7  7  9  5  7  7
+ [433]  7  5 10  5  7  7  7  6  8  8  5  8  8  6  6  5 10  4  7  8  7  7  9  5
+ [457]  6  7  8  9  5  8  6  7  9  9  6  8  4  6  6  5  6  8  5  9  2 10  4  8
+ [481]  6  7  8  9  4  5  7  8  6  7  6  6  5  9  9  7  7  8  5  7  6  5  8  8
+ [505]  8  6  8  9  7  6  9  9  7  7  7  8  7  5  6  8  8  5  6  5  7  8  6  9
+ [529]  8  9  5  6  8  6  9 10  6  5  9  8  9  6  9  6  7  7  7  8  6  6  6  7
+ [553]  7 10  8  7  7  8  9  9  7  7  8  9  8  8  7  9  5  8  9  6  7  6  7  9
+ [577]  6  7  9  8  9  6  8  9  8  3  7  5  6  6  9  6  8  8  6  6  8  8  7  9
+ [601]  6  7  9  6  7  7  8  5  8  7  9  4  8  6  9  6  5  6 10  6  6  7  6  7
+ [625]  7  8  7  5  6  4  8  6  6  8  7 10  8  6  5  7  8  5  6  6  9  8  7  7
+ [649]  7  8  7  5  7  7  7  9  5  4  9  7  9  5  8  7  4  8 10  9  8  9  6  6
+ [673]  7  8  8  6  6  9  6  6  7  8  8  6  8  6  6  8  7  9  8  9  8  7  6  6
+ [697]  3  7  9  7  7  7  7  7  6  6  7  8  8  5  6  7  8  9  6  7  6  8  9  6
+ [721]  7  8  8  6  5  7  9  8  9  9  8  7  6  7 10  8  6  8  7  5  8  8  6  6
+ [745]  7  7  6  7  7  3  5  7  8  9  7  7  8  9  8  7  8  6  7  6  7  6  9  5
+ [769] 10  7  7  8  7  8  8  7  9  9  9  6  8  6  9  6  9  6  6  7  7  7  8  6
+ [793]  6  5  3  7  5  7  7  4  7  5  7  8  8  7  5  8  7  7  8  8  7  4  8  6
+ [817]  7  7  8  7  6  9  9  5  8  5  6  5  7  7  8  7  7  9  8  5  6  9  6  5
+ [841] 10  8  7  8  8  7  7  8  5  8  8  8  5  7  6  9  8  8  5  7  8  9  7  6
+ [865]  9  7  8 10  8  7  8  6  7  8  6  7  8  6  8  5  9  7  9  8  6  9  7  7
+ [889]  4  5  8  6  5  8  8  7  9  8  6  6  8  8  8  6  5  7  9  9  7  8  6  6
+ [913]  8  8  9  6  8  5  7  6  6  8  5  8  7  6  6  4  6  9  8  7  8  6  7  6
+ [937]  7  7  8  9  6  6  7  5  8  7  9  9  4  9  9  8  7  5  4  4  6  8  5  7
+ [961] 10  9  9  5  7  9  9  7  6  5  7  8  8  7  8  5  8  4  7  8 10  5  7  8
+ [985]  9 10  9  6  8  5  7  7  6  6  7 10  7  8  8  7</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(unfairlife, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -636,7 +650,7 @@ Critical Race Theory DEI Alert!
 </div>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fakey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 100.48874  96.44062  80.32812  94.95565  87.49838  87.20756</code></pre>
+<pre><code>[1] 106.68519  86.53516 115.37814 104.25217 110.14605 107.08058</code></pre>
 </div>
 </div>
 <ol start="2" type="1">
@@ -645,7 +659,7 @@ Critical Race Theory DEI Alert!
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(fakey, <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 99.99769</code></pre>
+<pre><code>[1] 100.002</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(fakey)</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(fakey), <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -664,21 +678,21 @@ Critical Race Theory DEI Alert!
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>?sample <span class="co"># our friend, the sample function</span></span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">1</span>) <span class="co"># are you vibing with R?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 9</code></pre>
+<pre><code>[1] 4</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(fakey), <span class="dv">1</span>) <span class="co"># are you REALLY vibing?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 111858</code></pre>
+<pre><code>[1] 5853910</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(fakey), <span class="dv">10</span>) <span class="co"># a small sample</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 5030054 8618674 1368283 6964262 6966444 4686978 3583931 5697514 9658087
-[10] 3641037</code></pre>
+<pre><code> [1] 7996358 5964069 1843028  889214 5249514 8711958 2065427 3634920 9271961
+[10] 5805135</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>fakey[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(fakey), <span class="dv">10</span>)] <span class="co"># ten random individuals from fakey.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 104.5087 102.1489 118.5665 104.5963 106.0005 106.6702 103.1636 110.6267
- [9] 102.7029 105.7198</code></pre>
+<pre><code> [1]  96.66731  84.67917 116.45625 119.83077 113.55665  87.14903  91.73368
+ [8] 116.82408  95.23381 104.29154</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>fakey[<span class="dv">10000001</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -687,8 +701,8 @@ Critical Race Theory DEI Alert!
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>lilfakey <span class="ot">&lt;-</span> fakey[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(fakey), <span class="dv">10</span>)] <span class="co"># ten random individuals from fakey.</span></span>
 <span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>lilfakey</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  98.38543 103.35287  90.16840 110.20839 119.49455 107.01205 105.68548
- [8]  80.88794  95.55387  83.84557</code></pre>
+<pre><code> [1]  94.38834 111.28761  96.01584 101.65421 109.57977 103.67135 108.45600
+ [8] 109.13360  98.06912  99.04567</code></pre>
 </div>
 </div>
 <ol start="4" type="1">
@@ -697,7 +711,7 @@ Critical Race Theory DEI Alert!
 <div class="cell">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(lilfakey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 99.45946</code></pre>
+<pre><code>[1] 103.1302</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(lilfakey)</span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(lilfakey), <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -748,7 +762,7 @@ Critical Race Theory DEI Alert!
 </div>
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(truthbucket)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 100.071</code></pre>
+<pre><code>[1] 99.99654</code></pre>
 </div>
 </div></li>
 </ol>
@@ -801,7 +815,7 @@ Critical Race Theory DEI Alert!
 </div>
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="at">replace =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 1 6 6 4 4 3 3 5 6 5</code></pre>
+<pre><code> [1]  1  6  3  6  6  6 10  5  8  2</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>d[,] <span class="co"># two dimensional dataset </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1051,7 +1065,7 @@ Critical Race Theory DEI Alert!
 </div>
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nd<span class="sc">$</span>self.skills)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.090909</code></pre>
+<pre><code>[1] 3.212121</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>newmean <span class="ot">&lt;-</span> <span class="fu">array</span>()</span>
 <span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>)){</span>
@@ -1081,11 +1095,11 @@ Critical Race Theory DEI Alert!
 </div>
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(newmean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.42313</code></pre>
+<pre><code>[1] 3.427558</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(newmean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1981397</code></pre>
+<pre><code>[1] 0.1962449</code></pre>
 </div>
 </div>
 <section id="for-lab-3" class="level3">
