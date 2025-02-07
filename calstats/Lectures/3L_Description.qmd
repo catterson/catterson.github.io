@@ -1,0 +1,134 @@
+---
+title: "Class 3 | Description"
+format: html
+---
+
+## [check-in : tinyurl.com/interruptlifewithR](https://docs.google.com/forms/d/e/1FAIpQLSeHOpY9ubskHAQmCAVLRCD0tAy6Hd_feajTSHn9ilutA_S3qQ/viewform?usp=sf_link)
+
+-   [link to RScript](https://www.dropbox.com/scl/fi/tyxiyi2tbyir1svp34lxi/3T_Description.R?rlkey=lde2z1xcbbzk922iokcfk0edh&dl=0) \[also on course page\]
+
+-   [data are here](https://www.dropbox.com/scl/fi/po99tlxnypp48ojdvx0qs/interruption_SP25.csv?rlkey=cmrr7urowz6tlf0ai3xde0x0y&dl=0) \[also on the data dropbox folder on bCourses\]
+
+-   name the dataset `d` to follow along w/ professor
+
+![](lecture_images/3L_KikiArt.png)\
+
+**Professor Check-In Code Goes Here**
+
+```{r}
+## CHECK-IN : the interruption dataset
+##  Download the "interruption" dataset and import the data to RStudio.
+
+# Q1. How many individuals are in this dataset?
+
+# Q2. How many variables are in this dataset?
+
+# Q3. What is the value of the second row, third column of this dataset?
+
+# Q4. How many individuals said "yes, I can relax my feet"?
+
+# Q5. How many individuals said "no, my feet were already totally relaxed"?
+
+# BONUS QUESTION (AND DEMONSTRATION): I'm going to randomly call on 10 students.
+## I'll ask them to report the number of instagram accounts they follow. 
+## Predict these 10 numbers by filling in your guesses below.
+
+## my guesses : 
+```
+
+**Agenda and Announcements**
+
+-   2:10 - 2:30 \| Check-In & Announcements
+
+-   2:30 - 3:30 \| Describing Data in R (and Removing Outliers)
+
+-   3:45 - 4:00 \| BREAK TIME
+
+-   4:00 - 4:20 \| Student Show and Tell
+
+-   4:20 - 5:00 \| Final Project Workshop
+
+## Part 1 : Describing Data
+
+### Lab 3, Problem 1. Interruption Problems
+
+**Download the “interruption” data from bCourses, and import this data into R. This dataset has two variables of the number of interruptions counted before (int1) and after (int2) our operationalization.**
+
+1. Load the data (I'll call it d if you want to follow along with my code), check to make sure it loaded correctly, and report the sample size and names of the variables.
+
+2. Graph these variables as a histogram (use the par() function to graph them side by side). Change the arguments so the graphs have the same x-axis and y-axis ranges, and nice labels.
+
+3. Report the mean, median, range, and standard deviation for both variables. Then, calculate the standard deviation “by hand” for int1 (you should get a similar, but not exact, number, as what R gives you.) 
+
+4. Describe how these statistics changed after operationalizing an interruption, and why these changes make sense given the nature of our operationalizations. Then, decide whether our operationalization would be good enough if we were researchers trying to scientifically study interruptions.
+
+5. Graph a categorical variable from the dataset and report the frequency of each group.
+
+
+### KEY IDEA : The Mean as Prediction
+
+-   How would you feel if I told you that the average last semester was a 50%? A 90%? Why would you feel this way?
+
+![](lecture_images/3L_ChatGPTFrogWizard.png){fig-alt="a frog wizard sitting on a toadstool wearing a hat and holding a crystal ball as illustrated by ChatGPT as an oil painting" fig-align="center" width="360"}
+
+-   Did professor guess better than you about the \# of instagram followers? Let's find out.
+
+    ```{r}
+
+    ```
+
+<!-- -->
+
+-   Where would a vertical line best fit through these data?
+
+    ```{r}
+    mini <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/cal_mini_SP25.csv")
+    plot(mini$hrs.sleep)
+    ```
+
+### The Mean As Prediction (and Error)
+
+The following equation formalizes this idea, that an individual's score is related to the mean and error. 
+
+$$
+\Large y_i = \bar{Y} + \epsilon_i
+$$
+
+We can break this up into the following components :
+
+-   $y_i$ = the individual’s ($_i$) actual score of a variable ($y$) we are trying to predict.
+    -   on the graph : each individual dot; the value on the y-axis is the individual's score; value of the x-axis is the person's index (when people submitted the survey).
+-   $\bar{Y}$ = our prediction (the mean, in this case)
+    -   on the graph : the solid line is drawn at the mean for the variable.
+-   $\epsilon_i$ = residual error
+    -   on the graph : the vertical distance between the predicted values of y (the line) and the individual's actual value of y (the dot)
+
+I like to remember that an individual's actual score comes first in the equation, because as researchers we (supposedly) care about REAL PEOPLE and not just data or predictions.
+
+## BREAK TIME : MEET BACK AT 4:00
+
+![](lecture_images/3L_SleepyTotoro.png){fig-alt="a triptych of three images of totoro - a soft monster from the ghibli films - sleeping" fig-align="center" width="458"}
+
+## Part 2 : More R Practice
+
+**Work on Lab 3, Problem 2.2.** Choose another numeric variable from the dataset (see the codebook for a guide). Graph this variable as a histogram, and report the mean, median, standard deviation, and range. Make sure to do any necessary data cleaning (e.g., outlier removal), make the graph look nice, and describe what each descriptive statistic teaches you about the people in the dataset (you do not need to draw them again on the graph, unless you want to / find this helpful!)
+
+```{r}
+
+```
+
+**Share Your Work With the Class!** Post a screenshot of your graph on the class Discord; and then come up to the front to talk about your variable! Yeah?!?
+
+```{r}
+
+```
+
+## Part 3 : Final Project Workshop
+
+**This Week : Decide on a Dependent Variable**
+
+-   Student ideas go here.
+
+**Next Week : Decide on How to Measure the Dependent Variable (Probably a Self-Report Survey!)**
+
+-   Professor ideas go here.
