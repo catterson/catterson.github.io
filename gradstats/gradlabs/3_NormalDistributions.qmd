@@ -12,7 +12,7 @@ Look at the distribution below.
 -   What would you consider to be outliers in this distribution? Why?
 
 ```{r}
-#| echo: false
+#| echo: true
 d <- read.csv("../datasets/Protestant Work Ethic/data.csv", sep = "\t")
 
 hist(d$Q1E, breaks = 100, 
