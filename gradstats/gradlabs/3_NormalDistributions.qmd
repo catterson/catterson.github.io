@@ -69,16 +69,16 @@ hist(selfes$SELFES, col = 'black', bor = 'white', # the graph
 ## Where is the Mean?
 
 ```{r}
-plot(selfes[sample(1:nrow(selfes), 100),]$SELFES, # 100 random data points
+lils <- selfes[sample(1:nrow(selfes), 100),]# 100 random data points
+plot(lils$SELFES, 
      ylab = "Self-Esteem (100 Points)",
      xlab = "Index") 
-abline(h = mean(selfes$SELFES, na.rm = T), lwd = 0)
 ```
 
 ## There is the Mean!
 
 ```{r}
-plot(selfes[sample(1:nrow(selfes), 100),]$SELFES, # 100 random data points
+plot(lils$SELFES,
      ylab = "Self-Esteem (100 Points)",
      xlab = "Index") 
 abline(h = mean(selfes$SELFES, na.rm = T), lwd = 5)
