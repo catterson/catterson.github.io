@@ -81,7 +81,7 @@ plot(lils$SELFES,
 plot(lils$SELFES,
      ylab = "Self-Esteem (100 Points)",
      xlab = "Index") 
-abline(h = mean(selfes$SELFES, na.rm = T), lwd = 5)
+abline(h = mean(lils$SELFES, na.rm = T), lwd = 5)
 ```
 
 ## Quantifying Errors (Residuals)
