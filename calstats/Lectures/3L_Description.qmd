@@ -79,20 +79,19 @@ format: html
 -   Where would a vertical line best fit through these data?
 
 ::: panel-tabset
-
 #### Where the Line?
+
 ```{r}
 mini <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/cal_mini_SP25.csv")
 plot(mini$hrs.sleep)
 ```
 
 #### There the Line!
+
 ```{r}
 plot(mini$hrs.sleep)
 abline(h = mean(mini$hrs.sleep, na.rm = T), col = 'red', lwd = 5)
 ```
-
-
 :::
 
 ### The Mean As Prediction (and Error)
@@ -114,7 +113,7 @@ We can break this up into the following components :
 
 I like to remember that an individual's actual score comes first in the equation, because as researchers we (supposedly) care about REAL PEOPLE and not just data or predictions.
 
-## BREAK TIME : MEET BACK AT 4:00
+## BREAK TIME : MEET BACK AT 3:52
 
 ![](lecture_images/3L_SleepyTotoro.png){fig-alt="a triptych of three images of totoro - a soft monster from the ghibli films - sleeping" fig-align="center" width="458"}
 
