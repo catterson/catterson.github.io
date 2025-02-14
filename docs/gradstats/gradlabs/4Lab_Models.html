@@ -118,16 +118,13 @@ ul.task-list li input[type="checkbox"] {
 <section id="problem-1-in-discussion-section" class="level2">
 <h2 class="anchored" data-anchor-id="problem-1-in-discussion-section">Problem 1 (In Discussion Section)</h2>
 <ol type="1">
-<li>Use the self-esteem dataset (from Labs 2 and 3) to determine whether there is a relationship between self-esteem and age. Feel free to re-use your code (or Professor’s code) from Labs 2 and 3. Include a graph of your linear model, and report the intercept and slope from the model. Then, use bootstrapping to estimate the sampling error of the slope, and use this statistic to calculate 95% confidence intervals for the slope. Below these statistics, explain what they tell you about the relationship between these two variables, and how you can see them on the graph.</li>
+<li>Use the self-esteem dataset (from Labs 2 and 3) to determine whether there is a relationship between self-esteem and age. Feel free to re-use your code (or Professor’s code) from Labs 2 and 3. Include a graph of your linear model, and report the intercept and slope from the model. Below these statistics, explain what they tell you about the relationship between these two variables, and how you can see them on the graph.</li>
 </ol>
 <ol start="2" type="1">
 <li>Calculate R^2 “by hand”; confirm you did this correctly by comparing to the value that R calculates (you can access this by running <code>summary(mod)$r.squared</code>, with (mod) being the name of your model object. Note that in order to get the exact same value as R, you’ll need to compare the residuals in your linear model to residuals when calculating the mean of <em>only the participants who had data on both age and self-esteem</em>. There are different ways to do this, but when calculating SST you can use the data from the linear model by calling <code>mod$model$SELFES</code> (assuming you named your model <code>mod</code> and your self-esteem variable <code>SELFES</code>). Below your R code, describe what this statistic tells you about the relationship between age and self-esteem.</li>
 </ol>
 <ol start="3" type="1">
-<li>Now, define a linear model to determine whether there’s a difference in the self-esteem of people whose country is US vs not the US. Note that you will need to do some data cleaning, since there are 174 countries that are not the US who will need to be collapsed into one level. <em>There are different ways to do this; I used the <code>levels()</code> and <code>relevel()</code> functions that we reviewed in class, but there’s probably a more elegant and flexible solution using the package <code>dplyr()</code> you can look up / ask TA Sierra about!</em></li>
-</ol>
-<ol start="4" type="1">
-<li>What would you do if you wanted to be more culturally sensitive and consider the differences between all 175 countries in terms of their self-esteem? How might you graph these data? Would you do any reduction of the number of levels? You can try some of these ideas out in R, but mostly curious how you might approach this question as a researcher working to understand complex data. (Do not try to do bootstrapping on 175 slopes!!!)</li>
+<li>Run a for-loop to estimate the amount of sampling error in the <strong>slope</strong> from this linear model, and use this estimate of sampling error to define the 95% Confidence Interval for the slope. The steps you’ll take are similar to what we’ve done before with the for-loop; this time you’ll need to extract the slope from a model of re-sampled data. I recorded a bonus video at the very end of our posted lecture video walking through how to do this (and code is also in the Lecture document.) Note : a 95% confidence interval for a slope is defined as <code>slope ± 1.96 * sampling error</code>.</li>
 </ol>
 </section>
 <section id="problem-2.-step-problems." class="level2">
@@ -136,20 +133,17 @@ ul.task-list li input[type="checkbox"] {
 <li>Load the two “Steps and BMI” data files from the Dataset Dropbox folder. There are two data files - data9b_m.txt describes the number of steps taken day for men, and data9b_w.txt for women. You will need to find a way to load .txt files into R, and then use <code>rbind()</code> (or another method) to merge the two files together into one dataset. (Make sure to add a column to each dataset to keep track of whether the data are for men or women.) Show that this worked.</li>
 </ol>
 <ol start="2" type="1">
-<li>Use this merged dataset to determine whether there is a difference in the number of steps that women vs.&nbsp;men take. Estimate the sampling error of this difference. What do you conclude, based on these results?</li>
-</ol>
-<ol start="3" type="1">
 <li>Now, determine whether there is a relationship between the number of steps that people take and their BMI. Estimate the sampling error of this relationship. What do you conclude, based on these results?</li>
 </ol>
 </section>
 <section id="problem-3.-ggplot2-problems." class="level2">
 <h2 class="anchored" data-anchor-id="problem-3.-ggplot2-problems.">Problem 3. ggplot2 Problems.</h2>
 <p>So far, we’ve been doing our graphing in base R. Next week, we’ll talk more about using ggplot2 - a powerful graphics package. Install and load the ggplot2() package if you haven’t done so already. Look over <a href="https://ggplot2.tidyverse.org">Hadley Wickham’s intro guide to ggplot2</a> and read through <a href="https://r4ds.hadley.nz/data-visualize">Chapter 1 of his Data Visualization Book</a>. (Let us know on discord if you find another great ggplot2 reference to share!)</p>
-<p>Recreate one of the graphs from lecture or this lab using ggplot2. Play around with some of the other features to look at this graph from another perspective (e.g., add a variable for color or facet). How does this graph help you better understand the data?</p>
+<p>Recreate one of the graphs from lecture or this lab using ggplot2. Play around with some of the other features to look at this graph from another perspective (e.g., add a variable to the graph for color or facet; shift the y-axis; etc.). How does this graph help you better understand the data?</p>
 </section>
 <section id="problem-4.-the-good-the-bad-and-the-ugly-graphs." class="level2">
 <h2 class="anchored" data-anchor-id="problem-4.-the-good-the-bad-and-the-ugly-graphs.">Problem 4. The Good, the Bad, and the Ugly Graphs.</h2>
-<p>Find a graph published in an article relevant to your research interests. Evaluate the graph according to some of the principles of good graphics that we discussed in this week’s article / presentation. What is effective about the graph? What could be improved? Share the graph (and your analysis) here below, as well as in the <a href="https://docs.google.com/spreadsheets/d/1VB7Ut1NW_g5cOVbcC0ofNGHCTc4O7dHN6ECej9k-iGM/edit?usp=sharing">205 Vision Board</a></p>
+<p>Find a graph published in an article relevant to your research interests. Evaluate the graph - what variables are on this graph? How does the graph adhere to / violate some of the principles of good graphics that we discussed in this week’s article / presentation? What is effective about the graph? What could be improved? Share the graph (and your analysis) here below, as well as in the <a href="https://docs.google.com/spreadsheets/d/1VB7Ut1NW_g5cOVbcC0ofNGHCTc4O7dHN6ECej9k-iGM/edit?usp=sharing">205 Vision Board</a></p>
 
 
 </section>

@@ -13,7 +13,7 @@ And please ask for help if you get stuck / are confused / professor did somethin
 
 ## Problem 1 (In Discussion Section)
 
-1.  Use the self-esteem dataset (from Labs 2 and 3) to determine whether there is a relationship between self-esteem and age. Feel free to re-use your code (or Professor's code) from Labs 2 and 3. Include a graph of your linear model, and report the intercept and slope from the model. Then, use bootstrapping to estimate the sampling error of the slope, and use this statistic to calculate 95% confidence intervals for the slope. Below these statistics, explain what they tell you about the relationship between these two variables, and how you can see them on the graph.
+1.  Use the self-esteem dataset (from Labs 2 and 3) to determine whether there is a relationship between self-esteem and age. Feel free to re-use your code (or Professor's code) from Labs 2 and 3. Include a graph of your linear model, and report the intercept and slope from the model. Below these statistics, explain what they tell you about the relationship between these two variables, and how you can see them on the graph.
 
 ```{r}
 
@@ -25,13 +25,7 @@ And please ask for help if you get stuck / are confused / professor did somethin
 
 ```
 
-3. Now, define a linear model to determine whether there's a difference in the self-esteem of people whose country is US vs not the US. Note that you will need to do some data cleaning, since there are 174 countries that are not the US who will need to be collapsed into one level. *There are different ways to do this; I used the `levels()` and `relevel()` functions that we reviewed in class, but there's probably a more elegant and flexible solution using the package `dplyr()` you can look up / ask TA Sierra about!*
-
-```{r}
-
-```
-
-4. What would you do if you wanted to be more culturally sensitive and consider the differences between all 175 countries in terms of their self-esteem? How might you graph these data? Would you do any reduction of the number of levels? You can try some of these ideas out in R, but mostly curious how you might approach this question as a researcher working to understand complex data. (Do not try to do bootstrapping on 175 slopes!!!)
+3. Run a for-loop to estimate the amount of sampling error in the **slope** from this linear model, and use this estimate of sampling error to define the 95% Confidence Interval for the slope. The steps you'll take are similar to what we've done before with the for-loop; this time you'll need to extract the slope from a model of re-sampled data. I recorded a bonus video at the very end of our posted lecture video walking through how to do this (and code is also in the Lecture document.) Note : a 95% confidence interval for a slope is defined as `slope ± 1.96 * sampling error`.
 
 ```{r}
 
@@ -45,13 +39,7 @@ And please ask for help if you get stuck / are confused / professor did somethin
 
 ```
 
-2. Use this merged dataset to determine whether there is a difference in the number of steps that women vs. men take. Estimate the sampling error of this difference. What do you conclude, based on these results?
-
-```{r}
-
-```
-
-3. Now, determine whether there is a relationship between the number of steps that people take and their BMI. Estimate the sampling error of this relationship. What do you conclude, based on these results?
+2. Now, determine whether there is a relationship between the number of steps that people take and their BMI. Estimate the sampling error of this relationship. What do you conclude, based on these results?
 
 ```{r}
 
@@ -61,7 +49,7 @@ And please ask for help if you get stuck / are confused / professor did somethin
 
 So far, we've been doing our graphing in base R. Next week, we'll talk more about using ggplot2 - a powerful graphics package. Install and load the ggplot2() package if you haven't done so already. Look over [Hadley Wickham's intro guide to ggplot2](https://ggplot2.tidyverse.org) and read through [Chapter 1 of his Data Visualization Book](https://r4ds.hadley.nz/data-visualize). (Let us know on discord if you find another great ggplot2 reference to share!)
 
-Recreate one of the graphs from lecture or this lab using ggplot2. Play around with some of the other features to look at this graph from another perspective (e.g., add a variable for color or facet). How does this graph help you better understand the data?
+Recreate one of the graphs from lecture or this lab using ggplot2. Play around with some of the other features to look at this graph from another perspective (e.g., add a variable to the graph for color or facet; shift the y-axis; etc.). How does this graph help you better understand the data?
 
 ```{r}
 
@@ -69,4 +57,4 @@ Recreate one of the graphs from lecture or this lab using ggplot2. Play around w
 
 ## Problem 4. The Good, the Bad, and the Ugly Graphs.
 
-Find a graph published in an article relevant to your research interests. Evaluate the graph according to some of the principles of good graphics that we discussed in this week's article / presentation. What is effective about the graph? What could be improved? Share the graph (and your analysis) here below, as well as in the [205 Vision Board](https://docs.google.com/spreadsheets/d/1VB7Ut1NW_g5cOVbcC0ofNGHCTc4O7dHN6ECej9k-iGM/edit?usp=sharing)
+Find a graph published in an article relevant to your research interests. Evaluate the graph - what variables are on this graph? How does the graph adhere to / violate some of the principles of good graphics that we discussed in this week's article / presentation? What is effective about the graph? What could be improved? Share the graph (and your analysis) here below, as well as in the [205 Vision Board](https://docs.google.com/spreadsheets/d/1VB7Ut1NW_g5cOVbcC0ofNGHCTc4O7dHN6ECej9k-iGM/edit?usp=sharing)
