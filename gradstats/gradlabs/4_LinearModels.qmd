@@ -182,7 +182,9 @@ abline(lm(self.skills ~ class.skills, data = d), lwd = 5)
 ```
 :::
 
-Looking at this with a linear model.
+**The Linear Model** :
+
+![](images/clipboard-1514248515.png){fig-align="center" width="279"}
 
 ```{r}
 mod1 <- lm(self.skills ~ class.skills, data = d)
@@ -198,7 +200,7 @@ coef(mod1)
 ### There is Error in Our Prediction (residual error --\> R\^2)
 
 ```{r}
-mod1$residuals # R does the residual calculation for us.
+mod1$residuals # R does the residual calculation for us. what will happen if we add this up?
 ```
 
 ### There is Error in Our Prediction of the Population (sampling error)
