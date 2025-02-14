@@ -19,8 +19,6 @@ format:
 #| eval: false
 #| include: true
 greyScale <- colorRampPalette(c("pink","red"))
-
-# function to draw shape
 secretmessage <- function(r, col){
   t <- seq(0,2*pi,length.out=100)
   x <- r*sin(t)^3
