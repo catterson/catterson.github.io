@@ -160,20 +160,65 @@ mod0$residuals # finding the residuals
 
 ### Use information in the IV to predict the DV
 
-```{r}
-names(d) # what variable might predict self.skills?
+Let's try the same activity, but now we have graphed each individual's self-skill (still on the y-axis) in **relationship** to their perception of their classmates' skill (on the x-axis).
 
+::: panel-tabset
+## Where is the Line?
+
+```{r}
+plot(jitter(self.skills) ~ class.skills, data = d, 
+     ylab = "Self-Perception of Skills",
+     xlab = "Perception of Classmates' Skills") 
+abline(lm(self.skills ~ class.skills, data = d), lwd = 0)
+```
+
+## There is the Line!
+
+```{r}
+plot(jitter(self.skills) ~ class.skills, data = d, 
+     ylab = "Self-Perception of Skills",
+     xlab = "Perception of Classmates' Skills") 
+abline(lm(self.skills ~ class.skills, data = d), lwd = 5)
+```
+:::
+
+Looking at this with a linear model.
+
+```{r}
+mod1 <- lm(self.skills ~ class.skills, data = d)
+
+par(mfrow = c(1,2))
+plot(self.skills ~ class.skills, data = d, main = "Overlapping Data")
+plot(jitter(self.skills) ~ class.skills, data = d, main = "Jittered Data") # jittered
+abline(mod1, lwd = 5, col = 'red')
+
+coef(mod1)
 ```
 
 ### There is Error in Our Prediction (residual error --\> R\^2)
 
 ```{r}
-
+mod1$residuals # R does the residual calculation for us.
 ```
 
 ### There is Error in Our Prediction of the Population (sampling error)
 
 ```{r}
+#| eval: false
+#| include: true
+bucket <- array()
+for(i in c(1:1000)){
+  ## what should go here?
+}
+hist(bucket) # what do we expect to see?
+mean(bucket)
+sd(bucket)
+```
+
+### Time for Another Example?
+
+```{r}
+names(d) # what other (numeric, for now) variable might predict self.skills?
 
 ```
 
