@@ -1,0 +1,293 @@
+---
+title: "Class 4 | Scales"
+format: 
+  html:
+      code-overflow: wrap
+---
+
+## [Check-In : Complete This Survey](https://forms.gle/HZUTsakNeBEwkMhp7)
+
+-   check-in uses mini-data from Lab 3 (in the [Dropbox Dataset Folder](https://www.dropbox.com/scl/fo/8j5rj9jz2tycse6ti4fl2/AP8jM5uTJ9lEQTZhJgDjbM4?rlkey=he1rveerbx8w3l4l5z19skon8&dl=0))
+
+-   link to [professor R script](https://www.dropbox.com/scl/fi/o5atu3at328maoso82bao/4T_Scales.R?rlkey=ecxnjcq27sxfiar3sd5m1a060&dl=0)
+
+![](lecture_images/4L_UpsideDragon.png){fig-align="center"} \##
+
+### Announcements
+
+-   **Mini Exam is in TWO weeks \[2/28\]**
+
+    -   take home; open-note; open-book; DO ON YOUR OWN.
+
+    -   held during normal class; 80 minutes (DSP students get extra time accommodations)
+
+    -   practice exam will post next week
+
+    -   No new R content after today
+
+-   **2/17 is a Holiday**
+
+    -   **Monday Sections :** attend extra GSI office hour OR jump to another GSIs section \[email them for heads up\]; no penalty if you can't attend / makeup.
+
+    -   **Everyone Else :** Business as Usual.
+
+-   **Chapter 5 : Good Science**
+
+    -   Good Knowledge : The Scientific Method in Five ~~Easy~~ Steps
+
+    -   Good Research : Scientific Articles and Literature Reviews
+
+    -   Good Measures : Reliability and Validity
+
+### Agenda
+
+-   2:10 - 3:00 \| Check-In and Week 3 Review
+
+-   3:00 - 3:30 \| Z-Scores
+
+-   3:30 - 3:42 \| BREAK TIME
+
+-   3:42 - 4:45 \| Likert Scales
+
+-   4:45 - 5:00 \| Project Workshop / Office Hours
+
+### Professor Check-In Code
+
+```{r}
+#| include: false
+## Q1. Load the mini_class dataset. 
+mini <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/cal_mini_SP25.csv", stringsAsFactors = T)
+## Call this mini to follow along with professor's code. 
+## How many individuals are in this dataset?
+
+## Q2. Graph the variable hrs.sleep, (hours of sleep students said they got.)
+## What is the shape of this distribution?
+
+## Q3. What is the average of hrs.sleep? 
+## (Round to two decimal places for the check-in)
+
+## Q4. What does this number mean / who cares about this value? [no R]
+
+## Q5. What is the standard deviation of hrs.sleep?
+
+## Q6. What does this number mean / who cares about this value? [no R]
+
+## Q7. Professor's z-score for hours of sleep was -0.95. This means.... [no R]
+
+## Q8. What is the standard deviation for the variable thirsty?
+## This variable measured how tired students said they were
+## on a scale from 0 (the least) to 10 (the most)
+
+
+## Q9. Can professor say that there was more variation in how many hours
+## of sleep people got than how thirsty they were?
+
+## Q10. What is the average height in the class?
+```
+
+### Lab 3 Review : The Mode
+
+```{r}
+
+```
+
+## Part 1 : The Z-Score (Scale Function)
+
+### RECAP : What and Why Z-Score?
+
+**The Z-Score**
+
+-   distance from the mean
+
+-   in units of standard deviation
+
+**Why We Care :**
+
+-   gives more context for how different an individual score is from other scores.
+
+    -   example : work for Meta and get paid an above average salary in zuckbucks!!!
+
+        -   how much above average???
+
+        -   wtf is a difference of 10? Is that a lot or a little???
+
+    -   example : your sleep last night (compared to others)?
+
+        -   mean sleep = `{r} round(mean(mini$hrs.sleep, na.rm = T), 0)`
+
+        -   sd sleep = `{r} round(sd(mini$hrs.sleep, na.rm = T), 1)`
+
+-   removes the units from a variable :
+
+    -   mean of a z-scored variable will always be zero
+
+    -   st of a z-scored variable will always be 1
+
+    -   all variables described in units of standard deviation In R : The Z-Score
+
+### Z-Scoring in R
+
+You can calculate the z-score manually, or you can use the `scale()` function.
+
+```{r}
+## Manual Z-Score : distance from the mean / sd
+mini$hrs.sleepZM <- (mini$hrs.sleep - mean(mini$hrs.sleep, na.rm = T))/ sd(mini$hrs.sleep, na.rm = T)
+
+## The scale() function
+mini$hrs.sleepZ <- scale(mini$hrs.sleep) # the z-score transformation
+
+## Comparing these calculations side-by-side
+zcompare <- with(mini, data.frame(hrs.sleep, hrs.sleepZM, hrs.sleepZ)) # organizing our two variables
+head(zcompare) # looking at the first few rows
+```
+
+It might be easier to look at this in graphical form. In the graph below,
+
+```{r}
+#| code-fold: true
+#| code-summary: "Click Here to Show the Code"
+
+## A PICTURE IS WORTH 1000 WORDS : Raw Scores vs. Z-Scores
+## REMEMBER : IT IS USUALLY BEST TO USE hist() FOR GRAPHING NUMERIC VARIABLES!
+## I AM USING PLOT TO ILLUSTRATE THE MEAN, STANDARD DEVIATION, AND Z-SCORES.
+par(mfrow = c(1,2)) # splits the graphics window
+plot(mini$hrs.sleep, main = "Hours of Sleep [Raw Units]", ylab = "Hours of Sleep")
+abline(h = mean(mini$hrs.sleep, na.rm = T), lwd = 5) # vertical line of mean
+abline(h = mean(mini$hrs.sleep, na.rm = T) + sd(mini$hrs.sleep, na.rm = T), # vertical line of mean + sd
+       lwd = 2, lty = 'dashed')
+abline(h = mean(mini$hrs.sleep, na.rm = T) - sd(mini$hrs.sleep, na.rm = T), # vertical line of mean - sd
+       lwd = 2, lty = 'dashed')
+
+## Z-SCORED GRAPH. WAIT TO RUN!!!! :)
+plot(mini$hrs.sleepZ, main = "Hours of Sleep [Z-Scores]", xlab = "Hours of Sleep")
+abline(h = mean(mini$hrs.sleepZ, na.rm = T), lwd = 5) # vertical line of mean
+abline(h = mean(mini$hrs.sleepZ, na.rm = T) + sd(mini$hrs.sleepZ, na.rm = T), # vertical line of mean + sd
+       lwd = 2, lty = 'dashed')
+abline(h = mean(mini$hrs.sleepZ, na.rm = T) - sd(mini$hrs.sleepZ, na.rm = T), # vertical line of mean - sd
+       lwd = 2, lty = 'dashed')
+
+```
+
+**Miscelaneous Student Questions and Professor Answers**
+
+-   Go Here.
+
+## Part 2 : "Normal" Distributions and Likert Scales
+
+### RECAP : The Normal Distribution
+
+We think of psychological constructs as continuous variables :
+
+```{r}
+d <- array()
+for(i in c(1:1000)){
+  d[i] <- sum(replicate(10, sample(c(0,1), 1)))
+  }
+hist(d, main = "Theoretical Normal Distribution", xlab = "Self-Esteem", breaks = 10)
+```
+
+We Expect This To Occur When :
+
+-   Multiple Explanations for Variation :
+
+-   Those Multiple Explanations are Independent :
+
+Below are Two Examples :
+
+```{r}
+plot(as.factor(mini$selfesteem))
+```
+
+### RECAP : A Likert Scale
+
+#### Why Are We Doing This?
+
+The Likert Scale is designed to help approximate a normal distribution, by asking multiple questions about the same variable (Multiple Explanations for Variation!)
+
+Notice, that our single-item measures are not really continuous, but could be considered categories :
+
+```{r}
+plot(as.factor(mini$selfesteem), xlab = "Self-Esteem", main = "Categories of Self-Esteem")
+```
+
+#### **DISCUSSION : Evaluate the Satisfaction With Life Scale \[below\]**
+
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcZss3J31ASVtR12xe-FXqfQ0VDv7gD5xJy1VjLwMnQbllB2sSXTorc6z2yYE6ZxLOYJuNzM7Y6L1knT7mxtARK8Jh0tftUCloFunT5eh05mjOB-v6DCnWuGBBFQJfMhSQ3O0akkUPtuTd41xPkvU58tkDb?key=r8XgfFaZOalV_EMC4TmK4A){fig-align="center"}
+
+-   **ICE-BREAKER :** Best / worst present you received?
+
+-   **Describe features that you notice about this scale (try and use the terms we just learned!)**
+
+    -   \# of items
+
+    -   response scale :
+
+        -   positively keyed items :
+
+        -   negatively keyed items :
+
+-   **Do you think this is a valid way to measure this construct?**
+
+    -   REASONS NO :
+
+    -   REASONS YES :
+
+-   **How might you use this scale in a study (as an IV or a DV).**
+
+### In R : Creating a Likert Scale
+
+Let's create a variable about how GOOD people feel. What items from the mini dataset measure this (the high end and / or the low end)?
+
+```{r}
+names(mini)
+```
+
+#### STEP 1 : ORGANIZE AND EVALUATE THE ITEM RELIABILITY
+
+```{r}
+# install.packages('psych') # only need to do this once!
+library(psych) # do this every time you restart R.
+
+```
+
+#### STEP 2 : CREATE AND INTERPRET THE SCALE
+
+```{r}
+# rowMeans()
+```
+
+## Part 3 : Project Workshop : You Need a Likert Scale!
+
+### Step 1 : Identify a (Dependent) Variable in Your Model
+
+-   Student Example Go Here
+
+### Step 2 : Measure this in a Continuous Way
+
+#### Method 1 : Find or Adapt an Existing Scale
+
+-   **List of (Free) Scales :** <https://ipip.ori.org/newIndexofScaleLabels.htm>
+
+-   **Google/Google Scholar :** add “construct” or “validation” or “scale” to your search
+
+#### Method 2 : Write Your Own Scale
+
+-   Keep items phrased in the same way. ("I am someone who....")
+
+-   Keep items on the same response scale (1-5 or 1-7); usually higher numbers indicate more agreement with the question.
+
+-   Make sure to include positive and negatively-keyed items.
+
+### Examples for "Mega" Class Survey
+
+-   **Love for Water Scale :**
+
+    -   I think water is delicious.
+
+    -   If I’m thirsty, it’s water I crave.
+
+    -   I’d rather be thirsty than drink water.
+
+    -   It’s a chore for me to drink water.
+
+### 

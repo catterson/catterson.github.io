@@ -1,0 +1,72 @@
+---
+title: "Lab 4: Linear Models"
+format: 
+  html:
+    code-overflow: 'wrap'
+---
+
+## Lab Instructions.
+
+Answer the questions below as a .PDF (you can either render from Quarto as .PDF, or render as .html and then print this html file as a .PDF). Make sure to reference any external sources (e.g., stack exchange; ChatGPT; peer help) that you used at the top of your lab assignment. *If you use external resources, don't just copy / paste the code (and source) blindly, but spend time thinking (and writing in your Lab) about what these external sources are doing with the code / what techniques you are learning from this source.* 
+
+And please ask for help if you get stuck / are confused / professor did something wrong on Discord!
+
+## Problem 1 (In Discussion Section)
+
+1.  Use the self-esteem dataset (from Labs 2 and 3) to determine whether there is a relationship between self-esteem and age. Feel free to re-use your code (or Professor's code) from Labs 2 and 3. Include a graph of your linear model, and report the intercept and slope from the model. Then, use bootstrapping to estimate the sampling error of the slope, and use this statistic to calculate 95% confidence intervals for the slope. Below these statistics, explain what they tell you about the relationship between these two variables, and how you can see them on the graph.
+
+```{r}
+
+```
+
+2. Calculate R^2 "by hand"; confirm you did this correctly by comparing to the value that R calculates (you can access this by running `summary(mod)$r.squared`, with (mod) being the name of your model object. Note that in order to get the exact same value as R, you'll need to compare the residuals in your linear model to residuals when calculating the mean of *only the participants who had data on both age and self-esteem*. There are different ways to do this, but when calculating SST you can use the data from the linear model by calling `mod$model$SELFES` (assuming you named your model `mod` and your self-esteem variable `SELFES`). Below your R code, describe what this statistic tells you about the relationship between age and self-esteem.
+
+```{r}
+
+```
+
+3. Now, define a linear model to determine whether there's a difference in the self-esteem of people whose country is US vs not the US. Note that you will need to do some data cleaning, since there are 174 countries that are not the US who will need to be collapsed into one level. *There are different ways to do this; I used the `levels()` and `relevel()` functions that we reviewed in class, but there's probably a more elegant and flexible solution using the package `dplyr()` you can look up / ask TA Sierra about!*
+
+```{r}
+
+```
+
+4. What would you do if you wanted to be more culturally sensitive and consider the differences between all 175 countries in terms of their self-esteem? How might you graph these data? Would you do any reduction of the number of levels? You can try some of these ideas out in R, but mostly curious how you might approach this question as a researcher working to understand complex data. (Do not try to do bootstrapping on 175 slopes!!!)
+
+```{r}
+
+```
+
+## Problem 2. Step Problems.
+
+1. Load the two "Steps and BMI" data files from the Dataset Dropbox folder. There are two data files - data9b_m.txt describes the number of steps taken day for men, and data9b_w.txt for women. You will need to find a way to load .txt files into R, and then use `rbind()` (or another method) to merge the two files together into one dataset. (Make sure to add a column to each dataset to keep track of whether the data are for men or women.) Show that this worked.
+
+```{r}
+
+```
+
+2. Use this merged dataset to determine whether there is a difference in the number of steps that women vs. men take. Estimate the sampling error of this difference. What do you conclude, based on these results?
+
+```{r}
+
+```
+
+3. Now, determine whether there is a relationship between the number of steps that people take and their BMI. Estimate the sampling error of this relationship. What do you conclude, based on these results?
+
+```{r}
+
+```
+
+## Problem 3. ggplot2 Problems.
+
+So far, we've been doing our graphing in base R. Next week, we'll talk more about using ggplot2 - a powerful graphics package. Install and load the ggplot2() package if you haven't done so already. Look over [Hadley Wickham's intro guide to ggplot2](https://ggplot2.tidyverse.org) and read through [Chapter 1 of his Data Visualization Book](https://r4ds.hadley.nz/data-visualize). (Let us know on discord if you find another great ggplot2 reference to share!)
+
+Recreate one of the graphs from lecture or this lab using ggplot2. Play around with some of the other features to look at this graph from another perspective (e.g., add a variable for color or facet). How does this graph help you better understand the data?
+
+```{r}
+
+```
+
+## Problem 4. The Good, the Bad, and the Ugly Graphs.
+
+Find a graph published in an article relevant to your research interests. Evaluate the graph according to some of the principles of good graphics that we discussed in this week's article / presentation. What is effective about the graph? What could be improved? Share the graph (and your analysis) here below, as well as in the [205 Vision Board](https://docs.google.com/spreadsheets/d/1VB7Ut1NW_g5cOVbcC0ofNGHCTc4O7dHN6ECej9k-iGM/edit?usp=sharing)

@@ -1,0 +1,203 @@
+---
+title: "Lecture 4 | Linear Models"
+format: 
+  html:
+    code-overflow: 'wrap'
+---
+
+## [Check-In Here](https://docs.google.com/forms/d/e/1FAIpQLSe-5mOk5GyxloW5syXGjPQ4zayc4ZaeYHmzkroLxVz7uOP_Jg/viewform?usp=header)
+
+1.  Load the grad onboarding dataset (name this d to follow along with professor code in lecture). The variable `can.forloop` asked students whether they could write a for-loop or not. What is the difference in the number of students who said that YES they could for-loop, compared to the number who said either NO or MAYBE? Find a way to get R to calculate this difference using code (hint : use indexing and the summary function.)
+
+2.  Now, write a for-loop to estimate how much sampling error might influence this number. Generate 1000 new samples, and re-calculate the difference between YES and NO + MAYBEs. What percentage of re-sampled groups would show that there are more people who CAN write a for-loop than NO or MAYBE?
+
+    ```{r}
+
+    ```
+
+![](images/clipboard-3051119200.png){fig-align="center"}
+
+### Announcements & Agenda
+
+**Agenda**
+
+-   9:10 - 9:30 : Check-In.
+-   9:30 - 10:30 : Linear Models (Basics)
+-   10:30 - 11:00 : Break & Presentation
+-   11:00 - 12:00 : Linear Models (Continued)
+
+**Announcements**
+
+Mini Exam in TWO Weeks.
+
+-   I give you data and a question, you generate a report in Quarto.
+
+    -   Data loading and cleaning.
+
+    -   Scale creating & descriptive statistics.
+
+    -   Linear Models (TODAY!)
+
+    -   Bootstrapping
+
+    -   A fun challenge problem worth 1 point.
+
+-   Take home (9AM-12PM).
+
+-   Ask questions on ZOOM if / when you have them. Okay? Don't struggle on your own. Plenty of time to do that in other spaces!
+
+-   We will practice / review next week (Lab 5 a practice exam.)
+
+-   Think it will be chill, and if not then professor takes the blame, alright?
+
+## RECAP : The Mean as Prediction
+
+### Creating a Scale.
+
+```{r}
+names(d)[c(25:31)] # identifying the scale items; 7 questions about science.
+df <- d[,c(25:31)] # creating a mini-data frame.
+names(df) # checking to make sure I did this correctly
+df[,c(4,6:7)] <- 6-df[,c(4,6:7)] # reverse scoring the negatively-keyed items (items on a 1-5 scale should be subtracted from 6 to flip them.)
+
+library(psych)
+psych::alpha(df) # the alpha reliability.
+
+d$PSYSCI <- rowMeans(df, na.rm = T) # a new variable; in my dataset
+hist(d$PSYSCI, xlim = c(1,5)) # the graph of this new variable.
+```
+
+### The Mean is a Prediction (of the Sample)
+
+::: panel-tabset
+## Where is the Mean?
+
+```{r}
+plot(d$PSYSCI, 
+     ylab = "Belief in Psychology as a Science",
+     xlab = "Index") 
+abline(h = mean(d$PSYSCI, na.rm = T), lwd = 0)
+```
+
+## There is the Mean!
+
+```{r}
+plot(d$PSYSCI, 
+     ylab = "Belief in Psychology as a Science",
+     xlab = "Index") 
+abline(h = mean(d$PSYSCI, na.rm = T), lwd = 5)
+```
+:::
+
+## There is Error in Our Prediction of the Sample (Residual Error)
+
+This prediction of the sample has some error (residual error). We can (and will need to) quantify this error.
+
+```{r}
+## quantifying errors (residuals)
+residuals <- d$PSYSCI - mean(d$PSYSCI, na.rm = T)
+SST <- sum(residuals^2)
+SST
+
+SST/length(residuals) # average of squared residuals (variance)
+sqrt(SST/length(residuals)) # average of residuals, unsquared (standard deviation)
+
+sd(d$PSYSCI) # slightly higher
+sqrt(SST/(length(residuals)-1)) # the 'real' equation; n-1 to inflate our estimate / adjust for small samples.
+```
+
+## The Mean is a Prediction of our Population (with Sampling Error)
+
+```{r}
+m <- array()
+for(i in c(1:1000)){
+ nd <- d[sample(1:nrow(d), nrow(d), replace = T),] # a new sample
+ m[i] <- mean(nd$PSYSCI, na.rm = T)
+}
+mean(d$PSYSCI, na.rm = T)
+mean(m) # similar!
+
+sum(m > 2.5) # all of them (100% greater than the midpoint of the scale.)
+
+sd(m) # sampling error!
+
+hist(m, xlim = c(1,5)) # our distribution of sampling estimates 
+abline(v = c(mean(d$PSYSCI),
+             mean(d$PSYSCI) + 1.96 * sd(m),
+             mean(d$PSYSCI) - 1.96 * sd(m)),
+       lwd = c(5,2,2), # two line widths
+       lty = c(1,2,2)) # two line types
+```
+
+## Linear Models : Improving our Predictions (Numeric IV)
+
+### The Mean as a Model
+
+```{r}
+lm(PSYSCI ~ 1, data = d) # predicting PSYSCI from a constant (1), using the datset = d
+mod0 <- lm(PSYSCI ~ 1, data = d) # saving this as a model object
+coef(mod0) # looking at the coefficients
+mod0$residuals # finding the residuals
+```
+
+### Use information in the IV to predict the DV
+
+```{r}
+names(d) # what variable might predict PSYSCI?
+
+```
+
+### There is Error in Our Prediction (residual error --\> R\^2)
+
+```{r}
+
+```
+
+### There is Error in Our Prediction of the Population (sampling error)
+
+```{r}
+
+```
+
+## BREAK TIME : Meet Back at 10:40
+
+## [Presentations](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
+
+## Linear Models Again.
+
+Load the gradmini.csv dataset. Check to make sure the data loaded correctly. Predict
+
+```{r}
+
+```
+
+## Linear Models : Improving our Predictions (Categorical IV)
+
+### Use information in the IV to predict the DV
+
+```{r}
+
+```
+
+### relevel() to aid interpretation.
+
+```{r}
+
+```
+
+### Evaluate uncertainty in our prediction of the sample (R\^2)
+
+```{r}
+
+```
+
+### Evaluate the uncertainty in our estimate of the population (sampling error)
+
+```{r}
+
+```
+
+## FOR LAB 4.
+
+1.  Define linear models to predict a numeric DV from a) a numeric IV and b) a categorical IV
+2.  Interpret the intercept, slope, and R\^2 value.

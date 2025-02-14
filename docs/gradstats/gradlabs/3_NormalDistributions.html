@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -121,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
@@ -247,11 +247,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>negkeyR.df <span class="ot">&lt;-</span> <span class="dv">5</span><span class="sc">-</span>negkey.df <span class="co"># reverse scoring the neg-keyed items</span></span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>SELFES.DF <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(poskey.df, negkeyR.df) <span class="co"># bringing it all 2gether.</span></span>
 <span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych) <span class="co"># loading the library</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'psych' was built under R version 4.3.3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">alpha</span>(SELFES.DF) <span class="co"># alpha reliability.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych) <span class="co"># loading the library</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="fu">alpha</span>(SELFES.DF) <span class="co"># alpha reliability.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Reliability analysis   
@@ -309,10 +306,10 @@ Q10 0.24 0.33 0.22 0.22 0.00</code></pre>
 <li>Average the items into one variable; graph &amp; describe.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>selfes<span class="sc">$</span>SELFES <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(SELFES.DF, <span class="at">na.rm =</span> T) <span class="co"># creating the scale</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(selfes<span class="sc">$</span>SELFES, <span class="at">col =</span> <span class="st">'black'</span>, <span class="at">bor =</span> <span class="st">'white'</span>, <span class="co"># the graph</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Histogram of Self-Esteem"</span>, </span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Self-Esteem Score"</span>, <span class="at">breaks =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>selfes<span class="sc">$</span>SELFES <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(SELFES.DF, <span class="at">na.rm =</span> T) <span class="co"># creating the scale</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(selfes<span class="sc">$</span>SELFES, <span class="at">col =</span> <span class="st">'black'</span>, <span class="at">bor =</span> <span class="st">'white'</span>, <span class="co"># the graph</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Histogram of Self-Esteem"</span>, </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Self-Esteem Score"</span>, <span class="at">breaks =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -329,10 +326,10 @@ Q10 0.24 0.33 0.22 0.22 0.00</code></pre>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>lils <span class="ot">&lt;-</span> selfes[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(selfes), <span class="dv">100</span>),]<span class="co"># 100 random data points</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lils<span class="sc">$</span>SELFES, </span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Self-Esteem (100 Points)"</span>,</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Index"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>lils <span class="ot">&lt;-</span> selfes[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(selfes), <span class="dv">100</span>),]<span class="co"># 100 random data points</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lils<span class="sc">$</span>SELFES, </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Self-Esteem (100 Points)"</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Index"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -344,10 +341,10 @@ Q10 0.24 0.33 0.22 0.22 0.00</code></pre>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lils<span class="sc">$</span>SELFES,</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Self-Esteem (100 Points)"</span>,</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Index"</span>) </span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">mean</span>(lils<span class="sc">$</span>SELFES, <span class="at">na.rm =</span> T), <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lils<span class="sc">$</span>SELFES,</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Self-Esteem (100 Points)"</span>,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Index"</span>) </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">mean</span>(lils<span class="sc">$</span>SELFES, <span class="at">na.rm =</span> T), <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -359,22 +356,22 @@ Q10 0.24 0.33 0.22 0.22 0.00</code></pre>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="do">## quantifying errors (residuals)</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>residuals <span class="ot">&lt;-</span> selfes<span class="sc">$</span>SELFES <span class="sc">-</span> <span class="fu">mean</span>(selfes<span class="sc">$</span>SELFES, <span class="at">na.rm =</span> T)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>SST <span class="ot">&lt;-</span> <span class="fu">sum</span>(residuals<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> T)</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>SST</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## quantifying errors (residuals)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>residuals <span class="ot">&lt;-</span> selfes<span class="sc">$</span>SELFES <span class="sc">-</span> <span class="fu">mean</span>(selfes<span class="sc">$</span>SELFES, <span class="at">na.rm =</span> T)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>SST <span class="ot">&lt;-</span> <span class="fu">sum</span>(residuals<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> T)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>SST</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 23401.4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>SST<span class="sc">/</span><span class="fu">length</span>(residuals) <span class="co"># average of squared residuals (variance)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>SST<span class="sc">/</span><span class="fu">length</span>(residuals) <span class="co"># average of squared residuals (variance)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.4877935</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(SST<span class="sc">/</span><span class="fu">length</span>(residuals)) <span class="co"># average of residuals, unsquared (standard deviation)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(SST<span class="sc">/</span><span class="fu">length</span>(residuals)) <span class="co"># average of residuals, unsquared (standard deviation)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.6984221</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(selfes<span class="sc">$</span>SELFES, <span class="at">na.rm =</span> T) <span class="co"># </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(selfes<span class="sc">$</span>SELFES, <span class="at">na.rm =</span> T) <span class="co"># </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.6987572</code></pre>
 </div>
@@ -401,7 +398,7 @@ Q10 0.24 0.33 0.22 0.22 0.00</code></pre>
 <li>Non-independent influences on people’s attitudes about psychology as a science?</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(selfes<span class="sc">$</span>SELFES, <span class="at">col =</span> <span class="st">'black'</span>, <span class="at">bor =</span> <span class="st">'white'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(selfes<span class="sc">$</span>SELFES, <span class="at">col =</span> <span class="st">'black'</span>, <span class="at">bor =</span> <span class="st">'white'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -421,8 +418,8 @@ Q10 0.24 0.33 0.22 0.22 0.00</code></pre>
 </ul>
 <p><strong>Professor Code Goes Here.</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>coinflip <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>) <span class="co"># defining a coin-flip.</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.factor</span>(coinflip))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>coinflip <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>) <span class="co"># defining a coin-flip.</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.factor</span>(coinflip))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -430,69 +427,55 @@ Q10 0.24 0.33 0.22 0.22 0.00</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>?sample</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(coinflip, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>?sample</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(coinflip, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">replicate</span>(<span class="dv">10</span>, <span class="fu">sample</span>(coinflip, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">replicate</span>(<span class="dv">10</span>, <span class="fu">sample</span>(coinflip, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0 0 0 0 1 1 0 1 1 1</code></pre>
+<pre><code> [1] 1 1 0 1 0 1 0 1 1 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">replicate</span>(<span class="dv">10</span>, <span class="fu">sample</span>(coinflip, <span class="dv">1</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">replicate</span>(<span class="dv">10</span>, <span class="fu">sample</span>(coinflip, <span class="dv">1</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
+<pre><code>[1] 6</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>life <span class="ot">&lt;-</span> <span class="fu">array</span>()</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>)){</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  life[i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">replicate</span>(<span class="dv">10</span>, <span class="fu">sample</span>(coinflip, <span class="dv">1</span>)))</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>life</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>life <span class="ot">&lt;-</span> <span class="fu">array</span>()</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>)){</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  life[i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">replicate</span>(<span class="dv">10</span>, <span class="fu">sample</span>(coinflip, <span class="dv">1</span>)))</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>life</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   [1]  8  4  7  4  5  6  5  6  6  6  6  8  6  5  6  5  7  5  8  5  3  4  3  5
-  [25]  2  5  4  4  2  2  5  5  5  3  5  6  7  3  4  2  3  2  5  6  4  5  4  6
-  [49]  5  6  5  4  5  2  5  5  5  6  4  3  3  4  4  6  4  5  5  6  2  3  5  5
-  [73]  5  6  3  8  7  5  5  4  6  4  1  4  4  5  2  5  3  7  3  2  4  5  5  5
-  [97]  8  3  5  5  4  8  5  3  5  4  4  2  5  4  6  3  5  4  2  2  6  3  4  5
- [121]  3  5  7  3  4  2  7  6  5  6  6  3  5  6  4  7  5  5  1  7  4  3  8  5
- [145]  7  3  6  2  4  6  7  4  4  4  4  5  5  6  5  4  2  5  8  7  3  5  6  4
- [169]  4  5  6  6  1  4  6  7  4  7  8  3  7  1  5  5  7  4  4  6  5  3  5  5
- [193]  6  7  4  7  6  7  5  2  4  3  7  7  8  3  4  2  1  4  5  8  6  5  1  4
- [217]  4  5  7  4  5  7  6  8  7  9  2  4  5  6  7  5  7  5  6  5  5  5  3  8
- [241]  5  6  4  3  6  6  5  5  6  7  4  4  4  6  3  7  4  4  5  2  3  8  7  6
- [265]  7  5  6  3  5  5  7  5  4  5  4  3  4  3  5  7  5  4  4  2  4  6  5  4
- [289]  4  4  1  3  4  9  8  2  4  5  6  5  6  5  5  7  5  6  5  6  5  8  6  5
- [313]  5  5  4  4  5  6  5  5  6  2  6  4  3  3  6  6  6  3  4  4  3  4  3  9
- [337]  5  4  7  3  6  5  4  5  3  4  2  3  4  6  3  6  3  8  4  5  5  5  5  4
- [361]  6  5  4  7  6  5  5  8  7  4  4  2  4  3  8  3  6  5  4  4  5  6  4  6
- [385]  7  2  7  4  6  6  6  8  6  5  6  3  4  5  6  6  4  4  5  4  6  5  4  4
- [409]  6  5  7  7  5  7  4  6  9  5  5  5  6  3  7  6  5  5  5  5  6  3  4  4
- [433]  4  5  3  5  5  7  4  4  5  4  6  5  5  6  9  4  6  4  6  5  4  3  3  6
- [457]  6  5  6  5  3  7  5  3  7  4  3  5  5  3  5  3  6  3  9  6  3  5  4  4
- [481]  4  2  4  3  5  6  5  5  8  4  5  3  4  5  5  4  6  6  5  5  5  3  7  7
- [505]  5  4  4  5  4  8  3  6  6  4  6  7  8  6  4  5  6  5  6  7  5  5  5  8
- [529]  4  6  4  4  2  5  5  6  6  6  6  7  4  5  4  6  7  4  5  5  2  3  3  3
- [553]  6  4  9  2  3  4  5  6  4  6  4  3  7  3  6  4  4  6  5  4  4  2  7  5
- [577]  6  7  5  7  8  3  4  5  6  4  4  5  5  5  5  3  3  5  6  1  7  7  7  6
- [601]  3  7  6  3  3  4  7  8  4  8  6  7  4  6  8  5  3  5  5  4  2  5  8  8
- [625]  4  5  5  8  4  5  4  6  5  7  5  2  7  6  4  7  5  2  6  5  5  8  4  4
- [649]  3  5  6  7  3  4  5  5  6  7  4  4  5  4  5  3  2  7  3  6  9  6  4  6
- [673]  3  6  7  2  4  5  2  7  3  4  2  2  5  4  4  2  4  5  4  5  4  4  5  4
- [697]  3  5  3  6  2  5  7  5  4  5  5  6  5  2  6  6  9  6  4  4  4  6  9  5
- [721]  5  3  5  4  4  7  5  8  5  3  6  6  4  5  5  7  6  6  7  3  3  5  3  4
- [745]  3  7  4  7  7  3  5  4  5  6  3  7  5  2  7  5 10  5  7  3  6  6  4  7
- [769]  4  7  6  5  8  7  1  8  5  7  3  5  3  4  6  5  5  6  5  5  5  6  4  5
- [793]  7  5  6  5  6  4  6  5  5  3  6  5  6  6  4  5  6  4  2  6  5  4  5  5
- [817]  8  3  8  3  3  6  5  7  3  5  6  5  4  7  5  6  5  3  3  5  3  8  3  3
- [841]  3  4  5  7  5  6  5  5  5  6  6  7  4  6  6  7  5  5  5  6  5  7  4  5
- [865]  4  7  6  5  6  5  6  7  5  4  2  4  6  7  7  6  4  6  3  7  4  5  8  6
- [889]  3  4  3  5  7  7  4  6  6  6  6  4  5  2  6  3  7  4  2  6  7  5  7  4
- [913]  2  4  4  7  3  3  5  8  7  7  6  2  4  5  6  5  8  7  6  5  5  5  5  3
- [937]  7  7  3  2  7  4  7  5  5  6  6  4  6  6  7  5  4  6  6  3  6  6  5  7
- [961]  4  4  3  7  7  0  5  5  5  7  7  7  2  6  6  4  5  5  6  3  6  5  2  6
- [985]  5  4  5  8  3  4  4  3  2  3  7  6  3  3  5  5</code></pre>
+<pre><code>   [1] 5 5 6 6 4 3 7 4 2 2 3 8 5 7 5 5 5 6 4 4 4 7 6 7 7 1 6 4 4 6 4 6 7 4 5 7 4
+  [38] 6 2 5 6 5 3 6 4 2 4 5 4 4 3 5 7 4 4 5 3 4 6 5 4 5 6 8 2 8 4 7 9 6 5 6 6 5
+  [75] 4 2 5 7 4 7 4 3 7 6 4 4 6 6 4 4 3 4 4 5 4 4 8 4 5 6 2 4 6 6 7 6 4 5 6 5 5
+ [112] 6 1 3 1 6 6 3 7 8 4 4 5 5 3 5 4 4 4 5 7 3 2 4 7 5 5 6 8 5 6 4 5 5 5 5 4 5
+ [149] 4 6 6 7 4 5 3 4 6 4 6 7 4 4 7 3 5 2 5 7 7 3 4 4 7 4 2 2 5 2 6 4 5 1 2 6 6
+ [186] 5 6 4 3 5 6 5 4 3 5 7 5 5 6 3 3 5 4 5 5 4 6 5 6 6 4 6 4 6 5 6 7 6 5 5 3 6
+ [223] 7 5 6 5 3 2 7 5 8 8 5 4 5 3 6 5 5 4 6 5 3 5 4 5 4 4 6 7 4 7 3 2 3 6 4 3 4
+ [260] 5 6 5 7 7 3 5 6 4 3 7 5 4 6 4 4 5 5 4 7 5 5 4 5 6 6 7 6 4 5 7 4 4 4 3 5 5
+ [297] 4 7 4 6 4 4 4 6 6 3 7 6 7 7 4 3 4 6 4 3 6 6 7 4 7 5 5 5 5 2 8 5 7 4 1 6 6
+ [334] 6 5 3 5 3 6 5 5 5 3 7 6 8 6 4 5 5 4 4 4 4 4 5 5 7 4 5 4 0 9 6 5 5 5 5 2 6
+ [371] 9 5 7 3 3 5 7 2 5 5 3 7 4 6 8 4 7 2 6 7 4 4 2 5 4 5 6 4 5 6 3 6 8 5 6 3 6
+ [408] 5 5 8 3 5 6 6 2 2 3 5 7 4 3 6 2 5 5 4 7 2 5 3 4 5 5 2 6 5 8 6 6 4 7 2 3 5
+ [445] 7 4 6 5 3 3 6 3 6 9 6 3 5 3 6 3 5 5 8 9 7 6 4 4 4 6 4 5 6 5 4 6 7 6 6 5 4
+ [482] 3 6 4 8 2 7 5 5 4 5 5 2 3 4 3 7 8 6 5 5 4 2 5 6 5 6 6 4 7 7 3 5 4 5 4 7 2
+ [519] 6 5 6 5 5 4 5 3 7 4 3 5 5 7 6 0 7 6 7 3 8 3 5 5 4 4 3 5 4 5 6 7 5 5 6 5 3
+ [556] 5 4 6 6 7 4 5 3 6 4 3 4 7 5 7 6 2 6 5 5 2 3 6 7 7 7 4 9 5 5 5 6 5 3 4 5 3
+ [593] 4 4 7 7 4 4 5 8 8 8 4 5 6 4 8 6 2 7 7 4 8 3 1 5 1 7 4 5 5 5 5 3 7 6 6 6 3
+ [630] 1 2 2 7 7 3 4 6 7 6 4 2 4 8 4 9 5 3 7 5 4 7 7 4 5 7 4 3 5 3 7 5 6 4 5 9 7
+ [667] 9 2 3 5 5 5 9 3 3 7 6 7 6 6 6 3 4 6 5 5 8 4 5 7 8 5 7 4 3 5 3 5 3 4 7 5 5
+ [704] 4 3 6 4 5 7 4 2 6 4 5 4 5 3 5 7 3 7 6 7 5 6 5 2 7 4 6 6 8 7 5 5 6 6 4 8 5
+ [741] 3 4 5 5 8 4 3 6 4 5 3 5 8 7 3 4 5 8 5 6 7 5 5 3 7 8 4 8 3 7 4 4 4 7 6 2 8
+ [778] 8 6 2 4 7 2 5 6 4 5 5 8 5 7 5 6 5 5 3 6 4 5 6 4 3 6 4 3 5 5 6 4 8 5 4 5 7
+ [815] 4 3 7 3 3 7 6 5 6 6 7 7 7 4 0 5 3 5 3 6 4 6 5 2 7 4 3 3 3 6 6 7 7 7 2 6 6
+ [852] 3 3 1 8 7 4 5 6 4 8 3 3 7 4 7 8 7 6 4 6 5 4 2 5 4 6 5 4 3 4 5 5 5 5 6 6 7
+ [889] 6 7 6 6 6 5 7 5 6 4 7 3 6 5 6 6 6 4 6 4 5 9 5 5 3 9 4 7 5 5 4 7 4 4 4 6 7
+ [926] 5 6 5 6 3 4 6 3 9 4 4 5 6 3 3 7 6 5 6 5 5 5 5 5 6 6 3 5 1 7 6 3 4 6 5 3 4
+ [963] 5 5 7 6 5 8 5 5 6 4 6 5 5 7 4 4 4 6 6 9 5 6 5 7 4 3 6 1 7 3 8 5 5 3 4 6 6
+[1000] 7</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(life)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(life)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -504,8 +487,8 @@ Q10 0.24 0.33 0.22 0.22 0.00</code></pre>
 <p><strong>What if the Coin is Biased?</strong></p>
 <p>Modify the code we worked on in lecture to simulate 1000 coin flips where there’s a 80% chance of flipping one option. What type of distribution do you expect to see? Why?? <em>Note : the sample() function can take another argument that can adjust the probability.</em></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>coinflip <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>) <span class="co"># defining a coin-flip.</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.factor</span>(coinflip))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>coinflip <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>) <span class="co"># defining a coin-flip.</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.factor</span>(coinflip))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -513,61 +496,61 @@ Q10 0.24 0.33 0.22 0.22 0.00</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>?sample</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(coinflip, <span class="dv">1</span>, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">3</span>, .<span class="dv">7</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>?sample</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(coinflip, <span class="dv">1</span>, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">3</span>, .<span class="dv">7</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0</code></pre>
+<pre><code>[1] 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>unfairlife <span class="ot">&lt;-</span> <span class="fu">array</span>()</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>)){</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  unfairlife[i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">replicate</span>(<span class="dv">10</span>, <span class="fu">sample</span>(coinflip, <span class="dv">1</span>,  <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">3</span>, .<span class="dv">7</span>))))</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>unfairlife</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>unfairlife <span class="ot">&lt;-</span> <span class="fu">array</span>()</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>)){</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  unfairlife[i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">replicate</span>(<span class="dv">10</span>, <span class="fu">sample</span>(coinflip, <span class="dv">1</span>,  <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">3</span>, .<span class="dv">7</span>))))</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>unfairlife</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   [1]  8  6  5  6  8  4  8  7  7  8  4  8  5  8  6 10  8  8  7  6  9  6  6  8
-  [25] 10  8  7  7  8  5  8  9  4  8  5  5  7  4  8  6  7  7  7  5  6  8  7  5
-  [49]  7  9  7  7  8  7  8  8  7  9  7  8  8  7  9  7  6  5  6  7  8  6  9  4
-  [73]  6  8  7  7  8  7  5  8  9  5  4  9  7  6  8  9  7  8  8  9  7  8  6  6
-  [97]  8  7  7  8  8  4  8  7  9  7  7  8  6  6  7  6  8 10  9  7  5  7  7 10
- [121]  8  9  6  7  7  5  6  7  7  9  7  7  7  8  9  6  8  4  9  6  4  7  6  6
- [145]  7  8  7  5  6  6 10  9  8  5  6  6  5  7  3  4  7  8  6  5  9  7  5  9
- [169]  9  7  9  4  8  6  9  5  7  7  8  7  6  8  7  7  7  7  7  7  8  4  7  9
- [193]  7  8  7  9  7  7  9 10  7  7  7  8  9  6  5  9  6  4  7  8  7  7  6  7
- [217]  9  6  7  7  8  5  6  7  5  5  8  7  8  7  7  5  8  7  8  7  6  9  5  7
- [241]  6  7  6  9 10  8  7  6  5  7  7  7  6  4  7  8  7  8  6  7  8  7  7  9
- [265]  6  8  8  7  5  9  9  8  8  7  9  7  7  9  7  6 10  8  6  9  8  6  7  9
- [289]  9  8  9  9  7  8  6  5  7  6  9  7  9  8  8  9  8  8  9  7  7  5  8  8
- [313]  8  9  7  9  6  4  8  7  8  8  6  8  9  7  7  9  7  8  6  7  5  7  7  6
- [337]  7  7  5  7  8  9  5  5  7  5  5  7  8  8 10  7  7  9  6  6  8  8  7  9
- [361]  6  8  5  9  5 10  6  9  6  7  6  8  9  6  4  7  9  7  7  7  7  5  8  7
- [385] 10  7  5  8  5  7  5  8  9  8  5  6  7  8  9  7  9  7  8  6  6  8  5  6
- [409]  9  7  6  6  8  7  8  6  7  6 10  5  7  9  7  8  8  7  7  7  9  5  7  7
- [433]  7  5 10  5  7  7  7  6  8  8  5  8  8  6  6  5 10  4  7  8  7  7  9  5
- [457]  6  7  8  9  5  8  6  7  9  9  6  8  4  6  6  5  6  8  5  9  2 10  4  8
- [481]  6  7  8  9  4  5  7  8  6  7  6  6  5  9  9  7  7  8  5  7  6  5  8  8
- [505]  8  6  8  9  7  6  9  9  7  7  7  8  7  5  6  8  8  5  6  5  7  8  6  9
- [529]  8  9  5  6  8  6  9 10  6  5  9  8  9  6  9  6  7  7  7  8  6  6  6  7
- [553]  7 10  8  7  7  8  9  9  7  7  8  9  8  8  7  9  5  8  9  6  7  6  7  9
- [577]  6  7  9  8  9  6  8  9  8  3  7  5  6  6  9  6  8  8  6  6  8  8  7  9
- [601]  6  7  9  6  7  7  8  5  8  7  9  4  8  6  9  6  5  6 10  6  6  7  6  7
- [625]  7  8  7  5  6  4  8  6  6  8  7 10  8  6  5  7  8  5  6  6  9  8  7  7
- [649]  7  8  7  5  7  7  7  9  5  4  9  7  9  5  8  7  4  8 10  9  8  9  6  6
- [673]  7  8  8  6  6  9  6  6  7  8  8  6  8  6  6  8  7  9  8  9  8  7  6  6
- [697]  3  7  9  7  7  7  7  7  6  6  7  8  8  5  6  7  8  9  6  7  6  8  9  6
- [721]  7  8  8  6  5  7  9  8  9  9  8  7  6  7 10  8  6  8  7  5  8  8  6  6
- [745]  7  7  6  7  7  3  5  7  8  9  7  7  8  9  8  7  8  6  7  6  7  6  9  5
- [769] 10  7  7  8  7  8  8  7  9  9  9  6  8  6  9  6  9  6  6  7  7  7  8  6
- [793]  6  5  3  7  5  7  7  4  7  5  7  8  8  7  5  8  7  7  8  8  7  4  8  6
- [817]  7  7  8  7  6  9  9  5  8  5  6  5  7  7  8  7  7  9  8  5  6  9  6  5
- [841] 10  8  7  8  8  7  7  8  5  8  8  8  5  7  6  9  8  8  5  7  8  9  7  6
- [865]  9  7  8 10  8  7  8  6  7  8  6  7  8  6  8  5  9  7  9  8  6  9  7  7
- [889]  4  5  8  6  5  8  8  7  9  8  6  6  8  8  8  6  5  7  9  9  7  8  6  6
- [913]  8  8  9  6  8  5  7  6  6  8  5  8  7  6  6  4  6  9  8  7  8  6  7  6
- [937]  7  7  8  9  6  6  7  5  8  7  9  9  4  9  9  8  7  5  4  4  6  8  5  7
- [961] 10  9  9  5  7  9  9  7  6  5  7  8  8  7  8  5  8  4  7  8 10  5  7  8
- [985]  9 10  9  6  8  5  7  7  6  6  7 10  7  8  8  7</code></pre>
+<pre><code>   [1]  5  6  8  5  6  9  8  9  5  7  7  6  6  6  4  9  6  9  7  4  7  4  6  7
+  [25] 10  6 10  9  7  9  5  7  7  8  7  9  6  3  8  6  7 10  7  7  9  4  7  6
+  [49]  9  9  5  9  5  6  8  7  7  9  5  6  8  6  9  5  5  7  6  9  9  7  7  7
+  [73]  7  7  7  9  7  8  5  8  5  3  8  9  6  4  6  7  4  9  7  8  7  5  7 10
+  [97]  7  6  3  8  9  7  8  6  8  8  7  8  7  5  5  7  8  5  8  7  9  7  7  3
+ [121]  8  9  4  7  8  8  8  6  6  8  9  5  9  8  8  6  7  6  8  6  6  6  6  8
+ [145]  7  6  9  9  8  7  9  7  7  8  6  7  6  8  6  7  8 10  6  6  9  6  6  6
+ [169]  7  6  7  6  5  6  7  7  8  8  6  8  9  7  5  7  6  5  9  5  8  7  7  7
+ [193]  8  8 10  7  6  7  7  7 10  6  5  8  8  8  5  9  9  5 10  7  7  7  7 10
+ [217]  5  9  8  5  7  8 10  6  8  8  7  8  9  7  7  6  9  8  6  8 10  6  5  8
+ [241]  5  5  6  9  7  8  9  6  9  7 10  8  4  8  6  6  7  6  9  5  8  5  9  7
+ [265]  7  7  6  8  9  5  6  7  5  6  8  8  8  9  3  7  7  8  6  7  9  4  5  8
+ [289]  8  9  6  8  9  7  7  8  8  9  8  8  5  7  9  5  8  5  9  7 10  7  8  8
+ [313]  5  6  7  9  6  8  8  8  6  6  5  9  5  5  7  7  9  7  9  5  8  8  5  4
+ [337]  7  7  3  5  7  5  7  5  7  9  5  7  8  8  7  8  7  7  5  6  6  6  5  7
+ [361]  8  6  7  6  9  7  6  8  7  7  9  8  8  5  7  9  7  7  9  4  6  7  5  7
+ [385]  9  7  9  7  8  6  4  6  7  6  7  8  6  6  4  6  9  7  9  7  7  5  7  7
+ [409]  7  7  7  7  8  8  7 10  5  6  5  9  6  7  7  7  6  6  7  7  7  7  6  7
+ [433]  6  6  9  9  5  7  7  6  5  6  7  7  9  6  7  9  9  6  8 10  9  7  7  5
+ [457]  8  7  7  8  5  7  6  5  7  8  6  7  8  7  8  6  6  6  8  9  7 10  5  8
+ [481]  6  6  8  4  7  6  8  5  9  9  6  7  7  9  6  7  9  8  7  8  8  8  6  6
+ [505]  8  7  8  6  7  7  5  8  5  8  9  7  6  9  8  7  9  9  6  6  7  6  9  6
+ [529]  7  8  8  6  7  7  7  7  6  5 10  8  8  5  8  6  9  9  8  8  8  4  8  7
+ [553]  9  7 10  7  7  4  5  5  7  5  7  8  6  5  7  7  6  8  3  5  5  9  6  9
+ [577]  7  5  6  8  6  5  7  7  7  7  7  6  6  7  6  6  5  6  5  9  6  6  5  9
+ [601]  8  7  8  8  4  9  6  3  6  4  5  6  9  9  7  7  9  7  7  6  4  8  9  6
+ [625]  7  7  9  7  7  6  6  8  7  7  8  9  9  6  7  8  7  8  7  8  8  8  5  7
+ [649]  4  8  8 10  8  9  8  5  9  9  5  5  5  8  7  7  8  9  6  6  5  8  7  6
+ [673]  8  7  4  7  6  5  7  6  4  9  5  8  7  8  7  9  6  6  4  8  9  7 10  8
+ [697]  7  5  6 10  5  5  8  7  7  7  4  8  8  8  6  7  9  9  4  9  8  5  8  7
+ [721]  7  7  7  6  8  9  5  6  7  8 10  7 10  6  6  6  9  7  8  7  7  7  6  8
+ [745]  5  6  9  7  7  7  8  7  8  8  7  5  7  5  3  6  8  6  7  9  8  7  6  6
+ [769]  7  6  6  7  7  6  7  8  4  7  7  6  6  5  8  9  7  3  9  7  4  5  6  9
+ [793]  6  7  6  7  7  6  8  8  9  7  9  8  8  9  6  8  7  6  6  9  7  7  9  7
+ [817]  3  6  6  5  7  8  6  7  5  6  4  4  4  8  5  9  7  7  9  6  4  8  8  6
+ [841]  7  7  8  9  6  8  5  7  7  7  7  8  9  5  7  8  7  6  7  7  9  5  8  6
+ [865]  7  9  7  7  8  7  8  7  4  8  6  5  6  6  7  5 10  5  7  7  5  7  8  8
+ [889]  8 10  7  8  5  6  7  6 10  9  7  6  4  5  6  9  8  8  8  8  7  7  5  7
+ [913]  7  8  8  9  7  5  8  8  9  7  7  6  7  6  7  5  5  5  6  6  6  7  6  6
+ [937]  5  8  9  8  5  8  6 10  9  8 10  7  7  6  6 10  6  9  7  8  7  8  6  7
+ [961]  8  7  6  9  8  7  7  7  9  7  8 10  8  6  9  8  8  6  9  7  7  7  8  6
+ [985]  8  5  8  8  9  8  6  7  6  7  6  6  6  7  7  7</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(unfairlife, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(unfairlife, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -642,27 +625,27 @@ Critical Race Theory DEI Alert!
 <li>Be an omnipotent higher power who can create an entire world of individuals.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># rnorm(10000000, mean = 100, sd = 20)</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>fakey <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10000000</span>, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(fakey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># rnorm(10000000, mean = 100, sd = 20)</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>fakey <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10000000</span>, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(fakey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10000000</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fakey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fakey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 106.68519  86.53516 115.37814 104.25217 110.14605 107.08058</code></pre>
+<pre><code>[1] 100.64226  83.06206 100.52210  82.61450 106.02953 113.13004</code></pre>
 </div>
 </div>
 <ol start="2" type="1">
 <li>Run some stats on these data as we do.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(fakey, <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(fakey, <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 100.002</code></pre>
+<pre><code>[1] 100.0023</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(fakey)</span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(fakey), <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(fakey)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(fakey), <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -675,46 +658,46 @@ Critical Race Theory DEI Alert!
 <li>Take a random sample from this population.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>?sample <span class="co"># our friend, the sample function</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">1</span>) <span class="co"># are you vibing with R?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>?sample <span class="co"># our friend, the sample function</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">1</span>) <span class="co"># are you vibing with R?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
+<pre><code>[1] 3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(fakey), <span class="dv">1</span>) <span class="co"># are you REALLY vibing?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(fakey), <span class="dv">1</span>) <span class="co"># are you REALLY vibing?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 5853910</code></pre>
+<pre><code>[1] 8531181</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(fakey), <span class="dv">10</span>) <span class="co"># a small sample</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(fakey), <span class="dv">10</span>) <span class="co"># a small sample</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 7996358 5964069 1843028  889214 5249514 8711958 2065427 3634920 9271961
-[10] 5805135</code></pre>
+<pre><code> [1] 9061831 2415579 3574285 2685989 5924137 8621906 4400953 5761836 4350454
+[10] 3410270</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>fakey[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(fakey), <span class="dv">10</span>)] <span class="co"># ten random individuals from fakey.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>fakey[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(fakey), <span class="dv">10</span>)] <span class="co"># ten random individuals from fakey.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  96.66731  84.67917 116.45625 119.83077 113.55665  87.14903  91.73368
- [8] 116.82408  95.23381 104.29154</code></pre>
+<pre><code> [1]  89.54050  86.78826 106.07174  83.43126  89.59729  96.60157 108.30774
+ [8] 110.78022  97.64407 108.48739</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>fakey[<span class="dv">10000001</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>fakey[<span class="dv">10000001</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>lilfakey <span class="ot">&lt;-</span> fakey[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(fakey), <span class="dv">10</span>)] <span class="co"># ten random individuals from fakey.</span></span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>lilfakey</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>lilfakey <span class="ot">&lt;-</span> fakey[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(fakey), <span class="dv">10</span>)] <span class="co"># ten random individuals from fakey.</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>lilfakey</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  94.38834 111.28761  96.01584 101.65421 109.57977 103.67135 108.45600
- [8] 109.13360  98.06912  99.04567</code></pre>
+<pre><code> [1]  98.16598 106.64116  94.44091  95.73702 106.73363  95.02213 127.12970
+ [8]  94.32900 106.25280  79.58748</code></pre>
 </div>
 </div>
 <ol start="4" type="1">
 <li>Run some stats on this sample.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(lilfakey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(lilfakey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 103.1302</code></pre>
+<pre><code>[1] 100.404</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(lilfakey)</span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(lilfakey), <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(lilfakey)</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(lilfakey), <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -727,11 +710,11 @@ Critical Race Theory DEI Alert!
 <li>Repeat These Steps Until You Get “THE TRUTH”</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>lilfakey <span class="ot">&lt;-</span> fakey[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(fakey), <span class="dv">10</span>)] <span class="co"># ten random individuals from fakey.</span></span>
-<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(lilfakey, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">200</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>),</span>
-<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">5</span>,</span>
-<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">paste</span>(<span class="fu">c</span>(<span class="st">"mean="</span>, <span class="fu">round</span>(<span class="fu">mean</span>(lilfakey), <span class="dv">4</span>)), <span class="at">sep =</span> <span class="st">""</span>))</span>
-<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(lilfakey), <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>lilfakey <span class="ot">&lt;-</span> fakey[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(fakey), <span class="dv">10</span>)] <span class="co"># ten random individuals from fakey.</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(lilfakey, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">200</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>),</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">5</span>,</span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">paste</span>(<span class="fu">c</span>(<span class="st">"mean="</span>, <span class="fu">round</span>(<span class="fu">mean</span>(lilfakey), <span class="dv">4</span>)), <span class="at">sep =</span> <span class="st">""</span>))</span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(lilfakey), <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -743,16 +726,16 @@ Critical Race Theory DEI Alert!
 <ol start="6" type="1">
 <li><p>Doing this 1000 times</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>truthbucket <span class="ot">&lt;-</span> <span class="fu">array</span>()</span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>)){</span>
-<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  lilfakey <span class="ot">&lt;-</span> fakey[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(fakey), <span class="dv">10</span>)] <span class="co"># ten random individuals from fakey.</span></span>
-<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>  truthbucket[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(lilfakey)</span>
-<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(truthbucket)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>truthbucket <span class="ot">&lt;-</span> <span class="fu">array</span>()</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>)){</span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>  lilfakey <span class="ot">&lt;-</span> fakey[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(fakey), <span class="dv">10</span>)] <span class="co"># ten random individuals from fakey.</span></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>  truthbucket[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(lilfakey)</span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(truthbucket)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1000</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(truthbucket)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(truthbucket)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -760,9 +743,9 @@ Critical Race Theory DEI Alert!
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(truthbucket)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(truthbucket)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 99.99654</code></pre>
+<pre><code>[1] 99.94711</code></pre>
 </div>
 </div></li>
 </ol>
@@ -790,14 +773,14 @@ Critical Race Theory DEI Alert!
 <p>Okay, let’s work through a real example of using bootstrapping to estimate sampling error, and why this might be useful.</p>
 <p>Remember that in the grad onboarding survey, we saw people rated their own skills as lower than their classmates’ skills.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../datasets/Grad Onboard 2025/grad_onboard_SP25.csv"</span>, <span class="at">stringsAsFactors =</span> T, <span class="at">na.strings =</span> <span class="st">""</span>)</span>
-<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(d<span class="sc">$</span>self.skills, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>), </span>
-<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">'black'</span>, <span class="at">bor =</span> <span class="st">'white'</span>, <span class="at">main =</span> <span class="st">"Computer Skills</span><span class="sc">\n</span><span class="st">(Self-Perceptions)"</span>)</span>
-<span id="cb71-6"><a href="#cb71-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-7"><a href="#cb71-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(d<span class="sc">$</span>class.skills, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>),</span>
-<span id="cb71-8"><a href="#cb71-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">'black'</span>, <span class="at">bor =</span> <span class="st">'white'</span>, <span class="at">main =</span> <span class="st">"Computer Skills</span><span class="sc">\n</span><span class="st">(Perceptions of Classmates)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../datasets/Grad Onboard 2025/grad_onboard_SP25.csv"</span>, <span class="at">stringsAsFactors =</span> T, <span class="at">na.strings =</span> <span class="st">""</span>)</span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(d<span class="sc">$</span>self.skills, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>), </span>
+<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">'black'</span>, <span class="at">bor =</span> <span class="st">'white'</span>, <span class="at">main =</span> <span class="st">"Computer Skills</span><span class="sc">\n</span><span class="st">(Self-Perceptions)"</span>)</span>
+<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(d<span class="sc">$</span>class.skills, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>),</span>
+<span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">'black'</span>, <span class="at">bor =</span> <span class="st">'white'</span>, <span class="at">main =</span> <span class="st">"Computer Skills</span><span class="sc">\n</span><span class="st">(Perceptions of Classmates)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -809,15 +792,15 @@ Critical Race Theory DEI Alert!
 <p>But would we expect to observe this same difference in a different sample of graduate students???</p>
 <p>Let’s use bootstrapping to test this.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(d<span class="sc">$</span>self.skills)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(d<span class="sc">$</span>self.skills)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.424242</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="at">replace =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="at">replace =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  1  6  3  6  6  6 10  5  8  2</code></pre>
+<pre><code> [1]  7  3  7  3  2  6  9  8  6 10</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>d[,] <span class="co"># two dimensional dataset </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>d[,] <span class="co"># two dimensional dataset </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                         time has.laptop write.code know.prog has.data know.r
 1   2025/01/17 3:43:14 PM PST        Yes        Yes       Yes       No      3
@@ -1058,22 +1041,22 @@ Critical Race Theory DEI Alert!
 32 yes, you can add my responses to a class dataset.
 33      I am the professor and you should remove me.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>nd <span class="ot">&lt;-</span> d[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(d), <span class="fu">nrow</span>(d), <span class="at">replace =</span> T),] <span class="co"># sampling w/ replacement (rows)</span></span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(d<span class="sc">$</span>self.skills)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>nd <span class="ot">&lt;-</span> d[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(d), <span class="fu">nrow</span>(d), <span class="at">replace =</span> T),] <span class="co"># sampling w/ replacement (rows)</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(d<span class="sc">$</span>self.skills)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.424242</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nd<span class="sc">$</span>self.skills)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nd<span class="sc">$</span>self.skills)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.212121</code></pre>
+<pre><code>[1] 3.909091</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>newmean <span class="ot">&lt;-</span> <span class="fu">array</span>()</span>
-<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>)){</span>
-<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>  nd <span class="ot">&lt;-</span> d[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(d), <span class="fu">nrow</span>(d), <span class="at">replace =</span> T),] <span class="co"># sampling w/ replacement (rows)</span></span>
-<span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a>  newmean[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(nd<span class="sc">$</span>self.skills)</span>
-<span id="cb82-5"><a href="#cb82-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb82-6"><a href="#cb82-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb82-7"><a href="#cb82-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(d<span class="sc">$</span>self.skills)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>newmean <span class="ot">&lt;-</span> <span class="fu">array</span>()</span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>)){</span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>  nd <span class="ot">&lt;-</span> d[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(d), <span class="fu">nrow</span>(d), <span class="at">replace =</span> T),] <span class="co"># sampling w/ replacement (rows)</span></span>
+<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a>  newmean[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(nd<span class="sc">$</span>self.skills)</span>
+<span id="cb80-5"><a href="#cb80-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb80-6"><a href="#cb80-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb80-7"><a href="#cb80-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(d<span class="sc">$</span>self.skills)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1081,7 +1064,7 @@ Critical Race Theory DEI Alert!
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(newmean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(newmean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1089,17 +1072,17 @@ Critical Race Theory DEI Alert!
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(d<span class="sc">$</span>self.skills)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(d<span class="sc">$</span>self.skills)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.424242</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(newmean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(newmean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.427558</code></pre>
+<pre><code>[1] 3.423979</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(newmean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(newmean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1962449</code></pre>
+<pre><code>[1] 0.1953151</code></pre>
 </div>
 </div>
 <section id="for-lab-3" class="level3">
@@ -1149,18 +1132,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1192,7 +1164,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1200,7 +1194,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
