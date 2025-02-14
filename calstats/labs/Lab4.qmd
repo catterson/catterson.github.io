@@ -1,0 +1,54 @@
+---
+title: "Lab 4"
+format: 
+  html:
+      code-overflow: wrap
+---
+
+Use R to answer the following questions. Make sure that you show your R code and the output (result or graphs.) You can do this by taking a screenshot and pasting into your Google / Word Document, or (for students wanting an extra challenge) working in a Quarto document.
+
+## Problem 1. MEGA Problems
+
+Download the "cal_mega_SP25.csv" dataset from Dropbox (this will be posted after lecture). Look at the codebook for a guide to the variables in this dataset. This dataset contains a mix of demographic, likert scale (both on a 1-5 and 0-4 response scale), categorical, and numeric data.
+
+1.  Load the dataset and check to make sure it loaded correctly.
+
+2.  Look over the codebook to identify a variable that was measured with a likert scale (in the codebook, the name of the variable should be in bold, and then should see multiple items underneath that measure the variable.) Report the alpha reliability of the items in the scale - does it appear that the scale was reliable? If you had to cut one item, which would you cut (and why)?
+
+3.  Create the scale (save it to the original dataset), and graph it as a histogram. Make the graph look nice. Underneath the graph, report the mean, median, standard deviation, and range of the scale. Then, explain what you learn about the participants in the dataset for this graph.
+
+4.  Now, z-score the scale and graph the z-scored version as a histogram. Make the graph look nice, and report the mean, standard deviation, and range of this z-scored variable. What changed when you did the z-score transformation? What is the same?
+
+
+## Problem 2. Self-Esteem Problems
+
+Download the "selfesteemdata.csv" dataset, and look at the codebook for a guide to the variables.
+
+**Note:** zeros in this dataset are actually missing data. After loading the data, you'll need to run the following code to a) tell R that 0s are na values and then b) convert the data into a numeric format.
+
+`selfes[selfes == 0] # finds all the 0 values`
+
+`selfes[selfes == 0] <- NA # converts them to NA`
+
+1.  Load the dataset, run the professor's code to clean the data (you will need to name your dataset selfes, or adapt my code to match the name of your dataset), and check to make sure the data loaded correctly. Then, use R to confirm (somehow) that 0s were, in fact, converted into NA values.
+
+2.  Self-esteem was measured with Q1 - Q10. Note that some of the items are negatively-keyed, and will need to be reverse scored (use the codebook to figure this out.) Report the alpha reliability of the items in the scale - does it appear that the scale was reliable?
+
+3.  Create the self-esteem scale, and graph it as a histogram. Make the graph look nice. Underneath the graph, report the mean, median, standard deviation, and range of the scale. Then, explain what you learn about the participants in the dataset for this graph.
+
+4.  Graph the variable age. Underneath the graph, report the mean, median, standard deviation, and range of age. Then, explain what you learn about the participants in the dataset for this graph.
+
+
+## Problem 3. Final Project Scale Problems
+
+In lecture, we talked about likert scales, and how to use them to measure psychological variables (and the variables for your final project).
+
+1.  What is your DV? What IVs do you think will predict or explain this DV?
+
+2.  Choose one of the variables in your linear model (ideally the DV). How would you measure this variable using a likert scale? Report all the items you would use. If you used or adapted another scale, make sure to reference that here.
+
+## Problem 4. Research Problems
+
+Start your literature review for your final project! Look over the material in Chapter 5 (Part 3) on how to use Google Scholar to find peer-reviewed articles for your final project. Then, try to find one article on your topic that you think is relevant / interesting. You don't need to read the entire article, but just try to learn something about the topic that you didn't know before (from the abstract, introduction, discussion, or even just the title).
+
+Paste the article citation below in APA format (you can export this using Google Scholar), and then your quick summary underneath the citation.
