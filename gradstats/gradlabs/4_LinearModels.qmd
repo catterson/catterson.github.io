@@ -49,33 +49,35 @@ invisible(mapply(secretmessage,seq(16,0,length.out=100),greyScale(100)))
 
 **Announcements**
 
-**Lab Keys and Late Assignments.**
+-   **Discord!?!?**
 
--   would like to post key ASAP.
+-   **Lab Keys and Late Assignments.**
 
--   but late labs + key = TROUBLE. Ideas?
+    -   would like to post key ASAP.
 
-**Mini Exam in TWO Weeks.**
+    -   but late labs + key = TROUBLE. Ideas?
 
--   I give you data and a question, you generate a report in Quarto.
+-   **Mini Exam in TWO Weeks.**
 
-    -   Data loading and cleaning.
+    -   I give you data and a question, you generate a report in Quarto.
 
-    -   Scale creating & descriptive statistics.
+        -   Data loading and cleaning.
 
-    -   Linear Models (TODAY!)
+        -   Scale creating & descriptive statistics.
 
-    -   Bootstrapping
+        -   Linear Models (TODAY!)
 
-    -   A fun challenge problem worth 1 point.
+        -   Bootstrapping
 
--   Take home (9AM-12PM).
+        -   A fun challenge problem worth 1 point.
 
--   Ask questions on ZOOM if / when you have them. Okay? Don't struggle on your own. Plenty of time to do that in other spaces!
+    -   Take home (9AM-12PM).
 
--   We will practice / review next week (Lab 5 a practice exam.)
+    -   Ask questions on ZOOM if / when you have them. Okay? Don't struggle on your own. Plenty of time to do that in other spaces!
 
--   Think it will be chill, and if not then professor takes the blame, alright?
+    -   We will practice / review next week (Lab 5 a practice exam.)
+
+    -   Think it will be chill, and if not then professor takes the blame, alright?
 
 ## RECAP : The Mean as Prediction
 
@@ -201,6 +203,14 @@ coef(mod1)
 
 ```{r}
 mod1$residuals # R does the residual calculation for us. what will happen if we add this up?
+
+par(mfrow = c(1,2))
+plot(d$self.skills, 
+     ylab = "Self-Perception of Skills",
+     xlab = "Index", main = "Mean as Model") 
+abline(h = mean(d$self.skills, na.rm = T), lwd = 5)
+plot(jitter(self.skills) ~ class.skills, data = d, main = "Linear Model") # jittered
+abline(mod1, lwd = 5, col = 'red')
 ```
 
 ### There is Error in Our Prediction of the Population (sampling error)
