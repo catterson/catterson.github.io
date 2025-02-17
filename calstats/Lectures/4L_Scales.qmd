@@ -59,30 +59,52 @@ format:
 mini <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/cal_mini_SP25.csv", stringsAsFactors = T)
 ## Call this mini to follow along with professor's code. 
 ## How many individuals are in this dataset?
-
+nrow(mini)
 ## Q2. Graph the variable hrs.sleep, (hours of sleep students said they got.)
 ## What is the shape of this distribution?
-
+hist(mini$hrs.sleep)
 ## Q3. What is the average of hrs.sleep? 
 ## (Round to two decimal places for the check-in)
+mean(mini$hrs.sleep, na.rm = T)
+library(psych)
+describe(mini$hrs.sleep) # from the psych package!
 
 ## Q4. What does this number mean / who cares about this value? [no R]
 
 ## Q5. What is the standard deviation of hrs.sleep?
+sd(mini$hrs.sleep, na.rm = T)
+
 
 ## Q6. What does this number mean / who cares about this value? [no R]
 
 ## Q7. Professor's z-score for hours of sleep was -0.95. This means.... [no R]
+## Z-SCORE IS????????? : an individual distance from the mean....in units of standard deviation.
+
+# someone with 5 hours of sleep.....
+(5 - 7)/1.5
+# someone with 0 hours of sleep.....
+(0 - 7)/1.5
 
 ## Q8. What is the standard deviation for the variable thirsty?
 ## This variable measured how tired students said they were
 ## on a scale from 0 (the least) to 10 (the most)
-
+sd(mini$thirsty, na.rm = T)
 
 ## Q9. Can professor say that there was more variation in how many hours
 ## of sleep people got than how thirsty they were?
 
 ## Q10. What is the average height in the class?
+mean(mini$height, na.rm = T)
+range(mini$height, na.rm = T)
+hist(mini$height)
+
+mini$height[mini$height < 20 | mini$height > 100]
+
+# prof will figure this out later. did it.
+mini$height[c(mini$height < 20 | mini$height > 100) & !is.na(mini$height)] # finds the outliers
+mini$height[c(mini$height < 20 | mini$height > 100) & !is.na(mini$height)] <- c(61, 66, 60, 72, NA) # changes the data in the outliers
+hist(mini$height)
+mean(mini$height, na.rm = T)
 ```
 
 ### Lab 3 Review : The Mode
@@ -116,6 +138,8 @@ mini <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/cal_mini_SP25.csv", string
         -   mean sleep = `{r} round(mean(mini$hrs.sleep, na.rm = T), 0)`
 
         -   sd sleep = `{r} round(sd(mini$hrs.sleep, na.rm = T), 1)`
+        
+        -   student with 3 hours of sleep; mean = 7; sd = 1.5 . Z-SCORE = (3 - 7)/1.5
 
 -   removes the units from a variable :
 
@@ -218,13 +242,13 @@ plot(as.factor(mini$selfesteem), xlab = "Self-Esteem", main = "Categories of Sel
 
 -   **Describe features that you notice about this scale (try and use the terms we just learned!)**
 
-    -   \# of items
+    -   \# of items : 
 
-    -   response scale :
+    -   response scale : 
 
-        -   positively keyed items :
+        -   positively keyed items : 
 
-        -   negatively keyed items :
+        -   negatively keyed items : 
 
 -   **Do you think this is a valid way to measure this construct?**
 
@@ -239,21 +263,34 @@ plot(as.factor(mini$selfesteem), xlab = "Self-Esteem", main = "Categories of Sel
 Let's create a variable about how GOOD people feel. What items from the mini dataset measure this (the high end and / or the low end)?
 
 ```{r}
-names(mini)
+names(mini) # looking at the names of our variables.
+
 ```
 
 #### STEP 1 : ORGANIZE AND EVALUATE THE ITEM RELIABILITY
 
 ```{r}
+HAPPY.df <- data.frame(mini$happy, mini$selfesteem, 10-mini$bored, 10-mini$tired, mini$satlife)
+HAPPY.df
+range(HAPPY.df, na.rm = T) # 0 to 10 range means to reverse score I need to subtract variable from 0 + 10 = 10
+
+
 # install.packages('psych') # only need to do this once!
 library(psych) # do this every time you restart R.
+alpha(HAPPY.df)
 
+HAPPY2.df <- data.frame(mini$happy, mini$selfesteem, 10-mini$tired, mini$satlife)
+alpha(HAPPY2.df)
 ```
 
 #### STEP 2 : CREATE AND INTERPRET THE SCALE
 
 ```{r}
-# rowMeans()
+rowMeans(HAPPY2.df, na.rm = T)
+mini$HAPPYSCALE <- rowMeans(HAPPY2.df, na.rm = T)
+
+hist(mini$HAPPYSCALE)
+
 ```
 
 ## Part 3 : Project Workshop : You Need a Likert Scale!
