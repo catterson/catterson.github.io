@@ -138,7 +138,7 @@ mean(mini$height, na.rm = T)
         -   mean sleep = `{r} round(mean(mini$hrs.sleep, na.rm = T), 0)`
 
         -   sd sleep = `{r} round(sd(mini$hrs.sleep, na.rm = T), 1)`
-        
+
         -   student with 3 hours of sleep; mean = 7; sd = 1.5 . Z-SCORE = (3 - 7)/1.5
 
 -   removes the units from a variable :
@@ -242,13 +242,13 @@ plot(as.factor(mini$selfesteem), xlab = "Self-Esteem", main = "Categories of Sel
 
 -   **Describe features that you notice about this scale (try and use the terms we just learned!)**
 
-    -   \# of items : 
+    -   \# of items :
 
-    -   response scale : 
+    -   response scale :
 
-        -   positively keyed items : 
+        -   positively keyed items :
 
-        -   negatively keyed items : 
+        -   negatively keyed items :
 
 -   **Do you think this is a valid way to measure this construct?**
 
