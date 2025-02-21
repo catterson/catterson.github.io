@@ -13,7 +13,7 @@ Use the cal_mega dataset (from Lab 4) to answer the questions in the check-in. M
 
 -   Create a likert scale to measure people's love of Dancing. This was measured with the following variables : dance1, dance2, dance3r, and dance4r. Note that dance3r and dance4r are negatively-keyed, and will need to be reverse scored. What number will you need to subtract dance3r and dance4r from in order to reverse score them?
 
--    What is the alpha reliability of this scale? Round to two decimal places.
+-   What is the alpha reliability of this scale? Round to two decimal places.
 
 -   What is the mean of this scale? Round to two decimal places.
 
@@ -95,34 +95,34 @@ sum(is.na(m$hrs.screen))
 ## Reliability and Validity
 
 -   **Relevance to Psychological Science**
+    -   **Reliability in Neuroscience**[^1]
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **Reliability in Neuroscience**[^1]                                                                                                                                                                                                             | **Validity in Neuroscience**[^2]                                                                                                                                                                                                                |
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeTLefCt9zPzX-MyF98cf6k36Rc31EvbAHMBYa-51Hu6gDnkSantlTykj_O9RndtVAo-N8rW0Pyk22h2nmu8CcJPmyk5v7vImUvr09vCgey7sBarI-esWO2Mmg1PMZa3mmwLN-IBNi5ohp-q2IaKKfZP4o?key=twYbZcgNxJdbKGKJjMiFiQ)**  | **![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXei00h9QfmJe_MKZn_Ci_HA0wE8dT482MmTu8SC7Rmp1Wq7E4YfJma0YILCbkozyv2WeYO7bdai0NtDNuBYZAlH03i5vxsKSvGA5BHxqXd6-ISEIDnA-06-KtWWMsn-rzr04H7C-SUuQrLaRcMLAJO5aBCJ?key=twYbZcgNxJdbKGKJjMiFiQ)** |
-|                                                                                                                                                                                                                                                 |                                                                                                                                                                                                                                                 |
-| **![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcsuNK0Qy0nESrPBAIZOmJeAwa41RPNebqn77rHCHZ9XCfQahnZujQrQbEvI0woNZ9d0Q_Y3Opx8jNpH1F5dTj92b85fLTQRVLNyPwjarBLr-471Q2SZH4QJX2IKm3wEfJxkv6cQQnfx0D83WbhUDTgQ-69?key=twYbZcgNxJdbKGKJjMiFiQ)** | **![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcJwESEePEGVGj02kHO2BKu3TnbFDPX7Hbh84XMMqLDNS1RrjxKFdeuYm92RNLlpDK65XQPuEjiOWEVz00eRfn3ZcjlmyTZutORBmAE4sbcPTfgNNP16b9SH95pDxzHF8qrbgBKn3VrSpTg1XiJf8uvGec?key=twYbZcgNxJdbKGKJjMiFiQ)**  |
-|                                                                                                                                                                                                                                                 |                                                                                                                                                                                                                                                 |
-|                                                                                                                                                                                                                                                 | \                                                                                                                                                                                                                                               |
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+        ![](lecture_images/5L_fmrireliabilityscan.png)
+
+    -   **Validity in Neuroscience**[^2]
+
+        ![](lecture_images/5L_fishfmri.png)
 
 [^1]: Brandt, D. J., Sommer, J., Krach, S., Bedenbender, J., Kircher, T., Paulus, F. M., & Jansen, A. (2013). Test-retest reliability of fMRI brain activity during memory encoding. Frontiers in psychiatry, 4, 163. \[[Link to Full Article](https://www.frontiersin.org/articles/10.3389/fpsyt.2013.00163/full)\]
 
 [^2]: Bennett, C. M., Miller, M. B., & Wolford, G. L. (2009). Neural correlates of interspecies perspective taking in the post-mortem Atlantic Salmon: an argument for multiple comparisons correction. Neuroimage, 47(Suppl 1), S125. \[[Link to Full Article](http://prefrontal.org/files/posters/Bennett-Salmon-2009.pdf)\]
 
+```{=html}
+<!-- -->
+```
 -   **Relevance to Real-Life.**
 
 How would you evaluate the reliability and validity of the STEP COUNTER on your phone???
 
-|  |  |
-|----|----|
-| **Term** | **Way of Testing** |
-| **face :** does our measure or result look like what it should look like? |  |
-| **convergent :** is our measure similar to related concepts? |  |
-| **discriminant :** is our measure different from unrelated concepts? |  |
-| **test-retest :** do we get the same result if we take multiple measures? |  |
-| **interrater reliability :** would another observer make the same measurements? |  |
-| **inter-item reliability :** would one item in the likert scale be related to others? |  |
+|                                                                                       |                    |
+|------------------------------------|------------------------------------|
+| **Term**                                                                              | **Way of Testing** |
+| **face :** does our measure or result look like what it should look like?             |                    |
+| **convergent :** is our measure similar to related concepts?                          |                    |
+| **discriminant :** is our measure different from unrelated concepts?                  |                    |
+| **test-retest :** do we get the same result if we take multiple measures?             |                    |
+| **interrater reliability :** would another observer make the same measurements?       |                    |
+| **inter-item reliability :** would one item in the likert scale be related to others? |                    |
 
 ## BREAK TIME : MEET BACK AT 3:42
 
@@ -130,10 +130,40 @@ How would you evaluate the reliability and validity of the STEP COUNTER on your 
 
 ## Milestone #1 \| Final Project Workshop
 
-**REVIEW : Milestone #1 Document.**
+[**Final Project Description & Rubric + Milestone #1**](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?usp=sharing)
 
 **RECAP : Questions About the Research Process / Scientific Articles?**
 
+**Introduction Deconstruction :**
+
+The introduction starts broad, but then quickly focuses on the variables in your model so readers can understand a) what your study is about and b) why you’re doing your study. 
+
+|                             |                                                                                                                                                                                                                                                                                                                                             |
+|---------------|---------------------------------------------------------|
+| **Section**                 | **Brief Explanation**                                                                                                                                                                                                                                                                                                                       |
+| **1. The Opening**          | Describe the question you have, and explain why this question matters                                                                                                                                                                                                                                                                       |
+| **2. The Review**           | Describe what past research and theory has to say on the question and your theory. Your goal is to give the reader the background they need to understand why you are doing your study; you don’t need to cover EVERY single issue on your topic..                                                                                          |
+| **3. The Critique**         | Explain why the past research is not “the final truth”, and what other new questions might be important to consider (and why these questions matter). Only point out limitations with past research that you will address in your study; other limitations that you think future research will address should go in the discussion section. |
+| **4. The Current Research** | Explain what specific questions your study will address. Be clear by stating each idea as a hypothesis with language like, “I predict” or “My first hypothesis”.                                                                                                                                                                            |
+
+-   **STEP 1 : read an excerpt from the introduction**[^3]**; identify (in the margins) each of part of the introduction (“The Opening”, “The Review”, “The Critique”, and “The Current Research”)**
+
+[^3]: [Full article here](https://scholar.princeton.edu/sites/default/files/pfrymer/files/ajps12537_rev.pdf)
+
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcnv5T-L9K8lZOM0e2wsBu0AxW08Rp9iRpj_jT1lIwePEkHF18N2vz08I8mY_Zf1O4S7wKc0QPEVxb9jPIdHNiPAH-fhWIMiug413IRFr_tAI8ixj6fL2ztXM0a8wv9l52IQD6xtp4PePEi0o1_okaKnFZ8?key=xsrSgQ924CtGseFQqBVMLw)
+
 **ACTIVITY : Doing a Lit Review**
+
+-   [Lit Review Template](https://docs.google.com/spreadsheets/d/1CGkY6Ior_Rga1rKsaDMj8zc1ueIB2ZsVvgucS2K9SDA/edit?usp=share_link)
+
+    -   Open document.
+
+    -   Click File –\> Make a copy
+
+    ![](images/clipboard-3633028995.png)
+
+    -   Fill in with your own notes about the research you find!
+
+-   [Link to Professor Example](https://docs.google.com/spreadsheets/d/1owKimVnJnimzC6ulCL0QhyQVdUBVbeIe2PQuPsCoPDU/edit?usp=sharing)
 
 ## [Check-Out](https://docs.google.com/forms/d/e/1FAIpQLSdl3nqWlDUGVV9ytbhhvF2_C5JWTA7r0Rjn31ltquuv5hDAaw/viewform?usp=sf_link)
