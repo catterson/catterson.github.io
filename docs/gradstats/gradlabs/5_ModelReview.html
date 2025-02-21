@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +84,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -150,7 +150,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
@@ -204,21 +204,39 @@ window.Quarto = {
 </div>
 </div>
 <p>The intercept and slope is reported for each linear model.</p>
+<ul>
+<li><p>Model 1 : phone checking ~ <u>38.8</u> + <u>8</u> * hours of sleep + ERROR</p>
+<ul>
+<li><p>phone checking if person got 0 hours of sleep = 38.8 + 8 * 0 = 38.8</p></li>
+<li><p>phone checking if person got 4 hours of sleep = 38.8 + 8 * 4 = 70.8</p></li>
+<li><p>residual error = distance from each individual dot to the line; we square these errors and add them up to calcualte the sum of squared errors, then subtract them from SSE when using the mean as a prediction to estimate the reduction in error. (<code>$R^2$</code> = (SST - SSE) / SST)</p></li>
+<li><p>sampling error = 11.2 = how much the line would vary if we were to resample the data (AN ESTIMATE / MADE UP GUESS).</p>
+<ul>
+<li><p>slope ± 1.96 * the sampling error = 95% confidence interval.</p></li>
+<li><p>sampling error in units of slope</p></li>
+<li><p>sampling error is kind of like standard deviation (how much an individual differs on average from our expected value)</p>
+<ul>
+<li><p>individual = an individual <u>slope</u> if resampled (vs.&nbsp;the individual data point)</p></li>
+<li><p>expected value = the original slope in our sample (vs.&nbsp;the mean of our sample)</p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">t</span>(<span class="fu">coef</span>(mod1)), <span class="at">SampleError =</span> <span class="fu">sd</span>(b1))</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">t</span>(<span class="fu">coef</span>(mod2)), <span class="at">SampleError =</span> <span class="fu">sd</span>(b2))</span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">t</span>(<span class="fu">coef</span>(mod1)), <span class="at">SampleError =</span> <span class="fu">sd</span>(b1), <span class="at">R2 =</span> <span class="fu">summary</span>(mod1)<span class="sc">$</span>r.squared)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">t</span>(<span class="fu">coef</span>(mod2)), <span class="at">SampleError =</span> <span class="fu">sd</span>(b2), <span class="at">R2 =</span> <span class="fu">summary</span>(mod2)<span class="sc">$</span>r.squared)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rbind</span>(m1, m2)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Model 1"</span>, <span class="st">"Model 2"</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Intercept"</span>, <span class="st">"Slope"</span>, <span class="st">"Sample Error (Slope)"</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(x, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Intercept"</span>, <span class="st">"Slope"</span>, <span class="st">"Sample Error (Slope)"</span>, <span class="st">"R-Squared"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(x, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>        Intercept Slope Sample Error (Slope)
-Model 1      38.8   8.0                 11.1
-Model 2      42.8   6.1                  6.0</code></pre>
+<pre><code>        Intercept Slope Sample Error (Slope) R-Squared
+Model 1     38.81  7.95                11.31      0.03
+Model 2     42.84  6.15                 5.81      0.05</code></pre>
 </div>
 </div>
 <p><strong>Use Models 1 and 2 to answer the questions below.</strong></p>
@@ -319,13 +337,20 @@ hrs.sleep         7.95        0.20</code></pre>
 <ul>
 <li>The Intercept : The Predicted Value of Y when ALL X values are Zero.
 <ul>
-<li>In Raw Units :</li>
-<li>Standardized (Z-Score) :</li>
+<li>In Raw Units : The predicted value of phone checking for someone with zero hours of sleep.</li>
+<li>Standardized (Z-Score) :The predicted value of phone checking (in z-score units) for someone with the average sleep (zscore = 0).
+<ul>
+<li>z-scored intercept will always be zero, since our prediction is the “the average person on X will be average on Y” (without information on how people differ on X, our best guess is that they are average in Y, since the average is the best guess of a variable.</li>
+</ul></li>
 </ul></li>
 <li>The Slope : The Change in Our Predicted Value of Y when X Changes By One.
 <ul>
-<li>In Raw Units :</li>
-<li>Standardized (Z-Scored) :</li>
+<li>In Raw Units : for every one hour of sleep, a person checks their phone 38.81 more times.</li>
+<li>Standardized (Z-Scored) : for every 1-standard deviation increase in hours of sleep, a person increases their phone checking by .2 standard deviations
+<ul>
+<li>this is called a standardized beta</li>
+<li>AND : when you have two numeric variables that been z-scored, it is equal to the correlation coefficient (r)</li>
+</ul></li>
 </ul></li>
 </ul>
 <p>Note that the correlation coefficient <em>should be</em> equivalent to the standardized slope with one IV, and that this is the square root of our good friend <span class="math inline">\(R^2\)</span>.</p>
@@ -359,13 +384,65 @@ hrs.sleep         7.95        0.20</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.1719179</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>?cor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Uh oh, it’s not exactly the same! Close, but different….why might this be?</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>gmod <span class="ot">&lt;-</span> <span class="fu">with</span>(g, <span class="fu">data.frame</span>(check.phone, hrs.sleep))</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>gmod</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   check.phone hrs.sleep
+1        46.00       6.5
+2        15.00       5.5
+3        90.00       7.0
+4        52.00       2.0
+5        84.00       6.0
+6        23.00       7.0
+7        90.00       8.0
+8       148.00       7.0
+9         6.41       6.0
+10      280.00       5.5
+11          NA       2.0
+12       40.00       6.0
+13       72.00       7.0
+14       48.00       7.0
+15      182.00       7.0
+16      128.00       6.0
+17        7.00       3.0
+18      180.00       8.0
+19      136.00       8.0
+20       92.00       7.0
+21        8.00       7.0
+22      110.00       7.0
+23       95.00       7.0
+24      100.00       7.0
+25      164.00       4.0
+26       30.00       6.5</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>gmod <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(gmod)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>moddyZ <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">scale</span>(check.phone) <span class="sc">~</span> <span class="fu">scale</span>(hrs.sleep), <span class="at">data =</span> gmod)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">coef</span>(moddyZ), <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>     (Intercept) scale(hrs.sleep) 
+            0.00             0.17 </code></pre>
+</div>
+</div>
 <p><strong>NOTE</strong> : There’s also a function <code>standardize()</code> from the <code>arm</code> package (authored by stats wizards Andrew Gelman and Yu-Sung Su) that will automatically z-score the terms in your model. This uses a slightly different calculation for the z-score - rather than divide by one standard deviation, the authors recommend dividing by two standard deviations. You can read more about this logic here. This function is helpful when you have multiple IVs, or some IVs are not numeric (but you still want or need to standardize them; we’ll talk more about these methods when we start working with categorical/binary variables.)</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: MASS</code></pre>
@@ -381,11 +458,11 @@ hrs.sleep         7.95        0.20</code></pre>
 arm (Version 1.14-4, built: 2024-4-1)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Working directory is /Users/adcat/Documents/Documents - minicat/catterson.github.io/gradstats/gradlabs</code></pre>
+<pre><code>Working directory is /Users/acatterson281/Library/CloudStorage/OneDrive-ContraCostaCommunityCollegeDistrictEmployees/Documents/GitHub/catterson.github.io/gradstats/gradlabs</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">standardize</span>(mod1, <span class="at">standardize.y =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">standardize</span>(mod1, <span class="at">standardize.y =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -411,8 +488,8 @@ Coefficients:
 <li>Add your results to the <a href="https://docs.google.com/spreadsheets/d/1VB7Ut1NW_g5cOVbcC0ofNGHCTc4O7dHN6ECej9k-iGM/edit?usp=sharing">Grad Student Vision Board</a>. <em>Is this thing on?</em></li>
 </ol>
 </section>
-<section id="break-time-meet-back-at-1040" class="level2">
-<h2 class="anchored" data-anchor-id="break-time-meet-back-at-1040">BREAK TIME : Meet Back at 10:40</h2>
+<section id="break-time-meet-back-at-1050" class="level2">
+<h2 class="anchored" data-anchor-id="break-time-meet-back-at-1050">BREAK TIME : Meet Back at 10:50</h2>
 </section>
 <section id="presentations" class="level2">
 <h2 class="anchored" data-anchor-id="presentations"><a href="https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing">Presentations</a></h2>
@@ -445,28 +522,40 @@ Coefficients:
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="5_ModelReview_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="5_ModelReview_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>g[<span class="dv">10</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                        Time howgo howlab3 howR hunger stress social organized
+10 2025/02/14 9:24:46 AM PST     7       9    8     10      8      9         6
+   open agreeable givedata love2scroll tired cooladvisor lovebay had.breakfast
+10    8         7        2           8     9          10       7            No
+   have.water food.pref check.phone hrs.sleep checkin.go
+10        Yes  burritos         280       5.5          7</code></pre>
 </div>
 </div>
 <p>Assumption 6 can be examined by graphing the residuals of your model object with a histogram.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(mod1<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(mod1<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="5_ModelReview_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="5_ModelReview_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -513,7 +602,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -545,29 +645,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -575,7 +653,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

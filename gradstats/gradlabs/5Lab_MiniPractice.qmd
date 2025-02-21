@@ -1,0 +1,32 @@
+---
+title: "Lab 5 - Mini Practice"
+format: html
+---
+
+## Instructions.
+
+**Use the dataset to answer the questions below. Make sure your report a) includes the code that you used, b) shows the result / output in a clear and organized way (e.g., do not include junk output that we don't need to see!), and c) answers the questions to explain your code / the result. This is representative of the kind of work you'll do on the actual exam, though the specific questions / tasks will change depending on the dataset. The key has been (or will be) posted - try on your own, but use as a guide if you get stuck. Yeah!**
+
+## The Dataset and Problem.
+
+Load the "Narcissism" dataset (on Dropbox) into R. Note that these data are not 'comma' separated values, but separated by tabs; you'll need to import this using the following argument. Check to make sure the data loaded correctly, and report the sample size. Look over the codebook (also posted to Dropbox).
+
+Dr. Professor wants to see whether there's a relationship between narcissism (the DV; variable = `score` in the dataset) and age (the IV; variable = `age`). Use the dataset to test Dr. Professor's prediction that as people get older, they get less narcissistic.
+
+## Problem 1. Data Loading and Cleaning
+
+Load the data and check to make sure the data loaded correctly. Report the sample size. The variable `elapse` describes how long participants took to complete the survey (time started - time submitted). Decide on a rule - justify this using a mix of logic and statistics - and use this rule to remove these individuals from your dataset. (Note that you should remove the entire individual from the dataset, not just their elapse score.) Graph the variable `elapse` after removing the outliers, and report the number of individuals who were removed from the dataset using your rule.
+
+## Problem 2. Descriptive Statistics Graphs.
+
+Graph the variables needed to test Dr. Professor's theory. Make the graphs look nice, as if ready for a publication. Below the graphs, report the relevant descriptive statistics and describe what these statistics / the graphs tell you about these variables. What did you learn?
+
+## Problem 3. Linear Models.
+
+Define a linear model to test Dr. Professor's question. What is the slope, intercept, and $R^2$ of this model (in raw and z-scored units)? Then, use bootstrapping to estimate the 95% Confidence Interval for the slope and estimate the power researchers had to detect any observed relationship. Graph the relationship between these variables, making sure to illustrate the linear model (and lines to illustrate the 95% Confidence Interval) on your graph. Below the graph, describe what these statistics tell you about the relationship between these two variables. Finally, evaluate the assumptions of this linear model.
+
+## Problem 4. Creating a Scale.
+
+Dr. Professor is worried that the narcissism variable (`score`) was not calculated correctly. In this study, narcissism was measured by giving people 40-items with two options and adding up the total number of "narcissism" options that people selected. At the end of the codebook, the researchers have identified which responses were used in calculating the score; however this code will not work in R. Re-create the narcissism score from these 40-items and report the alpha reliability of this scale. Then, confirm that your calculation of narcissism is exactly the same as the one that was already calculated in the dataset (`score`).
+
+*Heads up. This question took professor 30 minutes to figure out...so okay if you struggle a little! Feel free to peek at my key (and there's definitely a simpler way to do this, but I was feeling stubborn about the approach I initially took). I think this represents the kind of weird data you might be asked to interpret. But I do like to have a small challenge problem on each exam, worth only 1/21 points, just to keep things interesting. FWIW, the likert scale you do on the actual exam will be more straightforward.*

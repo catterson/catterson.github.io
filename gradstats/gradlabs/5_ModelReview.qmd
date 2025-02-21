@@ -35,8 +35,29 @@ abline(mod2, lwd = 5, col = 'red')
 
 The intercept and slope is reported for each linear model.
 
+-   Model 1 : phone checking \~ [38.8]{.underline} + [8]{.underline} \* hours of sleep + ERROR
+
+    -   phone checking if person got 0 hours of sleep = 38.8 + 8 \* 0 = 38.8
+
+    -   phone checking if person got 4 hours of sleep = 38.8 + 8 \* 4 = 70.8
+
+    -   residual error = distance from each individual dot to the line; we square these errors and add them up to calcualte the sum of squared errors, then subtract them from SSE when using the mean as a prediction to estimate the reduction in error. (`$R^2$` = (SST - SSE) / SST)
+
+    -   sampling error = 11.2 = how much the line would vary if we were to resample the data (AN ESTIMATE / MADE UP GUESS).
+
+        -   slope ± 1.96 \* the sampling error = 95% confidence interval.
+
+        -   sampling error in units of slope
+
+        -   sampling error is kind of like standard deviation (how much an individual differs on average from our expected value)
+
+            -   individual = an individual [slope]{.underline} if resampled (vs. the individual data point)
+
+            -   expected value = the original slope in our sample (vs. the mean of our sample)
+
 ```{r}
 #| include: false
+
 b1 <- array()
 b2 <- array()
 for(i in c(1:1000)){
@@ -47,13 +68,14 @@ for(i in c(1:1000)){
 ```
 
 ```{r}
-m1 <- cbind(t(coef(mod1)), SampleError = sd(b1))
-m2 <- cbind(t(coef(mod2)), SampleError = sd(b2))
+m1 <- cbind(t(coef(mod1)), SampleError = sd(b1), R2 = summary(mod1)$r.squared)
+m2 <- cbind(t(coef(mod2)), SampleError = sd(b2), R2 = summary(mod2)$r.squared)
 
 x <- rbind(m1, m2)
 rownames(x) <- c("Model 1", "Model 2")
-colnames(x) <- c("Intercept", "Slope", "Sample Error (Slope)")
-round(x, 1)
+colnames(x) <- c("Intercept", "Slope", "Sample Error (Slope)", "R-Squared")
+round(x, 2)
+
 ```
 
 **Use Models 1 and 2 to answer the questions below.**
@@ -84,7 +106,7 @@ round(x, 1)
 Which graph (representing how the relationship between age and self-esteem changes depending on whether someone is Male, Female, or Other) do you like the most? Why??
 
 |                                      |                                      |
-|-------------------------------------------------------|-------------------------------------------------------------|
+|----------------------------------|--------------------------------------|
 | ![](images/clipboard-2207191878.png) | ![](images/clipboard-1256235521.png) |
 
 ## Evaluating Linear Models : Z-Scores and Assumptions
@@ -125,11 +147,14 @@ round(data.frame(coef(mod1), coef(mod1Z)), 2)
 ```
 
 -   The Intercept : The Predicted Value of Y when ALL X values are Zero.
-    -   In Raw Units :
-    -   Standardized (Z-Score) :
+    -   In Raw Units : The predicted value of phone checking for someone with zero hours of sleep.
+    -   Standardized (Z-Score) :The predicted value of phone checking (in z-score units) for someone with the average sleep (zscore = 0).
+        -   z-scored intercept will always be zero, since our prediction is the "the average person on X will be average on Y" (without information on how people differ on X, our best guess is that they are average in Y, since the average is the best guess of a variable.
 -   The Slope : The Change in Our Predicted Value of Y when X Changes By One.
-    -   In Raw Units :
-    -   Standardized (Z-Scored) :
+    -   In Raw Units : for every one hour of sleep, a person checks their phone 38.81 more times.
+    -   Standardized (Z-Scored) : for every 1-standard deviation increase in hours of sleep, a person increases their phone checking by .2 standard deviations
+        -   this is called a standardized beta
+        -   AND : when you have two numeric variables that been z-scored, it is equal to the correlation coefficient (r)
 
 Note that the correlation coefficient *should be* equivalent to the standardized slope with one IV, and that this is the square root of our good friend $R^2$.
 
@@ -138,9 +163,20 @@ coef(mod1Z)[2] # our standardized slope
 summary(mod1)$r.squared # our R^2 value
 summary(mod1)$r.squared^.5 # the square root of R^2 = r = the correlation coefficient
 cor(g$check.phone,g$hrs.sleep, use = "pairwise.complete.obs") # r = the correlation coefficient
+?cor
 ```
 
 Uh oh, it's not exactly the same! Close, but different....why might this be?
+
+```{r}
+gmod <- with(g, data.frame(check.phone, hrs.sleep))
+gmod
+gmod <- na.omit(gmod)
+
+
+moddyZ <- lm(scale(check.phone) ~ scale(hrs.sleep), data = gmod)
+round(coef(moddyZ), 2)
+```
 
 **NOTE** : There's also a function `standardize()` from the `arm` package (authored by stats wizards Andrew Gelman and Yu-Sung Su) that will automatically z-score the terms in your model. This uses a slightly different calculation for the z-score - rather than divide by one standard deviation, the authors recommend dividing by two standard deviations. You can read more about this logic here. This function is helpful when you have multiple IVs, or some IVs are not numeric (but you still want or need to standardize them; we'll talk more about these methods when we start working with categorical/binary variables.)
 
@@ -153,13 +189,13 @@ standardize(mod1, standardize.y = T)
 
 **Work with a buddy. Load the [mini_grad dataset](https://www.dropbox.com/scl/fi/6mzmi0fi7zec19r4muxkl/mini_grad_data.csv?rlkey=1lrns4547h0qvd71t143kmjn5&dl=0) (also in our Dropbox Dataset folder) and use these data to do the following.**
 
-1. Graph the variable `stress`. What do you observe?
-2. Choose another numeric variable that you think will predict `stress`. Why did you choose this variable? What theory do you have?
-3. Define a linear model to predict `stress` from this IV. What is the slope, intercept, and $R^2$ of this model (in raw and z-scored units)? Graph the relationship between these variables, making sure to illustrate the linear model.
-4. Then, use bootstrapping to estimate the 95% Confidence Interval for the slope and estimate the power researchers had to detect any observed relationship. (Cool if you can add lines to illustrate the 95% Confidence Interval) on your graph. Below the graph, describe what these statistics tell you about the relationship between these two variables.
-5. Add your results to the [Grad Student Vision Board](https://docs.google.com/spreadsheets/d/1VB7Ut1NW_g5cOVbcC0ofNGHCTc4O7dHN6ECej9k-iGM/edit?usp=sharing). *Is this thing on?*
+1.  Graph the variable `stress`. What do you observe?
+2.  Choose another numeric variable that you think will predict `stress`. Why did you choose this variable? What theory do you have?
+3.  Define a linear model to predict `stress` from this IV. What is the slope, intercept, and $R^2$ of this model (in raw and z-scored units)? Graph the relationship between these variables, making sure to illustrate the linear model.
+4.  Then, use bootstrapping to estimate the 95% Confidence Interval for the slope and estimate the power researchers had to detect any observed relationship. (Cool if you can add lines to illustrate the 95% Confidence Interval) on your graph. Below the graph, describe what these statistics tell you about the relationship between these two variables.
+5.  Add your results to the [Grad Student Vision Board](https://docs.google.com/spreadsheets/d/1VB7Ut1NW_g5cOVbcC0ofNGHCTc4O7dHN6ECej9k-iGM/edit?usp=sharing). *Is this thing on?*
 
-## BREAK TIME : Meet Back at 10:40
+## BREAK TIME : Meet Back at 10:50
 
 ## [Presentations](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
 
@@ -195,13 +231,18 @@ The interpretation of our linear model depends on a variety of different assumpt
 
 Assumptions 1-3 require critical thinking about your methods and measures.
 
-Assumptions 4 and 5 can be examined using the plot() function in base R - you may have accidentally come across these when trying to graph your linear model. 
+Assumptions 4 and 5 can be examined using the plot() function in base R - you may have accidentally come across these when trying to graph your linear model.
+
+We talked about how to interpret these plots a little in lecture; here's [another tutorial](https://library.virginia.edu/data/articles/diagnostic-plots) that walks through the interpretation. Let us know (on Discord!) if you find another good example / explanation.
+
 ```{r}
 par(mfrow = c(2,2))
 plot(mod1)
+g[10,]
 ```
 
 Assumption 6 can be examined by graphing the residuals of your model object with a histogram.
+
 ```{r}
 par(mfrow = c(1,1))
 hist(mod1$residuals)
