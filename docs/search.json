@@ -1314,5 +1314,54 @@
     "title": "Lecture 5 | Reviewing Models",
     "section": "PRACTICE.",
     "text": "PRACTICE.\nWork with a buddy. Load the mini_grad dataset (also in our Dropbox Dataset folder) and use these data to do the following.\n\nGraph the variable stress. What do you observe?\nChoose another numeric variable that you think will predict stress. Why did you choose this variable? What theory do you have?\nDefine a linear model to predict stress from this IV. What is the slope, intercept, and \\(R^2\\) of this model (in raw and z-scored units)? Graph the relationship between these variables, making sure to illustrate the linear model.\nThen, use bootstrapping to estimate the 95% Confidence Interval for the slope and estimate the power researchers had to detect any observed relationship. (Cool if you can add lines to illustrate the 95% Confidence Interval) on your graph. Below the graph, describe what these statistics tell you about the relationship between these two variables.\nAdd your results to the Grad Student Vision Board. Is this thing on?"
+  },
+  {
+    "objectID": "calstats/Lectures/5L_Methods.html",
+    "href": "calstats/Lectures/5L_Methods.html",
+    "title": "5L_Methods",
+    "section": "",
+    "text": "Use the cal_mega dataset (from Lab 4) to answer the questions in the check-in. Make sure to save your work in an R script.\n\nWhat is the sample size of this dataset?\nCreate a likert scale to measure people’s love of Dancing. This was measured with the following variables : dance1, dance2, dance3r, and dance4r. Note that dance3r and dance4r are negatively-keyed, and will need to be reverse scored. What number will you need to subtract dance3r and dance4r from in order to reverse score them?\nWhat is the alpha reliability of this scale? Round to two decimal places.\nWhat is the mean of this scale? Round to two decimal places.\nGraph the variable as a histogram. Describe the shape; what do you learn about our class from this variable?\nThe variable hrs.screen asked students to report how many hours of screens they used (according to their phone) in the last day. What is the mean of this variable? Round to two decimal places.\nHow many people did not report their hours of screen usage (i.e., how many NAs are there in this variable?)\nWhat’s the z-score for someone who stared at their screen for 8-hours a day? Round to two decimal places.\nWhat does this z-score tell you?\n\n\n\n\nMini Exam is in NEXT weeks [2/28]\n\nSTUDY GUIDE HERE\ntake home; open-note; open-book; DO ON YOUR OWN.\nheld during normal class; 85 minutes (DSP students get extra time accommodations)\npractice exam will post next week\n\nLab 5. Do the Fall 2024 Mini Exam. Look over the key (video key!) after you’ve done. Submit your completed exam. Auto graded, but I want you do to. (PRACTICE PRACTICE PRACTICE!)\nMilestone #1 Due in TWO weeks [3/9]\n\n\n\n\n\n2:10 - 3:10 | Check-In and Review\n3:10 - 3:30 | Reliability and Validity\n3:30 - 3:42 | Break Time\n3:42 - 4:30 | Project Workshop."
+  },
+  {
+    "objectID": "calstats/Lectures/5L_Methods.html#check-in-review-time",
+    "href": "calstats/Lectures/5L_Methods.html#check-in-review-time",
+    "title": "5L_Methods",
+    "section": "",
+    "text": "Use the cal_mega dataset (from Lab 4) to answer the questions in the check-in. Make sure to save your work in an R script.\n\nWhat is the sample size of this dataset?\nCreate a likert scale to measure people’s love of Dancing. This was measured with the following variables : dance1, dance2, dance3r, and dance4r. Note that dance3r and dance4r are negatively-keyed, and will need to be reverse scored. What number will you need to subtract dance3r and dance4r from in order to reverse score them?\nWhat is the alpha reliability of this scale? Round to two decimal places.\nWhat is the mean of this scale? Round to two decimal places.\nGraph the variable as a histogram. Describe the shape; what do you learn about our class from this variable?\nThe variable hrs.screen asked students to report how many hours of screens they used (according to their phone) in the last day. What is the mean of this variable? Round to two decimal places.\nHow many people did not report their hours of screen usage (i.e., how many NAs are there in this variable?)\nWhat’s the z-score for someone who stared at their screen for 8-hours a day? Round to two decimal places.\nWhat does this z-score tell you?\n\n\n\n\nMini Exam is in NEXT weeks [2/28]\n\nSTUDY GUIDE HERE\ntake home; open-note; open-book; DO ON YOUR OWN.\nheld during normal class; 85 minutes (DSP students get extra time accommodations)\npractice exam will post next week\n\nLab 5. Do the Fall 2024 Mini Exam. Look over the key (video key!) after you’ve done. Submit your completed exam. Auto graded, but I want you do to. (PRACTICE PRACTICE PRACTICE!)\nMilestone #1 Due in TWO weeks [3/9]\n\n\n\n\n\n2:10 - 3:10 | Check-In and Review\n3:10 - 3:30 | Reliability and Validity\n3:30 - 3:42 | Break Time\n3:42 - 4:30 | Project Workshop."
+  },
+  {
+    "objectID": "calstats/Lectures/5L_Methods.html#reliability-and-validity",
+    "href": "calstats/Lectures/5L_Methods.html#reliability-and-validity",
+    "title": "5L_Methods",
+    "section": "Reliability and Validity",
+    "text": "Reliability and Validity\n\nRelevance to Psychological Science\n\n\n\n\nReliability in Neuroscience1\nValidity in Neuroscience2\n\n\n\n\n\n\n\n\n\n\n\n\nRelevance to Real-Life.\n\nHow would you evaluate the reliability and validity of the STEP COUNTER on your phone???\n\n\n\n\n\n\n\nTerm\nWay of Testing\n\n\nface : does our measure or result look like what it should look like?\n\n\n\nconvergent : is our measure similar to related concepts?\n\n\n\ndiscriminant : is our measure different from unrelated concepts?\n\n\n\ntest-retest : do we get the same result if we take multiple measures?\n\n\n\ninterrater reliability : would another observer make the same measurements?\n\n\n\ninter-item reliability : would one item in the likert scale be related to others?"
+  },
+  {
+    "objectID": "calstats/Lectures/5L_Methods.html#break-time-meet-back-at-342",
+    "href": "calstats/Lectures/5L_Methods.html#break-time-meet-back-at-342",
+    "title": "5L_Methods",
+    "section": "BREAK TIME : MEET BACK AT 3:42",
+    "text": "BREAK TIME : MEET BACK AT 3:42"
+  },
+  {
+    "objectID": "calstats/Lectures/5L_Methods.html#milestone-1-final-project-workshop",
+    "href": "calstats/Lectures/5L_Methods.html#milestone-1-final-project-workshop",
+    "title": "5L_Methods",
+    "section": "Milestone #1 | Final Project Workshop",
+    "text": "Milestone #1 | Final Project Workshop\nREVIEW : Milestone #1 Document.\nRECAP : Questions About the Research Process / Scientific Articles?\nACTIVITY : Doing a Lit Review"
+  },
+  {
+    "objectID": "calstats/Lectures/5L_Methods.html#check-out",
+    "href": "calstats/Lectures/5L_Methods.html#check-out",
+    "title": "5L_Methods",
+    "section": "Check-Out",
+    "text": "Check-Out"
+  },
+  {
+    "objectID": "calstats/Lectures/5L_Methods.html#footnotes",
+    "href": "calstats/Lectures/5L_Methods.html#footnotes",
+    "title": "5L_Methods",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nBrandt, D. J., Sommer, J., Krach, S., Bedenbender, J., Kircher, T., Paulus, F. M., & Jansen, A. (2013). Test-retest reliability of fMRI brain activity during memory encoding. Frontiers in psychiatry, 4, 163. [Link to Full Article]↩︎\nBennett, C. M., Miller, M. B., & Wolford, G. L. (2009). Neural correlates of interspecies perspective taking in the post-mortem Atlantic Salmon: an argument for multiple comparisons correction. Neuroimage, 47(Suppl 1), S125. [Link to Full Article]↩︎"
   }
 ]

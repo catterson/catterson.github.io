@@ -1,0 +1,139 @@
+---
+title: "5L_Methods"
+format: 
+  html:
+      code-overflow: wrap
+---
+
+## [Check-In : Review Time!](https://forms.gle/a4c5quZMgwwyY8Bc8)
+
+Use the cal_mega dataset (from Lab 4) to answer the questions in the check-in. Make sure to save your work in an R script.
+
+-   What is the sample size of this dataset?
+
+-   Create a likert scale to measure people's love of Dancing. This was measured with the following variables : dance1, dance2, dance3r, and dance4r. Note that dance3r and dance4r are negatively-keyed, and will need to be reverse scored. What number will you need to subtract dance3r and dance4r from in order to reverse score them?
+
+-    What is the alpha reliability of this scale? Round to two decimal places.
+
+-   What is the mean of this scale? Round to two decimal places.
+
+-   Graph the variable as a histogram. Describe the shape; what do you learn about our class from this variable?
+
+-   The variable hrs.screen asked students to report how many hours of screens they used (according to their phone) in the last day. What is the mean of this variable? Round to two decimal places.
+
+-   How many people did not report their hours of screen usage (i.e., how many NAs are there in this variable?)
+
+-   What's the z-score for someone who stared at their screen for 8-hours a day? Round to two decimal places.
+
+-   What does this z-score tell you?
+
+### Announcements
+
+-   **Mini Exam is in NEXT weeks \[2/28\]**
+
+    -   [STUDY GUIDE HERE](https://docs.google.com/document/d/1T2kz1AyiAvlWRx4mlNcqkI7NwCHr3Bldl4ryFXwdB2c/edit?usp=sharing)
+
+    -   take home; open-note; open-book; DO ON YOUR OWN.
+
+    -   held during normal class; 85 minutes (DSP students get extra time accommodations)
+
+    -   practice exam will post next week
+
+-   **Lab 5.** Do the Fall 2024 Mini Exam. Look over the key (video key!) after you've done. Submit your completed exam. Auto graded, but I want you do to. (PRACTICE PRACTICE PRACTICE!)
+
+-   **Milestone #1 Due in TWO weeks \[3/9\]**
+
+### Agenda
+
+-   **2:10 - 3:10 \|** Check-In and Review
+
+-   **3:10 - 3:30 \|** Reliability and Validity
+
+-   **3:30 - 3:42 \|** Break Time
+
+-   **3:42 - 4:30 \|** Project Workshop.
+
+### Professor Check-In Code
+
+```{r}
+#| eval: false
+#| include: false
+m <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/cal_mega_SP25.csv", stringsAsFactors = T)
+names(m)
+nrow(m)
+
+## Scale Creation
+dance.df <- with(m, data.frame(dance1, dance2, 6-dance3r, 6-dance4r))
+range(m$dance4r, na.rm = T)
+psych::alpha(dance.df) # .84
+m$DANCE <- rowMeans(dance.df, na.rm = T)
+summary(m$DANCE)
+sd(m$DANCE, na.rm = T)
+hist(m$DANCE)
+
+## Outliers
+hist(m$hrs.screen)
+
+m$SCREEN <- m$hrs.screen
+m$SCREEN[m$SCREEN < 0] <- NA
+
+hist(m$SCREEN)
+
+mean(m$SCREEN, na.rm = T) # 6.00
+sd(m$SCREEN, na.rm = T) # 2.74
+
+sum(is.na(m$SCREEN))
+sum(is.na(m$hrs.screen))
+
+
+## A Z-Score
+(8 - mean(m$SCREEN, na.rm = T))/sd(m$SCREEN, na.rm = T) # .73
+
+## THINKING BRAIN STUFF.
+```
+
+## Reliability and Validity
+
+-   **Relevance to Psychological Science**
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Reliability in Neuroscience**[^1]                                                                                                                                                                                                             | **Validity in Neuroscience**[^2]                                                                                                                                                                                                                |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeTLefCt9zPzX-MyF98cf6k36Rc31EvbAHMBYa-51Hu6gDnkSantlTykj_O9RndtVAo-N8rW0Pyk22h2nmu8CcJPmyk5v7vImUvr09vCgey7sBarI-esWO2Mmg1PMZa3mmwLN-IBNi5ohp-q2IaKKfZP4o?key=twYbZcgNxJdbKGKJjMiFiQ)**  | **![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXei00h9QfmJe_MKZn_Ci_HA0wE8dT482MmTu8SC7Rmp1Wq7E4YfJma0YILCbkozyv2WeYO7bdai0NtDNuBYZAlH03i5vxsKSvGA5BHxqXd6-ISEIDnA-06-KtWWMsn-rzr04H7C-SUuQrLaRcMLAJO5aBCJ?key=twYbZcgNxJdbKGKJjMiFiQ)** |
+|                                                                                                                                                                                                                                                 |                                                                                                                                                                                                                                                 |
+| **![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcsuNK0Qy0nESrPBAIZOmJeAwa41RPNebqn77rHCHZ9XCfQahnZujQrQbEvI0woNZ9d0Q_Y3Opx8jNpH1F5dTj92b85fLTQRVLNyPwjarBLr-471Q2SZH4QJX2IKm3wEfJxkv6cQQnfx0D83WbhUDTgQ-69?key=twYbZcgNxJdbKGKJjMiFiQ)** | **![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcJwESEePEGVGj02kHO2BKu3TnbFDPX7Hbh84XMMqLDNS1RrjxKFdeuYm92RNLlpDK65XQPuEjiOWEVz00eRfn3ZcjlmyTZutORBmAE4sbcPTfgNNP16b9SH95pDxzHF8qrbgBKn3VrSpTg1XiJf8uvGec?key=twYbZcgNxJdbKGKJjMiFiQ)**  |
+|                                                                                                                                                                                                                                                 |                                                                                                                                                                                                                                                 |
+|                                                                                                                                                                                                                                                 | \                                                                                                                                                                                                                                               |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+[^1]: Brandt, D. J., Sommer, J., Krach, S., Bedenbender, J., Kircher, T., Paulus, F. M., & Jansen, A. (2013). Test-retest reliability of fMRI brain activity during memory encoding. Frontiers in psychiatry, 4, 163. \[[Link to Full Article](https://www.frontiersin.org/articles/10.3389/fpsyt.2013.00163/full)\]
+
+[^2]: Bennett, C. M., Miller, M. B., & Wolford, G. L. (2009). Neural correlates of interspecies perspective taking in the post-mortem Atlantic Salmon: an argument for multiple comparisons correction. Neuroimage, 47(Suppl 1), S125. \[[Link to Full Article](http://prefrontal.org/files/posters/Bennett-Salmon-2009.pdf)\]
+
+-   **Relevance to Real-Life.**
+
+How would you evaluate the reliability and validity of the STEP COUNTER on your phone???
+
+|  |  |
+|----|----|
+| **Term** | **Way of Testing** |
+| **face :** does our measure or result look like what it should look like? |  |
+| **convergent :** is our measure similar to related concepts? |  |
+| **discriminant :** is our measure different from unrelated concepts? |  |
+| **test-retest :** do we get the same result if we take multiple measures? |  |
+| **interrater reliability :** would another observer make the same measurements? |  |
+| **inter-item reliability :** would one item in the likert scale be related to others? |  |
+
+## BREAK TIME : MEET BACK AT 3:42
+
+![](images/clipboard-1613162713.png)
+
+## Milestone #1 \| Final Project Workshop
+
+**REVIEW : Milestone #1 Document.**
+
+**RECAP : Questions About the Research Process / Scientific Articles?**
+
+**ACTIVITY : Doing a Lit Review**
+
+## [Check-Out](https://docs.google.com/forms/d/e/1FAIpQLSdl3nqWlDUGVV9ytbhhvF2_C5JWTA7r0Rjn31ltquuv5hDAaw/viewform?usp=sf_link)
