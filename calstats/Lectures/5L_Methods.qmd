@@ -9,21 +9,90 @@ format:
 
 Use the cal_mega dataset (from Lab 4) to answer the questions in the check-in. Make sure to save your work in an R script.
 
+```{r}
+m <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/cal_mega_SP25.csv",
+              stringsAsFactors = T)
+head(m) # checking my data.
+```
+
 -   What is the sample size of this dataset?
+
+    ```{r}
+    nrow(m)
+    ```
 
 -   Create a likert scale to measure people's love of Dancing. This was measured with the following variables : dance1, dance2, dance3r, and dance4r. Note that dance3r and dance4r are negatively-keyed, and will need to be reverse scored. What number will you need to subtract dance3r and dance4r from in order to reverse score them?
 
+    ```{r}
+    ## STEP 1. CREATE A DATA FRAME TO ISOLATE THE SCALE ITEMS!
+    DANCE.df <- data.frame(m$dance1, m$dance2, m$dance3r, m$dance4r)
+    DANCE.df
+
+    ## STEP 2 : reverse score the negatively keyed items in the scale.
+    DANCE.df <- data.frame(m$dance1, m$dance2, 6-m$dance3r, 6-m$dance4r)
+    range(DANCE.df, na.rm = T) # a 1-5 scale = 1 + 5 = 6 = # to subract NK items from.
+    DANCE.df
+
+    ## STEP 3 : evaluate the reliability
+    library(psych)
+    alpha(DANCE.df)
+
+    ## STEP 4 : IF the items in the scale are reliable, then I want to squish (or average) all the items into ONE NUMBER for each person. This will be a NEW VARIABLE created from the likert scale.
+
+    m$DANCELOVE <- rowMeans(DANCE.df)
+    ## USE THIS VARIABLE IN YOUR ANALYSES!!!
+    ```
+
 -   What is the alpha reliability of this scale? Round to two decimal places.
+
+    -   see above!
 
 -   What is the mean of this scale? Round to two decimal places.
 
+    ```{r}
+    mean(m$DANCELOVE, na.rm = T)
+    ```
+
 -   Graph the variable as a histogram. Describe the shape; what do you learn about our class from this variable?
+
+    ```{r}
+    hist(m$DANCELOVE)
+    ```
 
 -   The variable hrs.screen asked students to report how many hours of screens they used (according to their phone) in the last day. What is the mean of this variable? Round to two decimal places.
 
+    ```{r}
+    mean(m$hrs.screen, na.rm = T)
+
+    m$hrs.screen[m$hrs.screen < 0] <- NA
+
+    hist(m$hrs.screen)
+
+    ```
+
 -   How many people did not report their hours of screen usage (i.e., how many NAs are there in this variable?)
 
+    ```{r}
+    summary(m$hrs.screen)
+    length(m$hrs.screen[m$hrs.screen == "NA"]) # another way!
+    sum(is.na(m$hrs.screen)) # another way!!!
+
+    ```
+
 -   What's the z-score for someone who stared at their screen for 8-hours a day? Round to two decimal places.
+
+    ```{r}
+    8 - mean(m$hrs.screen, na.rm = T) # distance from the mean
+    sd(m$hrs.screen, na.rm = T) # the average person differs from the mean by 2.7 hours!
+
+    (8 - mean(m$hrs.screen, na.rm = T))/sd(m$hrs.screen, na.rm = T) # distance from the mean/sd
+    # Z = .73
+
+    scale(m$hrs.screen)
+
+    scale(m$hrs.screen)[m$hrs.screen == 8]
+
+    ```
 
 -   What does this z-score tell you?
 
@@ -107,24 +176,23 @@ sum(is.na(m$hrs.screen))
 
 [^2]: Bennett, C. M., Miller, M. B., & Wolford, G. L. (2009). Neural correlates of interspecies perspective taking in the post-mortem Atlantic Salmon: an argument for multiple comparisons correction. Neuroimage, 47(Suppl 1), S125. \[[Link to Full Article](http://prefrontal.org/files/posters/Bennett-Salmon-2009.pdf)\]
 
-```{=html}
 <!-- -->
-```
+
 -   **Relevance to Real-Life.**
 
 How would you evaluate the reliability and validity of the STEP COUNTER on your phone???
 
-|                                                                                       |                    |
+|                                                                                       |                                                                                                                                 |
 |------------------------------------|------------------------------------|
-| **Term**                                                                              | **Way of Testing** |
-| **face :** does our measure or result look like what it should look like?             |                    |
-| **convergent :** is our measure similar to related concepts?                          |                    |
-| **discriminant :** is our measure different from unrelated concepts?                  |                    |
-| **test-retest :** do we get the same result if we take multiple measures?             |                    |
-| **interrater reliability :** would another observer make the same measurements?       |                    |
-| **inter-item reliability :** would one item in the likert scale be related to others? |                    |
+| **Term**                                                                              | **Way of Testing**                                                                                                              |
+| **face :** does our measure or result look like what it should look like?             | the unit of measurement looks like what I want it to look like (STEPS); anywhere from 0 to 20,000 (A BIG DAY?!)                 |
+| **convergent :** is our measure similar to related concepts?                          | does the step counter increase when I take steps.                                                                               |
+| **discriminant :** is our measure different from unrelated concepts?                  | the number of steps should be unrelated to : shaking your phone; miles driven; \# of tired students in a classroom on a Friday. |
+| **test-retest :** do we get the same result if we take multiple measures?             | take X steps at one time point, then take X steps at another time point. X should be the same both times!                       |
+| **interrater reliability :** would another observer make the same measurements?       | carry two phones; take X steps...phones should give the same answer (Z; not necessarily X!)                                     |
+| **inter-item reliability :** would one item in the likert scale be related to others? | NOT RELEVANT FOR LIKERT SCALES.                                                                                                 |
 
-## BREAK TIME : MEET BACK AT 3:42
+## BREAK TIME : MEET BACK AT 3:48
 
 ![](images/clipboard-1613162713.png)
 
@@ -139,7 +207,7 @@ How would you evaluate the reliability and validity of the STEP COUNTER on your 
 The introduction starts broad, but then quickly focuses on the variables in your model so readers can understand a) what your study is about and b) why you’re doing your study. 
 
 |                             |                                                                                                                                                                                                                                                                                                                                             |
-|---------------|---------------------------------------------------------|
+|-----------------|-------------------------------------------------------|
 | **Section**                 | **Brief Explanation**                                                                                                                                                                                                                                                                                                                       |
 | **1. The Opening**          | Describe the question you have, and explain why this question matters                                                                                                                                                                                                                                                                       |
 | **2. The Review**           | Describe what past research and theory has to say on the question and your theory. Your goal is to give the reader the background they need to understand why you are doing your study; you don’t need to cover EVERY single issue on your topic..                                                                                          |

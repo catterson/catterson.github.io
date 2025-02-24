@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -113,9 +147,443 @@ ul.task-list li input[type="checkbox"] {
 <section id="check-in-review-time" class="level2">
 <h2 class="anchored" data-anchor-id="check-in-review-time"><a href="https://forms.gle/a4c5quZMgwwyY8Bc8">Check-In : Review Time!</a></h2>
 <p>Use the cal_mega dataset (from Lab 4) to answer the questions in the check-in. Make sure to save your work in an R script.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/Class Datasets/cal_mega_SP25.csv"</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">stringsAsFactors =</span> T)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(m) <span class="co"># checking my data.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       time    sex age                       eth
+1 2025/02/14 4:52:49 PM PST   Male  20                     Asian
+2 2025/02/14 4:52:49 PM PST Female  20 White / European American
+3 2025/02/14 4:53:00 PM PST Female  20 White / European American
+4 2025/02/14 4:53:21 PM PST Female  19                     Asian
+5 2025/02/14 4:54:09 PM PST Female  20           Asian and white
+6 2025/02/14 4:54:29 PM PST   Male  24                     Asian
+                               ed.mom                               ed.dad
+1                        Some college                         Some college
+2                        Some college  Professional / Post-graduate degree
+3 Professional / Post-graduate degree High school graduation or equivalent
+4                        Some college High school graduation or equivalent
+5                  College graduation                   College graduation
+6 Professional / Post-graduate degree  Professional / Post-graduate degree
+               income e1 a1 c1r n1 o1 e2 a2r c2r n2 o2r e3 a3 c3 n4r o4 e4 a4r
+1       Over $175,001  3  3   4  4  4  3   3   4  4   3  3  3  3   4  4  4   4
+2       Over $175,001  3  4   3  5  5  3   3   3  3   3  3  3  4   2  3  4   3
+3       Over $175,001  2  4   2  4  4  4   3   2  3   1  4  4  4   4  4  4   1
+4       Over $175,001  4  4   2  4  4  3   1   3  4   3  3  4  4   2  3  2   2
+5 $125,001 - $175,000  2  5   2  4  5  3   2   2  2   1  4  4  4   3  4  5   2
+6       Over $175,001  5  5   5  5  5  5   5   5  5   5  5  5  5   5  5  5   5
+  c4 n4r.1 o4r e5r a5 c5 n5r o5 e6r a6r c6r n6 o6r swls1 swls2 swls3 swls4
+1  2     2   2   3  2  2   3  3   2   2   3  3   2     2     3     3     3
+2  3     2   2   3  3  3   3  3   3   3   3  3   3     3     3     3     3
+3  2     3   1   1  5  5   4  4   2   2   1  1   1     5     5     5     4
+4  3     3   2   3  4 NA  NA NA  NA  NA  NA NA  NA    NA    NA    NA    NA
+5  4     3   1   3  5  5   5  5   2   3   2  4   1     4     4     4     4
+6  5     5   5   5  5  5   5  5   5   5   5  5   5     5     5     5     5
+  swls5 pow1 pow2r soul1 soul2r soul3 soul4r water1 water2 water3r water4r
+1     3    3     3     4      3     3      3      3      3       3       3
+2     3    3     3     3      4     4      4      4      4       2       3
+3     4    4     2     5      2     4      5      4      4       1       4
+4    NA   NA    NA    NA     NA    NA     NA     NA     NA      NA      NA
+5     4    4     2     4      4     3      4      5      5       1       1
+6     5    5     5     5      5     5      5      5      5       5       5
+  brekky1 brekky2 brekky3r thinkcap1 thinkcap2 thinkcap3r thinkcap4r goodcap1
+1       3       3        2         2         2          4          4        4
+2       4       3        3         3         3          3          3        2
+3       1       5        1         4         4          1          1        2
+4      NA      NA       NA        NA        NA         NA         NA       NA
+5       2       5        2         5         2          2          4        3
+6       5       5        5         5         5          5          5        5
+  goodcap2r goodcap3 goodcap4r pwe1 pwe2 pwe3 pwe4r dance1 dance2 dance3r
+1         4        3         3    4    4    3     2      2      2       2
+2         4        1         4    4    4    4     1      4      4       3
+3         4        2         4    1    4    2     2      5      4       1
+4        NA       NA        NA   NA   NA   NA    NA     NA     NA      NA
+5         4        2         4    2    1    1     3      5      4       1
+6         5        5         5    5    5    5     5      5      5       5
+  dance4r phone1 phone2 phone3r diffpeep1 diffpeep2 diffpeep3r diffpeep4r
+1       2      2      2       3         3         4          4          4
+2       3      3      3       3         3         3          3          3
+3       1      4      1       5         5         5          1          1
+4      NA     NA     NA      NA        NA        NA         NA         NA
+5       1      4      3       3         5         4          1          2
+6       5      5      5       5         5         5          5          5
+  timer1 timer2 timer3r timer4r nature1 nature2 nature3r nature4r parents1
+1      3      4       4       4       4       4        4        3        5
+2      3      3       3       3       3       3        3        3        5
+3      4      1       4       4       4       4        1        1        5
+4     NA     NA      NA      NA      NA      NA       NA       NA       NA
+5      4      3       2       4       5       4        2        3        4
+6      5      5       5       5       5       5        5        5        5
+  parents2 parents3r parents4r justworld1 justworld2 justworld3 justworld4 narc
+1        5         3         2          5          4          4          3    3
+2        5         3         3          3          1          3          3    1
+3        4         1         1          4          2          2          3    1
+4       NA        NA        NA         NA         NA         NA         NA   NA
+5        4         2         2          3          3          2          3    3
+6        5         5         5          5          5          5          5    5
+  sleep1 sleep2 sleep3R sleep4 sleep5 sleep6 sleep7 sleep8 pss1 pss2R pss3R
+1      2      2       2      2      3      3      2      3    3     3     2
+2      2      2       3      2      2      3      2      2    2     2     1
+3      1      1       3      1      1      0      0      4    0     3     3
+4      2      2       2      2     NA     NA     NA     NA   NA     2    NA
+5      2      2       3      1      1      1      3      2    3     3     2
+6      4      4       4      4      4      4      4      4    4     4     4
+  pss4 onlineshop1 onlineshop2 onlineshop3 onlineshop4 onlineshop5 onlineshop6R
+1    2           3           3           3           3           3            3
+2    3           1           2           1           1           1            3
+3    0           0           3           3           0           0            0
+4   NA          NA          NA          NA          NA          NA           NA
+5    1           1           1           1           0           0            3
+6    4           4           4           4           4           4            4
+  onlineshop7R taco.best smoke.pot pinepizzatasty procrastinate boba pref.book
+1            4       Yes        No             No            No  Yes       Yes
+2            3       Yes       Yes            Yes           Yes   No        No
+3            0        No        No            Yes            No   No        No
+4           NA        No        No             No           Yes   No        No
+5            3        No        No             No           Yes   No        No
+6            4        No        No             No            No   No        No
+  read.scifi need.caff love.music clubbed read.marx been.disney attend.class
+1         No        No        Yes      No        No          No          Yes
+2         No       Yes        Yes     Yes       Yes         Yes          Yes
+3         No       Yes        Yes     Yes       Yes         Yes          Yes
+4         No       Yes        Yes     Yes       Yes         Yes           No
+5        Yes        No        Yes      No       Yes         Yes          Yes
+6         No        No         No      No        No          No           No
+  had.breakfast call.folks tried.take
+1           Yes         No        Yes
+2           Yes        Yes        Yes
+3           Yes        Yes         No
+4            No         No         No
+5           Yes         No        Yes
+6            No         No         No
+                                                                                        job.work
+1                                                             No, I am just a student right now.
+2                                                             No, I am just a student right now.
+3   Yes, I am working a full-time job in addition to being a student (40 hours or more per week)
+4                                                             No, I am just a student right now.
+5 Yes, I am working a part-time job in addition to being a student (less than 40 hours per week)
+6                                                             No, I am just a student right now.
+  fav.weather hrs.sleep screens units hrs.screen items.amazon
+1       sunny         8       2    18        6.0            3
+2       sunny         8       2    16        8.0            1
+3    #fireszn         8       2    20        5.0            1
+4       rainy         8       2    15         NA            2
+5       sunny         8       2    16        4.5            0
+6       snowy         9       2    16        3.0            1</code></pre>
+</div>
+</div>
 <ul>
-<li><p>What is the sample size of this dataset?</p></li>
-<li><p>Create a likert scale to measure people’s love of Dancing. This was measured with the following variables : dance1, dance2, dance3r, and dance4r.&nbsp;Note that dance3r and dance4r are negatively-keyed, and will need to be reverse scored. What number will you need to subtract dance3r and dance4r from in order to reverse score them?</p></li>
+<li><p>What is the sample size of this dataset?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 122</code></pre>
+</div>
+</div></li>
+<li><p>Create a likert scale to measure people’s love of Dancing. This was measured with the following variables : dance1, dance2, dance3r, and dance4r.&nbsp;Note that dance3r and dance4r are negatively-keyed, and will need to be reverse scored. What number will you need to subtract dance3r and dance4r from in order to reverse score them?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## STEP 1. CREATE A DATA FRAME TO ISOLATE THE SCALE ITEMS!</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>DANCE.df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(m<span class="sc">$</span>dance1, m<span class="sc">$</span>dance2, m<span class="sc">$</span>dance3r, m<span class="sc">$</span>dance4r)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>DANCE.df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    m.dance1 m.dance2 m.dance3r m.dance4r
+1          2        2         2         2
+2          4        4         3         3
+3          5        4         1         1
+4         NA       NA        NA        NA
+5          5        4         1         1
+6          5        5         5         5
+7          4        4         4         4
+8          3        2         2         2
+9          3        3         2         2
+10         3        2         3         3
+11         3        2         3         2
+12         4        1         1         1
+13         2        1         4         3
+14         3        4         2         2
+15         3        2         1         2
+16         4        5         1         1
+17         4        4         2         2
+18         3        1         1         1
+19         5        5         5         5
+20         4        3         2         2
+21         2        4         1         1
+22         5        4         2         1
+23         4        4         1         1
+24         1        1         5         5
+25         5        4         1         1
+26         4        4         1         1
+27         5        1         2         2
+28         5        4         1         2
+29         4        4         1         2
+30         2        2         3         3
+31         5        5         1         1
+32         2        1         4         4
+33         3        3         3         3
+34         4        4         2         2
+35         2        2         3         4
+36         4        4         1         1
+37         2        2         4         4
+38         3        3         3         2
+39         2        1         4         4
+40         4        3         1         1
+41         3        2         2         2
+42         5        5         1         1
+43         5        5         1         1
+44         3        3         2         2
+45         5        1         1         1
+46         4        5         1         1
+47         5        5         1         1
+48         2        2         4         2
+49         3        4         1         1
+50         3        2         2         1
+51         4        4         1         1
+52         1        1         1         1
+53         4        4         2         2
+54         3        2         2         3
+55         5        5         1         1
+56         3        2         2         1
+57         5        4         1         1
+58         4        3         1         1
+59         3        2         3         4
+60         5        5         1         1
+61         5        5         1         1
+62         5        2         1         2
+63         4        2         1         2
+64         1        1         5         3
+65         4        4         1         1
+66         4        3         1         1
+67         4        2         2         3
+68         1        1         5         4
+69         5        5         1         1
+70         5        2         1         2
+71         1        2         4         3
+72         5        5         1         1
+73         4        1         2         2
+74         1        1         4         4
+75         2        1         4         3
+76         4        1         3         4
+77         3        1         3         5
+78         4        2         1         1
+79         4        1         1         5
+80         4        1         2         4
+81         1        1         5         2
+82         5        2         1         2
+83         4        2         2         2
+84         5        4         2         3
+85         4        4         2         2
+86         2        2         3         2
+87         4        2         2         2
+88         5        4         1         2
+89         2        3         2         4
+90         4        4         2         2
+91         2        2         3         2
+92         4        2         1         2
+93         1        1         3         4
+94         4        5         2         1
+95         5        4         1         1
+96         2        2         4         4
+97         5        5         1         1
+98         1        1         5         5
+99         3        2         2         2
+100        4        4         4         2
+101        4        4         2         2
+102        2        2         4         4
+103        4        5         1         1
+104        3        3         3         2
+105        3        3         1         2
+106        3        1         1         1
+107        4        1         2         3
+108        4        2         3         2
+109        5        4         1         2
+110        3        3         3         3
+111        5        4         1         1
+112        1        1         5         2
+113        4        4         2         3
+114        3        1         2         3
+115        5        4         1         1
+116        4        3         2         2
+117        2        2         4         4
+118        4        3         2         2
+119       NA       NA        NA        NA
+120        2        1         4         5
+121       NA        3         3         3
+122        4        3         2         1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## STEP 2 : reverse score the negatively keyed items in the scale.</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>DANCE.df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(m<span class="sc">$</span>dance1, m<span class="sc">$</span>dance2, <span class="dv">6</span><span class="sc">-</span>m<span class="sc">$</span>dance3r, <span class="dv">6</span><span class="sc">-</span>m<span class="sc">$</span>dance4r)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(DANCE.df, <span class="at">na.rm =</span> T) <span class="co"># a 1-5 scale = 1 + 5 = 6 = # to subract NK items from.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>DANCE.df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    m.dance1 m.dance2 X6...m.dance3r X6...m.dance4r
+1          2        2              4              4
+2          4        4              3              3
+3          5        4              5              5
+4         NA       NA             NA             NA
+5          5        4              5              5
+6          5        5              1              1
+7          4        4              2              2
+8          3        2              4              4
+9          3        3              4              4
+10         3        2              3              3
+11         3        2              3              4
+12         4        1              5              5
+13         2        1              2              3
+14         3        4              4              4
+15         3        2              5              4
+16         4        5              5              5
+17         4        4              4              4
+18         3        1              5              5
+19         5        5              1              1
+20         4        3              4              4
+21         2        4              5              5
+22         5        4              4              5
+23         4        4              5              5
+24         1        1              1              1
+25         5        4              5              5
+26         4        4              5              5
+27         5        1              4              4
+28         5        4              5              4
+29         4        4              5              4
+30         2        2              3              3
+31         5        5              5              5
+32         2        1              2              2
+33         3        3              3              3
+34         4        4              4              4
+35         2        2              3              2
+36         4        4              5              5
+37         2        2              2              2
+38         3        3              3              4
+39         2        1              2              2
+40         4        3              5              5
+41         3        2              4              4
+42         5        5              5              5
+43         5        5              5              5
+44         3        3              4              4
+45         5        1              5              5
+46         4        5              5              5
+47         5        5              5              5
+48         2        2              2              4
+49         3        4              5              5
+50         3        2              4              5
+51         4        4              5              5
+52         1        1              5              5
+53         4        4              4              4
+54         3        2              4              3
+55         5        5              5              5
+56         3        2              4              5
+57         5        4              5              5
+58         4        3              5              5
+59         3        2              3              2
+60         5        5              5              5
+61         5        5              5              5
+62         5        2              5              4
+63         4        2              5              4
+64         1        1              1              3
+65         4        4              5              5
+66         4        3              5              5
+67         4        2              4              3
+68         1        1              1              2
+69         5        5              5              5
+70         5        2              5              4
+71         1        2              2              3
+72         5        5              5              5
+73         4        1              4              4
+74         1        1              2              2
+75         2        1              2              3
+76         4        1              3              2
+77         3        1              3              1
+78         4        2              5              5
+79         4        1              5              1
+80         4        1              4              2
+81         1        1              1              4
+82         5        2              5              4
+83         4        2              4              4
+84         5        4              4              3
+85         4        4              4              4
+86         2        2              3              4
+87         4        2              4              4
+88         5        4              5              4
+89         2        3              4              2
+90         4        4              4              4
+91         2        2              3              4
+92         4        2              5              4
+93         1        1              3              2
+94         4        5              4              5
+95         5        4              5              5
+96         2        2              2              2
+97         5        5              5              5
+98         1        1              1              1
+99         3        2              4              4
+100        4        4              2              4
+101        4        4              4              4
+102        2        2              2              2
+103        4        5              5              5
+104        3        3              3              4
+105        3        3              5              4
+106        3        1              5              5
+107        4        1              4              3
+108        4        2              3              4
+109        5        4              5              4
+110        3        3              3              3
+111        5        4              5              5
+112        1        1              1              4
+113        4        4              4              3
+114        3        1              4              3
+115        5        4              5              5
+116        4        3              4              4
+117        2        2              2              2
+118        4        3              4              4
+119       NA       NA             NA             NA
+120        2        1              2              1
+121       NA        3              3              3
+122        4        3              4              5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## STEP 3 : evaluate the reliability</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'psych' was built under R version 4.3.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">alpha</span>(DANCE.df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Reliability analysis   
+Call: alpha(x = DANCE.df)
+
+  raw_alpha std.alpha G6(smc) average_r S/N   ase mean sd median_r
+      0.84      0.84    0.85      0.57 5.4 0.024  3.5  1     0.56
+
+    95% confidence boundaries 
+         lower alpha upper
+Feldt     0.79  0.84  0.88
+Duhachek  0.79  0.84  0.89
+
+ Reliability if an item is dropped:
+               raw_alpha std.alpha G6(smc) average_r S/N alpha se  var.r med.r
+m.dance1            0.78      0.79    0.74      0.55 3.7    0.036 0.0276  0.47
+m.dance2            0.84      0.84    0.80      0.63 5.1    0.026 0.0175  0.67
+X6...m.dance3r      0.77      0.77    0.71      0.53 3.4    0.035 0.0091  0.48
+X6...m.dance4r      0.80      0.81    0.76      0.58 4.2    0.031 0.0158  0.64
+
+ Item statistics 
+                 n raw.r std.r r.cor r.drop mean  sd
+m.dance1       119  0.85  0.85  0.79   0.72  3.5 1.2
+m.dance2       120  0.79  0.77  0.66   0.60  2.8 1.4
+X6...m.dance3r 120  0.86  0.86  0.83   0.73  3.8 1.3
+X6...m.dance4r 120  0.81  0.82  0.75   0.66  3.8 1.2
+
+Non missing response frequency for each item
+                  1    2    3    4    5 miss
+m.dance1       0.08 0.14 0.19 0.34 0.24 0.02
+m.dance2       0.22 0.26 0.13 0.26 0.13 0.02
+X6...m.dance3r 0.07 0.12 0.14 0.28 0.40 0.02
+X6...m.dance4r 0.06 0.12 0.13 0.34 0.34 0.02</code></pre>
+</div>
+</div></li>
 <li><p>What is the alpha reliability of this scale? Round to two decimal places.</p></li>
 <li><p>What is the mean of this scale? Round to two decimal places.</p></li>
 <li><p>Graph the variable as a histogram. Describe the shape; what do you learn about our class from this variable?</p></li>
@@ -216,8 +684,8 @@ ul.task-list li input[type="checkbox"] {
 <p>The introduction starts broad, but then quickly focuses on the variables in your model so readers can understand a) what your study is about and b) why you’re doing your study.&nbsp;</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 79%">
+<col style="width: 23%">
+<col style="width: 76%">
 </colgroup>
 <tbody>
 <tr class="odd">
