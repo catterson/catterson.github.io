@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -544,11 +544,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 122        4        3              4              5</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## STEP 3 : evaluate the reliability</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'psych' was built under R version 4.3.3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">alpha</span>(DANCE.df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">alpha</span>(DANCE.df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Reliability analysis   
@@ -583,13 +580,220 @@ m.dance2       0.22 0.26 0.13 0.26 0.13 0.02
 X6...m.dance3r 0.07 0.12 0.14 0.28 0.40 0.02
 X6...m.dance4r 0.06 0.12 0.13 0.34 0.34 0.02</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## STEP 4 : IF the items in the scale are reliable, then I want to squish (or average) all the items into ONE NUMBER for each person. This will be a NEW VARIABLE created from the likert scale.</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>DANCELOVE <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(DANCE.df)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="do">## USE THIS VARIABLE IN YOUR ANALYSES!!!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
-<li><p>What is the alpha reliability of this scale? Round to two decimal places.</p></li>
-<li><p>What is the mean of this scale? Round to two decimal places.</p></li>
-<li><p>Graph the variable as a histogram. Describe the shape; what do you learn about our class from this variable?</p></li>
-<li><p>The variable hrs.screen asked students to report how many hours of screens they used (according to their phone) in the last day. What is the mean of this variable? Round to two decimal places.</p></li>
-<li><p>How many people did not report their hours of screen usage (i.e., how many NAs are there in this variable?)</p></li>
-<li><p>What’s the z-score for someone who stared at their screen for 8-hours a day? Round to two decimal places.</p></li>
+<li><p>What is the alpha reliability of this scale? Round to two decimal places.</p>
+<ul>
+<li>see above!</li>
+</ul></li>
+<li><p>What is the mean of this scale? Round to two decimal places.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(m<span class="sc">$</span>DANCELOVE, <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.491597</code></pre>
+</div>
+</div></li>
+<li><p>Graph the variable as a histogram. Describe the shape; what do you learn about our class from this variable?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(m<span class="sc">$</span>DANCELOVE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="5L_Methods_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div></li>
+<li><p>The variable hrs.screen asked students to report how many hours of screens they used (according to their phone) in the last day. What is the mean of this variable? Round to two decimal places.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(m<span class="sc">$</span>hrs.screen, <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.943551</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>hrs.screen[m<span class="sc">$</span>hrs.screen <span class="sc">&lt;</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(m<span class="sc">$</span>hrs.screen)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="5L_Methods_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div></li>
+<li><p>How many people did not report their hours of screen usage (i.e., how many NAs are there in this variable?)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m<span class="sc">$</span>hrs.screen)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  1.680   4.000   6.000   6.004   7.375  15.000      16 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(m<span class="sc">$</span>hrs.screen[m<span class="sc">$</span>hrs.screen <span class="sc">==</span> <span class="st">"NA"</span>]) <span class="co"># another way!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(m<span class="sc">$</span>hrs.screen)) <span class="co"># another way!!!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16</code></pre>
+</div>
+</div></li>
+<li><p>What’s the z-score for someone who stared at their screen for 8-hours a day? Round to two decimal places.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dv">8</span> <span class="sc">-</span> <span class="fu">mean</span>(m<span class="sc">$</span>hrs.screen, <span class="at">na.rm =</span> T) <span class="co"># distance from the mean</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.99566</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(m<span class="sc">$</span>hrs.screen, <span class="at">na.rm =</span> T) <span class="co"># the average person differs from the mean by 2.7 hours!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.74497</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">8</span> <span class="sc">-</span> <span class="fu">mean</span>(m<span class="sc">$</span>hrs.screen, <span class="at">na.rm =</span> T))<span class="sc">/</span><span class="fu">sd</span>(m<span class="sc">$</span>hrs.screen, <span class="at">na.rm =</span> T) <span class="co"># distance from the mean/sd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7270244</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Z = .73</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">scale</span>(m<span class="sc">$</span>hrs.screen)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               [,1]
+  [1,] -0.001580936
+  [2,]  0.727024443
+  [3,] -0.365883626
+  [4,]           NA
+  [5,] -0.548034971
+  [6,] -1.094489006
+  [7,]  1.455629823
+  [8,] -0.001580936
+  [9,] -0.730186316
+ [10,]  0.362721754
+ [11,]  0.362721754
+ [12,]  0.727024443
+ [13,] -0.001580936
+ [14,]           NA
+ [15,]  0.727024443
+ [16,] -0.730186316
+ [17,] -1.094489006
+ [18,] -0.730186316
+ [19,] -0.001580936
+ [20,] -1.458791695
+ [21,] -0.311238223
+ [22,]  1.455629823
+ [23,]           NA
+ [24,]           NA
+ [25,]  0.362721754
+ [26,] -1.276640350
+ [27,] -0.730186316
+ [28,]  0.909175788
+ [29,]  2.184235203
+ [30,] -0.365883626
+ [31,]           NA
+ [32,]  1.455629823
+ [33,]  1.455629823
+ [34,]  0.362721754
+ [35,] -0.001580936
+ [36,] -1.094489006
+ [37,]           NA
+ [38,] -0.001580936
+ [39,] -1.458791695
+ [40,]  0.362721754
+ [41,]  0.362721754
+ [42,] -0.001580936
+ [43,] -1.458791695
+ [44,] -0.001580936
+ [45,] -0.001580936
+ [46,] -1.094489006
+ [47,]  2.912840582
+ [48,] -0.730186316
+ [49,]  2.548537892
+ [50,] -1.094489006
+ [51,] -1.094489006
+ [52,]           NA
+ [53,]  0.362721754
+ [54,] -0.365883626
+ [55,]  1.455629823
+ [56,]  0.144140140
+ [57,] -0.001580936
+ [58,]  0.727024443
+ [59,] -1.094489006
+ [60,]           NA
+ [61,] -0.001580936
+ [62,] -0.365883626
+ [63,]           NA
+ [64,] -0.730186316
+ [65,] -0.001580936
+ [66,]  0.362721754
+ [67,] -0.365883626
+ [68,] -0.365883626
+ [69,] -1.094489006
+ [70,]  0.362721754
+ [71,] -0.730186316
+ [72,]  0.727024443
+ [73,]           NA
+ [74,] -0.730186316
+ [75,]           NA
+ [76,] -0.001580936
+ [77,]  0.727024443
+ [78,]  2.184235203
+ [79,] -1.032557548
+ [80,] -1.094489006
+ [81,] -0.365883626
+ [82,] -0.001580936
+ [83,] -1.458791695
+ [84,] -0.365883626
+ [85,] -1.094489006
+ [86,]           NA
+ [87,] -0.730186316
+ [88,] -0.912337661
+ [89,] -1.094489006
+ [90,]  0.180570409
+ [91,] -0.001580936
+ [92,] -1.458791695
+ [93,] -0.001580936
+ [94,] -1.575368556
+ [95,] -0.730186316
+ [96,]           NA
+ [97,] -0.001580936
+ [98,] -0.730186316
+ [99,]  1.819932513
+[100,]  0.727024443
+[101,] -0.001580936
+[102,]  1.455629823
+[103,] -0.821261988
+[104,]  0.727024443
+[105,] -0.365883626
+[106,]  1.455629823
+[107,]  3.277143272
+[108,]  0.362721754
+[109,] -0.799403827
+[110,]  1.455629823
+[111,]           NA
+[112,]  0.727024443
+[113,]  0.727024443
+[114,]  0.544873098
+[115,] -0.183732281
+[116,] -1.094489006
+[117,] -0.730186316
+[118,]           NA
+[119,]           NA
+[120,] -0.365883626
+[121,]  1.091327133
+[122,] -0.001580936
+attr(,"scaled:center")
+[1] 6.00434
+attr(,"scaled:scale")
+[1] 2.74497</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scale</span>(m<span class="sc">$</span>hrs.screen)[m<span class="sc">$</span>hrs.screen <span class="sc">==</span> <span class="dv">8</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 0.7270244        NA 0.7270244        NA 0.7270244        NA        NA
+ [8]        NA        NA        NA 0.7270244        NA        NA 0.7270244
+[15]        NA        NA 0.7270244        NA        NA 0.7270244 0.7270244
+[22]        NA 0.7270244 0.7270244        NA        NA</code></pre>
+</div>
+</div></li>
 <li><p>What does this z-score tell you?</p></li>
 </ul>
 <section id="announcements" class="level3">
@@ -647,33 +851,33 @@ X6...m.dance4r 0.06 0.12 0.13 0.34 0.34 0.02</code></pre>
 </tr>
 <tr class="even">
 <td><strong>face :</strong>&nbsp;does our measure or result look like what it should look like?</td>
-<td></td>
+<td>the unit of measurement looks like what I want it to look like (STEPS); anywhere from 0 to 20,000 (A BIG DAY?!)</td>
 </tr>
 <tr class="odd">
 <td><strong>convergent :</strong>&nbsp;is our measure similar to related concepts?</td>
-<td></td>
+<td>does the step counter increase when I take steps.</td>
 </tr>
 <tr class="even">
 <td><strong>discriminant :</strong>&nbsp;is our measure different from unrelated concepts?</td>
-<td></td>
+<td>the number of steps should be unrelated to : shaking your phone; miles driven; # of tired students in a classroom on a Friday.</td>
 </tr>
 <tr class="odd">
 <td><strong>test-retest :</strong>&nbsp;do we get the same result if we take multiple measures?</td>
-<td></td>
+<td>take X steps at one time point, then take X steps at another time point. X should be the same both times!</td>
 </tr>
 <tr class="even">
 <td><strong>interrater reliability :</strong>&nbsp;would another observer make the same measurements?</td>
-<td></td>
+<td>carry two phones; take X steps…phones should give the same answer (Z; not necessarily X!)</td>
 </tr>
 <tr class="odd">
 <td><strong>inter-item reliability :</strong>&nbsp;would one item in the likert scale be related to others?</td>
-<td></td>
+<td>NOT RELEVANT FOR LIKERT SCALES.</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="break-time-meet-back-at-342" class="level2">
-<h2 class="anchored" data-anchor-id="break-time-meet-back-at-342">BREAK TIME : MEET BACK AT 3:42</h2>
+<section id="break-time-meet-back-at-348" class="level2">
+<h2 class="anchored" data-anchor-id="break-time-meet-back-at-348">BREAK TIME : MEET BACK AT 3:48</h2>
 <p><img src="images/clipboard-1613162713.png" class="img-fluid"></p>
 </section>
 <section id="milestone-1-final-project-workshop" class="level2">
@@ -684,8 +888,8 @@ X6...m.dance4r 0.06 0.12 0.13 0.34 0.34 0.02</code></pre>
 <p>The introduction starts broad, but then quickly focuses on the variables in your model so readers can understand a) what your study is about and b) why you’re doing your study.&nbsp;</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 23%">
-<col style="width: 76%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -778,18 +982,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -821,7 +1014,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -829,7 +1044,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
