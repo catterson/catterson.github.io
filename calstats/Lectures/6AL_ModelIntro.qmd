@@ -84,9 +84,9 @@ sd(d$insta.follows, na.rm = T) # the function to get the same answer.
 
 As scientists, our goal is to make accurate predictions of individuals. So we would want to find a way to make the sum of squared errors equal zero - have no error in our predictions. The mean is a good starting place, but it's one number. And people are complex.
 
-|                                          |                             |
-|------------------------------------------|-----------------------------|
-| **the mean**                             | **the linear model ™ ©**    |
+|                                              |                                 |
+|------------------------------------|------------------------------|
+| **the mean**                                 | **the linear model ™ ©**        |
 | ![](lecture_images/6L_egg1.gif){width="324"} | ![](lecture_images/6L_egg2.gif) |
 
 **The mean is an okay starting place for our predictions, but we can try to do better!**
@@ -97,10 +97,10 @@ names(d)
 
 **DISCUSS : how do you think the variables (above) would help (or not help) us predict the number of followers someone has on instagram (insta.followers)? Why / why not???**
 
-|  |  |  |
+|                                                       |                                                           |                                                                         |
 |------------------------|------------------------|------------------------|
 | **Variables we think would help us make predictions** | **Variables we think would not help us make predictions** | **Variables we have NO IDEA if they would help us make predictions?!?** |
-|  |  |  |
+|                                                       |                                                           |                                                                         |
 
 ### The Linear Model in THREE EASY STEPS.
 
