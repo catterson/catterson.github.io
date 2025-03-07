@@ -50,9 +50,26 @@ format:
 #### Step 1 : Develop a Question and Set Hypotheses.
 
 Let's determine whether people who had breakfast were more or less hungry than people who did not have breakfast.
-  -   Null Hypothesis :
-  -   Alternative Hypothesis :
 
+-   **OUR THEORY : people who eat breakfast are less hungry than those who do not.**
+
+-   Null Hypothesis (latin for "not any" / none) : no difference or eating breakfast –\> More hunger.
+
+-   Alternative Hypothesis : **people who eat breakfast are less hungry than those who do not.**
+
+-   QUESTION : what do you do when you feel the urge / see to HARK (hypothesis after results known)?
+
+    -   why it's a problem ??? :
+
+        -   the data could be a form of error (type I or type II); but more likely to cause problems if your theory is only based on the data, and not past research.
+
+        -   we are always going to be biased to find a result that works in our favor.
+
+    -   be transparent : "oh! cool!! Now I'm interested in this idea....let's replicate."
+
+    -   pre-registration : make your hypotheses in advance (and time-stamp them) and then update them if they change.
+
+    -   
 
 #### Step 2 : Load Data, Graph and Evaluate Your Individual Variables.
 
@@ -66,8 +83,8 @@ hist(m$hunger)
 plot(m$had.breakfast, xlab = "Had Breakfast")
 ```
 
-
 #### Step 3 : Define and Interpret Your Linear Model.
+
 -   Our model will predict hunger from whether people had breakfast.
 -   As before, we define a linear model using the `lm` function, and will see an intercept and slope.
 
@@ -79,22 +96,28 @@ coef(mod)
 -   **The Model :** $\hat{Y} = a + b_1 * X_1$
 
     -   $a$ (sometimes = Intercept = Predicted Value of Y when all X values are zero.
-    -   $X_1$ = A dummy coded categorical variable. This is often the default method of comparing two groups, and compares each level of the factor to a reference level.
-        -   $X_1$ = 0 = had.breakfast = No
+    -   $X_1$ = A **dummy coded** categorical variable. This is often the default method of comparing two groups, and compares each level of the factor to a reference level.
+        -   $X_1$ = 0 = had.breakfast = No (Not Yes)
 
         -   $X_1$ = 1 = had.breakfast = Yes
+    -   $b_1$ = the slope = the predicted change in Y as X changes by 1
 
 -   **Using the Model to Make Predictions**
+
     -   predicted hunger if had.breakfast = Yes?
+        -   predicted hunger = 5.75 - 2.1 \* had.breakfastYes
+        -   `predicted hunger = 5.75 + -2.1 * 1 = 3.65`
     -   predicted hunger if had.breakfast = No?
-    
+        -   `predicted hunger = 5.75 - 2.1 * had.breakfastYes`
+        -   `predicted hunger = 5.75 - 2.1 * 0 = 5.75`
+
 -   Note that these values are the same as the average hunger for people who had breakfast and for people who did not have breakfast.
 
 ```{r}
 brekY <- m[m$had.breakfast == "Yes",]
 brekN <- m[m$had.breakfast == "No",]
 
-mean(brekY$hunger) # the slope
+mean(brekY$hunger) # the intercept + the slope
 mean(brekN$hunger) # the intercept
 
 tapply(m$hunger, m$had.breakfast, mean) # another way to do this.
@@ -102,21 +125,21 @@ tapply(m$hunger, m$had.breakfast, mean) # another way to do this.
 
 -   **The Graph**. A few ways to graph the linear model with the IV is categorical.
 
-  -   Note that the `plot()` function draws a boxplot that illustrates the median of each group; whereas the linear model emphasizes the mean.
+-   Note that the `plot()` function draws a boxplot that illustrates the median of each group; whereas the linear model emphasizes the mean.
 
 ```{r}
 plot(hunger ~ had.breakfast, data = m)
 ```
 
-  -   For "quick" methods, I like `plotmeans()` from the `gplots()` library. This plots the mean of each group.
+-   For "quick" methods, I like `plotmeans()` from the `gplots()` library. This plots the mean of each group.
 
 ```{r}
 #install.packages("gplots")
 library(gplots) 
-plotmeans(hunger ~ had.breakfast, data = m)
+plotmeans(hunger ~ had.breakfast, data = m, connect = F, ylim = c(0,10))
 ```
 
-  -   ggplot2 also has a method; nice for illustrating the individual points and making the graph look more professional?
+-   ggplot2 also has a method; nice for illustrating the individual points and making the graph look more professional?
 
 ```{r}
 library(ggplot2)
@@ -124,10 +147,10 @@ library(ggthemes)
 ggplot(m, aes(x=had.breakfast, y=hunger)) + # defining my space
   stat_summary(fun=mean, geom="bar", fill="gray") + # adding a bar for the means
   stat_summary(fun.data=mean_se, geom="errorbar", width=0.25) + # adding sampling error [more on this later!]
-  geom_dotplot(binaxis='y', binwidth=0.1,stackdir="center", alpha=0.5, stroke=0, dotsize=0.8) + # adding dots for the individual data; sorting them
-  coord_cartesian(ylim=c(1,10)) + # changing the limits of my y-axis.
+  geom_dotplot(binaxis='y', binwidth=0.1, stackdir="center", alpha=0.5, stroke=0, dotsize=0.8) + # adding dots for the individual data; sorting them
+  coord_cartesian(ylim=c(0,10)) + # changing the limits of my y-axis.
   xlab("Brekky") + ylab("Hunger") + # adding labels
-  theme_tufte() # adding a theme
+  theme_wsj() # adding a theme
 ```
 
 #### Step 4 : Evaluate Your Model
@@ -139,12 +162,31 @@ par(mfrow = c(2,2))
 plot(mod)
 ```
 
--  $R^2$ (Effect Size)
+-   $R^2$ (Effect Size)
 
 How large is this difference? $R^2$ gives some context.
 
 ```{r}
 summary(mod)$r.squared
+
+## ILLUSTRATING R^2 WHEN THE VARIABLE IS CATEGORICAL
+par(mfrow = c(1,2))
+plot(m$hunger)
+abline(h = mean(m$hunger, na.rm = T), lwd = 5)
+residuals <- m$hunger - mean(m$hunger, na.rm = T)
+SST <- sum(residuals^2)
+SST
+
+## THE MODEL
+plot(m$hunger, col = m$had.breakfast, pch = 19)
+abline(h = coef(mod)[1], lwd = 5, col = 'black') # line for non breakfast folks
+abline(h = coef(mod)[1] + coef(mod)[2], lwd = 5, col = 'red') # line for non breakfast folks
+SSM <- sum(mod$residuals^2)
+
+## R^2
+
+(SST - SSM)/SST
+
 ```
 
 This describes the percentage of variation in hunger that is explained by our model (in this case, using whether someone had breakfast to make predictions of hunger.) So, using the model to make predictions of hunger reduces our squared errors by %17 (vs. using the mean to make predictions.)
@@ -191,7 +233,7 @@ Okay, so what does this statistic mean? Well, this tells us that the difference 
 
 ### A Note on Dummy Coding
 
-    -   R will default to a reference level based on alphabetical order, so in this case, "No" will be the reference group. To change the reference group, you can relevel the factor.
+-   R will default to a reference level based on alphabetical order, so in this case, "No" will be the reference group. To change the reference group, you can relevel the factor.
 
 ```{r}
 m$had.breakfastR <- relevel(m$had.breakfast, ref = "Yes")
@@ -204,7 +246,15 @@ plotmeans(hunger ~ had.breakfast, data = m, main = "No as Reference Group")
 plotmeans(hunger ~ had.breakfastR, data = m, main = "Yes as Reference Group")
 ```
 
+-   When the IV has more than 2 levels....professor demo on the board.
+
+    ![](images/IMG_0567.JPG)
+
 ## [Presentations](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
+
+-   [Racecraft](https://www.versobooks.com/products/2270-racecraft?srsltid=AfmBOorWzT4b__0V-YDe1jjuVD5R0696SFp9vZY5kT4THqIqxENSBrct) - historical and sociological critique of race as a category.
+
+    -   inspired a few psych research articles; prof will find.
 
 ## The T-Test
 

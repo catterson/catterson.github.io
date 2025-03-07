@@ -216,7 +216,23 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="two-level-categorical-iv-simple">Two-Level Categorical IV : Simple!</h3>
 <section id="step-1-develop-a-question-and-set-hypotheses." class="level4">
 <h4 class="anchored" data-anchor-id="step-1-develop-a-question-and-set-hypotheses.">Step 1 : Develop a Question and Set Hypotheses.</h4>
-<p>Let’s determine whether people who had breakfast were more or less hungry than people who did not have breakfast. - Null Hypothesis : - Alternative Hypothesis :</p>
+<p>Let’s determine whether people who had breakfast were more or less hungry than people who did not have breakfast.</p>
+<ul>
+<li><p><strong>OUR THEORY : people who eat breakfast are less hungry than those who do not.</strong></p></li>
+<li><p>Null Hypothesis (latin for “not any” / none) : no difference or eating breakfast –&gt; More hunger.</p></li>
+<li><p>Alternative Hypothesis : <strong>people who eat breakfast are less hungry than those who do not.</strong></p></li>
+<li><p>QUESTION : what do you do when you feel the urge / see to HARK (hypothesis after results known)?</p>
+<ul>
+<li><p>why it’s a problem ??? :</p>
+<ul>
+<li><p>the data could be a form of error (type I or type II); but more likely to cause problems if your theory is only based on the data, and not past research.</p></li>
+<li><p>we are always going to be biased to find a result that works in our favor.</p></li>
+</ul></li>
+<li><p>be transparent : “oh! cool!! Now I’m interested in this idea….let’s replicate.”</p></li>
+<li><p>pre-registration : make your hypotheses in advance (and time-stamp them) and then update them if they change.</p></li>
+<li></li>
+</ul></li>
+</ul>
 </section>
 <section id="step-2-load-data-graph-and-evaluate-your-individual-variables." class="level4">
 <h4 class="anchored" data-anchor-id="step-2-load-data-graph-and-evaluate-your-individual-variables.">Step 2 : Load Data, Graph and Evaluate Your Individual Variables.</h4>
@@ -280,16 +296,25 @@ window.Quarto = {
 <li><p><strong>The Model :</strong> <span class="math inline">\(\hat{Y} = a + b_1 * X_1\)</span></p>
 <ul>
 <li><span class="math inline">\(a\)</span> (sometimes = Intercept = Predicted Value of Y when all X values are zero.</li>
-<li><span class="math inline">\(X_1\)</span> = A dummy coded categorical variable. This is often the default method of comparing two groups, and compares each level of the factor to a reference level.
+<li><span class="math inline">\(X_1\)</span> = A <strong>dummy coded</strong> categorical variable. This is often the default method of comparing two groups, and compares each level of the factor to a reference level.
 <ul>
-<li><p><span class="math inline">\(X_1\)</span> = 0 = had.breakfast = No</p></li>
+<li><p><span class="math inline">\(X_1\)</span> = 0 = had.breakfast = No (Not Yes)</p></li>
 <li><p><span class="math inline">\(X_1\)</span> = 1 = had.breakfast = Yes</p></li>
 </ul></li>
+<li><span class="math inline">\(b_1\)</span> = the slope = the predicted change in Y as X changes by 1</li>
 </ul></li>
 <li><p><strong>Using the Model to Make Predictions</strong></p>
 <ul>
-<li>predicted hunger if had.breakfast = Yes?</li>
-<li>predicted hunger if had.breakfast = No?</li>
+<li>predicted hunger if had.breakfast = Yes?
+<ul>
+<li>predicted hunger = 5.75 - 2.1 * had.breakfastYes</li>
+<li><code>predicted hunger = 5.75 + -2.1 * 1 = 3.65</code></li>
+</ul></li>
+<li>predicted hunger if had.breakfast = No?
+<ul>
+<li><code>predicted hunger = 5.75 - 2.1 * had.breakfastYes</code></li>
+<li><code>predicted hunger = 5.75 - 2.1 * 0 = 5.75</code></li>
+</ul></li>
 </ul></li>
 <li><p>Note that these values are the same as the average hunger for people who had breakfast and for people who did not have breakfast.</p></li>
 </ul>
@@ -297,7 +322,7 @@ window.Quarto = {
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>brekY <span class="ot">&lt;-</span> m[m<span class="sc">$</span>had.breakfast <span class="sc">==</span> <span class="st">"Yes"</span>,]</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>brekN <span class="ot">&lt;-</span> m[m<span class="sc">$</span>had.breakfast <span class="sc">==</span> <span class="st">"No"</span>,]</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(brekY<span class="sc">$</span>hunger) <span class="co"># the slope</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(brekY<span class="sc">$</span>hunger) <span class="co"># the intercept + the slope</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.642857</code></pre>
 </div>
@@ -340,7 +365,7 @@ Attaching package: 'gplots'</code></pre>
 
     lowess</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(hunger <span class="sc">~</span> had.breakfast, <span class="at">data =</span> m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(hunger <span class="sc">~</span> had.breakfast, <span class="at">data =</span> m, <span class="at">connect =</span> F, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -358,10 +383,10 @@ Attaching package: 'gplots'</code></pre>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(m, <span class="fu">aes</span>(<span class="at">x=</span>had.breakfast, <span class="at">y=</span>hunger)) <span class="sc">+</span> <span class="co"># defining my space</span></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun=</span>mean, <span class="at">geom=</span><span class="st">"bar"</span>, <span class="at">fill=</span><span class="st">"gray"</span>) <span class="sc">+</span> <span class="co"># adding a bar for the means</span></span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data=</span>mean_se, <span class="at">geom=</span><span class="st">"errorbar"</span>, <span class="at">width=</span><span class="fl">0.25</span>) <span class="sc">+</span> <span class="co"># adding sampling error [more on this later!]</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binaxis=</span><span class="st">'y'</span>, <span class="at">binwidth=</span><span class="fl">0.1</span>,<span class="at">stackdir=</span><span class="st">"center"</span>, <span class="at">alpha=</span><span class="fl">0.5</span>, <span class="at">stroke=</span><span class="dv">0</span>, <span class="at">dotsize=</span><span class="fl">0.8</span>) <span class="sc">+</span> <span class="co"># adding dots for the individual data; sorting them</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">10</span>)) <span class="sc">+</span> <span class="co"># changing the limits of my y-axis.</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binaxis=</span><span class="st">'y'</span>, <span class="at">binwidth=</span><span class="fl">0.1</span>, <span class="at">stackdir=</span><span class="st">"center"</span>, <span class="at">alpha=</span><span class="fl">0.5</span>, <span class="at">stroke=</span><span class="dv">0</span>, <span class="at">dotsize=</span><span class="fl">0.8</span>) <span class="sc">+</span> <span class="co"># adding dots for the individual data; sorting them</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>)) <span class="sc">+</span> <span class="co"># changing the limits of my y-axis.</span></span>
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Brekky"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Hunger"</span>) <span class="sc">+</span> <span class="co"># adding labels</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>() <span class="co"># adding a theme</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_wsj</span>() <span class="co"># adding a theme</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -396,6 +421,35 @@ Attaching package: 'gplots'</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.1791375</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ILLUSTRATING R^2 WHEN THE VARIABLE IS CATEGORICAL</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m<span class="sc">$</span>hunger)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">mean</span>(m<span class="sc">$</span>hunger, <span class="at">na.rm =</span> T), <span class="at">lwd =</span> <span class="dv">5</span>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>residuals <span class="ot">&lt;-</span> m<span class="sc">$</span>hunger <span class="sc">-</span> <span class="fu">mean</span>(m<span class="sc">$</span>hunger, <span class="at">na.rm =</span> T)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>SST <span class="ot">&lt;-</span> <span class="fu">sum</span>(residuals<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>SST</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 160.1538</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="do">## THE MODEL</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m<span class="sc">$</span>hunger, <span class="at">col =</span> m<span class="sc">$</span>had.breakfast, <span class="at">pch =</span> <span class="dv">19</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">coef</span>(mod)[<span class="dv">1</span>], <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">'black'</span>) <span class="co"># line for non breakfast folks</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">coef</span>(mod)[<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">coef</span>(mod)[<span class="dv">2</span>], <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">'red'</span>) <span class="co"># line for non breakfast folks</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6_TTests_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>SSM <span class="ot">&lt;-</span> <span class="fu">sum</span>(mod<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="do">## R^2</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>(SST <span class="sc">-</span> SSM)<span class="sc">/</span>SST</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1791375</code></pre>
+</div>
 </div>
 <p>This describes the percentage of variation in hunger that is explained by our model (in this case, using whether someone had breakfast to make predictions of hunger.) So, using the model to make predictions of hunger reduces our squared errors by %17 (vs.&nbsp;using the mean to make predictions.)</p>
 </section>
@@ -405,19 +459,19 @@ Attaching package: 'gplots'</code></pre>
 <p>Okay, but people find <span class="math inline">\(R^2\)</span> confusing and unitless and about squared numbers and describes how good the model is as a whole; sometimes I just want to understand how BIG the difference between the groups is. One method people us is to compare the distance between groups, relative to the average distance between individuals (the standard deviation.)</p>
 <p>However, if we are assuming these groups are different in some important way, then we may not want to use a standard deviation statistic that considers individuals to belong to the same group. The pooled standard deviation is a weighted average of the standard deviation from each group.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>nY <span class="ot">&lt;-</span> <span class="fu">nrow</span>(brekY)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>nN <span class="ot">&lt;-</span> <span class="fu">nrow</span>(brekN)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>dfY <span class="ot">&lt;-</span> nY<span class="dv">-1</span> <span class="co"># the sample size of breakfast eaters, minus 1</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>dfN <span class="ot">&lt;-</span> nN<span class="dv">-1</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>varY <span class="ot">&lt;-</span> <span class="fu">var</span>(brekY<span class="sc">$</span>hunger)</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>varN <span class="ot">&lt;-</span> <span class="fu">var</span>(brekN<span class="sc">$</span>hunger)</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>poolvar <span class="ot">&lt;-</span> ((dfY <span class="sc">*</span> varY) <span class="sc">+</span> (dfN <span class="sc">*</span> varN))<span class="sc">/</span>(dfY <span class="sc">+</span> dfN)</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>poolsd <span class="ot">&lt;-</span> poolvar<span class="sc">^</span>.<span class="dv">5</span></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>diff <span class="ot">&lt;-</span> <span class="fu">coef</span>(mod)[<span class="dv">2</span>] <span class="co"># the difference between groups</span></span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>diff<span class="sc">/</span>poolsd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>nY <span class="ot">&lt;-</span> <span class="fu">nrow</span>(brekY)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>nN <span class="ot">&lt;-</span> <span class="fu">nrow</span>(brekN)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>dfY <span class="ot">&lt;-</span> nY<span class="dv">-1</span> <span class="co"># the sample size of breakfast eaters, minus 1</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>dfN <span class="ot">&lt;-</span> nN<span class="dv">-1</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>varY <span class="ot">&lt;-</span> <span class="fu">var</span>(brekY<span class="sc">$</span>hunger)</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>varN <span class="ot">&lt;-</span> <span class="fu">var</span>(brekN<span class="sc">$</span>hunger)</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>poolvar <span class="ot">&lt;-</span> ((dfY <span class="sc">*</span> varY) <span class="sc">+</span> (dfN <span class="sc">*</span> varN))<span class="sc">/</span>(dfY <span class="sc">+</span> dfN)</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>poolsd <span class="ot">&lt;-</span> poolvar<span class="sc">^</span>.<span class="dv">5</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>diff <span class="ot">&lt;-</span> <span class="fu">coef</span>(mod)[<span class="dv">2</span>] <span class="co"># the difference between groups</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>diff<span class="sc">/</span>poolsd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>had.breakfastYes 
       -0.9003175 </code></pre>
@@ -427,7 +481,7 @@ Attaching package: 'gplots'</code></pre>
 <li>The psych package has a cohen’s d function built in that calculates this for you. (Not sure why we are getting different manual estimate from the package tho?)</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'psych' was built under R version 4.3.3</code></pre>
 </div>
@@ -440,7 +494,7 @@ Attaching package: 'psych'</code></pre>
 
     %+%, alpha</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohen.d</span>(m<span class="sc">$</span>hunger, m<span class="sc">$</span>had.breakfast)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohen.d</span>(m<span class="sc">$</span>hunger, m<span class="sc">$</span>had.breakfast)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Call: cohen.d(x = m$hunger, group = m$had.breakfast)
 Cohen d statistic of difference between two means
@@ -453,7 +507,7 @@ r equivalent of difference between two means
  data 
 -0.42 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohen.d</span>(hunger <span class="sc">~</span> had.breakfast, <span class="at">data =</span> m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohen.d</span>(hunger <span class="sc">~</span> had.breakfast, <span class="at">data =</span> m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Call: cohen.d(x = hunger ~ had.breakfast, data = m)
 Cohen d statistic of difference between two means
@@ -479,10 +533,12 @@ hunger
 </section>
 <section id="a-note-on-dummy-coding" class="level3">
 <h3 class="anchored" data-anchor-id="a-note-on-dummy-coding">A Note on Dummy Coding</h3>
-<pre><code>-   R will default to a reference level based on alphabetical order, so in this case, "No" will be the reference group. To change the reference group, you can relevel the factor.</code></pre>
+<ul>
+<li>R will default to a reference level based on alphabetical order, so in this case, “No” will be the reference group. To change the reference group, you can relevel the factor.</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>had.breakfastR <span class="ot">&lt;-</span> <span class="fu">relevel</span>(m<span class="sc">$</span>had.breakfast, <span class="at">ref =</span> <span class="st">"Yes"</span>)</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m<span class="sc">$</span>had.breakfastR) <span class="co"># same data, different orientation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>had.breakfastR <span class="ot">&lt;-</span> <span class="fu">relevel</span>(m<span class="sc">$</span>had.breakfast, <span class="at">ref =</span> <span class="st">"Yes"</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m<span class="sc">$</span>had.breakfastR) <span class="co"># same data, different orientation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -490,15 +546,15 @@ hunger
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>modR <span class="ot">&lt;-</span> <span class="fu">lm</span>(hunger <span class="sc">~</span> had.breakfastR, <span class="at">data =</span> m)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(modR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>modR <span class="ot">&lt;-</span> <span class="fu">lm</span>(hunger <span class="sc">~</span> had.breakfastR, <span class="at">data =</span> m)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(modR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     (Intercept) had.breakfastRNo 
         3.642857         2.107143 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(hunger <span class="sc">~</span> had.breakfast, <span class="at">data =</span> m, <span class="at">main =</span> <span class="st">"No as Reference Group"</span>)</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(hunger <span class="sc">~</span> had.breakfastR, <span class="at">data =</span> m, <span class="at">main =</span> <span class="st">"Yes as Reference Group"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(hunger <span class="sc">~</span> had.breakfast, <span class="at">data =</span> m, <span class="at">main =</span> <span class="st">"No as Reference Group"</span>)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(hunger <span class="sc">~</span> had.breakfastR, <span class="at">data =</span> m, <span class="at">main =</span> <span class="st">"Yes as Reference Group"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -507,10 +563,20 @@ hunger
 </div>
 </div>
 </div>
+<ul>
+<li><p>When the IV has more than 2 levels….professor demo on the board.</p>
+<p><img src="images/IMG_0567.JPG" class="img-fluid"></p></li>
+</ul>
 </section>
 </section>
 <section id="presentations" class="level2">
 <h2 class="anchored" data-anchor-id="presentations"><a href="https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing">Presentations</a></h2>
+<ul>
+<li><p><a href="https://www.versobooks.com/products/2270-racecraft?srsltid=AfmBOorWzT4b__0V-YDe1jjuVD5R0696SFp9vZY5kT4THqIqxENSBrct">Racecraft</a> - historical and sociological critique of race as a category.</p>
+<ul>
+<li>inspired a few psych research articles; prof will find.</li>
+</ul></li>
+</ul>
 </section>
 <section id="the-t-test" class="level2">
 <h2 class="anchored" data-anchor-id="the-t-test">The T-Test</h2>
@@ -518,7 +584,7 @@ hunger
 <p>The basic equation for the standard error is : <span class="math inline">\(se = sd(x) / \sqrt{n}\)</span></p>
 <p>We can easily pull up these statistics using the summary() function. The interpretation of these statistics will take more time!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -542,7 +608,7 @@ F-statistic: 5.238 on 1 and 24 DF,  p-value: 0.03121</code></pre>
 </div>
 <p><strong>Standard Error</strong> is similar to the sampling error we estimated through bootstrapping (you will test this in Lab 6!).<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>((poolvar<span class="sc">/</span>nY) <span class="sc">+</span> (poolvar<span class="sc">/</span>nN))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>((poolvar<span class="sc">/</span>nY) <span class="sc">+</span> (poolvar<span class="sc">/</span>nN))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.9207258</code></pre>
 </div>
@@ -589,7 +655,7 @@ F-statistic: 5.238 on 1 and 24 DF,  p-value: 0.03121</code></pre>
 </table>
 <p>Note that the t-test does the same thing that our linear model does; evaluates the difference in groups, relative to an estimate of the sampling error we might observe.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -610,7 +676,7 @@ Residual standard error: 2.34 on 24 degrees of freedom
 Multiple R-squared:  0.1791,    Adjusted R-squared:  0.1449 
 F-statistic: 5.238 on 1 and 24 DF,  p-value: 0.03121</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(brekY<span class="sc">$</span>hunger, brekN<span class="sc">$</span>hunger, <span class="at">var.equal =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(brekY<span class="sc">$</span>hunger, brekN<span class="sc">$</span>hunger, <span class="at">var.equal =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Two Sample t-test
