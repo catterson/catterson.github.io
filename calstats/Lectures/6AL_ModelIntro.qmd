@@ -92,7 +92,7 @@ As scientists, our goal is to make accurate predictions of individuals. So we wo
 **The mean is an okay starting place for our predictions, but we can try to do better!**
 
 ```{r}
-names(mini)
+names(d)
 ```
 
 **DISCUSS : how do you think the variables (above) would help (or not help) us predict the number of followers someone has on instagram (insta.followers)? Why / why not???**

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +84,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -150,7 +150,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
@@ -218,6 +218,7 @@ window.Quarto = {
 <section id="recap-the-mean-as-prediction" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="recap-the-mean-as-prediction">RECAP : The Mean as Prediction</h3>
 <p>Previously, we discussed how the mean could be used to make predictions of individuals.</p>
+<p><span class="math inline">\(\huge y_i = \hat{Y} + \epsilon_i\)</span></p>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><span class="math inline">\(\Large y_i\)</span> = the DV = the individual’s actual score we are trying to predict (remember <span class="math inline">\(_i\)</span> = index; a specific individual.)</p>
@@ -249,7 +250,127 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<p>We also talked about how we could quantify the total error in these predictions, by adding up the squared residual errors (the sum of squared errors).</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>residual <span class="ot">&lt;-</span> d<span class="sc">$</span>insta.follows <span class="sc">-</span> <span class="fu">mean</span>(d<span class="sc">$</span>insta.follows, <span class="at">na.rm =</span> T)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>SST <span class="ot">&lt;-</span> <span class="fu">sum</span>(residual<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> T)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>SST</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 39584116</code></pre>
+</div>
+</div>
+<p>This number made no sense, but it is a critical statistic, since it quantifies how valid our predictions of individuals were when using the mean to make predictions. To give the statistics some context, we divided the sum of squared errors by the sample size (this is the variance) and then un-squared this number (by taking the square root). This new statistic - the standard deviation - served as an average of residual error that describes how far the average person differs from the mean.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">na.omit</span>(d<span class="sc">$</span>insta.follows)) <span class="co"># total number of individuals; omitting missing data.</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(SST<span class="sc">/</span>(n<span class="dv">-1</span>)) <span class="co"># the equation for the standard deviation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 515.4272</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(d<span class="sc">$</span>insta.follows, <span class="at">na.rm =</span> T) <span class="co"># the function to get the same answer.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 515.4272</code></pre>
+</div>
+</div>
+<p>As scientists, our goal is to make accurate predictions of individuals. So we would want to find a way to make the sum of squared errors equal zero - have no error in our predictions. The mean is a good starting place, but it’s one number. And people are complex.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 59%">
+<col style="width: 40%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>the mean</strong></td>
+<td><strong>the linear model ™ ©</strong></td>
+</tr>
+<tr class="even">
+<td><img src="lecture_images/6L_egg1.png" class="img-fluid" width="324"></td>
+<td><img src="lecture_images/6L_egg2.png" class="img-fluid"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>The mean is an okay starting place for our predictions, but we can try to do better!</strong></p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "pace"            "engaging"        "fb.friends"      "insta.followers"
+ [5] "insta.follows"   "bored"           "thirsty"         "tired"          
+ [9] "satlife"         "oskilove"        "rlove"           "socialmed.use"  
+[13] "class.attention" "hrs.sleep"       "selfpow.data"    "corppow.data"   
+[17] "success.work"    "success.priv"    "selfesteem"      "catdog"         
+[21] "tuhoburat"       "calgame"         "caffeine"        "breakfast"      
+[25] "is.female"       "long.hair"       "has.water"       "shoesize"       
+[29] "height"          "happy"           "drink"           "stoned72"       
+[33] "multilingual"    "waitlist"       </code></pre>
+</div>
+</div>
+<p><strong>DISCUSS : how do you think the variables (above) would help (or not help) us predict the number of followers someone has on instagram (insta.followers)? Why / why not???</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Variables we think would help us make predictions</strong></td>
+<td><strong>Variables we think would not help us make predictions</strong></td>
+<td><strong>Variables we have NO IDEA if they would help us make predictions?!?</strong></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </section>
+<section id="the-linear-model-in-three-easy-steps." class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="the-linear-model-in-three-easy-steps.">The Linear Model in THREE EASY STEPS.</h3>
+<p>The model is a line that updates our predictions of one variable based on knowledge of another.</p>
+<ol type="1">
+<li>Graph your DV and IV(s) : make sure the data look good.</li>
+</ol>
+<ol start="2" type="1">
+<li>Plot the relationship between the two variables.</li>
+</ol>
+<ol start="3" type="1">
+<li>Define the linear model and interpret the intercept and slope of the model.</li>
+</ol>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><span class="math inline">\(\Large y_i\)</span> = the DV = each individual’s actual score on the dependent variable.</p>
+<ul>
+<li><strong>on the graph:</strong> the value of each dot on the y-axis</li>
+</ul>
+<p><span class="math inline">\(\Large a\)</span> = the intercept = the starting place for our prediction. You can think of the intercept as “the predicted value of y when all x values are zero”.)</p>
+<ul>
+<li><strong>on the graph:</strong> the value of the line at X = 0</li>
+</ul>
+<p><span class="math inline">\(\Large X_i\)</span> = the IV = the individual’s actual score on the independent variable (a different variable than the DV).</p>
+<ul>
+<li><strong>on the graph:</strong> the value of each dot on the x-axis</li>
+</ul>
+<p><span class="math inline">\(\Large b_1\)</span> = the slope = an adjustment we make in our prediction of y, based on the individual’s x value.</p>
+<ul>
+<li><strong>on the graph:</strong> how much the line increases in y value when x-values increase by 1 unit.</li>
+</ul>
+<p><span class="math inline">\(\Large \epsilon_i\)</span> = residual error = the distance between our prediction and the individual’s actual y value.</p>
+<ul>
+<li><strong>on the graph:</strong> the distance between each individual data point and the line.</li>
+</ul>
+</div></div></section>
 </section>
 <section id="break-time" class="level2">
 <h2 class="anchored" data-anchor-id="break-time">BREAK TIME</h2>
@@ -259,9 +380,34 @@ window.Quarto = {
 <section id="milestone-1.-defining-iv2" class="level3">
 <h3 class="anchored" data-anchor-id="milestone-1.-defining-iv2">Milestone 1. Defining IV2</h3>
 <p>Consider the pattern that we found earlier in class. Do you think this pattern will always hold for all people? Or would it change for some people? How so??</p>
+<p>These other variables are called <em>moderator variables</em>, and they can be a good way to identify a second independent variable for your study / help advance science. Life is complex, and some established “effect” or pattern in the data will likely change as a result of some other variable!</p>
 </section>
-<section id="milestone-2.-creating-your-survey" class="level3">
-<h3 class="anchored" data-anchor-id="milestone-2.-creating-your-survey">Milestone 2. Creating Your Survey</h3>
+<section id="milestone-2.-creating-your-survey." class="level3">
+<h3 class="anchored" data-anchor-id="milestone-2.-creating-your-survey."><a href="https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0#bookmark=id.8eg84yu09e7c">Milestone 2. Creating Your Survey.</a></h3>
+<p>I strongly recommend using Google Forms to build your survey. A few tips.</p>
+<ol type="1">
+<li><p><strong>Make sure your DV is measured numerically.</strong> A likert scale or number response is fine.</p></li>
+<li><p><strong>Use Multiple Choice Grid for likert scales.</strong></p>
+<ul>
+<li>Each row is an item.</li>
+<li>Use a 1-5 scale to make it easy for participants to answer.</li>
+<li>Try to make all the items fit on the same “stem”, so it’s easier for participants to get in the flow.</li>
+<li>I do not require responses; good to let folks skip questions if they want (and know to exclude their data) rather than force them to give an answer, which might be bad data.</li>
+<li>You could add an “attention check” (e.g., “Mark Strongly Agree for this question.”) if you are worried about people not taking your survey seriously. But BETTER to just keep the survey short, and give your participant some motivation (“I can send you the results of my paper if you want!”)</li>
+</ul>
+<p><img src="images/clipboard-2843954023.png" class="img-fluid"></p></li>
+<li><p><strong>Include demographic variables like age and sex;</strong> give people options to self-identify as something outside a forced binary!</p></li>
+<li><p><strong>Keep categorical variables to just a few levels;</strong> you will need a LOT of data to capture variation if there are too many levels! 3-4 groups per variable.</p>
+<p><img src="images/clipboard-538131922.png" class="img-fluid"></p></li>
+<li><p><strong>Make sure categorical variables are not better measured numerically;</strong> set “response validation” for any open-ended numbers you hope to collect to make data cleaning easier.</p>
+<p><img src="images/clipboard-3774686706.png" class="img-fluid"></p></li>
+<li><p><strong>Make sure each variable is measured independently of the others.</strong> For example, if I want to measure the relationship between happiness and reading, I would want to measure these separately.</p>
+<ul>
+<li>I am happy.</li>
+<li>I like to read.</li>
+<li><del>Reading makes me happy.</del> This mixes up the two variables (the DV and IV). It could be a cool measure on its own (love for reading scale?).</li>
+</ul></li>
+</ol>
 
 
 </section>
@@ -303,7 +449,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -335,29 +492,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -365,7 +500,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
