@@ -18,7 +18,7 @@ format:
     -   Rescheduled to 4/25
     -   85 Minutes
     -   Will be shorter than the Mini Exam (2-3 Problems!)
--   **Final Project Milestone #1 Due Monday**
+-   **Final Project Milestone #1 Due SUNDAY AT 11:59 PM**
     -   Goals : Identify your model, and support your ideas with some past research.
     -   DRAFT : DONE IS BETTER THAN PERFECT!
 -   **Final Project Milestone #2** **Due Next Friday (After Class is Fine...Sunday okay?)**
@@ -83,10 +83,11 @@ sd(d$insta.follows, na.rm = T) # the function to get the same answer.
 
 As scientists, our goal is to make accurate predictions of individuals. So we would want to find a way to make the sum of squared errors equal zero - have no error in our predictions. The mean is a good starting place, but it's one number. And people are complex.
 
-|                                              |                                 |
-|------------------------------------|------------------------------|
++----------------------------------------------+---------------------------------+
 | **the mean**                                 | **the linear model ™ ©**        |
++----------------------------------------------+---------------------------------+
 | ![](lecture_images/6L_egg1.gif){width="324"} | ![](lecture_images/6L_egg2.gif) |
++----------------------------------------------+---------------------------------+
 
 **The mean is an okay starting place for our predictions, but we can try to do better!**
 
@@ -94,32 +95,68 @@ As scientists, our goal is to make accurate predictions of individuals. So we wo
 names(d)
 ```
 
-**DISCUSS : how do you think the variables (above) would help (or not help) us predict the number of followers someone has on instagram (insta.followers)? Why / why not???**
+**DISCUSS :**
 
-|                                                       |                                                           |                                                                         |
-|------------------------|------------------------|------------------------|
-| **Variables we think would help us make predictions** | **Variables we think would not help us make predictions** | **Variables we have NO IDEA if they would help us make predictions?!?** |
-|                                                       |                                                           |                                                                         |
+-   **ICE BREAKER :** if you had to live inside one social media platform, what would it be and why???
 
-### The Linear Model in THREE EASY STEPS.
+-   **THINK ABOUT A LINEAR MODEL :** how do you think the variables (above) would help (or not help) us predict the number of accounts someone follows on instagram (insta.follows)? Why / why not???
+
++-------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+-------------------------------------------------------------------------+
+| **Variables we think would help us make predictions**                                                                                     | **Variables we think would not help us make predictions** | **Variables we have NO IDEA if they would help us make predictions?!?** |
++-------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+-------------------------------------------------------------------------+
+| **number of followers** (the amount of followers you have is very similar to the amount of people you follow....unless you have an ego :  | being thirsty :                                           |                                                                         |
+|                                                                                                                                           |                                                           |                                                                         |
+| -   if you have an ego; then the number of accounts you follow will be lower and less related to the number of accounts that follow you.  | hair length                                               |                                                                         |
+|                                                                                                                                           |                                                           |                                                                         |
+| -   if you don't have an ego; then there should be a strong connection.                                                                   | caffeine intake?                                          |                                                                         |
+|                                                                                                                                           |                                                           |                                                                         |
+| **time spent on social media :**                                                                                                          | height?                                                   |                                                                         |
+|                                                                                                                                           |                                                           |                                                                         |
+| **socmedia.use :** people who say they use social media a lot will follow more accounts than people who say they do not use social media. |                                                           |                                                                         |
++-------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+-------------------------------------------------------------------------+
+
+### The Linear Model in FOUR EASY STEPS.
 
 The model is a line that updates our predictions of one variable based on knowledge of another.
 
-1.  Graph your DV and IV(s) : make sure the data look good.
+1.  Define your model : what is your DV? What are your IVs? How do you think they will be related???
+
+    `# of accounts people follow on instagram ~ soc.mediause + error`
+
+2.  Graph your DV and IV(s) : make sure the data look good.
 
 ```{r}
+par(mfrow = c(1,2))
+hist(d$insta.follows)
+max(scale(d$insta.follows), na.rm = T) # looking to see the max value and its z-score to determine whether its an outlier or not
 
+hist(d$socialmed.use)
 ```
 
 2.  Plot the relationship between the two variables.
 
 ```{r}
-
+plot(insta.follows ~ socialmed.use, data = d)
+mod <- lm(insta.follows ~ socialmed.use, data = d)
+abline(mod, lwd = 5, col = 'red')
 ```
 
 3.  Define the linear model and interpret the intercept and slope of the model.
 
 ```{r}
+mod <- lm(insta.follows ~ socialmed.use, data = d) # defines the model; saves as mod
+mod # shows me what is inside mod
+plot(insta.follows ~ socialmed.use, data = d) # graphs the relationship 
+abline(mod, lwd = 5, col = 'red') # draws a red line of width five based on mod
+```
+
+equation for a line : y = a + bX
+
+```{r}
+coef(mod)
+# THE MODEL : insta.follows = 284 + 43.9 * X
+## predicted value of insta.follows for someone with a social media usage of 5
+284 + 43.9 * 5
 
 ```
 
