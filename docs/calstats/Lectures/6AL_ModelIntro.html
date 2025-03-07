@@ -234,14 +234,11 @@ window.Quarto = {
 <li><strong>on the graph:</strong> the distance between each dot and the line.</li>
 </ul>
 </div></div><div class="cell">
-<details open="" class="code-fold">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/Class Datasets/cal_mini_SP25.csv"</span>, <span class="at">stringsAsFactors =</span> T)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d<span class="sc">$</span>insta.follows, <span class="at">main =</span> <span class="st">"Mean as a Model (Red Line)"</span>,</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Index (Row in Dataset)"</span>,</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"# Of Accounts a Person Follows"</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">mean</span>(d<span class="sc">$</span>insta.follows, <span class="at">na.rm =</span> T), <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">'red'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -252,30 +249,21 @@ window.Quarto = {
 </div>
 <p>We also talked about how we could quantify the total error in these predictions, by adding up the squared residual errors (the sum of squared errors).</p>
 <div class="cell">
-<details open="" class="code-fold">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>residual <span class="ot">&lt;-</span> d<span class="sc">$</span>insta.follows <span class="sc">-</span> <span class="fu">mean</span>(d<span class="sc">$</span>insta.follows, <span class="at">na.rm =</span> T)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>SST <span class="ot">&lt;-</span> <span class="fu">sum</span>(residual<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> T)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>SST</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 39584116</code></pre>
 </div>
 </div>
 <p>This number made no sense, but it is a critical statistic, since it quantifies how valid our predictions of individuals were when using the mean to make predictions. To give the statistics some context, we divided the sum of squared errors by the sample size (this is the variance) and then un-squared this number (by taking the square root). This new statistic - the standard deviation - served as an average of residual error that describes how far the average person differs from the mean.</p>
 <div class="cell">
-<details open="" class="code-fold">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">na.omit</span>(d<span class="sc">$</span>insta.follows)) <span class="co"># total number of individuals; omitting missing data.</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(SST<span class="sc">/</span>(n<span class="dv">-1</span>)) <span class="co"># the equation for the standard deviation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 515.4272</code></pre>
 </div>
-<details open="" class="code-fold">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(d<span class="sc">$</span>insta.follows, <span class="at">na.rm =</span> T) <span class="co"># the function to get the same answer.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 515.4272</code></pre>
 </div>
@@ -299,10 +287,7 @@ window.Quarto = {
 </table>
 <p><strong>The mean is an okay starting place for our predictions, but we can try to do better!</strong></p>
 <div class="cell">
-<details open="" class="code-fold">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "pace"            "engaging"        "fb.friends"      "insta.followers"
  [5] "insta.follows"   "bored"           "thirsty"         "tired"          
