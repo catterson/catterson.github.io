@@ -1,0 +1,17 @@
+{
+  "hash": "f3c696e6c984bbc7f99a9831bcb6715b",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Introduction to Linear Models\"\nformat: \n  html:\n      code-overflow: wrap\n      code-fold: show\n---\n\n\n\n## [CHECK-IN : Post Mini-Exam Survey!](https://docs.google.com/forms/d/e/1FAIpQLSeQnoTd_QK7Lp91-T98IyCR0p0gqWNJiAPUAcEFmpbE7Qv0qg/viewform?usp=header)\n\n![](images/clipboard-3082930128.png)\n\n### Announcements\n\n-   **Mini Exam Is Over!**\n    -   TAs working hard to grade!\n    -   Professor regrets the time error :(\n-   **Mega Exam Changes :**\n    -   Rescheduled to 4/25\n    -   85 Minutes\n    -   Will be shorter than the Mini Exam (2-3 Problems!)\n-   **Final Project Milestone #1 Due Monday**\n    -   Goals : Identify your model, and support your ideas with some past research.\n    -   DRAFT : DONE IS BETTER THAN PERFECT!\n-   **Final Project Milestone #2** **Due Next Friday (After Class is Fine...Sunday okay?)**\n    -   Goals : Define your IV2 and draft your survey items.\n    -   Will work on in section next week.\n\n### Agenda\n\n-   2:10 - 2:30 \\| Check-In and Announcements / Exam Debrief.\n\n-   2:30 - 3:15 \\| The Linear Model (I LOVE LINES)\n\n-   3:15 - 3:30 \\| Break Time\n\n-   3:30 - 4:30 \\| Final Project Workshop (Milestone #1 –\\> Milestone #2)\n\n\n## The Linear Model\n\n### RECAP : The Mean as Prediction\nPreviously, we discussed how the mean could be used to make predictions of individuals.\n\n::: column-margin\n$\\Large y_i$ = the DV = the individual’s actual score we are trying to predict (remember $_i$ = index; a specific individual.)\n\n-   **on the graph:** each individual dot (on the y-axis; the x-axis just describes when people submitted the survey.\n\n$\\Large \\hat{Y}$ = our prediction (the mean).\n\n-   **on the graph:** the solid red line\n\n$\\Large \\epsilon$ = residual error = distance between the predicted values of y and the individual's actual value of y\n\n-   **on the graph:** the distance between each dot and the line.\n:::\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nd <- read.csv(\"~/Dropbox/!WHY STATS/Class Datasets/cal_mini_SP25.csv\", stringsAsFactors = T)\nplot(d$insta.follows, main = \"Mean as a Model (Red Line)\",\n     xlab = \"Index (Row in Dataset)\",\n     ylab = \"# Of Accounts a Person Follows\")\nabline(h = mean(d$insta.follows, na.rm = T), lwd = 5, col = 'red')\n```\n\n::: {.cell-output-display}\n![](6AL_ModelIntro_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n\n\n\n\n## BREAK TIME\n\n## Final Project Workshop\n\n### Milestone 1. Defining IV2\nConsider the pattern that we found earlier in class. Do you think this pattern will always hold for all people? Or would it change for some people? How so??\n\n\n::: {.cell}\n\n:::\n\n\n\n\n### Milestone 2. Creating Your Survey\n\n\n",
+    "supporting": [
+      "6AL_ModelIntro_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,263 @@
+---
+title: "Lecture 6 - T-Tests Are [SPOILER ALERT] Linear Models"
+format: 
+  html:
+    code-overflow: 'wrap'
+    code-fold: show
+---
+
+## Check-In Here
+
+### Agenda
+
+-   9:10 - 9:20 \| Check-In / Mini Exam Debrief
+
+-   9:20 - 10:30 \| Linear Model when the IV is categorical
+
+-   10:30 - 10:45 \| BREAK
+
+-   10:45 - 11:05 \| Student Presentations!
+
+-   11:10 - 12:00 \| T-Tests and Work on Lab 6
+
+### Mini Exam Debrief
+
+-   Not yet graded!
+
+-   Professor should post key? \[Y/N\]
+
+![](images/clipboard-1335587785.png)
+
+### Mega Exam :
+
+-   **Rescheduled :** to 4/18 or 4/25 \[???\]
+
+-   **De-emphasized :** now worth 10% of your grade (other 10% shifted to the chill final project)
+
+-   **Will be shorter?** Group exam? A whole week to do like a lab? IDK. Let's check in later and see where we are at.
+
+### Ideas / Suggestions :
+
+-   More practice in class; group work (in lecture, in section)??
+
+-   Mixed responses about article discussions.
+
+-   **Y'ALL :** Please Message / Email / Discord if Confused or Stuck (on Lab, in Class, etc.)
+
+## The Linear Model in (Categorical IV) Form
+
+### Two-Level Categorical IV : Simple!
+
+#### Step 1 : Develop a Question and Set Hypotheses.
+
+Let's determine whether people who had breakfast were more or less hungry than people who did not have breakfast.
+  -   Null Hypothesis :
+  -   Alternative Hypothesis :
+
+
+#### Step 2 : Load Data, Graph and Evaluate Your Individual Variables.
+
+```{r}
+m <- read.csv("~/Dropbox/!GRADSTATS/gradlab/Datasets/MiniGrad/mini_grad_data.csv", stringsAsFactors = T)
+head(m) # looks good 
+nrow(m) # yep.
+
+par(mfrow = c(1,2))
+hist(m$hunger)
+plot(m$had.breakfast, xlab = "Had Breakfast")
+```
+
+
+#### Step 3 : Define and Interpret Your Linear Model.
+-   Our model will predict hunger from whether people had breakfast.
+-   As before, we define a linear model using the `lm` function, and will see an intercept and slope.
+
+```{r}
+mod <- lm(hunger ~ had.breakfast, data = m)
+coef(mod)
+```
+
+-   **The Model :** $\hat{Y} = a + b_1 * X_1$
+
+    -   $a$ (sometimes = Intercept = Predicted Value of Y when all X values are zero.
+    -   $X_1$ = A dummy coded categorical variable. This is often the default method of comparing two groups, and compares each level of the factor to a reference level.
+        -   $X_1$ = 0 = had.breakfast = No
+
+        -   $X_1$ = 1 = had.breakfast = Yes
+
+-   **Using the Model to Make Predictions**
+    -   predicted hunger if had.breakfast = Yes?
+    -   predicted hunger if had.breakfast = No?
+    
+-   Note that these values are the same as the average hunger for people who had breakfast and for people who did not have breakfast.
+
+```{r}
+brekY <- m[m$had.breakfast == "Yes",]
+brekN <- m[m$had.breakfast == "No",]
+
+mean(brekY$hunger) # the slope
+mean(brekN$hunger) # the intercept
+
+tapply(m$hunger, m$had.breakfast, mean) # another way to do this.
+```
+
+-   **The Graph**. A few ways to graph the linear model with the IV is categorical.
+
+  -   Note that the `plot()` function draws a boxplot that illustrates the median of each group; whereas the linear model emphasizes the mean.
+
+```{r}
+plot(hunger ~ had.breakfast, data = m)
+```
+
+  -   For "quick" methods, I like `plotmeans()` from the `gplots()` library. This plots the mean of each group.
+
+```{r}
+#install.packages("gplots")
+library(gplots) 
+plotmeans(hunger ~ had.breakfast, data = m)
+```
+
+  -   ggplot2 also has a method; nice for illustrating the individual points and making the graph look more professional?
+
+```{r}
+library(ggplot2)
+library(ggthemes)
+ggplot(m, aes(x=had.breakfast, y=hunger)) + # defining my space
+  stat_summary(fun=mean, geom="bar", fill="gray") + # adding a bar for the means
+  stat_summary(fun.data=mean_se, geom="errorbar", width=0.25) + # adding sampling error [more on this later!]
+  geom_dotplot(binaxis='y', binwidth=0.1,stackdir="center", alpha=0.5, stroke=0, dotsize=0.8) + # adding dots for the individual data; sorting them
+  coord_cartesian(ylim=c(1,10)) + # changing the limits of my y-axis.
+  xlab("Brekky") + ylab("Hunger") + # adding labels
+  theme_tufte() # adding a theme
+```
+
+#### Step 4 : Evaluate Your Model
+
+-   Diagnostic Plots to see if those assumptions are met!
+
+```{r}
+par(mfrow = c(2,2))
+plot(mod)
+```
+
+-  $R^2$ (Effect Size)
+
+How large is this difference? $R^2$ gives some context.
+
+```{r}
+summary(mod)$r.squared
+```
+
+This describes the percentage of variation in hunger that is explained by our model (in this case, using whether someone had breakfast to make predictions of hunger.) So, using the model to make predictions of hunger reduces our squared errors by %17 (vs. using the mean to make predictions.)
+
+### Something New : Cohen's D (Effect Size)
+
+Okay, but people find $R^2$ confusing and unitless and about squared numbers and describes how good the model is as a whole; sometimes I just want to understand how BIG the difference between the groups is. One method people us is to compare the distance between groups, relative to the average distance between individuals (the standard deviation.)
+
+However, if we are assuming these groups are different in some important way, then we may not want to use a standard deviation statistic that considers individuals to belong to the same group. The pooled standard deviation is a weighted average of the standard deviation from each group.
+
+```{r}
+nY <- nrow(brekY)
+nN <- nrow(brekN)
+dfY <- nY-1 # the sample size of breakfast eaters, minus 1
+dfN <- nN-1
+
+varY <- var(brekY$hunger)
+varN <- var(brekN$hunger)
+
+poolvar <- ((dfY * varY) + (dfN * varN))/(dfY + dfN)
+poolsd <- poolvar^.5
+
+diff <- coef(mod)[2] # the difference between groups
+diff/poolsd
+```
+
+-   The psych package has a cohen's d function built in that calculates this for you. (Not sure why we are getting different manual estimate from the package tho?)
+
+```{r}
+library(psych)
+cohen.d(m$hunger, m$had.breakfast)
+cohen.d(hunger ~ had.breakfast, data = m)
+```
+
+Okay, so what does this statistic mean? Well, this tells us that the difference between folks who had breakfast and those who did not (the slope in our model) is not even as large as the difference between any two random individuals (the pooled sd). But is this a little? A lot?
+
+-   Many people reference Cohen's "convention" of what defines effect size to be small (d = .2), medium (.5), and large effect (d = .8). However, this summary glosses Cohen's disclaimer, as well as a ton of other context that [Cohen provides in his original book](https://www.utstat.toronto.edu/brunner/oldclass/378f16/readings/CohenPower.pdf).
+
+![](images/clipboard-3590087416.png)
+
+-   ACTIVITY : Look over this nice [interactive guide for interpreting Cohen's D](https://rpsychologist.com/cohend/). How does this visualization help you think about the difference? Does this difference seem like a little? A lot??
+
+-   Here's a great article working through some of the [issues in effect size calculation and interpretation](https://journals.sagepub.com/doi/pdf/10.1177/2515245919847202).
+
+### A Note on Dummy Coding
+
+    -   R will default to a reference level based on alphabetical order, so in this case, "No" will be the reference group. To change the reference group, you can relevel the factor.
+
+```{r}
+m$had.breakfastR <- relevel(m$had.breakfast, ref = "Yes")
+plot(m$had.breakfastR) # same data, different orientation
+
+modR <- lm(hunger ~ had.breakfastR, data = m)
+coef(modR)
+par(mfrow = c(1,2))
+plotmeans(hunger ~ had.breakfast, data = m, main = "No as Reference Group")
+plotmeans(hunger ~ had.breakfastR, data = m, main = "Yes as Reference Group")
+```
+
+## [Presentations](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
+
+## The T-Test
+
+Our linear model compares the difference between two groups. This is similar to what a t-test does. However, the t-test also compares this difference to an estimate of sampling error - **the standard error** - that estimates how much of a difference we might find if we were drawing a random sample from a population where there was no difference in groups (the null population.)
+
+The basic equation for the standard error is : $se = sd(x) / \sqrt{n}$
+
+We can easily pull up these statistics using the summary() function. The interpretation of these statistics will take more time!
+
+```{r}
+summary(mod)
+```
+
+**Standard Error** is similar to the sampling error we estimated through bootstrapping (you will test this in Lab 6!).[^1]
+
+[^1]: (And side note : to get what R calculates in our model, we will weight each pooled variance by the sample size of each group.)
+
+```{r}
+sqrt((poolvar/nY) + (poolvar/nN))
+```
+
+However, there are a few key conceptual and computational differences.
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
+|                                                                                                                                                   | Bootstrapping                                                                                                                                                                                                                                                                                                                                                          | Null Hypothesis Significance Testing (Standard Error)                                                                              |
++===================================================================================================================================================+========================================================================================================================================================================================================================================================================================================================================================================+====================================================================================================================================+
+| **how to estimate sampling error.**                                                                                                               | we generate lots of “new” samples from our original dataset. these new samples are the same size as our original sample, but we use sampling with replacement to make sure we don’t get the exact same people in the sample every time. the goal is to see how small changes to our sample (that we might find with sampling error) influence our results (the model). | we calculate a statistic that is based on:                                                                                         |
+|                                                                                                                                                   |                                                                                                                                                                                                                                                                                                                                                                        |                                                                                                                                    |
+| we want to estimate how much our statistics might change due to re-sampling, because our sample isn't a perfect representation of the population. |                                                                                                                                                                                                                                                                                                                                                                        | 1.  the variance in our sample (with the idea that the more individuals vary in the sample, the more sampling error we might have) |
+|                                                                                                                                                   |                                                                                                                                                                                                                                                                                                                                                                        |                                                                                                                                    |
+|                                                                                                                                                   |                                                                                                                                                                                                                                                                                                                                                                        | 2.  our sample size (with the idea that the larger our sample, the less sampling error we will find.)                              |
++---------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
+| **statistic we care about that defines sampling error**                                                                                           | standard deviation of the 1,000 (or however many) slopes we generated from bootstrapping.                                                                                                                                                                                                                                                                              | standard error (estimates how much the average slope would differ from b = 0….the expected slope assuming the null)                |
++---------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
+| **how to evaluate our slope, relative to sampling error**                                                                                         | calculate the % of slopes in the same direction as our slope                                                                                                                                                                                                                                                                                                           | t-value : evaluates slope you found, relative to slope you might find due to random chance.                                        |
+|                                                                                                                                                   |                                                                                                                                                                                                                                                                                                                                                                        |                                                                                                                                    |
+|                                                                                                                                                   | calculate 95% confidence intervals, and see whether that range includes zero and / or numbers in the opposite direction of the slope you found. (e.g., if you found a negative number, does the range include positive numbers? If so, then likely we’d find a positive relationship due to chance)                                                                    | use the t-value to calculate the probability given your distribution, and reject if p \< .05                                       |
+|                                                                                                                                                   |                                                                                                                                                                                                                                                                                                                                                                        |                                                                                                                                    |
+|                                                                                                                                                   |                                                                                                                                                                                                                                                                                                                                                                        | (or be more conservative and reject if p \< .01 or p \< .001).                                                                     |
++---------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
+
+Note that the t-test does the same thing that our linear model does; evaluates the difference in groups, relative to an estimate of the sampling error we might observe.
+
+```{r}
+summary(mod)
+t.test(brekY$hunger, brekN$hunger, var.equal = T)
+```
+
+## Activity : Work on Lab 6.
+
+-   Define a linear model to see whether breakfast (the most important meal of the day) is related to another numeric outcome variable.
+    -   Graph the relationship between the two variables.
+    -   Report and interpret statistics : intercept, slope, $R^2$, cohen's d.
+    -   Compare bootstrapping method to NHST method of estimating sampling error.
+    -   Read more about NHST and linear models when there's 3 or more levels.

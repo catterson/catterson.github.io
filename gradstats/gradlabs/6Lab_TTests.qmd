@@ -1,0 +1,29 @@
+---
+title: "Lab 6 - Key"
+format: 
+  html:
+    code-overflow: wrap
+---
+
+## Lab Instructions.
+
+Answer the questions below as a .PDF (you can either render from Quarto as .PDF, or render as .html and then print this html file as a .PDF). Make sure to reference any external sources (e.g., stack exchange; ChatGPT; peer help) that you used at the top of your lab assignment. *If you use external resources, don't just copy / paste the code (and source) blindly, but spend time thinking (and writing in your Lab) about what these external sources are doing with the code / what techniques you are learning from this source.* And please ask for help if you get stuck / are confused / professor did something wrong on Discord!
+
+## Problem 1.
+In lecture, Professor predicted hunger from whether a person had breakfast or not. Work with your buddies (or go solo) to define a new linear model to test whether having breakfast (the most important meal of the day) predicts any other numeric variable in the grad mini dataset. Before you define the model, write out your null and alternative hypothesis and explain the **four possible reasons** why you might see a pattern in the data. Make sure to include a graph of the linear model (make the graph look nice), and report *and interpret* the intercept, slope, $R^2$, and cohen's d value of this model.
+
+
+## Problem 2. Sampling Error via Bootstrapping and Standard Error
+
+Estimate sampling error of the slope in Problem 1 using bootstrapping, and then using the formula for standard error (as output by the `summary` function). Note that the sampling error estimate via bootstrapping and via standard error should be very similar to each other. (Spooky!) Below these statistics, describe what they tell you about the relationship you observed in Problem 1. Then, draw on your past stats knowledge and / or go through the supplemental readings on NHST in the syllabus - what does the p-value of the slope tell you? Okay to struggle here; it is confusing and we will chat more about this next week. 
+
+As an optional challenge worth zero points, see if you can calculate the standard error by hand; you'll need to use the equation for pooled variance (and equation for standard error when using pooled variance). This is not important and I don't really know why I'm including it here...just tradition I guess.
+
+## Problem 3. T-Tests are A Linear Model.
+
+Confirm that the `t.test()` function reports the same statistics as your linear model. (You will need to add an argument to force R to assume equal variances between the groups. We will talk more about this next week!)
+
+
+## Problem 4. More Factors, No Problem.
+
+The variable `food.pref` measures whether people prefer tacos, tortas, or burritos. Predict hunger from this categorical variable that has three levels; interpret the intercept, slope(s), and $R^2$ value and include a graph. Feel free to define some other linear model; key idea is to get practice working with linear models when the IV has more than two categories. You can use [Prof's 101 notes](https://docs.google.com/document/d/1DJ-6L5Nv3FE8a0Seg7T6stX931YI8n93W2NByb_hNd8/edit?tab=t.0#bookmark=id.ju039hal8wtn) as a guide on how to interpret a dummy coded variable when there are three (or more) levels.
