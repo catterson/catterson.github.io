@@ -182,16 +182,113 @@ $\Large \epsilon_i$ = residual error = the distance between our prediction and t
 -   **on the graph:** the distance between each individual data point and the line.
 :::
 
-## BREAK TIME
+## Activity : Define another model to predict insta.follows from another numeric IV!!!
+
+```{r}
+# Zara! 
+hist(d$bored)
+plot(insta.follows ~ bored, data = d)
+mod2 <- lm(insta.follows ~ bored, data = d)
+abline(mod2)
+
+# Height!! (With the outliers)
+
+mod3 <- lm(insta.follows ~ height, data = d)
+plot(insta.follows ~ height, data = d)
+abline(mod3, lwd = 5)
+
+# Height!! (Without the outliers)
+d$H2 <- d$height
+d$H2[d$H2 < 40 | d$H2 > 100] <- NA # removing outliers!
+hist(d$H2) 
+mod4 <- lm(insta.follows ~ H2, data = d)
+plot(insta.follows ~ H2, data = d)
+abline(mod4, lwd = 5)
+
+# INSTA.FOLLOWERS
+d$insta.followers[d$insta.followers > 10000] <- NA # removing the outlier!
+mod5 <- lm(insta.follows ~ insta.followers, data = d)
+plot(insta.follows ~ insta.followers, data = d)
+abline(mod5, lwd = 5)
+```
+
+## Evaluating Error
+
+```{r}
+par(mfrow = c(1,2))
+plot(d$insta.follows, main = "Mean as a Model (Red Line)",
+     xlab = "Index (Row in Dataset)",
+     ylab = "# Of Accounts a Person Follows")
+abline(h = mean(d$insta.follows, na.rm = T), lwd = 5, col = 'red')
+
+plot(insta.follows ~ socialmed.use, data = d) # graphs the relationship 
+abline(mod, lwd = 5, col = 'red') # draws a red line of width five based on mod
+```
+
+```{r}
+SST # sum of squared errors when using the mean (we did this an hour ago)
+mod$residuals # the residuals from my model
+sum(mod$residuals) # add up to zero
+SSM <- sum(mod$residuals^2) 
+SSM # 37million errors.
+SST - SSM # 1898280 LESS error when I use my model to make predictions.
+(SST - SSM)/SST # about .05 or 5% reduction in the total error. 
+```
+
+\^\^\^ This is called $R^2$ \^\^\^
+
+```{r}
+par(mfrow = c(1,2))
+plot(d$insta.follows, main = "Mean as a Model (Red Line)",
+     xlab = "Index (Row in Dataset)",
+     ylab = "# Of Accounts a Person Follows")
+abline(h = mean(d$insta.follows, na.rm = T), lwd = 5, col = 'red')
+
+plot(insta.follows ~ insta.followers, data = d) # graphs the relationship 
+abline(mod5, lwd = 5, col = 'red') # draws a red line of width five based on mod
+
+SSM5 <- sum(mod5$residuals^2)
+SSM5
+SST - SSM5
+(SST - SSM5)/SST
+
+```
+
+## BREAK TIME : MEET BACK AT 3:52
 
 ## Final Project Workshop
+
+### Milestone 1. Some Questions
+
+-   do we need to use the template? \[**NO!!!!** don't worry about the template; the point of the template is to help you organize and summarize the past reseach you are reading; your TA will need to see that you've found and thought about SOME past resaerch.\]
+
+-   i don't wanna outline an intro. \[just a draft...keep it simple\]
+
+    -   example outline : sleep quality
+
+        -   THE POINT : sleep quality is how people feel after they sleep, such as how restful people are.
+
+        -   EVIDENCE / WHO CARES : sleep quality is importatn because it's related to productivity (CITATION), morale (CITATION), and social interaction (CITATION).
+
+        -   THE POINT : screen time is related to sleep quality.
+
+            -   EVIDENCE : In one study, researchers found Blah blah blah.
+
+            -   WHO CARES : Screen use is increasing (CITATION), and important to know how that might be affecting sleep quality in ways that might interfere with well-being.
+
+-   FOCUS ON :
+
+    -   defining a linear model
+
+    -   figuring out how to measure your variables.
 
 ### Milestone 1. Defining IV2
 
 Consider the pattern that we found earlier in class. Do you think this pattern will always hold for all people? Or would it change for some people? How so??
 
 ```{r}
-
+plot(insta.follows ~ insta.followers, data = d) # graphs the relationship 
+abline(mod5, lwd = 5, col = 'red') # draws a red line of width five based on mod
 ```
 
 These other variables are called *moderator variables*, and they can be a good way to identify a second independent variable for your study / help advance science. Life is complex, and some established "effect" or pattern in the data will likely change as a result of some other variable!

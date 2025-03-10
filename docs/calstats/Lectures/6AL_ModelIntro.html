@@ -436,14 +436,245 @@ Coefficients:
 </ul>
 </div></div></section>
 </section>
-<section id="break-time" class="level2">
-<h2 class="anchored" data-anchor-id="break-time">BREAK TIME</h2>
+<section id="activity-define-another-model-to-predict-insta.follows-from-another-numeric-iv" class="level2">
+<h2 class="anchored" data-anchor-id="activity-define-another-model-to-predict-insta.follows-from-another-numeric-iv">Activity : Define another model to predict insta.follows from another numeric IV!!!</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Zara! </span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(d<span class="sc">$</span>bored)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6AL_ModelIntro_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(insta.follows <span class="sc">~</span> bored, <span class="at">data =</span> d)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(insta.follows <span class="sc">~</span> bored, <span class="at">data =</span> d)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(mod2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6AL_ModelIntro_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Height!! (With the outliers)</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(insta.follows <span class="sc">~</span> height, <span class="at">data =</span> d)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(insta.follows <span class="sc">~</span> height, <span class="at">data =</span> d)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(mod3, <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6AL_ModelIntro_files/figure-html/unnamed-chunk-9-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Height!! (Without the outliers)</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>H2 <span class="ot">&lt;-</span> d<span class="sc">$</span>height</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>H2[d<span class="sc">$</span>H2 <span class="sc">&lt;</span> <span class="dv">40</span> <span class="sc">|</span> d<span class="sc">$</span>H2 <span class="sc">&gt;</span> <span class="dv">100</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span> <span class="co"># removing outliers!</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(d<span class="sc">$</span>H2) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6AL_ModelIntro_files/figure-html/unnamed-chunk-9-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(insta.follows <span class="sc">~</span> H2, <span class="at">data =</span> d)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(insta.follows <span class="sc">~</span> H2, <span class="at">data =</span> d)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(mod4, <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6AL_ModelIntro_files/figure-html/unnamed-chunk-9-5.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># INSTA.FOLLOWERS</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>insta.followers[d<span class="sc">$</span>insta.followers <span class="sc">&gt;</span> <span class="dv">10000</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span> <span class="co"># removing the outlier!</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>mod5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(insta.follows <span class="sc">~</span> insta.followers, <span class="at">data =</span> d)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(insta.follows <span class="sc">~</span> insta.followers, <span class="at">data =</span> d)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(mod5, <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6AL_ModelIntro_files/figure-html/unnamed-chunk-9-6.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="evaluating-error" class="level2">
+<h2 class="anchored" data-anchor-id="evaluating-error">Evaluating Error</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d<span class="sc">$</span>insta.follows, <span class="at">main =</span> <span class="st">"Mean as a Model (Red Line)"</span>,</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Index (Row in Dataset)"</span>,</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"# Of Accounts a Person Follows"</span>)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">mean</span>(d<span class="sc">$</span>insta.follows, <span class="at">na.rm =</span> T), <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">'red'</span>)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(insta.follows <span class="sc">~</span> socialmed.use, <span class="at">data =</span> d) <span class="co"># graphs the relationship </span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(mod, <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">'red'</span>) <span class="co"># draws a red line of width five based on mod</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6AL_ModelIntro_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>SST <span class="co"># sum of squared errors when using the mean (we did this an hour ago)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 39584116</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>mod<span class="sc">$</span>residuals <span class="co"># the residuals from my model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           1            2            3            4            6            7 
+ 447.4134794 2173.3917317  585.4569746  -27.5865206 -579.5430254 -592.5647730 
+           8            9           10           11           12           13 
+  -3.5647730 -360.6300159 -328.6952588 -474.5430254 1301.4569746 -113.5430254 
+          15           16           17           18           19           20 
+ 507.4569746 1987.4569746 -423.5865206  323.4352270  919.4134794 -175.5647730 
+          21           22           23           24           25           26 
+ 195.3917317  -76.5430254  373.4134794  -30.5212777 -265.5212777 -463.5647730 
+          27           28           29           31           32           33 
+-265.5430254  -92.5647730 -224.4995301 -328.6952588 -590.5647730 -548.5865206 
+          34           35           36           37           38           39 
+ 244.4569746 -226.5430254  263.4352270 -176.4995301  449.3482365   -0.5430254 
+          40           41           42           43           44           45 
+-401.5212777  412.4787223  248.4787223 1207.4352270  110.4569746  667.4352270 
+          46           48           49           50           51           52 
+-173.4995301  -32.5647730 -633.5430254 -504.6082683  463.4569746  -74.4995301 
+          53           54           55           56           57           58 
+-459.5647730 -230.5212777  451.4134794 -192.5647730 1155.4569746 1451.4134794 
+          59           60           61           62           63           64 
+ 121.5004699  521.4134794 -315.4995301 -136.5647730 -482.5430254 -316.5647730 
+          65           66           67           68           69           70 
+-374.5430254  454.3264889 -287.5647730 -372.6735111 -100.5647730  348.4352270 
+          71           72           73           74           75           76 
+-369.5865206 -579.5212777 -247.6082683  -20.5865206  426.4787223  319.4787223 
+          77           78           80           81           82           83 
+-166.6517635  900.3917317  189.4352270 -254.6082683 -236.5430254   41.3699841 
+          84           85           86           87           88           89 
+   9.4787223 -262.4995301 -457.6300159  -46.5865206 -524.4995301 -484.5865206 
+          90           91           92           93           95           96 
+-372.6735111 -472.5647730   63.4569746 -372.6735111 -499.5647730  441.4134794 
+          97           98           99          100          101          102 
+-284.7170064 -122.6082683 -615.5212777 -508.4995301  234.4352270 -284.7170064 
+         103          104          105          106          107          108 
+-459.6300159 -376.5647730  701.4134794 -155.5430254  995.3917317  273.4352270 
+         109          110          111          112          113          114 
+ 550.3917317  326.4569746 -504.6082683   32.4352270 -328.6952588  -86.5430254 
+         115          116          117          118          119          120 
+-448.5865206 -261.7170064 -213.5430254  261.4352270 -460.6300159  309.4787223 
+         121          122          123          124          125          126 
+ -11.6517635 -100.5647730  584.4352270 -502.6082683 -362.5430254 -193.5865206 
+         127          128          129          130          131          132 
+-576.5430254  130.4569746  806.3482365  476.3917317 -424.4995301   61.4134794 
+         134          135          136          137          138          139 
+  39.3482365 -284.7170064 -478.4995301  633.4569746 -304.6082683 -450.6300159 
+         140          141          142          143          144          145 
+-277.5430254 -242.5647730  289.4352270 -484.6082683  144.4352270 -580.5212777 
+         146          147          148          149          150          151 
+  47.4134794  208.4787223 -429.5865206 -151.4995301 -550.5212777 -134.6300159 
+         153          154          155          156 
+ 988.3917317   83.3482365 -116.5430254  643.4352270 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(mod<span class="sc">$</span>residuals) <span class="co"># add up to zero</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.904255e-12</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>SSM <span class="ot">&lt;-</span> <span class="fu">sum</span>(mod<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span>) </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>SSM <span class="co"># 37million errors.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 37685836</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>SST <span class="sc">-</span> SSM <span class="co"># 1898280 LESS error when I use my model to make predictions.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1898280</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>(SST <span class="sc">-</span> SSM)<span class="sc">/</span>SST <span class="co"># about .05 or 5% reduction in the total error. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.04795561</code></pre>
+</div>
+</div>
+<p>^^^ This is called <span class="math inline">\(R^2\)</span> ^^^</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d<span class="sc">$</span>insta.follows, <span class="at">main =</span> <span class="st">"Mean as a Model (Red Line)"</span>,</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Index (Row in Dataset)"</span>,</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"# Of Accounts a Person Follows"</span>)</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">mean</span>(d<span class="sc">$</span>insta.follows, <span class="at">na.rm =</span> T), <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">'red'</span>)</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(insta.follows <span class="sc">~</span> insta.followers, <span class="at">data =</span> d) <span class="co"># graphs the relationship </span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(mod5, <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">'red'</span>) <span class="co"># draws a red line of width five based on mod</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6AL_ModelIntro_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>SSM5 <span class="ot">&lt;-</span> <span class="fu">sum</span>(mod5<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>SSM5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 19751193</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>SST <span class="sc">-</span> SSM5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 19832923</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>(SST <span class="sc">-</span> SSM5)<span class="sc">/</span>SST</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5010324</code></pre>
+</div>
+</div>
+</section>
+<section id="break-time-meet-back-at-352" class="level2">
+<h2 class="anchored" data-anchor-id="break-time-meet-back-at-352">BREAK TIME : MEET BACK AT 3:52</h2>
 </section>
 <section id="final-project-workshop" class="level2">
 <h2 class="anchored" data-anchor-id="final-project-workshop">Final Project Workshop</h2>
+<section id="milestone-1.-some-questions" class="level3">
+<h3 class="anchored" data-anchor-id="milestone-1.-some-questions">Milestone 1. Some Questions</h3>
+<ul>
+<li><p>do we need to use the template? [<strong>NO!!!!</strong> don’t worry about the template; the point of the template is to help you organize and summarize the past reseach you are reading; your TA will need to see that you’ve found and thought about SOME past resaerch.]</p></li>
+<li><p>i don’t wanna outline an intro. [just a draft…keep it simple]</p>
+<ul>
+<li><p>example outline : sleep quality</p>
+<ul>
+<li><p>THE POINT : sleep quality is how people feel after they sleep, such as how restful people are.</p></li>
+<li><p>EVIDENCE / WHO CARES : sleep quality is importatn because it’s related to productivity (CITATION), morale (CITATION), and social interaction (CITATION).</p></li>
+<li><p>THE POINT : screen time is related to sleep quality.</p>
+<ul>
+<li><p>EVIDENCE : In one study, researchers found Blah blah blah.</p></li>
+<li><p>WHO CARES : Screen use is increasing (CITATION), and important to know how that might be affecting sleep quality in ways that might interfere with well-being.</p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>FOCUS ON :</p>
+<ul>
+<li><p>defining a linear model</p></li>
+<li><p>figuring out how to measure your variables.</p></li>
+</ul></li>
+</ul>
+</section>
 <section id="milestone-1.-defining-iv2" class="level3">
 <h3 class="anchored" data-anchor-id="milestone-1.-defining-iv2">Milestone 1. Defining IV2</h3>
 <p>Consider the pattern that we found earlier in class. Do you think this pattern will always hold for all people? Or would it change for some people? How so??</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(insta.follows <span class="sc">~</span> insta.followers, <span class="at">data =</span> d) <span class="co"># graphs the relationship </span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(mod5, <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">'red'</span>) <span class="co"># draws a red line of width five based on mod</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6AL_ModelIntro_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <p>These other variables are called <em>moderator variables</em>, and they can be a good way to identify a second independent variable for your study / help advance science. Life is complex, and some established “effect” or pattern in the data will likely change as a result of some other variable!</p>
 </section>
 <section id="milestone-2.-creating-your-survey." class="level3">
