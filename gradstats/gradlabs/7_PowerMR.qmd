@@ -95,6 +95,8 @@ m1r <- summary(mod1)$r.squared^.5
 pwr.r.test(n = 149, r = m1r)
 ```
 
+This is the basic approach to power; most people do some version of this. But if you'd like a more thorough review of different methods of estimating power (and doing so via simulated data), [this seems like a modern, thorough, and good overview](https://aaroncaldwell.us/SuperpowerBook/introduction-to-power-analysis.html). 
+
 ## [Presentations](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
 
 ## more regression (multiple regression)
