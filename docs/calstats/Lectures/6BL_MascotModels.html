@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -50,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -116,7 +150,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
@@ -158,8 +192,8 @@ window.Quarto = {
 </ul>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 16%">
-<col style="width: 83%">
+<col style="width: 22%">
+<col style="width: 77%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -256,8 +290,8 @@ window.Quarto = {
 <p><em>Note : the IAT is not a perfect measure, and there’s a fair amount of debate about whether it is a reliable and valid measure as claimed (see here and here and here for academic examples of some of this debate). FWIW my hot take is that I believe a) implicit measures are really hard to quantify, b) the underlying mechanism that experiences shape our cognition is real, c) we live in a society that prioritizes white and male voices in various ways (history education; modern media; etc.), d) that A-C together would suggest it is very likely people would hold unconscious biases that reflect those in society, and E) it’s important to identify and name those biases if you want to address them. Happy to chat more; thx for attending my footnote talk. Anyway, <a href="https://implicit.harvard.edu/implicit/takeatest.html">here’s a link to learn more or take a test for yourself</a>.</em></p>
 </div></div><table class="caption-top table">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 79%">
+<col style="width: 23%">
+<col style="width: 76%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -361,8 +395,8 @@ window.Quarto = {
 <p>The first novel ever written by a Native person, and the first novel written in California, was written in 1854, by a Cherokee guy named John Rollin Ridge. His novel, The Life and Adventures of Joaquin Murieta, was based on a supposed real-life Mexican bandit from California by the same name, who, in 1853, was killed by a group of Texas rangers. To prove they’d killed Murrieta and collect the five thousand dollar reward put on his head—they cut it off. Kept it in a jar of whiskey. They also took the hand of his fellow bandit Three Fingered Jack. The rangers took Joaquin’s head and the hand on a tour throughout California, charged a dollar for the show.&nbsp;</p>
 <p>The Indian head in the jar, the Indian head on a pike were like flags flown, to be seen, cast broadly. Just like the Indian head test pattern was broadcast to sleeping Americans as we set sail from our living rooms, over the ocean blue green glowing airwaves, to the shores, the screens of the new world.</p>
 </section>
-<section id="r2" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="r2"><span class="math inline">\(R^2\)</span></h2>
+<section id="thinking-more-about-r2" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="thinking-more-about-r2">Thinking More About <span class="math inline">\(R^2\)</span></h2>
 <section id="the-formula" class="level3">
 <h3 class="anchored" data-anchor-id="the-formula">The Formula</h3>
 <p><span class="math inline">\(\Huge R^2 = \frac{SS_{total} - SS_{model}}{SS_{total}}\)</span></p>
@@ -371,16 +405,21 @@ window.Quarto = {
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>SST refers to the sum of squared errors when using the mean to make predictions. This is called <em>total</em> because the mean is the starting place for our predictions; our predictions will never be worse than the mean, so we expect the error around the mean to be the largest it will ever be.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## visualizing SST here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>SSM refers to the sum of squared residuals when using the linear model to make predictions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## visualizing SSM here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 </div>
 </section>
 <section id="in-real-life" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="in-real-life">In Real-Life</h3>
-<p><img src="images/clipboard-606508161.png" class="img-fluid"></p>
 <p><img src="images/clipboard-1347662291.png" class="img-fluid"></p>
 <ul>
 <li><strong>DISCUSS :</strong> <strong>what do these linear models tell us about the relationship between GPA, SAT (IVs) and freshman grades (DV)?</strong></li>
@@ -390,13 +429,12 @@ window.Quarto = {
 <p><img src="images/clipboard-606508161.png" class="img-fluid"></p>
 </div></div></section>
 </section>
-<section id="check-in-mini-break" class="level2">
-<h2 class="anchored" data-anchor-id="check-in-mini-break"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfJC8RLLtQf0Px0yz1nJjx-8CGXFrMcuUg_b3od54kHHPCEHQ/viewform?usp=sf_link">CHECK-IN &amp; MINI BREAK</a></h2>
+<section id="milestone-2" class="level2">
+<h2 class="anchored" data-anchor-id="milestone-2">Milestone #2</h2>
 <ul>
-<li><p>GENERATING SOME MORE CLASS DATA FOR NEXT WEEK!</p></li>
-<li><p>NO TALKING / LOOKING THINGS UP!</p></li>
+<li><p>Prof.&nbsp;looks over some examples of student surveys!</p></li>
+<li><p>Other Notes From Student Questions Will Go Here.</p></li>
 </ul>
-<p><img src="images/clipboard-130890586.png" class="img-fluid"></p>
 
 
 </section>
@@ -437,7 +475,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -469,29 +518,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -499,7 +526,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

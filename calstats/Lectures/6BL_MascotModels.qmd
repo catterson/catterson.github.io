@@ -17,11 +17,11 @@ format:
 
 -   **Implicit and Explicit Prejudice in the Mascot Dataset**
 
-|  |  |
-|------------|------------------------------------------------------------|
-| **Variable** | **Description** |
-| attitude | a scale created based on a 13-item survey about attitudes toward native american mascots at UIUC, measured with items such as “I wish the Chief were still the mascot” and “Chief Illiniwek is a racist symbol (negatively-keyed item)”. Higher numbers = more positive rating of the mascot. |
-| IATscore | a continuous implicit measure of the person’s unconscious prejudice toward / against Native Americans, measured in terms of how fast people are to associate Native American (vs. White) names with Past (vs. Present) terms. Higher scores = more Present-White and Past-Native American bias. |
+|                |                                                                                                                                                                                                                                                                                                                                                                       |
+|----------------|--------------------------------------------------------|
+| **Variable**   | **Description**                                                                                                                                                                                                                                                                                                                                                       |
+| attitude       | a scale created based on a 13-item survey about attitudes toward native american mascots at UIUC, measured with items such as “I wish the Chief were still the mascot” and “Chief Illiniwek is a racist symbol (negatively-keyed item)”. Higher numbers = more positive rating of the mascot.                                                                         |
+| IATscore       | a continuous implicit measure of the person’s unconscious prejudice toward / against Native Americans, measured in terms of how fast people are to associate Native American (vs. White) names with Past (vs. Present) terms. Higher scores = more Present-White and Past-Native American bias.                                                                       |
 | prejudiceNatAm | a continuous explicit measure of the person’s conscious prejudice against Native Ameicans, measured with items such as, “Native Americans are a vanishing culture and there are few “real” Indians” and “It is now unnecessary for the U.S. government to honor their treaty obligations to Native tribes.” Higher numbers = more prejudice against Native Americans. |
 
 -   **Syllabus Guidelines :**
@@ -79,8 +79,8 @@ format:
 *Note : the IAT is not a perfect measure, and there’s a fair amount of debate about whether it is a reliable and valid measure as claimed (see here and here and here for academic examples of some of this debate). FWIW my hot take is that I believe a) implicit measures are really hard to quantify, b) the underlying mechanism that experiences shape our cognition is real, c) we live in a society that prioritizes white and male voices in various ways (history education; modern media; etc.), d) that A-C together would suggest it is very likely people would hold unconscious biases that reflect those in society, and E) it’s important to identify and name those biases if you want to address them. Happy to chat more; thx for attending my footnote talk. Anyway, [here’s a link to learn more or take a test for yourself](https://implicit.harvard.edu/implicit/takeatest.html).*
 :::
 
-|  |  |
-|---------------|---------------------------------------------------------|
+|                                 |                                                                                                                                                                                                                                                 |
+|-----------------|-------------------------------------------------------|
 | ![](lecture_images/6B_IAT1.png) | **![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXc9lQK8CfthhYdT2FVSzcQgrkdvxZ1n0PGs72mW_OAavACrGh0DYR1aDKHvA3TpspPOfni9kHFPTf_rl6hRWw3_njM3utbVUZNwhCn1x3MKFJAfqTiFpeM2fcVbSCqsHJTWd3AQokG1N2yWdwFbSMLIF2tt?key=tSEoPY4eekXeke__IozQNA)** |
 
 ### The Study
@@ -89,10 +89,10 @@ format:
 
     -   **Researcher (& Berkeley alumnus) [Michael Kraus](http://www.michaelwkraus.com/) :** Informed by his experiences as a new faculty member at the University of Illinois at Urbana-Champaign.
 
-        |  |  |
-        |--------------------------|----------------------------------------------|
+        |                                                                                       |                                                                                                                                                            |
+        |--------------------------------|----------------------------------------------|
         | [Chief Illiniwik](https://en.wikipedia.org/wiki/Chief_Illiniwek) at a Basketball Game | Members of one of the over 10 tribes represented by the [Illinois Confederation](https://en.wikipedia.org/wiki/Illinois_Confederation) at a Powwow in 2024 |
-        | ![](images/clipboard-3606495715.png){width="265"} | ![](images/clipboard-2483797627.png) |
+        | ![](images/clipboard-3606495715.png){width="265"}                                     | ![](images/clipboard-2483797627.png)                                                                                                                       |
 
     -   Do science to test this question \[<https://osf.io/zbu3x/>\] 
 
@@ -178,7 +178,7 @@ The first novel ever written by a Native person, and the first novel written in 
 
 The Indian head in the jar, the Indian head on a pike were like flags flown, to be seen, cast broadly. Just like the Indian head test pattern was broadcast to sleeping Americans as we set sail from our living rooms, over the ocean blue green glowing airwaves, to the shores, the screens of the new world.
 
-## $R^2$
+## Thinking More About $R^2$
 
 ### The Formula
 
@@ -190,7 +190,7 @@ $\Huge R^2 = \frac{SS_{total} - SS_{model}}{SS_{total}}$
 SST refers to the sum of squared errors when using the mean to make predictions. This is called *total* because the mean is the starting place for our predictions; our predictions will never be worse than the mean, so we expect the error around the mean to be the largest it will ever be.
 
 ```{r}
-
+## visualizing SST here
 ```
 
 #### SSM
@@ -198,13 +198,11 @@ SST refers to the sum of squared errors when using the mean to make predictions.
 SSM refers to the sum of squared residuals when using the linear model to make predictions.
 
 ```{r}
-
+## visualizing SSM here
 ```
 :::
 
 ### In Real-Life
-
-![](images/clipboard-606508161.png)
 
 ![](images/clipboard-1347662291.png)
 
@@ -214,10 +212,8 @@ SSM refers to the sum of squared residuals when using the linear model to make p
 ![](images/clipboard-606508161.png)
 :::
 
-## [CHECK-IN & MINI BREAK](https://docs.google.com/forms/d/e/1FAIpQLSfJC8RLLtQf0Px0yz1nJjx-8CGXFrMcuUg_b3od54kHHPCEHQ/viewform?usp=sf_link)
+## Milestone #2
 
--   GENERATING SOME MORE CLASS DATA FOR NEXT WEEK!
+-   Prof. looks over some examples of student surveys!
 
--   NO TALKING / LOOKING THINGS UP!
-
-![](images/clipboard-130890586.png)
+-   Other Notes From Student Questions Will Go Here.
