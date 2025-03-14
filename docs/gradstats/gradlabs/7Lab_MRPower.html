@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab 6 - Key</title>
+<title>Lab 7 - Multiple Regression &amp; Power</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -122,7 +122,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lab 6 - Key</h1>
+<h1 class="title">Lab 7 - Multiple Regression &amp; Power</h1>
 </div>
 
 
@@ -139,26 +139,35 @@ window.Quarto = {
 </header>
 
 
-<section id="lab-instructions." class="level2">
-<h2 class="anchored" data-anchor-id="lab-instructions.">Lab Instructions.</h2>
-<p>Answer the questions below as a .PDF (you can either render from Quarto as .PDF, or render as .html and then print this html file as a .PDF). Make sure to reference any external sources (e.g., stack exchange; ChatGPT; peer help) that you used at the top of your lab assignment. <em>If you use external resources, don’t just copy / paste the code (and source) blindly, but spend time thinking (and writing in your Lab) about what these external sources are doing with the code / what techniques you are learning from this source.</em> And please ask for help if you get stuck / are confused / professor did something wrong on Discord!</p>
+<section id="problem-1.-more-regression-more-predictors-more-power." class="level2">
+<h2 class="anchored" data-anchor-id="problem-1.-more-regression-more-predictors-more-power.">Problem 1. More Regression, More Predictors, More Power.</h2>
+<ol type="1">
+<li><p>Choose a DV from a dataset (either the mini grad dataset, or the undergrad dataset we worked with this week would be easy datasets to work with.) Identify 2 independent variables that you think will help you predict this DV. Before you analyze the data, write out specific predictions about the relationship(s) you expect for the relationship between IV1 and the DV, IV2 and the DV, and how these relationships might change in a multiple regression.</p></li>
+<li><p>Define a series of linear models to predict the DV from each IV (separately, and then together in a linear model with two IVs.) Include a regression table to summarize these data, and report the intercept, slope(s), standard error, t-test, and p-value for each coefficient, and <span class="math inline">\(R^2\)</span> for the model. You can either create a table manually in quarto, or - if you want to spend more time on this Lab - there are ways to have R generate “publication ready” regression tables for you that might save you time in the long run.</p></li>
+</ol>
+<ol start="3" type="1">
+<li><p>Below the table, report what you observe about the relationships between each variable as you would in a paper, and any other comments or observations about the fit of the model.</p></li>
+<li><p>Finally, choose one statistic you most care about, and report i) the power that you had to detect this effect in the model, and ii) the sample size that you would need to have 80% power. (Note : we ran out of time to talk about how to do ii; prof. will try to record a video / add this to the notes; but you can play around with the <code>pwr</code> functions to calculate n given an effect size, power, and alpha.)</p></li>
+</ol>
 </section>
-<section id="problem-1." class="level2">
-<h2 class="anchored" data-anchor-id="problem-1.">Problem 1.</h2>
-<p>In lecture, Professor predicted hunger from whether a person had breakfast or not. Work with your buddies (or go solo) to define a new linear model to test whether having breakfast (the most important meal of the day) predicts any other numeric variable in the grad mini dataset. Before you define the model, write out your null and alternative hypothesis and explain the <strong>possible reasons</strong> why you might see a pattern in the data. Make sure to include a graph of the linear model (make the graph look nice), and report <em>and interpret</em> the intercept, slope, <span class="math inline">\(R^2\)</span>, and cohen’s d value of this model.</p>
+<section id="problem-2.-back-to-the-mini-exam." class="level2">
+<h2 class="anchored" data-anchor-id="problem-2.-back-to-the-mini-exam.">Problem 2. Back to the Mini Exam.</h2>
+<p>The remaining questions from this lab ask you to recreate and interpret some of the analyses from the “Interrogating Objectivity” article that we read (and whose data we worked with for the “Mini Exam”.)</p>
+<p>The authors report the results of a between subject analyses:</p>
+<p><img src="images/clipboard-1265155660.png" class="img-fluid"></p>
+<p>This is really just the results of a linear regression where the categorical variable pocu has been dummy coded. Convert pocu to a categorical factor, and use this dummy-coded variable in three separate linear models that predict the number of power words, the number of positive emotion words, and the nubmer of negative emotion words used in an abstract. You should be able to recreate the analyses from the text above.</p>
 </section>
-<section id="problem-2.-sampling-error-via-bootstrapping-and-standard-error" class="level2">
-<h2 class="anchored" data-anchor-id="problem-2.-sampling-error-via-bootstrapping-and-standard-error">Problem 2. Sampling Error via Bootstrapping and Standard Error</h2>
-<p>Estimate sampling error of the slope in Problem 1 using bootstrapping, and then using the formula for standard error (as output by the <code>summary</code> function). Note that the sampling error estimate via bootstrapping and via standard error should be very similar to each other. (Spooky!) Below these statistics, describe what they tell you about the relationship you observed in Problem 1. Then, draw on your past stats knowledge and / or go through the supplemental readings on NHST in the syllabus - what does the p-value of the slope tell you? Okay to struggle here; it is confusing and we will chat more about this next week.</p>
-<p>As an optional challenge worth zero points, see if you can calculate the standard error by hand; you’ll need to use the equation for pooled variance (and equation for standard error when using pooled variance). This is not important and I don’t really know why I’m including it here…just tradition I guess.</p>
+<section id="problem-3.-alternative-coding-schemes." class="level2">
+<h2 class="anchored" data-anchor-id="problem-3.-alternative-coding-schemes.">Problem 3. Alternative Coding Schemes.</h2>
+<p>The linear regression for Problem 2 defaults to dummy coded variables which you can use to report the predicted values of the DV for authors of color and white authors. In the paper, the authors report that they have coded scholars of color (“1”), and White scholars (“-1”). This is a form of “effect coding” called “sum coding” or “deviation coding”; <a href="https://marissabarlaz.github.io/portfolio/contrastcoding/#effects-coding">you can read more these coding schemes here</a> or <a href="https://stats.oarc.ucla.edu/spss/faq/coding-systems-for-categorical-variables-in-regression-analysis/">here is another example - note this is a clear example of the default tendency to use white people as the reference group</a>.</p>
+<p>See how the linear model (where you predict power words from pocu) changes from the dummy coded pocu variable to one that has been effect coded. You can do this by creating a copy of the <code>pocu</code> categorical factor and re-level the variable to have values of -1 and 1, using one of the methods described in the links above, or specifying the contrasts as an argument in the lm function.</p>
+<p>In your own words, interpret the intercept and slope from this effect coded model. Which interpretation (dummy coded from P2 or effect coded in this problem) makes more sense? Do you feel like “effect coding” de-emphasizes the reference category, as described in last week’s reading?</p>
 </section>
-<section id="problem-3.-t-tests-are-a-linear-model." class="level2">
-<h2 class="anchored" data-anchor-id="problem-3.-t-tests-are-a-linear-model.">Problem 3. T-Tests are A Linear Model.</h2>
-<p>Confirm that the <code>t.test()</code> function reports the same statistics as your linear model. (You will need to add an argument to force R to assume equal variances between the groups. We will talk more about this next week!)</p>
-</section>
-<section id="problem-4.-more-factors-no-problem." class="level2">
-<h2 class="anchored" data-anchor-id="problem-4.-more-factors-no-problem.">Problem 4. More Factors, No Problem.</h2>
-<p>The variable <code>food.pref</code> measures whether people prefer tacos, tortas, or burritos. Predict hunger from this categorical variable that has three levels; interpret the intercept, slope(s), and <span class="math inline">\(R^2\)</span> value and include a graph. Feel free to define some other linear model; key idea is to get practice working with linear models when the IV has more than two categories. You can use <a href="https://docs.google.com/document/d/1DJ-6L5Nv3FE8a0Seg7T6stX931YI8n93W2NByb_hNd8/edit?tab=t.0#bookmark=id.ju039hal8wtn">Prof’s 101 notes</a> as a guide on how to interpret a dummy coded variable when there are three (or more) levels.</p>
+<section id="problem-4.-multiple-regression-problems" class="level2">
+<h2 class="anchored" data-anchor-id="problem-4.-multiple-regression-problems">Problem 4. Multiple Regression Problems</h2>
+<p><img src="images/clipboard-2436472432.png" class="img-fluid"></p>
+<p>In the next paragraph, the authors describe linear regression analyses where they predict the same three DVs (power, positive emotion words, and negative emotion words) from author race, controlling for several other variables : “word count, journal impact factor, author h-index (a correlate of author status), and publication year”. You can <a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41598-024-63236-z/MediaObjects/41598_2024_63236_MOESM1_ESM.pdf">access the full supplementary regression tables here</a>.</p>
+<p>Define three separate models to recreate the authors’ analyses in R. The authors report standardized (z-scored) slopes; you can do this by using the <code>scale</code> function to transform each numeric variable in the linear model. The authors use the “effect coded” categorical pocu variable that you created in Problem 3. <em>Note : I was not able to perfectly replicate the authors regression coefficients (though did replicate the t-tests and p-values they reported). I’m not sure if this is a software issue, publication error, or something else. But a good example of why it’s important to share not only data but code as well. Let me know if you get a perfect replication of the tables though!</em></p>
 
 
 </section>

@@ -12,28 +12,81 @@ format:
 ```{r}
 #| include: false
 u <- read.csv("~/Dropbox/!GRADSTATS/gradlab/Datasets/undergradsarepeople.csv", stringsAsFactors = T)
-levels(u$breakfast)[1] <- NA
 ```
 
--   The researchers wanted to know whether people who ate breakfast (IV = breakfast; a categorical factor with two levels 0 = No; 1 = Yes) would happier (DV = happy) than people who did not have breakfast. 
+-   The researchers wanted to know whether people who ate breakfast (IV = breakfast; a categorical factor with two levels 0 = No; 1 = Yes) would happier (DV = happy) than people who did not have breakfast.
 -   Use the R output from the linear model below to answer the following questions :
 
 ```{r}
+hist(u$happy)
+plot(u$breakfast)
+levels(u$breakfast)[1]# identifying the empty level.
+levels(u$breakfast)[1] <- NA
+plot(u$breakfast)
 mod1 <- lm(happy ~ breakfast, data = u)
 summary(mod1)
 ```
-1.  What is the difference in happiness for someone who did vs. did not eat breakfast?
+
+1.  What is the difference in happiness for someone who did vs. did not eat breakfast? \[.53\]
+
 2.  What is the predicted happiness for someone who did not eat breakfast? (Round to 1 decimal place.)
-3.  What is the predicted happiness for someone who did eat breakfast?  (Round to 1 decimal place.)
+
+    ````         
+    ```         
+    happiness = 7 + .5 * 0 = 7
+    ```
+    ````
+
+3.  What is the predicted happiness for someone who did eat breakfast? (Round to 1 decimal place.)
+
+    ````         
+    ```         
+    happiness = 7 + .5 * 1 = 7.5
+    ```
+    ````
+
 4.  What are some reasons we might we observe this difference?
+
+    -   CAUSAL : having breakfast makes people feel good
+
+    -   REVERSE CAUSASTION : happiness causes you to eat breakfast (not being happy causes you to not eat breakfast.)
+
+    -   CONFOUNDS & COLLIDERS :
+
+        -   CONFOUNDS : a variable that is related to both the DV and the IV (free time is related to both happiness and ability to have breakfast; stress; SES statsus; age)
+
+        -   INTERACTION EFFECT \[NEXT WEEK\] : a variable that is an outcome of both the DV and IV.
+
+            -   example : inherent talent \~ hard work; but in a sample of high-performing people, these are related. but in a sample of low-performing people, these two groups are not related.
+
+    -   CHANCE : the relationship is due to sampling error.
+
 5.  Is this difference considered statistically significant? Why / why not?
+
 6.  Now, use R to define a linear model to test whether people with more instagram followers (IV = insta.followers) would be happier (DV = happy) than people with fewer instagram followers. What is the slope of this model? Round to two decimal places.
-7. Describe this relationship between these two variables in terms of the slope, R^2 value, and statistical significance.
+
+7.  Describe this relationship between these two variables in terms of the slope, R\^2 value, and statistical significance.
 
 ```{r}
+hist(u$insta.followers)
+mod2 <- lm(happy ~ insta.followers, data = u)
+summary(mod2)
+plot(happy ~ insta.followers, data = u)
+abline(mod2, lwd = 5)
+dev.new()
+par(mfrow = c(2,2))
+plot(mod2)
 
+
+u$insta.followers[u$insta.followers > 10000] <- NA
+mod2 <- lm(happy ~ insta.followers, data = u)
+summary(mod2)
+plot(happy ~ insta.followers, data = u)
+abline(mod2, lwd = 5)
+dev.new()
+par(mfrow = c(2,2))
+plot(mod2)
 ```
-
 
 ## power tests
 
@@ -62,7 +115,6 @@ summary(mod1)
 ```{=html}
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQMiQVIgG2WPl7t45rAYtUhrU1wnPNOxxeKX3zIj1eiMmN8M6nkEotx6sjDTECvRFwF4IzV5C30w-N5/embed?" frameborder="0" width="960" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 ```
-
 ### conceptual understanding
 
 ![](images/clipboard-3964039536.png)
@@ -95,7 +147,7 @@ m1r <- summary(mod1)$r.squared^.5
 pwr.r.test(n = 149, r = m1r)
 ```
 
-This is the basic approach to power; most people do some version of this. But if you'd like a more thorough review of different methods of estimating power (and doing so via simulated data), [this seems like a modern, thorough, and good overview](https://aaroncaldwell.us/SuperpowerBook/introduction-to-power-analysis.html). 
+This is the basic approach to power; most people do some version of this. But if you'd like a more thorough review of different methods of estimating power (and doing so via simulated data), [this seems like a modern, thorough, and good overview](https://aaroncaldwell.us/SuperpowerBook/introduction-to-power-analysis.html).
 
 ## [Presentations](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
 
@@ -158,8 +210,10 @@ summary(modc)
 
 ### Multiple Regression : Visualized in Multi-Dimensional Space!
 
-``` R
-# This Code won't run in quarto, and may not work on your comptuer; for teaching purposes!
+The code below won't run in quarto, and may not work on your comptuer; for teaching purposes!
+
+``` r
+
 #install.packages('rgl')
 #install.packages('car')
 library(car)
