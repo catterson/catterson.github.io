@@ -1,0 +1,179 @@
+---
+title: "Lecture 7 - Power & Multiple Regression"
+format: 
+  html:
+      code-overflow: wrap
+---
+
+## [check-in : interpreting linear models.](https://forms.gle/oMAWEBCEENoGTFFV8)
+
+**Load [this dataset into R](https://www.dropbox.com/scl/fi/1vx0orxloeteo6tjkylz0/undergradsarepeople.csv?rlkey=sb0jtcmcydjit7x85l3tyoh72&dl=0). Collected from undergrads at UC Berkeley. Yay students.**
+
+```{r}
+#| include: false
+u <- read.csv("~/Dropbox/!GRADSTATS/gradlab/Datasets/undergradsarepeople.csv", stringsAsFactors = T)
+levels(u$breakfast)[1] <- NA
+```
+
+-   The researchers wanted to know whether people who ate breakfast (IV = breakfast; a categorical factor with two levels 0 = No; 1 = Yes) would happier (DV = happy) than people who did not have breakfast. 
+-   Use the R output from the linear model below to answer the following questions :
+
+```{r}
+mod1 <- lm(happy ~ breakfast, data = u)
+summary(mod1)
+```
+1.  What is the difference in happiness for someone who did vs. did not eat breakfast?
+2.  What is the predicted happiness for someone who did not eat breakfast? (Round to 1 decimal place.)
+3.  What is the predicted happiness for someone who did eat breakfast?  (Round to 1 decimal place.)
+4.  What are some reasons we might we observe this difference?
+5.  Is this difference considered statistically significant? Why / why not?
+6.  Now, use R to define a linear model to test whether people with more instagram followers (IV = insta.followers) would be happier (DV = happy) than people with fewer instagram followers. What is the slope of this model? Round to two decimal places.
+7. Describe this relationship between these two variables in terms of the slope, R^2 value, and statistical significance.
+
+```{r}
+
+```
+
+### model statistics : slope, $R^2$
+
+### inferential statistics : standard (sampling) error, t-value, p-value.
+
+### human brain stuff : why this pattern? why this matters?
+
+## power tests
+
+### what's the point, professor?
+
+-   **Power :** the probability that you would "correctly" observe a "true" relationship between two variables that exists.
+
+    -   **goal :** you want power to be HIGH. Power increases as...
+
+        -   **the effect size increases :** the bigger the difference, the more likely you'll detect it.
+
+        -   **your sample size increases :** the more people, the less sampling error, and the easier it is to have conidence that any difference you found is not just chance.
+
+        -   **you increase the threshold for rejecting the null hypothesis :** if the probability
+
+    -   **assumptions :** there is a true relationship; you have observed this relationship.
+
+-   **Reasons to Calculate Power :**
+
+    -   **Post-Hoc Power :** You did a study, and want to evaluate
+
+    -   **Power Planning :** You are planning to run a study, and want to know how many people to recruit to have the highest probability of observing the "true" effect (if it exists.)
+
+### a tour of null and alternative realities
+
+```{=html}
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQMiQVIgG2WPl7t45rAYtUhrU1wnPNOxxeKX3zIj1eiMmN8M6nkEotx6sjDTECvRFwF4IzV5C30w-N5/embed?" frameborder="0" width="960" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+```
+
+### conceptual understanding
+
+![](images/clipboard-3964039536.png)
+
+### calculating in R (by hand)
+
+```{r}
+mod1 # a model object
+summary(mod1) # a function applied to the object
+sm1 <- summary(mod1) # saving this as an object
+objects(sm1) # there is more inside.
+sm1$coefficients # tadaa
+
+sm1$coefficients[2,3] # our t-value
+m1tval <- sm1$coefficients[2,3]
+
+qt(.975, df = 147) # t-distribution approaches the normal distribution (with a 95% Interval cutoff of 1.96....) but we are not quite there.
+m1cut <- qt(.975, 147) # t-distribution approaches the normal distribution (with a 95% Interval cutoff of 1.96....) but we are not quite there.
+
+pt(m1tval - m1cut, df = 147) # our power.
+```
+
+### calculating in R (a package)
+
+```{r}
+# install.packages("pwr")
+library(pwr)
+summary(mod1)
+m1r <- summary(mod1)$r.squared^.5
+pwr.r.test(n = 149, r = m1r)
+```
+
+## [Presentations](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
+
+## more regression (multiple regression)
+
+### Benefits of Multiple Regression: Life is Complex!
+
+1.  Account for multiple variables to help predict and explain the DV.
+2.  Control for the effect of on IV on the relationship between another IV and the DV.
+3.  Compare unique effects of each IV on the DV. See how the slope of one IV compares to the slope of another IV. (*Need to standardize your variables, to make sure that they are all on the same scale.*)
+4.  **NEXT WEEK : Interaction Effects!!!** See how the relationship between one IV and the DV changes depending on another IV.
+
+### In Practice.
+
+```{r}
+u$height[u$height > 85 | u$height < 20] <- NA
+levels(u$long.hair)[1] <- NA
+levels(u$is.female)[1] <- NA
+library(gplots)
+par(mfrow = c(1,2))
+plotmeans(height ~ long.hair, data = u, ylim = c(60,70)) 
+plotmeans(height ~ is.female, data = u, ylim = c(60,70))
+```
+
+::: panel-tabset
+#### Height \~ long.hair
+
+```{r}
+moda <- lm(height ~ long.hair, data = u)
+summary(moda)
+```
+
+#### Height \~ is.female
+
+```{r}
+modb <- lm(height ~ is.female, data = u)
+summary(modb)
+```
+
+#### height \~ long.hair + is.female
+
+```{r}
+modc <- lm(height ~ long.hair + is.female, data = u)
+summary(modc)
+```
+:::
+
+#### Discussion : What Do You Observe Changing About the Slopes?
+
+### Reporting Effects in a Regression Table
+
+**Table 1.** Unstandardized Regression Coefficients; Predicting Height from Long.Hair and Is.Female.
+
+|                             | Model 1 | Model 2 | Model 3 |
+|-----------------------------|---------|---------|---------|
+| Intercept                   |         |         |         |
+| Long.Hair (0 = No; 1 = Yes) |         |         |         |
+| Is.Female (0 = No; 1 = Yes) |         |         |         |
+| $R^2$                       |         |         |         |
+
+### Multiple Regression : Visualized in Multi-Dimensional Space!
+
+``` R
+# This Code won't run in quarto, and may not work on your comptuer; for teaching purposes!
+#install.packages('rgl')
+#install.packages('car')
+library(car)
+library(rgl)
+
+scatter3d(as.numeric(u$is.female), # IV1 - must be numeric (if not already)
+          u$height, # DV
+          as.numeric(u$long.hair)) # IV2 - must be numeric (if not already)
+```
+
+## lab 7.
+
+1.  Get more practice working with multiple regression, and calculating power (both post-hoc and for power planning purposes).
+2.  Recreate some of the analyses from the "Interrogating Objectivity" paper.
