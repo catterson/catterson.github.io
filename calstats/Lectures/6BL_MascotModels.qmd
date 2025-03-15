@@ -79,9 +79,9 @@ format:
 *Note : the IAT is not a perfect measure, and there’s a fair amount of debate about whether it is a reliable and valid measure as claimed (see here and here and here for academic examples of some of this debate). FWIW my hot take is that I believe a) implicit measures are really hard to quantify, b) the underlying mechanism that experiences shape our cognition is real, c) we live in a society that prioritizes white and male voices in various ways (history education; modern media; etc.), d) that A-C together would suggest it is very likely people would hold unconscious biases that reflect those in society, and E) it’s important to identify and name those biases if you want to address them. Happy to chat more; thx for attending my footnote talk. Anyway, [here’s a link to learn more or take a test for yourself](https://implicit.harvard.edu/implicit/takeatest.html).*
 :::
 
-|                                 |                                                                                                                                                                                                                                                 |
-|-----------------|-------------------------------------------------------|
-| ![](lecture_images/6B_IAT1.png) | **![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXc9lQK8CfthhYdT2FVSzcQgrkdvxZ1n0PGs72mW_OAavACrGh0DYR1aDKHvA3TpspPOfni9kHFPTf_rl6hRWw3_njM3utbVUZNwhCn1x3MKFJAfqTiFpeM2fcVbSCqsHJTWd3AQokG1N2yWdwFbSMLIF2tt?key=tSEoPY4eekXeke__IozQNA)** |
+|                                 |                                     |
+|---------------------------------|-------------------------------------|
+| ![](lecture_images/6B_IAT1.png) | **![](lecture_images/6B_IAT2.png)** |
 
 ### The Study
 
@@ -94,6 +94,34 @@ format:
         | [Chief Illiniwik](https://en.wikipedia.org/wiki/Chief_Illiniwek) at a Basketball Game | Members of one of the over 10 tribes represented by the [Illinois Confederation](https://en.wikipedia.org/wiki/Illinois_Confederation) at a Powwow in 2024 |
         | ![](images/clipboard-3606495715.png){width="265"}                                     | ![](images/clipboard-2483797627.png)                                                                                                                       |
 
+    -   Do we need science? What are the arguments you've heard for why native american mascots are / are not racist?
+
+        -   "IS RACIST"
+
+            -   it appropriates the culture; inaccurate protrayals of a complex culture; perpetuates a defamation culture that doesn't really lead people to seek understanding / gain knowledge.
+
+            -   important to recognize the brutal history of the US genocide against native americans, and historical views of native americans.
+
+            -   dehumanizing : mascots are "less than" human; a caricature / cartoon / exaggeration / mockery (often used for comedy).
+
+            -   cultural clothing has important significance within culture that is not recognized / ignored / mischaracterized.
+
+            -   most members of the community are a) not involved in the creation or profits of the mascot and b) are actively against it \[*see Florida Seminoles for an alternative model.*\]
+
+        -   "NOT RACIST"
+
+            -   it celebrates the culture :
+
+                -   hard to celebrate a culture if they are not consulted / approving.
+
+                -   the "proud warrior" stereotype is actually rooted in racist and hateful dehumanization that was used to justify genocide.
+
+            -   other groups have mascots, like the "Fighting Irish!" or "The Vikings!"
+
+                -   Irish people were and currently are disciminated against (an interesting history of their "Whiteness")
+
+                -   "Vikings" / Nordic people were not subject to the same violence that native groups were subject to / are valued / have sovereign country.
+
     -   Do science to test this question \[<https://osf.io/zbu3x/>\] 
 
 -   **DISCUSS :**
@@ -104,15 +132,29 @@ format:
 
     -   **How do you think implicit prejudice (IATscore) will be related to people’s attitudes toward the native american mascot? Why?**
 
-        -   
+        -   **POS** / NEG / NO RELATIONSHIP
 
     -   How do you think explicit prejudice (prejudiceNatAm) will be related to people’s attitudes toward the native american mascot? Why?
 
-        -   
+        -   **POS / NEG** / NO RELATIONSHIP
 
     -   Which variable (explicit or implicit prejudice) do you think will be a BETTER predictor of people’s attitudes about the native american mascot? Why?
 
-        -   
+        -   IMPLICIT BETTER / EXPLICIT BETTER / NO DIFF
+
+            -   **implicit :** not everyone will be open to their thought and beliefs, but that will still influence them; harder to hide (than explicit); IAT emphasizes past, which might connect to how people perceive the mascot
+
+            -   **explicit :** maybe people don't report, but the people who are explicit are gonna let that racism alllll hang out, and they will drive the relationship; easier to measure since it's conscious.
+
+    -   Other Questions About
+
+        -   how do you account for people lying on surveys?????
+
+            -   modern racism a "safer" form of racism to measure.
+
+            -   consistency checks : overclaiming questionnaire
+
+            -   accept that error is an inherent part of the research process let's goooooooo!!!!!!!
 
 -   **Other Resources to Learn More About Indigenous Culture :**
 
@@ -131,9 +173,90 @@ See the link above for Lab 6. We will work on the lab together in class! Yeah!
 These data measure Midwestern college students’ implicit and explicit prejudiced attitudes toward Native Americans, and their support for a college Native American mascot considered racist by local tribes. The researchers predicted that both implicit prejudice (IV1 = IATscore) and explicit prejudice (IV2 = prejudiceNatAm) would be related to more positive attitudes toward the native american mascot (DV = attitude). Test these researchers theory.
 
 1.  Load the data, check to make sure the data loaded correctly, and graph each variable that will be used in your models.
-2.  Define a linear model to predict the variable attitudes (DV) from implicit prejudice (IV1 = IATscore). Include a graph of the linear model, and report the slope and R2 value of this model beneath this graph.
-3.  Define a linear model to predict the variable attitudes (DV) from explicit prejudice (IV2 = prejudiceNatAm). Include a graph of the linear model, and report the slope and R2 value of this model beneath this graph.
-4.  Describe what you observe about this relationship. Were the reserachers' theory supported? Why do you think these patterns exist? Which measure of prejudice (implicit or explicit) was a better predictor of the DV?
+
+```{r}
+mascot <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/mascot_data.csv", stringsAsFactors = T)
+head(mascot)
+nrow(mascot)
+
+hist(mascot$attitude)
+hist(mascot$IATscore, main = "Higher Numbers = Associate NatAm with Old\nLower Number = Associate NatAm with Modern")
+abline(v = mean(mascot$IATscore), lwd = 5)
+
+hist(mascot$prejudiceNatAm)
+```
+
+1.  Define a linear model to predict the variable attitudes (DV) from implicit prejudice (IV1 = IATscore). Include a graph of the linear model, and report the slope and R2 value of this model beneath this graph.
+
+```{r}
+mod1 <- lm(attitude ~ IATscore, data = mascot)
+plot(attitude ~ IATscore, data = mascot)
+abline(mod1, lwd = 5)
+```
+
+```{r}
+coef(mod1)
+# INTERCEPT = THE PREDICTED VALUE OF Y WHEN ALL X VALUES ARE ZERO.
+
+SSM <- sum(mod1$residuals^2)
+SSM
+
+SST <- sum((mascot$attitude - mean(mascot$attitude))^2)
+SST
+SST-SSM
+(SST - SSM)/SST
+```
+
+-   BREAK TIME : MEET BACK AT 4:00
+
+-   EVAN HAS QUESTIONS!!!
+
+1.  Define a linear model to predict the variable attitudes (DV) from explicit prejudice (IV2 = prejudiceNatAm). Include a graph of the linear model, and report the slope and R2 value of this model beneath this graph.
+
+```{r}
+mod2 <- lm(attitude ~ prejudiceNatAm, data = mascot)
+plot(attitude ~ prejudiceNatAm, data = mascot)
+abline(mod2, lwd = 5)
+mod2
+```
+
+```{r}
+summary(mod2)$r.squared
+```
+
+1.  Describe what you observe about this relationship. Were the reserachers' theory supported? Why do you think these patterns exist? Which measure of prejudice (implicit or explicit) was a better predictor of the DV?
+2.  PROFESSOR BONUS QUESTION LET'S GO!
+
+```{r}
+coef(mod1)
+coef(mod2)
+par(mfrow = c(1,3))
+plot(mascot$attitude, main = "SST = Mean as Prediction")
+abline(h = mean(mascot$attitude), lwd = 5)
+plot(attitude ~ IATscore, data = mascot, main = "SSM = IV1 as Prediction")
+abline(mod1, lwd = 5)
+plot(attitude ~ prejudiceNatAm, data = mascot, main = "SSM = IV2 as Prediction")
+abline(mod2, lwd = 5)
+
+
+```
+
+Z-Scored!
+
+```{r}
+par(mfrow = c(1,2))
+plot(scale(attitude) ~ scale(IATscore), data = mascot)
+mod1Z <- lm(scale(attitude) ~ scale(IATscore), data = mascot)
+abline(mod1Z, lwd = 5)
+plot(scale(attitude) ~ scale(prejudiceNatAm), data = mascot)
+mod2Z <- lm(scale(attitude) ~ scale(prejudiceNatAm), data = mascot)
+abline(mod2Z, lwd = 5)
+```
+
+```{r}
+round(coef(mod1Z), 2)
+round(coef(mod2Z), 2)
+```
 
 ### Problem 2.
 
