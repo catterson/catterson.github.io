@@ -365,10 +365,8 @@ F-statistic: 0.1127 on 1 and 142 DF,  p-value: 0.7375</code></pre>
 </section>
 <section id="a-tour-of-null-and-alternative-realities" class="level3">
 <h3 class="anchored" data-anchor-id="a-tour-of-null-and-alternative-realities">a tour of null and alternative realities</h3>
+<p>Watch the lecture recording (posted to bCourses) for a tour through these slides.</p>
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQMiQVIgG2WPl7t45rAYtUhrU1wnPNOxxeKX3zIj1eiMmN8M6nkEotx6sjDTECvRFwF4IzV5C30w-N5/embed?" frameborder="0" width="960" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-</section>
-<section id="conceptual-understanding" class="level3">
-<h3 class="anchored" data-anchor-id="conceptual-understanding">conceptual understanding</h3>
 <p><img src="images/clipboard-3964039536.png" class="img-fluid"></p>
 </section>
 <section id="calculating-in-r-by-hand" class="level3">
@@ -477,7 +475,59 @@ F-statistic: 3.653 on 1 and 147 DF,  p-value: 0.05792</code></pre>
     alternative = two.sided</code></pre>
 </div>
 </div>
-<p>This is the basic approach to power; most people do some version of this. But if you’d like a more thorough review of different methods of estimating power (and doing so via simulated data), <a href="https://aaroncaldwell.us/SuperpowerBook/introduction-to-power-analysis.html">this seems like a modern, thorough, and good overview</a>.</p>
+</section>
+<section id="more-power-examples" class="level3">
+<h3 class="anchored" data-anchor-id="more-power-examples">more power examples!</h3>
+<section id="power-illustrated." class="level4">
+<h4 class="anchored" data-anchor-id="power-illustrated.">Power Illustrated.</h4>
+<p>In lecture, professor did some scribbles on the whiteboard to illustrate power, and tried to record these. He also said that he would record a few other videos.</p>
+<p>Prof.&nbsp;did not, in fact, find time in the present moment to record new videos. Bummer! But he did remember that he had recorded similar videos, and found some from 2018. (What were you doing in 2018?? Let us know on Discord; and as always - reach out if you still have questions about power!!)</p>
+<ul>
+<li><a href="https://www.loom.com/share/f393327465f54f3cbf5bbe8c349e3a2e?sid=45f72b59-894e-4d8d-a977-254d6e52f5c4">Recording #1 : Conceptual Example of Power</a></li>
+<li><a href="https://www.loom.com/share/62440c2754cd4874a22ef2f00618eaff">Recording #2 : Another Example</a>. Couldn’t immediately track down the original data analyses these refer to, but the slope (b = .44) and other statistics come from a paper I had rejected in part because reviewers complained that I only replicated the main result in 4 out of 5 studies. (The paper was also a hot mess.) Bummer! But it was a cool phenomenon; I sadly never published on it (parenting * teaching career activated), but truth got out eventually someone published a very clearly written, much better, and perfectly replicating paper (across six studies!) on it 8 years later. Ahhh, one thing off the to-do list!</li>
+</ul>
+</section>
+<section id="estimating-sample-size." class="level4">
+<h4 class="anchored" data-anchor-id="estimating-sample-size.">Estimating Sample Size.</h4>
+<p>As discussed in the lecture slides (see recording), power is a function of effect size, sample size, and the alpha level (alpha = the Type I error that the researcher sets). This means that you can use these functions to estimate the sample size you need for a given power (the convention is often 80%).</p>
+<p>Let’s say I want to know what sample size I need to detect a slope of r = .23.</p>
+<p>From the <code>pwr</code> package, I can define this effect, specifcy the power, type I error level, and whether I want to do a 1- or 2-tailed test.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.r.test</span>(<span class="at">r =</span> .<span class="dv">23</span>, <span class="at">power =</span> .<span class="dv">80</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+     approximate correlation power calculation (arctangh transformation) 
+
+              n = 145.2367
+              r = 0.23
+      sig.level = 0.05
+          power = 0.8
+    alternative = two.sided</code></pre>
+</div>
+</div>
+<p>I can also plot the result of this output and see how power increases as a function of my sample size.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>p.ex <span class="ot">&lt;-</span> <span class="fu">pwr.r.test</span>(<span class="at">r =</span> .<span class="dv">23</span>, <span class="at">power =</span> .<span class="dv">80</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(p.ex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="7_PowerMR_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="but-you-dont-have-to-take-my-word-for-it." class="level3">
+<h3 class="anchored" data-anchor-id="but-you-dont-have-to-take-my-word-for-it.">…but you don’t have to take my word for it.</h3>
+<p>The approach to power described above assumes a normally distribution of sampling error. This is a good starting place, but not all distributions are gaussian! Below are a few different methods to help you estimate power across a wide variety of types of data.</p>
+<ul>
+<li><a href="https://rpubs.com/mbounthavong/sample_size_power_analysis_R">Here’s a nice overview of how to conduct sample size power analysis in R; it works through a few examples and discusses how to</a></li>
+<li><a href="https://aaroncaldwell.us/SuperpowerBook/introduction-to-power-analysis.html">This is a modern, thorough, and good overview of power, that also discusses ways to generate simulated data to estimate power.</a>.</li>
+<li><a href="https://cran.r-project.org/web/packages/pwrss/vignettes/examples.html">Here’s another tutorial of an R package that works for a wide variety of different tests; many of which can be used when youthe assumptions of linear regression are violated.</a></li>
+<li>Let me know if you find other useful resources to help calcualte or conceptualize power!</li>
+</ul>
 </section>
 </section>
 <section id="presentations" class="level2">
@@ -497,10 +547,10 @@ F-statistic: 3.653 on 1 and 147 DF,  p-value: 0.05792</code></pre>
 <section id="in-practice." class="level3">
 <h3 class="anchored" data-anchor-id="in-practice.">In Practice.</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>u<span class="sc">$</span>height[u<span class="sc">$</span>height <span class="sc">&gt;</span> <span class="dv">85</span> <span class="sc">|</span> u<span class="sc">$</span>height <span class="sc">&lt;</span> <span class="dv">20</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(u<span class="sc">$</span>long.hair)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(u<span class="sc">$</span>is.female)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gplots)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>u<span class="sc">$</span>height[u<span class="sc">$</span>height <span class="sc">&gt;</span> <span class="dv">85</span> <span class="sc">|</span> u<span class="sc">$</span>height <span class="sc">&lt;</span> <span class="dv">20</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(u<span class="sc">$</span>long.hair)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(u<span class="sc">$</span>is.female)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gplots)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: 'gplots'</code></pre>
@@ -510,13 +560,13 @@ Attaching package: 'gplots'</code></pre>
 
     lowess</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(height <span class="sc">~</span> long.hair, <span class="at">data =</span> u, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">60</span>,<span class="dv">70</span>)) </span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(height <span class="sc">~</span> is.female, <span class="at">data =</span> u, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">60</span>,<span class="dv">70</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(height <span class="sc">~</span> long.hair, <span class="at">data =</span> u, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">60</span>,<span class="dv">70</span>)) </span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(height <span class="sc">~</span> is.female, <span class="at">data =</span> u, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">60</span>,<span class="dv">70</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="7_PowerMR_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="7_PowerMR_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -526,8 +576,8 @@ Attaching package: 'gplots'</code></pre>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>moda <span class="ot">&lt;-</span> <span class="fu">lm</span>(height <span class="sc">~</span> long.hair, <span class="at">data =</span> u)</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(moda)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>moda <span class="ot">&lt;-</span> <span class="fu">lm</span>(height <span class="sc">~</span> long.hair, <span class="at">data =</span> u)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(moda)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -553,8 +603,8 @@ F-statistic: 6.463 on 1 and 139 DF,  p-value: 0.01211</code></pre>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>modb <span class="ot">&lt;-</span> <span class="fu">lm</span>(height <span class="sc">~</span> is.female, <span class="at">data =</span> u)</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>modb <span class="ot">&lt;-</span> <span class="fu">lm</span>(height <span class="sc">~</span> is.female, <span class="at">data =</span> u)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -580,8 +630,8 @@ F-statistic: 44.92 on 1 and 139 DF,  p-value: 4.724e-10</code></pre>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>modc <span class="ot">&lt;-</span> <span class="fu">lm</span>(height <span class="sc">~</span> long.hair <span class="sc">+</span> is.female, <span class="at">data =</span> u)</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>modc <span class="ot">&lt;-</span> <span class="fu">lm</span>(height <span class="sc">~</span> long.hair <span class="sc">+</span> is.female, <span class="at">data =</span> u)</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -612,8 +662,8 @@ F-statistic: 21.99 on 2 and 137 DF,  p-value: 5.226e-09</code></pre>
 <h4 class="anchored" data-anchor-id="discussion-what-do-you-observe-changing-about-the-slopes">Discussion : What Do You Observe Changing About the Slopes?</h4>
 </section>
 </section>
-<section id="reporting-effects-in-a-regression-table" class="level3">
-<h3 class="anchored" data-anchor-id="reporting-effects-in-a-regression-table">Reporting Effects in a Regression Table</h3>
+<section id="reporting-effects-in-a-regression-table-see-sierra-review-in-discussion-section" class="level3">
+<h3 class="anchored" data-anchor-id="reporting-effects-in-a-regression-table-see-sierra-review-in-discussion-section">Reporting Effects in a Regression Table (see Sierra review in Discussion Section!!!)</h3>
 <p><strong>Table 1.</strong> Unstandardized Regression Coefficients; Predicting Height from Long.Hair and Is.Female.</p>
 <table class="caption-top table">
 <thead>
@@ -655,15 +705,15 @@ F-statistic: 21.99 on 2 and 137 DF,  p-value: 5.226e-09</code></pre>
 <section id="multiple-regression-visualized-in-multi-dimensional-space" class="level3">
 <h3 class="anchored" data-anchor-id="multiple-regression-visualized-in-multi-dimensional-space">Multiple Regression : Visualized in Multi-Dimensional Space!</h3>
 <p>The code below won’t run in quarto, and may not work on your comptuer; for teaching purposes!</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('rgl')</span></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('car')</span></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgl)</span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter3d</span>(<span class="fu">as.numeric</span>(u<span class="sc">$</span>is.female), <span class="co"># IV1 - must be numeric (if not already)</span></span>
-<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>          u<span class="sc">$</span>height, <span class="co"># DV</span></span>
-<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">as.numeric</span>(u<span class="sc">$</span>long.hair)) <span class="co"># IV2 - must be numeric (if not already)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('rgl')</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('car')</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgl)</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter3d</span>(<span class="fu">as.numeric</span>(u<span class="sc">$</span>is.female), <span class="co"># IV1 - must be numeric (if not already)</span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>          u<span class="sc">$</span>height, <span class="co"># DV</span></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">as.numeric</span>(u<span class="sc">$</span>long.hair)) <span class="co"># IV2 - must be numeric (if not already)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="lab-7." class="level2">

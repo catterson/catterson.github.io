@@ -1,0 +1,59 @@
+---
+title: "8_InteractionFX"
+format: html
+---
+
+## Check-In
+
+-   4/4 class
+-   power examples
+
+```{r}
+library(jtools)
+h <- readxl::read_xls("~/Downloads/in.excel.for.daniel.hormone.data.xls")
+h <- h[,-1]
+
+h$sexF <- as.factor(h$sex)
+levels(h$sexF) <- c("Male", "Female")
+h$sexF <- relevel(h$sexF, ref = "Female")
+
+mod1 <- lm(test_mean ~ narcicissm, data = h)
+mod2 <- lm(test_mean ~ sexF, data = h)
+mod3 <- lm(test_mean ~ sexF + narcicissm, data = h)
+
+zm1 <- scale_mod(mod1, scale.response = T)
+zm2 <- scale_mod(mod2, scale.response = T)
+zm3 <- scale_mod(mod3, scale.response = T)
+?summ
+export_summs(mod1, mod2, mod3, 
+             coefs = c("Narcissism" = "narcicissm", "Sex (0 = Female; 1 = Male)" = "sexFMale"),
+             transform.response = T, scale = T, confint = T)
+```
+
+## Power Planning
+
+### Calculating
+
+### Conceptualizing
+
+### Caring
+
+-   [Full Article](https://www.nature.com/articles/nrn3475.pdf) : Button, K. S., Ioannidis, J. P., Mokrysz, C., Nosek, B. A., Flint, J., Robinson, E. S., & Munafò, M. R. (2013). Power failure: why small sample size undermines the reliability of neuroscience. *Nature reviews neuroscience*, *14*(5), 365-376.
+
+![](images/clipboard-2486903501.png)
+
+## Interaction Effects
+
+```{r}
+library(pwr)
+pwr.r.test(r = .2, power = .8, alternative = "two.sided")
+
+```
+
+```{r}
+library(ggplot2)
+ggplot(data = h, aes(x = test_mean, y = narcicissm, color = as.factor(sex))) + 
+  geom_point(size = .5, alpha = .3, position = "jitter") + 
+  labs(title = "My Graph", x = "Age (Years)", y = "Self-Esteem (1-4 Scale)") + 
+  geom_smooth(method = lm)
+```

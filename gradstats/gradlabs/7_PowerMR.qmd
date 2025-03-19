@@ -112,10 +112,10 @@ plot(mod2)
 
 ### a tour of null and alternative realities
 
+Watch the lecture recording (posted to bCourses) for a tour through these slides.
 ```{=html}
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQMiQVIgG2WPl7t45rAYtUhrU1wnPNOxxeKX3zIj1eiMmN8M6nkEotx6sjDTECvRFwF4IzV5C30w-N5/embed?" frameborder="0" width="960" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 ```
-### conceptual understanding
 
 ![](images/clipboard-3964039536.png)
 
@@ -147,7 +147,40 @@ m1r <- summary(mod1)$r.squared^.5
 pwr.r.test(n = 149, r = m1r)
 ```
 
-This is the basic approach to power; most people do some version of this. But if you'd like a more thorough review of different methods of estimating power (and doing so via simulated data), [this seems like a modern, thorough, and good overview](https://aaroncaldwell.us/SuperpowerBook/introduction-to-power-analysis.html).
+### more power examples!
+
+#### Power Illustrated.
+In lecture, professor did some scribbles on the whiteboard to illustrate power, and tried to record these. He also said that he would record a few other videos.
+
+Prof. did not, in fact, find time in the present moment to record new videos. Bummer! But he did remember that he had recorded similar videos, and found some from 2018. (What were you doing in 2018?? Let us know on Discord; and as always - reach out if you still have questions about power!!)
+
+-   [Recording #1 : Conceptual Example of Power](https://www.loom.com/share/f393327465f54f3cbf5bbe8c349e3a2e?sid=45f72b59-894e-4d8d-a977-254d6e52f5c4)
+-   [Recording #2 : Another Example](https://www.loom.com/share/62440c2754cd4874a22ef2f00618eaff). Couldn't immediately track down the original data analyses these refer to, but the slope (b = .44) and other statistics come from a paper I had rejected in part because reviewers complained that I only replicated the main result in 4 out of 5 studies. (The paper was also a hot mess.) Bummer! But it was a cool phenomenon; I sadly never published on it (parenting * teaching career activated), but truth got out eventually someone published a very clearly written, much better, and perfectly replicating paper (across six studies!) on it 8 years later. Ahhh, one thing off the to-do list!
+
+#### Estimating Sample Size.
+As discussed in the lecture slides (see recording), power is a function of effect size, sample size, and the alpha level (alpha = the Type I error that the researcher sets). This means that you can use these functions to estimate the sample size you need for a given power (the convention is often 80%).
+
+Let's say I want to know what sample size I need to detect a slope of r = .23.
+
+From the `pwr` package, I can define this effect, specifcy the power, type I error level, and whether I want to do a 1- or 2-tailed test.
+
+```{r}
+pwr.r.test(r = .23, power = .80, alternative = "two.sided")
+```
+I can also plot the result of this output and see how power increases as a function of my sample size.
+
+```{r}
+p.ex <- pwr.r.test(r = .23, power = .80, alternative = "two.sided")
+plot(p.ex)
+```
+
+### ...but you don't have to take my word for it.
+The approach to power described above assumes a normally distribution of sampling error. This is a good starting place, but not all distributions are gaussian! Below are a few different methods to help you estimate power across a wide variety of types of data.
+
+-   [Here's a nice overview of how to conduct sample size power analysis in R; it works through a few examples and discusses how to ](https://rpubs.com/mbounthavong/sample_size_power_analysis_R)
+-   [This is a modern, thorough, and good overview of power, that also discusses ways to generate simulated data to estimate power.](https://aaroncaldwell.us/SuperpowerBook/introduction-to-power-analysis.html).
+-   [Here's another tutorial of an R package that works for a wide variety of different tests; many of which can be used when youthe assumptions of linear regression are violated.](https://cran.r-project.org/web/packages/pwrss/vignettes/examples.html)
+-   Let me know if you find other useful resources to help calcualte or conceptualize power!
 
 ## [Presentations](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
 
@@ -197,7 +230,7 @@ summary(modc)
 
 #### Discussion : What Do You Observe Changing About the Slopes?
 
-### Reporting Effects in a Regression Table
+### Reporting Effects in a Regression Table (see Sierra review in Discussion Section!!!)
 
 **Table 1.** Unstandardized Regression Coefficients; Predicting Height from Long.Hair and Is.Female.
 
