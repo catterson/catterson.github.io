@@ -7,8 +7,9 @@ format: html
 
 -   4/4 class
 -   power examples
-
+### Interpreting a Multiple Regression Table.
 ```{r}
+# install.packages("jtools")
 library(jtools)
 h <- readxl::read_xls("~/Downloads/in.excel.for.daniel.hormone.data.xls")
 h <- h[,-1]
@@ -17,38 +18,36 @@ h$sexF <- as.factor(h$sex)
 levels(h$sexF) <- c("Male", "Female")
 h$sexF <- relevel(h$sexF, ref = "Female")
 
-mod1 <- lm(test_mean ~ narcicissm, data = h)
-mod2 <- lm(test_mean ~ sexF, data = h)
-mod3 <- lm(test_mean ~ sexF + narcicissm, data = h)
+mod1 <- lm(narcicissm ~ test_mean, data = h)
+mod2 <- lm(narcicissm ~ sexF, data = h)
+mod3 <- lm(narcicissm ~ sexF + test_mean, data = h)
 
 zm1 <- scale_mod(mod1, scale.response = T)
 zm2 <- scale_mod(mod2, scale.response = T)
 zm3 <- scale_mod(mod3, scale.response = T)
-?summ
+
 export_summs(mod1, mod2, mod3, 
-             coefs = c("Narcissism" = "narcicissm", "Sex (0 = Female; 1 = Male)" = "sexFMale"),
-             transform.response = T, scale = T, confint = T)
+             coefs = c("Testosterone" = "test_mean", "Sex (0 = Female; 1 = Male)" = "sexFMale"),
+             error_format = "[se = {std.error}, t = {statistic}]", transform.response = T, scale = T, confint = T)
+
 ```
+### Calculating Power
 
-## Power Planning
+### Using Results to Plan Sample Size
 
-### Calculating
-
-### Conceptualizing
-
-### Caring
+### Caring about Power
 
 -   [Full Article](https://www.nature.com/articles/nrn3475.pdf) : Button, K. S., Ioannidis, J. P., Mokrysz, C., Nosek, B. A., Flint, J., Robinson, E. S., & Munafò, M. R. (2013). Power failure: why small sample size undermines the reliability of neuroscience. *Nature reviews neuroscience*, *14*(5), 365-376.
 
 ![](images/clipboard-2486903501.png)
+## Multiple Regression : Testing Mediation
+### Would You Like to Learn More??
 
-## Interaction Effects
+-   Take Aaron Fisher's class on Structural Equation Modeling.
+-   [Read through Peng Ding (Prof in Cal Stats Department) Book on Causal Inference](https://arxiv.org/pdf/2305.18793)
+-   
 
-```{r}
-library(pwr)
-pwr.r.test(r = .2, power = .8, alternative = "two.sided")
-
-```
+## Multiple Regression : Moderation / Interaction Effects
 
 ```{r}
 library(ggplot2)
@@ -57,3 +56,7 @@ ggplot(data = h, aes(x = test_mean, y = narcicissm, color = as.factor(sex))) +
   labs(title = "My Graph", x = "Age (Years)", y = "Self-Esteem (1-4 Scale)") + 
   geom_smooth(method = lm)
 ```
+```{r}
+install.packages("interactions")
+```
+

@@ -29,7 +29,7 @@ The remaining questions from this lab ask you to recreate and interpret some of 
 
 The authors report the results of a between subject analyses:
 
-![](images/clipboard-1265155660.png)
+![](images/clipboard-1265155660.png){fig-align="center"}
 
 This is really just the results of a linear regression where the categorical variable pocu has been dummy coded. Convert pocu to a categorical factor, and use this dummy-coded variable in three separate linear models that predict the number of power words, the number of positive emotion words, and the nubmer of negative emotion words used in an abstract. You should be able to recreate the analyses from the text above.
 
@@ -41,7 +41,7 @@ This is really just the results of a linear regression where the categorical var
 
 The linear regression for Problem 2 defaults to dummy coded variables which you can use to report the predicted values of the DV for authors of color and white authors. In the paper, the authors report that they have coded scholars of color ("1"), and White scholars ("-1"). This is a form of "effect coding" called "sum coding" or "deviation coding"; [you can read more these coding schemes here](https://marissabarlaz.github.io/portfolio/contrastcoding/#effects-coding) or [here is another example - note this is a clear example of the default tendency to use white people as the reference group](https://stats.oarc.ucla.edu/spss/faq/coding-systems-for-categorical-variables-in-regression-analysis/).
 
-See how the linear model (where you predict power words from pocu) changes from the dummy coded pocu variable to one that has been effect coded. You can do this by creating a copy of the `pocu` categorical factor and re-level the variable to have values of -1 and 1, using one of the methods described in the links above, or specifying the contrasts as an argument in the lm function. 
+See how the linear model (where you predict power words from pocu) changes from the dummy coded pocu variable to one that has been effect coded. You can do this by creating a copy of the `pocu` categorical factor and re-level the variable to have values of -1 and 1, using one of the methods described in the links above, or specifying the contrasts as an argument in the lm function.
 
 In your own words, interpret the intercept and slope from this effect coded model. Which interpretation (dummy coded from P2 or effect coded in this problem) makes more sense? Do you feel like "effect coding" de-emphasizes the reference category, as described in last week's reading?
 
