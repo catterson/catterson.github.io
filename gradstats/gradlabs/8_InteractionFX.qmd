@@ -1,62 +1,197 @@
 ---
-title: "8_InteractionFX"
+title: "Lecture 8 | Interaction Effects"
 format: html
 ---
 
-## Check-In
+## Announcements
 
--   4/4 class
--   power examples
-### Interpreting a Multiple Regression Table.
+-   Lab 8 : Self-Care Lab. Do something nice for yourself you wouldn't have done if you had a lab. Share on discord (or not!)
+-   Final Project : A Discussion Post; identify a dataset and research question & think about how you might answer this question with the data (and a linear model??)
+-   Our Remaining Class Time
+    -   4/4 Class : On Zoom or Wizard of Oz Style?? (And section??). Topic : Logistic Regression and Quadratic Terms and Other Linear Model Stuff.
+    -   4/11 : IRL, on Hierarchical Linear Models.
+    -   4/18 : MEGA Exam. Will do my best to keep it chill.
+    -   4/25 : More Hierarchical Linear Models. PCA? We will see!!
+    -   5/2 : Our last class can u believe it???? The learning has stopped. So review, discussion, tears, project time.
+
+## [Check-In : Interpreting a Multiple Regression Table.](https://docs.google.com/forms/d/e/1FAIpQLSdEZdIHsPohB1U3iVcp_PrlGPjXPDr-UyozAlHAbw6n2YlS4w/viewform?usp=header)
+
+Note : these data come from the "hormone_datset.csv"; in the dropbox folder. But not necessary to download?
+
 ```{r}
-# install.packages("jtools")
+#| include: false
+#install.packages("jtools")
 library(jtools)
-h <- readxl::read_xls("~/Downloads/in.excel.for.daniel.hormone.data.xls")
-h <- h[,-1]
-
+library(arm)
+#h <- readxl::read_xls("~/Downloads/in.excel.for.adcat.hormone.data.xls")
+#h <- h[,-1]
+#write.csv(h, "~/Dropbox/!GRADSTATS/gradlab/Datasets/hormone_dataset.csv", row.names = F)
+h <- read.csv("~/Dropbox/!GRADSTATS/gradlab/Datasets/hormone_dataset.csv")
 h$sexF <- as.factor(h$sex)
 levels(h$sexF) <- c("Male", "Female")
 h$sexF <- relevel(h$sexF, ref = "Female")
 
-mod1 <- lm(narcicissm ~ test_mean, data = h)
-mod2 <- lm(narcicissm ~ sexF, data = h)
-mod3 <- lm(narcicissm ~ sexF + test_mean, data = h)
+hmod <- h[c(!is.na(h$test_mean)), ]
 
-zm1 <- scale_mod(mod1, scale.response = T)
-zm2 <- scale_mod(mod2, scale.response = T)
-zm3 <- scale_mod(mod3, scale.response = T)
 
-export_summs(mod1, mod2, mod3, 
-             coefs = c("Testosterone" = "test_mean", "Sex (0 = Female; 1 = Male)" = "sexFMale"),
-             error_format = "[se = {std.error}, t = {statistic}]", transform.response = T, scale = T, confint = T)
 
+#zm1 <- scale_mod(mod1, scale.response = T)
+#zm2 <- scale_mod(mod2, scale.response = T)
+#zm3 <- scale_mod(mod3, scale.response = T)
 ```
+
+
+```{r}
+mod1 <- lm(narcicissm ~ sexF, data = h)
+mod2 <- lm(narcicissm ~ test_mean, data = h)
+mod3 <- lm(narcicissm ~ sexF + test_mean, data = h)
+export_summs(mod1, mod2, mod3, 
+             coefs = c("Sex (0 = Female; 1 = Male)" = "sexFMale", "Testosterone" = "test_mean"),
+             error_format = "[se = {std.error}, t = {statistic}]", transform.response = T, scale = T, confint = T)
+```
+
 ### Calculating Power
 
-### Using Results to Plan Sample Size
+Using drawings of distributions.
 
-### Caring about Power
+```{r}
 
--   [Full Article](https://www.nature.com/articles/nrn3475.pdf) : Button, K. S., Ioannidis, J. P., Mokrysz, C., Nosek, B. A., Flint, J., Robinson, E. S., & Munafò, M. R. (2013). Power failure: why small sample size undermines the reliability of neuroscience. *Nature reviews neuroscience*, *14*(5), 365-376.
+```
 
+Using the `pwr` package.
+
+```{r}
+
+```
+
+### Using Our Results to Plan Sample Size
+
+```{r}
+
+```
+
+### More on Power
+
+:::column-margin
 ![](images/clipboard-2486903501.png)
-## Multiple Regression : Testing Mediation
-### Would You Like to Learn More??
+:::
+-   [Why should we care about power?](https://www.nature.com/articles/nrn3475.pdf) : Button, K. S., Ioannidis, J. P., Mokrysz, C., Nosek, B. A., Flint, J., Robinson, E. S., & Munafò, M. R. (2013). Power failure: why small sample size undermines the reliability of neuroscience. *Nature reviews neuroscience*, *14*(5), 365-376.
+-   [Many examples of pwr used for different types of models.](https://cran.r-project.org/web/packages/pwrss/vignettes/examples.html)
+-   [Another nice tutorial.](https://rpubs.com/mbounthavong/sample_size_power_analysis_R)
 
--   Take Aaron Fisher's class on Structural Equation Modeling.
--   [Read through Peng Ding (Prof in Cal Stats Department) Book on Causal Inference](https://arxiv.org/pdf/2305.18793)
--   
+## Multiple Regression : More Regression
+
+### Labeling Changes
+
+1.  "Independent" Effect. The slope of the IV does not change when other variables are added to the model.
+2.  "Suppression" Effect. The slope of the IV gets stronger (in either direction) when other variables are added to the model.
+3.  "Mediation" Effect. The slope of the IV gets closer to zero when other variables are added to the model. *Careful : "mediation" often implies some causal relationship, and it is very hard (/impossible?) to estimate causal relationships without experimental methods. Some links below that go deeper into this.*
+
+### How Large a Change is Enough to Matter???
+
+Is the difference in slope between Model 1 and Model 3 significant?
+
+```{r}
+export_summs(mod1, mod2, mod3, 
+             coefs = c("Sex (0 = Female; 1 = Male)" = "sexFMale", "Testosterone" = "test_mean"),
+             error_format = "[se = {std.error}, t = {statistic}]", transform.response = T, scale = T, confint = T)
+```
+
+```{r}
+bucket <- array()
+for(i in c(1:1000)){
+  hsim <- h[sample(1:nrow(h), nrow(h), replace = T),]
+  xm1 <- lm(narcicissm ~ sexF, data = hsim)
+  xm2 <- lm(narcicissm ~ sexF + test_mean, data = hsim)
+  bucket[i] <- coef(xm1)[2] - coef(xm2)[2]
+}
+sum(bucket > 0)
+```
+
+```{r}
+export_summs(mod1, mod2, mod3,
+             coefs = c("Sex (0 = Female; 1 = Male)" = "sexFMale", "Testosterone" = "test_mean"),
+             error_format = "[se = {std.error}, t = {statistic}]", 
+             transform.response = T, scale = T, confint = T)
+```
+
+```{r}
+# install.packages("mediation")
+library(mediation)
+modM <- lm(test_mean ~ sexF, data = h) # defining a model to predict our mediator (testosterone) from the IV (sex)
+medmod <- mediate(modM, mod3, treat = "sexF", mediator = "test_mean", dropobs = "TRUE", boot = TRUE, sims = 1000)
+summary(medmod)
+```
+
+-   Total Effect : slope of sexFMale in Model 1
+-   Average Direct Effect : slope of sexFMale in Model 3
+-   ACME = Average Causal Mediation Effects = Total Effect - Direct Effect; influence our mediatior has on the pre-existing relationship.
+
+**NOTE : the output here doesn't match the effects in the table for two reasons:**
+
+1.  My results in the table are standardized (and `mediate` doesn't seem to work well with z-scored models? I couldn't figure it out at least...)
+2.  `mediate` will only include complete cases across all the models. Notice that my first linear model has a larger sample size than the models with testosterone. It would be a more fair comparison to remove the individuals from Model 1 who are also missing in my other models. Will chat more about missing data next lecture.
+
+### Would You Like to Learn More?
+
+-   [The Difference Between “Significant” and “Not Significant” is not Itself Statistically Significant](https://sites.stat.columbia.edu/gelman/research/published/signif4.pdf)
+-   [A conceptual review of mediation, and tour through the 'mediation' package.](https://library.virginia.edu/data/articles/introduction-to-mediation-analysis)
+-   Preacher KJ, Hayes AF. Asymptotic and resampling strategies for assessing and comparing indirect effects in multiple mediator models. Behav Res Methods. 2008;40(3):879-891. doi:10.3758/BRM.40.3.879
+-   [A nice and recent summary of why caution is needed for mediation analysis.](https://www.the100.ci/2025/03/20/reviewer-notes-thats-a-very-nice-mediation-analysis-you-have-there-it-would-be-a-shame-if-something-happened-to-it/)
+
+## [Presentations](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
 
 ## Multiple Regression : Moderation / Interaction Effects
 
+### [See Professor Handout.](https://docs.google.com/document/d/1YVzL5ud5UGy82KXqGrc-mjSRFJh7ocuQpXdIBmbvd0o/edit?usp=sharing)
+
+### Picture is worth...that's right class...1000 words.
+
 ```{r}
 library(ggplot2)
-ggplot(data = h, aes(x = test_mean, y = narcicissm, color = as.factor(sex))) + 
+library(ggthemes)
+ggplot(data = h, aes(x = scale(test_mean), y = scale(narcicissm), color = sexF)) + 
   geom_point(size = .5, alpha = .3, position = "jitter") + 
-  labs(title = "My Graph", x = "Age (Years)", y = "Self-Esteem (1-4 Scale)") + 
-  geom_smooth(method = lm)
-```
-```{r}
-install.packages("interactions")
+  labs(title = "The Interaction Effect", x = "Testosterone (Z-Scored)", y = "Narcissism (Z-Scored)", color = "Sex") + 
+  geom_smooth(method = lm) + theme_apa()
 ```
 
+### Still just a linear model...
+
+A linear model whose IVs *must* be standardized!!
+
+```{r}
+mod4 <- lm(narcicissm ~ sexF * test_mean, data = h)
+m4z <- scale_lm(mod4, scale.response = T) # you 
+m4z
+```
+
+```{r}
+cf4 <- coef(m4z)
+plot(scale(narcicissm) ~ scale(test_mean), col = sexF, data = h, pch = 19)
+abline(a = cf4[1],
+       b = cf4[3], 
+       col = "black", lwd = 5) # line for females
+abline(a = cf4[1] + cf4[2],
+       b = cf4[3] + cf4[4], 
+       col = "red", lwd = 5) # line for males
+```
+
+### Reporting, and in a table.
+
+```{r}
+ggplot(data = h, aes(x = scale(test_mean), y = scale(narcicissm), color = sexF)) + 
+  geom_point(size = .5, alpha = .3, position = "jitter") + 
+  labs(title = "The Interaction Effect", x = "Testosterone (Z-Scored)", y = "Narcissism (Z-Scored)", color = "Sex") + 
+  geom_smooth(method = lm) + theme_apa()
+export_summs(mod1, mod2, mod3, mod4,
+             coefs = c("Sex (0 = Female; 1 = Male)" = "sexFMale", "Testosterone" = "test_mean", "Sex * Testosterone" = "sexFMale:test_mean"),
+             error_format = "[se = {std.error}, t = {statistic}]", transform.response = T, scale = T, confint = T)
+```
+
+### Would You Like To Learn More?
+
+As always, let me know if you find great resources :)
+
+-   [The Interactions Package](https://interactions.jacob-long.com). The author of jtools has made what looks like a super clean way to graph interaction effects in R, using ggplot2.
+-   [Visualization Tutorials](https://sebastiansauer.github.io/vis_interaction_effects/). Other, more cumbersome methods of plotting interaction effects exist!

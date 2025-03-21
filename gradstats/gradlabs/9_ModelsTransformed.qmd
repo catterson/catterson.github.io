@@ -1,0 +1,40 @@
+---
+title: "9_ModelsTransformed"
+format: html
+---
+
+## Issues with Multiple Regression
+
+### 1. Overfitting. 
+When your model is too complex, each variable in the model (parameter) increases the model complexity.
+
+-   complex models that perfectly fit the data are problematic: you essentially describing your sample, and not the underlying population (which is usually the goal of multiple regression.)
+
+-   We don’t expect over-fit models to generalize to other samples.
+
+    ![](images/clipboard-697123618.png)
+
+-   To ensure your model generalizes to other samples, you can a) replicate, or b) cross-validate (divide your sample into sub-samples; define a model on one sample, then test the model in the other(s). Lots of different ways to do this! Here's one.)
+
+```{r}
+h <- read.csv("~/Dropbox/!GRADSTATS/gradlab/Datasets/hormone_dataset.csv")
+modz <- lm(narcicissm ~ ., data = h)
+summary(modz)
+```
+
+2.  **Multicollinearity.** If your independent variables are highly related, then your multivariate regression slope estimates are not uniquely determined. weird things happen to your coefficients, and this makes it hard to interpret your effects.
+
+    -   IN R : check the "variance inflation factor" (VIF); a measure of how much one IV is related to all the other IVs in the model.
+
+    -    $\huge VIF_j=\frac{1}{1-R_{j}^{2}}$
+
+```{{r}}
+library(car)
+
+```
+
+### Would You Like to Learn More??
+
+-   [Some more notes on multicollinearity and VIFs.](https://online.stat.psu.edu/stat462/node/180/)
+-   Take Aaron Fisher's class on Structural Equation Modeling?
+-   [Read through Peng Ding (Prof in Cal Stats Department) Book on Causal Inference](https://arxiv.org/pdf/2305.18793)

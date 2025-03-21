@@ -1,0 +1,83 @@
+---
+title: "Lecture 7 - Categorical Models"
+format: html
+---
+
+## [Check-In : A Quick Study](https://docs.google.com/forms/d/e/1FAIpQLSfJC8RLLtQf0Px0yz1nJjx-8CGXFrMcuUg_b3od54kHHPCEHQ/viewform?usp=sf_link)[tinyurl.com/moreclassdata](http://tinyurl.com/moreclassdata)
+
+![](images/7_cattree.png){fig-align="center" width="485"}
+
+## Announcements & Reminders :
+
+-   **It is almost Spring Break.** Class will end early today :)
+-   **4/4 Lecture is ON ZOOM.** Will keep it short and engaging! Plan to participate / engage if you attend, or just watch the recording.
+
+## $R^2$ In Real-Life
+
+![](images/clipboard-1347662291.png)
+
+-   **DISCUSS :** **what do these linear models tell us about the relationship between GPA, SAT (IVs) and freshman grades (DV)?**
+
+::: column-margin
+![](images/clipboard-606508161.png)
+:::
+
+## When the IV is Categorical...
+
+### We Load the Data
+```{r}
+d <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/cal_mini_SP25.csv", stringsAsFactors = T)
+```
+
+### We Graph our Variables.
+```{r}
+hist(d$satlife)
+plot(d$stoned72) # an empty level!
+levels(d$stoned72)[1] <- NA
+plot(d$stoned72) # an empty level is GONE.
+```
+
+### We Define and Graph Our Linear Model.
+
+The Model Coefficients : An Intercept and Slope
+```{r}
+mod <- lm(satlife ~ stoned72, data = d)
+coef(mod)
+```
+
+The Graph Will Help Our Interpretation.
+```{r}
+library(gplots)
+plotmeans(satlife ~ stoned72, data = d)
+```
+-   The IV has been DUMMY CODED.
+    -   when stoned72 = 0 = "No" (Or not "Yes")
+    -   when stoned72 = 1 = "Yes"
+-   The Intercept is : The Predicted Value of Y when all X-Values are Zero.
+-   The Slope is : How our Predicted Value of Y changes when X changes by one.
+
+### We Interpret Our Linear Model.
+
+-   What is the relationship?
+-   How strong is this relationship?
+-   Why do we find this relationship in the data?
+-   Who cares about this relationship?
+-   What other questions do we have about these data?
+
+### YOUR TURN : Define another linear model to predict a numeric DV from a categorical IV (with 2 levels.)
+
+Studnet Example Go Here.
+```{r}
+
+```
+
+
+Studnet Example Go Here.
+```{r}
+
+```
+
+
+## Final Project Questions Go Here!
+
+## ALL DONE! YAY.
