@@ -1,9 +1,13 @@
 ---
 title: "Lecture 7 - Categorical Models"
-format: html
+format: 
+  html:
+    code-overflow: wrap
 ---
 
-## [Check-In : A Quick Study](https://docs.google.com/forms/d/e/1FAIpQLSfJC8RLLtQf0Px0yz1nJjx-8CGXFrMcuUg_b3od54kHHPCEHQ/viewform?usp=sf_link)[tinyurl.com/moreclassdata](http://tinyurl.com/moreclassdata)
+## [Check-In : A Quick Study](https://docs.google.com/forms/d/e/1FAIpQLSfJC8RLLtQf0Px0yz1nJjx-8CGXFrMcuUg_b3od54kHHPCEHQ/viewform?usp=sf_link)
+-   No talking, no looking up answers!
+-   Will discuss next week :)
 
 ![](images/7_cattree.png){fig-align="center" width="485"}
 
@@ -11,16 +15,23 @@ format: html
 
 -   **It is almost Spring Break.** Class will end early today :)
 -   **4/4 Lecture is ON ZOOM.** Will keep it short and engaging! Plan to participate / engage if you attend, or just watch the recording.
+-   **Start Collecting Final Project Data?!** Your GSI hopefully has (or will) give you feedback on your final project; start collecting data. Make sure : 
+    -   Your DV is numeric.
+    -   You measure each variable in your linear model as a separate variable.
+    -   Each question has one response option (no "multiple multiple choice" or "checkbox".)
+    -   Other issues?
 
 ## $R^2$ In Real-Life
+
+::: column-margin
+![](images/clipboard-606508161.png)
+:::
 
 ![](images/clipboard-1347662291.png)
 
 -   **DISCUSS :** **what do these linear models tell us about the relationship between GPA, SAT (IVs) and freshman grades (DV)?**
 
-::: column-margin
-![](images/clipboard-606508161.png)
-:::
+
 
 ## When the IV is Categorical...
 

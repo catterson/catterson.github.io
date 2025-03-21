@@ -1,6 +1,8 @@
 ---
 title: "Lecture 8 | Interaction Effects"
-format: html
+format: 
+  html:
+    code-overflow: wrap
 ---
 
 ## Announcements
@@ -40,44 +42,15 @@ hmod <- h[c(!is.na(h$test_mean)), ]
 #zm3 <- scale_mod(mod3, scale.response = T)
 ```
 
-
 ```{r}
-mod1 <- lm(narcicissm ~ sexF, data = h)
-mod2 <- lm(narcicissm ~ test_mean, data = h)
-mod3 <- lm(narcicissm ~ sexF + test_mean, data = h)
+mod1 <- lm(narcicissm ~ sexF, data = hmod)
+mod2 <- lm(narcicissm ~ test_mean, data = hmod)
+mod3 <- lm(narcicissm ~ sexF + test_mean, data = hmod)
 export_summs(mod1, mod2, mod3, 
              coefs = c("Sex (0 = Female; 1 = Male)" = "sexFMale", "Testosterone" = "test_mean"),
              error_format = "[se = {std.error}, t = {statistic}]", transform.response = T, scale = T, confint = T)
 ```
 
-### Calculating Power
-
-Using drawings of distributions.
-
-```{r}
-
-```
-
-Using the `pwr` package.
-
-```{r}
-
-```
-
-### Using Our Results to Plan Sample Size
-
-```{r}
-
-```
-
-### More on Power
-
-:::column-margin
-![](images/clipboard-2486903501.png)
-:::
--   [Why should we care about power?](https://www.nature.com/articles/nrn3475.pdf) : Button, K. S., Ioannidis, J. P., Mokrysz, C., Nosek, B. A., Flint, J., Robinson, E. S., & Munafò, M. R. (2013). Power failure: why small sample size undermines the reliability of neuroscience. *Nature reviews neuroscience*, *14*(5), 365-376.
--   [Many examples of pwr used for different types of models.](https://cran.r-project.org/web/packages/pwrss/vignettes/examples.html)
--   [Another nice tutorial.](https://rpubs.com/mbounthavong/sample_size_power_analysis_R)
 
 ## Multiple Regression : More Regression
 
@@ -142,6 +115,14 @@ summary(medmod)
 ## [Presentations](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
 
 ## Multiple Regression : Moderation / Interaction Effects
+
+### Frantz Fanon Reading.
+
+1.  What did you think about the reading???
+2.  What is his main point?
+3.  Have you observed this in the wild / our modern society?
+4.  How would or might you test this idea with data, as a modern psychologist would???
+5.  Any other questions / ideas / comments?
 
 ### [See Professor Handout.](https://docs.google.com/document/d/1YVzL5ud5UGy82KXqGrc-mjSRFJh7ocuQpXdIBmbvd0o/edit?usp=sharing)
 
