@@ -6,6 +6,7 @@ format:
 ---
 
 ## [Check-In : A Quick Study](https://docs.google.com/forms/d/e/1FAIpQLSfJC8RLLtQf0Px0yz1nJjx-8CGXFrMcuUg_b3od54kHHPCEHQ/viewform?usp=sf_link)
+
 -   No talking, no looking up answers!
 -   Will discuss next week :)
 
@@ -15,7 +16,7 @@ format:
 
 -   **It is almost Spring Break.** Class will end early today :)
 -   **4/4 Lecture is ON ZOOM.** Will keep it short and engaging! Plan to participate / engage if you attend, or just watch the recording.
--   **Start Collecting Final Project Data?!** Your GSI hopefully has (or will) give you feedback on your final project; start collecting data. Make sure : 
+-   **Start Collecting Final Project Data?!** Your GSI hopefully has (or will) give you feedback on your final project; start collecting data. Make sure :
     -   Your DV is numeric.
     -   You measure each variable in your linear model as a separate variable.
     -   Each question has one response option (no "multiple multiple choice" or "checkbox".)
@@ -31,16 +32,16 @@ format:
 
 -   **DISCUSS :** **what do these linear models tell us about the relationship between GPA, SAT (IVs) and freshman grades (DV)?**
 
-
-
 ## When the IV is Categorical...
 
 ### We Load the Data
+
 ```{r}
 d <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/cal_mini_SP25.csv", stringsAsFactors = T)
 ```
 
 ### We Graph our Variables.
+
 ```{r}
 hist(d$satlife)
 plot(d$stoned72) # an empty level!
@@ -51,16 +52,21 @@ plot(d$stoned72) # an empty level is GONE.
 ### We Define and Graph Our Linear Model.
 
 The Model Coefficients : An Intercept and Slope
+
 ```{r}
 mod <- lm(satlife ~ stoned72, data = d)
 coef(mod)
 ```
 
 The Graph Will Help Our Interpretation.
+
 ```{r}
 library(gplots)
 plotmeans(satlife ~ stoned72, data = d)
+coef(mod)
+summary(mod)$r.squared
 ```
+
 -   The IV has been DUMMY CODED.
     -   when stoned72 = 0 = "No" (Or not "Yes")
     -   when stoned72 = 1 = "Yes"
@@ -72,22 +78,39 @@ plotmeans(satlife ~ stoned72, data = d)
 -   What is the relationship?
 -   How strong is this relationship?
 -   Why do we find this relationship in the data?
+    -   CAUSALITY : smoking marijuana causes people to feel more satisfied with their lives.
+        -   marijuana cuts off oxygen to brain; makes them delirious?
+        -   it is an effective stress management strategy
+        -   dopamine spikes highest when anticipating; the question triggered the response and life is good TM
+        -   you are numbing yourself to the horrors in the world, escaping into a void of short-term pleasure and a delusion that things will be okay omg is everyone looking at me right now okay I'm gonna stop next time...I promise...
+        -   satlife is a temporary state.
+        -   maybe some recency bias; people who were stoned only thinking about short-term positive feelings; not contextualizng the pain; the horror.
+        -   drugs make you feel good!!!!
+        -   not smoking / doing drugs might cause you to be lower in satisfaction with life because you are attending to things?
+    -   REVERSE CAUSATION : satisfaction with life might cause people to smoke weed?
+        -   people who are feelin great feel like they can sit back; blaze one up; just relaaaaaxxxxxx.
+        -   people who are HECKA STRESSED might not want to invite marijuana into their lives.
+    -   CONFOUND / THIRD VARIABLE :
+        -   a chill personality (someone low in Negative Emotion) may a) be more likely to use marijuana and b) more likely to be satisfied w/ their life.
+        -   money : someone with a lot of \$\$ might be more satisfied with their lives, and more likley to buy weed (which does have a cost).
+        -   free time / sleep / stress.
+    -   CHANCE : we found this pattern due to chance.
 -   Who cares about this relationship?
 -   What other questions do we have about these data?
 
 ### YOUR TURN : Define another linear model to predict a numeric DV from a categorical IV (with 2 levels.)
 
 Studnet Example Go Here.
+
 ```{r}
 
 ```
-
 
 Studnet Example Go Here.
+
 ```{r}
 
 ```
-
 
 ## Final Project Questions Go Here!
 
