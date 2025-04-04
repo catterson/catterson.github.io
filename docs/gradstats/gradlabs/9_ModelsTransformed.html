@@ -117,7 +117,7 @@ window.Quarto = {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -150,10 +150,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    </div>
+    
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -174,104 +173,365 @@ window.Quarto = {
 </header>
 
 
-<section id="more-on-power" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="more-on-power">More on Power</h2>
-<section id="calculating-power" class="level3">
-<h3 class="anchored" data-anchor-id="calculating-power">Calculating Power</h3>
-<p>Using drawings of distributions.</p>
-<p>Using the <code>pwr</code> package.</p>
+<section id="prof.-says-hello." class="level2">
+<h2 class="anchored" data-anchor-id="prof.-says-hello.">Prof.&nbsp;Says Hello.</h2>
+<p>Hi folks, sorry to not be in class today. I hope y’all are well, and very much appreciate your flexibility.</p>
+<p>I’ve tried to organize a narrative about logistic regression - why we do this, how to do it in R, and how to interpret the results. You’ll use this skill as part of completing Lab 9.</p>
+<p>Next week, we’ll review logistic regression, talk more about model comparison, work through the final project, and start talking about hierarchical linear models.</p>
+<p>Have a great week, feel free to post on Discord if you have any questions, something is confusing, you found an error in the document or helpful resource I could add, or you are listening to a super cool track you want to share.</p>
 </section>
-<section id="using-our-results-to-plan-sample-size" class="level3">
-<h3 class="anchored" data-anchor-id="using-our-results-to-plan-sample-size">Using Our Results to Plan Sample Size</h3>
-</section>
-<section id="more-on-power-1" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="more-on-power-1">More on Power</h3>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<p><img src="images/clipboard-2486903501.png" class="img-fluid"></p>
-</div></div><ul>
-<li><a href="https://www.nature.com/articles/nrn3475.pdf">Why should we care about power?</a> : Button, K. S., Ioannidis, J. P., Mokrysz, C., Nosek, B. A., Flint, J., Robinson, E. S., &amp; Munafò, M. R. (2013). Power failure: why small sample size undermines the reliability of neuroscience.&nbsp;<em>Nature reviews neuroscience</em>,&nbsp;<em>14</em>(5), 365-376.</li>
-<li><a href="https://cran.r-project.org/web/packages/pwrss/vignettes/examples.html">Many examples of pwr used for different types of models.</a></li>
-<li><a href="https://rpubs.com/mbounthavong/sample_size_power_analysis_R">Another nice tutorial.</a></li>
-</ul>
-</section>
-</section>
-<section id="issues-with-multiple-regression" class="level2">
-<h2 class="anchored" data-anchor-id="issues-with-multiple-regression">Issues with Multiple Regression</h2>
-<section id="overfitting." class="level3">
-<h3 class="anchored" data-anchor-id="overfitting.">1. Overfitting.</h3>
-<p>When your model is too complex, each variable in the model (parameter) increases the model complexity.</p>
-<ul>
-<li><p>complex models that perfectly fit the data are problematic: you essentially describing your sample, and not the underlying population (which is usually the goal of multiple regression.)</p></li>
-<li><p>We don’t expect over-fit models to generalize to other samples.</p>
-<p><img src="images/clipboard-697123618.png" class="img-fluid"></p></li>
-<li><p>To ensure your model generalizes to other samples, you can a) replicate, or b) cross-validate (divide your sample into sub-samples; define a model on one sample, then test the model in the other(s). Lots of different ways to do this! Here’s one.)</p></li>
-</ul>
+<section id="logistic-regression" class="level2">
+<h2 class="anchored" data-anchor-id="logistic-regression">Logistic Regression</h2>
+<section id="a-non-logistic-example-to-start" class="level3">
+<h3 class="anchored" data-anchor-id="a-non-logistic-example-to-start">A Non-Logistic Example to Start</h3>
+<p>Let’s look at the hormone dataset again. Previously, we saw that sex was related to testosterone.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!GRADSTATS/gradlab/Datasets/hormone_dataset.csv"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>modz <span class="ot">&lt;-</span> <span class="fu">lm</span>(narcicissm <span class="sc">~</span> ., <span class="at">data =</span> h)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gplots)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'gplots'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:stats':
+
+    lowess</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!GRADSTATS/gradlab/Datasets/hormone_dataset.csv"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>h<span class="sc">$</span>sexF <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(h<span class="sc">$</span>sex)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(h<span class="sc">$</span>sexF) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Male"</span>, <span class="st">"Female"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>h<span class="sc">$</span>sexF <span class="ot">&lt;-</span> <span class="fu">relevel</span>(h<span class="sc">$</span>sexF, <span class="at">ref =</span> <span class="st">"Female"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(test_mean <span class="sc">~</span> sexF, <span class="at">data =</span> h)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(test_mean <span class="sc">~</span> sexF, <span class="at">data =</span> h, <span class="at">connect =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="9_ModelsTransformed_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = narcicissm ~ ., data = h)
+lm(formula = test_mean ~ sexF, data = h)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--0.81086 -0.19232  0.02552  0.18077  0.67338 
+    Min      1Q  Median      3Q     Max 
+-60.927 -17.886  -3.404  13.801 138.723 
 
 Coefficients:
-                      Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)          2.480e+00  7.895e-01   3.141 0.002594 ** 
-subj                 3.148e-03  1.358e-03   2.318 0.023831 *  
-section              1.200e-01  9.085e-02   1.321 0.191447    
-age                 -6.391e-02  1.806e-02  -3.539 0.000776 ***
-sex                 -4.649e-02  1.329e-01  -0.350 0.727696    
-test1               -1.011e+01  5.667e+00  -1.785 0.079307 .  
-test2               -1.012e+01  5.666e+00  -1.787 0.078925 .  
-test_mean            2.024e+01  1.133e+01   1.786 0.079052 .  
-cortisol1            1.116e+02  5.907e+01   1.890 0.063554 .  
-cortisol2            1.100e+02  6.067e+01   1.813 0.074719 .  
-cortisol_mean       -2.194e+02  1.197e+02  -1.833 0.071639 .  
-test.x.cort         -1.701e-02  2.362e-02  -0.720 0.474272    
-internal_motivation -4.711e-02  7.348e-02  -0.641 0.523880    
-external_motivation  1.536e-01  6.159e-02   2.494 0.015351 *  
-dom_social           2.903e-01  6.716e-02   4.322  5.8e-05 ***
-dom_aggressive       1.995e-01  5.402e-02   3.692 0.000476 ***
-score_econ_ideology -1.131e-01  4.553e-02  -2.485 0.015732 *  
-social_ideology     -5.902e-02  3.929e-02  -1.502 0.138187    
-overall_ideology     8.840e-02  5.825e-02   1.517 0.134313    
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   41.581      5.894   7.055 3.77e-10 ***
+sexFMale      50.586      7.045   7.181 2.11e-10 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 0.3313 on 61 degrees of freedom
-  (42 observations deleted due to missingness)
-Multiple R-squared:  0.704, Adjusted R-squared:  0.6167 
-F-statistic: 8.062 on 18 and 61 DF,  p-value: 2.76e-10</code></pre>
+Residual standard error: 30.63 on 88 degrees of freedom
+  (32 observations deleted due to missingness)
+Multiple R-squared:  0.3695,    Adjusted R-squared:  0.3623 
+F-statistic: 51.56 on 1 and 88 DF,  p-value: 2.111e-10</code></pre>
 </div>
 </div>
-<ol start="2" type="1">
-<li><p><strong>Multicollinearity.</strong> If your independent variables are highly related, then your multivariate regression slope estimates are not uniquely determined. weird things happen to your coefficients, and this makes it hard to interpret your effects.</p>
-<ul>
-<li><p>IN R : check the “variance inflation factor” (VIF); a measure of how much one IV is related to all the other IVs in the model.</p></li>
-<li><p><span class="math inline">\(\huge VIF_j=\frac{1}{1-R_{j}^{2}}\)</span></p></li>
-</ul></li>
+<p>As practice, take a look at the output - what do you observe? Think about a) the pattern in the data; b) the interpretation of the significance and effect size; c) the “who cares” about these results.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What Professor Observes (Think On Ur Own First?)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>I notice the following:</p>
+<p>A. The pattern shows that males have higher (b = 50.586) testosterone than females on average.</p>
+<p>B. The effect is fairly large - I didn’t (and don’t want) to calculate cohen’s D, but the <span class="math inline">\(R^2\)</span> value is very high - biological sex explains 36% of the variation in testosterone. This is “highly significant”, meaning that if the null were true (if there were no differences in testosterone between males and females) the probability that we would observe a difference as large as 50.586 is very, very small (p &lt; .00000000001).</p>
+<p>C. Who cares about this? Gosh, there seem to be a lot of bad takes on hormones and sex out there these days, and I don’t really want to add to that chorus, but since I chose these data…I’m not really sure what to make out of hormone data. I’m not a hormone researcher, think it’s odd that our society is SO FOCUSED on quantifying the hormones of individuals, and think that all of the energy focused on hormone levels and women in sports could be better spent following and watching female athletes and supporting them in that way, and (while we’re at it) making sure that we create inclusive spaces where all people can belong? Seems easy. IDK. Feel free to lemme know if you disagree / I’m missing something / I have some learning to do. Okay, back to the show.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="flipping-the-model-around" class="level3">
+<h3 class="anchored" data-anchor-id="flipping-the-model-around">Flipping the Model Around</h3>
+<p>So far, we’ve predicted a numeric / continuous variable with our good friend the linear model. But researchers often want to make predictions of categorical variables.</p>
+<p>We <em>could</em> treat sex as a numeric variable; in fact, the original variable was coded as numeric (1 = male; 2 = female). So why not include this “numeric” variable as a DV in our linear model? Seems easy; what could go wrong!??</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(sex <span class="sc">~</span> test_mean, <span class="at">data =</span> h)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sex <span class="sc">~</span> test_mean, <span class="at">data =</span> h)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(mod2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="9_ModelsTransformed_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = sex ~ test_mean, data = h)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.6341 -0.2735 -0.1131  0.3306  0.9166 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  1.862302   0.087390  21.310  &lt; 2e-16 ***
+test_mean   -0.007303   0.001017  -7.181 2.11e-10 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.368 on 88 degrees of freedom
+  (32 observations deleted due to missingness)
+Multiple R-squared:  0.3695,    Adjusted R-squared:  0.3623 
+F-statistic: 51.56 on 1 and 88 DF,  p-value: 2.111e-10</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What Professor Thinks Went Wrong (Think On Ur Own First?)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>The predicted values of the DV are continuous, and can range between 1 and 2. However, we think of (and measured) sex as a binary variable (male OR female) and while a continuous approach might better match the complex biological reality, that wasn’t the way the data were measured in this study.</p></li>
+<li><p>The predicted values of gender can go beyond the range of our DV. For example, someone with a testosterone of 150 would be predicted to have a gender of .766. If 1 = male and 2 = female, does this make the person super-male? Sub male? No, the value makes no sense and is wrong.</p></li>
+<li><p>Our DV is not normally distributed, and the linear model depends on certain assumptions (specifically normality and linearity.) We are violating those assumptions here.</p></li>
 </ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="in">library(car)</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="logistic-regression-1" class="level3">
+<h3 class="anchored" data-anchor-id="logistic-regression-1">Logistic Regression</h3>
+<p>As a solution to our problem, we can transform our linear model to one that conforms to a non-normal (or non-Gaussian) distribution.</p>
+<p>Rather than predict a specific “value” of male or female, we will estimate the probability of being male vs.&nbsp;female. The predicted values should necessarily fall between 0 (estimated probability of being female = 0%) and 1 (estimated probability of being female = 100%).</p>
+<p>We do this using a “link” function that “links” the mean (i.e., expectaion) of your outcome variable(s), <strong>Y</strong>, to our linear predictor. Different types of outcome variables each have a different “canonical” link function, as summarized in the table below.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Distribution</strong></td>
+<td><strong>Link Function</strong></td>
+<td><strong>Example Use Case</strong></td>
+</tr>
+<tr class="even">
+<td>Normal</td>
+<td>Identity</td>
+<td>DV is continuous response.</td>
+</tr>
+<tr class="odd">
+<td>Binomial</td>
+<td>Logit</td>
+<td>DV is binary response</td>
+</tr>
+<tr class="even">
+<td>Poisson</td>
+<td>Log</td>
+<td>DV is a fixed count response.</td>
+</tr>
+<tr class="odd">
+<td>Gamma</td>
+<td>Reciprocal</td>
+<td>Continuous, but highly skewed, distributions.</td>
+</tr>
+</tbody>
+</table>
+<p>You don’t need to memorize these - the key idea is that sometimes you want (or need) to adjust the parameters of the linear model in order to better fit the type of data that you are working with.</p>
+<p>By adapting our linear model, we have extended the general linear model to something called <strong>the generalized linear model (glm).</strong></p>
+<p><img src="images/clipboard-487462471.png" class="img-fluid"></p>
+</section>
+<section id="okay-but-how-do-i-do-this-in-r-professor" class="level3">
+<h3 class="anchored" data-anchor-id="okay-but-how-do-i-do-this-in-r-professor">Okay, But How Do I Do This in R, Professor?</h3>
+<p>Let’s work through an example. We’ll tweak our good friend <code>lm</code> slightly by calling the <code>glm()</code> function, and then specifying which family of distributions we are working with. in this case, the binomial family since our DV is binary.</p>
+<p>(Note that in order to adhere to the requirements of a binomial distribution, I need to encode the two groups of my categorical outcome as 0 and 1.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>h<span class="sc">$</span>sexR <span class="ot">&lt;-</span> h<span class="sc">$</span>sex <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>glmod <span class="ot">&lt;-</span> <span class="fu">glm</span>(sexR <span class="sc">~</span> test_mean, <span class="at">data =</span> h, <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Before we get into the intercepts and slopes and all that, let’s graph the data because, as y’all know….a picture is worth…yes, that’s right class…a thousand words.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sexR <span class="sc">~</span> test_mean, <span class="at">data =</span> h,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Testosterone"</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Probability of Being Female"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">predict</span>(glmod, <span class="fu">data.frame</span>(<span class="at">test_mean=</span>x), <span class="at">type =</span> <span class="st">"resp"</span>), <span class="at">add =</span> T, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="9_ModelsTransformed_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The red line is our estimated probability of being female for a person with a certain level of testosterone.</p>
+<ul>
+<li><p>Unlike the linear model, this function does not go beyond the limit of (0,1).</p></li>
+<li><p>This function is not linear, meaning the slope is not constant for all levels of testosterone. For example, a difference in testosterone of 10 means less in terms of change in probability of being female at high levels of testosterone than at lower levels. (Carter! I believe this addresses your question from before Spring Break.)</p></li>
+</ul>
+<p>The results of our model will describe these adjusted line. Unfortunately, things get a little confusing when we look at the intercept and slopes, because the default for the binomial family is to report terms in log-odds.</p>
+<section id="interpreting-the-intercept" class="level4">
+<h4 class="anchored" data-anchor-id="interpreting-the-intercept">Interpreting the Intercept</h4>
+<p>There are two methods of interpreting the intercept (that I know of.)</p>
+<section id="exponentiate-the-intercept" class="level5">
+<h5 class="anchored" data-anchor-id="exponentiate-the-intercept">Exponentiate the Intercept</h5>
+<p>We can <a href="http://www.mathsisfun.com/algebra/exponents-logarithms.html">exponentiate</a> the intercept to transform the estimate into the odds of the DV occuring when the X value is zero.</p>
+<p>Odds are defined as <span class="math inline">\(\text{odds} = \frac{p}{(1-p)}\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">exp</span>(<span class="fu">coef</span>(glmod)[<span class="dv">1</span>]), <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept) 
+     123.93 </code></pre>
+</div>
+</div>
+<p>So the intercept in this case describes the probability of being female, divided by the probability of not being female, for someone with zero testosterone. In other words, there’s a much, much higher odd of being female for someone with zero testosterone.</p>
+</section>
+<section id="inverse-logit-function" class="level5">
+<h5 class="anchored" data-anchor-id="inverse-logit-function">Inverse Logit Function</h5>
+<p>If we take the inverse of the logit function of the intercept, the intercept is the <em>probability</em> of Y, when all X values are zero. This is often the clearest way to interpret the intercept (if that statistic is relevant) in my opinion.</p>
+<p><span class="math inline">\(\huge \text{inverse logit = } \frac{1}{1 + e^{-x}} \text{ or } \frac{e^{x}}{1 + e^{x}}\)</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(glmod)[<span class="dv">1</span>]) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(<span class="fu">coef</span>(glmod)[<span class="dv">1</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept) 
+  0.9919957 </code></pre>
+</div>
+</div>
+<p>So, there’s a 99.19% chance that a participant with zero testosterone would be female.</p>
+</section>
+</section>
+<section id="interpreting-the-slope." class="level4">
+<h4 class="anchored" data-anchor-id="interpreting-the-slope.">Interpreting the Slope.</h4>
+<p>When we exponentiate the slope, we convert the estimate into an odds ratio. The odds ratio describes how the odds change between two different outcomes.</p>
+<p>Note that an odds ratio of 1 would mean that there is no change in the odds of Y as X changes (similar to a slope of zero in a general linear model).</p>
+<p>One nice feature of odds ratios is that they are are scalable - you can keep doubling the odds, and not go beyond a probability of 1.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(glmod)[<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>test_mean 
+0.9121065 </code></pre>
+</div>
+</div>
+<p>The odds ratio is .91, which is .09 less than an odds ratio of 1. This means that each unit increase in testosterone decreases the probability of being female by .09 or 9%. (The change in probability is in reference to an odds ratio of 1.)</p>
+</section>
+<section id="gelman-hills-divide-by-four-rule." class="level4">
+<h4 class="anchored" data-anchor-id="gelman-hills-divide-by-four-rule.">Gelman &amp; Hill’s “Divide by Four” Rule.</h4>
+<p>Many people find odds and odd ratios confusing. The estimable Gelman &amp; Hill (2007) agree, and define a “divide by four” rule. Where you take the regression coefficient, divide it by four, and that number gives you the upper bound of the predictive difference in Y that corresponds to a 1-unit increase in X.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(glmod)<span class="sc">/</span><span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)   test_mean 
+ 1.20493609 -0.02299963 </code></pre>
+</div>
+</div>
+<p>So, this method would suggest that a unit increase in testosterone would decrease the probability of being female by <em>no more than 2%</em>.</p>
+<p><img src="images/clipboard-221639646.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="that-inferential-statistics-stuff" class="level3">
+<h3 class="anchored" data-anchor-id="that-inferential-statistics-stuff">That Inferential Statistics Stuff</h3>
+<p>We can extract inferential statistics using the <code>summary()</code> function, as before.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glmod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = sexR ~ test_mean, family = "binomial", data = h)
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  4.81974    1.19821   4.022 5.76e-05 ***
+test_mean   -0.09200    0.02081  -4.420 9.86e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 109.96  on 89  degrees of freedom
+Residual deviance:  56.09  on 88  degrees of freedom
+  (32 observations deleted due to missingness)
+AIC: 60.09
+
+Number of Fisher Scoring iterations: 7</code></pre>
+</div>
+</div>
+<p>Much is the same as before:</p>
+<ul>
+<li><p>We have estimates of the slope. Note that these are not-yet exponentiated.</p></li>
+<li><p>We have estimates of standard errors and p-values with stars that immediately show us whether our results are statistically significant or not.</p></li>
+</ul>
+<p>A few things are different:</p>
+<ul>
+<li><p><em>There’s a dispersion parameter.</em> This is part of the link function, and describes how variance in our outcome variable depends on the mean. This is always set to 1 in a logistic regression; there are other forms of regression (“quasi-logistic” and “quasi-poisson” for example where the dispersion parameter can be increased to account for greater variablility in the outcome.)</p></li>
+<li><p><em>R no longer reports an</em> <span class="math inline">\(R^2\)</span> value. The <span class="math inline">\(R^2\)</span> statistic is not appropriate for generalized linear models, since we are not calculating errors in the same way (i.e., we are not adding up . There are various methods of calculating what’s called a “pseudo <span class="math inline">\(R^2\)</span>”, which estimates this statistic, and often is reported via other functions (see below).</p></li>
+<li><p><em>Instead, R reports two deviance statistics - null and residual.</em> Deviance is a measure of error - we “want” deviance to be low, and expect it to decrease by at least one for every new predictor we add to our model. The null deviance is the error when we have no predictor in our model (and are just using a constant term - the baseline probability of the outcome variable - to make predictions). The residual deviance is the deviance for this model; the fact that there’s a decrease of 53.87 exceeds our expected decrease of 1, and tells me the model has improved our predictions.</p></li>
+<li><p><em>R reports the Akaike Information Criterion (AIC)</em>. We will talk about this more next week, when we talk about model fit and comparing models, but the TLDR is this is a way to evaluate how “good” a model is at making predictions, with a lower AIC describing a model that better fits the data. The scale of this estimate - like the deviance statistics - is dependent on the data and sample size, so AIC is meant to compare one model to another from the same datset.</p></li>
+</ul>
+<p>There are a few different packages that make reporting the effects of a logistic regression easier. One example is the <code>summ()</code> function from the <code>jtools</code> package (which I think we looked at before to make nice multiple regression tables.) The function works the same, but we will add an argument to tell the function to exponentiate the coefficients to aid in the interpretation, and an argument to add confidence intervals. (<a href="https://www.jtools.jacob-long.com/articles/summ.html#summ">See the documentation</a> for the function for other arguments to add.)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'jtools' was built under R version 4.3.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(glmod, <span class="at">exp =</span> <span class="cn">TRUE</span>, <span class="at">error_format =</span> <span class="st">"[{conf.low}, {conf.high}]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  ">
+<colgroup><col><col></colgroup><tbody><tr>
+<th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Model 1</th></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(Intercept)</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">123.93 ***</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">[11.84, 1297.49]&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">test_mean</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.91 ***</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">[0.88, 0.95]&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">N</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">AIC</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">60.09&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">BIC</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">65.09&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Pseudo R2</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.64&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th colspan="2" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"> *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.</th></tr>
+</tbody></table>
+
+</div>
+</div>
+<p>Note that the default output for this function reports another statistic - the Bayesian Information Criterion (which is another way to evaluate the model) as well as some Pseudo <span class="math inline">\(R^2\)</span> statistics (there are different methods of calculating this; not sure which one the authors defaulted to.)</p>
 </section>
 <section id="would-you-like-to-learn-more" class="level3">
-<h3 class="anchored" data-anchor-id="would-you-like-to-learn-more">Would You Like to Learn More??</h3>
+<h3 class="anchored" data-anchor-id="would-you-like-to-learn-more">Would You Like To Learn More?</h3>
+<p>You don’t have to take my word for it. Below are a few readings that will help support your understanding of generalized linear models. Let me know if you find other useful resources!</p>
 <ul>
-<li><a href="https://online.stat.psu.edu/stat462/node/180/">Some more notes on multicollinearity and VIFs.</a></li>
-<li>Take Aaron Fisher’s class on Structural Equation Modeling?</li>
-<li><a href="https://arxiv.org/pdf/2305.18793">Read through Peng Ding (Prof in Cal Stats Department) Book on Causal Inference</a></li>
+<li>Gelman &amp; Hill (2007). Chapter 5 is focused on logistic regression; they work through a few examples, talk about interaction effects and scaling / centering variables; making specific preditions….very thorough. I think you can easily find this online, but let me know if you want a .pdf.</li>
+<li><a href="https://www.datascienceblog.net/post/machine-learning/interpreting_generalized_linear_models/">A textbook chapter on generalized models.</a> I really like this researcher’s approach to linear models, and while this textbook chapter is a little more spare than some of the other chapters, it presents a nice overview of why and how we use generalized linear models.</li>
+<li><a href="https://www.datascienceblog.net/post/machine-learning/interpreting_generalized_linear_models/">A stats blog</a> works through the output of a generalized linear model in R; focuses on a poisson distribution, but many of the principles are the same (and good to see a different example of a similar concept.)</li>
 </ul>
-
-
 </section>
+</section>
+<section id="lab-9-and-farewell." class="level2">
+<h2 class="anchored" data-anchor-id="lab-9-and-farewell.">Lab 9 and Farewell.</h2>
+<p>For Lab 9, you’ll work with a new dataset to define a model that you think would best test a researcher’s theory, then compare your model to the model the researcher defined in the original paper. You’ll also practice working with an interaction effect (what we talked about in Week 8) and logistic regression.</p>
+<p>Okay, that’s all. Hope this made sense, and feel free to reach out on Discord / e-mail as needed. Yeah!</p>
+
+
 </section>
 
 </main> <!-- /main -->

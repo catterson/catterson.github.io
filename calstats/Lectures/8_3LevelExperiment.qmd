@@ -1,0 +1,155 @@
+---
+title: "Lecture 8 - Experiments and Models"
+format: 
+  html:
+    code-overflow: wrap
+---
+
+## [Check-In : A Quick Study](https://docs.google.com/forms/d/e/1FAIpQLScvaoHqhyguIXKfj9m7q5ykKMryRI9exKUdRU_7l98xAjU4dw/viewform?usp=sf_link)
+
+```{r include=FALSE}
+library(psych)
+m <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/cal_mega_SP25.csv", stringsAsFactors = T)
+names(m)
+SWLS.df <- with(m, data.frame(swls1, swls2, swls3, swls4, swls5))
+alpha(SWLS.df)
+m$SWLS <- rowMeans(SWLS.df, na.rm = T)
+hist(m$SWLS)
+levels(m$call.folks)[1] <- NA
+plot(m$call.folks)
+```
+
+Professor wanted to see if calling your parents / guardians was related to having a more satisfied life. He analyzed data from the mega dataset, and defined the linear model below (satisfaction with life \~ call.folks (yes / no) + error. Use the following output to answer the check-in questions.
+
+```{r}
+mod <- lm(SWLS ~ call.folks, data = m)
+round(coef(mod), 2)
+```
+
+-   What is the predicted value of satisfaction with life for someone who calls their parents?
+-   What is the predicted value of satisfaction with life for someone who does not call their parents?
+-   What is the difference in satisfaction with life between someone who does and does not call their parents?
+-   Can professor say that calling parents CAUSES people to have a different satisfaction with life? Why / why not?
+
+## Announcements & Agenda.
+
+-   Announcements
+    -   **Milestone #3 \|** Methods Section & Descriptive Statistics.
+    -   We On Zoom!
+        -   Default mute.
+        -   Webcam on in breakout rooms "required"; nice during lecture.
+        -   Chat: keep it focused to questions during lecture; will build in time for social connection, etc. (feel free to spam discord w/ multitasking livestreamofconsciousness)
+    -   Questions, Comments, Concerns?
+-   Agenda
+    -   2:10 - 2:30 \| Check-In and Announcements
+    -   2:30 - 2:45 \| Experimental Methods Review
+    -   2:45 - 3:15 \| Anchoring Study (Part 1)
+    -   3:15 - 3:30 \| Mega Break Time
+    -   3:30 - 3:55 \| Anchoring Study (Part 2)
+    -   3:55 - 4:00 \| Mini Break Time
+    -   4:00 - 4:30 \| Introduction to Sampling Error and Bias
+    -   4:30 - 5:00 \| Conclusion
+
+## Experimental Methods
+
+### The Definition of Causality
+
+1.  The cause and effect are contiguous in space and time.
+2.  The cause must be prior to the effect. (no reverse causation)
+3.  There must be a constant union betwixt the cause and effect. (“Tis chiefly this quality, that constitutes the relation.”) (no random chance)
+4.  The same cause always produces the same effect, and the same effect never arises but from the same cause. (not "just" some third variable)\[\^1\]
+
+\[\^1\]but remember, life is complex and there are often multiple causes of human behavior!
+
+### Manipulation : Watch out for Misleading Control Variables
+
+-   RECAP : the manipulation (A/B Testing) : researchers create multiple groups (conditions) and change ONE THING (the IV) about a person’s experience in each group & observe the result (the DV).
+    -   treatment / experimental condition : the IV is present (the change happens)
+    -   control / comparison condition : the IV is absent (the default experience / no change)
+    -   KEY IDEA : the comparison group matters!
+-   Example : sitting in a 3 statistics and research methods class…
+    -   DECREASES boredom compared to…
+        -   example go here
+    -   INCREASES boredom compared to…
+        -   example go here
+
+### Real-Life Examples of Difficult Control Conditions
+
+#### Power Posing Study**[^1] Is this a fair comparison / manipulation? Why / why not?
+![](images/clipboard-2384287427.png)
+
+#### Gratitude Study:
+Read the prompt below. Answer the following questions in your breakout room discussion.
+
+1. ICE-BREAKER : What's something that you are grateful for?
+2. What did the experimenters manipulate? Which of these were experimental and control conditions?
+3. What are some other things that differ between the experimental and control conditions (potential confounds)?
+4. What are some other (better) control conditions that you might include in this study?
+
+[](images/clipboard-2207627893.png)
+
+[^1]: Carney, D. R., Cuddy, A. J., & Yap, A. J. (2010). Power posing: Brief nonverbal displays affect neuroendocrine levels and risk tolerance. Psychological science, 21(10), 1363-1368. [link to article](https://faculty.haas.berkeley.edu/dana_carney/power.poses.PS.2010.pdf) + [link to summary of non-replication](https://www.sciencedaily.com/releases/2017/09/170911095932.htm)
+
+## Anchoring as an Experiment
+
+### The Theory and Experimental Design
+
+| High Condition | Low Condition | Control Condition |
+|----------------|---------------|-------------------|
+|                |               |                   |
+
+| Key Term and Definition                                                                                                                                                                                                                                             | Example in the Anchoring Study |
+|---------------------------------------------------|---------------------|
+| **outcome =** THE DV = what was being measured *after* the manipulation?                                                                                                                                                                                            |                                |
+| **manipulation** = THE IV = what were ALL the things that the researcher changed about a person's experience (across experimental conditions)?                                                                                                                      |                                |
+| **random assignment** = were all possible confound variables balanced across conditions?                                                                                                                                                                            |                                |
+| **double-blind** = did the study avoid demand characteristics (where experimenter might have influenced behavior when giving the study) & placebo effects (where participants might have acted in a certain way because they knew they were being experimented on)? |                                |
+| **generalizability =** did the study have external validity? what was the effect size (R2)?                                                                                                                                                                         |                                |
+| **ethics =** should researchers do this type of study? (Predict & Control)                                                                                                                                                                                          |                                |
+
+### Anchoring : Data to Test the Theory
+
+IN BREAKOUT ROOMS!!!
+
+-   **Question :** Will the number that people see BEFORE making their own rating influence their decision?
+
+-   **Theory :**
+
+    -   OPTION A: People who see a HIGHER number before making their own rating will make a HIGHER number than people who see the LOWER number.
+    -   OPTION B : People who see a LOWER number before making their own rating will make a HIGHER number than people who see the HIGHER number.
+    -   OPTION C : There will be NO DIFFERENCES between the groups.
+
+-   **Linear Models :** DV \~ IV
+
+-   **Data :** the “anchor_SP25.csv" dataset
+
+    -   Load the data and check to make sure the data loaded correctly.
+    -   Graph the variables; remove outliers and / or empty levels.
+
+-   **Results :**
+
+    -   Define your Linear Models
+    -   Interpret Your Results
+
+-   **Discuss :**
+
+    -   Why do we observe this pattern?
+    -   How could we use this knowledge in real-life?
+    -   What other questions do you have? What else would you want to learn about?
+
+## BREAK TIME :
+
+## FOCUS YOUR POWER
+
+## Is this the real life? Is this just fantasy? (Sampling Error and Bias)
+
+-   **KEY IDEA :** A good sample is a random sample: each individual in the population has an equal chance of being selected in your sample. your sample will never equal the population.
+-   **Sampling bias :** the sample is different from the population because of some error in our method of sampling that influences the dependent variable in a predictable way.
+    -   **Examples :**
+        -   **Self-Selection Bias :** People CHOOSE to be in the study.
+        -   **Survivor Bias :** Participants may drop out, and you are only collecting data from a specific group of people who “lasted”.
+        -   **Many Other Types Exist :** Wikipedia has a very long list of types of sampling biases.
+    -   **GOAL :** identify sources of bias and minimize / test to see their influence.
+-   **Sampling error :** the sample is different from the population because of random reasons.
+    -   **Example :** even if your sample has zero bias, there will always be some amount of sampling error unless you survey the ENTIRE population.
+    -   **Goal :** Model the role of CHANCE in influencing the relationship between two variables.

@@ -1,0 +1,235 @@
+---
+title: "Lecture 8 - Experiments and Models - Asynchronous Class"
+format: 
+  html:
+    code-overflow: wrap
+---
+
+## Introductions
+
+Hi class! It's me, your professor. In text format. These are words that I wrote; are you hearing my voice in your head? In any case, thanks for your patience and flexibility; it is much appreciated (and needed).
+
+Here's a short video where I say hi and go over this document.
+
+{{< video https://youtu.be/BIxJlpnRIpg >}}
+
+### Weekly To-Do List.
+
+Before next Friday (4/11) please complete the following.
+
+1.  **Work through this lecture document and complete the Lecture 8 Quiz.** The quiz focuses on analyzing and interpreting the dataset we collected before spring break, on "cat speeds". I have some videos to help walk y'all through this.
+2.  [**Read Chapter 9**](https://catterson.github.io/ystats/chapters/9R_SamplingError.html) **and Complete Quiz 9.** This chpater is a lot. We will 100% review this in lecture next week; but good to get an introduction to the topic. It's very easy to do in R :)
+3.  [**Complete Milestone #3**](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0#bookmark=id.70lgolty5k8a)**.** You'll work on this in discussion section. There are two parts - a draft of your methods section, and getting your final project data exported from Google Forms and imported into R so you can start data analysis :)
+4.  **There is no lab assignment this week.** Just all the other stuff haha. :) \<3
+
+### Lecture Table of Contents
+
+There are three parts to this lecture document; I think this document will take an average of 60 minutes to complete (sd = 30 minutes?) so please plan accordingly.
+
+1.  **Check-In.** On interpreting linear regression with a categorical IV.
+2.  **Lecture.** More thoughts on experiments.
+3.  **Lecture and Quiz.** On the "Anchoring" dataset we collected last week. With a short quiz, based on the lecture and video.
+
+I'm looking forward to seeing everyone again on Friday, April 11th. Let me know if you have questions or comments on the Discord. Take care!
+
+:Prof.
+
+## [Check-In.](https://docs.google.com/forms/d/e/1FAIpQLScvaoHqhyguIXKfj9m7q5ykKMryRI9exKUdRU_7l98xAjU4dw/viewform?usp=sf_link)
+
+```{r include=FALSE}
+library(psych)
+m <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/cal_mega_SP25.csv", stringsAsFactors = T)
+names(m)
+SWLS.df <- with(m, data.frame(swls1, swls2, swls3, swls4, swls5))
+alpha(SWLS.df)
+m$SWLS <- rowMeans(SWLS.df, na.rm = T)
+hist(m$SWLS)
+levels(m$call.folks)[1] <- NA
+plot(m$call.folks)
+```
+
+Professor wanted to see if calling your parents / guardians was related to having a more satisfied life. He analyzed data from the mega dataset, and defined the linear model below (satisfaction with life \~ call.folks (yes / no) + error. Use the following output to answer the check-in questions (submit answers to the link above).
+
+```{r}
+mod <- lm(SWLS ~ call.folks, data = m)
+round(coef(mod), 2)
+```
+
+### The Questions.
+
+-   What is the predicted value of satisfaction with life for someone who does not call their parents?
+-   What is the predicted value of satisfaction with life for someone who calls their parents?
+-   What is the difference in satisfaction with life between someone who does and does not call their parents?
+-   Can professor say that calling parents CAUSES people to have a different satisfaction with life? Why / why not?
+
+### Check-In Key.
+
+When you are done, watch the video below to see a review of the answers. Yes, you can just watch the video (or submit nothing) but trying on your own is the point!
+
+{{< video https://youtu.be/hTod_RIafn8 >}}
+
+Here's a [link to the R Script](https://www.dropbox.com/scl/fi/2p2czxbzy44x8xrc2nxy4/8T_CheckInAsynch.R?rlkey=21mzufg608ne6xujap9kc8s7y&dl=0) professor used to generate the model / the key.
+
+## Lecture : Experimental Methods
+
+### Manipulation in Depth : Watch out for Misleading Control Variables
+
+The manipulation is when researchers create multiple groups (experimental and / or control conditions) and change ONE THING about a person’s experience in each group, and then observe the outcome. The change that experimenters make to the conditions is a source of variation (the independent variable), and the outcome is the dependent variable.
+
+-   **the treatment / experimental condition** is when the IV is present (the change happens). For example, in a drug study, the treatment / experimental condition would be the drug that the researchers give the participant.
+-   **control / comparison condition** is when the IV is absent (the default experience / no change). Critically, you want everything about the treatment and control condition to be the same except for the one thing (the IV) that you are manipulating. For example, in a drug study the control condition would be a pill that looks like the drug, but doesn't have the key chemical compound the researchers are testing.
+
+**KEY IDEA : the control / comparison group matters!** In drug studies, the control group is clear. However, in other contexts what a "good control" is much harder to define, and researchers can be a little misleading (or biased) when creating the control and experimental groups. So it's an important skill to think about the control condition, and whether it's a fair comparison.
+
+For example, let's say I wanted to test whether attending a 3-hour statsiticss and research methods lecture decreases student boredom. What's the control condition here?
+
+-   **if I wanted to show that a 3-hour statistics and research methods lecture DECREASES boredom**, I could compare the lecture to things that are more boring (like watching paint dry for three hours, or reading the dictionary for three hours.)
+-   **If I wanted to show that a 3-hour statistics and research methods lecture INCREASES boredom,** I could compare the lecture to things that are less boring, like watching a super-exciting movie for 3-hours, or maybe a professional lecture guest starring super-famous celebrities like Chancellor Rich Lyons.
+
+This example may seem obvious, but thinking through what the experimental / control conditions are can yield surprising results.
+
+### Real-Life Examples of Difficult Control Conditions
+
+Watch the video below, where I walk through two famous studies that have difficult control conditions.
+
+{{< video https://youtu.be/kNZf0uzrVyQ >}}
+
+#### Power Posing Study[^1]
+
+[^1]: Carney, D. R., Cuddy, A. J., & Yap, A. J. (2010). Power posing: Brief nonverbal displays affect neuroendocrine levels and risk tolerance. Psychological science, 21(10), 1363-1368. [link to article](https://faculty.haas.berkeley.edu/dana_carney/power.poses.PS.2010.pdf) + [link to summary of non-replication](https://www.sciencedaily.com/releases/2017/09/170911095932.htm)
+
+![](images/clipboard-2384287427.png)
+
+![](images/clipboard-84627212.png)
+
+#### Gratitude Study.
+
+-   Article : Seligman, M. E., Steen, T. A., Park, N., & Peterson, C. (2005). Positive psychology progress: empirical validation of interventions. *American psychologist*, *60*(5), 410.
+
+-   [Practice](https://ggia.berkeley.edu/practice/gratitude_journal#:~:text=Write%20down%20or%20type%20up,emotions%20that%20come%20with%20it.)
+
+![](images/clipboard-2207627893-01.png){fig-align="center"}
+
+1.  What did the experimenters manipulate? Which of these were experimental and control conditions?
+2.  What are some other things that differ between the experimental and control conditions (potential confounds)?
+3.  ON DISCORD (Optional) :
+    1.  What's something that you are grateful for?
+    2.  What are some other (better) control conditions that you might include in this study?
+
+## Lecture : Anchoring Study (From Lecture 7)
+
+{{< video https://youtu.be/vK0UYb2iKa0 >}}
+
+### Anchoring : Experimental Design
+
+Below are the three versions of the study that students saw in Week 7. Do you remember which condition you were in? Could you tell that you were in an experiment??
+
++--------------------------------------+--------------------------------------+--------------------------------------+
+| High Condition                       | Low Condition                        | Control Condition                    |
++======================================+======================================+======================================+
+| ![](images/clipboard-3273817600.png) | ![](images/clipboard-1517485462.png) | ![](images/clipboard-3157047965.png) |
++--------------------------------------+--------------------------------------+--------------------------------------+
+
+Below are examples of how the anchoring study was an example of an experiment.
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Key Term and Definition**                                                                                                                                                                                                                                         | **Example in the Anchoring Study**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **outcome =** THE DV = what was being measured *after* the manipulation?                                                                                                                                                                                            | The person's own answer to the specific question (i.e., their idea about the speed of a cat, the height of a tree, and the amount of meat eaten.)                                                                                                                                                                                                                                                                                                                                                                                               |
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **manipulation** = THE IV = what were ALL the things that the researcher changed about a person's experience (across experimental conditions)?                                                                                                                      | The context given before the person provided their own answer was manipulated; there were three groups :                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+|                                                                                                                                                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|                                                                                                                                                                                                                                                                     | -   HIGH : the person was asked whether the answer was more or less than a very large number (e.g., "can a cat run more or less than 40 miles per hour.")                                                                                                                                                                                                                                                                                                                                                                                       |
+|                                                                                                                                                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|                                                                                                                                                                                                                                                                     | -   LOW : the person was asked whether the answer was more or less than a very small number (e.g., "can a cat run more or less than 3 miles per hour.")                                                                                                                                                                                                                                                                                                                                                                                         |
+|                                                                                                                                                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|                                                                                                                                                                                                                                                                     | -   CONTROL : no context was given before the person made their own rating.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|                                                                                                                                                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|                                                                                                                                                                                                                                                                     | Everything else was the same across the conditions; the font was the same; the types of questions was the same; the wording was the same; the color was the same; etc.                                                                                                                                                                                                                                                                                                                                                                          |
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **random assignment** = were all possible confound variables balanced across conditions?                                                                                                                                                                            | I'll show evidence of random assignment in the lecture video that supports these notes.                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|                                                                                                                                                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|                                                                                                                                                                                                                                                                     | There was one variable that was not randomly assigned - the month you were born in was used to assign people to one of the three groups (Google forms does not have a built-in random assignment feature.) For example, people in the HIGH condition were all born between January and April.                                                                                                                                                                                                                                                   |
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **double-blind** = did the study avoid demand characteristics (where experimenter might have influenced behavior when giving the study) & placebo effects (where participants might have acted in a certain way because they knew they were being experimented on)? | The google form didn't really change its behavior when assigning people to one group or another; we can say that it was blind to the participants' condition because it is a computer.                                                                                                                                                                                                                                                                                                                                                          |
+|                                                                                                                                                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|                                                                                                                                                                                                                                                                     | The participants may or may not have been blind to the study condition; I didn't advertise this was an experiment, you were supposed to do the survey on your own ("no talking with your buddy") and we hadn't yet done (or learned) about experiments yet. Still, I imagine there's some amount of skepticism among students that may have influenced the results. This lowers the external validity / generalizability of the study somewhat. (However, we gain a lot of power in being able to control people's experience with this study.) |
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **generalizability =** did the study have external validity? what was the effect size ($R^2$)?                                                                                                                                                                      | It's unclear how questions about cat speeds, tree heights, and meat consumption are relevant to the real world. But as I describe in the video, this study was partially responsible for the researchers' winning the Nobel Prize....in economics. For what it's worth, I've seen this study replicate in every. single. semester. over the last....8 years? I've been using this as an example. It's a very reliable effect; and has a fairly large $R^2$ value.                                                                               |
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **ethics =** should researchers do this type of study? (Predict & Control)                                                                                                                                                                                          | Curious your thoughts! Did you think this research is ethical???                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+### Anchoring : Data to Test the Theory
+
+-   **Question :** Will the number that people see BEFORE making their own rating influence their decision?
+
+-   **Theory : Which pattern in the data do you expect to observe? Vote on Discord BEFORE analyzing the data / watching the video (or not.)**
+
+    -   OPTION A: People who see a HIGHER number before making their own rating will make a HIGHER number than people who see the LOWER number.
+    -   OPTION B : People who see a LOWER number before making their own rating will make a HIGHER number than people who see the HIGHER number.
+    -   OPTION C : There will be NO DIFFERENCES between the groups.
+
+-   **Linear Models (DV \~ IV). To test this theory, we will need to define three separate linear models.**
+
+    -   cat speeds \~ condition
+
+    -   tree heights \~ condition
+
+    -   meat consumption \~ condition
+
+-   **Data :** [Download the “anchor_SP25.csv" dataset here](https://www.dropbox.com/scl/fi/rf6xsez360b6y2kgrdkkx/anchorSP25.csv?rlkey=hycm0rckj0519t0uyorzpo9ak&dl=0). These data were collected
+
+### Anchoring : Cat Speed Example
+
+Watch the video tutorial below, where I walk through how to test the researchers' question (does the number that people see before making their own rating influence their own rating?)
+
+{{< video https://youtu.be/AjwqZOYdvDU >}}
+
+-   [Link to R Script](https://www.dropbox.com/scl/fi/shcumov49pylefrieqb3f/8T_AnchorAsynch.R?rlkey=d7e4toy55v66bjkramp0oqatt&dl=0)
+
+```{r}
+## Loading Data and Data Cleaning
+library(gplots)
+anchor <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/anchorSP25.csv", stringsAsFactors = T)
+anchor$catspeed[anchor$catspeed > 100] <- NA
+
+#### Define and Graph the Linear Model
+cat.mod <- lm(catspeed ~ condition, data = anchor)
+plotmeans(catspeed ~ condition, data = anchor, connect = F)
+coef(cat.mod)
+
+#### Interpret the Linear Model
+summary(cat.mod)$r.squared
+```
+### Anchoring Study in Conclusion (Who Cares About Cat Speeds?)
+
+{{< video https://youtu.be/9xhs8mOkcqA >}}
+
+
+### Lecture Quiz : Anchoring for Tree Heights & Meat Consumption
+
+Use the [“anchor_SP25.csv" dataset](https://www.dropbox.com/scl/fi/rf6xsez360b6y2kgrdkkx/anchorSP25.csv?rlkey=hycm0rckj0519t0uyorzpo9ak&dl=0) to test whether the experimental manipulation influenced people's judgments about how tall trees were, and how much meat the average american would eat.
+
+Note that the variables treeheight and meateat have outliers. Remove outliers for these variables based on the following rules:
+
+-   treeheight : any response greater than 1000 ft (the height of a 10-story building)
+
+-   meateat : any response greater than 1095 (which would be the average american eating three pounds of meat per day, every day for a year.)
+
+Then, define two linear models (model 1 = treeheight \~ condition; model 2 = meateat \~ condition), and use these models to answer the questions below. Round to the nearest whole number (no decimal places).
+
+1.  What is the predicted value of treeheight for someone in the control condition?
+2.  What is the predicted value of treeheight for someone in the high condition?
+3.  What is the predicted value of treeheight for someone in the low condition?
+4.  What percentage of variation in people's ideas about tree heights is explained by the experimental manipulation (i.e., what is the $R^2$ value for this model?)
+5.  What is the predicted value of meateat for someone in the control condition?
+6.  What is the predicted value of meateat for someone in the high condition?
+7.  What is the predicted value of meateat for someone in the low condition?
+8.  What percentage of variation in people's ideas about meat consumption is explained by the experimental manipulation (i.e., what is the $R^2$ value for this model?)
+
+Feeling stuck? [Here's a video where I walk through the code you'll need](https://youtu.be/AMcSJtYgY24).
+
+## THE END.
+
+Thanks for reading and watching. Complete this check-out

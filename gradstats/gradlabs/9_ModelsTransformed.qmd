@@ -3,70 +3,219 @@ title: "9_ModelsTransformed"
 format: html
 ---
 
-## More on Power
-### Calculating Power
+## Prof. Says Hello.
 
-Using drawings of distributions.
+Hi folks, sorry to not be in class today. I hope y'all are well, and very much appreciate your flexibility.
+
+I've tried to organize a narrative about logistic regression - why we do this, how to do it in R, and how to interpret the results. You'll use this skill as part of completing Lab 9.
+
+Next week, we'll review logistic regression, talk more about model comparison, work through the final project, and start talking about hierarchical linear models.
+
+Have a great week, feel free to post on Discord if you have any questions, something is confusing, you found an error in the document or helpful resource I could add, or you are listening to a super cool track you want to share.
+
+## Logistic Regression
+
+### A Non-Logistic Example to Start
+
+Let's look at the hormone dataset again. Previously, we saw that sex was related to testosterone.
 
 ```{r}
+library(gplots)
 
+h <- read.csv("~/Dropbox/!GRADSTATS/gradlab/Datasets/hormone_dataset.csv")
+h$sexF <- as.factor(h$sex)
+levels(h$sexF) <- c("Male", "Female")
+h$sexF <- relevel(h$sexF, ref = "Female")
+
+mod <- lm(test_mean ~ sexF, data = h)
+plotmeans(test_mean ~ sexF, data = h, connect = F)
+summary(mod)
 ```
 
-Using the `pwr` package.
+As practice, take a look at the output - what do you observe? Think about a) the pattern in the data; b) the interpretation of the significance and effect size; c) the "who cares" about these results.
 
-```{r}
+::: {.callout-tip collapse="true"}
+#### What Professor Observes (Think On Ur Own First?)
 
-```
+I notice the following:
 
-### Using Our Results to Plan Sample Size
+A. The pattern shows that males have higher (b = 50.586) testosterone than females on average.
 
-```{r}
+B. The effect is fairly large - I didn't (and don't want) to calculate cohen's D, but the $R^2$ value is very high - biological sex explains 36% of the variation in testosterone. This is "highly significant", meaning that if the null were true (if there were no differences in testosterone between males and females) the probability that we would observe a difference as large as 50.586 is very, very small (p \< .00000000001).
 
-```
-
-### More on Power
-
-::: column-margin
-![](images/clipboard-2486903501.png)
+C. Who cares about this? Gosh, there seem to be a lot of bad takes on hormones and sex out there these days, and I don't really want to add to that chorus, but since I chose these data...I'm not really sure what to make out of hormone data. I'm not a hormone researcher, think it's odd that our society is SO FOCUSED on quantifying the hormones of individuals, and think that all of the energy focused on hormone levels and women in sports could be better spent following and watching female athletes and supporting them in that way, and (while we're at it) making sure that we create inclusive spaces where all people can belong? Seems easy. IDK. Feel free to lemme know if you disagree / I'm missing something / I have some learning to do. Okay, back to the show.
 :::
 
--   [Why should we care about power?](https://www.nature.com/articles/nrn3475.pdf) : Button, K. S., Ioannidis, J. P., Mokrysz, C., Nosek, B. A., Flint, J., Robinson, E. S., & Munafò, M. R. (2013). Power failure: why small sample size undermines the reliability of neuroscience. *Nature reviews neuroscience*, *14*(5), 365-376.
--   [Many examples of pwr used for different types of models.](https://cran.r-project.org/web/packages/pwrss/vignettes/examples.html)
--   [Another nice tutorial.](https://rpubs.com/mbounthavong/sample_size_power_analysis_R)
+### Flipping the Model Around
 
+So far, we've predicted a numeric / continuous variable with our good friend the linear model. But researchers often want to make predictions of categorical variables.
 
-## Issues with Multiple Regression
-
-### 1. Overfitting. 
-When your model is too complex, each variable in the model (parameter) increases the model complexity.
-
--   complex models that perfectly fit the data are problematic: you essentially describing your sample, and not the underlying population (which is usually the goal of multiple regression.)
-
--   We don’t expect over-fit models to generalize to other samples.
-
-    ![](images/clipboard-697123618.png)
-
--   To ensure your model generalizes to other samples, you can a) replicate, or b) cross-validate (divide your sample into sub-samples; define a model on one sample, then test the model in the other(s). Lots of different ways to do this! Here's one.)
+We *could* treat sex as a numeric variable; in fact, the original variable was coded as numeric (1 = male; 2 = female). So why not include this "numeric" variable as a DV in our linear model? Seems easy; what could go wrong!??
 
 ```{r}
-h <- read.csv("~/Dropbox/!GRADSTATS/gradlab/Datasets/hormone_dataset.csv")
-modz <- lm(narcicissm ~ ., data = h)
-summary(modz)
+mod2 <- lm(sex ~ test_mean, data = h)
+plot(sex ~ test_mean, data = h)
+abline(mod2)
+summary(mod2)
 ```
 
-2.  **Multicollinearity.** If your independent variables are highly related, then your multivariate regression slope estimates are not uniquely determined. weird things happen to your coefficients, and this makes it hard to interpret your effects.
+::: {.callout-tip collapse="true"}
+#### What Professor Thinks Went Wrong (Think On Ur Own First?)
 
-    -   IN R : check the "variance inflation factor" (VIF); a measure of how much one IV is related to all the other IVs in the model.
+1.  The predicted values of the DV are continuous, and can range between 1 and 2. However, we think of (and measured) sex as a binary variable (male OR female) and while a continuous approach might better match the complex biological reality, that wasn't the way the data were measured in this study.
 
-    -    $\huge VIF_j=\frac{1}{1-R_{j}^{2}}$
+2.  The predicted values of gender can go beyond the range of our DV. For example, someone with a testosterone of 150 would be predicted to have a gender of .766. If 1 = male and 2 = female, does this make the person super-male? Sub male? No, the value makes no sense and is wrong.
 
-```{{r}}
-library(car)
+3.  Our DV is not normally distributed, and the linear model depends on certain assumptions (specifically normality and linearity.) We are violating those assumptions here.
+:::
 
+### Logistic Regression
+
+As a solution to our problem, we can transform our linear model to one that conforms to a non-normal (or non-Gaussian) distribution.
+
+Rather than predict a specific "value" of male or female, we will estimate the probability of being male vs. female. The predicted values should necessarily fall between 0 (estimated probability of being female = 0%) and 1 (estimated probability of being female = 100%).
+
+We do this using a "link" function that “links” the mean (i.e., expectaion) of your outcome variable(s), **Y**, to our linear predictor. Different types of outcome variables each have a different "canonical" link function, as summarized in the table below.
+
+|                  |                   |                                               |
+|------------------|------------------|-------------------------------------|
+| **Distribution** | **Link Function** | **Example Use Case**                          |
+| Normal           | Identity          | DV is continuous response.                    |
+| Binomial         | Logit             | DV is binary response                         |
+| Poisson          | Log               | DV is a fixed count response.                 |
+| Gamma            | Reciprocal        | Continuous, but highly skewed, distributions. |
+
+You don't need to memorize these - the key idea is that sometimes you want (or need) to adjust the parameters of the linear model in order to better fit the type of data that you are working with.
+
+By adapting our linear model, we have extended the general linear model to something called **the generalized linear model (glm).**
+
+![](images/clipboard-487462471.png)
+
+### Okay, But How Do I Do This in R, Professor?
+
+Let's work through an example. We'll tweak our good friend `lm` slightly by calling the `glm()` function, and then specifying which family of distributions we are working with. in this case, the binomial family since our DV is binary.
+
+(Note that in order to adhere to the requirements of a binomial distribution, I need to encode the two groups of my categorical outcome as 0 and 1.
+
+```{r}
+h$sexR <- h$sex - 1
+glmod <- glm(sexR ~ test_mean, data = h, family = "binomial")
 ```
 
-### Would You Like to Learn More??
+Before we get into the intercepts and slopes and all that, let's graph the data because, as y'all know....a picture is worth...yes, that's right class...a thousand words.
 
--   [Some more notes on multicollinearity and VIFs.](https://online.stat.psu.edu/stat462/node/180/)
--   Take Aaron Fisher's class on Structural Equation Modeling?
--   [Read through Peng Ding (Prof in Cal Stats Department) Book on Causal Inference](https://arxiv.org/pdf/2305.18793)
+```{r}
+plot(sexR ~ test_mean, data = h,
+     xlab = "Testosterone",
+     ylab = "Probability of Being Female")
+curve(predict(glmod, data.frame(test_mean=x), type = "resp"), add = T, col = "red", lwd = 2)
+```
+
+The red line is our estimated probability of being female for a person with a certain level of testosterone.
+
+-   Unlike the linear model, this function does not go beyond the limit of (0,1).
+
+-   This function is not linear, meaning the slope is not constant for all levels of testosterone. For example, a difference in testosterone of 10 means less in terms of change in probability of being female at high levels of testosterone than at lower levels. (Carter! I believe this addresses your question from before Spring Break.)
+
+The results of our model will describe these adjusted line. Unfortunately, things get a little confusing when we look at the intercept and slopes, because the default for the binomial family is to report terms in log-odds.
+
+#### Interpreting the Intercept
+
+There are two methods of interpreting the intercept (that I know of.)
+
+##### Exponentiate the Intercept
+
+We can [exponentiate](http://www.mathsisfun.com/algebra/exponents-logarithms.html) the intercept to transform the estimate into the odds of the DV occuring when the X value is zero.
+
+Odds are defined as $\text{odds} = \frac{p}{(1-p)}$.
+
+```{r}
+round(exp(coef(glmod)[1]), 2)
+```
+
+So the intercept in this case describes the probability of being female, divided by the probability of not being female, for someone with zero testosterone. In other words, there's a much, much higher odd of being female for someone with zero testosterone.
+
+##### Inverse Logit Function
+
+If we take the inverse of the logit function of the intercept, the intercept is the *probability* of Y, when all X values are zero. This is often the clearest way to interpret the intercept (if that statistic is relevant) in my opinion.
+
+$\huge \text{inverse logit = } \frac{1}{1 + e^{-x}} \text{ or } \frac{e^{x}}{1 + e^{x}}$
+
+```{r}
+exp(coef(glmod)[1]) / (1 + exp(coef(glmod)[1]))
+```
+
+So, there's a 99.19% chance that a participant with zero testosterone would be female.
+
+#### Interpreting the Slope.
+
+When we exponentiate the slope, we convert the estimate into an odds ratio. The odds ratio describes how the odds change between two different outcomes.
+
+Note that an odds ratio of 1 would mean that there is no change in the odds of Y as X changes (similar to a slope of zero in a general linear model).
+
+One nice feature of odds ratios is that they are are scalable - you can keep doubling the odds, and not go beyond a probability of 1.
+
+```{r}
+exp(coef(glmod)[2])
+```
+
+The odds ratio is .91, which is .09 less than an odds ratio of 1. This means that each unit increase in testosterone decreases the probability of being female by .09 or 9%. (The change in probability is in reference to an odds ratio of 1.)
+
+#### Gelman & Hill's "Divide by Four" Rule.
+
+Many people find odds and odd ratios confusing. The estimable Gelman & Hill (2007) agree, and define a "divide by four" rule. Where you take the regression coefficient, divide it by four, and that number gives you the upper bound of the predictive difference in Y that corresponds to a 1-unit increase in X.
+
+```{r}
+coef(glmod)/4
+```
+
+So, this method would suggest that a unit increase in testosterone would decrease the probability of being female by *no more than 2%*.
+
+![](images/clipboard-221639646.png)
+
+### That Inferential Statistics Stuff
+
+We can extract inferential statistics using the `summary()` function, as before.
+
+```{r}
+summary(glmod)
+```
+
+Much is the same as before:
+
+-   We have estimates of the slope. Note that these are not-yet exponentiated.
+
+-   We have estimates of standard errors and p-values with stars that immediately show us whether our results are statistically significant or not.
+
+A few things are different:
+
+-   *There's a dispersion parameter.* This is part of the link function, and describes how variance in our outcome variable depends on the mean. This is always set to 1 in a logistic regression; there are other forms of regression ("quasi-logistic" and "quasi-poisson" for example where the dispersion parameter can be increased to account for greater variablility in the outcome.)
+
+-   *R no longer reports an* $R^2$ value. The $R^2$ statistic is not appropriate for generalized linear models, since we are not calculating errors in the same way (i.e., we are not adding up . There are various methods of calculating what's called a "pseudo $R^2$", which estimates this statistic, and often is reported via other functions (see below).
+
+-   *Instead, R reports two deviance statistics - null and residual.* Deviance is a measure of error - we "want" deviance to be low, and expect it to decrease by at least one for every new predictor we add to our model. The null deviance is the error when we have no predictor in our model (and are just using a constant term - the baseline probability of the outcome variable - to make predictions). The residual deviance is the deviance for this model; the fact that there's a decrease of 53.87 exceeds our expected decrease of 1, and tells me the model has improved our predictions.
+
+-   *R reports the Akaike Information Criterion (AIC)*. We will talk about this more next week, when we talk about model fit and comparing models, but the TLDR is this is a way to evaluate how "good" a model is at making predictions, with a lower AIC describing a model that better fits the data. The scale of this estimate - like the deviance statistics - is dependent on the data and sample size, so AIC is meant to compare one model to another from the same datset.
+
+There are a few different packages that make reporting the effects of a logistic regression easier. One example is the `summ()` function from the `jtools` package (which I think we looked at before to make nice multiple regression tables.) The function works the same, but we will add an argument to tell the function to exponentiate the coefficients to aid in the interpretation, and an argument to add confidence intervals. ([See the documentation](https://www.jtools.jacob-long.com/articles/summ.html#summ) for the function for other arguments to add.)
+
+```{r}
+library(jtools)
+export_summs(glmod, exp = TRUE, error_format = "[{conf.low}, {conf.high}]")
+```
+
+Note that the default output for this function reports another statistic - the Bayesian Information Criterion (which is another way to evaluate the model) as well as some Pseudo $R^2$ statistics (there are different methods of calculating this; not sure which one the authors defaulted to.)
+
+### Would You Like To Learn More?
+
+You don't have to take my word for it. Below are a few readings that will help support your understanding of generalized linear models. Let me know if you find other useful resources!
+
+-   Gelman & Hill (2007). Chapter 5 is focused on logistic regression; they work through a few examples, talk about interaction effects and scaling / centering variables; making specific preditions....very thorough. I think you can easily find this online, but let me know if you want a .pdf.
+-   [A textbook chapter on generalized models.](https://www.datascienceblog.net/post/machine-learning/interpreting_generalized_linear_models/) I really like this researcher's approach to linear models, and while this textbook chapter is a little more spare than some of the other chapters, it presents a nice overview of why and how we use generalized linear models.
+-   [A stats blog](https://www.datascienceblog.net/post/machine-learning/interpreting_generalized_linear_models/) works through the output of a generalized linear model in R; focuses on a poisson distribution, but many of the principles are the same (and good to see a different example of a similar concept.)
+
+## Lab 9 and Farewell.
+
+For Lab 9, you'll work with a new dataset to define a model that you think would best test a researcher's theory, then compare your model to the model the researcher defined in the original paper. You'll also practice working with an interaction effect (what we talked about in Week 8) and logistic regression.
+
+Okay, that's all. Hope this made sense, and feel free to reach out on Discord / e-mail as needed. Yeah!

@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.555">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Lecture 8 - Experiments and Models - Asynchronous Class</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+          <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://catterson.github.io/ystats/"> 
+<span class="menu-text">Why Statistics?</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../calstats/calstatsSP25.html"> 
+<span class="menu-text">Cal Stats [Psych 101]</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../gradstats/gradstatsSP25.html"> 
+<span class="menu-text">Grad Stats [Psych 205]</span></a>
+  </li>  
+</ul>
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lecture 8 - Experiments and Models - Asynchronous Class</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introductions" class="level2">
+<h2 class="anchored" data-anchor-id="introductions">Introductions</h2>
+<p>Hi class! It’s me, your professor. In text format. These are words that I wrote; are you hearing my voice in your head? In any case, thanks for your patience and flexibility; it is much appreciated (and needed).</p>
+<p>Here’s a short video where I say hi and go over this document.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/BIxJlpnRIpg" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="weekly-to-do-list." class="level3">
+<h3 class="anchored" data-anchor-id="weekly-to-do-list.">Weekly To-Do List.</h3>
+<p>Before next Friday (4/11) please complete the following.</p>
+<ol type="1">
+<li><strong>Work through this lecture document and complete the Lecture 8 Quiz.</strong> The quiz focuses on analyzing and interpreting the dataset we collected before spring break, on “cat speeds”. I have some videos to help walk y’all through this.</li>
+<li><a href="https://catterson.github.io/ystats/chapters/9R_SamplingError.html"><strong>Read Chapter 9</strong></a> <strong>and Complete Quiz 9.</strong> This chpater is a lot. We will 100% review this in lecture next week; but good to get an introduction to the topic. It’s very easy to do in R :)</li>
+<li><a href="https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0#bookmark=id.70lgolty5k8a"><strong>Complete Milestone #3</strong></a><strong>.</strong> You’ll work on this in discussion section. There are two parts - a draft of your methods section, and getting your final project data exported from Google Forms and imported into R so you can start data analysis :)</li>
+<li><strong>There is no lab assignment this week.</strong> Just all the other stuff haha. :) &lt;3</li>
+</ol>
+</section>
+<section id="lecture-table-of-contents" class="level3">
+<h3 class="anchored" data-anchor-id="lecture-table-of-contents">Lecture Table of Contents</h3>
+<p>There are three parts to this lecture document; I think this document will take an average of 60 minutes to complete (sd = 30 minutes?) so please plan accordingly.</p>
+<ol type="1">
+<li><strong>Check-In.</strong> On interpreting linear regression with a categorical IV.</li>
+<li><strong>Lecture.</strong> More thoughts on experiments.</li>
+<li><strong>Lecture and Quiz.</strong> On the “Anchoring” dataset we collected last week. With a short quiz, based on the lecture and video.</li>
+</ol>
+<p>I’m looking forward to seeing everyone again on Friday, April 11th. Let me know if you have questions or comments on the Discord. Take care!</p>
+<p>:Prof.</p>
+</section>
+</section>
+<section id="check-in." class="level2">
+<h2 class="anchored" data-anchor-id="check-in."><a href="https://docs.google.com/forms/d/e/1FAIpQLScvaoHqhyguIXKfj9m7q5ykKMryRI9exKUdRU_7l98xAjU4dw/viewform?usp=sf_link">Check-In.</a></h2>
+<p>Professor wanted to see if calling your parents / guardians was related to having a more satisfied life. He analyzed data from the mega dataset, and defined the linear model below (satisfaction with life ~ call.folks (yes / no) + error. Use the following output to answer the check-in questions (submit answers to the link above).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(SWLS <span class="sc">~</span> call.folks, <span class="at">data =</span> m)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">coef</span>(mod), <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  (Intercept) call.folksYes 
+         3.26          0.12 </code></pre>
+</div>
+</div>
+<section id="the-questions." class="level3">
+<h3 class="anchored" data-anchor-id="the-questions.">The Questions.</h3>
+<ul>
+<li>What is the predicted value of satisfaction with life for someone who does not call their parents?</li>
+<li>What is the predicted value of satisfaction with life for someone who calls their parents?</li>
+<li>What is the difference in satisfaction with life between someone who does and does not call their parents?</li>
+<li>Can professor say that calling parents CAUSES people to have a different satisfaction with life? Why / why not?</li>
+</ul>
+</section>
+<section id="check-in-key." class="level3">
+<h3 class="anchored" data-anchor-id="check-in-key.">Check-In Key.</h3>
+<p>When you are done, watch the video below to see a review of the answers. Yes, you can just watch the video (or submit nothing) but trying on your own is the point!</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/hTod_RIafn8" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>Here’s a <a href="https://www.dropbox.com/scl/fi/2p2czxbzy44x8xrc2nxy4/8T_CheckInAsynch.R?rlkey=21mzufg608ne6xujap9kc8s7y&amp;dl=0">link to the R Script</a> professor used to generate the model / the key.</p>
+</section>
+</section>
+<section id="lecture-experimental-methods" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-experimental-methods">Lecture : Experimental Methods</h2>
+<section id="manipulation-in-depth-watch-out-for-misleading-control-variables" class="level3">
+<h3 class="anchored" data-anchor-id="manipulation-in-depth-watch-out-for-misleading-control-variables">Manipulation in Depth : Watch out for Misleading Control Variables</h3>
+<p>The manipulation is when researchers create multiple groups (experimental and / or control conditions) and change ONE THING about a person’s experience in each group, and then observe the outcome. The change that experimenters make to the conditions is a source of variation (the independent variable), and the outcome is the dependent variable.</p>
+<ul>
+<li><strong>the treatment / experimental condition</strong> is when the IV is present (the change happens). For example, in a drug study, the treatment / experimental condition would be the drug that the researchers give the participant.</li>
+<li><strong>control / comparison condition</strong> is when the IV is absent (the default experience / no change). Critically, you want everything about the treatment and control condition to be the same except for the one thing (the IV) that you are manipulating. For example, in a drug study the control condition would be a pill that looks like the drug, but doesn’t have the key chemical compound the researchers are testing.</li>
+</ul>
+<p><strong>KEY IDEA : the control / comparison group matters!</strong> In drug studies, the control group is clear. However, in other contexts what a “good control” is much harder to define, and researchers can be a little misleading (or biased) when creating the control and experimental groups. So it’s an important skill to think about the control condition, and whether it’s a fair comparison.</p>
+<p>For example, let’s say I wanted to test whether attending a 3-hour statsiticss and research methods lecture decreases student boredom. What’s the control condition here?</p>
+<ul>
+<li><strong>if I wanted to show that a 3-hour statistics and research methods lecture DECREASES boredom</strong>, I could compare the lecture to things that are more boring (like watching paint dry for three hours, or reading the dictionary for three hours.)</li>
+<li><strong>If I wanted to show that a 3-hour statistics and research methods lecture INCREASES boredom,</strong> I could compare the lecture to things that are less boring, like watching a super-exciting movie for 3-hours, or maybe a professional lecture guest starring super-famous celebrities like Chancellor Rich Lyons.</li>
+</ul>
+<p>This example may seem obvious, but thinking through what the experimental / control conditions are can yield surprising results.</p>
+</section>
+<section id="real-life-examples-of-difficult-control-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="real-life-examples-of-difficult-control-conditions">Real-Life Examples of Difficult Control Conditions</h3>
+<p>Watch the video below, where I walk through two famous studies that have difficult control conditions.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/kNZf0uzrVyQ" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="power-posing-study1" class="level4">
+<h4 class="anchored" data-anchor-id="power-posing-study1">Power Posing Study<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></h4>
+<p><img src="images/clipboard-2384287427.png" class="img-fluid"></p>
+<p><img src="images/clipboard-84627212.png" class="img-fluid"></p>
+</section>
+<section id="gratitude-study." class="level4">
+<h4 class="anchored" data-anchor-id="gratitude-study.">Gratitude Study.</h4>
+<ul>
+<li><p>Article : Seligman, M. E., Steen, T. A., Park, N., &amp; Peterson, C. (2005). Positive psychology progress: empirical validation of interventions.&nbsp;<em>American psychologist</em>,&nbsp;<em>60</em>(5), 410.</p></li>
+<li><p><a href="https://ggia.berkeley.edu/practice/gratitude_journal#:~:text=Write%20down%20or%20type%20up,emotions%20that%20come%20with%20it.">Practice</a></p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2207627893-01.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<ol type="1">
+<li>What did the experimenters manipulate? Which of these were experimental and control conditions?</li>
+<li>What are some other things that differ between the experimental and control conditions (potential confounds)?</li>
+<li>ON DISCORD (Optional) :
+<ol type="1">
+<li>What’s something that you are grateful for?</li>
+<li>What are some other (better) control conditions that you might include in this study?</li>
+</ol></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="lecture-anchoring-study-from-lecture-7" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-anchoring-study-from-lecture-7">Lecture : Anchoring Study (From Lecture 7)</h2>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/vK0UYb2iKa0" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="anchoring-experimental-design" class="level3">
+<h3 class="anchored" data-anchor-id="anchoring-experimental-design">Anchoring : Experimental Design</h3>
+<p>Below are the three versions of the study that students saw in Week 7. Do you remember which condition you were in? Could you tell that you were in an experiment??</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>High Condition</th>
+<th>Low Condition</th>
+<th>Control Condition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="images/clipboard-3273817600.png" class="img-fluid"></td>
+<td><img src="images/clipboard-1517485462.png" class="img-fluid"></td>
+<td><img src="images/clipboard-3157047965.png" class="img-fluid"></td>
+</tr>
+</tbody>
+</table>
+<p>Below are examples of how the anchoring study was an example of an experiment.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 66%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Key Term and Definition</strong></td>
+<td><strong>Example in the Anchoring Study</strong></td>
+</tr>
+<tr class="even">
+<td><strong>outcome =</strong> THE DV = what was being measured <em>after</em> the manipulation?</td>
+<td>The person’s own answer to the specific question (i.e., their idea about the speed of a cat, the height of a tree, and the amount of meat eaten.)</td>
+</tr>
+<tr class="odd">
+<td><strong>manipulation</strong> = THE IV = what were ALL the things that the researcher changed about a person’s experience (across experimental conditions)?</td>
+<td><p>The context given before the person provided their own answer was manipulated; there were three groups :</p>
+<ul>
+<li><p>HIGH : the person was asked whether the answer was more or less than a very large number (e.g., “can a cat run more or less than 40 miles per hour.”)</p></li>
+<li><p>LOW : the person was asked whether the answer was more or less than a very small number (e.g., “can a cat run more or less than 3 miles per hour.”)</p></li>
+<li><p>CONTROL : no context was given before the person made their own rating.</p></li>
+</ul>
+<p>Everything else was the same across the conditions; the font was the same; the types of questions was the same; the wording was the same; the color was the same; etc.</p></td>
+</tr>
+<tr class="even">
+<td><strong>random assignment</strong> = were all possible confound variables balanced across conditions?</td>
+<td><p>I’ll show evidence of random assignment in the lecture video that supports these notes.</p>
+<p>There was one variable that was not randomly assigned - the month you were born in was used to assign people to one of the three groups (Google forms does not have a built-in random assignment feature.) For example, people in the HIGH condition were all born between January and April.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>double-blind</strong> = did the study avoid demand characteristics (where experimenter might have influenced behavior when giving the study) &amp; placebo effects (where participants might have acted in a certain way because they knew they were being experimented on)?</td>
+<td><p>The google form didn’t really change its behavior when assigning people to one group or another; we can say that it was blind to the participants’ condition because it is a computer.</p>
+<p>The participants may or may not have been blind to the study condition; I didn’t advertise this was an experiment, you were supposed to do the survey on your own (“no talking with your buddy”) and we hadn’t yet done (or learned) about experiments yet. Still, I imagine there’s some amount of skepticism among students that may have influenced the results. This lowers the external validity / generalizability of the study somewhat. (However, we gain a lot of power in being able to control people’s experience with this study.)</p></td>
+</tr>
+<tr class="even">
+<td><strong>generalizability =</strong> did the study have external validity? what was the effect size (<span class="math inline">\(R^2\)</span>)?</td>
+<td>It’s unclear how questions about cat speeds, tree heights, and meat consumption are relevant to the real world. But as I describe in the video, this study was partially responsible for the researchers’ winning the Nobel Prize….in economics. For what it’s worth, I’ve seen this study replicate in every. single. semester. over the last….8 years? I’ve been using this as an example. It’s a very reliable effect; and has a fairly large <span class="math inline">\(R^2\)</span> value.</td>
+</tr>
+<tr class="odd">
+<td><strong>ethics =</strong> should researchers do this type of study? (Predict &amp; Control)</td>
+<td>Curious your thoughts! Did you think this research is ethical???</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="anchoring-data-to-test-the-theory" class="level3">
+<h3 class="anchored" data-anchor-id="anchoring-data-to-test-the-theory">Anchoring : Data to Test the Theory</h3>
+<ul>
+<li><p><strong>Question :</strong> Will the number that people see BEFORE making their own rating influence their decision?</p></li>
+<li><p><strong>Theory : Which pattern in the data do you expect to observe? Vote on Discord BEFORE analyzing the data / watching the video (or not.)</strong></p>
+<ul>
+<li>OPTION A: People who see a HIGHER number before making their own rating will make a HIGHER number than people who see the LOWER number.</li>
+<li>OPTION B : People who see a LOWER number before making their own rating will make a HIGHER number than people who see the HIGHER number.</li>
+<li>OPTION C : There will be NO DIFFERENCES between the groups.</li>
+</ul></li>
+<li><p><strong>Linear Models (DV ~ IV). To test this theory, we will need to define three separate linear models.</strong></p>
+<ul>
+<li><p>cat speeds ~ condition</p></li>
+<li><p>tree heights ~ condition</p></li>
+<li><p>meat consumption ~ condition</p></li>
+</ul></li>
+<li><p><strong>Data :</strong> <a href="https://www.dropbox.com/scl/fi/rf6xsez360b6y2kgrdkkx/anchorSP25.csv?rlkey=hycm0rckj0519t0uyorzpo9ak&amp;dl=0">Download the “anchor_SP25.csv” dataset here</a>. These data were collected</p></li>
+</ul>
+</section>
+<section id="anchoring-cat-speed-example" class="level3">
+<h3 class="anchored" data-anchor-id="anchoring-cat-speed-example">Anchoring : Cat Speed Example</h3>
+<p>Watch the video tutorial below, where I walk through how to test the researchers’ question (does the number that people see before making their own rating influence their own rating?)</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/AjwqZOYdvDU" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<ul>
+<li><a href="https://www.dropbox.com/scl/fi/shcumov49pylefrieqb3f/8T_AnchorAsynch.R?rlkey=d7e4toy55v66bjkramp0oqatt&amp;dl=0">Link to R Script</a></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Loading Data and Data Cleaning</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gplots)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'gplots'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:stats':
+
+    lowess</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>anchor <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/Class Datasets/anchorSP25.csv"</span>, <span class="at">stringsAsFactors =</span> T)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>anchor<span class="sc">$</span>catspeed[anchor<span class="sc">$</span>catspeed <span class="sc">&gt;</span> <span class="dv">100</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="do">#### Define and Graph the Linear Model</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>cat.mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(catspeed <span class="sc">~</span> condition, <span class="at">data =</span> anchor)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(catspeed <span class="sc">~</span> condition, <span class="at">data =</span> anchor, <span class="at">connect =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8X_3LevelExperiment_Asynch_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(cat.mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  (Intercept) conditionHIGH  conditionLOW 
+    15.379545     18.297874     -5.650974 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### Interpret the Linear Model</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cat.mod)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3169796</code></pre>
+</div>
+</div>
+</section>
+<section id="anchoring-study-in-conclusion-who-cares-about-cat-speeds" class="level3">
+<h3 class="anchored" data-anchor-id="anchoring-study-in-conclusion-who-cares-about-cat-speeds">Anchoring Study in Conclusion (Who Cares About Cat Speeds?)</h3>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/9xhs8mOkcqA" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<section id="lecture-quiz-anchoring-for-tree-heights-meat-consumption" class="level3">
+<h3 class="anchored" data-anchor-id="lecture-quiz-anchoring-for-tree-heights-meat-consumption">Lecture Quiz : Anchoring for Tree Heights &amp; Meat Consumption</h3>
+<p>Use the <a href="https://www.dropbox.com/scl/fi/rf6xsez360b6y2kgrdkkx/anchorSP25.csv?rlkey=hycm0rckj0519t0uyorzpo9ak&amp;dl=0">“anchor_SP25.csv” dataset</a> to test whether the experimental manipulation influenced people’s judgments about how tall trees were, and how much meat the average american would eat.</p>
+<p>Note that the variables treeheight and meateat have outliers. Remove outliers for these variables based on the following rules:</p>
+<ul>
+<li><p>treeheight : any response greater than 1000 ft (the height of a 10-story building)</p></li>
+<li><p>meateat : any response greater than 1095 (which would be the average american eating three pounds of meat per day, every day for a year.)</p></li>
+</ul>
+<p>Then, define two linear models (model 1 = treeheight ~ condition; model 2 = meateat ~ condition), and use these models to answer the questions below. Round to the nearest whole number (no decimal places).</p>
+<ol type="1">
+<li>What is the predicted value of treeheight for someone in the control condition?</li>
+<li>What is the predicted value of treeheight for someone in the high condition?</li>
+<li>What is the predicted value of treeheight for someone in the low condition?</li>
+<li>What percentage of variation in people’s ideas about tree heights is explained by the experimental manipulation (i.e., what is the <span class="math inline">\(R^2\)</span> value for this model?)</li>
+<li>What is the predicted value of meateat for someone in the control condition?</li>
+<li>What is the predicted value of meateat for someone in the high condition?</li>
+<li>What is the predicted value of meateat for someone in the low condition?</li>
+<li>What percentage of variation in people’s ideas about meat consumption is explained by the experimental manipulation (i.e., what is the <span class="math inline">\(R^2\)</span> value for this model?)</li>
+</ol>
+<p>Feeling stuck? <a href="https://youtu.be/AMcSJtYgY24">Here’s a video where I walk through the code you’ll need</a>.</p>
+</section>
+</section>
+<section id="the-end." class="level2">
+<h2 class="anchored" data-anchor-id="the-end.">THE END.</h2>
+<p>Thanks for reading and watching. Complete this check-out</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Carney, D. R., Cuddy, A. J., &amp; Yap, A. J. (2010). Power posing: Brief nonverbal displays affect neuroendocrine levels and risk tolerance. Psychological science, 21(10), 1363-1368. <a href="https://faculty.haas.berkeley.edu/dana_carney/power.poses.PS.2010.pdf">link to article</a> + <a href="https://www.sciencedaily.com/releases/2017/09/170911095932.htm">link to summary of non-replication</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
