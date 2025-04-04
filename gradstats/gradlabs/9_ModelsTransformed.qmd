@@ -78,7 +78,7 @@ Rather than predict a specific "value" of male or female, we will estimate the p
 We do this using a "link" function that “links” the mean (i.e., expectaion) of your outcome variable(s), **Y**, to our linear predictor. Different types of outcome variables each have a different "canonical" link function, as summarized in the table below.
 
 |                  |                   |                                               |
-|------------------|------------------|-------------------------------------|
+|------------------|------------------|------------------------------------|
 | **Distribution** | **Link Function** | **Example Use Case**                          |
 | Normal           | Identity          | DV is continuous response.                    |
 | Binomial         | Logit             | DV is binary response                         |

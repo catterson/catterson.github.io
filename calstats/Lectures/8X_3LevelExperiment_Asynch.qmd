@@ -110,11 +110,23 @@ Watch the video below, where I walk through two famous studies that have difficu
 
 ![](images/clipboard-2207627893-01.png){fig-align="center"}
 
-1.  What did the experimenters manipulate? Which of these were experimental and control conditions?
-2.  What are some other things that differ between the experimental and control conditions (potential confounds)?
-3.  ON DISCORD (Optional) :
-    1.  What's something that you are grateful for?
-    2.  What are some other (better) control conditions that you might include in this study?
+::: {.callout-tip collapse="true"}
+##### 1. What did the experimenters manipulate? Which of these were experimental and control conditions?
+
+The experimenters manipulated the specific instructions that people received; there were five experimental conditions (giving people tasks like practicing gratitude) and one control condition - a task to write about early memories.
+:::
+
+::: {.callout-tip collapse="true"}
+##### 2. What are some other things that differ between the experimental and control conditions (potential confounds)?
+
+Early memories and gratitude are both about writing some kind of self-reflection. Yet gratitude is focused on the present, and early memories are on the past. Furthermore, gratitude is focused on positive attributes, while early memories are focused on potentially negative experiences. I wonder how much of the benefit of gratidue reported in these studies is about not triggering negative memories.
+:::
+
+##### 3. ON DISCORD (Optional) :
+
+-   What's something that you are grateful for?
+
+-   What are some other (better) control conditions that you might include in this study?
 
 ## Lecture : Anchoring Study (From Lecture 7)
 
@@ -202,10 +214,10 @@ coef(cat.mod)
 #### Interpret the Linear Model
 summary(cat.mod)$r.squared
 ```
+
 ### Anchoring Study in Conclusion (Who Cares About Cat Speeds?)
 
 {{< video https://youtu.be/9xhs8mOkcqA >}}
-
 
 ### Lecture Quiz : Anchoring for Tree Heights & Meat Consumption
 
