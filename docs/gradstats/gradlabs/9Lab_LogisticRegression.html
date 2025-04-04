@@ -110,36 +110,54 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Feel free to work with others on this; think it would be very cool to treat this as a group assignment. Or go lone wolf (AWOOOOOO.)</p>
-<p>Data and Paper</p>
-<p>Link to Dataset.</p>
-<p>Description of Variables : These data were adapted from a study on Dehumanizing Language and Attitudes Toward Immigrants in the United States. There was no original codebook to the study, but Professor did some detective work and identified the following variables.</p>
-<p>v1-v10 : meta data collected by the survey tool (Qualtrics)</p>
-<p>consent : whether the participant consented to the study.</p>
-<p>age : participant’s age</p>
-<p>gender : 1 = Male; 2 = Female</p>
-<p>race : the researchers did not include a codebook for this variable; 5 = white participants; 6 = other.</p>
-<p>nondht : whether participants read a text using non-dehumanizing language about immigrants</p>
-<p>panas_3 : how much participants report feeling anger toward immigrants</p>
-<p>dh_treat : The experimental condition; participants read a text adapted from political speeches that described immigrants in non-dehumanizing (dh_treat = 0) or dehumanizing (dh_treat = 1) terms.&nbsp;</p>
-<p>Immigration Measures : After reading the text, participants were asked about their attitudes toward immigration.</p>
-<p>imm1 : “Do you think the number of immigrants from foreign countries who are permitted to come to the United States to live should be INCREASED, LEFT THE SAME as it is now, or DECREASED?” [higher numbers = more support for immigration]</p>
-<p>imm2 : “Would you favor or oppose legislation to increase border security in order to make it more difficult for individuals to enter the country?” [higher numbers = less support for immigration]</p>
-<p>imm3 : “Would you favor or oppose legislation that would allow undocumented immigrants already in the country to apply for legal status?” [higher numbers = more support for immigration]</p>
-<p>Evaluation of Text : After reading the text, participants were asked about their thoughts toward the text.</p>
-<p>texteval_1 : the text was realistic</p>
-<p>texteval_3 : the text was persuasive</p>
-<p>texteval_4 : ?????</p>
-<p>texteval_5 : the text was unnatural</p>
-<p>Lab Questions</p>
-<p>The author wanted to test “how the dehumanization of immigrants influences immigration policy attitudes”. To do this, they conducted an experiment, in which participants read either a dehumanizing or non-dehumanizing political speech about immigrants (variable = dh_treat) and then measured participants attitudes about three separate immigration questions (variables = imm1, imm2, imm3). Without looking at the results of the original paper, think about what linear model(s) you would define (based on the variables measured) to test this research question. Make sure you consider relevant control and / or confound variables to include, and explain why these are needed. Then, define and interpret this linear model. Was dehumanizing political speech related to immigration policy attitudes? Report your results as you might in a paper or conference talk.</p>
-<p>Look at Table 1 from the original paper (do this after you complete Question 1!!!). How did the researcher’s linear models differ from your own? See if you can recreate the author’s results using the variables in the dataset (feel free to just focus on one model). Skim the method section; do you feel like this was a valid way to answer the question? Why / why not? What other questions do you have? (Note : I think there’s a lot to unpack about this paper! We will do so next week.)</p>
-<p>Before spring break, we talked about (and learned about) interaction effects. Think of an interaction effect that you might want to test with the data (e.g., does the relationship between experimental treatment and imm1 depend on the age of the participant, or whether the participant was female, or their education level?) Report the results of this interaction effect, and graph the interaction effect. Did the relationship between the two variables (DV and IV1) change depending on IV2???</p>
-<p>Okay, let’s practice logistic regression. Define a genearlized linear model to predict dh_treat from some of the other variables you included in your model in Question 1. Start with just one IV, and then if you are feeling the logistic regression vibes build complexity (work up to a model with at least 3 variables) and see how the statistics change. Or you can just do one model. Organize your results in a table and graph at least the first model. Self-care lab is over. Long live self-care lab.</p>
+<p>Feel free to work with others on this; think it would be <em>very cool</em> to treat this as a group assignment. Or go lone wolf (AWOOOOOO.)</p>
+<section id="data-and-paper" class="level2">
+<h2 class="anchored" data-anchor-id="data-and-paper">Data and Paper</h2>
+<p><strong>Link to Dataset.</strong></p>
+<p><strong>Description of Variables :</strong> These data were adapted from a study<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> on Dehumanizing Language and Attitudes Toward Immigrants in the United States. There was no original codebook to the study, but Professor did some detective work and identified the following variables.</p>
+<ul>
+<li><p><strong>v1-v10 :</strong> meta data collected by the survey tool (Qualtrics)</p></li>
+<li><p><strong>consent :</strong> whether the participant consented to the study.</p></li>
+<li><p><strong>age :</strong> participant’s age</p></li>
+<li><p><strong>gender :</strong> 1 = Male; 2 = Female</p></li>
+<li><p><strong>race :</strong> the researchers did not include a codebook for this variable; 5 = white participants; 6 = other.</p></li>
+<li><p><strong>nondht :</strong> whether participants read a text using non-dehumanizing language about immigrants</p></li>
+<li><p><strong>panas_3 :</strong> how much participants report feeling anger toward immigrants</p></li>
+<li><p><strong>dh_treat :</strong> The experimental condition; participants read a text adapted from political speeches that described immigrants in non-dehumanizing (dh_treat = 0) or dehumanizing (dh_treat = 1) terms.&nbsp;</p></li>
+<li><p><strong>Immigration Measures :</strong> After reading the text, participants were asked about their attitudes toward immigration.</p>
+<ul>
+<li><p><strong>imm1 :</strong> “Do you think the number of immigrants from foreign countries who are permitted to come to the United States to live should be INCREASED, LEFT THE SAME as it is now, or DECREASED?” [higher numbers = more support for immigration]</p></li>
+<li><p><strong>imm2 :</strong> “Would you favor or oppose legislation to increase border security in order to make it more difficult for individuals to enter the country?” [higher numbers = less support for immigration]</p></li>
+<li><p><strong>imm3 :</strong> “Would you favor or oppose legislation that would allow undocumented immigrants already in the country to apply for legal status?” [higher numbers = more support for immigration]</p></li>
+</ul></li>
+<li><p><strong>Evaluation of Text : After reading the text, participants were asked about their thoughts toward the text.</strong></p>
+<ul>
+<li><p><strong>texteval_1 :</strong> the text was realistic</p></li>
+<li><p><strong>texteval_3 :</strong> the text was persuasive</p></li>
+<li><p><strong>texteval_4 :</strong> ?????</p></li>
+<li><p><strong>texteval_5 :</strong> the text was unnatural</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="lab-questions" class="level2">
+<h2 class="anchored" data-anchor-id="lab-questions">Lab Questions</h2>
+<ol type="1">
+<li><p>The author wanted to test “how the dehumanization of immigrants influences immigration policy attitudes”. To do this, they conducted an experiment, in which participants read either a dehumanizing or non-dehumanizing political speech about immigrants (<strong>variable = dh_treat</strong>) and then measured participants attitudes about three separate immigration questions (<strong>variables = imm1, imm2, imm3</strong>). Without looking at the results of the original paper, think about what linear model(s) you would define (based on the variables measured) to test this research question. Make sure you consider relevant control and / or confound variables to include, and explain why these are needed. Then, define and interpret this linear model. Was dehumanizing political speech related to immigration policy attitudes? Report your results as you might in a paper or conference talk.</p></li>
+<li><p><a href="https://www.dropbox.com/scl/fi/c26fhjow3h2a7a8lxncfc/utych-2017-how-dehumanization-influences-attitudes-toward-immigrants.pdf?rlkey=6g0t7f3whpnpc0n4oqd9s7k4o&amp;dl=0"><strong>Look at Table 1 from the original paper</strong></a> <strong>(do this after you complete Question 1!!!).</strong> How did the researcher’s linear models differ from your own? See if you can recreate the author’s results using the variables in the dataset (feel free to just focus on one model). Skim the method section; do you feel like this was a valid way to answer the question? Why / why not? What other questions do you have? <em>(Note : I think there’s a lot to unpack about this paper! We will do so next week.)</em></p></li>
+<li><p><strong>Before spring break, we talked about (and learned about) interaction effects.</strong> Think of an interaction effect that you might want to test with the data (e.g., does the relationship between experimental treatment and imm1 depend on the age of the participant, or whether the participant was female, or their education level?) Report the results of this interaction effect, and graph the interaction effect. Did the relationship between the two variables (DV and IV1) change depending on IV2???</p></li>
+<li><p><strong>Okay, let’s practice logistic regression.</strong> Define a genearlized linear model to predict dh_treat from some of the other variables you included in your model in Question 1. Start with just one IV, and then if you are feeling the logistic regression vibes build complexity (work up to a model with at least 3 variables) and see how the statistics change. Or you can just do one model. Organize your results in a table and graph at least the first model. Self-care lab is over. Long live self-care lab.</p></li>
+</ol>
 
 
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Utych, S. M. (2018). How dehumanization influences attitudes toward immigrants. Political Research Quarterly, 71(2), 440-452.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
