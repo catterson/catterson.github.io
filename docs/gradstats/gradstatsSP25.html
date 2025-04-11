@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -164,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>3/7</td>
 <td><a href="../gradstats/gradlabs/6_TTests.html">Linear Models Pt. 3 (t-tests)</a></td>
-<td><a href="../gradstats/gradlabs/6Lab_TTests.html">Lab 6</a> (<a href="https://www.dropbox.com/scl/fi/das9rs981c2ato1da5ebd/6Lab_TTests.qmd?rlkey=l5um7supz9iu4dg07cgevcgzu&amp;dl=0">.qmd</a>) + Key</td>
+<td><a href="../gradstats/gradlabs/6Lab_TTests.html">Lab 6</a> (<a href="https://www.dropbox.com/scl/fi/das9rs981c2ato1da5ebd/6Lab_TTests.qmd?rlkey=l5um7supz9iu4dg07cgevcgzu&amp;dl=0">.qmd</a>) + <a href="https://www.dropbox.com/scl/fi/srsq7q880ajd72a5s2kem/Lab-6-Key.pdf?rlkey=ghvzyxh5nu7e8fkgdhsdgenw2&amp;dl=0">Key</a></td>
 <td><p>T-Tests : <a href="https://docs.google.com/document/u/0/d/1RmcnNoNWonIh9nsH9gEAABBy0lAECxwKdcdcnNNPPOk/edit">WS6</a> &amp; <a href="https://docs.google.com/document/u/0/d/1DJ-6L5Nv3FE8a0Seg7T6stX931YI8n93W2NByb_hNd8/edit">WS7</a>; <a href="https://learningstatisticswithr.com/book/ttest.html">LSR 13</a></p>
 <p>NHST : <a href="https://docs.google.com/document/u/0/d/1seGOwWAJFSuX0SpWXHQUH4wDGB_GgN94CO_sy-s4zRs/edit">WS8</a></p></td>
 </tr>
@@ -194,27 +194,27 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>4/11</td>
-<td>Linear Models Pt. 7 (Mixed Models)</td>
+<td><a href="../gradstats/gradlabs/10_ModelComparison.html">Linear Models : Model Comparison</a></td>
 <td>Lab 10</td>
-<td><a href="https://m-clark.github.io/mixed-models-with-R/introduction.html#overview">Mixed Models with R</a></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>4/18</td>
-<td><strong>Mega Exam</strong></td>
-<td></td>
-<td></td>
+<td>Linear Models Pt. 7 (Mixed Models)</td>
+<td>This is Not an Exam [Assigned]</td>
+<td><a href="https://m-clark.github.io/mixed-models-with-R/introduction.html#overview">Mixed Models with R</a></td>
 </tr>
 <tr class="even">
 <td>4/25</td>
-<td>PCA/FA</td>
+<td>Linear Models Pt. 8 (Mixed Models)</td>
 <td></td>
-<td><a href="https://m-clark.github.io/sem/graphical-models.html">Core SEM</a></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>5/2</td>
 <td>Conclusion / Project Workshop</td>
 <td>Project Due</td>
-<td></td>
+<td><a href="https://m-clark.github.io/sem/graphical-models.html">Core SEM</a></td>
 </tr>
 </tbody>
 </table>
@@ -226,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
 <table class="caption-top table">
 <colgroup>
 <col style="width: 28%">
-<col style="width: 33%">
+<col style="width: 34%">
 <col style="width: 36%">
 </colgroup>
 <tbody>
@@ -286,8 +286,8 @@ ul.task-list li input[type="checkbox"] {
 <p><em>Note : this is my first semester assigning this assignment for a graduate course, and open to other ideas about how this assignment might better serve as a relevant reflection of what you have learned in the class, and your interests as a researcher.</em></p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 90%">
-<col style="width: 9%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -328,8 +328,8 @@ ul.task-list li input[type="checkbox"] {
 <p>This presentation will be graded on the following criteria. Though I’m very open to ideas and suggestions about alternative ways you think we could effectively use this time!</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 88%">
-<col style="width: 11%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -404,18 +404,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -447,7 +436,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -455,7 +466,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

@@ -257,6 +257,10 @@ scatter3d(as.numeric(u$is.female), # IV1 - must be numeric (if not already)
           as.numeric(u$long.hair)) # IV2 - must be numeric (if not already)
 ```
 
+### Would You Like to Learn More?
+-   Take Aaron Fisher's class on Structural Equation Modeling.
+-   [Read through Peng Ding (Prof in Cal Stats Department) Book on Causal Inference](https://arxiv.org/pdf/2305.18793)
+
 ## lab 7.
 
 1.  Get more practice working with multiple regression, and calculating power (both post-hoc and for power planning purposes).

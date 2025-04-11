@@ -1,0 +1,228 @@
+---
+title: "Lecture 10 - Model Comparisons"
+format: 
+  html:
+      code-overflow: wrap
+---
+
+## Announcements
+
+-   **Lab 10 :** Our final lab, and a review of what we have learned. Write a tutorial on how to define and interpret a regression in R. Make sure to explain each step to a future student in this class using one of the datasets posted to Dropbox (or your final project data, if you can share it.) Your tutorial should include.
+    -   A clearly stated research question and theory you can test with the dataset.
+    -   Graphing the variables needed to for your model, and doing any data cleaning or transformations needed.
+    -   Defining Linear Model(s), and interpreting the slope(s), intercept, and $R^2$ for each model. Include a graph.
+    -   Explaining how a linear model changes when you standardize (z-score) the variables.
+    -   Defining, testing, and interpreting an interaction effect. Include a graph.
+    -   Estimating and interpreting sampling error of the linear model.
+    -   (Prof asks : is this too much???)
+-   **R Exam : Nah.**
+    -   Instead, the 10% will be assigned to a group-based (or solo) assignment.
+    -   I give you all the same dataset and two research questions. Y'all decide how to interpret and analyze the data to answer the question and prepare a 1-2 page summary report.
+    -   **Graded based on :**
+        -   1\) Clear description of data cleaning and outlier / removal decisions used.
+        -   2\) Defining a linear model and reporting slopes and inferential statistics in a table.
+        -   3\) Interpreting the results of the model; doing relevant model diagnostics.
+        -   4\) Putting together results in an organized report.
+        -   5\) Peer-feedback.
+-   **Our Remaining Class Time**
+    -   4/11 : Recap & Review & Model Comparisons \[Lab 10 Assigned\]
+    -   4/18 : Hierarchical Linear Models \[Not an R Exam Assigned\]
+    -   4/25 : More Hierarchical Linear Models? PCA? We will see!!
+    -   5/2 : Our last class can u believe it???? The learning has stopped. So review, discussion, tears of joy, project time.
+    -   **5/9 : No RRR Week Class.** We done.
+-   **Comments / Questions / Concerns / Ideas For How To Use The Time?**
+
+::: {.callout-tip collapse="true"}
+### Final Project Vision Board
+
+```{=html}
+<iframe width = "800" height = "500" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQlS-4M25eEO4w6GG-xLZd7RRUVs7KXOKDFDS4_KniAba4W_IU_1LoWI80zzAvRDtMBNVfPArixs_le/pubhtml?gid=770560266&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+```
+:::
+
+## [Check-In : Interpreting Interaction Effects](https://docs.google.com/forms/d/e/1FAIpQLSeEVV8NYLIPFdC1VbHT0KbTS-shG-F7UdrT7EzH7WC4AQS9VQ/viewform?usp=header)
+
+-   [Here's a link to the dataset](https://www.dropbox.com/scl/fi/yz6r4vghy935hzuqhv72m/World-happiness-report-2024.csv?rlkey=hw6jjjfdyx0p9uqj5ehy4w6e6&dl=0)
+-   [Here's a link to a description of the dataset.](https://www.kaggle.com/datasets/jainaru/world-happiness-report-2024-yearly-updated/data)
+
+### Use this Output to answer Part 1 of the Check-In.
+
+```{r}
+library(jtools)
+d <- read.csv("~/Dropbox/!GRADSTATS/gradlab/Datasets/Dehumanization - Utych/dehumanization_mturk_utych.csv", stringsAsFactors = T)
+mod4x <- glm(dh_treat ~ age + gender + educ + race+ timing, data = d, family = "binomial")
+export_summs(mod4x, exp = T)
+```
+
+### Use this Graph to answer Part 2 of the Check-In.
+
+::: {.callout-tip collapse="true"}
+### R Code for the graph
+
+```{r}
+h <- read.csv("~/Dropbox/!GRADSTATS/gradlab/Datasets/World Happiness Report - 2024/World-happiness-report-2024.csv", stringsAsFactors = T)
+library(ggplot2)
+library(jtools)
+
+## Some data cleaning.
+h$GDPcat <- ifelse(scale(h$Log.GDP.per.capita) > sd(h$Log.GDP.per.capita, na.rm = T), "High GDP", "Low GDP")
+h$GDPcat <- as.factor(h$GDPcat)
+plot(h$GDPcat)
+```
+:::
+
+```{r}
+ggplot(data = subset(h, !is.na(h$GDPcat)), aes(x = scale(Ladder.score), y = scale(Social.support), color = GDPcat)) + 
+  geom_point(alpha = .5, position = "jitter") +
+  geom_smooth(method = "lm") + labs(title = "Check-In Graph") + ylab("Social Support") + xlab("Happiness (Ladder Score)") +
+  theme_apa()
+```
+
+::: {.callout-tip collapse="true"}
+### R Code for the models
+
+```{r}
+mod1 <- lm(scale(Social.support) ~ scale(Log.GDP.per.capita), data = h)
+mod2 <- lm(scale(Social.support) ~ scale(Ladder.score), data = h)
+mod3 <- lm(scale(Social.support) ~ scale(Log.GDP.per.capita) + scale(Ladder.score), data = h)
+mod4 <- lm(scale(Social.support) ~ scale(Ladder.score) * scale(Log.GDP.per.capita), data = h)
+export_summs(mod1, mod2, mod3, mod4)
+```
+:::
+
+## Other Issues to Consider with Multiple Regression
+
+### 1. Which Model is "Best"???
+
+We can evaluate whether a model is an improvement (compared to the mean) by evaluating the "fit".
+
+Not enough to see an increase in $R^2$, because
+
+```{r}
+anova(mod1) # evaluating the model vs. the mean
+```
+
+When the models are "nested", we can compare one model to another.
+
+```{r}
+anova(mod1, mod4) # evaluating model 4 vs. model 1
+```
+
+The F-Distribution, Visualized
+
+```{r}
+#install.packages("sjPlot")
+library(sjPlot)
+
+dist_f(deg.f1 = 1, deg.f2 = 138) # the f-distribution for model 1
+dist_f(deg.f1 = 2, deg.f2 = 136) # the f-distribution for comparing model 1 and model 4
+```
+
+When comparing the fit of one model to a completely different model, will need another method.
+
+1.  **Bootstrapping.** You could resample the data, define two separate models, and evaluate the model fit in each resampled dataset, compare these models, then repeat the process many times. Yeah!
+2.  **There are many other estimates of model performance,** such as cross validation (see below) or fancier ML methods I don't know :)
+
+### 2. Watch Out For Overfitting.
+
+When your model is too complex, each variable in the model (parameter) increases the model complexity.
+
+-   complex models that perfectly fit the data are problematic: you essentially describing your sample, and not the underlying population (which is usually the goal of multiple regression.)
+
+-   We don’t expect over-fit models to generalize to other samples. \[[Image source](https://m-clark.github.io/book-of-models/machine_learning.html#fig-over-under)\]
+
+    ![](images/clipboard-1581050331.png)
+
+**Cross Validation.** To ensure your model generalizes to other samples, you can a) replicate, or b) cross-validate your data. Cross validation involves dividing your sample into sub-samples; define a model on one sample, then test the model in the other(s).
+
+![](images/clipboard-2069964306.png)
+
+Here's the most simple example of cross-validation ("train-test split"; "holdout cross validation")
+
+```{r}
+sample(0:1, nrow(h), replace = T, prob = c(.7, .3)) # using the sample function
+
+set.seed(424242)
+random.selection <- sample(0:1, nrow(h), replace = T, prob = c(.7, .3))
+htrain <- h[random.selection == 0,]
+htest <- h[random.selection == 1,]
+
+## Model in training Data
+train.mod <- lm(Social.support ~ Ladder.score * Log.GDP.per.capita, data = htrain)
+summary(train.mod)
+predict(train.mod) # the predicted values of the DV, based on our model.
+
+## Applying the model to our testing dataset.
+predict(train.mod, newdata = htest) # produces predicted values from our training model, using the testing data.
+predval.test <- predict(train.mod, newdata = htest)  # saves these predicted values from the testing dataset.
+
+## Calculating R^2
+test.mod.resid <- htest$Social.support - predval.test
+SSE <- sum(test.mod.resid^2, na.rm = T)
+SSE
+
+test.resid <- htest$Social.support - mean(htest$Social.support, na.rm = T)
+sum(test.resid^2)
+SST <- sum(test.resid^2, na.rm = T)
+
+(SST - SSE)/SST
+```
+
+You'll often see a few different methods of evaluating model fit.
+
+-   $R^2$. Our good friend. The proportion of variance explained by the model (vs. the mean)
+-   **Rooted Mean Squared Error (RMSE)**. The average amount of residual error (actual - predicted values).
+-   **Mean Absoulte Error.** The average of the absolute value of the residuals; less sensitive to outliers than RMSE or $R^2$.
+
+And there are different methods of defining the test and training datasets. And different packages and tutorials to do this. [Here's one, called "Leave one out cross validation - LOOCV"](https://www.sthda.com/english/articles/38-regression-model-validation/157-cross-validation-essentials-in-r/); gif below via Wikipedia.
+
+![](images/10_960px-LOOCV.gif){fig-align="center"}
+
+```{r}
+# install.packages("caret")
+library(caret)
+train.control <- trainControl(method = "LOOCV")
+loocvmod <- train(Social.support ~ Ladder.score * Log.GDP.per.capita, data = h, method = "lm",
+                  trControl = train.control, na.action = "na.omit")
+
+print(loocvmod)
+```
+
+### 3. Watch Out For Multicollinearity.
+
+If your independent variables are highly related, then your multivariate regression slope estimates are not uniquely determined. weird things happen to your coefficients, and this makes it hard to interpret your effects.
+
+-   **IN R :** check the "variance inflation factor" (VIF); a measure of how much one IV is related to all the other IVs in the model. "Tradition" is that if VIF is \> 5 (or I've also seen VIF \> 10) there's a problem in the regression.
+
+-   $\huge VIF_j=\frac{1}{1-R_{j}^{2}}$
+
+```{r}
+library(car)
+
+vif(mod4) # doesn't seem like multicollinearity is a problem.
+
+## creating a highly correlated second IV.
+jitter(h$Healthy.life.expectancy, 300)
+h$health2 <- jitter(h$Healthy.life.expectancy, 300)
+
+plot(h$health2, h$Healthy.life.expectancy) # yup.
+
+multimod <- lm(Ladder.score ~ Healthy.life.expectancy + health2, data = h) # both in the model.
+summary(multimod) # results! Things look good....
+vif(multimod) # ...but wait!
+```
+
+### 4. Don't Forget to Evaluate Those Regression Assumptions
+
+```{r}
+par(mfrow = c(2,2))
+plot(mod4)
+```
+
+### Would You Like to Learn More??
+
+-   [An overview of ML methods (including the partitioning approach) for evaluating models](https://m-clark.github.io/book-of-models/machine_learning.html#sec-ml-generalization)
+-   [Another overview of cross-validation methods.](https://www.sthda.com/english/articles/38-regression-model-validation/157-cross-validation-essentials-in-r/)
+-   [Some more notes on multicollinearity and VIFs.](https://online.stat.psu.edu/stat462/node/180/)
+
+## [Presentations](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)

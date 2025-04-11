@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -241,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(bucket <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 992</code></pre>
+<pre><code>[1] 994</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -278,9 +278,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Loading required package: mvtnorm</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'mvtnorm' was built under R version 4.3.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: 'mvtnorm'</code></pre>
 </div>
@@ -298,14 +295,11 @@ Attaching package: 'mvtnorm'</code></pre>
 <pre><code>Loading required package: sandwich</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'sandwich' was built under R version 4.3.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
 <pre><code>mediation: Causal Mediation Analysis
 Version: 4.5.0</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>modM <span class="ot">&lt;-</span> <span class="fu">lm</span>(test_mean <span class="sc">~</span> sexF, <span class="at">data =</span> h) <span class="co"># defining a model to predict our mediator (testosterone) from the IV (sex)</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>medmod <span class="ot">&lt;-</span> <span class="fu">mediate</span>(modM, mod3, <span class="at">treat =</span> <span class="st">"sexF"</span>, <span class="at">mediator =</span> <span class="st">"test_mean"</span>, <span class="at">dropobs =</span> <span class="st">"TRUE"</span>, <span class="at">boot =</span> <span class="cn">TRUE</span>, <span class="at">sims =</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>modM <span class="ot">&lt;-</span> <span class="fu">lm</span>(test_mean <span class="sc">~</span> sexF, <span class="at">data =</span> h) <span class="co"># defining a model to predict our mediator (testosterone) from the IV (sex)</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>medmod <span class="ot">&lt;-</span> <span class="fu">mediate</span>(modM, mod3, <span class="at">treat =</span> <span class="st">"sexF"</span>, <span class="at">mediator =</span> <span class="st">"test_mean"</span>, <span class="at">dropobs =</span> <span class="st">"TRUE"</span>, <span class="at">boot =</span> <span class="cn">TRUE</span>, <span class="at">sims =</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in mediate(modM, mod3, treat = "sexF", mediator = "test_mean", dropobs
 = "TRUE", : treatment and control values do not match factor levels; using
@@ -314,7 +308,7 @@ Female and Male as control and treatment, respectively</code></pre>
 <div class="cell-output cell-output-stderr">
 <pre><code>Running nonparametric bootstrap</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(medmod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(medmod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Causal Mediation Analysis 
@@ -322,10 +316,10 @@ Causal Mediation Analysis
 Nonparametric Bootstrap Confidence Intervals with the Percentile Method
 
                Estimate 95% CI Lower 95% CI Upper p-value  
-ACME             0.1947       0.0287         0.42   0.022 *
-ADE              0.0199      -0.3006         0.33   0.938  
-Total Effect     0.2146      -0.0302         0.45   0.082 .
-Prop. Mediated   0.9072      -3.2280         6.95   0.104  
+ACME             0.1947       0.0303         0.43   0.018 *
+ADE              0.0199      -0.3163         0.33   0.906  
+Total Effect     0.2146      -0.0400         0.47   0.082 .
+Prop. Mediated   0.9072      -3.3018         5.70   0.100 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -377,12 +371,12 @@ Simulations: 1000 </code></pre>
 <section id="picture-is-worththats-right-class1000-words." class="level3">
 <h3 class="anchored" data-anchor-id="picture-is-worththats-right-class1000-words.">Picture is worth…that’s right class…1000 words.</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> h, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">scale</span>(test_mean), <span class="at">y =</span> <span class="fu">scale</span>(narcicissm), <span class="at">color =</span> sexF)) <span class="sc">+</span> </span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> .<span class="dv">5</span>, <span class="at">alpha =</span> .<span class="dv">3</span>, <span class="at">position =</span> <span class="st">"jitter"</span>) <span class="sc">+</span> </span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"The Interaction Effect"</span>, <span class="at">x =</span> <span class="st">"Testosterone (Z-Scored)"</span>, <span class="at">y =</span> <span class="st">"Narcissism (Z-Scored)"</span>, <span class="at">color =</span> <span class="st">"Sex"</span>) <span class="sc">+</span> </span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm) <span class="sc">+</span> <span class="fu">theme_apa</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> h, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">scale</span>(test_mean), <span class="at">y =</span> <span class="fu">scale</span>(narcicissm), <span class="at">color =</span> sexF)) <span class="sc">+</span> </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> .<span class="dv">5</span>, <span class="at">alpha =</span> .<span class="dv">3</span>, <span class="at">position =</span> <span class="st">"jitter"</span>) <span class="sc">+</span> </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"The Interaction Effect"</span>, <span class="at">x =</span> <span class="st">"Testosterone (Z-Scored)"</span>, <span class="at">y =</span> <span class="st">"Narcissism (Z-Scored)"</span>, <span class="at">color =</span> <span class="st">"Sex"</span>) <span class="sc">+</span> </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm) <span class="sc">+</span> <span class="fu">theme_apa</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
@@ -407,9 +401,9 @@ Simulations: 1000 </code></pre>
 <h3 class="anchored" data-anchor-id="still-just-a-linear-model">Still just a linear model…</h3>
 <p>A linear model whose IVs <em>must</em> be standardized!!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(narcicissm <span class="sc">~</span> sexF <span class="sc">*</span> test_mean, <span class="at">data =</span> h)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>m4z <span class="ot">&lt;-</span> <span class="fu">scale_lm</span>(mod4, <span class="at">scale.response =</span> T) <span class="co"># you </span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>m4z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(narcicissm <span class="sc">~</span> sexF <span class="sc">*</span> test_mean, <span class="at">data =</span> h)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>m4z <span class="ot">&lt;-</span> <span class="fu">scale_lm</span>(mod4, <span class="at">scale.response =</span> T) <span class="co"># you </span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>m4z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -421,14 +415,14 @@ Coefficients:
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>cf4 <span class="ot">&lt;-</span> <span class="fu">coef</span>(m4z)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">scale</span>(narcicissm) <span class="sc">~</span> <span class="fu">scale</span>(test_mean), <span class="at">col =</span> sexF, <span class="at">data =</span> h, <span class="at">pch =</span> <span class="dv">19</span>)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a =</span> cf4[<span class="dv">1</span>],</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">b =</span> cf4[<span class="dv">3</span>], </span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">lwd =</span> <span class="dv">5</span>) <span class="co"># line for females</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a =</span> cf4[<span class="dv">1</span>] <span class="sc">+</span> cf4[<span class="dv">2</span>],</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">b =</span> cf4[<span class="dv">3</span>] <span class="sc">+</span> cf4[<span class="dv">4</span>], </span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">5</span>) <span class="co"># line for males</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>cf4 <span class="ot">&lt;-</span> <span class="fu">coef</span>(m4z)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">scale</span>(narcicissm) <span class="sc">~</span> <span class="fu">scale</span>(test_mean), <span class="at">col =</span> sexF, <span class="at">data =</span> h, <span class="at">pch =</span> <span class="dv">19</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a =</span> cf4[<span class="dv">1</span>],</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">b =</span> cf4[<span class="dv">3</span>], </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">lwd =</span> <span class="dv">5</span>) <span class="co"># line for females</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a =</span> cf4[<span class="dv">1</span>] <span class="sc">+</span> cf4[<span class="dv">2</span>],</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">b =</span> cf4[<span class="dv">3</span>] <span class="sc">+</span> cf4[<span class="dv">4</span>], </span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">5</span>) <span class="co"># line for males</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -441,10 +435,10 @@ Coefficients:
 <section id="reporting-and-in-a-table." class="level3">
 <h3 class="anchored" data-anchor-id="reporting-and-in-a-table.">Reporting, and in a table.</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> h, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">scale</span>(test_mean), <span class="at">y =</span> <span class="fu">scale</span>(narcicissm), <span class="at">color =</span> sexF)) <span class="sc">+</span> </span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> .<span class="dv">5</span>, <span class="at">alpha =</span> .<span class="dv">3</span>, <span class="at">position =</span> <span class="st">"jitter"</span>) <span class="sc">+</span> </span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"The Interaction Effect"</span>, <span class="at">x =</span> <span class="st">"Testosterone (Z-Scored)"</span>, <span class="at">y =</span> <span class="st">"Narcissism (Z-Scored)"</span>, <span class="at">color =</span> <span class="st">"Sex"</span>) <span class="sc">+</span> </span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm) <span class="sc">+</span> <span class="fu">theme_apa</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> h, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">scale</span>(test_mean), <span class="at">y =</span> <span class="fu">scale</span>(narcicissm), <span class="at">color =</span> sexF)) <span class="sc">+</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> .<span class="dv">5</span>, <span class="at">alpha =</span> .<span class="dv">3</span>, <span class="at">position =</span> <span class="st">"jitter"</span>) <span class="sc">+</span> </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"The Interaction Effect"</span>, <span class="at">x =</span> <span class="st">"Testosterone (Z-Scored)"</span>, <span class="at">y =</span> <span class="st">"Narcissism (Z-Scored)"</span>, <span class="at">color =</span> <span class="st">"Sex"</span>) <span class="sc">+</span> </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm) <span class="sc">+</span> <span class="fu">theme_apa</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
@@ -463,9 +457,9 @@ Coefficients:
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(mod1, mod2, mod3, mod4,</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">coefs =</span> <span class="fu">c</span>(<span class="st">"Sex (0 = Female; 1 = Male)"</span> <span class="ot">=</span> <span class="st">"sexFMale"</span>, <span class="st">"Testosterone"</span> <span class="ot">=</span> <span class="st">"test_mean"</span>, <span class="st">"Sex * Testosterone"</span> <span class="ot">=</span> <span class="st">"sexFMale:test_mean"</span>),</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">error_format =</span> <span class="st">"[se = {std.error}, t = {statistic}]"</span>, <span class="at">transform.response =</span> T, <span class="at">scale =</span> T, <span class="at">confint =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(mod1, mod2, mod3, mod4,</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">coefs =</span> <span class="fu">c</span>(<span class="st">"Sex (0 = Female; 1 = Male)"</span> <span class="ot">=</span> <span class="st">"sexFMale"</span>, <span class="st">"Testosterone"</span> <span class="ot">=</span> <span class="st">"test_mean"</span>, <span class="st">"Sex * Testosterone"</span> <span class="ot">=</span> <span class="st">"sexFMale:test_mean"</span>),</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">error_format =</span> <span class="st">"[se = {std.error}, t = {statistic}]"</span>, <span class="at">transform.response =</span> T, <span class="at">scale =</span> T, <span class="at">confint =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  ">
 <colgroup><col><col><col><col><col></colgroup><tbody><tr>
@@ -541,18 +535,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -584,7 +567,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -592,7 +597,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

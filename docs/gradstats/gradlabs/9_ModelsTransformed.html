@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +84,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -479,15 +479,12 @@ Number of Fisher Scoring iterations: 7</code></pre>
 <li><p><em>There’s a dispersion parameter.</em> This is part of the link function, and describes how variance in our outcome variable depends on the mean. This is always set to 1 in a logistic regression; there are other forms of regression (“quasi-logistic” and “quasi-poisson” for example where the dispersion parameter can be increased to account for greater variablility in the outcome.)</p></li>
 <li><p><em>R no longer reports an</em> <span class="math inline">\(R^2\)</span> value. The <span class="math inline">\(R^2\)</span> statistic is not appropriate for generalized linear models, since we are not calculating errors in the same way (i.e., we are not adding up . There are various methods of calculating what’s called a “pseudo <span class="math inline">\(R^2\)</span>”, which estimates this statistic, and often is reported via other functions (see below).</p></li>
 <li><p><em>Instead, R reports two deviance statistics - null and residual.</em> Deviance is a measure of error - we “want” deviance to be low, and expect it to decrease by at least one for every new predictor we add to our model. The null deviance is the error when we have no predictor in our model (and are just using a constant term - the baseline probability of the outcome variable - to make predictions). The residual deviance is the deviance for this model; the fact that there’s a decrease of 53.87 exceeds our expected decrease of 1, and tells me the model has improved our predictions.</p></li>
-<li><p><em>R reports the Akaike Information Criterion (AIC)</em>. We will talk about this more next week, when we talk about model fit and comparing models, but the TLDR is this is a way to evaluate how “good” a model is at making predictions, with a lower AIC describing a model that better fits the data. The scale of this estimate - like the deviance statistics - is dependent on the data and sample size, so AIC is meant to compare one model to another from the same datset.</p></li>
+<li><p><em>R reports the Akaike Information Criterion (AIC)</em>. We will talk about this more next week, when we talk about model fit and comparing models, but the TLDR is this is a way to evaluate how “good” a model is at making predictions, with a lower AIC describing a model that better fits the data. The scale of this estimate - like the deviance statistics - is dependent on the data and sample size, so AIC is meant to compare one model to another from the same dataset.</p></li>
 </ul>
 <p>There are a few different packages that make reporting the effects of a logistic regression easier. One example is the <code>summ()</code> function from the <code>jtools</code> package (which I think we looked at before to make nice multiple regression tables.) The function works the same, but we will add an argument to tell the function to exponentiate the coefficients to aid in the interpretation, and an argument to add confidence intervals. (<a href="https://www.jtools.jacob-long.com/articles/summ.html#summ">See the documentation</a> for the function for other arguments to add.)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'jtools' was built under R version 4.3.3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(glmod, <span class="at">exp =</span> <span class="cn">TRUE</span>, <span class="at">error_format =</span> <span class="st">"[{conf.low}, {conf.high}]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(glmod, <span class="at">exp =</span> <span class="cn">TRUE</span>, <span class="at">error_format =</span> <span class="st">"[{conf.low}, {conf.high}]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  ">
 <colgroup><col><col></colgroup><tbody><tr>
@@ -570,18 +567,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -613,7 +599,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -621,7 +629,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
