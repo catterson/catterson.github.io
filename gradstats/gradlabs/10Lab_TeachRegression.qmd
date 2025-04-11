@@ -1,0 +1,22 @@
+---
+title: "Lab 10 : Teaching is Learning"
+format: html
+editor: visual
+---
+
+**Goal :** The goal of this lab assignment is to write a tutorial that walks a hypothetical student through interpreting the results of a linear regression with an interaction effect. What this lab looks like is open-ended, but it should be a) engaging, b) transparent (so a student can follow along), and c) contains a link to the dataset that you use, so future generations of students can follow along :)
+
+More specifically, your tutorial should include the following.
+
+1.  A clearly stated research question and theory you can test with the variables in the dataset.
+2.  Graphing the variables needed to for your model, and doing any data cleaning or transformations needed.
+3.  Defining the needed linear model(s) to test your theory, and interpreting the slope(s), intercept, and $R^2$ for your model. Include a graph for at least one model, and connect the statistics to the graph.
+4.  Choose one of the following :
+    1.  Explaining how a linear model changes after some transformation (e.g., z-scoring, log the DV, adding a quadratic term to the model.)
+    2.  Defining, testing, and interpreting an interaction effect (along with a graph!) and interpreting the slope(s) and $R^2$ value from this model.
+5.  Estimating and interpreting sampling error of the linear models (using either bootstrapping or NHST.)
+6.  Doing regression diagnostics (e.g., assumptions; cross-validation; etc.)
+
+Feel free to keep this as short and streamlined as possible, but the idea is that someone could read through this and learn a little bit about the theory and practice of linear regression.
+
+When you are done, please submit this tutorial to the bCourses assignment, and then upload a [link to the dataset and your tutorial as a .PDF to the 205 Vision Board](https://docs.google.com/spreadsheets/d/1VB7Ut1NW_g5cOVbcC0ofNGHCTc4O7dHN6ECej9k-iGM/edit?usp=sharing).

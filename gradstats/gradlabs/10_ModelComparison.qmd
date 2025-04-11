@@ -77,6 +77,10 @@ ggplot(data = subset(h, !is.na(h$GDPcat)), aes(x = scale(Ladder.score), y = scal
   geom_smooth(method = "lm") + labs(title = "Check-In Graph") + ylab("Social Support") + xlab("Happiness (Ladder Score)") +
   theme_apa()
 ```
+Interaction Effect : 
+social support = .08 + .25*GDP + .60 * Ladder - .10 * (GDP * Ladder)
+BLUE LINE : social support = .08 + .25*-1 + .60 * Ladder - .10 * (-1 * Ladder) = -.17 + .7 * Ladder
+RED LINE : = .08 + .25*1 + .60 * Ladder - .10 * (1 * Ladder) = .32 + .5 * Ladder
 
 ::: {.callout-tip collapse="true"}
 ### R Code for the models
@@ -92,20 +96,38 @@ export_summs(mod1, mod2, mod3, mod4)
 
 ## Other Issues to Consider with Multiple Regression
 
+### 0. Transforming Models (Quadratic Terms)
+
+```{r}
+ggplot(h, aes(x = Ladder.score, y = Social.support)) + 
+  geom_point(alpha = .5) + 
+  #geom_smooth(method = "lm") 
+  geom_smooth(method = "lm", formula = y ~ x + I(x^2))
+```
+
+
+```{r}
+lm1 <- lm(Social.support ~ Ladder.score, data = h)
+summary(lm1)
+lm2 <- lm(Social.support ~ Ladder.score + I(Ladder.score^2), data = h)
+summary(lm2)
+```
+
+
 ### 1. Which Model is "Best"???
 
 We can evaluate whether a model is an improvement (compared to the mean) by evaluating the "fit".
 
-Not enough to see an increase in $R^2$, because
+Not enough to see an increase in $R^2$, because WHY????????
 
 ```{r}
-anova(mod1) # evaluating the model vs. the mean
+anova(lm1) # evaluating the model vs. the mean
 ```
 
 When the models are "nested", we can compare one model to another.
 
 ```{r}
-anova(mod1, mod4) # evaluating model 4 vs. model 1
+anova(lm1, lm2) # evaluating model 2 vs. model 1
 ```
 
 The F-Distribution, Visualized
@@ -122,6 +144,8 @@ When comparing the fit of one model to a completely different model, will need a
 
 1.  **Bootstrapping.** You could resample the data, define two separate models, and evaluate the model fit in each resampled dataset, compare these models, then repeat the process many times. Yeah!
 2.  **There are many other estimates of model performance,** such as cross validation (see below) or fancier ML methods I don't know :)
+
+### CLASS ENDED HERE! OTHER STUFF WILL APPEAR IN A FUTURE LECTURE. THANKS!
 
 ### 2. Watch Out For Overfitting.
 
