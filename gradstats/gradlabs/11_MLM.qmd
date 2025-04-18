@@ -1,0 +1,260 @@
+---
+title: "Lecture 11 - Multilevel Models (MLM)"
+format: 
+  html:
+      code-overflow: wrap
+---
+
+## [Check-In : Let's GOOOOOOOOOO.](https://docs.google.com/forms/d/e/1FAIpQLSd8KDHkmmq-Lpd09Sagp7S_04LUKro4jaeNGmT0AZJCTtcJYg/viewform?usp=header)
+
+![](images/clipboard-3900952240.png)
+
+## Announcements
+
+1.  **Final Project**
+    -   Define a dataset \[Milestone 1!\]
+    -   [Pre-register your analyses](https://aspredicted.org)
+        -   Forgot to instruct y'all to do this!
+        -   Goals of Pre-registration :
+            -   Think carefully and clearly about your dataset (outliers, measures, models)
+            -   Be consistent in your analyses; keep things simple.
+            -   When you deviate from your analysis plan, that's okay! You are learning and exploring. Just good to recognize and state this.
+2.  **This is Not an Exam**
+    -   Discussed at the End of Class!
+    -   Will be chill? I hope. There's a rubric that emphasizes *trying.*
+3.  **The End Is Near.**
+    -   4/18 : Multilevel Models (MORE LINES)
+    -   4/25 : Exam Recap + More on Multilevel Models
+    -   5/2 : Conclusion (The Learning Has Stopped; Would You Like to Know More?)
+
+## Multilevel Models (MLM) : Conceptual Understanding
+
+### Definition
+
+-   Multilevel Models (MLM)
+
+    -   Hierarchical linear models, mixed effects models, random effects models, etc.
+
+    -   MODELS MODELS MODELS : It's just a line! Lots of lines. (Lots of lines models?)
+
+### Some Pictures
+
+| "Fixed Effects" | "Random Effects" |
+|----|----|
+| ![](images/clipboard-2869584700.png) | [![](images/clipboard-3127063891.png)](https://www.r-bloggers.com/2020/11/simpsons-paradox-and-misleading-statistical-inference/) |
+| ![](images/clipboard-4032942124.png) | ![](images/clipboard-2789774520.png) |
+
+### The Formulas
+
+-   **The Linear Model Equation**
+
+$$\huge y = \beta_0 + \beta_1x_1 + ... + \beta_kx_k + \epsilon$$
+
+-   **The MLM Equation (Composite Notation)**
+
+    -   Random Intercept : $$\large y_{ij} = (\beta_0 + \gamma_{0j} + u_{0j}) + \beta_{1j}x_{1ij} + \epsilon_{ij}$$
+    -   Random Intercept and Random Slope : $$\large y_{ij} = (\beta_0 + \gamma_{0j} + u_{0j}) + (\beta_{1j}x_{1ij} + \gamma_{1j})+ \epsilon_{ij}$$
+
+-   **The MLM Equation (Level Notation)**
+
+    ![](images/clipboard-4293194741.png)
+
+    ![](images/clipboard-874488212.png)
+
+### Why Are We Doing This?
+
+1.  **The Assumption of Independence Has Been Violated! (MLM increases our power and reliability as scientists.)**
+    -   Multiple measures of an individual gives you a more reliable estimate of what and who they are.
+    -   A person serves as their own control; examining how an individual changes over time (as a result of some other variable or an experimental manipulation)
+2.  **Better than a purely "fixed effects" approach.**
+    -   While we *could* just account for group variation by adding this to our model as dummy-coded group identifiers...
+    -   ...the MLM results in a simpler model (less coefficients; we just allow the intercepts and slopes to vary)
+3.  **Model more complex phenomenon.**
+    -   How people change over time (within-person variation).
+    -   Simpson's Paradox
+    -   Other Examples?
+
+## How Do We Do This in R?
+
+#### Example 1 : The Sleep Dataset
+
+From the `?sleep` dataset; "Data which show the effect of two soporific drugs (increase in hours of sleep compared to control)."
+
+-   Extra : increase in hours of sleep
+-   Group : drug given (1 = control; 2 = drug)
+-   ID : patient ID
+
+##### The Linear Model (a "Between Person" Study)
+
+```{r}
+library(ggplot2)
+ggplot(sleep, aes(y = extra, x = group)) + 
+  geom_point(size=2) + 
+  stat_summary(fun.data=mean_se, color = 'red', size = 1.25, linewidth = 2)
+
+lmod <- lm(extra ~ as.factor(group), data = sleep)
+summary(lmod)
+```
+
+##### The Linear Model, with ID as a grouping factor (a "Within-Person" Study)
+
+Many linear models! Look at the graph below. What's going on? What do you observe? How might this help us understand the relationship between these two variables?
+
+```{r}
+ggplot(sleep, aes(y = extra, x = group, color = ID)) + 
+  geom_point(size=2) + 
+  geom_line(aes(group = ID), linewidth = 0.75)
+```
+
+Random Intercepts : Still just one equation. But a lot more lines!
+
+```{r}
+#install.packages("lme4")
+library(lme4)
+mlmod <- lmer(extra ~ as.factor(group) + (1 | ID), data = sleep)
+summary(mlmod)
+```
+
+-   **Fixed Effects :** The "Average" across all the grouping variables. Our friend the linear model!
+
+    -   Intercept : ????
+
+    -   Slope : ????
+
+    -   Correlation of Fixed Effects : How our intercept and slope are related to each other. ?????
+
+-   **Random Effects :**
+
+    -   ICC = Intraclass Correlation Coefficient = how much the variation in our grouping variable (here : subject) explains total variation.
+
+    -   To calculate : take variance of intercept / total variance
+
+        ```{r}
+        2.8483 / (2.8483 + 0.7564)
+        ```
+
+    -   OR :
+
+        ```{r}
+        library(performance)
+        icc(mlmod)
+        ```
+
+**More about those random effects.** We can examine them for the individuals in the study. They are adjustments to the intercept (people start with different baselines of sleep.)
+
+```{r}
+fixef(mlmod)
+ranef(mlmod)
+var(ranef(mlmod)$ID)
+```
+
+##### But Professor, Where are the S\*\*\*s???
+
+By default, lmer does not run statistical tests. I heard this was because the author of the package was philosophically opposed to them, but I think it's also because there are [continued debates](https://bbolker.github.io/mixedmodels-misc/glmmFAQ.html#why-doesnt-lme4-display-denominator-degrees-of-freedomp-values-what-other-options-do-i-have) about how best to calculate and interpret p-values for statistics that, by definition, can vary.
+
+You can report confidence intervals from the results of the lmer model.
+
+```{r}
+confint(mlmod)
+```
+
+However, if you really want the stars, there's another package that adds the stars, and gives some other useful features.
+
+```{r}
+#install.packages("lmerTest")
+library(lmerTest) # note that the function lmer from package lme4 has been masked.
+mlmod <- lmer(extra ~ as.factor(group) + (1 | ID), data = sleep) # the same model; same equation
+summary(mlmod) # new output!
+ranova(mlmod) # a way to test whether inclusion of random effect improves the model fit or not.
+detach("package:lmerTest") # won't be using this?
+```
+
+##### A Neat Thing : The "Paired T-Test" is Just a Narrow Form of the MLM
+
+```{r}
+d <- sleep # copying the data
+sleepwide <- data.frame(d[1:10,1], d[11:20,1]) # moving into wide format
+names(sleepwide) <- c("Extra1", "Extra2") # renaming variables
+sleepwide # new data; in the "wide" format.
+t.test(sleepwide$Extra1, sleepwide$Extra2, paired = T) # comparing mean of T1 to mean of T2, assuming a paired distribution....
+```
+
+##### What About Random Slopes?
+
+For random intercepts and random slopes : Still just one equation....but....too many lines for the model to converge.
+
+```{r}
+#mlmod2 <- lmer(extra ~ as.factor(group) + (group | ID), data = sleep)
+```
+
+#### Example 2 : Another Sleep Dataset
+
+The classic teaching dataset from lmer. Hooray!
+
+```{r}
+?sleepstudy
+```
+
+**A Question :** Is there a relationship between number of days of sleep deprivation and reaction time?
+
+#### The Graph
+
+How might we graph this in ggplot?
+
+```{r}
+
+```
+
+#### Interpreting the Model (Random Intercepts)
+
+What model would we define?
+
+```{r}
+
+```
+
+How do we interpret the results of this model?
+
+#### Interpreting the Model (Random Intercepts and Slopes)
+
+What model would we define?
+
+```{r}
+
+```
+
+How do we interpret the results of this model?
+
+## Would You Like to Learn More?
+
+-   **ATTEND NEXT WEEK :** more on mixed effects (centering; cross-level interactions, and more!)
+
+-   [A Nice Overview, For and By Psychologists](https://www.learn-mlms.com)
+
+-   [A More In-Depth Mini-Textbook](https://m-clark.github.io/mixed-models-with-R/introduction.html)
+
+-   [A Nice Overview of the sleepstudy](https://cdsbasel.github.io/dataanalytics_rsessions/_sessions/CausalInference/intro_lme4.html)
+
+-   TAKE A CLASS :
+
+    -   [Sophia Rabe-Hasketh in the Education Department](http://www.gllamm.org/sophia.html#courses) \[Stata\]
+
+    -   Aaron Fisher is offering a class maybe?
+
+## [Presentation](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
+
+## [This is Not an Exam]()
+
+-   **Look over the assignment.**
+
+    -   Questions about the task?
+
+    -   Questions about the grading?
+
+    -   Questions about the dataset?
+
+    -   Questions about the research question?
+
+-   **Data will be posted during the break :)**
+
+![](images/clipboard-3872254257.png)

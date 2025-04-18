@@ -1,0 +1,196 @@
+---
+title: "Lecture 10 - Multiple Regression & MEGA Review"
+format: 
+  html:
+    code-overflow: wrap
+---
+
+## [Check-In : Testing Theories](https://docs.google.com/forms/d/e/1FAIpQLSeQNQq1O8s_f0tx3l2FxIJo9Rt6zgmZA40T2AqLFdwjFtFtpA/viewform?usp=sf_link)
+
+**Work with a buddy, or go lone wolf, to test the following theories using the "cal_mini" dataset. Name the dataset d to follow along with the professor.**
+
+1.  There is a relationship between how tired people are (DV = tired) and how bored people are (IV = bored).
+2.  There is a relationship between how tired people are (DV = tired) and how many hours of sleep people got (IV = hrs.sleep).
+
+**You and your buddy should each define and interpret ONE of the linear models above. Use the models to answer the questions below for the check-in?**
+
+1.  What is the relationship between bored and tired (in "raw" / "unstandardized" units)?
+2.  Is this result statistically significant? Why / why not?
+3.  What is the relationship between hrs.sleep and tired (in "raw" / "unstandardized" units)?
+4.  Is this result statistically significant? Why / why not?
+5.  Which variable - bored or hrs.sleep - is a BETTER predictor of tired? Why / how do you know?
+
+![](images/clipboard-148237661.png){fig-align="center"}
+
+**Professor Code Goes Here.**
+
+```{r}
+
+```
+
+## Agenda & Announcements
+
+1.  **MEGA R Exam is NEXT WEEK.**
+    -   **Same format as Mini Exam.** Take home, open note, on your own, make sure you adhere to ChatGPT policy (clearly stated that you used with complete documentation of your searches & the output in an appendix.)
+    -   **85 Minutes (start at 2:10 PM –\> submit by 3:25 PM)**
+        -   128 Minutes for 150% DSP (will be marked as LATE so reminder reader you have DSP!)
+        -   170 Minutes of 200% DSP (will be marked as LATE so reminder reader you have DSP!)
+    -   **Worth 24% of Your Grade; 15 Points on the Exam**
+        -   Data Cleaning & Descriptive Stats \[3 Points\]
+        -   Defining and Interpreting Linear Models \[7 Points\]
+        -   Interpreting NHST Output \[3 Points\]
+        -   Interpreting Multiple Regression \[2 Points\]
+2.  **Lab 8 :** Take a practice exam & submit.
+3.  **Milestone #4 : Due Sunday.**
+4.  **Milestone #5 : Draft!**
+    -   Due Friday, May 2nd at 2:00 PM
+    -   Bring it all together!!!!
+5.  **THE END IS NEAR**
+    -   **5/2 : Last Class :** The learning has stopped. So what did we learn again?
+    -   **5/9 : RRR Week (Virtual) :** Project Workshop
+
+## REVIEW : Multiple Regression (Hair Length Predicts Height?!?!?????)
+
+### Data Cleaning and Descriptive Statistics
+
+```{r}
+## Data Cleaning
+library(gplots)
+d <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/cal_mini_SP25.csv", stringsAsFactors = T)
+
+d$height[d$height < 10 | d$height > 100] <- NA
+levels(d$is.female)[1] <- NA
+levels(d$long.hair)[1] <- NA
+
+par(mfrow = c(1,3))
+hist(d$height)
+plot(d$is.female, xlab = "Is Female?")
+plot(d$long.hair, xlab = "Has Long Hair?")
+```
+
+### Activity and Discussion : Comparing Models
+
+1.  **ICE-BREAKER :**
+
+    1.  *let's keep it light mode :* if you HAD to get a tattoo, what would you get? where would you get it? would it face toward you or other people?
+
+    2.  *bring on the heavy mode :* if you could change one thing about your childhood, what would you change?
+
+2.  **MODEL INTERPRETATION :** What Do You Observe in Model 1? Model 2?
+
+3.  **MODEL 3 :** What Do You Observe Changing About the Slopes from the Bivariate Model (Models 1 and Model 2) to the Multivariate Model (Model 3)?
+
+4.  **Other Questions That You, the Students, Have?**
+
+::: panel-tabset
+#### Height \~ long.hair
+
+```{r}
+moda <- lm(height ~ long.hair, data = d)
+summary(moda)
+plotmeans(height ~ long.hair, data = d, connect = F)
+```
+
+#### Height \~ is.female
+
+```{r}
+modb <- lm(height ~ is.female, data = d)
+summary(modb)
+plotmeans(height ~ is.female, data = d, connect = F)
+```
+
+#### height \~ long.hair + is.female
+
+```{r}
+modc <- lm(height ~ long.hair + is.female, data = d)
+summary(modc)
+```
+:::
+
+### IV1 and IV2 are related to each other, and each related to the DV)
+
+```{r}
+plot(d$long.hair ~ d$is.female)
+```
+
+### Multiple Regression : Visualized in Multi-Dimensional Space!
+
+The code below may not work on your computer; see lecture recording for an interpretation / explanation!
+
+``` r
+
+#install.packages('rgl')
+#install.packages('car')
+library(car)
+library(rgl)
+
+scatter3d(as.numeric(d$is.female), # IV1 - must be numeric (if not already)
+          d$height, # DV
+          as.numeric(d$long.hair)) # IV2 - must be numeric (if not already)
+```
+
+### Reporting Effects in a Regression Table.
+
+**Table 1.** Unstandardized Regression Coefficients; Predicting Height from Long.Hair and Is.Female.
+
+|                             | Model 1 | Model 2 | Model 3 |
+|-----------------------------|---------|---------|---------|
+| Intercept                   |         |         |         |
+| Long.Hair (0 = No; 1 = Yes) |         |         |         |
+| Is.Female (0 = No; 1 = Yes) |         |         |         |
+| $R^2$                       |         |         |         |
+
+**There's a Package in R For This!**
+
+```{r}
+# install.packages("jtools") # a new package!!!
+library(jtools) # make sure you installed the new package first.
+export_summs(moda, modb, modc,
+             coefs = c("Long Hair (0 = No, 1 = Yes)" = "long.hairYes",
+                       "Is Female (0 = No, 1 = Yes)" = "is.femaleYes"))
+```
+
+
+## BREAK TIME : MEET BACK AT 3:45
+
+![](images/clipboard-3386439454.png)
+
+## Multiple Regression Tables
+
+-   **ICE BREAKER :** If you could learn one skill all at once (like Neo in the Matrix; have y'all seen that movie???), what would it be??
+
+-   **Evaluate the table above and think about multiple regression.**
+
+    -   how would you write out Model 1, Model 2, Model 3, etc.
+
+        -   Model 1 :
+
+    -   what do we learn from this table / what changes in slope seem important (and why)? 
+
+    -   what are some other real-life (and psychological) examples of situations where a 3rd variable might be important to study??
+
+    -   what is the multivariate regression you will include in your final project? why might this be interesting to test?
+
+![](images/clipboard-3796023116.png)
+
+## Milestone #4 : Anyone want to share their example?
+
+-   Student Work Go Here.
+
+## Other Exam Questions / Practice
+
+### Miscelaneous Student Questions Go Here
+
+### Some Pre-Recorded NHST Review Videos
+
+-   **Note : I used last semester's dataset for these examples, so you will likely get different results if you try and replicate in this semester's class; a good example of how NHST doesn't really tell us whether the results are "truth" or not, or whether they will replicate, etc.**
+
+-   [**Example 1 : LOVEWATER \~ smoke.pot**](https://www.loom.com/share/67776eb1a41f4b5eaa0ca5312d0663ad?sid=534835dc-c163-4604-b985-137b2bede4ac)
+
+![](images/clipboard-2608622757.png)
+
+-   [**Examples 2 - 4 : faster explanations!**](https://www.loom.com/share/8b755a32fe094e9eb1fc0bd7f16991bd?sid=b0c120f4-4190-4115-9722-da0a19856006)
+
+![](images/clipboard-422460195.png)
+
+![](images/clipboard-927357432.png)
