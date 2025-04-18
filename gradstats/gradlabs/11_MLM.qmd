@@ -189,6 +189,7 @@ The classic teaching dataset from lmer. Hooray!
 
 ```{r}
 ?sleepstudy
+s <- sleepstudy
 ```
 
 **A Question :** Is there a relationship between number of days of sleep deprivation and reaction time?
@@ -198,7 +199,12 @@ The classic teaching dataset from lmer. Hooray!
 How might we graph this in ggplot?
 
 ```{r}
-
+library(ggplot2)
+ggplot(s, aes(y = Reaction, x = Days)) + 
+  geom_point(size=2) + 
+  facet_wrap(~Subject) + 
+  geom_smooth(method = "lm")
+  # geom_line(aes(group = Subject), linewidth = 0.75)
 ```
 
 #### Interpreting the Model (Random Intercepts)
@@ -206,6 +212,10 @@ How might we graph this in ggplot?
 What model would we define?
 
 ```{r}
+library(lme4)
+names(s)
+lmer(Reaction ~ Days + (1 | Subject), data = sleepstudy)
+lmer(Reaction ~ (1 | Subject), data = sleepstudy)
 
 ```
 
