@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +84,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -221,6 +221,7 @@ window.Quarto = {
 </section>
 <section id="some-pictures" class="level3">
 <h3 class="anchored" data-anchor-id="some-pictures">Some Pictures</h3>
+<p><img src="images/IMG_1573.JPG" class="img-fluid"></p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -344,117 +345,7 @@ F-statistic: 3.463 on 1 and 18 DF,  p-value: 0.07919</code></pre>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: Matrix</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mlmod <span class="ot">&lt;-</span> <span class="fu">lmer</span>(extra <span class="sc">~</span> <span class="fu">as.factor</span>(group) <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> ID), <span class="at">data =</span> sleep)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mlmod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Linear mixed model fit by REML ['lmerMod']
-Formula: extra ~ as.factor(group) + (1 | ID)
-   Data: sleep
-
-REML criterion at convergence: 70
-
-Scaled residuals: 
-     Min       1Q   Median       3Q      Max 
--1.63372 -0.34157  0.03346  0.31511  1.83859 
-
-Random effects:
- Groups   Name        Variance Std.Dev.
- ID       (Intercept) 2.8483   1.6877  
- Residual             0.7564   0.8697  
-Number of obs: 20, groups:  ID, 10
-
-Fixed effects:
-                  Estimate Std. Error t value
-(Intercept)         0.7500     0.6004   1.249
-as.factor(group)2   1.5800     0.3890   4.062
-
-Correlation of Fixed Effects:
-            (Intr)
-as.fctr(g)2 -0.324</code></pre>
-</div>
-</div>
-<ul>
-<li><p><strong>Fixed Effects :</strong> The “Average” across all the grouping variables. Our friend the linear model!</p>
-<ul>
-<li><p>Intercept : ????</p></li>
-<li><p>Slope : ????</p></li>
-<li><p>Correlation of Fixed Effects : How our intercept and slope are related to each other. ?????</p></li>
-</ul></li>
-<li><p><strong>Random Effects :</strong></p>
-<ul>
-<li><p>ICC = Intraclass Correlation Coefficient = how much the variation in our grouping variable (here : subject) explains total variation.</p></li>
-<li><p>To calculate : take variance of intercept / total variance</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fl">2.8483</span> <span class="sc">/</span> (<span class="fl">2.8483</span> <span class="sc">+</span> <span class="fl">0.7564</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.7901628</code></pre>
-</div>
-</div></li>
-<li><p>OR :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(performance)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">icc</span>(mlmod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># Intraclass Correlation Coefficient
-
-    Adjusted ICC: 0.790
-  Unadjusted ICC: 0.668</code></pre>
-</div>
-</div></li>
-</ul></li>
-</ul>
-<p><strong>More about those random effects.</strong> We can examine them for the individuals in the study. They are adjustments to the intercept (people start with different baselines of sleep.)</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fixef</span>(mlmod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>      (Intercept) as.factor(group)2 
-             0.75              1.58 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ranef</span>(mlmod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$ID
-   (Intercept)
-1   -0.2118668
-2   -1.7125900
-3   -0.9622284
-4   -1.8450067
-5   -1.4477565
-6    2.0833569
-7    2.7013017
-8   -0.3001446
-9    0.6709115
-10   1.0240229
-
-with conditional variances for "ID" </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(<span class="fu">ranef</span>(mlmod)<span class="sc">$</span>ID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>            (Intercept)
-(Intercept)    2.514447</code></pre>
-</div>
-</div>
-</section>
-<section id="but-professor-where-are-the-ss" class="level5">
-<h5 class="anchored" data-anchor-id="but-professor-where-are-the-ss">But Professor, Where are the S***s???</h5>
-<p>By default, lmer does not run statistical tests. I heard this was because the author of the package was philosophically opposed to them, but I think it’s also because there are <a href="https://bbolker.github.io/mixedmodels-misc/glmmFAQ.html#why-doesnt-lme4-display-denominator-degrees-of-freedomp-values-what-other-options-do-i-have">continued debates</a> about how best to calculate and interpret p-values for statistics that, by definition, can vary.</p>
-<p>You can report confidence intervals from the results of the lmer model.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(mlmod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Computing profile confidence intervals ...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                       2.5 %   97.5 %
-.sig01             0.9660521 2.786017
-.sigma             0.5627986 1.377856
-(Intercept)       -0.4630090 1.963009
-as.factor(group)2  0.7814283 2.378572</code></pre>
-</div>
-</div>
-<p>However, if you really want the stars, there’s another package that adds the stars, and gives some other useful features.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("lmerTest")</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmerTest) <span class="co"># note that the function lmer from package lme4 has been masked.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmerTest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: 'lmerTest'</code></pre>
@@ -469,8 +360,9 @@ Attaching package: 'lmerTest'</code></pre>
 
     step</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>mlmod <span class="ot">&lt;-</span> <span class="fu">lmer</span>(extra <span class="sc">~</span> <span class="fu">as.factor</span>(group) <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> ID), <span class="at">data =</span> sleep) <span class="co"># the same model; same equation</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mlmod) <span class="co"># new output!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Matrix)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mlmod <span class="ot">&lt;-</span> <span class="fu">lmer</span>(extra <span class="sc">~</span> <span class="fu">as.factor</span>(group) <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> ID), <span class="at">data =</span> sleep)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mlmod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
@@ -500,7 +392,124 @@ Correlation of Fixed Effects:
             (Intr)
 as.fctr(g)2 -0.324</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ranova</span>(mlmod) <span class="co"># a way to test whether inclusion of random effect improves the model fit or not.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p><strong>Fixed Effects :</strong> The “Average” across all the grouping variables. Our friend the linear model!</p>
+<ul>
+<li><p>Intercept : ???? (discussed in lecture!)</p></li>
+<li><p>Slope : ???? (discussed in lecture!)</p></li>
+<li><p>Correlation of Fixed Effects : How our intercept and slope are related to each other. ????? (discussed in lecture!)</p></li>
+</ul></li>
+<li><p><strong>Random Effects :</strong></p>
+<ul>
+<li><p>ICC = Intraclass Correlation Coefficient = how much the variation in our grouping variable (here : subject) explains total variation.</p></li>
+<li><p>To calculate : take variance of intercept / total variance</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fl">2.8483</span> <span class="sc">/</span> (<span class="fl">2.8483</span> <span class="sc">+</span> <span class="fl">0.7564</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7901628</code></pre>
+</div>
+</div></li>
+<li><p>OR :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(performance)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'performance' was built under R version 4.3.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">icc</span>(mlmod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Intraclass Correlation Coefficient
+
+    Adjusted ICC: 0.790
+  Unadjusted ICC: 0.668</code></pre>
+</div>
+</div></li>
+</ul></li>
+</ul>
+<p><strong>More about those random effects.</strong> We can examine them for the individuals in the study. They are adjustments to the intercept (people start with different baselines of sleep.)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fixef</span>(mlmod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      (Intercept) as.factor(group)2 
+             0.75              1.58 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ranef</span>(mlmod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$ID
+   (Intercept)
+1   -0.2118668
+2   -1.7125900
+3   -0.9622284
+4   -1.8450067
+5   -1.4477565
+6    2.0833569
+7    2.7013017
+8   -0.3001446
+9    0.6709115
+10   1.0240229
+
+with conditional variances for "ID" </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(<span class="fu">ranef</span>(mlmod)<span class="sc">$</span>ID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            (Intercept)
+(Intercept)    2.514447</code></pre>
+</div>
+</div>
+</section>
+<section id="but-professor-where-are-the-ss" class="level5">
+<h5 class="anchored" data-anchor-id="but-professor-where-are-the-ss">But Professor, Where are the S***s???</h5>
+<p>By default, lmer does not run statistical tests. I heard this was because the author of the package was philosophically opposed to them, but I think it’s also because there are <a href="https://bbolker.github.io/mixedmodels-misc/glmmFAQ.html#why-doesnt-lme4-display-denominator-degrees-of-freedomp-values-what-other-options-do-i-have">continued debates</a> about how best to calculate and interpret p-values for statistics that, by definition, can vary.</p>
+<p>You can report confidence intervals from the results of the lmer model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(mlmod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Computing profile confidence intervals ...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       2.5 %   97.5 %
+.sig01             0.9660521 2.786017
+.sigma             0.5627986 1.377856
+(Intercept)       -0.4630090 1.963009
+as.factor(group)2  0.7814283 2.378572</code></pre>
+</div>
+</div>
+<p>However, if you really want the stars, there’s another package that adds the stars, and gives some other useful features.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("lmerTest")</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmerTest) <span class="co"># note that the function lmer from package lme4 has been masked.</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>mlmod <span class="ot">&lt;-</span> <span class="fu">lmer</span>(extra <span class="sc">~</span> <span class="fu">as.factor</span>(group) <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> ID), <span class="at">data =</span> sleep) <span class="co"># the same model; same equation</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mlmod) <span class="co"># new output!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: extra ~ as.factor(group) + (1 | ID)
+   Data: sleep
+
+REML criterion at convergence: 70
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-1.63372 -0.34157  0.03346  0.31511  1.83859 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ ID       (Intercept) 2.8483   1.6877  
+ Residual             0.7564   0.8697  
+Number of obs: 20, groups:  ID, 10
+
+Fixed effects:
+                  Estimate Std. Error      df t value Pr(&gt;|t|)   
+(Intercept)         0.7500     0.6004 11.0814   1.249  0.23735   
+as.factor(group)2   1.5800     0.3890  9.0000   4.062  0.00283 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            (Intr)
+as.fctr(g)2 -0.324</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ranova</span>(mlmod) <span class="co"># a way to test whether inclusion of random effect improves the model fit or not.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ANOVA-like table for random-effects: Single term deletions
 
@@ -512,16 +521,16 @@ extra ~ as.factor(group) + (1 | ID)
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(<span class="st">"package:lmerTest"</span>) <span class="co"># won't be using this?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(<span class="st">"package:lmerTest"</span>) <span class="co"># won't be using this?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="a-neat-thing-the-paired-t-test-is-just-a-narrow-form-of-the-mlm" class="level5">
 <h5 class="anchored" data-anchor-id="a-neat-thing-the-paired-t-test-is-just-a-narrow-form-of-the-mlm">A Neat Thing : The “Paired T-Test” is Just a Narrow Form of the MLM</h5>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> sleep <span class="co"># copying the data</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>sleepwide <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(d[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="dv">1</span>], d[<span class="dv">11</span><span class="sc">:</span><span class="dv">20</span>,<span class="dv">1</span>]) <span class="co"># moving into wide format</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(sleepwide) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Extra1"</span>, <span class="st">"Extra2"</span>) <span class="co"># renaming variables</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>sleepwide <span class="co"># new data; in the "wide" format.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> sleep <span class="co"># copying the data</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>sleepwide <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(d[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="dv">1</span>], d[<span class="dv">11</span><span class="sc">:</span><span class="dv">20</span>,<span class="dv">1</span>]) <span class="co"># moving into wide format</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(sleepwide) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Extra1"</span>, <span class="st">"Extra2"</span>) <span class="co"># renaming variables</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>sleepwide <span class="co"># new data; in the "wide" format.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Extra1 Extra2
 1     0.7    1.9
@@ -535,7 +544,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 9     0.0    4.6
 10    2.0    3.4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(sleepwide<span class="sc">$</span>Extra1, sleepwide<span class="sc">$</span>Extra2, <span class="at">paired =</span> T) <span class="co"># comparing mean of T1 to mean of T2, assuming a paired distribution....</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(sleepwide<span class="sc">$</span>Extra1, sleepwide<span class="sc">$</span>Extra2, <span class="at">paired =</span> T) <span class="co"># comparing mean of T1 to mean of T2, assuming a paired distribution....</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Paired t-test
@@ -555,30 +564,115 @@ mean difference
 <h5 class="anchored" data-anchor-id="what-about-random-slopes">What About Random Slopes?</h5>
 <p>For random intercepts and random slopes : Still just one equation….but….too many lines for the model to converge.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#mlmod2 &lt;- lmer(extra ~ as.factor(group) + (group | ID), data = sleep)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#mlmod2 &lt;- lmer(extra ~ as.factor(group) + (group | ID), data = sleep)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="example-2-another-sleep-dataset" class="level4">
 <h4 class="anchored" data-anchor-id="example-2-another-sleep-dataset">Example 2 : Another Sleep Dataset</h4>
-<p>The classic teaching dataset from lmer. Hooray!</p>
+<p>A classic teaching dataset from lmer. Hooray!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>?sleepstudy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>?sleepstudy</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> sleepstudy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>A Question :</strong> Is there a relationship between number of days of sleep deprivation and reaction time?</p>
 </section>
 <section id="the-graph" class="level4">
 <h4 class="anchored" data-anchor-id="the-graph">The Graph</h4>
 <p>How might we graph this in ggplot?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sleepstudy, <span class="fu">aes</span>(<span class="at">y =</span> Reaction, <span class="at">x =</span> Days, <span class="at">color =</span> Subject)) <span class="sc">+</span> </span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># facet_wrap(~Subject) + </span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="11_MLM_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># geom_line(aes(group = Subject), linewidth = 0.75)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="interpreting-the-model-random-intercepts" class="level4">
 <h4 class="anchored" data-anchor-id="interpreting-the-model-random-intercepts">Interpreting the Model (Random Intercepts)</h4>
 <p>What model would we define?</p>
+<ul>
+<li><p>Reaction is the DV</p></li>
+<li><p>I’m adding Days as a Fixed IV (so I’ll get the average effect of # of days of sleep deprivation on reaction time)</p></li>
+<li><p>I’m also adding a random intercept : <code>(1 | Subject)</code> that will estimate how much the intercept (the 1 term) of individual raction times (the level 2 variable) varies by Subject (the level 1 grouping variable).</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>l2 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Reaction <span class="sc">~</span> Days <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> Subject), <span class="at">data =</span> sleepstudy)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(l2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by REML ['lmerMod']
+Formula: Reaction ~ Days + (1 | Subject)
+   Data: sleepstudy
+
+REML criterion at convergence: 1786.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.2257 -0.5529  0.0109  0.5188  4.2506 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Subject  (Intercept) 1378.2   37.12   
+ Residual              960.5   30.99   
+Number of obs: 180, groups:  Subject, 18
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept) 251.4051     9.7467   25.79
+Days         10.4673     0.8042   13.02
+
+Correlation of Fixed Effects:
+     (Intr)
+Days -0.371</code></pre>
+</div>
+</div>
 <p>How do we interpret the results of this model?</p>
+<ul>
+<li><p><strong>Fixed Effects :</strong> these deal with the “average” effects - ignoring all those important individual differences (which are accounted for in the random effects.)</p>
+<ul>
+<li><p>Intercept = 251.41 = the average person’s reaction time at 0 days of sleep deprivation is 251.4 milliseconds.</p></li>
+<li><p>Days = 10.47 = for every day of sleep deprivation, the average person’s reaction time increases by 10.47 MS; the standard error is an estimate of how much variation we’d expect in this average slope due</p></li>
+</ul></li>
+<li><p><strong>Random Effects :</strong> these describe those individual differences; specifcally the</p>
+<ul>
+<li><p>Subject (Intercept) = 37.12</p></li>
+<li><p>Residual = 30.99</p></li>
+</ul></li>
+</ul>
 </section>
 <section id="interpreting-the-model-random-intercepts-and-slopes" class="level4">
 <h4 class="anchored" data-anchor-id="interpreting-the-model-random-intercepts-and-slopes">Interpreting the Model (Random Intercepts and Slopes)</h4>
-<p>What model would we define?</p>
+<p><strong>What model would we define?</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lmer</span>(Reaction <span class="sc">~</span> Days <span class="sc">+</span> (Days <span class="sc">|</span> Subject), <span class="at">data =</span> sleepstudy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by REML ['lmerMod']
+Formula: Reaction ~ Days + (Days | Subject)
+   Data: sleepstudy
+REML criterion at convergence: 1743.628
+Random effects:
+ Groups   Name        Std.Dev. Corr
+ Subject  (Intercept) 24.741       
+          Days         5.922   0.07
+ Residual             25.592       
+Number of obs: 180, groups:  Subject, 18
+Fixed Effects:
+(Intercept)         Days  
+     251.41        10.47  </code></pre>
+</div>
+</div>
 <p>How do we interpret the results of this model?</p>
 </section>
 </section>
@@ -652,7 +746,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -684,29 +789,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -714,7 +797,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

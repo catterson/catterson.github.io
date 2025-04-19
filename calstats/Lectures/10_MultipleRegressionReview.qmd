@@ -20,6 +20,41 @@ format:
 4.  Is this result statistically significant? Why / why not?
 5.  Which variable - bored or hrs.sleep - is a BETTER predictor of tired? Why / how do you know?
 
+**Professor Code**
+```{r}
+d <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/cal_mini_SP25.csv", stringsAsFactors = T)
+head(d)
+nrow(d)
+
+## describing variables
+hist(d$bored)
+hist(d$tired)
+hist(d$hrs.sleep)
+
+## linear model 1 : predicting tired from bored.
+mod <- lm(tired ~ bored,data=d)
+plot(jitter(tired) ~ jitter(bored),data=d)
+abline(mod, lwd = 5)
+plot(mod) # NOT YET!!!
+coef(mod) # intercept = 6.1351767   slope = 0.1568112 
+## linear model 2 : predicting tired from hrs.sleep.
+
+```
+```{r}
+summary(mod)
+```
+```{r}
+mod2 <- lm(tired ~ hrs.sleep, data = d)
+plot(tired ~ hrs.sleep, data = d)
+abline(mod2, lwd = 5)
+```
+
+```{r}
+summary(mod2)
+0.04748^.5 # the square root of R2 = r = the correlation coefficient.
+```
+
+
 ![](images/clipboard-148237661.png){fig-align="center"}
 
 **Professor Code Goes Here.**
@@ -48,6 +83,10 @@ format:
 5.  **THE END IS NEAR**
     -   **5/2 : Last Class :** The learning has stopped. So what did we learn again?
     -   **5/9 : RRR Week (Virtual) :** Project Workshop
+
+## BREAK TIME : MEET BACK AT 3:30
+
+![](images/clipboard-3386439454.png)
 
 ## REVIEW : Multiple Regression (Hair Length Predicts Height?!?!?????)
 
@@ -86,6 +125,7 @@ plot(d$long.hair, xlab = "Has Long Hair?")
 #### Height \~ long.hair
 
 ```{r}
+plot(d$long.hair)
 moda <- lm(height ~ long.hair, data = d)
 summary(moda)
 plotmeans(height ~ long.hair, data = d, connect = F)
@@ -151,9 +191,6 @@ export_summs(moda, modb, modc,
 ```
 
 
-## BREAK TIME : MEET BACK AT 3:45
-
-![](images/clipboard-3386439454.png)
 
 ## Multiple Regression Tables
 
@@ -180,6 +217,36 @@ export_summs(moda, modb, modc,
 ## Other Exam Questions / Practice
 
 ### Miscelaneous Student Questions Go Here
+
+```{r}
+names(d)
+library(gplots)
+plot(d$tuhoburat)
+levels(d$tuhoburat)[1] <- NA
+mod1 <- lm(hrs.sleep ~ tuhoburat, data = d)
+plotmeans(hrs.sleep ~ tuhoburat, data = d, connect = F)
+
+```
+## MORE MULTIPLE REGRESSION
+```{r}
+library(jtools)
+mod1 <- lm(tired ~ bored,data=d)
+mod2 <- lm(tired ~ hrs.sleep,data=d)
+mod3 <- lm(tired ~ bored + hrs.sleep,data=d)
+export_summs(mod1, mod2, mod3)
+summary(mod1)
+```
+## ANOHTER EXAMPLE HAHAAHA. A BUST! IGNORE!!!
+```{r}
+names(d)
+m1 <- lm(rlove ~ engaging, data = d)
+m2 <- lm(rlove ~ bored, data = d)
+m3 <- lm(rlove ~ bored + engaging, data = d)
+
+export_summs(m1, m2, m3)
+
+```
+
 
 ### Some Pre-Recorded NHST Review Videos
 

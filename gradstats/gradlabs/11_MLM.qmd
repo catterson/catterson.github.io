@@ -39,17 +39,18 @@ format:
 
 ### Some Pictures
 
-| "Fixed Effects" | "Random Effects" |
-|----|----|
+![](images/IMG_1573.JPG)
+
+| "Fixed Effects"                      | "Random Effects"                                                                                                                  |
+|------------------------------------|------------------------------------|
 | ![](images/clipboard-2869584700.png) | [![](images/clipboard-3127063891.png)](https://www.r-bloggers.com/2020/11/simpsons-paradox-and-misleading-statistical-inference/) |
-| ![](images/clipboard-4032942124.png) | ![](images/clipboard-2789774520.png) |
+| ![](images/clipboard-4032942124.png) | ![](images/clipboard-2789774520.png)                                                                                              |
 
 ### The Formulas
 
 -   **The Linear Model Equation**
 
 $$\huge y = \beta_0 + \beta_1x_1 + ... + \beta_kx_k + \epsilon$$
-
 
 -   **The MLM Equation (Level Notation)**
 
@@ -107,17 +108,19 @@ Random Intercepts : Still just one equation. But a lot more lines!
 ```{r}
 #install.packages("lme4")
 library(lme4)
+library(lmerTest)
+library(Matrix)
 mlmod <- lmer(extra ~ as.factor(group) + (1 | ID), data = sleep)
 summary(mlmod)
 ```
 
 -   **Fixed Effects :** The "Average" across all the grouping variables. Our friend the linear model!
 
-    -   Intercept : ????
+    -   Intercept : ???? (discussed in lecture!)
 
-    -   Slope : ????
+    -   Slope : ???? (discussed in lecture!)
 
-    -   Correlation of Fixed Effects : How our intercept and slope are related to each other. ?????
+    -   Correlation of Fixed Effects : How our intercept and slope are related to each other. ????? (discussed in lecture!)
 
 -   **Random Effects :**
 
@@ -185,7 +188,7 @@ For random intercepts and random slopes : Still just one equation....but....too 
 
 #### Example 2 : Another Sleep Dataset
 
-The classic teaching dataset from lmer. Hooray!
+A classic teaching dataset from lmer. Hooray!
 
 ```{r}
 ?sleepstudy
@@ -200,9 +203,9 @@ How might we graph this in ggplot?
 
 ```{r}
 library(ggplot2)
-ggplot(s, aes(y = Reaction, x = Days)) + 
+ggplot(sleepstudy, aes(y = Reaction, x = Days, color = Subject)) + 
   geom_point(size=2) + 
-  facet_wrap(~Subject) + 
+  # facet_wrap(~Subject) + 
   geom_smooth(method = "lm")
   # geom_line(aes(group = Subject), linewidth = 0.75)
 ```
@@ -211,22 +214,38 @@ ggplot(s, aes(y = Reaction, x = Days)) +
 
 What model would we define?
 
+-   Reaction is the DV
+
+-   I'm adding Days as a Fixed IV (so I'll get the average effect of \# of days of sleep deprivation on reaction time)
+
+-   I'm also adding a random intercept : `(1 | Subject)` that will estimate how much the intercept (the 1 term) of individual raction times (the level 2 variable) varies by Subject (the level 1 grouping variable).
+
 ```{r}
 library(lme4)
-names(s)
-lmer(Reaction ~ Days + (1 | Subject), data = sleepstudy)
-lmer(Reaction ~ (1 | Subject), data = sleepstudy)
-
+l2 <- lmer(Reaction ~ Days + (1 | Subject), data = sleepstudy)
+summary(l2)
 ```
 
 How do we interpret the results of this model?
 
+-   **Fixed Effects :** these deal with the "average" effects - ignoring all those important individual differences (which are accounted for in the random effects.)
+
+    -   Intercept = 251.41 = the average person's reaction time at 0 days of sleep deprivation is 251.4 milliseconds.
+
+    -   Days = 10.47 = for every day of sleep deprivation, the average person's reaction time increases by 10.47 MS; the standard error is an estimate of how much variation we'd expect in this average slope due
+
+-   **Random Effects :** these describe those individual differences; specifcally the
+
+    -   Subject (Intercept) = 37.12
+
+    -   Residual = 30.99
+
 #### Interpreting the Model (Random Intercepts and Slopes)
 
-What model would we define?
+**What model would we define?**
 
 ```{r}
-
+lmer(Reaction ~ Days + (Days | Subject), data = sleepstudy)
 ```
 
 How do we interpret the results of this model?
