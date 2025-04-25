@@ -1,0 +1,181 @@
+---
+title: "Lecture 12 | More Multilevel Models (MLM) and Not An Exam Debrief"
+format: 
+  html:
+      code-overflow: wrap
+---
+
+## [Check-In : Multilevel Models (MLM)](https://docs.google.com/forms/d/e/1FAIpQLSfmtiyG6zXo_pgGLYempKtsyWhZdWDENCQYCCmHKuQ1sTdLuQ/viewform?usp=header)
+
+-   Some code is below that I will run, but we won't see the output of.
+
+```{r}
+#| echo: true
+#| results: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(lme4)
+library(ggplot2)
+library(ggthemes)
+
+## Dataset : Wide Format
+dw <- read.csv("~/Desktop/grad_class_wide.csv", stringsAsFactors = T)
+
+## Converting Wide to Long Format
+dl <- dw %>%
+  pivot_longer(
+    cols = c(starts_with("HowGoing"), starts_with("LoveR")),
+    names_to = c(".value", "Timepoint"),
+    names_pattern = "(HowGoing|LoveR)(\\d+)"
+  )
+dl <- dl[,c(1, 12:14)]
+d <- dl
+
+## Some Data Cleaning
+d$Username <- as.factor(d$Username)
+d$Timepoint <- as.numeric(d$Timepoint)
+```
+
+-   Okay, it's modeling time.
+
+```{r}
+#| echo: false
+#| warning: false
+## Plotting Data
+ggplot(d, aes(y = HowGoing, x = Timepoint)) + 
+  geom_line() + 
+  geom_point(size = 2) + 
+  facet_wrap(~Username) + 
+  geom_smooth(method = "lm", se = F, colour = "red", size = 1.25)
+
+## MLM
+mlm <- lmer(HowGoing ~ (1 | Username), data = d)
+mlm2 <- lmer(HowGoing ~ Timepoint + (1 | Username), data = d)
+mlm3 <- lmer(HowGoing ~ Timepoint + (Timepoint | Username), data = d)
+
+summary(mlm3)
+
+```
+
+### Some More Thoughts and Comments on MLM
+
+-   Converting Data from Wide to Long
+
+    -   **Wide Format :** Each repeated measure is its own column; each row is an individual.
+
+        ![](images/clipboard-2798629359.png)
+
+    -   **Long Format :** Each row is an individual observation; each column is a variable.
+
+        -   **fixed effects :** repeat across rows (e.g., username; demographic & personality and other *between-person* variables)
+
+        -   **random effects :** change across rows (e.g., mood; emotion; reaction times; other *within-person* variables)
+
+            ![](images/clipboard-2900539411.png){width="185"}
+
+    -   **Often need to convert wide to long;** it's a pain. Professor Used ChatGPT for This :( and it was easier :)
+
+    ![](images/clipboard-967868589.png)
+
+-   **Reporting the Results of MLM : It Gets Complicated**
+
+    -   What fixed vs. random effects to include?
+
+    -   Random effects can be averaged into fixed effects, and both can be included in the model.
+
+        -   a person's mood varies over the day (random effect)
+
+        -   the person's mood tends to be higher than another person's (fixed effect)
+
+```{r}
+# the modelsummary function : https://francish.net/mlmusingr/MLM_Appendix_A.pdf
+# install.packages("modelsummary")
+library(modelsummary)
+modelsummary(list("Random Intercept Model" = mlm, "Random Intercept\nFixed Slope Model" = mlm2, "Random Intercept\nRandom Slope Model" = mlm3), 
+             stars = TRUE,
+             title = "Multilevel Model Regression Example")
+```
+
+## Not an Exam Debrief
+
+### Activity and Discussion : Debrief of Team Work
+
+-   [**One Dataset (and Psych 205 Assignment)**](https://docs.google.com/document/d/1qGXXwLUf7fiEKhhJ5ur-FkNUHDyLfrhjdPcSosrsAZw/edit?usp=sharing)
+
+    -   **Our Class Analyses**
+
+    -   [**29 Teams; 61 Analysts**](https://osf.io/qix4g/files/osfstorage) **:** Each team did what y'all did.
+
+-   **Activity : Round Robin Peer Review**
+
+    -   [**Step 1 :** Visit this Google Sheet](https://docs.google.com/spreadsheets/d/11Ftod8PNXqlYVVTQ5a1ImtbXary4vIIMpfPwQv3zG2E/edit?usp=sharing)
+
+    -   **Step 2 :** Find your name; share your early ATHLETIC EXPERIENCES (growth mindset etc. etc.); then use the [OSF LINK HERE](https://osf.io/qix4g/files/osfstorage) to find your Assigned Team's report.
+
+    -   **Step 3 :** Skim / review the report; fill out the columns for the below questions.
+
+        -   **Data Cleaning This Team Did for Red Card Variable.**
+
+            -   Was this what you did? Something similar? Radically different? Something you've never heard of and might want to look into later?
+
+        -   **Data Cleaning This Team Did for Race Variable.**
+
+        -   **Type of Model They Used**.
+
+        -   **What was the effect (was darker skin related to more or less red cards? Was this significant?)**
+
+        -   **Questions or Comments You Had About The Team's Approach** (e.g., what would you want / need to learn more about? Was there something cool they did that we should know about?)
+
+    -   **Step 4 :** Work with the members of your table to share your knowledge.
+
+        -   What did the assigned team you read about do and find?
+
+        -   What did you do and find?
+
+        -   What changes might you make to your own analyses based on what others have done?
+
+![](images/clipboard-290001262.png){fig-align="center"}
+
+### Original Article :
+
+**Full Article :** [Silberzahn R, Uhlmann EL, Martin DP, et al. Many Analysts, One Data Set: Making Transparent How Variations in Analytic Choices Affect Results. Advances in Methods and Practices in Psychological Science. 2018;1(3):337-356. doi:10.1177/2515245917747646](https://journals.sagepub.com/doi/epub/10.1177/2515245917747646)
+
+-   **Miscellaneous Materials :**
+
+    -   [OSF Files](https://osf.io/un3e5/files/osfstorage)
+
+    -   [Original Google Doc I adapted for your exam](https://docs.google.com/document/d/1uCF5wmbcL90qvrk_J27fWAvDcDNrO9o_APkicwRkOKc/edit?tab=t.0)
+
+-   **Authors & Agenda :** Part of the "Open Science" movement. Goal to develop better and more transparent systems of science.
+
+![](images/clipboard-3837998832.png)
+
+-   **Key Findings :**
+
+![](images/clipboard-755498918.png)
+
+-   **Discussion Questions :**
+
+    -   What practices can we carry into our own research?
+
+    -   What else seems relevant or important about the paper / this project?
+
+## [Presentation](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
+
+## More MLM
+
+## Next Week : Final Project Draft (and PIZZA)
+
+-   **Put together a summary graph (or table) that illustrates some of the main ideas.** If there was ONE PAGE to show people about your project, what would you put on that page?
+
+    -   Make it something people WANT to look at and can LEARN from.
+
+    -   No tiny font and giant margins!
+
+    -   People will remember 1-2 things about your project (± 2).
+
+-   **Bring whatever you have :)** but be prepared to chat about your data and project and get feedback.
+
+-   **Psych department is paying (~*says\ they\ will\ reimburse\ me*~) for a PIZZA PARTY.**
