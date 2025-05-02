@@ -1,0 +1,292 @@
+---
+title: "Lecture 12 | Conclusion to Introduction to Statstics"
+format: 
+  html:
+      code-overflow: wrap
+---
+
+## [Check-In : The End is Near!](https://docs.google.com/forms/d/e/1FAIpQLSfU8f7uodD82JI3QIvpMgKwWDafG5zrtjQ2ZMXX4H0_BqwJYw/viewform?usp=header)
+
+![](lecture_images/11_schoolout.png){fig-align="center"}
+
+## Announcements and Agenda
+
+-   **2:10 - 2:25.** Check-In and Announcements
+
+-   **2:25 - 3:30.** Final Project Stuff
+
+-   **3:30 - 3:45.** Break Time
+
+-   **3:45 - ????.** The Learning is Over; Would You Like to Learn More???
+
+## Final Project Stuff
+
+### Professor Advice
+
+1.  [**Use the rubric as a guide**](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0#bookmark=kix.b5sonortvquz)**.**
+    1.  Set reasonable expectations : "done is better than perfect".
+    2.  If it's not there, your TA cannot give you credit for it.
+    3.  No "right" way to do the study; just want to see evidence that you tried and are learning. (But see the rubric.)
+2.  **Keep it simple.**
+    1.  **Simple measures :**
+        1.  okay to use one measure of your DV even thought you had two.
+        2.  okay to simplify your categorical variable (e.g., "which of these 15 music types do you love the most" –\> "do you like experimental jazz (0 = no; 1 = yes)")
+    2.  **Simple models :** okay to just
+    3.  **Discussion Section :** summary of ways that you could have (or should have) been more complicated in the Discussion Section
+    4.  **Appendix :** List of [all]{.underline} your measures. Good practice to be fully transparent about what you measured in the study.
+3.  **Use paragraphs and headers to guide the reader.**
+    1.  Each new idea is a new paragraph. No solid wall of text please!
+    2.  Headers help orient your reader to the different contents.
+
+### More Writing
+
+#### The Abstract : the TLDR of your paper
+
+**Components of an Abstract :**
+
+-   1-2 sentences : what is your topic and why should we care?
+
+-   1-2 sentences : what did you measure / do in your study?
+
+-   1-2 sentences : what did you find?
+
+-   1-2 sentences : why does this matter?
+
+**Activity : Write an Abstract for Each Other**
+
+-   Professor and Student Example Goes Here :
+
+-   YOUR TURN!
+
+#### The Discussion Section : Two Paragraphs Minimum!
+
+-   **Summary of Results (and Future Studies) :**
+
+    -   What you found (NO STATS)
+
+    -   Why this matters / how this knowledge could be used / what other questions you might ask in the future?
+
+-   **Limitations and Future Directions**
+
+    -   What would you do differently in your study?
+
+    -   How could (or should) future research address these limitations, and why would that be important to do?
+
+### The Rich Lyons ~*is our chancellor and the professor of this class has*~ Invited ~*me to give a*~ Distinguished GoBears Guest Lecture
+
+-   Student Milestone 5 Example Goes Here
+
+-   Student Milestone 5 Example Goes Here
+
+-   Student Milestone 5 Example Goes Here
+
+## BREAK TIME : MEET BACK AT 3:45
+
+## ![](images/clipboard-3924345851.png)The Learning is Over; Would You Like to Learn More?
+
+### Things to Remember in 50 Years
+
+#### **You** [*Can*]{.underline} **Learn Statistics and Computers :** It is a process :)
+
+-   check-in graph goes here.
+
+#### **Life is Complex :** Psychology *Tries* to Use Statistics to Study Complexity
+
+##### Linear Models Make Predictions (with Errors)
+
+-   Hard to quantify; but best estimates that the average correlation between two variables is *r \< .30*
+
+[![Richard, F. D., Bond Jr, C. F., & Stokes-Zoota, J. J. (2003). One hundred years of social psychology quantitatively described. Review of general psychology, 7(4), 331-363.](images/clipboard-1535959675.png){fig-align="center"}](https://journals.sagepub.com/doi/pdf/10.1037/1089-2680.7.4.331?casa_token=sPnTYYnQZGkAAAAA:_3gOMjwp8AeQzdcBG2yd3_2FQ3Yuh9Cie_f8GxIPN1n4p9fcjrniLIHbQtUTJZI20WaFNdmUgyPD)
+
+-   What a r = .3 looks like. \[[Source](https://rpsychologist.com/correlation/)\]
+
+![](images/clipboard-3374702110.png)
+
+-   But also, remember that a "correlation" / slope could look like any of the following graphs \[[Anscombe's Quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet)\]
+
+##### **Not Just Error...Researchers are biased.** 
+
++------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Bias                                                                                     | Your Final Project Experiences?                                                                                                                                          |
++==========================================================================================+==========================================================================================================================================================================+
+| **previous beliefs bias**. we are more likely to believe data that supports our results. | Did you study something that was personally relevant to you? ("Me-search")                                                                                               |
+|                                                                                          |                                                                                                                                                                          |
+|                                                                                          | -   Clap : Yes / No                                                                                                                                                      |
++------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **positive evidence.** we seek out information in ways that supports our beliefs.        | Was your theory (the "alternative") something that you personally believe? Did you look for, or include, research in your introduction that did not support your theory? |
+|                                                                                          |                                                                                                                                                                          |
+|                                                                                          | -   clap : yes / no                                                                                                                                                      |
++------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **availability bias**. we are more likely to believe memorable or recent data.           | How did you feel when your results were significant? When your results were not significant?                                                                             |
+|                                                                                          |                                                                                                                                                                          |
+|                                                                                          | -   clap : happy / neutral / sad                                                                                                                                         |
++------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **social influence.** we believe things others (w/ status) do.                           | Were you influenced by the topics or methods your friends / classmates were doing?                                                                                       |
+|                                                                                          |                                                                                                                                                                          |
+|                                                                                          | Did you trust research articles that were more recent and / or highly cited (higher citation counts)?                                                                    |
+|                                                                                          |                                                                                                                                                                          |
+|                                                                                          | -   Clap : Yes / No                                                                                                                                                      |
++------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+##### **Our Methods and Measures Are Biased....**
+
+##### Maybe All of Science is Biased?
+
+-   **p-hacking :** making changes to your model or data in order to "get" your p-values.
+
+    -   **visit :** [tinyurl.com/phackingfun](https://fivethirtyeight.com/features/science-isnt-broken/#part1)
+
+    -   **model : economic performance \~ political power + error**
+
+        -   decide how to operationalize **political power**
+
+        -   **decide how to operationalize economic performance**
+
+        -   **decide how to adjust your model**
+
+![](images/clipboard-2957243318.png)
+
+-   **remember :** there's a replication crisis in psychology
+
+[![Original study effect size versus replication effect size (correlation coefficients).](images/clipboard-2290097992.png){fig-alt="Diagonal line represents replication effect size equal to original effect size. Dotted line represents replication effect size of 0. Points below the dotted line were effects in the opposite direction of the original. Density plots are separated by significant (blue) and nonsignificant (red) effects."}](https://www.science.org/doi/10.1126/science.aac4716)
+
+##### **Good to identify that bias and change it.**
+
+-   **Pre-Registration :** Deciding what you are going to do
+
+![](images/clipboard-1668702103.png)
+
+-   **Open-Science :** Making parts of the scientific method more open and transparent.
+
+    -   [Center for Open Science](https://www.cos.io/open-science)
+
+    -   [Open Science Foundation (OSF)](https://osf.io). Hosting
+
+##### Is there even a "TRUTH" about what people are like?
+
+| Beginning of Semester                | End of Semester |
+|--------------------------------------|-----------------|
+| ![](images/clipboard-3072633513.png) |                 |
+
+### Things to Immediately Forget (or Learn More About)
+
+#### Quadratic Effects : A Regression Line Can Bend
+
+![](images/clipboard-2558630596.png)
+
+-   But careful about overfitting....
+
+![](images/clipboard-792611093.png)
+
+#### Interaction Effects : The Regression Line Changes Depending on Some Other Variable
+
+-   [**Link to (OPTIONAL) Videos.**](https://docs.google.com/document/d/1aJQHbTE38_-_qOPtFcH_EpYK6CP8LFc8w1Pf44tklG4/edit?usp=sharing) No chapter (yet!)
+
+-   **Data :** Bertrand, M., & Mullainathan, S. (2004). Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. American economic review, 94(4), 991-1013.
+
+    -   What is the relationship between resume quality and callback for white sounding names?
+
+    -   What is the relationship between resume quality and callback for black sounding names?
+
+    -   What is the *difference* in these slopes (is there an interaction effect?)
+
+![](images/clipboard-798188945.png)
+
+-   **Frantz Fanon, Black Skin White Masks (1967) :** “To speak means to be in a position to use a certain syntax, to grasp the morphology of this or that language, but it means above all to assume a culture, to support the weight of civilization...Every colonized people--in other words, every people in whose soul an inferiority complex has been created by the death and burial of its local cultural originality--finds itself face to face with the language of the civilizing nation; that is, with the culture of the mother country. The colonized is elevated above his jungle status in proportion to his adoption of the mother country's cultural standards.”
+
+#### *Generalized* Linear Models (e.g., "Logistic Regression")
+
+-   **Discussion :** What do you observe about the relationship between testosterone and sex (as a DV)? Why is this model "wrong"??
+
+![](images/clipboard-1525307584.png)
+
+-   **The Generalized Linear Model :** Same Ideas (slope; intercept; error), but a "Link" Function that Transforms the Line to Fit Different Distributions.
+
+![](images/clipboard-3601808944.png)
+
+-   Example : Defining a logistic regression (*binomial distribution*)
+
+![](images/clipboard-711164922.png){width="481"}
+
+![](images/clipboard-815594485.png)
+
+#### *Multilevel* Linear Models (e.g., HLM; MLM; dependent t-test)
+
+-   Example : The Sleep Dataset (`?sleep`) : "Data which show the effect of two soporific drugs (increase in hours of sleep compared to control)."
+    -   Extra : increase in hours of sleep
+    -   Group : drug given (1 = control; 2 = drug)
+    -   ID : patient ID
+-   Sleep Data as a "General" Linear Model (a "Between Person" Study)
+
+```{r}
+library(ggplot2)
+ggplot(sleep, aes(y = extra, x = group)) + 
+  geom_point(size=2) + 
+  stat_summary(fun.data=mean_se, color = 'red', size = 1.25, linewidth = 2)
+
+lmod <- lm(extra ~ as.factor(group), data = sleep)
+summary(lmod)
+```
+
+-   **Sleep Data as a "Multilevel" Linear Model (a "Within-Person" Study).** Many linear models! Look at the graph below. What's going on? What do you observe? How might this help us understand the relationship between these two variables?
+
+```{r}
+ggplot(sleep, aes(y = extra, x = group, color = ID)) + 
+  geom_point(size=2) + 
+  geom_line(aes(group = ID), linewidth = 0.75)
+```
+
+-   What's going on in the (random intercept) model. Still just one equation.
+
+```{r}
+#install.packages("lme4")
+library(lme4)
+library(lmerTest)
+library(Matrix)
+mlmod <- lmer(extra ~ as.factor(group) + (1 | ID), data = sleep)
+summary(mlmod)
+```
+
+### Statistics Exists Outside of Psych 101
+
+#### Books and Blogs and YouTube!
+
+-   **Books :**
+
+    -   R for Data Science (Hadley Wickham) : <http://r4ds.had.co.nz/>
+
+    -   Models Demystified : <https://m-clark.github.io/book.html>
+
+-   **Blogs :**
+
+    -   Andrew Gelman blog : <http://andrewgelman.com/> 
+
+    -   Nelson, Simons, Simonsohn : [datacolada.org/](http://datacolada.org/)
+
+-   **Twitter / BlueSky Follows :**
+
+    -   [\@siminevazire](https://twitter.com/siminevazire) (personality & open science)
+
+    -   [\@djnavarro](https://mobile.twitter.com/djnavarro) (cognitive sci and r art)
+
+    -   [\@NeilLewisJr](https://twitter.com/NeilLewisJr) (psych and education)
+
+#### Courses at Cal!
+
+-   **Psych 102 (Honors Students Priority).** Taught be me in the Fall :)
+
+-   **Stat 133.** Hear good things?
+
+-   **Sit in / Register for Psych 205 (Graduate Statistics).** I taught this this semester; maybe again? IDK.
+
+#### Practice The Thing You Want to Do!
+
+-   **RA —\> Honors Thesis Pipeline.** Psych 199 positions are [posted on the psych website](https://psychology.berkeley.edu/students/undergraduate-program/independent-study), but also do direct reach out to grad students who are involved in research that interests you.
+
+-   [**Other Supported Research Opportunities at Cal**](https://research.berkeley.edu)**.** Go bears.
+
+-   [**Berkeley Undergraduate Research Journal.**](https://buj.studentorg.berkeley.edu)Maybe your final project goes here?
+
+## FAREWELL!!
+
+![](lecture_images/11_ponyobye.png){fig-align="center"}

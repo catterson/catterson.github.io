@@ -77,10 +77,8 @@ ggplot(data = subset(h, !is.na(h$GDPcat)), aes(x = scale(Ladder.score), y = scal
   geom_smooth(method = "lm") + labs(title = "Check-In Graph") + ylab("Social Support") + xlab("Happiness (Ladder Score)") +
   theme_apa()
 ```
-Interaction Effect : 
-social support = .08 + .25*GDP + .60 * Ladder - .10 * (GDP * Ladder)
-BLUE LINE : social support = .08 + .25*-1 + .60 * Ladder - .10 * (-1 * Ladder) = -.17 + .7 * Ladder
-RED LINE : = .08 + .25*1 + .60 * Ladder - .10 * (1 * Ladder) = .32 + .5 * Ladder
+
+Interaction Effect : social support = .08 + .25*GDP + .60* Ladder - .10 \* (GDP \* Ladder) BLUE LINE : social support = .08 + .25*-1 + .60* Ladder - .10 \* (-1 \* Ladder) = -.17 + .7 \* Ladder RED LINE : = .08 + .25*1 + .60* Ladder - .10 \* (1 \* Ladder) = .32 + .5 \* Ladder
 
 ::: {.callout-tip collapse="true"}
 ### R Code for the models
@@ -105,14 +103,12 @@ ggplot(h, aes(x = Ladder.score, y = Social.support)) +
   geom_smooth(method = "lm", formula = y ~ x + I(x^2))
 ```
 
-
 ```{r}
 lm1 <- lm(Social.support ~ Ladder.score, data = h)
 summary(lm1)
 lm2 <- lm(Social.support ~ Ladder.score + I(Ladder.score^2), data = h)
 summary(lm2)
 ```
-
 
 ### 1. Which Model is "Best"???
 

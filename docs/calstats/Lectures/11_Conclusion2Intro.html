@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Lecture 12 | Conclusion to Introduction to Statstics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+          <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://catterson.github.io/ystats/"> 
+<span class="menu-text">Why Statistics?</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../calstats/calstatsSP25.html"> 
+<span class="menu-text">Cal Stats [Psych 101]</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../gradstats/gradstatsSP25.html"> 
+<span class="menu-text">Grad Stats [Psych 205]</span></a>
+  </li>  
+</ul>
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lecture 12 | Conclusion to Introduction to Statstics</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="check-in-the-end-is-near" class="level2">
+<h2 class="anchored" data-anchor-id="check-in-the-end-is-near"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfU8f7uodD82JI3QIvpMgKwWDafG5zrtjQ2ZMXX4H0_BqwJYw/viewform?usp=header">Check-In : The End is Near!</a></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lecture_images/11_schoolout.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="announcements-and-agenda" class="level2">
+<h2 class="anchored" data-anchor-id="announcements-and-agenda">Announcements and Agenda</h2>
+<ul>
+<li><p><strong>2:10 - 2:25.</strong> Check-In and Announcements</p></li>
+<li><p><strong>2:25 - 3:30.</strong> Final Project Stuff</p></li>
+<li><p><strong>3:30 - 3:45.</strong> Break Time</p></li>
+<li><p><strong>3:45 - ????.</strong> The Learning is Over; Would You Like to Learn More???</p></li>
+</ul>
+</section>
+<section id="final-project-stuff" class="level2">
+<h2 class="anchored" data-anchor-id="final-project-stuff">Final Project Stuff</h2>
+<section id="professor-advice" class="level3">
+<h3 class="anchored" data-anchor-id="professor-advice">Professor Advice</h3>
+<ol type="1">
+<li><a href="https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0#bookmark=kix.b5sonortvquz"><strong>Use the rubric as a guide</strong></a><strong>.</strong>
+<ol type="1">
+<li>Set reasonable expectations : “done is better than perfect”.</li>
+<li>If it’s not there, your TA cannot give you credit for it.</li>
+<li>No “right” way to do the study; just want to see evidence that you tried and are learning. (But see the rubric.)</li>
+</ol></li>
+<li><strong>Keep it simple.</strong>
+<ol type="1">
+<li><strong>Simple measures :</strong>
+<ol type="1">
+<li>okay to use one measure of your DV even thought you had two.</li>
+<li>okay to simplify your categorical variable (e.g., “which of these 15 music types do you love the most” –&gt; “do you like experimental jazz (0 = no; 1 = yes)”)</li>
+</ol></li>
+<li><strong>Simple models :</strong> okay to just</li>
+<li><strong>Discussion Section :</strong> summary of ways that you could have (or should have) been more complicated in the Discussion Section</li>
+<li><strong>Appendix :</strong> List of <u>all</u> your measures. Good practice to be fully transparent about what you measured in the study.</li>
+</ol></li>
+<li><strong>Use paragraphs and headers to guide the reader.</strong>
+<ol type="1">
+<li>Each new idea is a new paragraph. No solid wall of text please!</li>
+<li>Headers help orient your reader to the different contents.</li>
+</ol></li>
+</ol>
+</section>
+<section id="more-writing" class="level3">
+<h3 class="anchored" data-anchor-id="more-writing">More Writing</h3>
+<section id="the-abstract-the-tldr-of-your-paper" class="level4">
+<h4 class="anchored" data-anchor-id="the-abstract-the-tldr-of-your-paper">The Abstract : the TLDR of your paper</h4>
+<p><strong>Components of an Abstract :</strong></p>
+<ul>
+<li><p>1-2 sentences : what is your topic and why should we care?</p></li>
+<li><p>1-2 sentences : what did you measure / do in your study?</p></li>
+<li><p>1-2 sentences : what did you find?</p></li>
+<li><p>1-2 sentences : why does this matter?</p></li>
+</ul>
+<p><strong>Activity : Write an Abstract for Each Other</strong></p>
+<ul>
+<li><p>Professor and Student Example Goes Here :</p></li>
+<li><p>YOUR TURN!</p></li>
+</ul>
+</section>
+<section id="the-discussion-section-two-paragraphs-minimum" class="level4">
+<h4 class="anchored" data-anchor-id="the-discussion-section-two-paragraphs-minimum">The Discussion Section : Two Paragraphs Minimum!</h4>
+<ul>
+<li><p><strong>Summary of Results (and Future Studies) :</strong></p>
+<ul>
+<li><p>What you found (NO STATS)</p></li>
+<li><p>Why this matters / how this knowledge could be used / what other questions you might ask in the future?</p></li>
+</ul></li>
+<li><p><strong>Limitations and Future Directions</strong></p>
+<ul>
+<li><p>What would you do differently in your study?</p></li>
+<li><p>How could (or should) future research address these limitations, and why would that be important to do?</p></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="the-rich-lyons-is-our-chancellor-and-the-professor-of-this-class-has-invited-me-to-give-a-distinguished-gobears-guest-lecture" class="level3">
+<h3 class="anchored" data-anchor-id="the-rich-lyons-is-our-chancellor-and-the-professor-of-this-class-has-invited-me-to-give-a-distinguished-gobears-guest-lecture">The Rich Lyons <sub><em>is&nbsp;our&nbsp;chancellor&nbsp;and&nbsp;the&nbsp;professor&nbsp;of&nbsp;this&nbsp;class&nbsp;has</em></sub> Invited <sub><em>me&nbsp;to&nbsp;give&nbsp;a</em></sub> Distinguished GoBears Guest Lecture</h3>
+<ul>
+<li><p>Student Milestone 5 Example Goes Here</p></li>
+<li><p>Student Milestone 5 Example Goes Here</p></li>
+<li><p>Student Milestone 5 Example Goes Here</p></li>
+</ul>
+</section>
+</section>
+<section id="break-time-meet-back-at-345" class="level2">
+<h2 class="anchored" data-anchor-id="break-time-meet-back-at-345">BREAK TIME : MEET BACK AT 3:45</h2>
+</section>
+<section id="the-learning-is-over-would-you-like-to-learn-more" class="level2">
+<h2 class="anchored" data-anchor-id="the-learning-is-over-would-you-like-to-learn-more"><img src="images/clipboard-3924345851.png" class="img-fluid">The Learning is Over; Would You Like to Learn More?</h2>
+<section id="things-to-remember-in-50-years" class="level3">
+<h3 class="anchored" data-anchor-id="things-to-remember-in-50-years">Things to Remember in 50 Years</h3>
+<section id="you-can-learn-statistics-and-computers-it-is-a-process" class="level4">
+<h4 class="anchored" data-anchor-id="you-can-learn-statistics-and-computers-it-is-a-process"><strong>You</strong> <u><em>Can</em></u> <strong>Learn Statistics and Computers :</strong> It is a process :)</h4>
+<ul>
+<li>check-in graph goes here.</li>
+</ul>
+</section>
+<section id="life-is-complex-psychology-tries-to-use-statistics-to-study-complexity" class="level4">
+<h4 class="anchored" data-anchor-id="life-is-complex-psychology-tries-to-use-statistics-to-study-complexity"><strong>Life is Complex :</strong> Psychology <em>Tries</em> to Use Statistics to Study Complexity</h4>
+<section id="linear-models-make-predictions-with-errors" class="level5">
+<h5 class="anchored" data-anchor-id="linear-models-make-predictions-with-errors">Linear Models Make Predictions (with Errors)</h5>
+<ul>
+<li>Hard to quantify; but best estimates that the average correlation between two variables is <em>r &lt; .30</em></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://journals.sagepub.com/doi/pdf/10.1037/1089-2680.7.4.331?casa_token=sPnTYYnQZGkAAAAA:_3gOMjwp8AeQzdcBG2yd3_2FQ3Yuh9Cie_f8GxIPN1n4p9fcjrniLIHbQtUTJZI20WaFNdmUgyPD"><img src="images/clipboard-1535959675.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Richard, F. D., Bond Jr, C. F., &amp; Stokes-Zoota, J. J. (2003). One hundred years of social psychology quantitatively described. Review of general psychology, 7(4), 331-363."></a></p>
+</figure>
+</div>
+<figcaption>Richard, F. D., Bond Jr, C. F., &amp; Stokes-Zoota, J. J. (2003). One hundred years of social psychology quantitatively described. Review of general psychology, 7(4), 331-363.</figcaption>
+</figure>
+</div>
+<ul>
+<li>What a r = .3 looks like. [<a href="https://rpsychologist.com/correlation/">Source</a>]</li>
+</ul>
+<p><img src="images/clipboard-3374702110.png" class="img-fluid"></p>
+<ul>
+<li>But also, remember that a “correlation” / slope could look like any of the following graphs [<a href="https://en.wikipedia.org/wiki/Anscombe%27s_quartet">Anscombe’s Quartet</a>]</li>
+</ul>
+</section>
+<section id="not-just-errorresearchers-are-biased." class="level5">
+<h5 class="anchored" data-anchor-id="not-just-errorresearchers-are-biased."><strong>Not Just Error…Researchers are biased.</strong></h5>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 65%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bias</th>
+<th>Your Final Project Experiences?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>previous beliefs bias</strong>. we are more likely to believe data that supports our results.</td>
+<td><p>Did you study something that was personally relevant to you? (“Me-search”)</p>
+<ul>
+<li>Clap : Yes / No</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><strong>positive evidence.</strong> we seek out information in ways that supports our beliefs.</td>
+<td><p>Was your theory (the “alternative”) something that you personally believe? Did you look for, or include, research in your introduction that did not support your theory?</p>
+<ul>
+<li>clap : yes / no</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><strong>availability bias</strong>. we are more likely to believe memorable or recent data.</td>
+<td><p>How did you feel when your results were significant? When your results were not significant?</p>
+<ul>
+<li>clap : happy / neutral / sad</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><strong>social influence.</strong> we believe things others (w/ status) do.</td>
+<td><p>Were you influenced by the topics or methods your friends / classmates were doing?</p>
+<p>Did you trust research articles that were more recent and / or highly cited (higher citation counts)?</p>
+<ul>
+<li>Clap : Yes / No</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="our-methods-and-measures-are-biased." class="level5">
+<h5 class="anchored" data-anchor-id="our-methods-and-measures-are-biased."><strong>Our Methods and Measures Are Biased….</strong></h5>
+</section>
+<section id="maybe-all-of-science-is-biased" class="level5">
+<h5 class="anchored" data-anchor-id="maybe-all-of-science-is-biased">Maybe All of Science is Biased?</h5>
+<ul>
+<li><p><strong>p-hacking :</strong> making changes to your model or data in order to “get” your p-values.</p>
+<ul>
+<li><p><strong>visit :</strong> <a href="https://fivethirtyeight.com/features/science-isnt-broken/#part1">tinyurl.com/phackingfun</a></p></li>
+<li><p><strong>model : economic performance ~ political power + error</strong></p>
+<ul>
+<li><p>decide how to operationalize <strong>political power</strong></p></li>
+<li><p><strong>decide how to operationalize economic performance</strong></p></li>
+<li><p><strong>decide how to adjust your model</strong></p></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><img src="images/clipboard-2957243318.png" class="img-fluid"></p>
+<ul>
+<li><strong>remember :</strong> there’s a replication crisis in psychology</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.science.org/doi/10.1126/science.aac4716"><img src="images/clipboard-2290097992.png" class="img-fluid figure-img" alt="Diagonal line represents replication effect size equal to original effect size. Dotted line represents replication effect size of 0. Points below the dotted line were effects in the opposite direction of the original. Density plots are separated by significant (blue) and nonsignificant (red) effects."></a></p>
+<figcaption>Original study effect size versus replication effect size (correlation coefficients).</figcaption>
+</figure>
+</div>
+</section>
+<section id="good-to-identify-that-bias-and-change-it." class="level5">
+<h5 class="anchored" data-anchor-id="good-to-identify-that-bias-and-change-it."><strong>Good to identify that bias and change it.</strong></h5>
+<ul>
+<li><strong>Pre-Registration :</strong> Deciding what you are going to do</li>
+</ul>
+<p><img src="images/clipboard-1668702103.png" class="img-fluid"></p>
+<ul>
+<li><p><strong>Open-Science :</strong> Making parts of the scientific method more open and transparent.</p>
+<ul>
+<li><p><a href="https://www.cos.io/open-science">Center for Open Science</a></p></li>
+<li><p><a href="https://osf.io">Open Science Foundation (OSF)</a>. Hosting</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="is-there-even-a-truth-about-what-people-are-like" class="level5">
+<h5 class="anchored" data-anchor-id="is-there-even-a-truth-about-what-people-are-like">Is there even a “TRUTH” about what people are like?</h5>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Beginning of Semester</th>
+<th>End of Semester</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="images/clipboard-3072633513.png" class="img-fluid"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="things-to-immediately-forget-or-learn-more-about" class="level3">
+<h3 class="anchored" data-anchor-id="things-to-immediately-forget-or-learn-more-about">Things to Immediately Forget (or Learn More About)</h3>
+<section id="quadratic-effects-a-regression-line-can-bend" class="level4">
+<h4 class="anchored" data-anchor-id="quadratic-effects-a-regression-line-can-bend">Quadratic Effects : A Regression Line Can Bend</h4>
+<p><img src="images/clipboard-2558630596.png" class="img-fluid"></p>
+<ul>
+<li>But careful about overfitting….</li>
+</ul>
+<p><img src="images/clipboard-792611093.png" class="img-fluid"></p>
+</section>
+<section id="interaction-effects-the-regression-line-changes-depending-on-some-other-variable" class="level4">
+<h4 class="anchored" data-anchor-id="interaction-effects-the-regression-line-changes-depending-on-some-other-variable">Interaction Effects : The Regression Line Changes Depending on Some Other Variable</h4>
+<ul>
+<li><p><a href="https://docs.google.com/document/d/1aJQHbTE38_-_qOPtFcH_EpYK6CP8LFc8w1Pf44tklG4/edit?usp=sharing"><strong>Link to (OPTIONAL) Videos.</strong></a> No chapter (yet!)</p></li>
+<li><p><strong>Data :</strong> Bertrand, M., &amp; Mullainathan, S. (2004). Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. American economic review, 94(4), 991-1013.</p>
+<ul>
+<li><p>What is the relationship between resume quality and callback for white sounding names?</p></li>
+<li><p>What is the relationship between resume quality and callback for black sounding names?</p></li>
+<li><p>What is the <em>difference</em> in these slopes (is there an interaction effect?)</p></li>
+</ul></li>
+</ul>
+<p><img src="images/clipboard-798188945.png" class="img-fluid"></p>
+<ul>
+<li><strong>Frantz Fanon, Black Skin White Masks (1967) :</strong> “To speak means to be in a position to use a certain syntax, to grasp the morphology of this or that language, but it means above all to assume a culture, to support the weight of civilization…Every colonized people–in other words, every people in whose soul an inferiority complex has been created by the death and burial of its local cultural originality–finds itself face to face with the language of the civilizing nation; that is, with the culture of the mother country. The colonized is elevated above his jungle status in proportion to his adoption of the mother country’s cultural standards.”</li>
+</ul>
+</section>
+<section id="generalized-linear-models-e.g.-logistic-regression" class="level4">
+<h4 class="anchored" data-anchor-id="generalized-linear-models-e.g.-logistic-regression"><em>Generalized</em> Linear Models (e.g., “Logistic Regression”)</h4>
+<ul>
+<li><strong>Discussion :</strong> What do you observe about the relationship between testosterone and sex (as a DV)? Why is this model “wrong”??</li>
+</ul>
+<p><img src="images/clipboard-1525307584.png" class="img-fluid"></p>
+<ul>
+<li><strong>The Generalized Linear Model :</strong> Same Ideas (slope; intercept; error), but a “Link” Function that Transforms the Line to Fit Different Distributions.</li>
+</ul>
+<p><img src="images/clipboard-3601808944.png" class="img-fluid"></p>
+<ul>
+<li>Example : Defining a logistic regression (<em>binomial distribution</em>)</li>
+</ul>
+<p><img src="images/clipboard-711164922.png" class="img-fluid" width="481"></p>
+<p><img src="images/clipboard-815594485.png" class="img-fluid"></p>
+</section>
+<section id="multilevel-linear-models-e.g.-hlm-mlm-dependent-t-test" class="level4">
+<h4 class="anchored" data-anchor-id="multilevel-linear-models-e.g.-hlm-mlm-dependent-t-test"><em>Multilevel</em> Linear Models (e.g., HLM; MLM; dependent t-test)</h4>
+<ul>
+<li>Example : The Sleep Dataset (<code>?sleep</code>) : “Data which show the effect of two soporific drugs (increase in hours of sleep compared to control).”
+<ul>
+<li>Extra : increase in hours of sleep</li>
+<li>Group : drug given (1 = control; 2 = drug)</li>
+<li>ID : patient ID</li>
+</ul></li>
+<li>Sleep Data as a “General” Linear Model (a “Between Person” Study)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sleep, <span class="fu">aes</span>(<span class="at">y =</span> extra, <span class="at">x =</span> group)) <span class="sc">+</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data=</span>mean_se, <span class="at">color =</span> <span class="st">'red'</span>, <span class="at">size =</span> <span class="fl">1.25</span>, <span class="at">linewidth =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="11_Conclusion2Intro_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>lmod <span class="ot">&lt;-</span> <span class="fu">lm</span>(extra <span class="sc">~</span> <span class="fu">as.factor</span>(group), <span class="at">data =</span> sleep)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lmod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = extra ~ as.factor(group), data = sleep)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-2.430 -1.305 -0.580  1.455  3.170 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)         0.7500     0.6004   1.249   0.2276  
+as.factor(group)2   1.5800     0.8491   1.861   0.0792 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.899 on 18 degrees of freedom
+Multiple R-squared:  0.1613,    Adjusted R-squared:  0.1147 
+F-statistic: 3.463 on 1 and 18 DF,  p-value: 0.07919</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Sleep Data as a “Multilevel” Linear Model (a “Within-Person” Study).</strong> Many linear models! Look at the graph below. What’s going on? What do you observe? How might this help us understand the relationship between these two variables?</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sleep, <span class="fu">aes</span>(<span class="at">y =</span> extra, <span class="at">x =</span> group, <span class="at">color =</span> ID)) <span class="sc">+</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> ID), <span class="at">linewidth =</span> <span class="fl">0.75</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="11_Conclusion2Intro_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>What’s going on in the (random intercept) model. Still just one equation.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("lme4")</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Matrix</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmerTest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'lmerTest'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:lme4':
+
+    lmer</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:stats':
+
+    step</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Matrix)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mlmod <span class="ot">&lt;-</span> <span class="fu">lmer</span>(extra <span class="sc">~</span> <span class="fu">as.factor</span>(group) <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> ID), <span class="at">data =</span> sleep)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mlmod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: extra ~ as.factor(group) + (1 | ID)
+   Data: sleep
+
+REML criterion at convergence: 70
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-1.63372 -0.34157  0.03346  0.31511  1.83859 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ ID       (Intercept) 2.8483   1.6877  
+ Residual             0.7564   0.8697  
+Number of obs: 20, groups:  ID, 10
+
+Fixed effects:
+                  Estimate Std. Error      df t value Pr(&gt;|t|)   
+(Intercept)         0.7500     0.6004 11.0814   1.249  0.23735   
+as.factor(group)2   1.5800     0.3890  9.0000   4.062  0.00283 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            (Intr)
+as.fctr(g)2 -0.324</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="statistics-exists-outside-of-psych-101" class="level3">
+<h3 class="anchored" data-anchor-id="statistics-exists-outside-of-psych-101">Statistics Exists Outside of Psych 101</h3>
+<section id="books-and-blogs-and-youtube" class="level4">
+<h4 class="anchored" data-anchor-id="books-and-blogs-and-youtube">Books and Blogs and YouTube!</h4>
+<ul>
+<li><p><strong>Books :</strong></p>
+<ul>
+<li><p>R for Data Science (Hadley Wickham) : <a href="http://r4ds.had.co.nz/" class="uri">http://r4ds.had.co.nz/</a></p></li>
+<li><p>Models Demystified : <a href="https://m-clark.github.io/book.html" class="uri">https://m-clark.github.io/book.html</a></p></li>
+</ul></li>
+<li><p><strong>Blogs :</strong></p>
+<ul>
+<li><p>Andrew Gelman blog : <a href="http://andrewgelman.com/" class="uri">http://andrewgelman.com/</a>&nbsp;</p></li>
+<li><p>Nelson, Simons, Simonsohn : <a href="http://datacolada.org/">datacolada.org/</a></p></li>
+</ul></li>
+<li><p><strong>Twitter / BlueSky Follows :</strong></p>
+<ul>
+<li><p><a href="https://twitter.com/siminevazire">@siminevazire</a> (personality &amp; open science)</p></li>
+<li><p><a href="https://mobile.twitter.com/djnavarro">@djnavarro</a> (cognitive sci and r art)</p></li>
+<li><p><a href="https://twitter.com/NeilLewisJr">@NeilLewisJr</a> (psych and education)</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="courses-at-cal" class="level4">
+<h4 class="anchored" data-anchor-id="courses-at-cal">Courses at Cal!</h4>
+<ul>
+<li><p><strong>Psych 102 (Honors Students Priority).</strong> Taught be me in the Fall :)</p></li>
+<li><p><strong>Stat 133.</strong> Hear good things?</p></li>
+<li><p><strong>Sit in / Register for Psych 205 (Graduate Statistics).</strong> I taught this this semester; maybe again? IDK.</p></li>
+</ul>
+</section>
+<section id="practice-the-thing-you-want-to-do" class="level4">
+<h4 class="anchored" data-anchor-id="practice-the-thing-you-want-to-do">Practice The Thing You Want to Do!</h4>
+<ul>
+<li><p><strong>RA —&gt; Honors Thesis Pipeline.</strong> Psych 199 positions are <a href="https://psychology.berkeley.edu/students/undergraduate-program/independent-study">posted on the psych website</a>, but also do direct reach out to grad students who are involved in research that interests you.</p></li>
+<li><p><a href="https://research.berkeley.edu"><strong>Other Supported Research Opportunities at Cal</strong></a><strong>.</strong> Go bears.</p></li>
+<li><p><a href="https://buj.studentorg.berkeley.edu"><strong>Berkeley Undergraduate Research Journal.</strong></a>Maybe your final project goes here?</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="farewell" class="level2">
+<h2 class="anchored" data-anchor-id="farewell">FAREWELL!!</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lecture_images/11_ponyobye.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
