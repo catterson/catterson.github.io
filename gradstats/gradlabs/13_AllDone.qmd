@@ -54,7 +54,7 @@ library(ggplot2)
 # Fakin' some data.
 set.seed(42)
 n <- 100
-x <- seq(-5, 5, n)
+x <- seq(-5, 5, length.out = n)
 y <- sin(x) + rnorm(n, sd = 5)
 d <- data.frame(x, y)
 
