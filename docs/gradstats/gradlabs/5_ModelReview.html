@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -64,10 +64,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dcc7d9e706e4adfbab8e3d6c7c60bab2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -235,8 +235,8 @@ window.Quarto = {
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>        Intercept Slope Sample Error (Slope) R-Squared
-Model 1     38.81  7.95                10.47      0.03
-Model 2     42.84  6.15                 5.59      0.05</code></pre>
+Model 1     38.81  7.95                11.33      0.03
+Model 2     42.84  6.15                 5.99      0.05</code></pre>
 </div>
 </div>
 <p><strong>Use Models 1 and 2 to answer the questions below.</strong></p>
@@ -458,7 +458,7 @@ hrs.sleep         7.95        0.20</code></pre>
 arm (Version 1.14-4, built: 2024-4-1)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Working directory is /Users/adcat/Documents/Documents - minicat/catterson.github.io/gradstats/gradlabs</code></pre>
+<pre><code>Working directory is /Users/lapcat/Documents/catterson.github.io/gradstats/gradlabs</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
@@ -650,8 +650,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -762,7 +760,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
