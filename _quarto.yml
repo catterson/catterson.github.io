@@ -11,12 +11,6 @@ website:
         text: Home
       - href: https://catterson.github.io/ystats/
         text: Why Statistics?
-      - href: ./calstats/calstatsSP25.qmd
-        text: Psych Stats [Psych 214]
-      - href: ./calstats/calstatsSP25.qmd
-        text: Cal Stats [Psych 101]
-      - href: ./gradstats/gradstatsSP25.qmd
-        text: Advanced Cal Stats [Psych 102]
     pinned: true
     collapse: false
 format:
