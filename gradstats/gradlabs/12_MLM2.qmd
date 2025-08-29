@@ -10,10 +10,11 @@ format:
 -   Some code is below that I will run, but we won't see the output of.
 
 ```{r}
-#| echo: true
-#| results: false
+#| eval: false
 #| message: false
 #| warning: false
+#| include: false
+#| results: false
 
 library(tidyverse)
 library(lme4)
@@ -41,8 +42,9 @@ d$Timepoint <- as.numeric(d$Timepoint)
 -   Okay, it's modeling time.
 
 ```{r}
-#| echo: false
+#| eval: false
 #| warning: false
+#| include: false
 ## Plotting Data
 ggplot(d, aes(y = HowGoing, x = Timepoint)) + 
   geom_line() + 
@@ -92,6 +94,8 @@ summary(mlm3)
         -   the person's mood tends to be higher than another person's (fixed effect)
 
 ```{r}
+#| eval: false
+#| include: false
 # the modelsummary function : https://francish.net/mlmusingr/MLM_Appendix_A.pdf
 # install.packages("modelsummary")
 library(modelsummary)
