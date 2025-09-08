@@ -67,7 +67,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-4968d28af72d4e5a34172c9bc5ef961b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-79108a0fc1995748cbd19a5b0e3e3e7c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -83,11 +85,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -112,10 +116,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-    </div>
+    
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -175,6 +178,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="check-in-results" class="level2">
 <h2 class="anchored" data-anchor-id="check-in-results">Check-In Results</h2>
+<ul>
+<li>professor will paste here.</li>
+</ul>
 </section>
 </section>
 <section id="recap-psychological-life-is-variation" class="level1">
@@ -206,7 +212,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 </section>
-<section id="in-r-defining-variables" class="level1 page-columns page-full">
+<section id="in-r-defining-variables" class="level1">
 <h1>IN R : Defining Variables</h1>
 <section id="thinking-about-programming-free-association-activity" class="level2">
 <h2 class="anchored" data-anchor-id="thinking-about-programming-free-association-activity">Thinking about Programming (Free Association Activity)</h2>
@@ -238,9 +244,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="activty-open-up-rstudio" class="level3">
 <h3 class="anchored" data-anchor-id="activty-open-up-rstudio"><strong>ACTIVTY :</strong> open up RStudio</h3>
 <ol type="1">
-<li>Type some math into an Rscript, and send it to the console. Yeah, you are programming!</li>
-<li>Define two variables in R - one numeric and one string variable (these can be unrelated to your project topic!) Make sure to collect at least ten data points for each variable, and show that you successfully defined the variable in R by “printing” it in R. Yeah, you’re programming!</li>
-<li>Copy/paste (or screenshot) your code and output from the question above to a document to answer Lab 1, Question 1.</li>
+<li><strong>You are Programming!</strong> Type some math into an Rscript, and send it to the console. THAT’S RIGHT.</li>
+<li><strong>Work on Lab 1, Question 1 :</strong> Define two variables in R : one numeric, and one string. <em>Note : you can use the data that we collected in class, or collect your own data (make sure each variable has at least ten data points).</em> “Print” each variable in R, and paste the output as a screenshot. Then, graph the numeric variable as a “histogram” and the string variable as a “plot”. Below your graph, describe what you observe about the individuals in the dataset for each variable. See the lecture videos in Chapter 2 for a guide on how to do this!</li>
 </ol>
 </section>
 </section>
@@ -283,10 +288,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="example-creating-numeric-variables" class="level2">
 <h2 class="anchored" data-anchor-id="example-creating-numeric-variables">Example : Creating Numeric Variables</h2>
 <div class="cell">
-<pre class="webr cell-code"><code>prof.sleep &lt;- c(5.5, 5, 7, 8.5, 6.5, 5, 7.0, 7.5, 7.5, 6, 6.5, 5) # hours of sleep professor got the last few nights.
-print(prof.sleep) # one way to "print" the variable
-prof.sleep # another way to "print" the variable
-hist(prof.sleep) # a way to graph the variable (a histogram)</code></pre>
+<div>
+<div id="webr-1" class="exercise-cell">
+
+</div>
+<script type="webr-1-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoicHJvZi5zbGVlcCA8LSBjKDUuNSwgNSwgNywgOC41LCA2LjUsIDUsIDcuMCwgNy41LCA3LjUsIDYsIDYuNSwgNSkgIyBob3VycyBvZiBzbGVlcCBwcm9mZXNzb3IgZ290IHRoZSBsYXN0IGZldyBuaWdodHMuXG5wcmludChwcm9mLnNsZWVwKSAjIG9uZSB3YXkgdG8gXCJwcmludFwiIHRoZSB2YXJpYWJsZVxucHJvZi5zbGVlcCAjIGFub3RoZXIgd2F5IHRvIFwicHJpbnRcIiB0aGUgdmFyaWFibGVcbmhpc3QocHJvZi5zbGVlcCkgIyBhIHdheSB0byBncmFwaCB0aGUgdmFyaWFibGUgKGEgaGlzdG9ncmFtKSJ9
+</script>
+</div>
 </div>
 </section>
 <section id="string-variables" class="level2">
@@ -298,9 +307,9 @@ hist(prof.sleep) # a way to graph the variable (a histogram)</code></pre>
 </colgroup>
 <tbody>
 <tr class="odd">
-<td><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>variable <span class="ot">&lt;-</span> <span class="fu">c</span>(“name1”, “name2”, “name1”, etc.)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>emotion <span class="ot">&lt;-</span> <span class="fu">c</span>(“sad”, “happy”, “sad”)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>variable <span class="ot">&lt;-</span> <span class="fu">c</span>(“name1”, “name2”, “name1”, etc.)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>emotion <span class="ot">&lt;-</span> <span class="fu">c</span>(“sad”, “happy”, “sad”)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
 <td><p><strong>variable</strong> = an object that you will define in R</p>
 <p><strong>&lt;-</strong> = “assign”; tells R to save whatever comes on the right to whatever object is on the left.</p>
 <p><strong>c</strong> = combine : tells R to combine whatever happens in the parentheses</p>
@@ -308,9 +317,9 @@ hist(prof.sleep) # a way to graph the variable (a histogram)</code></pre>
 <p><strong># =</strong> what you store in the variable; each item should be separated by a comma and space.</p></td>
 </tr>
 <tr class="even">
-<td><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.factor</span>(variable)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">as.factor</span>(emotion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.factor</span>(variable)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">as.factor</span>(emotion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
 <td><strong>as.factor()</strong> # converts a string variable into a categorical factor</td>
 </tr>
 <tr class="odd">
@@ -318,29 +327,29 @@ hist(prof.sleep) # a way to graph the variable (a histogram)</code></pre>
 <td><strong># “</strong>saves” this conversion as the original variable</td>
 </tr>
 <tr class="even">
-<td><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dat<span class="sc">$</span>variable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dat<span class="sc">$</span>variable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
 <td><strong>For categorical variables :</strong> draws a barplot. For continuous variables :&nbsp; illustrates values of the variable (y-axis) as a function of their index (x-axis).</td>
 </tr>
 </tbody>
 </table>
-<section id="example-creating-non-numeric-variables" class="level3">
-<h3 class="anchored" data-anchor-id="example-creating-non-numeric-variables">Example : Creating Non-Numeric Variables</h3>
+<section id="example-in-r-creating-non-numeric-variables" class="level3">
+<h3 class="anchored" data-anchor-id="example-in-r-creating-non-numeric-variables">Example in R : Creating Non-Numeric Variables</h3>
 <p>The data below describe the categories of family laundry that was hanging in my apartment to dry.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>laundryhang <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"shirt"</span>, <span class="st">"shirt"</span>, <span class="st">"leggings"</span>, <span class="st">"leggings"</span>, <span class="st">"shirt"</span>, </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>             <span class="st">"shirt"</span>, <span class="st">"leggings"</span>, <span class="st">"pants"</span>, <span class="st">"sweater"</span>, <span class="st">"sweater"</span>) <span class="co"># defining a string variable</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(laundryhang)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>laundryhang <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"shirt"</span>, <span class="st">"shirt"</span>, <span class="st">"leggings"</span>, <span class="st">"leggings"</span>, <span class="st">"shirt"</span>, </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>             <span class="st">"shirt"</span>, <span class="st">"leggings"</span>, <span class="st">"pants"</span>, <span class="st">"sweater"</span>, <span class="st">"sweater"</span>) <span class="co"># defining a string variable</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(laundryhang)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "shirt"    "shirt"    "leggings" "leggings" "shirt"    "shirt"   
  [7] "leggings" "pants"    "sweater"  "sweater" </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>laundryhang <span class="co"># another way to "print" the variable</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>laundryhang <span class="co"># another way to "print" the variable</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "shirt"    "shirt"    "leggings" "leggings" "shirt"    "shirt"   
  [7] "leggings" "pants"    "sweater"  "sweater" </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>laundryhang <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(laundryhang) <span class="co"># changing the format of the sting variable into a categorical factor</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(laundryhang) <span class="co"># a way to graph the non-numeric variable</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>laundryhang <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(laundryhang) <span class="co"># changing the format of the sting variable into a categorical factor</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(laundryhang) <span class="co"># a way to graph the non-numeric variable</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -359,7 +368,7 @@ hist(prof.sleep) # a way to graph the variable (a histogram)</code></pre>
 </figure>
 </div>
 </section>
-<section id="prediction-power" class="level2 page-columns page-full">
+<section id="prediction-power" class="level2">
 <h2 class="anchored" data-anchor-id="prediction-power">Prediction &amp; Power</h2>
 <section id="predictions-in-real-life" class="level3">
 <h3 class="anchored" data-anchor-id="predictions-in-real-life">Predictions in Real Life</h3>
@@ -389,7 +398,7 @@ hist(prof.sleep) # a way to graph the variable (a histogram)</code></pre>
 </ul></li>
 </ul>
 </section>
-<section id="scientific-predictions" class="level3 page-columns page-full">
+<section id="scientific-predictions" class="level3">
 <h3 class="anchored" data-anchor-id="scientific-predictions">Scientific Predictions</h3>
 <p>Psychological scientists seek to better understand variation, in order to help make valid predictions in ways that help exert power over our environments.</p>
 <table class="caption-top table">
@@ -408,46 +417,49 @@ hist(prof.sleep) # a way to graph the variable (a histogram)</code></pre>
 <td><img src="lecture_images/1L_fb.png" class="img-fluid" width="600"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></td>
 <td></td>
 </tr>
-<tr class="odd">
-<td><img src="lecture_images/1L_blm.png" class="img-fluid" width="600"><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
-<td></td>
-</tr>
 </tbody>
 </table>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Here’s <a href="https://www.nytimes.com/2016/05/06/business/facebook-bends-the-rules-of-audience-engagement-to-its-advantage.html">a link to the article</a> where this headline comes from. These data are a little dated, and I couldn’t immediately find more recent data - my guess is Meta does not really want to advertise that people are using the product more and more. However, in <a href="https://s21.q4cdn.com/399680738/files/doc_financials/2024/q2/Earnings-Presentation-Q2-2024.pdf">reports to investors</a> reports consistent growth in metrics like “ad impressions” and “daily active users”. Let me know if you find other sources to show how technology companies are capturing more and more of our attention!</p></div><div id="fn2"><p><sup>2</sup>&nbsp;Oscar Grant, Trayvon Martin, Philando Castile, Eric Garner, George Floyd, Tamir Rice, Breonna Taylor, Ahmaud Aubrey, Jacob Blake. Here’s a <a href="https://en.wikipedia.org/wiki/List_of_unarmed_African_Americans_killed_by_law_enforcement_officers_in_the_United_States">more comprehensive list</a>, and <a href="https://www.apa.org/monitor/2016/12/cover-policing">here’s a summary article</a> on policing and race.<br>
-</p></div></div></section>
+</section>
 </section>
 <section id="the-linear-model" class="level2">
 <h2 class="anchored" data-anchor-id="the-linear-model">The Linear Model</h2>
-<section id="definition" class="level3">
-<h3 class="anchored" data-anchor-id="definition">Definition</h3>
-<p><strong>Statistical Model :</strong> DV ~ IV1 + IV2 + … + IVk + error</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-606362939.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="739"></p>
+</figure>
+</div>
+<section id="recap-definition-and-examples" class="level3">
+<h3 class="anchored" data-anchor-id="recap-definition-and-examples">RECAP : Definition and Examples</h3>
 <ul>
-<li><p><strong>DV = dependent variable</strong> = the variable you want to predict</p></li>
-<li><p><strong>IV = independent variable(s)</strong> = the variable(s) you think will predict the DV</p>
+<li><p>Steps to Take :&nbsp;</p>
 <ul>
-<li><p>k = any number = there can be MANY IVs</p></li>
-<li><p><strong>any variable can be an IV or DV - it’s up to the researcher to choose</strong></p></li>
+<li><p><strong>list the variable that you want to predict (the DV)</strong></p></li>
+<li><p><strong>list the variables that you think will help predict the DV (the IVs)</strong></p>
+<ul>
+<li><p><strong>NOTE : you do not (and can not) account for EVERY variable in your linear model!</strong></p></li>
+<li><p><strong>IN FACT : researchers are very specific about the variables they will include.</strong></p></li>
+<li><p><strong>ERROR will capture all the other variables not in your model.</strong></p></li>
 </ul></li>
-<li><p><strong>~ = a squiggly line / tilde =</strong> our model is uncertain (not equal)</p></li>
-<li><p><strong>error</strong> = other factors that are not part of your model that would also explain the DV</p></li>
-<li><p><strong>We say: “the DV is a function of…”; “the DV depends on the IV(s)”</strong></p></li>
-</ul>
-</section>
-<section id="examples" class="level3">
-<h3 class="anchored" data-anchor-id="examples">Examples</h3>
+</ul></li>
+<li><p>Example : What predicts why people differ in the amount of screen time that they use (between or within-person differences)?</p>
 <ul>
-<li><p>rain ~ number of umbrellas other people have + personal experience + weather app + clouds + sun + smell + pressure + error</p></li>
-<li><p>class quality ~ communication + study habits + lecture <u><strong><em>attendance</em></strong></u> <em>+</em> quality of lecturing + mood / vibes + professor and student adaptability to the class + workload + participation + time management + hunger + sleep + life shit + 3 hours lectures on a friday afternoon + respect + right amount of material that is relevant and interetsting + study buddy + LEARNING somethign useful and relevant + ERROR</p></li>
+<li></li>
+</ul></li>
 </ul>
-</section>
-<section id="another-example" class="level3">
-<h3 class="anchored" data-anchor-id="another-example">Another Example</h3>
-<p><strong>KEY IDEA : Linear Models Help Make and Quantify Prediction</strong></p>
+<p><strong>KEY IDEA : Linear Models Help Organize and Quantify Prediction</strong></p>
 <ul>
-<li>what information (IV) is related to the DV (predict)</li>
-<li>which IV allows us to make the best predictions (effect size)</li>
-<li>the amount of error in your prediction (error can come from our measures, our models, and maybe is just inherent to science?)</li>
+<li><strong>organize :</strong> a model specifies what information (IV) we think might help us predict the DV</li>
+<li><strong>quantify :</strong> when we add statistics to our model (much later!), we will see…
+<ul>
+<li><p><strong>the direction of the prediction :</strong> is there a positive or negative relationship between the IV and the DV?</p></li>
+<li><p><strong>the “weight” of the prediction :</strong> how much does each IV help us predict the DV?</p>
+<ul>
+<li><p>what is the “best” predictor in our model?</p></li>
+<li><p>what is the “worst” predictor in our model?</p></li>
+</ul></li>
+<li><p><strong>the amount of error in our prediction :</strong> how well does the model as a whole help us predict individual scores? how well does the model generalize to “reality”?</p></li>
+</ul></li>
+<li><strong>A Real-Life Linear Model in the Wild :</strong></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -455,31 +467,27 @@ hist(prof.sleep) # a way to graph the variable (a histogram)</code></pre>
 </figure>
 </div>
 </section>
+<section id="from-prediction-linear-model" class="level3">
+<h3 class="anchored" data-anchor-id="from-prediction-linear-model">From Prediction –&gt; Linear Model</h3>
+<ul>
+<li><p>student example prediction :</p>
+<ul>
+<li>as a model :</li>
+</ul></li>
+<li><p>student example prediction :</p>
+<ul>
+<li>as a model :</li>
+</ul></li>
+</ul>
+</section>
 </section>
 <section id="work-on-lab-1-predictions-research-questions." class="level2">
 <h2 class="anchored" data-anchor-id="work-on-lab-1-predictions-research-questions.">Work on Lab 1 : Predictions &amp; Research Questions.</h2>
 <section id="on-your-own" class="level3">
 <h3 class="anchored" data-anchor-id="on-your-own">On Your Own</h3>
-<p><strong>During our break, think a little bit about what research questions you might want to address for the project in this class. Below are some ideas to help you get started thinking of a research question if you are feeling stuck!</strong></p>
-<ul>
-<li>Is there a real-world issue that you care about? What variables make up this questions?</li>
-<li>What is something about people (your friends, parents, classmates) that you think is interesting or confusing? What variables are the focus of this interest or question?</li>
-<li>What’s a future career you might want to pursue with your psychology degree? What’s a variable that is related to this career? What questions might you ask abut this variable?</li>
-</ul>
-<p><strong>Question 3 (In Lecture / On Your Own). Get started on the final project by thinking through a research question you might be interested in studying as a psychology researcher. (Totally fine to change this, but great to start focusing on a question.)</strong></p>
-<ul>
-<li>What is your question? Why do you care about this question (and / or why does this question matter to others)? How interested in this question are you on a scale from 0 (just doing to get credit for this question) to 10 (this is what motivates you to wake up each day and you will answer this question with the energy and passion of 1000 suns)?</li>
-<li>How do your past experiences and background inform this question?</li>
-<li>What is the variable that is the focus of this question? How does this variable relate to affect, behavior, and cognition? Which aspect of this variable are you most interested in focusing on for your project?</li>
-<li>What is the between-person form of variation for this variable? What is the within-person form of variation for this variable? Note: for the final project, I strongly recommend focusing on a between-person variation version of the variable for the final project.</li>
-<li>Do you have ideas about what might predict or explain this variable (the answer to your question)? How would you write this out as a linear model?</li>
-</ul>
-</section>
-<section id="student-examples" class="level3">
-<h3 class="anchored" data-anchor-id="student-examples"><strong>Student Examples</strong></h3>
-<ul>
-<li></li>
-</ul>
+<p><strong>Lab 1, Question 2 :</strong> What’s a prediction about people that you made today? What information did you use to make this prediction? How did (or could) you use this prediction to influence outcomes? Were you valid in your predictions? Finally, write a linear model that defines the prediction (and information that you used) as a formula (e.g., DV ~ IV1 + IV2 + … + error).</p>
+<p><strong>Lab 1, Question 3 :</strong> Identify a research question that you might be interested to study as a psychologist (this could be what you wrote about in Lab 1, or something new.) Then, define the DV for this question, and explain what interests you about this question and how this variable might be understood as an example of affect, behavior, and/or cognition. Next, explain what between-person and within-person variation might look like for this variable. Finally, identify some other variables that you think will predict this DV, and write out this question (and your theory) as a linear model.</p>
+<p><strong>Lab 1, Quesiton 4 (In Discussion Section).</strong> With your discussion section, define each of the six biases described in the Goldacre (2010) reading on cognitive biases, and come up with an example from real-life.</p>
 </section>
 </section>
 </section>
@@ -580,10 +588,43 @@ hist(prof.sleep) # a way to graph the variable (a histogram)</code></pre>
 </ul>
 
 
+<script type="webr-data">
+eyJvcHRpb25zIjp7ImJhc2VVcmwiOiJodHRwczovL3dlYnIuci13YXNtLm9yZy92MC41LjQvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsiZXZhbHVhdGUiLCJrbml0ciIsImh0bWx0b29scyJdLCJyZXBvcyI6W119LCJyZW5kZXJfZGYiOiJkZWZhdWx0In0=
+</script>
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8xO1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzEgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici0xLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItMS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8xLCB7fSk7XG4ifSx7ImNlbGxOYW1lIjoid2Vici1wcmVsdWRlIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoid2ViUk9qcyA9IHtcbiAgY29uc3QgeyBXZWJSLCBDaGFubmVsVHlwZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZS5XZWJSO1xuICBjb25zdCB7XG4gICAgV2ViUkV2YWx1YXRvcixcbiAgICBXZWJSRW52aXJvbm1lbnRNYW5hZ2VyLFxuICAgIHNldHVwUixcbiAgICBiNjREZWNvZGUsXG4gICAgY29sbGFwc2VQYXRoXG4gIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHN0YXR1c0NvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1zdGF0dXNcIik7XG4gIGNvbnN0IGluZGljYXRvckNvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1pbmRpY2F0b3JcIik7XG4gIGluZGljYXRvckNvbnRhaW5lci5jbGFzc0xpc3QucmVtb3ZlKFwiZC1ub25lXCIpO1xuXG4gIGxldCBzdGF0dXNUZXh0ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKVxuICBzdGF0dXNUZXh0LmNsYXNzTGlzdCA9IFwiZXhlcmNpc2UtbG9hZGluZy1kZXRhaWxzXCI7XG4gIHN0YXR1c1RleHQgPSBzdGF0dXNDb250YWluZXIuYXBwZW5kQ2hpbGQoc3RhdHVzVGV4dCk7XG4gIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgSW5pdGlhbGlzZWA7XG5cbiAgLy8gSG9pc3QgaW5kaWNhdG9yIG91dCBmcm9tIGZpbmFsIHNsaWRlIHdoZW4gcnVubmluZyB1bmRlciByZXZlYWxcbiAgY29uc3QgcmV2ZWFsU3RhdHVzID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5yZXZlYWwgLmV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpZiAocmV2ZWFsU3RhdHVzKSB7XG4gICAgcmV2ZWFsU3RhdHVzLnJlbW92ZSgpO1xuICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsID4gLnNsaWRlc1wiKS5hcHBlbmRDaGlsZChyZXZlYWxTdGF0dXMpO1xuICB9XG5cbiAgLy8gTWFrZSBhbnkgcmV2ZWFsIHNsaWRlcyB3aXRoIGxpdmUgY2VsbHMgc2Nyb2xsYWJsZVxuICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKFwiLnJldmVhbCAuZXhlcmNpc2UtY2VsbFwiKS5mb3JFYWNoKChlbCkgPT4ge1xuICAgIGVsLmNsb3Nlc3QoJ3NlY3Rpb24uc2xpZGUnKS5jbGFzc0xpc3QuYWRkKFwic2Nyb2xsYWJsZVwiKTtcbiAgfSlcblxuICAvLyB3ZWJSIHN1cHBsZW1lbnRhbCBkYXRhIGFuZCBvcHRpb25zXG4gIGNvbnN0IGRhdGFDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItZGF0YVxcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGRhdGEgPSBKU09OLnBhcnNlKGI2NERlY29kZShkYXRhQ29udGVudCkpO1xuXG4gIC8vIEdyYWIgbGlzdCBvZiByZXNvdXJjZXMgdG8gYmUgZG93bmxvYWRlZFxuICBjb25zdCBmaWxlc0NvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwidmZzLWZpbGVcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBmaWxlcyA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKGZpbGVzQ29udGVudCkpO1xuXG4gIC8vIFVzZSBQb3N0TWVzc2FnZSBjaGFubmVsIGZvciBhc3luYyBjb21tdW5pY2F0aW9uXG4gIC8vIFdlIGRvIG5vdCBleHBlY3QgdG8gdGFrZSBuZXN0ZWQgcHJvbXB0IGlucHV0IGluIFF1YXJ0byBMaXZlIGNlbGxzXG4gIGRhdGEub3B0aW9ucy5jaGFubmVsVHlwZSA9IENoYW5uZWxUeXBlLlBvc3RNZXNzYWdlO1xuXG4gIC8vIEluaXRpYWxpc2Ugd2ViUiBhbmQgc2V0dXAgZm9yIFIgY29kZSBldmFsdWF0aW9uXG4gIGxldCB3ZWJSUHJvbWlzZSA9IChhc3luYyAod2ViUikgPT4ge1xuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgd2ViUmA7XG4gICAgYXdhaXQgd2ViUi5pbml0KCk7XG5cbiAgICAvLyBJbnN0YWxsIHByb3ZpZGVkIGxpc3Qgb2YgcGFja2FnZXNcbiAgICAvLyBFbnN1cmUgd2ViUiBkZWZhdWx0IHJlcG8gaXMgaW5jbHVkZWRcbiAgICBkYXRhLnBhY2thZ2VzLnJlcG9zLnB1c2goXCJodHRwczovL3JlcG8uci13YXNtLm9yZ1wiKVxuICAgIGF3YWl0IGRhdGEucGFja2FnZXMucGtncy5tYXAoKHBrZykgPT4gKCkgPT4ge1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBwYWNrYWdlOiAke3BrZ31gO1xuICAgICAgcmV0dXJuIHdlYlIuZXZhbFJWb2lkKGBcbiAgICAgICAgd2Vicjo6aW5zdGFsbChwa2csIHJlcG9zID0gcmVwb3MpXG4gICAgICAgIGxpYnJhcnkocGtnLCBjaGFyYWN0ZXIub25seSA9IFRSVUUpXG4gICAgICBgLCB7IGVudjoge1xuICAgICAgICBwa2c6IHBrZyxcbiAgICAgICAgcmVwb3M6IGRhdGEucGFja2FnZXMucmVwb3MsXG4gICAgICB9fSk7XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICAvLyBEb3dubG9hZCBhbmQgaW5zdGFsbCByZXNvdXJjZXNcbiAgICBhd2FpdCBmaWxlcy5tYXAoKGZpbGUpID0+IGFzeW5jICgpID0+IHtcbiAgICAgIGNvbnN0IG5hbWUgPSBmaWxlLnN1YnN0cmluZyhmaWxlLmxhc3RJbmRleE9mKCcvJykgKyAxKTtcbiAgICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcmVzb3VyY2U6ICR7bmFtZX1gO1xuICAgICAgY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBmZXRjaChmaWxlKTtcbiAgICAgIGlmICghcmVzcG9uc2Uub2spIHtcbiAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBDYW4ndCBkb3dubG9hZCBcXGAke2ZpbGV9XFxgLiBFcnJvciAke3Jlc3BvbnNlLnN0YXR1c306IFwiJHtyZXNwb25zZS5zdGF0dXNUZXh0fVwiLmApO1xuICAgICAgfVxuICAgICAgY29uc3QgZGF0YSA9IGF3YWl0IHJlc3BvbnNlLmFycmF5QnVmZmVyKCk7XG5cbiAgICAgIC8vIFN0b3JlIFVSTHMgaW4gdGhlIGN3ZCB3aXRob3V0IGFueSBzdWJkaXJlY3Rvcnkgc3RydWN0dXJlXG4gICAgICBpZiAoZmlsZS5pbmNsdWRlcyhcIjovL1wiKSkge1xuICAgICAgICBmaWxlID0gbmFtZTtcbiAgICAgIH1cblxuICAgICAgLy8gQ29sbGFwc2UgaGlnaGVyIGRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGZpbGUgPSBjb2xsYXBzZVBhdGgoZmlsZSk7XG5cbiAgICAgIC8vIENyZWF0ZSBkaXJlY3RvcnkgdHJlZSwgaWdub3JpbmcgXCJkaXJlY3RvcnkgZXhpc3RzXCIgVkZTIGVycm9yc1xuICAgICAgY29uc3QgcGFydHMgPSBmaWxlLnNwbGl0KCcvJykuc2xpY2UoMCwgLTEpO1xuICAgICAgbGV0IHBhdGggPSAnJztcbiAgICAgIHdoaWxlIChwYXJ0cy5sZW5ndGggPiAwKSB7XG4gICAgICAgIHBhdGggKz0gcGFydHMuc2hpZnQoKSArICcvJztcbiAgICAgICAgY29uc3QgYW5hbHlzaXMgPSBhd2FpdCB3ZWJSLkZTLmFuYWx5emVQYXRoKHBhdGgpO1xuICAgICAgICBpZiAoIWFuYWx5c2lzLmV4aXN0cykge1xuICAgICAgICAgIHRyeSB7XG4gICAgICAgICAgICBhd2FpdCB3ZWJSLkZTLm1rZGlyKHBhdGgpO1xuICAgICAgICAgIH0gY2F0Y2ggKGUpIHtcbiAgICAgICAgICAgIHRocm93IG5ldyBFcnJvcihgRmlsZXN5c3RlbSBFcnJvcjogXCIke2UubWVzc2FnZX1cIi5gKTtcbiAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgIH1cblxuICAgICAgLy8gV3JpdGUgdGhpcyBmaWxlIHRvIHRoZSBWRlNcbiAgICAgIHJldHVybiBhd2FpdCB3ZWJSLkZTLndyaXRlRmlsZShmaWxlLCBuZXcgVWludDhBcnJheShkYXRhKSk7XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYEluc3RhbGxpbmcgd2ViUiBzaGltc2A7XG4gICAgYXdhaXQgd2ViUi5ldmFsUlZvaWQoYHdlYnI6OnNoaW1faW5zdGFsbCgpYCk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYFdlYlIgZW52aXJvbm1lbnQgc2V0dXBgO1xuICAgIGF3YWl0IHNldHVwUih3ZWJSLCBkYXRhKTtcblxuICAgIHN0YXR1c1RleHQucmVtb3ZlKCk7XG4gICAgaWYgKHN0YXR1c0NvbnRhaW5lci5jaGlsZHJlbi5sZW5ndGggPT0gMCkge1xuICAgICAgc3RhdHVzQ29udGFpbmVyLnBhcmVudE5vZGUucmVtb3ZlKCk7XG4gICAgfVxuICAgIHJldHVybiB3ZWJSO1xuICB9KShuZXcgV2ViUihkYXRhLm9wdGlvbnMpKTtcblxuICAvLyBLZWVwIHRyYWNrIG9mIGluaXRpYWwgT0pTIGJsb2NrIHJlbmRlclxuICBjb25zdCByZW5kZXJlZE9qcyA9IHt9O1xuXG4gIGNvbnN0IHByb2Nlc3MgPSBhc3luYyAoY29udGV4dCwgaW5wdXRzKSA9PiB7XG4gICAgY29uc3Qgd2ViUiA9IGF3YWl0IHdlYlJQcm9taXNlO1xuICAgIGNvbnN0IGV2YWx1YXRvciA9IG5ldyBXZWJSRXZhbHVhdG9yKHdlYlIsIGNvbnRleHQpXG4gICAgYXdhaXQgZXZhbHVhdG9yLnByb2Nlc3MoaW5wdXRzKTtcbiAgICByZXR1cm4gZXZhbHVhdG9yLmNvbnRhaW5lcjtcbiAgfVxuXG4gIHJldHVybiB7XG4gICAgcHJvY2VzcyxcbiAgICB3ZWJSUHJvbWlzZSxcbiAgICByZW5kZXJlZE9qcyxcbiAgfTtcbn1cbiJ9XX0=
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
 </section>
 
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Here’s <a href="https://www.nytimes.com/2016/05/06/business/facebook-bends-the-rules-of-audience-engagement-to-its-advantage.html">a link to the article</a> where this headline comes from. These data are a little dated, and I couldn’t immediately find more recent data - my guess is Meta does not really want to advertise that people are using the product more and more. However, in <a href="https://s21.q4cdn.com/399680738/files/doc_financials/2024/q2/Earnings-Presentation-Q2-2024.pdf">reports to investors</a> reports consistent growth in metrics like “ad impressions” and “daily active users”. Let me know if you find other sources to show how technology companies are capturing more and more of our attention!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../calstats/Lectures";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "../..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

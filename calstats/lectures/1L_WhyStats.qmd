@@ -1,6 +1,6 @@
 ---
 title: "Lecture 1 | Why Statistics?"
-format: html
+format: live-html
 #format: revealjs
 #chalkboard: true
 ---
@@ -36,6 +36,8 @@ format: html
 -   5:30 - 6:00 : So you're interested in going to graduate school?
 
 ## Check-In Results
+
+-   professor will paste here.
 
 # RECAP : Psychological Life is Variation
 
@@ -101,9 +103,8 @@ In this class, we'll be using RStudio. RStudio is an IDE (Integrated Development
 
 ### **ACTIVTY :** open up RStudio
 
-1.  Type some math into an Rscript, and send it to the console. Yeah, you are programming!
-2.  Define two variables in R - one numeric and one string variable (these can be unrelated to your project topic!) Make sure to collect at least ten data points for each variable, and show that you successfully defined the variable in R by "printing" it in R. Yeah, you're programming!
-3.  Copy/paste (or screenshot) your code and output from the question above to a document to answer Lab 1, Question 1.
+1.  **You are Programming!** Type some math into an Rscript, and send it to the console. THAT'S RIGHT.
+2.  **Work on Lab 1, Question 1 :** Define two variables in R : one numeric, and one string. *Note : you can use the data that we collected in class, or collect your own data (make sure each variable has at least ten data points).* “Print” each variable in R, and paste the output as a screenshot. Then, graph the numeric variable as a “histogram” and the string variable as a “plot”. Below your graph, describe what you observe about the individuals in the dataset for each variable. See the lecture videos in Chapter 2 for a guide on how to do this!
 
 ## R CODE : Variables and Variation
 
@@ -164,7 +165,7 @@ hist(prof.sleep) # a way to graph the variable (a histogram)
 | ```                                            |                                                                                                                                                                 |
 +------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-### Example : Creating Non-Numeric Variables
+### Example in R : Creating Non-Numeric Variables
 
 The data below describe the categories of family laundry that was hanging in my apartment to dry.
 
@@ -215,70 +216,67 @@ Psychological scientists seek to better understand variation, in order to help m
 +----------------------------------------------------------+-------------------------------+
 | ![](lecture_images/1L_fb.png){width="600"}[^1]           |                               |
 +----------------------------------------------------------+-------------------------------+
-| ![](lecture_images/1L_blm.png){width="600"}[^2]          |                               |
-+----------------------------------------------------------+-------------------------------+
 
 [^1]: Here's [a link to the article](https://www.nytimes.com/2016/05/06/business/facebook-bends-the-rules-of-audience-engagement-to-its-advantage.html) where this headline comes from. These data are a little dated, and I couldn't immediately find more recent data - my guess is Meta does not really want to advertise that people are using the product more and more. However, in [reports to investors](https://s21.q4cdn.com/399680738/files/doc_financials/2024/q2/Earnings-Presentation-Q2-2024.pdf) reports consistent growth in metrics like "ad impressions" and "daily active users". Let me know if you find other sources to show how technology companies are capturing more and more of our attention!
 
-[^2]: Oscar Grant, Trayvon Martin, Philando Castile, Eric Garner, George Floyd, Tamir Rice, Breonna Taylor, Ahmaud Aubrey, Jacob Blake. Here’s a [more comprehensive list](https://en.wikipedia.org/wiki/List_of_unarmed_African_Americans_killed_by_law_enforcement_officers_in_the_United_States), and [here’s a summary article](https://www.apa.org/monitor/2016/12/cover-policing) on policing and race.\
-
 ## The Linear Model
 
-### Definition
+![](images/clipboard-606362939.png){fig-align="center" width="739"}
 
-**Statistical Model :** DV \~ IV1 + IV2 + … + IVk + error
+### RECAP : Definition and Examples
 
--   **DV = dependent variable** = the variable you want to predict
+-   Steps to Take : 
 
--   **IV = independent variable(s)** = the variable(s) you think will predict the DV
+    -   **list the variable that you want to predict (the DV)**
 
-    -   k = any number = there can be MANY IVs
+    -   **list the variables that you think will help predict the DV (the IVs)**
 
-    -   **any variable can be an IV or DV - it’s up to the researcher to choose**
+        -   **NOTE : you do not (and can not) account for EVERY variable in your linear model!**
 
--   **\~ = a squiggly line / tilde =** our model is uncertain (not equal)
+        -   **IN FACT : researchers are very specific about the variables they will include.**
 
--   **error** = other factors that are not part of your model that would also explain the DV
+        -   **ERROR will capture all the other variables not in your model.**
 
--   **We say: “the DV is a function of…”; “the DV depends on the IV(s)”**
+-   Example : What predicts why people differ in the amount of screen time that they use (between or within-person differences)?
 
-### Examples
+    -   
 
--   rain \~ number of umbrellas other people have + personal experience + weather app + clouds + sun + smell + pressure + error
+**KEY IDEA : Linear Models Help Organize and Quantify Prediction**
 
--   class quality \~ communication + study habits + lecture [***attendance***]{.underline} *+* quality of lecturing + mood / vibes + professor and student adaptability to the class + workload + participation + time management + hunger + sleep + life shit + 3 hours lectures on a friday afternoon + respect + right amount of material that is relevant and interetsting + study buddy + LEARNING somethign useful and relevant + ERROR
+-   **organize :** a model specifies what information (IV) we think might help us predict the DV
+-   **quantify :** when we add statistics to our model (much later!), we will see…
+    -   **the direction of the prediction :** is there a positive or negative relationship between the IV and the DV?
 
-### Another Example
+    -   **the “weight” of the prediction :** how much does each IV help us predict the DV?
 
-**KEY IDEA : Linear Models Help Make and Quantify Prediction**
+        -   what is the “best” predictor in our model?
 
--   what information (IV) is related to the DV (predict)
--   which IV allows us to make the best predictions (effect size)
--   the amount of error in your prediction (error can come from our measures, our models, and maybe is just inherent to science?)
+        -   what is the “worst” predictor in our model?
+
+    -   **the amount of error in our prediction :** how well does the model as a whole help us predict individual scores? how well does the model generalize to "reality"?
+-   **A Real-Life Linear Model in the Wild :**
 
 ![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcXn1H6Tcp4pWwkbuqkGa9Pw2BW5X8LTLtU4oDmpQwVPHAh-OkVuuWRz7Ir6K3vGW_BYcRgnFsA5baC9KErNgMksdqxswLEeDKZkhyR2n-hZ7CPb8-CJnx_kx8Rd2atrHMxRQuvBR6gE1m61LL1NXi92g1Q?key=-c8GtewYj7xaFRpMDwKIPQ){fig-align="center" width="391"}
+
+### From Prediction –\> Linear Model
+
+-   student example prediction :
+
+    -   as a model :
+
+-   student example prediction :
+
+    -   as a model :
 
 ## Work on Lab 1 : Predictions & Research Questions.
 
 ### On Your Own
 
-**During our break, think a little bit about what research questions you might want to address for the project in this class. Below are some ideas to help you get started thinking of a research question if you are feeling stuck!**
+**Lab 1, Question 2 :** What’s a prediction about people that you made today? What information did you use to make this prediction? How did (or could) you use this prediction to influence outcomes? Were you valid in your predictions? Finally, write a linear model that defines the prediction (and information that you used) as a formula (e.g., DV \~ IV1 + IV2 + … + error).
 
--   Is there a real-world issue that you care about? What variables make up this questions?
--   What is something about people (your friends, parents, classmates) that you think is interesting or confusing? What variables are the focus of this interest or question?
--   What's a future career you might want to pursue with your psychology degree? What's a variable that is related to this career? What questions might you ask abut this variable?
+**Lab 1, Question 3 :** Identify a research question that you might be interested to study as a psychologist (this could be what you wrote about in Lab 1, or something new.) Then, define the DV for this question, and explain what interests you about this question and how this variable might be understood as an example of affect, behavior, and/or cognition. Next, explain what between-person and within-person variation might look like for this variable. Finally, identify some other variables that you think will predict this DV, and write out this question (and your theory) as a linear model.
 
-**Question 3 (In Lecture / On Your Own). Get started on the final project by thinking through a research question you might be interested in studying as a psychology researcher. (Totally fine to change this, but great to start focusing on a question.)**
-
--   What is your question? Why do you care about this question (and / or why does this question matter to others)? How interested in this question are you on a scale from 0 (just doing to get credit for this question) to 10 (this is what motivates you to wake up each day and you will answer this question with the energy and passion of 1000 suns)?
--   How do your past experiences and background inform this question?
--   What is the variable that is the focus of this question? How does this variable relate to affect, behavior, and cognition? Which aspect of this variable are you most interested in focusing on for your project?
--   What is the between-person form of variation for this variable? What is the within-person form of variation for this variable? Note: for the final project, I strongly recommend focusing on a between-person variation version of the variable for the final project.
--   Do you have ideas about what might predict or explain this variable (the answer to your question)? How would you write this out as a linear model?
-
-### **Student Examples**
-
--   
+**Lab 1, Quesiton 4 (In Discussion Section).** With your discussion section, define each of the six biases described in the Goldacre (2010) reading on cognitive biases, and come up with an example from real-life.
 
 # So You Think You Want to Be a Researcher?
 
