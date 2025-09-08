@@ -1,0 +1,191 @@
+---
+format: html
+---
+
+# Psych 101 \| Research and Data Analysis in Psychology (FA25)
+
+Hi class! This page will contain deadlines and links to course readings and lecture notes. Please use bCourses to...
+
+-   ...submit Quiz, Milestone, and Lab Assignments
+
+-   ...access Lecture Recordings, Lab Keys, Datasets, and the link for our class discord page.
+
+## Course Outline
+
+Note : Chapters are from our course textbook : [Why Statistics?](http://catterson.github.io/ystats/)
+
++----------+---------------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------+
+| **Date** | **Reading & Quiz**                                                  | **Class Topic**                                            | **Homework**                                       |
+|          |                                                                     |                                                            |                                                    |
+|          | *Due Before Class*                                                  |                                                            | *Due Before Next Week’s Class*                     |
++----------+---------------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------+
+| 9/1      | Intro                                                               | Welcome to the Class! (no class 😄)                        | Milestone 1 : Your Research Interests              |
++----------+---------------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------+
+| 9/8      | [Ch 1](http://catterson.github.io/ystats/chapters/1R_WhyStats.html) | [1 \| Why Statistics?](/calstats/Lectures/1L_WhyStats.qmd) | [Lab 1 : Getting StaRted](/calstats/labs/Lab1.qmd) |
++----------+---------------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------+
+| 9/15     | [Ch 2](http://catterson.github.io/ystats/chapters/2R_Data.html)     | Data                                                       | Lab 2 : Navigating Data                            |
++----------+---------------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------+
+| 9/22     | Ch 3                                                                | Description                                                | Lab 3 : Describing Data                            |
++----------+---------------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------+
+| 9/29     | Ch 4                                                                | Measures **\[Brain Exam in Section\]**                     | Milestone 2 : Measures Draft                       |
++----------+---------------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------+
+| 10/6     | Ch 5                                                                | “Normality” & Review                                       | Lab 4 : Practice Exam                              |
++----------+---------------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------+
+| 10/13    |                                                                     | **R Exam \[80 minutes\]**                                  | Milestone 3 : Intro Outline + Methods Draft        |
++----------+---------------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------+
+| 10/20    | Ch 6                                                                | Linear Model : Continuous IV                               | Lab 5 : I Love Lines                               |
++----------+---------------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------+
+| 10/27    | Ch 7                                                                | Linear Model : Categorical IV                              | Lab 6 : More Models                                |
++----------+---------------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------+
+| 11/3     | Ch 8                                                                | NHST **\[Brain Exam in Section\]**                         | Milestone 4 : Participants & Descriptive Stats     |
++----------+---------------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------+
+| 11/10    | Ch 9                                                                | Linear Model : Extensions                                  |                                                    |
++----------+---------------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------+
+| 11/17    | Ch 10                                                               | Multiple Regression                                        | Milestone 5 : Linear Model Tables                  |
++----------+---------------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------+
+| 11/24    | Ch 11                                                               | Project Workshop **\[no section\]**                        | Milestone 6 : Project Draft                        |
++----------+---------------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------+
+| 12/1     | Ch 13                                                               | The End **\[Brain Exam In Section\]**                      |                                                    |
++----------+---------------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------+
+| 12/8     |                                                                     | RRR Week (Project Workshop)                                |                                                    |
++----------+---------------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------+
+| 12/13    |                                                                     | **Final Project Due (11:59 PM)**                           |                                                    |
++----------+---------------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------+
+
+## Course Information
+
+-   **Lecture \|** Fridays 2:00 - 5:00 PM in 100 Lewis
+
+-   **Professor :** Arman Daniel Catterson, PhD \[he / his / او \] 🐱([catterson\@berkeley.edu](mailto:catterson@berkeley.edu))
+
+-   **Office Hours \|** Wednesdays 4:00 - 5:00 PM [on Zoom](https://berkeley.zoom.us/j/97523340834). E-mail / Discord to find another time to meet virtually, or say hi after class.
+
+-   Textbook : We will use [Why Statistics?](http://catterson.github.io/ystats/) to learn the course material. I’ll provide free required readings and videos each week. For additional support, I recommend Danielle Navarro’s FREE [Learning Statistics with R](https://learningstatisticswithr.com/), or copy of Field, Miles, & Field (2012). Discovering Statistics Using R. SAGE Publications (I’ve uploaded sample chapters to bCourses).
+
+## Grade Details
+
+**Your grade in the class will be based on the following components.**
+
++-------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| 5% Check-Ins (Lecture and Readings)       | 10% Reading Quizzes                                                                                                                    |
++-------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| 20% Lab and Project Milestone Assignments | 29% Exams (R = 14 points; Brain = 15 points)                                                                                           |
++-------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| 5% Discussion Section Attendance          | 31% [Final Project (Research Paper](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?usp=sharing)) |
++-------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+
+**Letter grades will be based on the following cutoffs :**
+
++---------------+---------------+----------------+--------------------------+
+| A+ is \> 96.5 | B+ is \> 86.5 | C + is \> 76.5 | D is \> 59.5             |
+|               |               |                |                          |
+| A is \> 92.5  | B is \> 82.5  | C is \> 72.5   | F is \< 59.5             |
+|               |               |                |                          |
+| A- is \> 89.5 | B- is \> 79.5 | C- is \> 69.5  | note : an 89.499 is a B+ |
++---------------+---------------+----------------+--------------------------+
+
+## Teaching Assistants / Graduate Student Instructors
+
+You must attend the section for which you are registered, led by your awesome GSI. Go GSIs!!
+
++--------------------------+------------------------------------+------------------------------+-----------------------------------------------------------------------+
+| **Name (& Pronouns)**    | **Section Times & Location**       | **E-mail**                   | **Office Hour Time & Location**                                       |
++--------------------------+------------------------------------+------------------------------+-----------------------------------------------------------------------+
+| Aratrik Paul             | Dis 103 (Evans 7- 12PM-2PM)        | aratrikpaul\@berkeley.edu    | Tuesdays 2 PM - 3 PM ([Zoom](https://berkeley.zoom.us/j/7228578607))  |
+|                          |                                    |                              |                                                                       |
+| (He/Him)                 | \                                  |                              |                                                                       |
+|                          | Dis 108 (Dwinelle 134 - 12PM-2PM)  |                              |                                                                       |
++--------------------------+------------------------------------+------------------------------+-----------------------------------------------------------------------+
+| Yi-Ke Peng               | Tu 2PM-4PM, Evans 7                | ykpeng\@berkeley.edu         | Thu 3PM-4 PM, BWW 3rd floor atrium                                    |
+|                          |                                    |                              |                                                                       |
+| (She/Her)                | Tu 4PM-6PM, Giannini 201           |                              |                                                                       |
++--------------------------+------------------------------------+------------------------------+-----------------------------------------------------------------------+
+| Noemi Franco (She/Her)   | Dis 110 (Evans 7, 4-6pm Wed)       | noemif24\@berkeley.edu       | Tuesdays 4 PM-5 PM ([Zoom](https://berkeley.zoom.us/j/5663313589))    |
+|                          |                                    |                              |                                                                       |
+|                          | Dis 111 (Evans 7, 9-11am Fri)      |                              |                                                                       |
++--------------------------+------------------------------------+------------------------------+-----------------------------------------------------------------------+
+| Chloe Hood               | Dis 107 (Evans 7, 10AM-12PM Wed)   | hoodca\@berkeley.edu         | Mondays  12 PM-1 PM ([Zoom](https://berkeley.zoom.us/j/9055209441))   |
+|                          |                                    |                              |                                                                       |
+| (She/Her)                | Dis 112	(Dwinelle 279 11AM-1PM Fri) |                              |                                                                       |
++--------------------------+------------------------------------+------------------------------+-----------------------------------------------------------------------+
+| Avigail Romo (She/Her)   | Dis 102 (Evans 87, 10AM-12PM Tue)  | avigail_romo\@berkeley.edu   | Thursdays 12 PM-1 PM ([Zoom](https://berkeley.zoom.us/j/92898328996)) |
+|                          |                                    |                              |                                                                       |
+|                          | Dis 109 (Evans 81, 2PM-4 PM Wed)   |                              |                                                                       |
++--------------------------+------------------------------------+------------------------------+-----------------------------------------------------------------------+
+| Soniya Agrawal (She/Her) | Dis 101 (VLSB 2070 8-10 AM Tue)    | soniya.agrawal\@berkeley.edu | Monday 1-2 PM ([Zoom](https://berkeley.zoom.us/j/91097540235))        |
+|                          |                                    |                              |                                                                       |
+|                          | Dis 106 (Giannini 201 8-10 AM Wed) |                              |                                                                       |
++--------------------------+------------------------------------+------------------------------+-----------------------------------------------------------------------+
+
+## **Summary of Course Components :**
+
+**Readings and Reading Quizzes  :** Each week before lecture, you will read and watch videos from a textbook chapter designed to teach you the basic skills. At the end of each chapter, there will be a short quiz based on the content of this chapter that is due before the lecture. This way, we can use time in lecture to review and discuss course concepts, and practice working on homework assignments together. The quizzes are multiple choice, untimed, open-note, and allow for multiple attempts. 
+
+**Class :** Our class time will be used to review the readings (which you will have done before class, right?!?!), discuss course topics more deeply, and practice the statistics and R skills. We will also spend time in class working on your homework.
+
+**Check-Ins :** I will ask you to complete short assessments in class that consist of multiple choice and/or short-answer questions. These check-ins are graded for completion. It is your responsibility to make sure all check-ins are complete, and that you are logged in with your own UC Berkeley account (e.g., [yourname\@berkeley.edu](mailto:yourname@berkeley.edu)). Check-ins must be completed by the beginning of the next lecture (e.g., when assignments are due) in order to be guaranteed a grade. I’ll drop a few missed check-ins for each student.
+
+**Discussion Section :** Discussion sections are a way to review course material, work on lab assignments in a space where you can get immediate help from other students and your GSI. Please attend the discussion section for which you are registered, though you may ask a GSI for permission to attend another section once in order to make-up for an absence or because of some other issue. GSIs will also be in attendance during lecture in order to help troubleshoot R problems you may have during live demonstrations. 
+
+**Lab Assignments :** Every week, you will work through a “lab” document that contains text and videos designed to help you understand key concepts in statistics, research methods, and R. You'll work on these at home, in lecture, and in your discussion sections. Each lab document will have a set of questions to answer - you should submit answers to these questions as a separate document to bCourses. Lab assignments will be graded for completion, accuracy, and effort and are due the week after they are assigned.
+
+**Final Project (Research Paper) :** Students will conduct a study of their own, and will write up the results as if for publication. There are several milestones for this assignment due throughout the semester. For more details, see the **final project description and rubric.**
+
+**R Exam : This exam will be scheduled “live” during our scheduled time. You should plan to take the exam during this time if possible.**  DSP students will receive extra time accommodations in accordance with their letters, and students with conflicts for the scheduled R Exam should [**submit a make-up request here**](https://docs.google.com/forms/d/e/1FAIpQLSeghtTVdPHY2ITML25JDqAoOEXfofD6V38W8pyIAxrrq4ACKw/viewform?usp=sf_link) at least TWO WEEKS before the exam date in order to be guaranteed a make-up time. For the exam, I’ll give you a novel dataset and you’ll use R to answer questions based on the dataset. The exam will be open-book and open note - you must work alone, but may use any resource available to you (including the Internet). A practice exam will be posted at least one week before the exam. Late submissions for the R exam will be penalized. 
+
+**Brain Exams :** Throughout the semester, you will have short “brain” exams that will assess your ability to understand and interpret the statistical output from R. (I’ll give you a sheet of paper with some statistics on it, and you’ll interpret the results.) These will be administered in your discussion section, and will be closed note / no computer access. We will practice these in class and discussion sections. DSP students can have extra time as per their accommodation letters.
+
+**Extra Credit :** There are no extra credit assignments offered in this course, even for students who ask kindly.
+
+\
+**Final Exam :** There is no final exam in this class. Your final project will serve as the final assessment of your skills and training. Apologies to my former students who had a final exam in this class :(
+
+## **Course Policies :**
+
+**Late Work Policy.** Assignments (quizzes, labs, and project milestones) are due before lecture. Late lab and project milestone assignments will be penalized 25% for any reason (even if they are 1-minute late), and 50% if turned in more than a week late (after the key has been posted). Students with extra time DSP accommodations should work out a plan to submit work within a week of the original deadline. Students may drop their lowest submitted lab and quiz assignment. *Note : in the past, I’ve tried a variety of more lenient late-work policies, and found that these policies often disincentivized students turning in work on time to their overall detriment in the class; so let’s try this and see how it goes.*
+
+**Computer Access.** Access to a personal computer is strongly recommended. We will spend time each lecture working in R - a free and powerful statistics program that works with all operating systems and computers. Laptops are available for rent from the library (see [Berkeley’s Technology Loan Program](https://studenttech.berkeley.edu/devicelending)), or you can purchase one that will work for this class for as little as \$150 (less than the price of most textbooks, which is not required for this class). Talk to me or a GSI if access to a laptop or computer is interfering with your ability to do well in the course.
+
+**Discussion Section Policy :** In-person attendance is expected and required for discussion sections. Working with other students and your GSIs to review concepts, practice problems, and get feedback on your project is a critical part of the course (and the research process). Of course, the health and safety of you and your classmates and GSIs is most important - please do not attend your discussion section if you are worried you are sick, have tested positive for COVID-19 (or another contagious illness), or have closely interacted with someone who you believe is sick / tested positive for COVID-19 (or another contagious illness). **Students may miss up to two discussion sections with no penalty.** Please talk to your GSI / the professor if there is a longer-term illness or issue that will prevent you from regularly attending your discussion section and we will work out another arrangement.
+
+**Regrades.** Students may ask for a re-grade on exams and papers if they believe they lost points for something they should have earned. To request a regrade, talk to your GSI in office hours or set up a meeting. In the case that you and your GSI cannot resolve the regrade issue, the professor will step in and regrade the exam. For final project regrades, just e-mail the professor. When requesting a regrade, you consent to have your score increased or decreased if we find that you earned points you should not have earned.
+
+**Student Contact.** It is your responsibility to regularly check e-mail for announcements. Please post questions about the class or R to our class discord page, so other students can see the question (and answer) and benefit from your question! If you have specific questions to e-mail me, please make sure to (a) search the syllabus and / or Google for the answer to your question and (b) contact your GSI about your question. I am always happy to answer any questions in office hours (either during the scheduled time or online by appointment), or before, during, or after lecture. I should respond to e-mail within 24 hours on weekdays (I do not check e-mail on weekends); please send a gentle reminder if I do not respond in this timeframe. Thanks!
+
+**Incomplete Policy.** I will only grant an incomplete to students who (1) have a significant life event that prevents them from completing the final project at the end of the semester and (2) are passing the class at the point they request the incomplete.
+
+**Academic Integrity**. Do NOT cheat. Do NOT plagiarize. To copy text or ideas from another source (including your own submitted coursework) without appropriate reference is plagiarism. You may work on lab assignments with other students, but should be able to understand what you are doing. You may not work with other students on the R exam. Anyone caught cheating or plagiarizing will receive a zero on the assignment or test, and **will** be reported to the Office of Student Conduct. It is your responsibility to read the official Student Conduct Policy for more information about campus standards and policies regarding Academic Integrity.
+
+**Chat-GPT / AI Policy**. If you use ChatGPT or other generative-AI software for any part of this class (writing, coding, troubleshooting, etc.), you must make this clear at the top of your assignment by writing : “I USED CHAT GPT TO SUPPORT THIS ASSIGNMENT” (in all-caps and red text), and include an appendix where you include screenshots of your specific queries and answers. Failure to do this will result in a zero of the assignment, and the professor submitting a report to the Academic Integrity office. Ask your GSI / professor if you have questions about this policy.
+
+**Respect for Others.** We **all** belong in our classroom, and I hope that everyone feels free and supported to express our identities when relevant. To achieve this goal, make sure that you are treating others with respect in this course. This means considering others’ opinions and perspectives, making sure not to generalize to groups (or ask students to be representatives of their group), and being mindful of the words that you use. (Also remember that nothing is ever really deleted from the internet, so please be extra mindful of the words you use.) While I will be monitoring class posts and communication, feel free to reach out to me if you see another student engaging in disrespectful or threatening behavior. Of course, this extends to me as well - if you feel like there are parts of the course instruction, subject matter, or class environment that create barriers to your success or inclusion, please contact me via e-mail and trust that your voice will be heard and I will not punish you for offering constructive criticisms of my teaching. I’m very open to learning how to be a better teacher, and always learn a lot from my students. 
+
+**Sensitive Subjects.** Our class will touch on important and potentially sensitive topics that are related to psychology and psychological processes, such as racism, depression, sex, and poverty. These topics can generate strong emotional responses in students for a variety of reasons - such as their own past histories with these topics or their reactions to the ways the information is presented or described. I will try to make sure to give you a heads up when we start to discuss these topics so you can be mindful of your reactions.
+
+**Strategies for success**. Do your readings, complete assignments on time, understand how the topics and information relate to what you’ve learned (and are learning), and if you don’t understand something, please ask the question! 
+
+**Most important.** Please let me know as soon as there is anything going on in your life that you think may affect your ability to do as well as you would like in this class (e.g. sickness, work, small children at home, threats to immigration status, etc.), and I will do my best to work with you on a plan to succeed in the class. If you're not comfortable talking to me directly, you can talk to your GSI who can talk to me about your issue.
+
+## **Student Support Services.**
+
+UC Berkeley offers a variety of services to help support students facing difficulties in these historic times.
+
+**Students with Disabilities :** Students who require support or adaptive equipment because of a specific disability -- or would like to be tested to see if they qualify for a learning, auditory, or visual disability -- can request these services through the Disabled Students Program (DSP) office. Please note that I can only provide accommodations authorized by the DSP office. If you have DSP status, make sure you submit your letter and feel free to talk to me or a GSI about any specific accommodations you need, or other ways we might be able to make the class more accessible. \[260 César E. Chávez Student Center\| 510-642-0518 \| <https://dsp.berkeley.edu/>\]
+
+**Students with Mental Health Issues :** If you feel a mental health issue (e.g., depression, anxiety) is negatively impacting your ability to succeed, I’d highly encourage you to seek out experts who can help. Berkeley has several free, confidential, and science-based programs designed to help students. \[<https://uhs.berkeley.edu/caps> \| Tang Center 3rd Floor \| 510-642-9494 \| After hours support line : 855-817-5667\]
+
+**Undocumented Students :** I believe that all people deserve equal access to education. The UC Berkeley Undocumented Student Program has organized resources to support undocumented students, protect their rights, and offer potential financial aid \| <https://undocu.berkeley.edu/>
+
+**Students from Low-Income Backgrounds :** The Extended Opportunity Program (EOP) provides college support services for low-income students. Services include additional counseling, financial assistance (study-time parent grants, work-study assignments, and book vouchers), child-care opportunities, and assistance transferring to four-year colleges. \[119 César E. Chavez Student Center \| 510-642-7224 \|  <https://eop.berkeley.edu/>\]
+
+**Additional Course Resources.** Some students feel that they need additional support in this class. If you find yourself struggling, please seek these resources as soon as possible.
+
+**Private Tutoring :** I've put together a [list of students](https://docs.google.com/spreadsheets/d/15NQXaAD9AEVGXMfrsV69dFMo0J5L89SZqHsotd-pw2s/edit?usp=sharing) who excelled in previous semesters of this class - you can contact these people directly to coordinate time, place, and payment (some tutors can work with groups, which will help reduce the cost for each student).
+
+## **Free On-Campus Tutoring :**
+
+-   **The[Data Peer Consulting program](http://bit.ly/data-peer-consulting) in the Division of Computing, Data Science, and Society.** This program strives to help make data science accessible across the broader campus community, by aiming to help undergraduate students, graduate students, staff, and faculty with research project infrastructure or other projects and modules that incorporate data. 
+
+-   **The UC Berkeley [D-Lab](http://dlab.berkeley.edu/services)**. Drop-in consulting where people may be able to help you with R specific problems.
+
+-   [**Librarians are great**](http://www.lib.berkeley.edu/help/research-help). They can help you find research articles for your final project, think about how to organize or structure your literature review, and probably have other powers from a life of being surrounded by books.
