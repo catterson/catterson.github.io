@@ -1,5 +1,5 @@
 ---
-title: "Lecture 1 | Why Statistics?"
+title: "Class 1 | Why Statistics?"
 format: live-html
 #format: revealjs
 #chalkboard: true
@@ -7,7 +7,7 @@ format: live-html
 
 # Welcome to Psych 101
 
-**access these lecture notes here :**
+**access these lecture notes here : tinyurl.com/hipsychstats**
 
 [**click on this link to check-in (or visit : tinyurl.com/first101class)**](https://docs.google.com/forms/d/e/1FAIpQLSekU91xhyXiYxxOsWbSGuJ3pAmPOazq9L_24hkcQpej-n0bBg/viewform?usp=header)
 
@@ -130,6 +130,8 @@ In this class, we'll be using RStudio. RStudio is an IDE (Integrated Development
 
 ## Example : Creating Numeric Variables
 
+Note : the code below might not run depending on your browser settings. professor will demonstrate this in class using R.
+
 ```{webr}
 prof.sleep <- c(5.5, 5, 7, 8.5, 6.5, 5, 7.0, 7.5, 7.5, 6, 6.5, 5) # hours of sleep professor got the last few nights.
 print(prof.sleep) # one way to "print" the variable
@@ -167,7 +169,7 @@ hist(prof.sleep) # a way to graph the variable (a histogram)
 
 ### Example in R : Creating Non-Numeric Variables
 
-The data below describe the categories of family laundry that was hanging in my apartment to dry.
+The data below describe the categories of family laundry that was hanging in my apartment to dry. As before, the code below might not run depending on your browser settings. professor will demonstrate this in class using R.
 
 ```{r}
 laundryhang <- c("shirt", "shirt", "leggings", "leggings", "shirt", 
@@ -278,6 +280,12 @@ Psychological scientists seek to better understand variation, in order to help m
 
 **Lab 1, Quesiton 4 (In Discussion Section).** With your discussion section, define each of the six biases described in the Goldacre (2010) reading on cognitive biases, and come up with an example from real-life.
 
+# Next Time on Psych 101.
+
+-   Take this Exit Survey Now : tinyurl.com/onlinebyeintro
+-   Attend Discussion Section & Complete Lab 1
+-   Read Chapter 2 & take Quiz 2
+
 # So You Think You Want to Be a Researcher?
 
 ## Getting Research Experience as an RA
@@ -362,14 +370,10 @@ Psychological scientists seek to better understand variation, in order to help m
 
 Some Data \[[Source](https://ncses.nsf.gov/pubs/nsf24300/report/postgraduation-trends#definite-commitments-at-graduation)\]
 
-|                      |                                  |
-|----------------------|----------------------------------|
-| PhDs get jobs?       | ![](lecture_images/1L_jobs1.png) |
-| but not in academia… | ![](lecture_images/1L_jobs2.png) |
-| \$\$\$\$\$\$\$\$     | ![](lecture_images/1L_jobs3.png) |
-
-# Next Time on Psych 101.
-
--   Take this Exit Survey Now : tinyurl.com/onlinebyeintro
--   Attend Discussion Section & Complete Lab 1
--   Read Chapter 2 & take Quiz 2
++-----------------------+----------------------------------------------+
+| PhDs get jobs?        | ![](lecture_images/1L_jobs1.png)             |
++-----------------------+----------------------------------------------+
+| but not in academia…  | ![](lecture_images/1L_jobs2.png)             |
++-----------------------+----------------------------------------------+
+| \$\$\$\$\$\$\$\$      | ![](lecture_images/1L_jobs3.png)             |
++-----------------------+----------------------------------------------+
