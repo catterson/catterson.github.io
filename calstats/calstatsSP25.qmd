@@ -4,33 +4,51 @@ format: html
 
 # Psych 101 \| Research and Data Analysis in Psychology (SP25)
 
-Hi class! This page will contain deadlines and links to course readings and lecture notes.
+Hi class! This page will contain deadlines and links to course readings and lecture notes. Please use bCourses to...
 
-Please use bCourses to submit Quiz, Milestone, and Lab Assignments, and access Lecture Recordings, Datasets, and the link for our class discord page.
+-   ...submit Quiz, Milestone, and Lab Assignments
+
+-   ...access Lecture Recordings, Lab Keys, Datasets, and the link for our class discord page.
 
 ## Course Outline
 
 Note : Chapters are from our course textbook : [Why Statistics?](http://catterson.github.io/ystats/)
 
-|  |  |  |  |
-|----|----|----|----|
-| **Date** | **Reading & Quiz** | **Lecture Notes and R Script** | **Homework Assigned** |
-| 1/24 | [Chapter 1](https://catterson.github.io/ystats/chapters/1R_WhyStats.html) | 1 \| Introductions + Prof. R Script | Lab 1 + Key |
-| 1/31 | [Chapter 2](https://catterson.github.io/ystats/chapters/2R_Data.html) | 2 \| Data \[pdf\] + Prof. R Script | Lab 2 + Key |
-| 2/7 | [Chapter 3](https://catterson.github.io/ystats/chapters/3R_Description.html) | 3 \| Description + Prof. R Script | Lab 3 + Key |
-| 2/14 | [Chapter 4](https://catterson.github.io/ystats/chapters/4R_Scales.html) | 4 \| Scales + Prof. R Script | Lab 4 + Key |
-| 2/21 | [Chapter 5](https://catterson.github.io/ystats/chapters/5R_GoodScience.html) | 5 \| Scientific Methods | Lab 5 |
-| 2/28 |  | **Mini R Exam \[85 minutes\]** | **Project Milestone: Intro Outline and Study Proposal** |
-| 3/7 |  | 6A \| Introduction to Linear Models | **Milestone 2 : Study Draft** |
-| 3/14 | [Chapter 6](https://catterson.github.io/ystats/chapters/6R_LinearModels.html) | 6B \| Linear Model (Continuous IV) | Lab 6 + KEY |
-| 3/21 | [Chapter 7](https://catterson.github.io/ystats/chapters/7R_CategoricalIV.html) | 7 \| Linear Models (Categorical IV) | Lab 7 |
-| 3/28 |  | **SPRING BREAK!** |  |
-| 4/4 | [Chapter 8](https://catterson.github.io/ystats/chapters/8R_Assumptions.html) | 8 \| Experiments and Sample Bias | **Milestone 3 : Participants & Descriptive Stats** |
-| 4/11 | [Chapter 9](https://catterson.github.io/ystats/chapters/9R_SamplingError.html) | 9 \| Inferential Statistics | **Milestone 4 : Linear Models** |
-| 4/18 | [Chapter 10](https://catterson.github.io/ystats/chapters/10R_NHSTPower.html) | 10 \| Multiple Regression & Review | Lab 8 \[Practice Exam\] |
-| 4/25 |  | **Mega R Exam \[85 minutes\]** | **Project Milestone : Draft** |
-| 5/2 | [Chapter 11 (Optional; on Interaction Effects)](https://docs.google.com/document/u/0/d/1aJQHbTE38_-_qOPtFcH_EpYK6CP8LFc8w1Pf44tklG4/edit) | 11 \| Conclusion |  |
-| 5/9 |  | RRR Week \| Project Workshop | **Final Project is Due 5/12 at 11:59 PM** |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+---------------------------------------------------------+
+| **Date**  | **Reading & Quiz**                                                                                                                        | **Lecture Notes and R Script**                                    | **Homework Assigned**                                   |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+---------------------------------------------------------+
+| 1/24      | [Chapter 1](https://catterson.github.io/ystats/chapters/1R_WhyStats.html)                                                                 | [1 \| Introductions](./Lectures/1L_WhyStats.qmd) + Prof. R Script | Lab 1 + Key                                             |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+---------------------------------------------------------+
+| 1/31      | [Chapter 2](https://catterson.github.io/ystats/chapters/2R_Data.html)                                                                     | 2 \| Data \[pdf\] + Prof. R Script                                | Lab 2 + Key                                             |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+---------------------------------------------------------+
+| 2/7       | [Chapter 3](https://catterson.github.io/ystats/chapters/3R_Description.html)                                                              | 3 \| Description + Prof. R Script                                 | Lab 3 + Key                                             |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+---------------------------------------------------------+
+| 2/14      | [Chapter 4](https://catterson.github.io/ystats/chapters/4R_Scales.html)                                                                   | 4 \| Scales + Prof. R Script                                      | Lab 4 + Key                                             |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+---------------------------------------------------------+
+| 2/21      | [Chapter 5](https://catterson.github.io/ystats/chapters/5R_GoodScience.html)                                                              | 5 \| Scientific Methods                                           | Lab 5                                                   |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+---------------------------------------------------------+
+| 2/28      |                                                                                                                                           | **Mini R Exam \[85 minutes\]**                                    | **Project Milestone: Intro Outline and Study Proposal** |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+---------------------------------------------------------+
+| 3/7       |                                                                                                                                           | 6A \| Introduction to Linear Models                               | **Milestone 2 : Study Draft**                           |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+---------------------------------------------------------+
+| 3/14      | [Chapter 6](https://catterson.github.io/ystats/chapters/6R_LinearModels.html)                                                             | 6B \| Linear Model (Continuous IV)                                | Lab 6 + KEY                                             |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+---------------------------------------------------------+
+| 3/21      | [Chapter 7](https://catterson.github.io/ystats/chapters/7R_CategoricalIV.html)                                                            | 7 \| Linear Models (Categorical IV)                               | Lab 7                                                   |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+---------------------------------------------------------+
+| 3/28      |                                                                                                                                           | **SPRING BREAK!**                                                 |                                                         |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+---------------------------------------------------------+
+| 4/4       | [Chapter 8](https://catterson.github.io/ystats/chapters/8R_Assumptions.html)                                                              | 8 \| Experiments and Sample Bias                                  | **Milestone 3 : Participants & Descriptive Stats**      |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+---------------------------------------------------------+
+| 4/11      | [Chapter 9](https://catterson.github.io/ystats/chapters/9R_SamplingError.html)                                                            | 9 \| Inferential Statistics                                       | **Milestone 4 : Linear Models**                         |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+---------------------------------------------------------+
+| 4/18      | [Chapter 10](https://catterson.github.io/ystats/chapters/10R_NHSTPower.html)                                                              | 10 \| Multiple Regression & Review                                | Lab 8 \[Practice Exam\]                                 |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+---------------------------------------------------------+
+| 4/25      |                                                                                                                                           | **Mega R Exam \[85 minutes\]**                                    | **Project Milestone : Draft**                           |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+---------------------------------------------------------+
+| 5/2       | [Chapter 11 (Optional; on Interaction Effects)](https://docs.google.com/document/u/0/d/1aJQHbTE38_-_qOPtFcH_EpYK6CP8LFc8w1Pf44tklG4/edit) | 11 \| Conclusion                                                  |                                                         |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+---------------------------------------------------------+
+| 5/9       |                                                                                                                                           | RRR Week \| Project Workshop                                      | **Final Project is Due 5/12 at 11:59 PM**               |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+---------------------------------------------------------+
 
 ## Course Information
 
@@ -46,11 +64,13 @@ Note : Chapters are from our course textbook : [Why Statistics?](http://catterso
 
 **Your grade in the class will be based on the following components.**
 
-|  |  |
-|----|----|
-| 5% Check-Ins (Lecture and Readings) | 10% Reading Quizzes |
-| 20% Lab and Project Milestone Assignments | 29% R Exam (Mini = 5 points;  Mega (Chill) = 24 points) |
-| 5% Discussion Section Attendance | 31% [Final Project (Research Paper](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?usp=sharing)) |
++-------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| 5% Check-Ins (Lecture and Readings)       | 10% Reading Quizzes                                                                                                                    |
++-------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| 20% Lab and Project Milestone Assignments | 29% R Exam (Mini = 5 points;  Mega (Chill) = 24 points)                                                                                |
++-------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| 5% Discussion Section Attendance          | 31% [Final Project (Research Paper](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?usp=sharing)) |
++-------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
 
 **Letter grades will be based on the following cutoffs :**
 

@@ -1,19 +1,19 @@
 ---
-title: "Lecture 1 | Welcome to Psych 101"
-format: html
+title: "Lecture 1 | Why Statistics?"
+format: live-html
+#format: revealjs
+#chalkboard: true
 ---
 
-# Check-In, Agenda and Announcements
+# Welcome to Psych 101
 
-## Welcome and Check-In!
-
-**access these lecture notes on bCourses!**
+**access these lecture notes here :**
 
 [**click on this link to check-in (or visit : tinyurl.com/first101class)**](https://docs.google.com/forms/d/e/1FAIpQLSekU91xhyXiYxxOsWbSGuJ3pAmPOazq9L_24hkcQpej-n0bBg/viewform?usp=header)
 
 ![](lecture_images/1L_digitalstyle.webp){fig-alt="a cartoon computer enthusiastically leads a collection of cartoon animals and muppets through a cartoon digital landscape" fig-align="center"}
 
-## Course Announcements
+## Announcements
 
 -   **Section Swap :** post on bCourses to find someone to swap with.
 -   **Waitlisted Students :** Thanks for your patience! Nothing I can do :(
@@ -26,45 +26,22 @@ format: html
 
 ## Agenda
 
--   2:10 - 2:20 \| Check-In & Announcements
--   2:20 - 3:10 \| RECAP : Science as Prediction
--   3:10 - 3:20 \| Break #1
--   3:20 - 3:50 \| Positivism and Linear Models
--   3:50 - 3:55 \| Break #2
--   3:55 - 4:30 \| In R : Defining Variables
--   4:30 - 5:00 \| So you're interested in being a researcher / going to graduate school?
+-   3:10 - 3:20 : Check-In & Announcements
+-   3:20 - 3:30 : RECAP : Variables and Variation
+-   3:30 - 4:20 : IN R : Defining Variables
+-   4:20 - 4:30 : Break #1
+-   4:30 - 5:00 : RECAP : Prediction and Linear Models
+-   5:00 - 5:05 : Break #2
+-   5:05 - 5:30 : DISCUSSION : Research Questions as Linear Model
+-   5:30 - 6:00 : So you're interested in going to graduate school?
+
+## Check-In Results
 
 # RECAP : Psychological Life is Variation
 
 ## Activity : Variables and Variation in the Room
 
 **Class Activity.** Let's create a list of variables that we observe in this classroom.
-
--   hair style
-
--   hair color
-
--   ethnicity
-
--   eye color
-
--   body size
-
--   devices
-
--   gender
-
--   identity
-
-    -   affect : feeling of affinity for fitting in w/ your culture.
-
-    -   behavior : how you express it
-
-    -   cognition : self-perception (do you think about this identity / perceive it in others?)
-
--   glasses
-
--   hats vs. no hats
 
 **Key Terms.** From the readings.
 
@@ -88,13 +65,13 @@ Find a buddy in the class! (There's a discord thread if you prefer to communicat
 
 **Student Examples**
 
--   Hamza : motivation for goal changes over time \[within person - starts as affect –\> behavior\]
+-   
 
--   Max : emotional effect of languages (how much the same word in a western language influences someone compared to that word in an eastern language) \[between person - comparing people who speak one language to people who speak another.\]
+-   
 
--   Camille : Moral regret (you did something bad and feel bad about it) and how that changes over time.
+-   
 
-# R : Defining Variables
+# IN R : Defining Variables
 
 ## Thinking about Programming (Free Association Activity)
 
@@ -103,24 +80,22 @@ Find a buddy in the class! (There's a discord thread if you prefer to communicat
 -   Visualize an image based on the word that you hear me say.
 -   What do you observe?
 
-## R is Your Friend
-
-### The Console
+## The R Console
 
 The console is where R does its work.
 
 -   **ACTIVITY :** Look at the image below. What do you see? What makes sense / what seems confusing?
 
-### ![](lecture_images/1_RConsole.png){width="522"}
+-   ![](lecture_images/1_RConsole.png){width="522"}
 
-### Some Additional Notes on R Studio and the Source File (.R)
+## R Studio and Source Files (.R)
 
 In this class, we'll be using RStudio. RStudio is an IDE (Integrated Development Environment) that includes the console along with other useful windows and tools.
 
 -   **The Console** is at the bottom left of the IDE. Hi console!
 -   **The R script** is at the top left of the IDE, and is a document that you use to write (and organize) code. You will want to do most of your work in the R script, and feel an appropriate level of anxiety when you notice that your Rscript is unsaved (as indicated by the red text and \*).
 -   **The Environment** is at the top right of the IDE, and shows you all of the "objects" that you have defined in R.
--   **The** **File Window** is at the bottom right of the IDE, and shows you the files. Note that there are tabs here for Plots (where graphs will pop up), Packages (things you can download to give R extra features), a Help viewer (sometimes very useful!).
+-   **The File Window** is at the bottom right of the IDE, and shows you the files. Note that there are tabs here for Plots (where graphs will pop up), Packages (things you can download to give R extra features), a Help viewer (sometimes very useful!).
 
 ![](lecture_images/clipboard-1807596003.png)
 
@@ -130,9 +105,7 @@ In this class, we'll be using RStudio. RStudio is an IDE (Integrated Development
 2.  Define two variables in R - one numeric and one string variable (these can be unrelated to your project topic!) Make sure to collect at least ten data points for each variable, and show that you successfully defined the variable in R by "printing" it in R. Yeah, you're programming!
 3.  Copy/paste (or screenshot) your code and output from the question above to a document to answer Lab 1, Question 1.
 
-### 
-
-## In R : Variables and Variation
+## R CODE : Variables and Variation
 
 ### Numeric Variables in R
 
@@ -154,16 +127,16 @@ In this class, we'll be using RStudio. RStudio is an IDE (Integrated Development
 | ```                             |                                                                                                    |
 +---------------------------------+----------------------------------------------------------------------------------------------------+
 
-### Example : Creating Numeric Variables
+## Example : Creating Numeric Variables
 
-```{r}
-counting <- c(1,2,3,4,5) # the numbers one through five
-print(counting) # one way to "print" the variable
-counting # another way to "print" the variable
-hist(counting) # a way to graph the variable (a histogram)
+```{webr}
+prof.sleep <- c(5.5, 5, 7, 8.5, 6.5, 5, 7.0, 7.5, 7.5, 6, 6.5, 5) # hours of sleep professor got the last few nights.
+print(prof.sleep) # one way to "print" the variable
+prof.sleep # another way to "print" the variable
+hist(prof.sleep) # a way to graph the variable (a histogram)
 ```
 
-### String Variables
+## String Variables
 
 +------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``` r                                          | **variable** = an object that you will define in R                                                                                                              |
@@ -205,7 +178,7 @@ laundryhang <- as.factor(laundryhang) # changing the format of the sting variabl
 plot(laundryhang) # a way to graph the non-numeric variable
 ```
 
-## Break Time: Meet Back at 3:25
+## Break Time: Meet Back at 4:25
 
 ![](lecture_images/1L_breakhugme.avif){fig-align="center"}
 
@@ -213,58 +186,41 @@ plot(laundryhang) # a way to graph the non-numeric variable
 
 ### Predictions in Real Life
 
--   Will it rain tonight?
+-   EXAMPLE :
     -   **Knowledge (what information did you use to make the prediction)?**
     -   **Power (ways your predictions influence future behaviors)**
--   Professor predicted that attendance would be HIGH today, but will dip later in the semester :(
-    -   **Knowledge (what information did you use to make the prediction)?**
-        -   first day of the semester; students are STOKED and MINIMALLY STRESSED.
-        -   pattern seen in almost every past semester.
-        -   Friday afternoons are basiscally the weekend.
-    -   **Power (ways your predictions influence future behaviors)**
-        -   prepared; made sure to arrive on time; tucked in shirt.
-        -   remind students to attend with weekly announcements.
-        -   create a positive classroom environment where students feel supported and like attendance is helpful.
-        -   created an example that serves as meta-commentary on the importance of attendance.
-    -   **Was Professor Valid?** TBD! \<3
--   **Work on Lab 1, Question 1. \[In Lecture\]** What’s a prediction about people that you made today? What information did you use to make this prediction? How did (or could) you use this prediction to influence outcomes? Were you valid in your predictions?
-    -   JESSICA :
-        -   prediction : this professor is awesome!
-        -   knowledge : other people told me the class was managable and friendly.
-        -   power : felt excited to enter the class
-        -   valid : maybe? let's see.
-    -   TRISHA :
-        -   prediction : thought people would come out of apartments when fire alarm went off in building; there was an emergency.
-        -   knowledge : we are taught to do this
-        -   power : left my apartment (without thinking too much about grabbing my keys)
-        -   valid : no, I was the only one outside.
-        -   **model : behavior in response to fire alarm \~ training + motivation not to die + social norms + error**
+    -   **Was Professor Valid?**
+    -   **Work on Lab Question.** What’s a prediction about people that you made today? What information did you use to make this prediction? How did (or could) you use this prediction to influence outcomes? Were you valid in your predictions? Finally, write a linear model that defines the prediction (and information that you used) as a formula (e.g., DV \~ IV1 + IV2 + … + error).
+    -   STUDENT EXAMPLE :
+        -   prediction :
+        -   knowledge :
+        -   power :
+        -   valid :
+        -   model :
+    -   STUDENT EXAMPLE :
+        -   prediction :
+        -   knowledge :
+        -   power :
+        -   valid :
+        -   model :
 
 ### Scientific Predictions
 
 Psychological scientists seek to better understand variation, in order to help make valid predictions in ways that help exert power over our environments.
 
-+----------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| Topic                                                                | Other Questions We Might Ask?                                                                                         |
-+======================================================================+=======================================================================================================================+
-| ![](lecture_images/1L_prosthetic.mp4)                       |                                                                                                                       |
-+----------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| ![](lecture_images/1L_fb.png){width="600"}[^1l_whystats-1]  | Are there differences between how long people actually use social media and how long people want to use social media? |
-|                                                                      |                                                                                                                       |
-|                                                                      | What dopamine reactions do people get after using social media?                                                       |
-|                                                                      |                                                                                                                       |
-|                                                                      | How do reactions to visual cues in the environemnt differ when people are on their phones?                            |
-|                                                                      |                                                                                                                       |
-|                                                                      | What factors keep people off social media long-term?                                                                  |
-|                                                                      |                                                                                                                       |
-|                                                                      | Do the engineers who create infinite scrolling feel guilty.                                                           |
-+----------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| ![](lecture_images/1L_blm.png){width="600"}[^1l_whystats-2] |                                                                                                                       |
-+----------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------+-------------------------------+
+| Topic                                                    | Other Questions We Might Ask? |
++==========================================================+===============================+
+| ![](lecture_images/1L_prosthetic.mp4)                    |                               |
++----------------------------------------------------------+-------------------------------+
+| ![](lecture_images/1L_fb.png){width="600"}[^1]           |                               |
++----------------------------------------------------------+-------------------------------+
+| ![](lecture_images/1L_blm.png){width="600"}[^2]          |                               |
++----------------------------------------------------------+-------------------------------+
 
-[^1l_whystats-1]: Here's [a link to the article](https://www.nytimes.com/2016/05/06/business/facebook-bends-the-rules-of-audience-engagement-to-its-advantage.html) where this headline comes from. These data are a little dated, and I couldn't immediately find more recent data - my guess is Meta does not really want to advertise that people are using the product more and more. However, in [reports to investors](https://s21.q4cdn.com/399680738/files/doc_financials/2024/q2/Earnings-Presentation-Q2-2024.pdf) reports consistent growth in metrics like "ad impressions" and "daily active users". Let me know if you find other sources to show how technology companies are capturing more and more of our attention!
+[^1]: Here's [a link to the article](https://www.nytimes.com/2016/05/06/business/facebook-bends-the-rules-of-audience-engagement-to-its-advantage.html) where this headline comes from. These data are a little dated, and I couldn't immediately find more recent data - my guess is Meta does not really want to advertise that people are using the product more and more. However, in [reports to investors](https://s21.q4cdn.com/399680738/files/doc_financials/2024/q2/Earnings-Presentation-Q2-2024.pdf) reports consistent growth in metrics like "ad impressions" and "daily active users". Let me know if you find other sources to show how technology companies are capturing more and more of our attention!
 
-[^1l_whystats-2]: Oscar Grant, Trayvon Martin, Philando Castile, Eric Garner, George Floyd, Tamir Rice, Breonna Taylor, Ahmaud Aubrey, Jacob Blake. Here’s a [more comprehensive list](https://en.wikipedia.org/wiki/List_of_unarmed_African_Americans_killed_by_law_enforcement_officers_in_the_United_States), and [here’s a summary article](https://www.apa.org/monitor/2016/12/cover-policing) on policing and race.\
+[^2]: Oscar Grant, Trayvon Martin, Philando Castile, Eric Garner, George Floyd, Tamir Rice, Breonna Taylor, Ahmaud Aubrey, Jacob Blake. Here’s a [more comprehensive list](https://en.wikipedia.org/wiki/List_of_unarmed_African_Americans_killed_by_law_enforcement_officers_in_the_United_States), and [here’s a summary article](https://www.apa.org/monitor/2016/12/cover-policing) on policing and race.\
 
 ## The Linear Model
 
@@ -408,8 +364,8 @@ Psychological scientists seek to better understand variation, in order to help m
 
 Some Data \[[Source](https://ncses.nsf.gov/pubs/nsf24300/report/postgraduation-trends#definite-commitments-at-graduation)\]
 
-|                      |                                           |
-|----------------------|-------------------------------------------|
+|                      |                                  |
+|----------------------|----------------------------------|
 | PhDs get jobs?       | ![](lecture_images/1L_jobs1.png) |
 | but not in academia… | ![](lecture_images/1L_jobs2.png) |
 | \$\$\$\$\$\$\$\$     | ![](lecture_images/1L_jobs3.png) |

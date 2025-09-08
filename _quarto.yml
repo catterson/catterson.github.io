@@ -15,6 +15,7 @@ website:
     collapse: false
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme: lux
     toc: false
+    reference-location: margin
+    citation-location: margin
