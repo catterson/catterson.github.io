@@ -35,15 +35,31 @@ format: html
 -   5:05 - 5:30 : DISCUSSION : Research Questions as Linear Model
 -   5:30 - 6:00 : So you're interested in going to graduate school?
 
-## Check-In Results
-
--   professor will paste here.
-
 # RECAP : Psychological Life is Variation
 
 ## Activity : Variables and Variation in the Room
 
 **Class Activity.** Let's create a list of variables that we observe in this classroom.
+
+-   color of shirt
+
+-   glasses
+
+-   hair length
+
+-   gender
+
+    -   affect : gender norms in how we are raised to process emotions (example : boys are taught to suppress SOME emotions, and okay / encouraged to express others like AnGER, whereas girls are perceieved as being "overly-emotional"; but okay to be ANGRY...."
+
+    -   behavior : "gender norms" in terms of roles, occupations, behavior, language (e.g., women are "homemakers" who raise the children.)
+
+    -   cognition : how you perceive yourself based on your gender (transgender identity); how you perceive yourself acting in a gender role in relationship that is in a patriarchal context (OR NOT!)
+
+-   transfer vs/ non-transfer
+
+-   eye color
+
+-   height
 
 **Key Terms.** From the readings.
 
@@ -67,11 +83,19 @@ Find a buddy in the class! (There's a discord thread if you prefer to communicat
 
 **Student Examples**
 
--   
+-   liam : living on vs. off campus and how that perceived stress
 
--   
+    -   stress : affect
 
--   
+    -   living situation (on vs. off) : behavior
+
+-   isabella : disorders (psychosis or schizophrenia)
+
+**Student Questions :**
+
+-   is it possible to study how people become emotionally involved with AI?
+
+    -   YES!!!
 
 # IN R : Defining Variables
 
@@ -189,35 +213,40 @@ plot(laundryhang) # a way to graph the non-numeric variable
 
 ### Predictions in Real Life
 
--   EXAMPLE :
+-   EXAMPLE : PROFESSOR WILL LET US OUT EARLY ON THE FIRST DAY
     -   **Knowledge (what information did you use to make the prediction)?**
+        -   past experience with other professors
+        -   syllabus seemed FUN and LIGHT HEARTED like someone who would let us out EARLY
+        -   you want to get out early...and so will MANIFEST that through the power of PREDICTION.
     -   **Power (ways your predictions influence future behaviors)**
-    -   **Was Professor Valid?**
+        -   making a plan to leave
+        -   trying to see if we can leverage this activity into actually getting out early (#MANIFEST)
+        -   did not bring a snack
+    -   **Was The Predicton Valid?**
+        -   WE WILL FIND OUT.
     -   **Work on Lab Question.** What’s a prediction about people that you made today? What information did you use to make this prediction? How did (or could) you use this prediction to influence outcomes? Were you valid in your predictions? Finally, write a linear model that defines the prediction (and information that you used) as a formula (e.g., DV \~ IV1 + IV2 + … + error).
-    -   STUDENT EXAMPLE :
-        -   prediction :
-        -   knowledge :
+    -   STUDENT EXAMPLE : Naomi
+        -   prediction : was gonna be late to class
+        -   knowledge : have practice until 3:30 on Mondays and coaches be like that.
         -   power :
-        -   valid :
+            -   rushed after you got let out
+            -   ran uphill
+            -   asked friend (whoI predicted was gonna get here early) to save a seat.
+        -   valid : yes, I was 2-minutes late.
         -   model :
-    -   STUDENT EXAMPLE :
-        -   prediction :
-        -   knowledge :
-        -   power :
-        -   valid :
-        -   model :
+            -   time to get to class \~ previous class time + coach personality + campus geography + own personal walking speed after tennis practice + weather + ERROR
 
 ### Scientific Predictions
 
 Psychological scientists seek to better understand variation, in order to help make valid predictions in ways that help exert power over our environments.
 
-+----------------------------------------------------------+-------------------------------+
-| Topic                                                    | Other Questions We Might Ask? |
-+==========================================================+===============================+
-| ![](lecture_images/1L_prosthetic.mp4)                    |                               |
-+----------------------------------------------------------+-------------------------------+
-| ![](lecture_images/1L_fb.png){width="600"}[^1]           |                               |
-+----------------------------------------------------------+-------------------------------+
++------------------------------------------------+-------------------------------+
+| Topic                                          | Other Questions We Might Ask? |
++================================================+===============================+
+| ![](lecture_images/1L_prosthetic.mp4)          |                               |
++------------------------------------------------+-------------------------------+
+| ![](lecture_images/1L_fb.png){width="600"}[^1] |                               |
++------------------------------------------------+-------------------------------+
 
 [^1]: Here's [a link to the article](https://www.nytimes.com/2016/05/06/business/facebook-bends-the-rules-of-audience-engagement-to-its-advantage.html) where this headline comes from. These data are a little dated, and I couldn't immediately find more recent data - my guess is Meta does not really want to advertise that people are using the product more and more. However, in [reports to investors](https://s21.q4cdn.com/399680738/files/doc_financials/2024/q2/Earnings-Presentation-Q2-2024.pdf) reports consistent growth in metrics like "ad impressions" and "daily active users". Let me know if you find other sources to show how technology companies are capturing more and more of our attention!
 
@@ -370,10 +399,10 @@ Psychological scientists seek to better understand variation, in order to help m
 
 Some Data \[[Source](https://ncses.nsf.gov/pubs/nsf24300/report/postgraduation-trends#definite-commitments-at-graduation)\]
 
-+-----------------------+----------------------------------------------+
-| PhDs get jobs?        | ![](lecture_images/1L_jobs1.png)             |
-+-----------------------+----------------------------------------------+
-| but not in academia…  | ![](lecture_images/1L_jobs2.png)             |
-+-----------------------+----------------------------------------------+
-| \$\$\$\$\$\$\$\$      | ![](lecture_images/1L_jobs3.png)             |
-+-----------------------+----------------------------------------------+
++----------------------+---------------------------------------------+
+| PhDs get jobs?       | ![](lecture_images/1L_jobs1.png)            |
++----------------------+---------------------------------------------+
+| but not in academia… | ![](lecture_images/1L_jobs2.png)            |
++----------------------+---------------------------------------------+
+| \$\$\$\$\$\$\$\$     | ![](lecture_images/1L_jobs3.png)            |
++----------------------+---------------------------------------------+
