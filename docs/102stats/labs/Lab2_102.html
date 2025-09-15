@@ -87,14 +87,11 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="psych-102---lab-2" class="level1">
 <h1>Psych 102 - Lab 2</h1>
-<p>The goal of this lab is to get practice working in Quarto, and describing data using R and your human brain.</p>
-<p>Download this file as a .qmd from the course page, and open it up in RStudio.</p>
-<p>Note : you may need to <a href="https://quarto.org/docs/get-started/">install Quarto</a>.</p>
+<p>The goal of this lab is to get practice describing data using R and your human brain.</p>
 <section id="in-lecture." class="level2">
 <h2 class="anchored" data-anchor-id="in-lecture.">In Lecture.</h2>
 <ol type="1">
-<li><p>One advantage of Quarto (and R Markdown) is that you can run code in a document. You do this using a “code block”. In the space below, insert an R code block, type out a math equation that used to give you difficulty as a kid into the code block below, and run the code to see the result. Below the code block, add text for humans to determine whether R got the math problem correct or not. Then render the document as a .pdf and .html file. Did this work?</p></li>
-<li><p>Load the “honor onboarding” survey into the code block below, and answer the following questions. <em>Note : to successfully render code in the document, you must a) explicitly load the dataset into your Quarto document and b) make sure you have no errors in your code. :)</em></p>
+<li><p>Load the “honor onboarding” survey into R and answer the following questions.</p>
 <ul>
 <li>Graph the variables <code>self.skills</code> and <code>class.skills</code> side by side using the par() function. Change the formatting of the graph to make it look ready for presentation. Add vertical lines to each graph to illustrate the mean (solid line) and standard deviation (dashed lines).</li>
 <li>Below each graph, report the mean and standard deviation of both variables, and interpret what these statistics tell you about the individuals in our class. (Who cares? What do these statistics tell us?)</li>
@@ -103,10 +100,10 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="in-section" class="level2">
 <h2 class="anchored" data-anchor-id="in-section">In Section</h2>
-<ol start="3" type="1">
+<ol start="2" type="1">
 <li>Split your graphics window into a 2x5 grid, and graph each of the 10 “can.*” variables in the dataset (e.g., “can.import”, “can.clean”, etc.). Make sure each graph contains the name of the variable and that the graph looks good / is intelligible. <em>Note : you can and should use a for-loop to do this graphing!</em> Then, report the frequencies of these variables - what are some things you observe about the data? Does this make sense given what you know about the participants?</li>
 </ol>
-<ol start="4" type="1">
+<ol start="3" type="1">
 <li>Choose one of the datasets from the class folder; avoid the one(s) labeled (repeated measures) as we will get to these later. I’ll be focusing on the “Perceptions of the Wealthy” dataset if you want to follow along with my key when it’s posted. Look over the accompanying data dictionary or research article for a guide to the variables, and identify two numeric variables from the dataset that seem interesting to you. Graph these variables, report the relevant descriptive statistics for each variable. Then explain what these statistics and graphs tell you about the individuals in the dataset, and what other questions you might ask about these individuals (e.g., what do the data NOT tell you?)</li>
 </ol>
 </section>
@@ -117,13 +114,13 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="https://catterson.github.io/ystats/chapters/4R_Scales.html">Here’s an overview (from my 101 class notes) of how to work with such likert scales conceptually and computationally (in R)</a>. You’ll need to load the psych library into R; to do this, run the following code in your console.</p>
 <p><code>install.packages("psych") # installs the "psych" package. you only need to do this once.</code></p>
 <p><code>library(psych) # loads the library. you need to do this every R session.</code></p>
-<ol start="5" type="1">
+<ol start="4" type="1">
 <li><strong>Self-Esteem Problems. Use the self-esteem dataset (from the class datasets folder). You should find a codebook that describes these data in the same folder.</strong></li>
 </ol>
 <p>Check to make sure the data loaded correctly. (Note that 0s in this dataset mean the person was missing data.) Report the sample size of the dataset.</p>
-<p>Create a self-esteem scale from the 10-items. Make sure to reverse-score the negatively-keyed items so that for every question, higher numbers measure higher self-esteem. Graph this variable as a histogram, and make the graph look nice (ready for publication). Report the alpha reliability, mean, and standard deviation of this variable. Below your graph, describe what these statistics tell you about the self-esteem of the participants. What other questions do you have about this variable, or the output?</p>
+<p>Create a self-esteem scale from the 10-items. Make sure to reverse-score the negatively-keyed items so that for every question, higher numbers measure higher self-esteem. You will also need to remove the zeros and replace them with NAs. There are different ways to do this - look this up, and document the method that you used in your R code. Graph the self-esteem variable as a histogram, and make the graph look nice (ready for publication). Report the alpha reliability, mean, and standard deviation of this variable. Below your graph, describe what these statistics tell you about the self-esteem of the participants. What other questions do you have about this variable, or the output?</p>
 <p>Then, graph the variable gender as a categorical factor, and report the number of people who identified as “female”, “male”, and “other”. You will need to do some data cleaning here.</p>
-<ol start="6" type="1">
+<ol start="5" type="1">
 <li><p><strong>Challenge Problem (Optional, but Encouraged!)</strong> Report the mean and standard deviation of self-esteem for people who identified as female, male, and “other” in the dataset. What differences between these three groups do you observe? How might we use this knowledge / what other questions do you have?</p>
 <p><em>Note : there are MANY ways to do this in R; you can use the subset function or indexing to divide the dataset into three groups - “females”, “males”, and people who reported “other”. Or other fancier methods we will talk about later. See how many different ways you can do it for a fun challenge.</em></p></li>
 </ol>
