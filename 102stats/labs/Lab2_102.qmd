@@ -69,7 +69,7 @@ Then, graph the variable gender as a categorical factor, and report the number o
 
 ```
 
-6.  **Self-Esteem is Conditional.** Report the mean and standard deviation of self-esteem for people who identified as female, male, and "other" in the dataset. What differences between these three groups do you observe? How might we use this knowledge / what other questions do you have?
+6.  **Challenge Problem (Optional, but Encouraged!)** Report the mean and standard deviation of self-esteem for people who identified as female, male, and "other" in the dataset. What differences between these three groups do you observe? How might we use this knowledge / what other questions do you have?
 
     *Note : there are MANY ways to do this in R; you can use the subset function or indexing to divide the dataset into three groups - "females", "males", and people who reported "other". Or other fancier methods we will talk about later. See how many different ways you can do it for a fun challenge.*
 

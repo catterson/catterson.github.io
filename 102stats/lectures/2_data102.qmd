@@ -43,53 +43,14 @@ This week, we'll learn how to describe data using R and statistics and human lan
 
 ## Week 1 Recap and Review
 
-### The Monty-Hall Problem (10000 Door Version)
+### R Stuff
 
-Question. Let's say I want to create a variable that describes 100 doors.
+-   For-Loops
 
--   The Manual Method : 
-
-```{r}
-
-```
+-   Monty Hall with 100 Doors.
 
 
--   If you are ever repeating something over and over and over.....USE A FOR-LOOP!
-
-```{r}
-## CREATING 100 DOORS
-door100 <- array() # this defines an empty array; a place to "store" my values
-for(i in c(1:100)){ # this starts the for-loop, and tells R I want to repeat some process 100 times, and keep track with the variable i
-  door100[i] <- paste("door", i, sep = "") # the paste() function sticks the string "door" and the variable i together, separated by no value
-                                           # since i updates every time we iterate through the loop, each door will increase from 1 to 100.
-                                           # the assign <- sticks this value to the variable door100 in position i
-} # this ends the loop
-
-door100 # testing to see if the loop works.
-tail(door100)
-```
-
-
-Lab 1 : What Happens to Monty Hall If There are 100 DoorS? 
-
-```{r}
-win.stay100 <- array() # defining a new place to save values when we have 100 doors. I could call this anything.
-win.switch100 <- array() # defining a new place to save values when we have 100 doors. I could call this anything.
-for(i in c(1:10000)){ # running 10000 simulations.
-  choice <- sample(door100, 1) # the new set of 10000 doors
-  treasure <- sample(door100, 1) 
-  can.open <- setdiff(door100, c(choice, treasure))
-  monty.open <- sample(can.open, 98) # monty will open 98 other doors, leaving my choice + the treasure.
-  choice.switch <- sample(setdiff(door100, c(monty.open, choice)), 1) # if switch, I can still only choose from whatever is left.
-  win.stay100[i] <- ifelse(choice == treasure, "WIN", "LOSE") # this is the result if we stay with our initial choice
-  win.switch100[i] <- ifelse(choice.switch == treasure, "WIN", "LOSE") # this is the result if we switch
-}
-
-sum(win.stay100 == "WIN")/length(win.stay100) # probability if I stay. Note that rather than divide by 100, I'm dividing by the value of length(). If I change the # of simulations to run above, I don't have to update my code here. This is GOOD PRACTICE.
-sum(win.switch100 == "WIN")/length(win.switch100) # YEAH!!!!
-```
-
-### Data Organization and Loading
+## Data Organization and Loading
 
 DISCUSSION : Below are the twelve (12) criteria Broman & Woo (2018) articulated for thinking about data. Review the list. What practices below have you encountered or struggled with in working with data so far? What terms or ideas do you have questions about? Is there anything else that should be added to this list?
 
@@ -106,13 +67,7 @@ DISCUSSION : Below are the twelve (12) criteria Broman & Woo (2018) articulated 
 11. Data validation to avoid errors.
 12. Saving data in plaintext.
 
-### Check-In : Loading and Navigating Data
-
-```{r}
-
-```
-
-## PART 1 : Describing Data with R, Statistics, and Human Language
+## PART 2 : Describing Data with R, Statistics, and Human Language
 
 ### Categorical Data
 
@@ -185,32 +140,49 @@ DISCUSSION : Below are the twelve (12) criteria Broman & Woo (2018) articulated 
 
 ## BREAK TIME & ARTICLE PRESENTATION
 
--   [See the article presentation slideshow](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing) \[warning : everyone has edit access. be careful!\]
+-   [See the article presentation slideshow](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing) (warning : everyone has edit access. be careful!)
 
-## PART 2 : Mean Thoughts \[R Demo\]
+### Using Quarto to Make and Share Nice Reports
 
-We will see how far we get in exploring these ideas!
+[**Quarto**](https://quarto.org) is a version of R Markdown, which is a version of Markdown, which is a powerful way to author code that is meant for both humans and computers to read.
 
-### The Mean is Prediction
+-   Advantages :
 
--   Illustrating the mean as a "line of best fit" (our first linear model!)
+    -   can create a document that works for R code, can create a presentation, or a website
+    -   much faster to get your code from R to something that humans can read
+        -   no more copy-paste graphs or output.
+        -   can update graphs and output as your needs / datset changes
+    -   lots of features - open-source heritage and culture, but supported financially my Micro\$oft.
+        -   ability to format your code; render it as a website, pdf, book, etc.
+        -   interactive documents (Shiny; html-live; etc.)
+
+-   Disadvantages :
+
+    -   code must be "perfect" in order to correctly render.
+    -   can go down formatting and feature rabbit holes that are not necessarily condusive to good science.
+    -   another dialect of the language you are trying to learn
+        -   in R : code is the default; human comments added with #s
+        -   in Quarto : human text is the default; you insert a code block when you want R to do something (and can then comment in that code)
 
     ```{r}
-
+    1+1 # like this
     ```
 
--   Illustrating the standard deviation as the "average" amount of residual error.
+-   In this class, we will work with both .R scripts and .qmd Quarto Markdown Files
 
-    ```{r}
+    -   .R Scripts for tinkering with data (in-class tutorials; initial analyses)
+    -   .qmd files for "final" products (Lecture notes, lab documents, your project)
 
-    ```
+-   There are many thorough guides on how to use Quarto, but honestly the [official Quarto reference book](https://quarto.org/docs/reference/) is almost constantly open on my computer (in multiple tabs....sigh.) But let me know if you find another cool resource!
 
-### The Mean "Best" Minimizes Residual Error
+-   **Things to do in Quarto :**
 
--   Illustrating that the mean is the value that reduces the sum of our residual error.
+    -   write in human text
 
-    ```{r}
-    ```
+    -   insert a code block
 
+    -   insert inline code
+
+    -   render everything with no pain and drama as a .pdf or .html file and share this with others.
 
 ## [**EXIT SURVEY HERE**](https://docs.google.com/forms/d/e/1FAIpQLSd2wF5wmKdOYwsJF5UKdirV3Seihb7FOoA7BppOu4GMLrJ8fw/viewform?usp=header)

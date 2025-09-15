@@ -67,7 +67,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4968d28af72d4e5a34172c9bc5ef961b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -85,7 +85,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -102,14 +101,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li class="nav-item">
     <a class="nav-link" href="https://catterson.github.io/ystats/"> 
 <span class="menu-text">Why Statistics?</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../calstats/calstatsSP25.html"> 
-<span class="menu-text">Cal Stats [Psych 101]</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../gradstats/gradstatsSP25.html"> 
-<span class="menu-text">Grad Stats [Psych 205]</span></a>
   </li>  
 </ul>
           <div class="quarto-navbar-tools">
@@ -184,57 +175,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="week-1-recap-and-review" class="level2">
 <h2 class="anchored" data-anchor-id="week-1-recap-and-review">Week 1 Recap and Review</h2>
-<section id="the-monty-hall-problem-100-door-version" class="level3">
-<h3 class="anchored" data-anchor-id="the-monty-hall-problem-100-door-version">The Monty-Hall Problem [100 Door Version]</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## CREATING 100 DOORS</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>door100 <span class="ot">&lt;-</span> <span class="fu">array</span>() <span class="co"># this defines an empty array; a place to "store" my values</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)){ <span class="co"># this starts the for-loop, and tells R I want to repeat some process 100 times, and keep track with the variable i</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  door100[i] <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"door"</span>, i, <span class="at">sep =</span> <span class="st">""</span>) <span class="co"># the paste() function sticks the string "door" and the variable i together, separated by no value</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                                           <span class="co"># since i updates every time we iterate through the loop, each door will increase from 1 to 100.</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                                           <span class="co"># the assign &lt;- sticks this value to the variable door100 in position i</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>} <span class="co"># this ends the loop</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>door100 <span class="co"># testing to see if the loop works. it did.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  [1] "door1"   "door2"   "door3"   "door4"   "door5"   "door6"   "door7"  
-  [8] "door8"   "door9"   "door10"  "door11"  "door12"  "door13"  "door14" 
- [15] "door15"  "door16"  "door17"  "door18"  "door19"  "door20"  "door21" 
- [22] "door22"  "door23"  "door24"  "door25"  "door26"  "door27"  "door28" 
- [29] "door29"  "door30"  "door31"  "door32"  "door33"  "door34"  "door35" 
- [36] "door36"  "door37"  "door38"  "door39"  "door40"  "door41"  "door42" 
- [43] "door43"  "door44"  "door45"  "door46"  "door47"  "door48"  "door49" 
- [50] "door50"  "door51"  "door52"  "door53"  "door54"  "door55"  "door56" 
- [57] "door57"  "door58"  "door59"  "door60"  "door61"  "door62"  "door63" 
- [64] "door64"  "door65"  "door66"  "door67"  "door68"  "door69"  "door70" 
- [71] "door71"  "door72"  "door73"  "door74"  "door75"  "door76"  "door77" 
- [78] "door78"  "door79"  "door80"  "door81"  "door82"  "door83"  "door84" 
- [85] "door85"  "door86"  "door87"  "door88"  "door89"  "door90"  "door91" 
- [92] "door92"  "door93"  "door94"  "door95"  "door96"  "door97"  "door98" 
- [99] "door99"  "door100"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## WHAT HAPPENS IF THERE ARE 100 DOORS?</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>win.stay100 <span class="ot">&lt;-</span> <span class="fu">array</span>() <span class="co"># defining a new place to save values when we have 100 doors. I could call this anything.</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>win.switch100 <span class="ot">&lt;-</span> <span class="fu">array</span>() <span class="co"># defining a new place to save values when we have 100 doors. I could call this anything.</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>)){ <span class="co"># running 10000 simulations.</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  choice <span class="ot">&lt;-</span> <span class="fu">sample</span>(door100, <span class="dv">1</span>) <span class="co"># the new set of 100 doors</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  treasure <span class="ot">&lt;-</span> <span class="fu">sample</span>(door100, <span class="dv">1</span>) </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  can.open <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(door100, <span class="fu">c</span>(choice, treasure))</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  monty.open <span class="ot">&lt;-</span> <span class="fu">sample</span>(can.open, <span class="dv">98</span>) <span class="co"># monty will open 98 other doors, leaving my choice + the treasure.</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  choice.switch <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">setdiff</span>(door100, <span class="fu">c</span>(monty.open, choice)), <span class="dv">1</span>) <span class="co"># if switch, I can still only choose from whatever is left.</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  win.stay100[i] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(choice <span class="sc">==</span> treasure, <span class="st">"WIN"</span>, <span class="st">"LOSE"</span>) <span class="co"># this is the result if we stay with our initial choice</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  win.switch100[i] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(choice.switch <span class="sc">==</span> treasure, <span class="st">"WIN"</span>, <span class="st">"LOSE"</span>) <span class="co"># this is the result if we switch</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(win.stay100 <span class="sc">==</span> <span class="st">"WIN"</span>)<span class="sc">/</span><span class="fu">length</span>(win.stay100) <span class="co"># probability if I stay. Note that rather than divide by 1000, I'm dividing by the value of length(). If I change the # of simulations to run above, I don't have to update my code here. This is GOOD PRACTICE.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0095</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(win.switch100 <span class="sc">==</span> <span class="st">"WIN"</span>)<span class="sc">/</span><span class="fu">length</span>(win.switch100) <span class="co"># YEAH!!!!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9905</code></pre>
-</div>
-</div>
+<section id="r-stuff" class="level3">
+<h3 class="anchored" data-anchor-id="r-stuff">R Stuff</h3>
+<ul>
+<li><p>For-Loops</p></li>
+<li><p>Monty Hall with 100 Doors.</p></li>
+</ul>
 </section>
 <section id="data-organization-and-loading" class="level3">
 <h3 class="anchored" data-anchor-id="data-organization-and-loading">Data Organization and Loading</h3>
@@ -283,6 +229,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong><code>hist()</code></strong> or <code>boxplot()</code> <strong>:</strong> graphing numeric data</p></li>
 </ul>
 </section>
+</section>
+<section id="break-time-article-presentation" class="level2">
+<h2 class="anchored" data-anchor-id="break-time-article-presentation">BREAK TIME &amp; ARTICLE PRESENTATION</h2>
+<ul>
+<li><a href="https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing">See the article presentation slideshow</a> (warning : everyone has edit access. be careful!)</li>
+</ul>
 <section id="using-quarto-to-make-and-share-nice-reports" class="level3">
 <h3 class="anchored" data-anchor-id="using-quarto-to-make-and-share-nice-reports">Using Quarto to Make and Share Nice Reports</h3>
 <p><a href="https://quarto.org"><strong>Quarto</strong></a> is a version of R Markdown, which is a version of Markdown, which is a powerful way to author code that is meant for both humans and computers to read.</p>
@@ -312,7 +264,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">1</span> <span class="co"># like this</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">1</span> <span class="co"># like this</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
@@ -330,29 +282,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>insert inline code</p></li>
 <li><p>render everything with no pain and drama as a .pdf or .html file and share this with others.</p></li>
 </ul></li>
-</ul>
-</section>
-</section>
-<section id="break-time-article-presentation" class="level2">
-<h2 class="anchored" data-anchor-id="break-time-article-presentation">BREAK TIME &amp; ARTICLE PRESENTATION</h2>
-<ul>
-<li><a href="https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing">See the article presentation slideshow</a> [warning : everyone has edit access. be careful!]</li>
-</ul>
-</section>
-<section id="part-2-mean-thoughts-r-demo" class="level2">
-<h2 class="anchored" data-anchor-id="part-2-mean-thoughts-r-demo">PART 2 : Mean Thoughts [R Demo]</h2>
-<p>We will see how far we get in exploring these ideas!</p>
-<section id="the-mean-is-prediction" class="level3">
-<h3 class="anchored" data-anchor-id="the-mean-is-prediction">The Mean is Prediction</h3>
-<ul>
-<li><p>Illustrating the mean as a “line of best fit” [our first linear model!]</p></li>
-<li><p>Illustrating the standard deviation as the “average” amount of residual error.</p></li>
-</ul>
-</section>
-<section id="the-mean-best-minimizes-residual-error" class="level3">
-<h3 class="anchored" data-anchor-id="the-mean-best-minimizes-residual-error">The Mean “Best” Minimizes Residual Error</h3>
-<ul>
-<li><p>Illustrating that the mean is the value that reduces the sum of our residual error.</p></li>
 </ul>
 </section>
 </section>

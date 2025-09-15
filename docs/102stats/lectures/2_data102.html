@@ -171,73 +171,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="week-1-recap-and-review" class="level2">
 <h2 class="anchored" data-anchor-id="week-1-recap-and-review">Week 1 Recap and Review</h2>
-<section id="the-monty-hall-problem-10000-door-version" class="level3">
-<h3 class="anchored" data-anchor-id="the-monty-hall-problem-10000-door-version">The Monty-Hall Problem (10000 Door Version)</h3>
-<p>Question. Let’s say I want to create a variable that describes 100 doors.</p>
+<section id="r-stuff" class="level3">
+<h3 class="anchored" data-anchor-id="r-stuff">R Stuff</h3>
 <ul>
-<li>The Manual Method :</li>
+<li><p>For-Loops</p></li>
+<li><p>Monty Hall with 100 Doors.</p></li>
 </ul>
-<ul>
-<li>If you are ever repeating something over and over and over…..USE A FOR-LOOP!</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## CREATING 100 DOORS</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>door100 <span class="ot">&lt;-</span> <span class="fu">array</span>() <span class="co"># this defines an empty array; a place to "store" my values</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)){ <span class="co"># this starts the for-loop, and tells R I want to repeat some process 100 times, and keep track with the variable i</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  door100[i] <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"door"</span>, i, <span class="at">sep =</span> <span class="st">""</span>) <span class="co"># the paste() function sticks the string "door" and the variable i together, separated by no value</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                                           <span class="co"># since i updates every time we iterate through the loop, each door will increase from 1 to 100.</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                                           <span class="co"># the assign &lt;- sticks this value to the variable door100 in position i</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>} <span class="co"># this ends the loop</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>door100 <span class="co"># testing to see if the loop works.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  [1] "door1"   "door2"   "door3"   "door4"   "door5"   "door6"   "door7"  
-  [8] "door8"   "door9"   "door10"  "door11"  "door12"  "door13"  "door14" 
- [15] "door15"  "door16"  "door17"  "door18"  "door19"  "door20"  "door21" 
- [22] "door22"  "door23"  "door24"  "door25"  "door26"  "door27"  "door28" 
- [29] "door29"  "door30"  "door31"  "door32"  "door33"  "door34"  "door35" 
- [36] "door36"  "door37"  "door38"  "door39"  "door40"  "door41"  "door42" 
- [43] "door43"  "door44"  "door45"  "door46"  "door47"  "door48"  "door49" 
- [50] "door50"  "door51"  "door52"  "door53"  "door54"  "door55"  "door56" 
- [57] "door57"  "door58"  "door59"  "door60"  "door61"  "door62"  "door63" 
- [64] "door64"  "door65"  "door66"  "door67"  "door68"  "door69"  "door70" 
- [71] "door71"  "door72"  "door73"  "door74"  "door75"  "door76"  "door77" 
- [78] "door78"  "door79"  "door80"  "door81"  "door82"  "door83"  "door84" 
- [85] "door85"  "door86"  "door87"  "door88"  "door89"  "door90"  "door91" 
- [92] "door92"  "door93"  "door94"  "door95"  "door96"  "door97"  "door98" 
- [99] "door99"  "door100"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(door100)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "door95"  "door96"  "door97"  "door98"  "door99"  "door100"</code></pre>
-</div>
-</div>
-<p>Lab 1 : What Happens to Monty Hall If There are 100 DoorS?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>win.stay100 <span class="ot">&lt;-</span> <span class="fu">array</span>() <span class="co"># defining a new place to save values when we have 100 doors. I could call this anything.</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>win.switch100 <span class="ot">&lt;-</span> <span class="fu">array</span>() <span class="co"># defining a new place to save values when we have 100 doors. I could call this anything.</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>)){ <span class="co"># running 10000 simulations.</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  choice <span class="ot">&lt;-</span> <span class="fu">sample</span>(door100, <span class="dv">1</span>) <span class="co"># the new set of 10000 doors</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  treasure <span class="ot">&lt;-</span> <span class="fu">sample</span>(door100, <span class="dv">1</span>) </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  can.open <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(door100, <span class="fu">c</span>(choice, treasure))</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  monty.open <span class="ot">&lt;-</span> <span class="fu">sample</span>(can.open, <span class="dv">98</span>) <span class="co"># monty will open 98 other doors, leaving my choice + the treasure.</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  choice.switch <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">setdiff</span>(door100, <span class="fu">c</span>(monty.open, choice)), <span class="dv">1</span>) <span class="co"># if switch, I can still only choose from whatever is left.</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  win.stay100[i] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(choice <span class="sc">==</span> treasure, <span class="st">"WIN"</span>, <span class="st">"LOSE"</span>) <span class="co"># this is the result if we stay with our initial choice</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  win.switch100[i] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(choice.switch <span class="sc">==</span> treasure, <span class="st">"WIN"</span>, <span class="st">"LOSE"</span>) <span class="co"># this is the result if we switch</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(win.stay100 <span class="sc">==</span> <span class="st">"WIN"</span>)<span class="sc">/</span><span class="fu">length</span>(win.stay100) <span class="co"># probability if I stay. Note that rather than divide by 100, I'm dividing by the value of length(). If I change the # of simulations to run above, I don't have to update my code here. This is GOOD PRACTICE.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0128</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(win.switch100 <span class="sc">==</span> <span class="st">"WIN"</span>)<span class="sc">/</span><span class="fu">length</span>(win.switch100) <span class="co"># YEAH!!!!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9872</code></pre>
-</div>
-</div>
 </section>
-<section id="data-organization-and-loading" class="level3">
-<h3 class="anchored" data-anchor-id="data-organization-and-loading">Data Organization and Loading</h3>
+</section>
+<section id="data-organization-and-loading" class="level2">
+<h2 class="anchored" data-anchor-id="data-organization-and-loading">Data Organization and Loading</h2>
 <p>DISCUSSION : Below are the twelve (12) criteria Broman &amp; Woo (2018) articulated for thinking about data. Review the list. What practices below have you encountered or struggled with in working with data so far? What terms or ideas do you have questions about? Is there anything else that should be added to this list?</p>
 <ol type="1">
 <li>Consistency</li>
@@ -254,12 +197,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Saving data in plaintext.</li>
 </ol>
 </section>
-<section id="check-in-loading-and-navigating-data" class="level3">
-<h3 class="anchored" data-anchor-id="check-in-loading-and-navigating-data">Check-In : Loading and Navigating Data</h3>
-</section>
-</section>
-<section id="part-1-describing-data-with-r-statistics-and-human-language" class="level2">
-<h2 class="anchored" data-anchor-id="part-1-describing-data-with-r-statistics-and-human-language">PART 1 : Describing Data with R, Statistics, and Human Language</h2>
+<section id="part-2-describing-data-with-r-statistics-and-human-language" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-describing-data-with-r-statistics-and-human-language">PART 2 : Describing Data with R, Statistics, and Human Language</h2>
 <section id="categorical-data" class="level3">
 <h3 class="anchored" data-anchor-id="categorical-data">Categorical Data</h3>
 <ul>
@@ -312,7 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">1</span> <span class="co"># like this</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">1</span> <span class="co"># like this</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
@@ -336,23 +275,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="break-time-article-presentation" class="level2">
 <h2 class="anchored" data-anchor-id="break-time-article-presentation">BREAK TIME &amp; ARTICLE PRESENTATION</h2>
 <ul>
-<li><a href="https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing">See the article presentation slideshow</a> [warning : everyone has edit access. be careful!]</li>
+<li><a href="https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing">See the article presentation slideshow</a> (warning : everyone has edit access. be careful!)</li>
 </ul>
-</section>
-<section id="part-2-mean-thoughts-r-demo" class="level2">
-<h2 class="anchored" data-anchor-id="part-2-mean-thoughts-r-demo">PART 2 : Mean Thoughts [R Demo]</h2>
-<p>We will see how far we get in exploring these ideas!</p>
-<section id="the-mean-is-prediction" class="level3">
-<h3 class="anchored" data-anchor-id="the-mean-is-prediction">The Mean is Prediction</h3>
+<section id="using-quarto-to-make-and-share-nice-reports-1" class="level3">
+<h3 class="anchored" data-anchor-id="using-quarto-to-make-and-share-nice-reports-1">Using Quarto to Make and Share Nice Reports</h3>
+<p><a href="https://quarto.org"><strong>Quarto</strong></a> is a version of R Markdown, which is a version of Markdown, which is a powerful way to author code that is meant for both humans and computers to read.</p>
 <ul>
-<li><p>Illustrating the mean as a “line of best fit” (our first linear model!)</p></li>
-<li><p>Illustrating the standard deviation as the “average” amount of residual error.</p></li>
+<li><p>Advantages :</p>
+<ul>
+<li>can create a document that works for R code, can create a presentation, or a website</li>
+<li>much faster to get your code from R to something that humans can read
+<ul>
+<li>no more copy-paste graphs or output.</li>
+<li>can update graphs and output as your needs / datset changes</li>
+</ul></li>
+<li>lots of features - open-source heritage and culture, but supported financially my Micro$oft.
+<ul>
+<li>ability to format your code; render it as a website, pdf, book, etc.</li>
+<li>interactive documents (Shiny; html-live; etc.)</li>
+</ul></li>
+</ul></li>
+<li><p>Disadvantages :</p>
+<ul>
+<li>code must be “perfect” in order to correctly render.</li>
+<li>can go down formatting and feature rabbit holes that are not necessarily condusive to good science.</li>
+<li>another dialect of the language you are trying to learn
+<ul>
+<li>in R : code is the default; human comments added with #s</li>
+<li>in Quarto : human text is the default; you insert a code block when you want R to do something (and can then comment in that code)</li>
+</ul></li>
 </ul>
-</section>
-<section id="the-mean-best-minimizes-residual-error" class="level3">
-<h3 class="anchored" data-anchor-id="the-mean-best-minimizes-residual-error">The Mean “Best” Minimizes Residual Error</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">1</span> <span class="co"># like this</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div></li>
+<li><p>In this class, we will work with both .R scripts and .qmd Quarto Markdown Files</p>
 <ul>
-<li><p>Illustrating that the mean is the value that reduces the sum of our residual error.</p></li>
+<li>.R Scripts for tinkering with data (in-class tutorials; initial analyses)</li>
+<li>.qmd files for “final” products (Lecture notes, lab documents, your project)</li>
+</ul></li>
+<li><p>There are many thorough guides on how to use Quarto, but honestly the <a href="https://quarto.org/docs/reference/">official Quarto reference book</a> is almost constantly open on my computer (in multiple tabs….sigh.) But let me know if you find another cool resource!</p></li>
+<li><p><strong>Things to do in Quarto :</strong></p>
+<ul>
+<li><p>write in human text</p></li>
+<li><p>insert a code block</p></li>
+<li><p>insert inline code</p></li>
+<li><p>render everything with no pain and drama as a .pdf or .html file and share this with others.</p></li>
+</ul></li>
 </ul>
 </section>
 </section>

@@ -47,35 +47,12 @@ This week, we'll learn how to describe data using R and statistics and human lan
 
 ## Week 1 Recap and Review
 
-### The Monty-Hall Problem \[100 Door Version\]
+### R Stuff
 
-```{r}
-## CREATING 100 DOORS
-door100 <- array() # this defines an empty array; a place to "store" my values
-for(i in c(1:100)){ # this starts the for-loop, and tells R I want to repeat some process 100 times, and keep track with the variable i
-  door100[i] <- paste("door", i, sep = "") # the paste() function sticks the string "door" and the variable i together, separated by no value
-                                           # since i updates every time we iterate through the loop, each door will increase from 1 to 100.
-                                           # the assign <- sticks this value to the variable door100 in position i
-} # this ends the loop
+-   For-Loops
 
-door100 # testing to see if the loop works. it did.
+-   Monty Hall with 100 Doors.
 
-## WHAT HAPPENS IF THERE ARE 100 DOORS?
-win.stay100 <- array() # defining a new place to save values when we have 100 doors. I could call this anything.
-win.switch100 <- array() # defining a new place to save values when we have 100 doors. I could call this anything.
-for(i in c(1:10000)){ # running 10000 simulations.
-  choice <- sample(door100, 1) # the new set of 100 doors
-  treasure <- sample(door100, 1) 
-  can.open <- setdiff(door100, c(choice, treasure))
-  monty.open <- sample(can.open, 98) # monty will open 98 other doors, leaving my choice + the treasure.
-  choice.switch <- sample(setdiff(door100, c(monty.open, choice)), 1) # if switch, I can still only choose from whatever is left.
-  win.stay100[i] <- ifelse(choice == treasure, "WIN", "LOSE") # this is the result if we stay with our initial choice
-  win.switch100[i] <- ifelse(choice.switch == treasure, "WIN", "LOSE") # this is the result if we switch
-}
-
-sum(win.stay100 == "WIN")/length(win.stay100) # probability if I stay. Note that rather than divide by 1000, I'm dividing by the value of length(). If I change the # of simulations to run above, I don't have to update my code here. This is GOOD PRACTICE.
-sum(win.switch100 == "WIN")/length(win.switch100) # YEAH!!!!
-```
 
 ### Data Organization and Loading
 
@@ -128,6 +105,10 @@ Below are the twelve (12) criteria Broman & Woo (2018) articulated for thinking 
 
 -   **`hist()`** or `boxplot()` **:** graphing numeric data
 
+## BREAK TIME & ARTICLE PRESENTATION
+
+-   [See the article presentation slideshow](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing) (warning : everyone has edit access. be careful!)
+
 ### Using Quarto to Make and Share Nice Reports
 
 [**Quarto**](https://quarto.org) is a version of R Markdown, which is a version of Markdown, which is a powerful way to author code that is meant for both humans and computers to read.
@@ -170,35 +151,5 @@ Below are the twelve (12) criteria Broman & Woo (2018) articulated for thinking 
     -   insert inline code
 
     -   render everything with no pain and drama as a .pdf or .html file and share this with others.
-
-## BREAK TIME & ARTICLE PRESENTATION
-
--   [See the article presentation slideshow](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing) \[warning : everyone has edit access. be careful!\]
-
-## PART 2 : Mean Thoughts \[R Demo\]
-
-We will see how far we get in exploring these ideas!
-
-### The Mean is Prediction
-
--   Illustrating the mean as a "line of best fit" \[our first linear model!\]
-
-    ```{r}
-
-    ```
-
--   Illustrating the standard deviation as the "average" amount of residual error.
-
-    ```{r}
-
-    ```
-
-### The Mean "Best" Minimizes Residual Error
-
--   Illustrating that the mean is the value that reduces the sum of our residual error.
-
-    ```{r}
-    ```
-
 
 ## [**EXIT SURVEY HERE**](https://docs.google.com/forms/d/e/1FAIpQLSd2wF5wmKdOYwsJF5UKdirV3Seihb7FOoA7BppOu4GMLrJ8fw/viewform?usp=header)

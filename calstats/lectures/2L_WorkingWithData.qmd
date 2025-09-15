@@ -4,13 +4,55 @@ format: html
 
 # Class 2 \| Working With Data
 
-### Check-In, Agenda, and Announcements
+## Check-In, Agenda, and Announcements
 
-Welcome Back! Access this Document Here : https://catterson.github.io/calstats/calstatsSP25.html
+Welcome Back! Access this Document Here : catterson.github.io/calstats/calstatsFA25.html
 
 [**PLEASE COMPLETE THIS CHECK-IN : tinyurl.com/againmodels**](https://docs.google.com/forms/d/e/1FAIpQLSeRxOyLnGN7GO7ZQYziTuElo8k39b1feE915glmQMqI-1JBTA/viewform?usp=sf_link)
 
 ![](lecture_images/2L_KermitCouch.png){fig-align="center" width="401"}
+
+## Agenda
+
+-   **3:10 - 3:20.** Check-In & Review
+
+-   **3:20 - 4:00.** No stats in this class.
+
+-   **4:00 - 4:10. BREAK TIME #1**
+
+-   **4:10 - 5:00.** R in this class (loading data & graphing variables)
+
+-   **5:00 - 5:05. Break Time #2**
+
+-   **5:05 - 5:30.** Operationalization, Construct, and Measurement, Oh My!
+
+-   **5:30 - 6:00.** Wrap Up & Questions About Grad School.
+
+## Announcements
+
+-   **DISCORD IS BUMPIN :**
+
+    -   **students (and *sometimes* professor) helping students :** with the R stuff; the real stuff; the gobears stuff.
+
+        ![](images/clipboard-3577138052.png)
+
+    -   **students helping professor :** thinking about non-binary; non-categorical measures of gender (and race).
+
+-   **Lab 2 is Posted.** We are going to work on this today. Yay.
+
+-   **Brain Exam in Two Weeks.**
+
+    -   We will practice next week. Gonna be chill.
+
+    -   If can't attend section; attend another section. Or talk to GSI.
+
+    -   **DSP :** you'll have extra time as needed. Can find quiet space as needed (just leave TECH in the classroom?)
+
+-   **"I want more work!", said the student(s).**
+
+    -   **ggplot2 :** for fancy graphs
+
+    -   **Quarto / RMarkdown :** for more authentic ways of embedding code, output, and words together. (what I'm writing the textbook, class notes, and lab assignments in.)
 
 # PART 1 : No Statistics In This Class
 
@@ -21,7 +63,7 @@ Welcome Back! Access this Document Here : https://catterson.github.io/calstats/c
 1.  Did you learn about Florence Nightingale in other classes?
 2.  What did you remember learning about Florence Nightingale in other classes?
 
-|                                     |                                         |
+|  |  |
 |---------------------------|---------------------------------------------|
 | ![](lecture_images/2L_Florence.png) | ![](lecture_images/2L_FlorenceData.png) |
 
@@ -31,29 +73,17 @@ Look at the graph below, and use it to answer the following questions.
 
 1.  **Ice Breaker :** What's the worst time you've been sick? What's your best way of trying to feel better / self-care when sick?
 2.  **Look at the graph below :** What’s going on in this graph / who cares / how can we use this knowledge??
-    1.  showing death from diseases, other causes, wounds.
-    2.  time is split into twelve months (but also maybe there's something going on with season??)
-    3.  hard to accurately represent deaths by triangles.
+    -   
 3.  **It's all linear models :** What are the variables in this graph? How would you organize these as a linear model?
-    1.  mortality (among soldiers) \~ cause of death + time + ERROR
+    -   
 
 ![](lecture_images/2L_FlorenceGraph.png){fig-align="center"}
 
-### KEY IDEA : Visuals Matter
-
--   What is better about the way the barchart[^1] visualizes these data?
-
--   What is worse (or still confusing)?
-
-[^1]: https://www.r-bloggers.com/2013/02/extracting-the-epidemic-model-going-beyond-florence-nightingale-part-ii/
-
-![](lecture_images/2L_FlorenceBarchart.png){fig-align="center"}
-
 ## Learning from Histograms (No Statistics Terms!)
 
-Below are some data that I graphed[^2]. Take 1-2 minutes and SILENTLY (on your own) think about what you learn about the variable from this graph. Avoid FANCY STATS LANGUAGE - just explain the main ideas without those labels for now.
+Below are some data that I graphed[^1]. Take 1-2 minutes and SILENTLY (on your own) think about what you learn about the variable from this graph. Avoid FANCY STATS LANGUAGE - just explain the main ideas without those labels for now.
 
-[^2]: You will work with these later in the semester once we review how to create a likert scale (that combines 10 questions into one variable).
+[^1]: You will work with these later in the semester once we review how to create a likert scale (that combines 10 questions into one variable).
 
 ```{r}
 #| include: false
@@ -76,76 +106,14 @@ hist(d$SELFES, col = 'black', bor = 'white',
 
 **Things We Learned From the Graph**
 
--   self-esteem scores are between 1 and 4.
--   more people have really high self-esteem than really low self-esteem
--   there's a lot of people in the data
--   the variable is self-esteem.
--   people have lots of different self-esteems
--   a lot of people are in the middle \[2.5???\]; it looks like a bell!
+-   
 -   
 
 **Things We Cannot Learn From the Graph**
 
--   "more people have really high self-esteem than really low self-esteem"
-    -   self-esteem \~ age + error (and this dataset is maybe mostly older people?)
-    -   "self-presentation" (people are presenting a desirable version of the self)
--   other variables that might be relevant to self-esteem!
-    -   personality types
-    -   attitudes
-    -   self-perceptions of ego :P
--   who are all these people in this study???
+-   
 
-## Creating a Mini Class Dataset
-
--   Here's a list of the variables that y'all thought would be interesting to measure in the class (and I approved) from the check-in.
-    -   height \[numeric\]
-
-        -   as categorical : group people in "buckets"
-
-    -   \# of languages you speak (polyglots) \[numeric : discreet values
-
-        -   fluency in language —\> more continuous
-
-        -   are you multilingual : Y / N = categorical.
-
-    -   r u an intended psych major
-
-    -   where are you from?
-
-    -   hat / no hat
-
-        -   as categorical : Y / N
-
-        -   as numeric : \# of hats
-
-        -   as continuous : \# of seconds you've worn a hat on your head.
-
-    -   age
-
-    -   SPORT PLAYER
-
-    -   birth month / date
-
-    -   glasses or not
-
-    -   alcohol consumption
-
-    -   screen time
-
-    -   happiness
-
-        -   categorical : R U HAPPY Y/N
-
-        -   scale : On a scale from 0 to 100....
-
-    -   inner monologue or not
-
-    -   self-consciousness / self-awareness
--   **DISCUSS :** which of these variables would be best measured with numbers (e.g., a scale from 0 to 10)? Which variables would best be measured with categories? (what would the factor and levels be?)
-    -   Numeric Data Variables :
-    -   Categorical Data :
-
-# BREAK TIME : MEET BACK AT 3:23!!!!
+# BREAK TIME : MEET BACK AT 4:10!!!!
 
 ![](lecture_images/2L_Matrix.png){fig-alt="an image from the movie THE MATRIX, where we see a man sitting at a variety of computer terminals with many wires." fig-align="center"}
 
@@ -197,6 +165,12 @@ Things we will do.
 
 -   Save your work for Lab 2, Questions 1 and 2 and 3. Yeah!
 
+# BREAK TIME : MEET BACK AT 5:05
+
+**MINI CLASS DATA :** [**tinyurl.com/miniclassexit**](https://docs.google.com/forms/d/e/1FAIpQLScvBoQcnSzw_vi5cS5GazYaAAuH0HPcDIi2uCnZuhVWBSTVfg/viewform?usp=sf_link)
+
+![](images/clipboard-3262071838.png)
+
 # PART 3 : Defining Data
 
 ## Operationalization, Construct, and Measurement Error
@@ -232,19 +206,15 @@ Things we will do.
 
 -   How do we OPERATIONALIZE an INTERRUPTION?
 
-    -   when the guest on the right STOPS his sentence and has to restart.
-
-    -   the number of times the guest on the right is INTERRUPTED by the host on the left.
+    -   
 
 -   What PREDICTIONS can we make about counting interruptions a second time?
 
-    -   the number of interruptions at T2 will go down, since we narrowed it to a) stopping one person and b) just counting one person.
-
-    -   the number of interruptions at T2 will be more similar to each other.
+    -   
 
 # FOR NEXT WEEK
 
-1.  [**Check-Out : tinyurl.com/miniclassexit**](https://docs.google.com/forms/d/e/1FAIpQLScvBoQcnSzw_vi5cS5GazYaAAuH0HPcDIi2uCnZuhVWBSTVfg/viewform?usp=sf_link)
-2.  Discussion Section :
-3.  Lab 2
-4.  Read Chapter 3 and Complete Quiz 3
+1.  Discussion Section : working on Lab 2; chatting about final project ideaz.
+2.  Lab 2
+3.  Read Chapter 3 and Complete Quiz 3
+4.  Stay safe out there; be kind to self and others.

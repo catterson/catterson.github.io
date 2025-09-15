@@ -5,10 +5,10 @@ format: html
 
 1.  **Datasets are Fun To Load :** Load the “covid_behavior_dataset.csv” dataset. Check to make sure the data loaded correctly with the head() function. Report the sample size and names of the variables from this dataset, and look over the code book. What are some variables that seem interesting to you? How might you use these variables in a linear model (either as a DV or as IVs?)
 
-<!-- -->
-
 2.  **Number Problems :** Graph two numeric variables from this dataset. Change the arguments on the graph to make them look “nice”. Describe what you learn about the individuals for each variable (no stats terminology yet!) and what additional questions you have about the variables.
 
 3.  **Category Problems :** Graph two categorical variables from this dataset. Describe what you learn from each variable, and report the frequency of the number of individuals in each group. Do you think it’s possible (or preferred) to measure this categorical variable in a numeric / continuous way? Why / why not?
 
-4.  **(In Discussion Section) Mini Problems** : Repeat the steps above for variables from another dataset - the "class_mini" dataset that we discussed in lecture today. These data will be posted to bCourses as a .csv file after class, along with a CODEBOOK that explains what the variables measure.**(In Discussion Section) Sharing Problems** : Share your R code for Problem 4 with another student in the class who you’ve never talked to before. Paste their code into your R script and generate the graph that they created below. Hooray for open science!!!
+4.  **(In Discussion Section) Mini Problems** : Repeat the steps above for variables from another dataset - the "class_mini" dataset that we discussed in lecture today. These data will be posted to bCourses as a .csv file after class, along with a CODEBOOK that explains what the variables measure.
+
+5.  **(In Discussion Section) Sharing Problems** : Share your R code for Problem 4 with another student in the class who you’ve never talked to before. Paste their code into your R script and generate the graph that they created below. Hooray for open science!!!
