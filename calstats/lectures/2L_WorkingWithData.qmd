@@ -73,9 +73,17 @@ Look at the graph below, and use it to answer the following questions.
 
 1.  **Ice Breaker :** What's the worst time you've been sick? What's your best way of trying to feel better / self-care when sick?
 2.  **Look at the graph below :** What’s going on in this graph / who cares / how can we use this knowledge??
-    -   
+    1.  there are three colors!!!
+        1.  each color = a specific cause of death = A VARIABLE! = A CATEGORICAL [FACTOR]{.underline} VARIABLE = in the way this variable was measured, you could only die for one reasons.
+            1.  LEVELS = the specific causes = wounds, disease, other
+            2.  pattern : see more gray (death from disease)
+        2.  months is also happening on this graph!! = A CATEGORICAL VARIABLE = you cannot be in multiple monthses; you must be in one month.
+            1.  FACTOR = months
+            2.  LEVEL = january, february, march, etc...
+        3.  number of deaths = NUMERIC VARIABLE (COUNT DATA)
+    2.  lots of dying \[war is awful\]
 3.  **It's all linear models :** What are the variables in this graph? How would you organize these as a linear model?
-    -   
+    1.  death \~ [type of death]{.underline} + month + error
 
 ![](lecture_images/2L_FlorenceGraph.png){fig-align="center"}
 
@@ -106,14 +114,35 @@ hist(d$SELFES, col = 'black', bor = 'white',
 
 **Things We Learned From the Graph**
 
--   
--   
+-   the graph is about self-esteem
+
+-   the graph goes from a self-esteem of 1.0 to 4.0
+
+-   RIVA : most self-esteem scores are about 2.5
+
+-   MIA : as you go toward each end (1 or 4) there are less people with that specific self-esteem.
+
+    -   more people have a self-esteem in the middle than either really high or really low –\> twice-ish as many people reported 4 vs. a 1.
+
+-   graph is a little lumpier on the RIGHT side; more people tend to say they have a higher self-esteem than a lower self-esteem.
+
+-   this is a LARGE dataset
 
 **Things We Cannot Learn From the Graph**
 
--   
+-   RYAN : no idea the full range of the scale; or people's individual scores (people are grouped into categories); we don't know how self-esteem was measured.
 
-# BREAK TIME : MEET BACK AT 4:10!!!!
+-   other variables related to the demographics of these people : age, gender, occupation, height, weight, nation, education, etc.
+
+-   REASONS FOR WHY GRAPH IS A LITTLE LUMPIER ON THE LEFT-SIDE THAN THE RIGHT SIDE????
+
+    -   healthy to have a high self-esteem, and most people are healthy in 2025 CAPITALISM RULES NO PROBLEMS!!!
+
+    -   social desirability to have higher self-esteem, so people tending to report that.
+
+    -   the people who were surveyed had high self-esteem .
+
+# BREAK TIME : MEET BACK AT 4:25!!!!
 
 ![](lecture_images/2L_Matrix.png){fig-alt="an image from the movie THE MATRIX, where we see a man sitting at a variety of computer terminals with many wires." fig-align="center"}
 
@@ -165,11 +194,17 @@ Things we will do.
 
 -   Save your work for Lab 2, Questions 1 and 2 and 3. Yeah!
 
-# BREAK TIME : MEET BACK AT 5:05
-
-**MINI CLASS DATA :** [**tinyurl.com/miniclassexit**](https://docs.google.com/forms/d/e/1FAIpQLScvBoQcnSzw_vi5cS5GazYaAAuH0HPcDIi2uCnZuhVWBSTVfg/viewform?usp=sf_link)
+# BREAK TIME : MEET BACK AT 5:18 \[5 min\]
 
 ![](images/clipboard-3262071838.png)
+
+**WE BACK, AND MINI CLASS DATA IS LIVE :** [**tinyurl.com/miniclassexit**](https://docs.google.com/forms/d/e/1FAIpQLScvBoQcnSzw_vi5cS5GazYaAAuH0HPcDIi2uCnZuhVWBSTVfg/viewform?usp=sf_link)
+
+MEANWHILE, SOME STUDENT QUESTIONS :
+
+-   can u share your script?
+
+-   how does your code wrap around (like NEO's sunglasses??)
 
 # PART 3 : Defining Data
 
@@ -204,13 +239,27 @@ Things we will do.
 
 **DISCUSSION TOPICS :**
 
+-   Why is this a problem for science???
+
+    -   everyone has a different definition of the number of interruptions AND everyone all watched the SAME video.
+
+    -   if we had a PERFECT measure of an interruption, then everyone's number would be the same.
+
 -   How do we OPERATIONALIZE an INTERRUPTION?
 
-    -   
+    -   ONLY COUNT the number of times guy on the RIGHT is interrupted.
+
+    -   ONE INTERRUPTION = the person on the RIGHT has to STOP their sentence and RESTART.
 
 -   What PREDICTIONS can we make about counting interruptions a second time?
 
-    -   
+    -   there will be more similarity in our data the second time (LESS variation in t2 responses vs. t1)
+
+    -   people will count fewer interruptions in T2 vs. T1
+
+        -   we are only counting ONE person's interruption.
+
+        -   the person had to RESTART their sentence.
 
 # FOR NEXT WEEK
 
