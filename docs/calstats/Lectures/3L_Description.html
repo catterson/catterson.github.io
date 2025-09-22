@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -64,10 +64,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4968d28af72d4e5a34172c9bc5ef961b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -84,7 +84,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -114,7 +114,6 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -131,14 +130,6 @@ window.Quarto = {
   <li class="nav-item">
     <a class="nav-link" href="https://catterson.github.io/ystats/"> 
 <span class="menu-text">Why Statistics?</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../calstats/calstatsSP25.html"> 
-<span class="menu-text">Cal Stats [Psych 101]</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../gradstats/gradstatsSP25.html"> 
-<span class="menu-text">Grad Stats [Psych 205]</span></a>
   </li>  
 </ul>
           <div class="quarto-navbar-tools">
@@ -175,13 +166,25 @@ window.Quarto = {
 
 <section id="check-in-tinyurl.cominterruptlifewithr" class="level2">
 <h2 class="anchored" data-anchor-id="check-in-tinyurl.cominterruptlifewithr"><a href="https://docs.google.com/forms/d/e/1FAIpQLSeHOpY9ubskHAQmCAVLRCD0tAy6Hd_feajTSHn9ilutA_S3qQ/viewform?usp=sf_link">check-in : tinyurl.com/interruptlifewithR</a></h2>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td><ul>
+<li><p><a href="https://www.dropbox.com/scl/fi/tyxiyi2tbyir1svp34lxi/3T_Description.R?rlkey=lde2z1xcbbzk922iokcfk0edh&amp;e=1&amp;dl=0"><strong>link to RScript</strong></a> <strong>[will update as professor saves the script]</strong></p></li>
+<li><p><a href="https://www.dropbox.com/scl/fi/k9xcg707ihffv00hhj48c/interruption_FA25.csv?rlkey=26m0t7cqgn2do97u698lmnr73&amp;dl=0"><strong>data are here - or find on bCourses</strong></a></p>
 <ul>
-<li><p><a href="https://www.dropbox.com/scl/fi/tyxiyi2tbyir1svp34lxi/3T_Description.R?rlkey=lde2z1xcbbzk922iokcfk0edh&amp;dl=0">link to RScript</a> [also on course page]</p></li>
-<li><p><a href="https://www.dropbox.com/scl/fi/po99tlxnypp48ojdvx0qs/interruption_SP25.csv?rlkey=cmrr7urowz6tlf0ai3xde0x0y&amp;dl=0">data are here</a> [also on the data dropbox folder on bCourses]</p></li>
-<li><p>name the dataset <code>d</code> to follow along w/ professor</p></li>
+<li>name the dataset <code>d</code></li>
+</ul></li>
 </ul>
-<p><img src="lecture_images/3L_KikiArt.png" class="img-fluid"><br>
-</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3432465072.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="317"></p>
+</figure>
+</div></td>
+<td><img src="images/clipboard-1056536258.png" class="img-fluid"></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Professor Check-In Code Goes Here</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## CHECK-IN : the interruption dataset</span></span>
@@ -195,21 +198,15 @@ window.Quarto = {
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Q4. How many individuals said "yes, I can relax my feet"?</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Q5. How many individuals said "no, my feet were already totally relaxed"?</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># BONUS QUESTION (AND DEMONSTRATION): I'm going to randomly call on 10 students.</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="do">## I'll ask them to report the number of instagram accounts they follow. </span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="do">## Predict these 10 numbers by filling in your guesses below.</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="do">## my guesses : </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Q5. How many individuals said "no, my feet were already totally relaxed"?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Agenda and Announcements</strong></p>
 <ul>
-<li><p>2:10 - 2:30 | Check-In &amp; Announcements</p></li>
-<li><p>2:30 - 3:30 | Describing Data in R (and Removing Outliers)</p></li>
-<li><p>3:45 - 4:00 | BREAK TIME</p></li>
-<li><p>4:00 - 4:20 | Student Show and Tell</p></li>
-<li><p>4:20 - 5:00 | Final Project Workshop</p></li>
+<li><p>3:10 - 3:30 | Check-In &amp; Announcements</p></li>
+<li><p>3:30 - 4:45 | Describing Data in R (and Removing Outliers)</p></li>
+<li><p>4:45 - 5:00 | BREAK TIME</p></li>
+<li><p>5:00 - 5:20 | Student Show and Tell</p></li>
+<li><p>5:20 - 6:00 | Final Project Workshop</p></li>
 </ul>
 </section>
 <section id="part-1-describing-data" class="level2">
@@ -228,7 +225,13 @@ window.Quarto = {
 <section id="key-idea-the-mean-as-prediction" class="level3">
 <h3 class="anchored" data-anchor-id="key-idea-the-mean-as-prediction">KEY IDEA : The Mean as Prediction</h3>
 <ul>
-<li>How would you feel if I told you that the average last semester was a 50%? A 90%? Why would you feel this way?</li>
+<li>How would you feel…
+<ul>
+<li>…if I told you that the average on the R Exam last semester was a 50%?</li>
+<li>…if I told you that the average on the R Exam last semester was a 90%?</li>
+<li>…if someone called you “average”?</li>
+</ul></li>
+<li>Why would you feel this way?</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -236,20 +239,19 @@ window.Quarto = {
 </figure>
 </div>
 <ul>
-<li><p>Did professor guess better than you about the # of instagram followers? Let’s find out.</p></li>
-<li><p>Where would a vertical line best fit through these data?</p></li>
+<li>Where would a vertical line best fit through these data?</li>
 </ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Where the Line?</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">There the Line!</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mini <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/Class Datasets/cal_mini_SP25.csv"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mini<span class="sc">$</span>hrs.sleep)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mini <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets - FA25/mini_cal_data.csv"</span>, <span class="at">stringsAsFactors =</span> T)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mini<span class="sc">$</span>hrs.sleep[mini<span class="sc">$</span>hrs.sleep <span class="sc">&lt;</span> <span class="dv">24</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="3L_Description_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="3L_Description_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -257,12 +259,12 @@ window.Quarto = {
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mini<span class="sc">$</span>hrs.sleep)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">mean</span>(mini<span class="sc">$</span>hrs.sleep, <span class="at">na.rm =</span> T), <span class="at">col =</span> <span class="st">'red'</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mini<span class="sc">$</span>hrs.sleep[mini<span class="sc">$</span>hrs.sleep <span class="sc">&lt;</span> <span class="dv">24</span>])</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">mean</span>(mini<span class="sc">$</span>hrs.sleep[mini<span class="sc">$</span>hrs.sleep <span class="sc">&lt;</span> <span class="dv">24</span>], <span class="at">na.rm =</span> T), <span class="at">col =</span> <span class="st">'red'</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="3L_Description_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="3L_Description_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -295,13 +297,11 @@ window.Quarto = {
 <p>I like to remember that an individual’s actual score comes first in the equation, because as researchers we (supposedly) care about REAL PEOPLE and not just data or predictions.</p>
 </section>
 </section>
-<section id="break-time-meet-back-at-352" class="level2">
-<h2 class="anchored" data-anchor-id="break-time-meet-back-at-352">BREAK TIME : MEET BACK AT 3:52</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="lecture_images/3L_SleepyTotoro.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a triptych of three images of totoro - a soft monster from the ghibli films - sleeping" width="458"></p>
-</figure>
-</div>
+<section id="break-time-meet-back-at-445" class="level2">
+<h2 class="anchored" data-anchor-id="break-time-meet-back-at-445">BREAK TIME : MEET BACK AT 4:45</h2>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"><img src="lecture_images/3L_KikiArt.png" class="img-fluid"></h2>
 </section>
 <section id="part-2-more-r-practice" class="level2">
 <h2 class="anchored" data-anchor-id="part-2-more-r-practice">Part 2 : More R Practice</h2>
@@ -358,18 +358,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -401,7 +390,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -409,7 +418,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -506,7 +515,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

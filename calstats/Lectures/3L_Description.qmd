@@ -5,13 +5,15 @@ format: html
 
 ## [check-in : tinyurl.com/interruptlifewithR](https://docs.google.com/forms/d/e/1FAIpQLSeHOpY9ubskHAQmCAVLRCD0tAy6Hd_feajTSHn9ilutA_S3qQ/viewform?usp=sf_link)
 
--   [link to RScript](https://www.dropbox.com/scl/fi/tyxiyi2tbyir1svp34lxi/3T_Description.R?rlkey=lde2z1xcbbzk922iokcfk0edh&dl=0) \[also on course page\]
-
--   [data are here](https://www.dropbox.com/scl/fi/po99tlxnypp48ojdvx0qs/interruption_SP25.csv?rlkey=cmrr7urowz6tlf0ai3xde0x0y&dl=0) \[also on the data dropbox folder on bCourses\]
-
--   name the dataset `d` to follow along w/ professor
-
-![](lecture_images/3L_KikiArt.png)\
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+
+| -   [**link to RScript**](https://www.dropbox.com/scl/fi/tyxiyi2tbyir1svp34lxi/3T_Description.R?rlkey=lde2z1xcbbzk922iokcfk0edh&e=1&dl=0) **\[will update as professor saves the script\]**  | ![](images/clipboard-1056536258.png) |
+|                                                                                                                                                                                              |                                      |
+| -   [**data are here - or find on bCourses**](https://www.dropbox.com/scl/fi/k9xcg707ihffv00hhj48c/interruption_FA25.csv?rlkey=26m0t7cqgn2do97u698lmnr73&dl=0)                               |                                      |
+|                                                                                                                                                                                              |                                      |
+|     -   name the dataset `d`                                                                                                                                                                 |                                      |
+|                                                                                                                                                                                              |                                      |
+| ![](images/clipboard-3432465072.png){fig-align="center" width="317"}                                                                                                                         |                                      |
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+
 
 **Professor Check-In Code Goes Here**
 
@@ -29,24 +31,19 @@ format: html
 
 # Q5. How many individuals said "no, my feet were already totally relaxed"?
 
-# BONUS QUESTION (AND DEMONSTRATION): I'm going to randomly call on 10 students.
-## I'll ask them to report the number of instagram accounts they follow. 
-## Predict these 10 numbers by filling in your guesses below.
-
-## my guesses : 
 ```
 
 **Agenda and Announcements**
 
--   2:10 - 2:30 \| Check-In & Announcements
+-   3:10 - 3:30 \| Check-In & Announcements
 
--   2:30 - 3:30 \| Describing Data in R (and Removing Outliers)
+-   3:30 - 4:45 \| Describing Data in R (and Removing Outliers)
 
--   3:45 - 4:00 \| BREAK TIME
+-   4:45 - 5:00 \| BREAK TIME
 
--   4:00 - 4:20 \| Student Show and Tell
+-   5:00 - 5:20 \| Student Show and Tell
 
--   4:20 - 5:00 \| Final Project Workshop
+-   5:20 - 6:00 \| Final Project Workshop
 
 ## Part 1 : Describing Data
 
@@ -66,15 +63,13 @@ format: html
 
 ### KEY IDEA : The Mean as Prediction
 
--   How would you feel if I told you that the average last semester was a 50%? A 90%? Why would you feel this way?
+-   How would you feel...
+    -   ...if I told you that the average on the R Exam last semester was a 50%?
+    -   ...if I told you that the average on the R Exam last semester was a 90%?
+    -   ...if someone called you "average"?
+-   Why would you feel this way?
 
 ![](lecture_images/3L_ChatGPTFrogWizard.png){fig-alt="a frog wizard sitting on a toadstool wearing a hat and holding a crystal ball as illustrated by ChatGPT as an oil painting" fig-align="center" width="360"}
-
--   Did professor guess better than you about the \# of instagram followers? Let's find out.
-
-    ```{r}
-
-    ```
 
 -   Where would a vertical line best fit through these data?
 
@@ -82,15 +77,15 @@ format: html
 #### Where the Line?
 
 ```{r}
-mini <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/cal_mini_SP25.csv")
-plot(mini$hrs.sleep)
+mini <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets - FA25/mini_cal_data.csv", stringsAsFactors = T)
+plot(mini$hrs.sleep[mini$hrs.sleep < 24])
 ```
 
 #### There the Line!
 
 ```{r}
-plot(mini$hrs.sleep)
-abline(h = mean(mini$hrs.sleep, na.rm = T), col = 'red', lwd = 5)
+plot(mini$hrs.sleep[mini$hrs.sleep < 24])
+abline(h = mean(mini$hrs.sleep[mini$hrs.sleep < 24], na.rm = T), col = 'red', lwd = 5)
 ```
 :::
 
@@ -113,9 +108,9 @@ We can break this up into the following components :
 
 I like to remember that an individual's actual score comes first in the equation, because as researchers we (supposedly) care about REAL PEOPLE and not just data or predictions.
 
-## BREAK TIME : MEET BACK AT 3:52
+## BREAK TIME : MEET BACK AT 4:45
 
-![](lecture_images/3L_SleepyTotoro.png){fig-alt="a triptych of three images of totoro - a soft monster from the ghibli films - sleeping" fig-align="center" width="458"}
+## ![](lecture_images/3L_KikiArt.png)
 
 ## Part 2 : More R Practice
 
