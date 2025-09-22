@@ -22,13 +22,13 @@ Hi class! Welcome to our class.
 ## Semester Agenda
 
 | Week | Class Topic | Assignment | **Support Readings** |
-|----|----|----|----|
+|------------------|-----------------------|------------------|------------------|
 | 9/1 | Labor Day (No Class, No Sections) |  |  |
 | 9/8 | [Introductions (in R)](/102stats/lectures/1_hello102.qmd) | [Lab 1](/102stats/labs/Lab1_102.qmd) | WS 1-2; LSR 3-4 |
 | 9/15 | [Description & Documents](/102stats/lectures/2_data102.qmd) | [Lab 2](/102stats/labs/Lab2_102.qmd) + [.qmd file](https://www.dropbox.com/scl/fi/06d48809guyv42d4e988i/Lab2_102.qmd?rlkey=qhmgeepszysjwwzzzsfca5j1q&dl=0) | WS 3-4; LSR 5-6 |
-| 9/22 | Normal & Sampling Distributions | Lab 3 | WS 8; LSR 9-10 |
-| 9/29 | Linear Models Pt. 1 (Lines!) + **Brain Exam 1** | Lab 4 | WS 6-7; LSR 15.1 - 15.2 |
-| 10/6 | Linear Model Pt. 2 (Tests & Assumptions) | Lab 5 | WS 9; LSR 15.5 - 15.11 |
+| 9/22 | [Normal & Sampling Distributions](/102stats/lectures/3_normal102.qmd) | [Lab 3](/102stats/Labs/Lab3_102.qmd) + [.qmd file](https://www.dropbox.com/scl/fi/xckyjokmiah1nltto0ukb/Lab3_102.qmd?rlkey=hbuq8pbm26s0z0fu5k9igo56n&dl=0) (but google doc + screenshots fine too!) | WS 8; LSR 9-10 |
+| 9/29 | Linear Models Pt. 1 (Lines!) | Lab 4 | WS 6-7; LSR 15.1 - 15.2 |
+| 10/6 | Linear Model Pt. 2 (Tests & Assumptions) + **Brain Exam 1** | Lab 5 | WS 9; LSR 15.5 - 15.11 |
 | 10/13 | **R Exam** |  |  |
 | 10/20 | Data Visualization & Project Workshop | Milestone 1 | [Data Viz Chapter](https://ggplot2.tidyverse.org/#learning-ggplot2) |
 | 10/27 | Linear Models Pt. 3 (Multiple Regression) | Lab 7 | WS10; LSR 15.3 |
@@ -108,7 +108,7 @@ The goals of this final project are to 1) demonstrate the research and data anal
 *Note : this is my first semester teaching the honor stats class, so am very open to ideas about how this assignment might better help y’all complete the honors project.*
 
 |  |  |
-|----|----|
+|------------------------------------|------------------------------------|
 | **Criterion** | **Points \[Out of 4\]** |
 | Student specified a specific research question to ask, articulated how this research question is relevant to their interests, background, and past psychological research, and identified a dataset that will allow them to answer this research question. |  |
 | Student submitted a pre-registration plan that details the data cleaning and analyses they expect to do in order to answer their research question, a list of a post-hoc analyses that deviated from the pre-registered plan, and a link to the data and RCode. |  |
@@ -129,7 +129,7 @@ Each week, I’ve assigned an article for the class to read. (Let me know if you
 This presentation will be graded on the following criteria. Though I’m very open to ideas and suggestions about alternative ways you think we could effectively use this time!
 
 |  |  |
-|----|----|
+|------------------------------------|------------------------------------|
 | **Criterion** | **Points \[Out of 4\]** |
 | Students gave a quick (5 min) summary of the key points from the assigned article. |  |
 | Students drew from submitted discussion posts to lead a class discussion that helped answer common questions, debate ideas, and connect readings to our work as researchers. |  |
