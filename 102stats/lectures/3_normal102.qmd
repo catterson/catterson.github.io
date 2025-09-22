@@ -19,7 +19,7 @@ hist(d$Q1E, breaks = 100,
      main = "RT for Answering Q1",
      xlab = "Response Time (RT) in ms",
      col = 'black', bor = 'white')
-abline(v = mean(d$Q1E, na.rm = T), col = 'red', lwd = 5)
+# abline(v = mean(d$Q1E, na.rm = T), col = 'red', lwd = 5)
 ```
 
 **Question:** What other information would you want to know to determine who is an outlier on this question? (And why would this information be relevant?)
