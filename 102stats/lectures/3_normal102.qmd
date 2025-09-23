@@ -157,10 +157,21 @@ sd(selfes$SELFES, na.rm = T) #
 ### Discussion : Why is this variable *almost* Normal?
 
 1.  What are the multiple & independent influences on people's self-esteem?
+    1.  cultural values
+    2.  social environment (community)
+    3.  other personality factors
+    4.  life experiences (bullied; you were the bully and feel AWESOME about it;
+    5.  physiological factors
+    6.  mental health
+    7.  you rich (not broke & struggling)
+    8.  family
 2.  What are some of the non-independent influences on people's self-esteem (that might make this not perfectly normal?)
+    1.  all AMERICAN and in our CULTURE we VALUE self-esteem
+    2.  people with lower self-esteem may be less likely to take the survey (sampling bias)
 
 ```{r}
 hist(selfes$SELFES, col = 'black', bor = 'white')
+mean(selfes$SELFES, na.rm = T)
 ```
 
 ### Activity : Let's simulate a normal distribution in R
@@ -180,7 +191,30 @@ hist(selfes$SELFES, col = 'black', bor = 'white')
 **Professor Code Goes Here.**
 
 ```{r}
+coinflip <- c(0,1)
+coinflip
 
+sample(1:10, 1)
+
+sample(coinflip, 1)
+
+life <- array()
+
+x <- replicate(10, sample(coinflip, 1))
+sum(x)
+
+life[3] <- sum(x)
+life
+
+life <- array() # WHAT HAPPENS IF I DO THIS????
+for(i in c(1:1000)){
+  x <- replicate(10, sample(coinflip, 1))
+  life[i] <- sum(x)
+}
+
+life
+hist(life, xlim = c(0,10))
+mean(life)
 
 ```
 
@@ -193,7 +227,15 @@ What type of distribution do you expect to see? Why??
 *Note : the sample() function can take another argument (prob) that can adjust the probability.*
 
 ```{r}
+sample(coinflip, 1)
+badlife <- array() # WHAT HAPPENS IF I DO THIS????
+for(i in c(1:1000)){
+  x <- replicate(10, sample(coinflip, 1, prob = c(.7, .3)))
+  badlife[i] <- sum(x)
+}
 
+badlife
+hist(badlife, xlim = c(0,10))
 ```
 
 ::: callout-warning
@@ -207,17 +249,24 @@ Indeed, Galton had a motivated agenda to use statistics to demonstrate there was
 
 *To conclude, the range of mental power between—I will not say the highest Caucasian and the lowest savage—but between the greatest and least of English intellects, is enormous. ... I propose in this chapter to range men according to their natural abilities, putting them into classes separated by equal degrees of merit, and to show the relative number of individuals included in the several classes.....The method I shall employ for discovering all this, is an application of the very curious theoretical law of “deviation from an average.” First, I will explain the law, and then I will show that the production of natural intellectual gifts comes justly within its scope. -* Galton, Hereditary Genius (1869). [Linked here](https://galton.org/books/hereditary-genius/text/v5/galton-1869-hereditary-genius-v5.htm).
 
-**Why does it matter that a super racist invented statistics? I have a few ideas, but would like to hear your thoughts first :)**
+**Why does it matter that a super racist invented statistics? Does it? I have a few ideas, but would like to hear your thoughts first :)**
 
 -   reasons relevant :
--   reasons not reelvant:
+    -   angela : important to acknowledge that the author was super racist; possible theories that we have are not the most objective...they are products of a tool that was developed for a specific purpose (ranking men).
+    -   kevin : good reminder to not just adopt the "best fit"; the "mean" as "the best"...outliers are also humans too, and maybe different for important reasons; maybe even more important to study these people who don't fit our models.
+-   reasons not relevant:
+    -   this is a great way to measure people; quantify; *predict*.
+    -   hannah : lots of things that we use in society that don't come from the best intentions - important to remember that history - but we still need to use them and not worth throwing out the tools because they have a purpose.
+-   questions / other comments :
+    -   namrata : can we separate the intention of creation from the practice of creation? is statistics in some way inherently biased????
+    -   angela : galton reveals his bias in his language ("Caucaisan...savage")
 :::
 
 ::: column-margin
 ![](images/clipboard-4189238383.png){width="372"}
 :::
 
-## BREAK TIME MEET BACK AT 10:30 & PRESENTATIONS
+## BREAK TIME MEET BACK AT 12:50 & PRESENTATIONS
 
 -   link to [article presentation](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
 
@@ -240,9 +289,10 @@ Indeed, Galton had a motivated agenda to use statistics to demonstrate there was
 
 ```{r}
 # rnorm(10000000, mean = 100, sd = 20)
-fakey <- rnorm(10000000, mean = 100, sd = 10)
+fakey <- rnorm(10000000, mean = 100, sd = 30)
 length(fakey)
 head(fakey)
+hist(fakey)
 ```
 
 2.  Run some stats on these data as we do.
@@ -261,11 +311,26 @@ sample(1:10, 1) # are you vibing with R?
 sample(1:10000000, 1) # are you REALLY vibing?
 sample(1:length(fakey), 1) # the numbers to sample from, another way. why better?
 sample(1:length(fakey), 10) # a small sample
+fakey[10]
 fakey[sample(1:length(fakey), 10)] # ten random individuals from fakey.
-fakey[10000001]
+fakey[10000001] # what would happen if I do this????
 lilfakey <- fakey[sample(1:length(fakey), 10)] # ten random individuals from fakey.
 lilfakey
 ```
+
+**Check in with your buddy....what's going on??? What are we doing and why are we doing this????**
+
+-   WHAT WE ARE DOING :
+
+    -   **fakey** : an object : a fake dataset of 10million values with a mean of 100 and sd of 30.
+
+    -   **sample() :** taking 10 random participant IDs....making sure they are valid IDs (within the possible range of fakey)
+
+    -   **indexing \[\] :** using the 10 random IDs to find 10 random people in fakey
+
+    -   **result :** getting ten random *values* from these imaginary people that we created as a population.
+
+-   **WHY ARE WE DOING THIS??? :** to try and see how much the statistics from our RANDOM SAMPLE will vary from our population.
 
 4.  Run some stats on this sample.
 
@@ -284,6 +349,22 @@ hist(lilfakey, xlim = c(0,200), ylim = c(0,10),
      main = paste(c("mean=", round(mean(lilfakey), 4)), sep = ""))
 abline(v = mean(lilfakey), lwd = 5)
 ```
+
+WHAT DID Y'ALL NOTICE :
+
+-   **sampling error :**
+
+    -   we NEVER got the mean we were supposed to get (100).
+
+    -   we NEVER got the same mean with each sample (lack of RELIABILITY in our results)
+
+-   our means weren't ALL over the place...
+
+    -   they were always within our SD
+
+    -   they were all kinda around 100.
+
+    -   no pattern / bias to where the means were.
 
 6.  Doing this 1000 times
 

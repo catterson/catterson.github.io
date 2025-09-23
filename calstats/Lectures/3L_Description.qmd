@@ -5,15 +5,15 @@ format: html
 
 ## [check-in : tinyurl.com/interruptlifewithR](https://docs.google.com/forms/d/e/1FAIpQLSeHOpY9ubskHAQmCAVLRCD0tAy6Hd_feajTSHn9ilutA_S3qQ/viewform?usp=sf_link)
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+
-| -   [**link to RScript**](https://www.dropbox.com/scl/fi/tyxiyi2tbyir1svp34lxi/3T_Description.R?rlkey=lde2z1xcbbzk922iokcfk0edh&e=1&dl=0) **\[will update as professor saves the script\]**  | ![](images/clipboard-1056536258.png) |
-|                                                                                                                                                                                              |                                      |
-| -   [**data are here - or find on bCourses**](https://www.dropbox.com/scl/fi/k9xcg707ihffv00hhj48c/interruption_FA25.csv?rlkey=26m0t7cqgn2do97u698lmnr73&dl=0)                               |                                      |
-|                                                                                                                                                                                              |                                      |
-|     -   name the dataset `d`                                                                                                                                                                 |                                      |
-|                                                                                                                                                                                              |                                      |
-| ![](images/clipboard-3432465072.png){fig-align="center" width="317"}                                                                                                                         |                                      |
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+
+| -   [**link to RScript**](https://www.dropbox.com/scl/fi/tyxiyi2tbyir1svp34lxi/3T_Description.R?rlkey=lde2z1xcbbzk922iokcfk0edh&e=1&dl=0) **\[will update as professor saves the script\]** | ![](images/clipboard-1056536258.png) |
+|                                                                                                                                                                                             |                                      |
+| -   [**data are here - or find on bCourses**](https://www.dropbox.com/scl/fi/k9xcg707ihffv00hhj48c/interruption_FA25.csv?rlkey=26m0t7cqgn2do97u698lmnr73&dl=0)                              |                                      |
+|                                                                                                                                                                                             |                                      |
+|     -   name the dataset `d`                                                                                                                                                                |                                      |
+|                                                                                                                                                                                             |                                      |
+| ![](images/clipboard-3432465072.png){fig-align="center" width="317"}                                                                                                                        |                                      |
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+
 
 **Professor Check-In Code Goes Here**
 
@@ -130,7 +130,19 @@ I like to remember that an individual's actual score comes first in the equation
 
 **This Week : Decide on a Dependent Variable**
 
--   Student ideas go here.
+-   Jasmine :
+    -   MODEL : mental health in muslim community \~ level of spirituality + upbringing + ERROR
+        -   QUESTION : what are some ways Jasmine could focus these variables?
+            -   mental health in muslim community :
+            -   level of spirituality :
+            -   upbringing :
+                -   trauma
+                -   socioeconomic status
+                -   number of parents / caregivers / siblings in the household
+                -   education
+                -   location : immigrant or 2nd-gen or proximity to other muslim community members.
+                -   income.
+        -   
 
 **Find some past research on your DV and [get started on your literature review](https://docs.google.com/spreadsheets/d/1CGkY6Ior_Rga1rKsaDMj8zc1ueIB2ZsVvgucS2K9SDA/edit?usp=sharing).**
 
