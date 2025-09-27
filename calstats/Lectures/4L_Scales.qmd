@@ -7,7 +7,7 @@ format:
 
 ## [Check-In : Complete This Survey](https://forms.gle/HZUTsakNeBEwkMhp7)
 
--   check-in uses mini-data from Lab 3 (in the [Dropbox Dataset Folder](https://www.dropbox.com/scl/fo/8j5rj9jz2tycse6ti4fl2/AP8jM5uTJ9lEQTZhJgDjbM4?rlkey=he1rveerbx8w3l4l5z19skon8&dl=0))
+-   check-in uses the [mini-data](https://www.dropbox.com/scl/fi/xmwha0uv3mt2xqchpy8ss/mini_cal_data.csv?rlkey=tcmtn9za6w4zqbia11ckdvdil&dl=0) from Lab 3 (in the Dropbox Dataset Folder)
 
 -   link to [professor R script](https://www.dropbox.com/scl/fi/o5atu3at328maoso82bao/4T_Scales.R?rlkey=ecxnjcq27sxfiar3sd5m1a060&dl=0)
 
@@ -15,289 +15,187 @@ format:
 
 ### Announcements
 
--   **Mini Exam is in TWO weeks \[2/28\]**
+-   **Brain Exam is THIS WEEK IN SECTION**
 
-    -   take home; open-note; open-book; DO ON YOUR OWN.
+-   **No Lab Assignment This Week.**
 
-    -   held during normal class; 80 minutes (DSP students get extra time accommodations)
+-   [**Milestone #2**](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?usp=sharing) **Alert**
 
-    -   practice exam will post next week
+-   **Chapter 5 : "Normal" Data**
 
-    -   No new R content after today
+    -   The "Normal" Distribution
 
--   **2/17 is a Holiday**
+    -   In R : Outliers and Z-Scores
 
-    -   **Monday Sections :** attend extra GSI office hour OR jump to another GSIs section \[email them for heads up\]; no penalty if you can't attend / makeup.
+    -   "Good" Measures : Reliability and Validity
 
-    -   **Everyone Else :** Business as Usual.
+-   **R Exam is in TWO WEEKS**
 
--   **Chapter 5 : Good Science**
+    -   [**Study guide**](https://docs.google.com/document/d/1T2kz1AyiAvlWRx4mlNcqkI7NwCHr3Bldl4ryFXwdB2c/edit?usp=sharing) **:** practice exams and video keys
 
-    -   Good Knowledge : The Scientific Method in Five ~~Easy~~ Steps
+    -   **Format :** take-home; open-note; do on your own; I give you a dataset & you...
 
-    -   Good Research : Scientific Articles and Literature Reviews
+        -   load and check the data
 
-    -   Good Measures : Reliability and Validity
+        -   do some data cleaning
+
+        -   create a scale
+
+        -   graph and interpret some variables
+
+    -   **"Learn from Your Mistakes" :** revise after key posted for 50% of points back.
 
 ### Agenda
 
--   2:10 - 3:00 \| Check-In and Week 3 Review
+-   3:10 - 3:50 \| Check-In and Review
 
--   3:00 - 3:30 \| Z-Scores
+-   3:50 - 4:30 \| Likert Scales in R
 
--   3:30 - 3:42 \| BREAK TIME
+-   4:30 - 4:42 \| BREAK TIME
 
--   3:42 - 4:45 \| Likert Scales
+-   4:42 - 5:30 \| Likert Scales in Your Final Project(s)
 
--   4:45 - 5:00 \| Project Workshop / Office Hours
+-   5:30 - 6:00 \| Project Workshop / Office Hours
 
-### Professor Check-In Code
+## Part 1 : Professor Check-In Code
 
 ```{r}
-#| include: false
 ## Q1. Load the mini_class dataset. 
-mini <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/cal_mini_SP25.csv", stringsAsFactors = T)
 ## Call this mini to follow along with professor's code. 
-## How many individuals are in this dataset?
-nrow(mini)
-## Q2. Graph the variable hrs.sleep, (hours of sleep students said they got.)
+## Q1. How many individuals are in this dataset?
+
+## Q2. Graph the variable insta.follows (the number of accounts people follow on instagram)
 ## What is the shape of this distribution?
-hist(mini$hrs.sleep)
-## Q3. What is the average of hrs.sleep? 
+
+## Q3. What do you learn from this shape?
+
+## Q4. What is the average of this variable? 
 ## (Round to two decimal places for the check-in)
-mean(mini$hrs.sleep, na.rm = T)
+
+## Q5. What does this number mean / who cares about this value? [no R]
+
+## Q6. What is the standard deviation of hrs.sleep?
+
+## Q7. What does this number mean / who cares about this value? [no R]
+
+## Q8. What is the average hours of sleep (hrs.sleep) for students in the class?
+
+```
+
+## Part 2 : Likert Scales
+
+### Conceptual Review
+
+-   **ACTIVITY & DISCUSSION :** apply the terms below to the [Satisfaction with Life Scale](https://www.tandfonline.com/doi/pdf/10.1207/s15327752jpa4901_13?casa_token=p4kB11wLsD0AAAAA:22OL81OAq3yFj1pcT3yRjsOjsPHQsg5G3A3-EgEKWjMmShXXBHV0J64j7BqJMUX8jfG2Lk2tdrUY)
+
+::: column-margin
+![](images/clipboard-2712637950.png)
+:::
+
+::: column-page-right
++---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+
+| **Term**                  | **Definition**                                                                                                                                                                                                                                                                                                                                                                                            | **Usage / Example** |
++---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+
+| **Scale**                 | The variable that you want to measure as a continuous variable.                                                                                                                                                                                                                                                                                                                                           |                     |
++---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+
+| **Item(s)**               | The specific question(s) in the scale. Each item measures some aspect of the variable the researcher is interested in.                                                                                                                                                                                                                                                                                    |                     |
++---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+
+| **Response Scale**        | How people answer the scale items. People give a number rating on a fixed range of options with labels. Many 5-point scales include the following labels (1 = Strongly Disagree; 2 = Disagree; 3 = Neutral; 4 = Agree; 5 = Strongly Agree.)                                                                                                                                                               |                     |
++---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+
+| **Positively-**           | An item that measures the high end of the scale, where answering “yes” to the question means you are high on this variable.                                                                                                                                                                                                                                                                               |                     |
+|                           |                                                                                                                                                                                                                                                                                                                                                                                                           |                     |
+| **Keyed Item**            |                                                                                                                                                                                                                                                                                                                                                                                                           |                     |
++---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+
+| **Negatively-Keyed Item** | An item that measures the low end of the scale, where answering “yes” to the question means you are low on the variable.                                                                                                                                                                                                                                                                                  |                     |
++---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+
+| **Reverse Scoring**       | How researchers “flip” the negatively-keyed items to be positively-keyed. To calculate how to reverse-score an item, you can add the lower and upper limit of the full range. So to reverse-score a response scale that goes from 0 to 4 = 0 + 4 = subtract the negatively keyed items from 4. A response scale that goes from 1 to 15 = 1 + 15 = subtract the negatively keyed items from 16. And so on. |                     |
+|                           |                                                                                                                                                                                                                                                                                                                                                                                                           |                     |
+|                           | This is confusing. We will practice in lecture some more, okay?                                                                                                                                                                                                                                                                                                                                           |                     |
++---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+
+:::
+
+### In R : Personality Data
+
+-   [Load the Dataset](https://www.dropbox.com/scl/fo/8wiolzigsmaw5luuhxsyz/AEvFVV2gYkvFeuAflXN39rY?rlkey=q16oosyqz6ognt9xdwl1oyoc5&dl=0). Check to make sure it loaded correctly. And go ahead and load the "psych" library too.
+
+```{r}
 library(psych)
-describe(mini$hrs.sleep) # from the psych package!
 
-## Q4. What does this number mean / who cares about this value? [no R]
+d <- read.csv("~/Dropbox/!WHY STATS/Professor Datasets/Personality and Random Numbers/personality_random_number_data.csv", stringsAsFactors = T) # change your path here!
 
-## Q5. What is the standard deviation of hrs.sleep?
-sd(mini$hrs.sleep, na.rm = T)
-
-
-## Q6. What does this number mean / who cares about this value? [no R]
-
-## Q7. Professor's z-score for hours of sleep was -0.95. This means.... [no R]
-## Z-SCORE IS????????? : an individual distance from the mean....in units of standard deviation.
-
-# someone with 5 hours of sleep.....
-(5 - 7)/1.5
-# someone with 0 hours of sleep.....
-(0 - 7)/1.5
-
-## Q8. What is the standard deviation for the variable thirsty?
-## This variable measured how tired students said they were
-## on a scale from 0 (the least) to 10 (the most)
-sd(mini$thirsty, na.rm = T)
-
-## Q9. Can professor say that there was more variation in how many hours
-## of sleep people got than how thirsty they were?
-
-## Q10. What is the average height in the class?
-mean(mini$height, na.rm = T)
-range(mini$height, na.rm = T)
-hist(mini$height)
-
-mini$height[mini$height < 20 | mini$height > 100]
-
-# prof will figure this out later. did it.
-mini$height[c(mini$height < 20 | mini$height > 100) & !is.na(mini$height)] # finds the outliers
-mini$height[c(mini$height < 20 | mini$height > 100) & !is.na(mini$height)] <- c(61, 66, 60, 72, NA) # changes the data in the outliers
-hist(mini$height)
-mean(mini$height, na.rm = T)
+nrow(d)
+head(d)
+describe(d)
 ```
 
-### Lab 3 Review : The Mode
+-   **Data cleaning :** zeroes are coded as missing data. this is not in the codebook, but I know this based on context and experience (*remember, there's a culture to statistics.*)
+
+    -   I've worked with datasets from this source that use this convention (and do explain this feature in the codebook).
+
+    -   there appears to be no missing data in the dataset; yet it is very unlikely that all participants answered all questions.
+
+    -   the researchers measured personality with the Big Five, which is almost always measured on a 1-5 (or 1-7) scale, that allows for a "neutral" response.
 
 ```{r}
+## REMOVING MISSING DATA : INDEXING APPROACH
+### So we will need to remove the missing data. There are two ways to do this.
 
+d == 0 # evaluates whether each entry in the dataframe is zero.
+
+d[d == 0] # finds these zeros in the dataset.
+
+d[d == 0] <- NA # replaces with zero
+
+describe(d) # the variables now have some missing data, and the minimum values are not zero.
+
+### ANOTHER WAY TO DO THIS IS WHEN LOADING THE DATA, YOU CAN SPECIFY WHAT NA.STRINGS SHOULD BE EQUAL TO.
+d <- read.csv("~/Dropbox/!WHY STATS/Professor Datasets/Personality and Random Numbers/personality_random_number_data.csv",
+              stringsAsFactors = T, 
+              na.strings = "0") # r will look for 0 and replace with NA.
+describe(d)
 ```
 
-## Part 1 : The Z-Score (Scale Function)
+-   STEP 1: ORGANIZING THE ITEMS AND CHECKING THE ALPHA RELIABILITY
 
-### RECAP : What and Why Z-Score?
+    ```{r}
+    extra.df <- d[,22:31] # using the names and the codebook, these are the 10 extraversion items
+    head(extra.df)
 
-**The Z-Score**
+    alpha(extra.df) # r is warning me that some are negatively keyed...
+    alpha(extra.df, check.keys = T) # seeing that some are negatively keyed...
+    ## good to look at the codebook and confirm that these are negatively keyed (opposite of extraversion.)
 
--   distance from the mean
+    extraPOS <- extra.df[,c(1,3,5,7,9)] # defining the positively keyed items
+    extraNEG <- extra.df[,c(2,4,6,8,10)] # defining the negatively keyed items
+    range(extraNEG, na.rm = T) # a 1-5 scale...good! means I did my data cleaning correctly.
 
--   in units of standard deviation
+    extraNEG <- 6-extraNEG # reverse scoring my negatively keyed items
 
-**Why We Care :**
+    extraCLEAN <- cbind(extraPOS, extraNEG)
+    head(extraCLEAN)
+    alpha(extraCLEAN) # high alpha; hooray.
 
--   gives more context for how different an individual score is from other scores.
+    ```
 
-    -   example : work for Meta and get paid an above average salary in zuckbucks!!!
+-   STEP 2 : CREATING THE SCALE
 
-        -   how much above average???
+    ```{r}
+    d$EXTRA <- rowMeans(extra.df, na.rm = TRUE)
+    hist(d$EXTRA) # What do y'all observe about the distribution of people's extraversion scores?
+    ```
 
-        -   wtf is a difference of 10? Is that a lot or a little???
+### In R : Bonus Activity if Time or Interest.
 
-    -   example : your sleep last night (compared to others)?
+### In Discussion Section : 
 
-        -   mean sleep = `{r} round(mean(mini$hrs.sleep, na.rm = T), 0)`
+You will work in groups to define scales for the other 4 "Big Five" personality variables; discuss and interpret what you see (as practice for Likert scales, but also the Brain Exam that you will take in the middle of section.)
 
-        -   sd sleep = `{r} round(sd(mini$hrs.sleep, na.rm = T), 1)`
-
-        -   student with 3 hours of sleep; mean = 7; sd = 1.5 . Z-SCORE = (3 - 7)/1.5
-
--   removes the units from a variable :
-
-    -   mean of a z-scored variable will always be zero
-
-    -   st of a z-scored variable will always be 1
-
-    -   all variables described in units of standard deviation In R : The Z-Score
-
-### Z-Scoring in R
-
-You can calculate the z-score manually, or you can use the `scale()` function.
-
-```{r}
-## Manual Z-Score : distance from the mean / sd
-mini$hrs.sleepZM <- (mini$hrs.sleep - mean(mini$hrs.sleep, na.rm = T))/ sd(mini$hrs.sleep, na.rm = T)
-
-## The scale() function
-mini$hrs.sleepZ <- scale(mini$hrs.sleep) # the z-score transformation
-
-## Comparing these calculations side-by-side
-zcompare <- with(mini, data.frame(hrs.sleep, hrs.sleepZM, hrs.sleepZ)) # organizing our two variables
-head(zcompare) # looking at the first few rows
-```
-
-It might be easier to look at this in graphical form. In the graph below,
-
-```{r}
-#| code-fold: true
-#| code-summary: "Click Here to Show the Code"
-
-## A PICTURE IS WORTH 1000 WORDS : Raw Scores vs. Z-Scores
-## REMEMBER : IT IS USUALLY BEST TO USE hist() FOR GRAPHING NUMERIC VARIABLES!
-## I AM USING PLOT TO ILLUSTRATE THE MEAN, STANDARD DEVIATION, AND Z-SCORES.
-par(mfrow = c(1,2)) # splits the graphics window
-plot(mini$hrs.sleep, main = "Hours of Sleep [Raw Units]", ylab = "Hours of Sleep")
-abline(h = mean(mini$hrs.sleep, na.rm = T), lwd = 5) # vertical line of mean
-abline(h = mean(mini$hrs.sleep, na.rm = T) + sd(mini$hrs.sleep, na.rm = T), # vertical line of mean + sd
-       lwd = 2, lty = 'dashed')
-abline(h = mean(mini$hrs.sleep, na.rm = T) - sd(mini$hrs.sleep, na.rm = T), # vertical line of mean - sd
-       lwd = 2, lty = 'dashed')
-
-## Z-SCORED GRAPH. WAIT TO RUN!!!! :)
-plot(mini$hrs.sleepZ, main = "Hours of Sleep [Z-Scores]", xlab = "Hours of Sleep")
-abline(h = mean(mini$hrs.sleepZ, na.rm = T), lwd = 5) # vertical line of mean
-abline(h = mean(mini$hrs.sleepZ, na.rm = T) + sd(mini$hrs.sleepZ, na.rm = T), # vertical line of mean + sd
-       lwd = 2, lty = 'dashed')
-abline(h = mean(mini$hrs.sleepZ, na.rm = T) - sd(mini$hrs.sleepZ, na.rm = T), # vertical line of mean - sd
-       lwd = 2, lty = 'dashed')
-
-```
-
-**Miscelaneous Student Questions and Professor Answers**
-
--   Go Here.
-
-## Part 2 : "Normal" Distributions and Likert Scales
-
-### RECAP : The Normal Distribution
-
-We think of psychological constructs as continuous variables :
-
-```{r}
-d <- array()
-for(i in c(1:1000)){
-  d[i] <- sum(replicate(10, sample(c(0,1), 1)))
-  }
-hist(d, main = "Theoretical Normal Distribution", xlab = "Self-Esteem", breaks = 10)
-```
-
-We Expect This To Occur When :
-
--   Multiple Explanations for Variation :
-
--   Those Multiple Explanations are Independent :
-
-Below are Two Examples :
-
-```{r}
-plot(as.factor(mini$selfesteem))
-```
-
-### RECAP : A Likert Scale
-
-#### Why Are We Doing This?
-
-The Likert Scale is designed to help approximate a normal distribution, by asking multiple questions about the same variable (Multiple Explanations for Variation!)
-
-Notice, that our single-item measures are not really continuous, but could be considered categories :
-
-```{r}
-plot(as.factor(mini$selfesteem), xlab = "Self-Esteem", main = "Categories of Self-Esteem")
-```
-
-#### **DISCUSSION : Evaluate the Satisfaction With Life Scale \[below\]**
-
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcZss3J31ASVtR12xe-FXqfQ0VDv7gD5xJy1VjLwMnQbllB2sSXTorc6z2yYE6ZxLOYJuNzM7Y6L1knT7mxtARK8Jh0tftUCloFunT5eh05mjOB-v6DCnWuGBBFQJfMhSQ3O0akkUPtuTd41xPkvU58tkDb?key=r8XgfFaZOalV_EMC4TmK4A){fig-align="center"}
-
--   **ICE-BREAKER :** Best / worst present you received?
-
--   **Describe features that you notice about this scale (try and use the terms we just learned!)**
-
-    -   \# of items :
-
-    -   response scale :
-
-        -   positively keyed items :
-
-        -   negatively keyed items :
-
--   **Do you think this is a valid way to measure this construct?**
-
-    -   REASONS NO :
-
-    -   REASONS YES :
-
--   **How might you use this scale in a study (as an IV or a DV).**
-
-### In R : Creating a Likert Scale
-
-Let's create a variable about how GOOD people feel. What items from the mini dataset measure this (the high end and / or the low end)?
-
-```{r}
-names(mini) # looking at the names of our variables.
-
-```
-
-#### STEP 1 : ORGANIZE AND EVALUATE THE ITEM RELIABILITY
-
-```{r}
-HAPPY.df <- data.frame(mini$happy, mini$selfesteem, 10-mini$bored, 10-mini$tired, mini$satlife)
-HAPPY.df
-range(HAPPY.df, na.rm = T) # 0 to 10 range means to reverse score I need to subtract variable from 0 + 10 = 10
-
-
-# install.packages('psych') # only need to do this once!
-library(psych) # do this every time you restart R.
-alpha(HAPPY.df)
-
-HAPPY2.df <- data.frame(mini$happy, mini$selfesteem, 10-mini$tired, mini$satlife)
-alpha(HAPPY2.df)
-```
-
-#### STEP 2 : CREATE AND INTERPRET THE SCALE
-
-```{r}
-rowMeans(HAPPY2.df, na.rm = T)
-mini$HAPPYSCALE <- rowMeans(HAPPY2.df, na.rm = T)
-
-hist(mini$HAPPYSCALE)
-
-```
-
-## Part 3 : Project Workshop : You Need a Likert Scale!
+## Part 3 : Final Project Milestone #2
 
 ### Step 1 : Identify a (Dependent) Variable in Your Model
 
--   Student Example Go Here
+-   Holly from Office Hours : Student feelings of power
+-   Other Student Examples Go Here :
 
 ### Step 2 : Measure this in a Continuous Way
 
@@ -307,7 +205,7 @@ hist(mini$HAPPYSCALE)
 
 -   **Google/Google Scholar :** add “construct” or “validation” or “scale” to your search
 
-#### Method 2 : Write Your Own Scale
+#### Method 2 : Write Your Own Scale from Scratch
 
 -   Keep items phrased in the same way. ("I am someone who....")
 
@@ -326,6 +224,10 @@ hist(mini$HAPPYSCALE)
     -   I’d rather be thirsty than drink water.
 
     -   It’s a chore for me to drink water.
+
+-   **Other Examples To Include?**
+
+    -   
 
 ### 
 

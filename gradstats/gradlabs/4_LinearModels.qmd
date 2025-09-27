@@ -5,63 +5,22 @@ format:
     code-overflow: 'wrap'
 ---
 
-![](images/clipboard-3051119200.png){fig-align="center" width="420"}
+![](images/clipboard-3051119200.png){fig-align="center" width="519"}
 
 ## [Check-In Here](https://docs.google.com/forms/d/e/1FAIpQLSe-5mOk5GyxloW5syXGjPQ4zayc4ZaeYHmzkroLxVz7uOP_Jg/viewform?usp=header)
 
-1.  **Load the grad onboarding dataset (name this d to follow along with professor code in lecture).** The variable `can.forloop` asked students whether they could write a for-loop or not. What is the difference in the number of students who said that YES they could for-loop, compared to the number who said either NO or MAYBE? Find a way to get R to calculate this difference using code (hint : use indexing and the summary function.)
+1.  **Load the onboarding dataset (name this d to follow along with professor code in lecture).** The variable `can.forloop` asked students whether they could write a for-loop or not. What is the difference in the number of students who said that YES they could for-loop, compared to the number who said either NO, MAYBE, or NO IDEA? Try to find a way to get R to calculate this difference without typing in numbers. In other words, use code to point R to the values in the data. (Hint : I used indexing and the summary function, but there are probably other ways to do this as well!)
 
     ```{r}
-    d <- read.csv("../datasets/Grad Onboard 2025/grad_onboard_SP25.csv",
-                               stringsAsFactors = T)
-    plot(d$can.forloop)
-    summary(d$can.forloop) # finding the values for each group.
-    (15 + 10) - 8  # answering question with numbers
 
-    (summary(d$can.forloop)[1] + summary(d$can.forloop)[2]) - summary(d$can.forloop)[3] # answering question with R code. a lot of code!
-    s <- summary(d$can.forloop) # saving this output, since using it multiple times
-    (s[1] + s[2]) - s[3] # same answer; much easier to look at!
     ```
 
-2.  **Now, write a for-loop to estimate how much sampling error might influence this number.** Generate 1000 new samples, and re-calculate the difference between YES and NO + MAYBEs. What percentage of re-sampled groups would show that there are more people who CAN write a for-loop than NO or MAYBE?
+<!-- -->
 
-    ```{r}
-    bucket <- array()
-    set.seed(424242) # "locks" in the randomization so everyone gets the same "random" result; must run immediately before the for-loop.
-    for(i in c(1:1000)){
-      nd <- d[sample(1:nrow(d), nrow(d), replace = T), ]
-      s <- summary(nd$can.forloop)
-      bucket[i] <- (s[1] + s[2]) - s[3]
-    }
-    hist(bucket) # a normal distribution!
-    mean(bucket) # very similar to my original answer
-    sd(bucket) # the estimate of sampling error
-    sum(bucket > 0) # all of the re-sampled slopes show the same positive difference (more people less familiar w/ for-loops than are familiar.)
-    ```
-
-3.  **A bonus question.** R wrote you a secret message. Run the code below to see it.
+3.  **(WE WILL DO THIS TOGETHER). Write a for-loop to estimate how much sampling error might influence this number.** Generate 1000 new samples, and re-calculate the difference between YES and NO + MAYBEs. What percentage of re-sampled groups would show that there are more people who CAN write a for-loop than NOT, MAYBE, or HAD NO IDEA WHAT A FOR-LOOP IS??
 
 ```{r}
-#| eval: false
-#| include: true
-greyScale <- colorRampPalette(c("pink","red"))
-secretmessage <- function(r, col){
-  t <- seq(0,2*pi,length.out=100)
-  x <- r*sin(t)^3
-  y <- (13*r/16)*cos(t) - (5*r/16)*cos(2*t) - (2*r/16)*cos(3*t) - (r/16)*cos(4*t)
-  polygon(x,y,col=col,border=NA)
-}
 
-# create new plot canvas
-plot.new()
-# limits are approximate here
-plot.window(xlim=c(-16,16),ylim=c(-16,13))
-
-# use mapply to loop; invisible to turn off an annoying output.
-invisible(mapply(secretmessage,seq(16,0,length.out=100),greyScale(100)))
-
-## source : https://stackoverflow.com/questions/6542825/equation-driven-smoothly-shaded-concentric-shapes
-## source : https://stackoverflow.com/questions/12984991/stop-lapply-from-printing-to-console
 ```
 
 ### Announcements & Agenda
