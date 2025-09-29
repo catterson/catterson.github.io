@@ -18,6 +18,32 @@ What is the difference in the number of students who said that YES they could fo
 Great to find the answer, but try to find a way to get R to calculate this difference using code so you don't have to manually type in any numbers for the calculation. (Hint : use indexing and the summary function.)
 
 ```{r}
+d <- read.csv("~/Dropbox/!GRADSTATS/Datasets/CLASS DATASETS - 102 - FA25/Onboarding Data/honor_onboard_FA25.csv", stringsAsFactors = T)
+
+head(d)
+summary(d$can.forloop)
+
+# asking R to find the # of yeses
+length(d$can.forloop[d$can.forloop == "yes"]) # says Zero because it's Yes not yes
+length(d$can.forloop[d$can.forloop == "Yes"]) # says Zero because it's Yes not yes
+
+d$can.forloop == "Yes"
+sum(d$can.forloop == "Yes") # adds up all the True values.
+
+summary(d$can.forloop) # shows me the frequency for each level
+summary(d$can.forloop)[4] # the number of Yes
+
+# asking R to find the other groups.
+sum(!d$can.forloop == "Yes") # adds up all the True values for things that ARE NOT ! can.forloop = "Yes"
+
+# finding the difference.
+sum(d$can.forloop == "Yes") - sum(!d$can.forloop == "Yes")
+
+## OR; define quick objects to make the code a little more readable.
+notYes <- sum(!d$can.forloop == "Yes")
+Yes <- sum(d$can.forloop == "Yes")
+
+Yes - notYes
 
 ```
 
@@ -25,10 +51,10 @@ Great to find the answer, but try to find a way to get R to calculate this diffe
 
 **Agenda**
 
--   9:10 - 10:00 : Check-In and Bootstrapping Review
--   10:00 - 10:40 : Break + Presentation
--   10:40 - 11:00 : Linear Models (the basics)
--   11:00 - 12:00 : Linear Models (there's more)
+-   11:10 - 12:00 : Check-In and Bootstrapping Review
+-   12:00 - 12:40 : Break + Presentation
+-   12:40 - 1:00 : Linear Models (the basics)
+-   1:00 - 2:00 : Linear Models (there's more)
 
 **Announcements**
 
@@ -84,29 +110,79 @@ mean(truthbucket) # the mean
 sd(truthbucket) # the standard deviation 
 ```
 
-#### DISCUSSION : 
+#### DISCUSSION :
+
+-   ICE-BREAKER : least favorite candy?
 
 -   why are we doing this (taking random samples from this fake dataset?)
 
+    -   TLDR : trying to see how valid the samples we take out of the dataset are to the population; one sample is not necessarily valid because of a) sampling bias (people may differ in systematic ways) and b) **sampling error** (random people in our sample are different from the population and might bias our results in non-systematic ways).
+
+    -   TLDR4R : estimating effects of sampling error
+
 -   what does the distribution of fakey describe?
+
+    -   a NORMAL distributon of the entire population of individual scores.
+
+    -   the variation in our distribution illustrates the fact that people in the population differ.
 
 -   what does the distribution of truthbucket describe?
 
--   what are TWO things you could do in order to decrease the standard deviation of lilfakey?
+    -   a NORMAL distibution of a test statistic (the mean, in this case) from a sample of (n = 10) individuals.
+
+    -   the variation in our distribution illustrates sampling error (the fact that each sample will yeild a slightly different mean from our "true" population mean.
+
+-   which graph (TRUTHBUCKET or FAKEY) would you want to minimize variation in?
+
+    -   minimize variation in TRUTHBUCKET = each sample will be more representative of the "true" population.
+
+    -   minimize variation in FAKEY = making people be more similar to each other...which can be bad from a celebrating individual differences perspective (yay bay area; boo fascism) but...increased variation —\> "more error"
+
+-   what are TWO things you could do in order to decrease the standard deviation of truthbucket?
+
+    -   increase the sample size
+
+    -   increase the number of samples
+
+    -   decrease the standard deviation of our original population
 
 #### ACTIVITY : the TWO things you could do in order to decrease the standard deviation of lilfakey.
 
--   Thing One :
+-   Thing One : increase the sample size?
 
 ```{r}
+truthbucket100 <- array()
+for(i in c(1:1000)){
+  lilfakey <- fakey[sample(1:length(fakey), 100)] # 100 random individuals from fakey.
+  truthbucket100[i] <- mean(lilfakey)
+}
 
+hist(truthbucket100)
+abline(v = mean(truthbucket100), lwd = 5, col = 'red')
+mean(truthbucket100) # the mean
+sd(truthbucket100) # the standard deviation 
 ```
 
--   Thing Two :
+-   Thing Two : Increase the number of samples.
 
 ```{r}
+megatruthbucket <- array()
+for(i in c(1:10000)){
+  lilfakey <- fakey[sample(1:length(fakey), 10)] # ten random individuals from fakey.
+  megatruthbucket[i] <- mean(lilfakey)
+}
 
+hist(megatruthbucket)
+abline(v = mean(megatruthbucket), lwd = 5, col = 'red')
+mean(megatruthbucket) # the mean
+sd(megatruthbucket) # the standard deviation 
 ```
+
+-   Why does increasing the number of samples not influence the standard deviation of TRUTHBUCKET???
+
+    -   too long, zoned out : each sample is still taking from the same population and the same number of people...so increasing the number of samples doesn't really influence how far away each individual statistic will be.
+
+    -   the standard deviation of truth bucket = an estimate of sampling error = equivalent to "standard error".
 
 ### bootstrapping.
 
@@ -137,6 +213,7 @@ hist(d$self.skills, breaks = c(0:5),
 
 hist(d$class.skills, breaks = c(0:5),
      col = 'black', bor = 'white', main = "Computer Skills\n(Perceptions of Classmates)")
+mean(d$self.skills)
 ```
 
 But would we expect to observe this same difference in a different sample of students???
@@ -144,7 +221,21 @@ But would we expect to observe this same difference in a different sample of stu
 Let's use a for-loop to do this. Here's the logic bootstrapping to test this.
 
 ```{r}
+d[sample(1:nrow(d), # taking our original dataset (d) and indexing new rows from 1-nrow(d)
+         nrow(d), # tells R to resample the same size as our original dataset
+         replace = T), ] # randomly sampling with replacement. so one person in the original data can be in the new dataset multiple times.
+d[sample(1:nrow(d), nrow(d), replace = T), ] # same code, all as one line.
 
+newclass <- d[sample(1:nrow(d), nrow(d), replace = T), ]
+mean(newclass$self.skills)
+
+allmyclassesaregreat <- array()
+for(i in c(1:1000)){
+  newclass <- d[sample(1:nrow(d), nrow(d), replace = T), ]
+  allmyclassesaregreat[i] <- mean(newclass$self.skills)
+}
+
+hist(allmyclassesaregreat)
 
 ```
 
@@ -156,7 +247,7 @@ Let's use a for-loop to do this. Here's the logic bootstrapping to test this.
 
 ![](images/clipboard-2205385268.png)
 
-## BREAK TIME : Meet Back at 10:15
+## BREAK TIME : Meet Back at 12:50
 
 ## [Presentations](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
 
@@ -341,6 +432,8 @@ abline(mod1, lwd = 5, col = 'red')
 
 
 SST <- sum((d$self.skills - mean(d$self.skills))^2) # defining the total error
+
+SST # the total squared error when usign the mean to make predictions.
 SST - SSE # a difference in errors when using the mean vs. our model
 (SST - SSE)/SST # the relative difference in errors = R^2 (R-squared.)
 
