@@ -319,7 +319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(fakey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 100.0071</code></pre>
+<pre><code>[1] 100.0031</code></pre>
 </div>
 </div>
 <p>We then took 1000 random samples (n = 10) from this fake dataset, calculated a statistic for each of these samples, and then</p>
@@ -341,11 +341,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(truthbucket) <span class="co"># the mean</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 99.6963</code></pre>
+<pre><code>[1] 99.84733</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(truthbucket) <span class="co"># the standard deviation </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 9.419108</code></pre>
+<pre><code>[1] 9.471462</code></pre>
 </div>
 </div>
 <section id="discussion" class="level4">
@@ -403,11 +403,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(truthbucket100) <span class="co"># the mean</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 99.94811</code></pre>
+<pre><code>[1] 100.0627</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(truthbucket100) <span class="co"># the standard deviation </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2.952294</code></pre>
+<pre><code>[1] 3.084897</code></pre>
 </div>
 </div>
 <ul>
@@ -431,11 +431,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(megatruthbucket) <span class="co"># the mean</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 100.0355</code></pre>
+<pre><code>[1] 99.88343</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(megatruthbucket) <span class="co"># the standard deviation </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 9.535064</code></pre>
+<pre><code>[1] 9.540754</code></pre>
 </div>
 </div>
 <ul>
@@ -495,392 +495,413 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>         <span class="fu">nrow</span>(d), <span class="co"># tells R to resample the same size as our original dataset</span></span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">replace =</span> T), ] <span class="co"># randomly sampling with replacement. so one person in the original data can be in the new dataset multiple times.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                           time                 area has.laptop write.code
-9     2025/09/12 2:31:07 PM MDT             Clinical        Yes        Yes
-12    2025/09/12 3:33:14 PM MDT        Developmental        Yes        Yes
-19   2025/09/15 10:51:27 AM MDT        Developmental        Yes        Yes
-12.1  2025/09/12 3:33:14 PM MDT        Developmental        Yes        Yes
-7    2025/09/11 10:01:55 PM MDT Social / Personality        Yes        Yes
-6    2025/09/09 11:32:21 PM MDT Social / Personality        Yes        Yes
-18   2025/09/15 12:48:04 AM MDT        Developmental        Yes        Yes
-3     2025/09/08 1:43:08 PM MDT Social / Personality        Yes        Yes
-7.1  2025/09/11 10:01:55 PM MDT Social / Personality        Yes        Yes
-16   2025/09/14 10:28:13 PM MDT Social / Personality        Yes        Yes
-11    2025/09/12 2:54:38 PM MDT        Developmental        Yes        Yes
-17   2025/09/15 12:23:22 AM MDT Social / Personality        Yes        Yes
-20   2025/09/15 11:04:10 AM MDT             Clinical        Yes        Yes
-3.1   2025/09/08 1:43:08 PM MDT Social / Personality        Yes        Yes
-17.1 2025/09/15 12:23:22 AM MDT Social / Personality        Yes        Yes
-3.2   2025/09/08 1:43:08 PM MDT Social / Personality        Yes        Yes
-14    2025/09/13 6:35:48 PM MDT             Clinical        Yes        Yes
-5     2025/09/09 5:29:25 PM MDT Social / Personality        Yes        Yes
-8     2025/09/12 2:09:53 PM MDT             Clinical        Yes        Yes
-10    2025/09/12 2:39:32 PM MDT Social / Personality        Yes        Yes
-     know.prog has.data know.r can.import         can.clean can.graph
-9          Yes      Yes      3      Maybe             Maybe       Yes
-12         Yes     &lt;NA&gt;      3      Maybe Could Not Do This     Maybe
-19         Yes      Yes      4        Yes               Yes       Yes
-12.1       Yes     &lt;NA&gt;      3      Maybe Could Not Do This     Maybe
-7          Yes      Yes      4        Yes               Yes       Yes
-6          Yes      Yes      3        Yes               Yes       Yes
-18         Yes      Yes      3      Maybe             Maybe     Maybe
-3           No       No      3        Yes             Maybe     Maybe
-7.1        Yes      Yes      4        Yes               Yes       Yes
-16          No      Yes      3        Yes             Maybe     Maybe
-11         Yes       No      2      Maybe             Maybe       Yes
-17         Yes      Yes      4        Yes               Yes       Yes
-20         Yes       No      2      Maybe             Maybe     Maybe
-3.1         No       No      3        Yes             Maybe     Maybe
-17.1       Yes      Yes      4        Yes               Yes       Yes
-3.2         No       No      3        Yes             Maybe     Maybe
-14         Yes      Yes      3        Yes Could Not Do This     Maybe
-5         &lt;NA&gt;      Yes      3        Yes             Maybe       Yes
-8          Yes      Yes      3      Maybe             Maybe     Maybe
-10         Yes      Yes      4        Yes               Yes       Yes
-                can.render            can.lm        can.interp
-9        Could Not Do This             Maybe               Yes
-12   No Idea What This Is.             Maybe             Maybe
-19                     Yes               Yes               Yes
-12.1 No Idea What This Is.             Maybe             Maybe
-7                      Yes             Maybe             Maybe
-6                    Maybe               Yes             Maybe
-18       Could Not Do This             Maybe             Maybe
-3        Could Not Do This             Maybe               Yes
-7.1                    Yes             Maybe             Maybe
-16                   Maybe             Maybe             Maybe
-11   No Idea What This Is.             Maybe               Yes
-17                     Yes               Yes               Yes
-20                   Maybe             Maybe             Maybe
-3.1      Could Not Do This             Maybe               Yes
-17.1                   Yes               Yes               Yes
-3.2      Could Not Do This             Maybe               Yes
-14       Could Not Do This Could Not Do This             Maybe
-5                    Maybe             Maybe             Maybe
-8                    Maybe             Maybe Could Not Do This
-10                     Yes               Yes               Yes
-            can.pvalue         can.sevsd          can.95ci       can.forloop
-9                  Yes             Maybe             Maybe               Yes
-12               Maybe Could Not Do This             Maybe Could Not Do This
-19                 Yes               Yes               Yes             Maybe
-12.1             Maybe Could Not Do This             Maybe Could Not Do This
-7                Maybe               Yes             Maybe               Yes
-6                  Yes             Maybe Could Not Do This Could Not Do This
-18               Maybe Could Not Do This             Maybe               Yes
-3                  Yes               Yes               Yes Could Not Do This
-7.1              Maybe               Yes             Maybe               Yes
-16               Maybe             Maybe Could Not Do This Could Not Do This
-11               Maybe Could Not Do This Could Not Do This             Maybe
-17                 Yes Could Not Do This               Yes               Yes
-20               Maybe             Maybe             Maybe             Maybe
-3.1                Yes               Yes               Yes Could Not Do This
-17.1               Yes Could Not Do This               Yes               Yes
-3.2                Yes               Yes               Yes Could Not Do This
-14                 Yes Could Not Do This             Maybe             Maybe
-5                  Yes               Yes             Maybe             Maybe
-8    Could Not Do This             Maybe             Maybe             Maybe
-10                 Yes             Maybe               Yes             Maybe
-     self.skills class.skills self.excite class.excite self.prep class.prep
-9              3            4           4            4         3          3
-12             4            4           5            5         5          5
-19             4            5           5            5         4          5
-12.1           4            4           5            5         5          5
-7              4            3           4            5         4          4
-6              3            3           4            4         4          4
-18             3            5           5            5         3          5
-3              3            3           5            4         4          4
-7.1            4            3           4            5         4          4
-16             3            3           5            5         5          5
-11             1            4           3            3         2          4
-17             4            4           5            5         5          5
-20             4            5           4            2         3          4
-3.1            3            3           5            4         4          4
-17.1           4            4           5            5         5          5
-3.2            3            3           5            4         4          4
-14             2            4           3            3         3          4
-5              3            3           4            4         4          4
-8              4            4           5            5         5          5
-10             4            4           4            4         5          5
-     learn.concept learn.r can.science should.science truth.people not.psychsci
-9                4       5           3              3            4            3
-12               4       4           4              4            1            1
-19               5       4           5              5            4            1
-12.1             4       4           4              4            1            1
-7                4       4           3              3            2            4
-6                5       4           5              5            4            1
-18               4       3           3              5            3            2
-3                4       4           3              3            3            2
-7.1              4       4           3              3            2            4
-16               5       5           4              4            4            2
-11               4       2           5              5            3            1
-17               5       5           4              3            2            3
-20               5       3           4              3            2            1
-3.1              4       4           3              3            3            2
-17.1             5       5           4              3            2            3
-3.2              4       4           3              3            3            2
-14               4       3           5              4            3            2
-5                4       4           4              3            3            2
-8                4       4           3              3            2            1
-10               5       5           5              5            5            2
-     perf.pred noperf.pred too.complex
-9            3           4           4
-12           3           3           5
-19           4           2           2
-12.1         3           3           5
-7            1           5           5
-6            2           5           5
-18           4           5           5
-3            1           4           4
-7.1          1           5           5
-16           3           2           4
-11           3           4           3
-17           1           4           4
-20           2           4           3
-3.1          1           4           4
-17.1         1           4           4
-3.2          1           4           4
-14           1           4           3
-5            2           4           4
-8            3           5           5
-10           5           2           3
+<pre><code>                           time
+9     2025/09/12 2:31:07 PM MDT
+4     2025/09/09 2:29:56 PM MDT
+5     2025/09/09 5:29:25 PM MDT
+2    2025/09/08 12:19:21 PM MDT
+18   2025/09/15 12:48:04 AM MDT
+18.1 2025/09/15 12:48:04 AM MDT
+12    2025/09/12 3:33:14 PM MDT
+16   2025/09/14 10:28:13 PM MDT
+15    2025/09/14 1:06:27 PM MDT
+11    2025/09/12 2:54:38 PM MDT
+17   2025/09/15 12:23:22 AM MDT
+3     2025/09/08 1:43:08 PM MDT
+19   2025/09/15 10:51:27 AM MDT
+20   2025/09/15 11:04:10 AM MDT
+18.2 2025/09/15 12:48:04 AM MDT
+9.1   2025/09/12 2:31:07 PM MDT
+19.1 2025/09/15 10:51:27 AM MDT
+6    2025/09/09 11:32:21 PM MDT
+13   2025/09/13 10:27:55 AM MDT
+1    2025/09/08 12:17:08 PM MDT
+                                                      area has.laptop
+9                                                 Clinical        Yes
+4                      Behavioral and Systems Neuroscience        Yes
+5                                     Social / Personality        Yes
+2                                                 Clinical        Yes
+18                                           Developmental        Yes
+18.1                                         Developmental        Yes
+12                                           Developmental        Yes
+16                                    Social / Personality        Yes
+15                                           Developmental        Yes
+11                                           Developmental        Yes
+17                                    Social / Personality        Yes
+3                                     Social / Personality        Yes
+19                                           Developmental        Yes
+20                                                Clinical        Yes
+18.2                                         Developmental        Yes
+9.1                                               Clinical        Yes
+19.1                                         Developmental        Yes
+6                                     Social / Personality        Yes
+13                                    Social / Personality        Yes
+1    developmental, looking into industrial organizational        Yes
+     write.code know.prog has.data know.r can.import         can.clean
+9           Yes       Yes      Yes      3      Maybe             Maybe
+4           Yes       Yes      Yes      3        Yes             Maybe
+5           Yes      &lt;NA&gt;      Yes      3        Yes             Maybe
+2           Yes       Yes      Yes      3        Yes               Yes
+18          Yes       Yes      Yes      3      Maybe             Maybe
+18.1        Yes       Yes      Yes      3      Maybe             Maybe
+12          Yes       Yes     &lt;NA&gt;      3      Maybe Could Not Do This
+16          Yes        No      Yes      3        Yes             Maybe
+15          Yes        No      Yes      2        Yes             Maybe
+11          Yes       Yes       No      2      Maybe             Maybe
+17          Yes       Yes      Yes      4        Yes               Yes
+3           Yes        No       No      3        Yes             Maybe
+19          Yes       Yes      Yes      4        Yes               Yes
+20          Yes       Yes       No      2      Maybe             Maybe
+18.2        Yes       Yes      Yes      3      Maybe             Maybe
+9.1         Yes       Yes      Yes      3      Maybe             Maybe
+19.1        Yes       Yes      Yes      4        Yes               Yes
+6           Yes       Yes      Yes      3        Yes               Yes
+13          Yes       Yes       No      3      Maybe             Maybe
+1           Yes        No      Yes      2      Maybe Could Not Do This
+             can.graph            can.render            can.lm can.interp
+9                  Yes     Could Not Do This             Maybe        Yes
+4                  Yes                 Maybe             Maybe        Yes
+5                  Yes                 Maybe             Maybe      Maybe
+2                  Yes                 Maybe               Yes        Yes
+18               Maybe     Could Not Do This             Maybe      Maybe
+18.1             Maybe     Could Not Do This             Maybe      Maybe
+12               Maybe No Idea What This Is.             Maybe      Maybe
+16               Maybe                 Maybe             Maybe      Maybe
+15                 Yes No Idea What This Is.             Maybe      Maybe
+11                 Yes No Idea What This Is.             Maybe        Yes
+17                 Yes                   Yes               Yes        Yes
+3                Maybe     Could Not Do This             Maybe        Yes
+19                 Yes                   Yes               Yes        Yes
+20               Maybe                 Maybe             Maybe      Maybe
+18.2             Maybe     Could Not Do This             Maybe      Maybe
+9.1                Yes     Could Not Do This             Maybe        Yes
+19.1               Yes                   Yes               Yes        Yes
+6                  Yes                 Maybe               Yes      Maybe
+13               Maybe     Could Not Do This Could Not Do This      Maybe
+1    Could Not Do This No Idea What This Is. Could Not Do This        Yes
+            can.pvalue         can.sevsd          can.95ci
+9                  Yes             Maybe             Maybe
+4                  Yes               Yes               Yes
+5                  Yes               Yes             Maybe
+2                  Yes               Yes             Maybe
+18               Maybe Could Not Do This             Maybe
+18.1             Maybe Could Not Do This             Maybe
+12               Maybe Could Not Do This             Maybe
+16               Maybe             Maybe Could Not Do This
+15               Maybe Could Not Do This             Maybe
+11               Maybe Could Not Do This Could Not Do This
+17                 Yes Could Not Do This               Yes
+3                  Yes               Yes               Yes
+19                 Yes               Yes               Yes
+20               Maybe             Maybe             Maybe
+18.2             Maybe Could Not Do This             Maybe
+9.1                Yes             Maybe             Maybe
+19.1               Yes               Yes               Yes
+6                  Yes             Maybe Could Not Do This
+13   Could Not Do This Could Not Do This Could Not Do This
+1                  Yes             Maybe             Maybe
+               can.forloop self.skills class.skills self.excite class.excite
+9                      Yes           3            4           4            4
+4                      Yes           4            3           5            5
+5                    Maybe           3            3           4            4
+2        Could Not Do This           2            4           4            3
+18                     Yes           3            5           5            5
+18.1                   Yes           3            5           5            5
+12       Could Not Do This           4            4           5            5
+16       Could Not Do This           3            3           5            5
+15                   Maybe           3            4           4            4
+11                   Maybe           1            4           3            3
+17                     Yes           4            4           5            5
+3        Could Not Do This           3            3           5            4
+19                   Maybe           4            5           5            5
+20                   Maybe           4            5           4            2
+18.2                   Yes           3            5           5            5
+9.1                    Yes           3            4           4            4
+19.1                 Maybe           4            5           5            5
+6        Could Not Do This           3            3           4            4
+13                   Maybe           4            5           4            4
+1    No Idea What This Is.           3            4           5            5
+     self.prep class.prep learn.concept learn.r can.science should.science
+9            3          3             4       5           3              3
+4            5          5             5       5           4              4
+5            4          4             4       4           4              3
+2            3          3             4       4           4              3
+18           3          5             4       3           3              5
+18.1         3          5             4       3           3              5
+12           5          5             4       4           4              4
+16           5          5             5       5           4              4
+15           3          4             4       3           4              4
+11           2          4             4       2           5              5
+17           5          5             5       5           4              3
+3            4          4             4       4           3              3
+19           4          5             5       4           5              5
+20           3          4             5       3           4              3
+18.2         3          5             4       3           3              5
+9.1          3          3             4       5           3              3
+19.1         4          5             5       4           5              5
+6            4          4             5       4           5              5
+13           3          5             4       3           4              3
+1            4          4             4       3           3              5
+     truth.people not.psychsci perf.pred noperf.pred too.complex
+9               4            3         3           4           4
+4               4            1         3           2           4
+5               3            2         2           4           4
+2               2            1         1           4           3
+18              3            2         4           5           5
+18.1            3            2         4           5           5
+12              1            1         3           3           5
+16              4            2         3           2           4
+15              3            3         2           4           4
+11              3            1         3           4           3
+17              2            3         1           4           4
+3               3            2         1           4           4
+19              4            1         4           2           2
+20              2            1         2           4           3
+18.2            3            2         4           5           5
+9.1             4            3         3           4           4
+19.1            4            1         4           2           2
+6               4            1         2           5           5
+13              4            1         2           4           2
+1               2            1         1           5           4
                                                                                                                                        epistemology
 9    Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-12   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-19   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-12.1 Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-7      Reality and “truth” are made up by people (and scientists); scientific knowledge is just a reflection of our society’s pre-existing beliefs.
-6    Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+4    Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+5    Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+2    Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
 18   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-3    Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-7.1    Reality and “truth” are made up by people (and scientists); scientific knowledge is just a reflection of our society’s pre-existing beliefs.
+18.1 Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+12   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
 16                                                    There is a REAL TRUTH about what makes people think, feel, and act that we can someday learn.
+15   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
 11   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
 17   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+3    Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+19   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
 20   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-3.1  Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-17.1 Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-3.2  Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-14   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-5    Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-8      Reality and “truth” are made up by people (and scientists); scientific knowledge is just a reflection of our society’s pre-existing beliefs.
-10   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+18.2 Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+9.1  Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+19.1 Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+6    Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+13   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+1    Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
                                                consent
 9    yes, you can add my responses to a class dataset.
-12   yes, you can add my responses to a class dataset.
-19   yes, you can add my responses to a class dataset.
-12.1 yes, you can add my responses to a class dataset.
-7    yes, you can add my responses to a class dataset.
-6    yes, you can add my responses to a class dataset.
+4    yes, you can add my responses to a class dataset.
+5    yes, you can add my responses to a class dataset.
+2    yes, you can add my responses to a class dataset.
 18   yes, you can add my responses to a class dataset.
-3    yes, you can add my responses to a class dataset.
-7.1  yes, you can add my responses to a class dataset.
+18.1 yes, you can add my responses to a class dataset.
+12   yes, you can add my responses to a class dataset.
 16   yes, you can add my responses to a class dataset.
+15   yes, you can add my responses to a class dataset.
 11   yes, you can add my responses to a class dataset.
 17   yes, you can add my responses to a class dataset.
+3    yes, you can add my responses to a class dataset.
+19   yes, you can add my responses to a class dataset.
 20   yes, you can add my responses to a class dataset.
-3.1  yes, you can add my responses to a class dataset.
-17.1 yes, you can add my responses to a class dataset.
-3.2  yes, you can add my responses to a class dataset.
-14   yes, you can add my responses to a class dataset.
-5    yes, you can add my responses to a class dataset.
-8    yes, you can add my responses to a class dataset.
-10   yes, you can add my responses to a class dataset.</code></pre>
+18.2 yes, you can add my responses to a class dataset.
+9.1  yes, you can add my responses to a class dataset.
+19.1 yes, you can add my responses to a class dataset.
+6    yes, you can add my responses to a class dataset.
+13   yes, you can add my responses to a class dataset.
+1    yes, you can add my responses to a class dataset.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>d[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(d), <span class="fu">nrow</span>(d), <span class="at">replace =</span> T), ] <span class="co"># same code, all as one line.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                           time                 area has.laptop write.code
-18   2025/09/15 12:48:04 AM MDT        Developmental        Yes        Yes
-16   2025/09/14 10:28:13 PM MDT Social / Personality        Yes        Yes
-16.1 2025/09/14 10:28:13 PM MDT Social / Personality        Yes        Yes
-6    2025/09/09 11:32:21 PM MDT Social / Personality        Yes        Yes
-12    2025/09/12 3:33:14 PM MDT        Developmental        Yes        Yes
-10    2025/09/12 2:39:32 PM MDT Social / Personality        Yes        Yes
-17   2025/09/15 12:23:22 AM MDT Social / Personality        Yes        Yes
-2    2025/09/08 12:19:21 PM MDT             Clinical        Yes        Yes
-5     2025/09/09 5:29:25 PM MDT Social / Personality        Yes        Yes
-3     2025/09/08 1:43:08 PM MDT Social / Personality        Yes        Yes
-19   2025/09/15 10:51:27 AM MDT        Developmental        Yes        Yes
-20   2025/09/15 11:04:10 AM MDT             Clinical        Yes        Yes
-15    2025/09/14 1:06:27 PM MDT        Developmental        Yes        Yes
-19.1 2025/09/15 10:51:27 AM MDT        Developmental        Yes        Yes
-14    2025/09/13 6:35:48 PM MDT             Clinical        Yes        Yes
-13   2025/09/13 10:27:55 AM MDT Social / Personality        Yes        Yes
-7    2025/09/11 10:01:55 PM MDT Social / Personality        Yes        Yes
-13.1 2025/09/13 10:27:55 AM MDT Social / Personality        Yes        Yes
-3.1   2025/09/08 1:43:08 PM MDT Social / Personality        Yes        Yes
-3.2   2025/09/08 1:43:08 PM MDT Social / Personality        Yes        Yes
-     know.prog has.data know.r can.import         can.clean can.graph
-18         Yes      Yes      3      Maybe             Maybe     Maybe
-16          No      Yes      3        Yes             Maybe     Maybe
-16.1        No      Yes      3        Yes             Maybe     Maybe
-6          Yes      Yes      3        Yes               Yes       Yes
-12         Yes     &lt;NA&gt;      3      Maybe Could Not Do This     Maybe
-10         Yes      Yes      4        Yes               Yes       Yes
-17         Yes      Yes      4        Yes               Yes       Yes
-2          Yes      Yes      3        Yes               Yes       Yes
-5         &lt;NA&gt;      Yes      3        Yes             Maybe       Yes
-3           No       No      3        Yes             Maybe     Maybe
-19         Yes      Yes      4        Yes               Yes       Yes
-20         Yes       No      2      Maybe             Maybe     Maybe
-15          No      Yes      2        Yes             Maybe       Yes
-19.1       Yes      Yes      4        Yes               Yes       Yes
-14         Yes      Yes      3        Yes Could Not Do This     Maybe
-13         Yes       No      3      Maybe             Maybe     Maybe
-7          Yes      Yes      4        Yes               Yes       Yes
-13.1       Yes       No      3      Maybe             Maybe     Maybe
-3.1         No       No      3        Yes             Maybe     Maybe
-3.2         No       No      3        Yes             Maybe     Maybe
-                can.render            can.lm can.interp        can.pvalue
-18       Could Not Do This             Maybe      Maybe             Maybe
-16                   Maybe             Maybe      Maybe             Maybe
-16.1                 Maybe             Maybe      Maybe             Maybe
-6                    Maybe               Yes      Maybe               Yes
-12   No Idea What This Is.             Maybe      Maybe             Maybe
-10                     Yes               Yes        Yes               Yes
-17                     Yes               Yes        Yes               Yes
-2                    Maybe               Yes        Yes               Yes
-5                    Maybe             Maybe      Maybe               Yes
-3        Could Not Do This             Maybe        Yes               Yes
-19                     Yes               Yes        Yes               Yes
-20                   Maybe             Maybe      Maybe             Maybe
-15   No Idea What This Is.             Maybe      Maybe             Maybe
-19.1                   Yes               Yes        Yes               Yes
-14       Could Not Do This Could Not Do This      Maybe               Yes
-13       Could Not Do This Could Not Do This      Maybe Could Not Do This
-7                      Yes             Maybe      Maybe             Maybe
-13.1     Could Not Do This Could Not Do This      Maybe Could Not Do This
-3.1      Could Not Do This             Maybe        Yes               Yes
-3.2      Could Not Do This             Maybe        Yes               Yes
-             can.sevsd          can.95ci       can.forloop self.skills
-18   Could Not Do This             Maybe               Yes           3
-16               Maybe Could Not Do This Could Not Do This           3
-16.1             Maybe Could Not Do This Could Not Do This           3
-6                Maybe Could Not Do This Could Not Do This           3
-12   Could Not Do This             Maybe Could Not Do This           4
-10               Maybe               Yes             Maybe           4
-17   Could Not Do This               Yes               Yes           4
-2                  Yes             Maybe Could Not Do This           2
-5                  Yes             Maybe             Maybe           3
-3                  Yes               Yes Could Not Do This           3
-19                 Yes               Yes             Maybe           4
-20               Maybe             Maybe             Maybe           4
-15   Could Not Do This             Maybe             Maybe           3
-19.1               Yes               Yes             Maybe           4
-14   Could Not Do This             Maybe             Maybe           2
-13   Could Not Do This Could Not Do This             Maybe           4
-7                  Yes             Maybe               Yes           4
-13.1 Could Not Do This Could Not Do This             Maybe           4
-3.1                Yes               Yes Could Not Do This           3
-3.2                Yes               Yes Could Not Do This           3
-     class.skills self.excite class.excite self.prep class.prep learn.concept
-18              5           5            5         3          5             4
-16              3           5            5         5          5             5
-16.1            3           5            5         5          5             5
-6               3           4            4         4          4             5
-12              4           5            5         5          5             4
-10              4           4            4         5          5             5
-17              4           5            5         5          5             5
-2               4           4            3         3          3             4
-5               3           4            4         4          4             4
-3               3           5            4         4          4             4
-19              5           5            5         4          5             5
-20              5           4            2         3          4             5
-15              4           4            4         3          4             4
-19.1            5           5            5         4          5             5
-14              4           3            3         3          4             4
-13              5           4            4         3          5             4
-7               3           4            5         4          4             4
-13.1            5           4            4         3          5             4
-3.1             3           5            4         4          4             4
-3.2             3           5            4         4          4             4
-     learn.r can.science should.science truth.people not.psychsci perf.pred
-18         3           3              5            3            2         4
-16         5           4              4            4            2         3
-16.1       5           4              4            4            2         3
-6          4           5              5            4            1         2
-12         4           4              4            1            1         3
-10         5           5              5            5            2         5
-17         5           4              3            2            3         1
-2          4           4              3            2            1         1
-5          4           4              3            3            2         2
-3          4           3              3            3            2         1
-19         4           5              5            4            1         4
-20         3           4              3            2            1         2
-15         3           4              4            3            3         2
-19.1       4           5              5            4            1         4
-14         3           5              4            3            2         1
-13         3           4              3            4            1         2
-7          4           3              3            2            4         1
-13.1       3           4              3            4            1         2
-3.1        4           3              3            3            2         1
-3.2        4           3              3            3            2         1
-     noperf.pred too.complex
-18             5           5
-16             2           4
-16.1           2           4
-6              5           5
-12             3           5
-10             2           3
-17             4           4
-2              4           3
-5              4           4
-3              4           4
-19             2           2
-20             4           3
-15             4           4
-19.1           2           2
-14             4           3
-13             4           2
-7              5           5
-13.1           4           2
-3.1            4           4
-3.2            4           4
+<pre><code>                           time                                area has.laptop
+10    2025/09/12 2:39:32 PM MDT                Social / Personality        Yes
+19   2025/09/15 10:51:27 AM MDT                       Developmental        Yes
+19.1 2025/09/15 10:51:27 AM MDT                       Developmental        Yes
+12    2025/09/12 3:33:14 PM MDT                       Developmental        Yes
+19.2 2025/09/15 10:51:27 AM MDT                       Developmental        Yes
+18   2025/09/15 12:48:04 AM MDT                       Developmental        Yes
+2    2025/09/08 12:19:21 PM MDT                            Clinical        Yes
+19.3 2025/09/15 10:51:27 AM MDT                       Developmental        Yes
+11    2025/09/12 2:54:38 PM MDT                       Developmental        Yes
+5     2025/09/09 5:29:25 PM MDT                Social / Personality        Yes
+16   2025/09/14 10:28:13 PM MDT                Social / Personality        Yes
+6    2025/09/09 11:32:21 PM MDT                Social / Personality        Yes
+4     2025/09/09 2:29:56 PM MDT Behavioral and Systems Neuroscience        Yes
+20   2025/09/15 11:04:10 AM MDT                            Clinical        Yes
+3     2025/09/08 1:43:08 PM MDT                Social / Personality        Yes
+13   2025/09/13 10:27:55 AM MDT                Social / Personality        Yes
+4.1   2025/09/09 2:29:56 PM MDT Behavioral and Systems Neuroscience        Yes
+6.1  2025/09/09 11:32:21 PM MDT                Social / Personality        Yes
+20.1 2025/09/15 11:04:10 AM MDT                            Clinical        Yes
+8     2025/09/12 2:09:53 PM MDT                            Clinical        Yes
+     write.code know.prog has.data know.r can.import         can.clean
+10          Yes       Yes      Yes      4        Yes               Yes
+19          Yes       Yes      Yes      4        Yes               Yes
+19.1        Yes       Yes      Yes      4        Yes               Yes
+12          Yes       Yes     &lt;NA&gt;      3      Maybe Could Not Do This
+19.2        Yes       Yes      Yes      4        Yes               Yes
+18          Yes       Yes      Yes      3      Maybe             Maybe
+2           Yes       Yes      Yes      3        Yes               Yes
+19.3        Yes       Yes      Yes      4        Yes               Yes
+11          Yes       Yes       No      2      Maybe             Maybe
+5           Yes      &lt;NA&gt;      Yes      3        Yes             Maybe
+16          Yes        No      Yes      3        Yes             Maybe
+6           Yes       Yes      Yes      3        Yes               Yes
+4           Yes       Yes      Yes      3        Yes             Maybe
+20          Yes       Yes       No      2      Maybe             Maybe
+3           Yes        No       No      3        Yes             Maybe
+13          Yes       Yes       No      3      Maybe             Maybe
+4.1         Yes       Yes      Yes      3        Yes             Maybe
+6.1         Yes       Yes      Yes      3        Yes               Yes
+20.1        Yes       Yes       No      2      Maybe             Maybe
+8           Yes       Yes      Yes      3      Maybe             Maybe
+     can.graph            can.render            can.lm        can.interp
+10         Yes                   Yes               Yes               Yes
+19         Yes                   Yes               Yes               Yes
+19.1       Yes                   Yes               Yes               Yes
+12       Maybe No Idea What This Is.             Maybe             Maybe
+19.2       Yes                   Yes               Yes               Yes
+18       Maybe     Could Not Do This             Maybe             Maybe
+2          Yes                 Maybe               Yes               Yes
+19.3       Yes                   Yes               Yes               Yes
+11         Yes No Idea What This Is.             Maybe               Yes
+5          Yes                 Maybe             Maybe             Maybe
+16       Maybe                 Maybe             Maybe             Maybe
+6          Yes                 Maybe               Yes             Maybe
+4          Yes                 Maybe             Maybe               Yes
+20       Maybe                 Maybe             Maybe             Maybe
+3        Maybe     Could Not Do This             Maybe               Yes
+13       Maybe     Could Not Do This Could Not Do This             Maybe
+4.1        Yes                 Maybe             Maybe               Yes
+6.1        Yes                 Maybe               Yes             Maybe
+20.1     Maybe                 Maybe             Maybe             Maybe
+8        Maybe                 Maybe             Maybe Could Not Do This
+            can.pvalue         can.sevsd          can.95ci       can.forloop
+10                 Yes             Maybe               Yes             Maybe
+19                 Yes               Yes               Yes             Maybe
+19.1               Yes               Yes               Yes             Maybe
+12               Maybe Could Not Do This             Maybe Could Not Do This
+19.2               Yes               Yes               Yes             Maybe
+18               Maybe Could Not Do This             Maybe               Yes
+2                  Yes               Yes             Maybe Could Not Do This
+19.3               Yes               Yes               Yes             Maybe
+11               Maybe Could Not Do This Could Not Do This             Maybe
+5                  Yes               Yes             Maybe             Maybe
+16               Maybe             Maybe Could Not Do This Could Not Do This
+6                  Yes             Maybe Could Not Do This Could Not Do This
+4                  Yes               Yes               Yes               Yes
+20               Maybe             Maybe             Maybe             Maybe
+3                  Yes               Yes               Yes Could Not Do This
+13   Could Not Do This Could Not Do This Could Not Do This             Maybe
+4.1                Yes               Yes               Yes               Yes
+6.1                Yes             Maybe Could Not Do This Could Not Do This
+20.1             Maybe             Maybe             Maybe             Maybe
+8    Could Not Do This             Maybe             Maybe             Maybe
+     self.skills class.skills self.excite class.excite self.prep class.prep
+10             4            4           4            4         5          5
+19             4            5           5            5         4          5
+19.1           4            5           5            5         4          5
+12             4            4           5            5         5          5
+19.2           4            5           5            5         4          5
+18             3            5           5            5         3          5
+2              2            4           4            3         3          3
+19.3           4            5           5            5         4          5
+11             1            4           3            3         2          4
+5              3            3           4            4         4          4
+16             3            3           5            5         5          5
+6              3            3           4            4         4          4
+4              4            3           5            5         5          5
+20             4            5           4            2         3          4
+3              3            3           5            4         4          4
+13             4            5           4            4         3          5
+4.1            4            3           5            5         5          5
+6.1            3            3           4            4         4          4
+20.1           4            5           4            2         3          4
+8              4            4           5            5         5          5
+     learn.concept learn.r can.science should.science truth.people not.psychsci
+10               5       5           5              5            5            2
+19               5       4           5              5            4            1
+19.1             5       4           5              5            4            1
+12               4       4           4              4            1            1
+19.2             5       4           5              5            4            1
+18               4       3           3              5            3            2
+2                4       4           4              3            2            1
+19.3             5       4           5              5            4            1
+11               4       2           5              5            3            1
+5                4       4           4              3            3            2
+16               5       5           4              4            4            2
+6                5       4           5              5            4            1
+4                5       5           4              4            4            1
+20               5       3           4              3            2            1
+3                4       4           3              3            3            2
+13               4       3           4              3            4            1
+4.1              5       5           4              4            4            1
+6.1              5       4           5              5            4            1
+20.1             5       3           4              3            2            1
+8                4       4           3              3            2            1
+     perf.pred noperf.pred too.complex
+10           5           2           3
+19           4           2           2
+19.1         4           2           2
+12           3           3           5
+19.2         4           2           2
+18           4           5           5
+2            1           4           3
+19.3         4           2           2
+11           3           4           3
+5            2           4           4
+16           3           2           4
+6            2           5           5
+4            3           2           4
+20           2           4           3
+3            1           4           4
+13           2           4           2
+4.1          3           2           4
+6.1          2           5           5
+20.1         2           4           3
+8            3           5           5
                                                                                                                                        epistemology
-18   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-16                                                    There is a REAL TRUTH about what makes people think, feel, and act that we can someday learn.
-16.1                                                  There is a REAL TRUTH about what makes people think, feel, and act that we can someday learn.
-6    Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-12   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
 10   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-17   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-2    Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-5    Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-3    Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
 19   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-20   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-15   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
 19.1 Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-14   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+12   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+19.2 Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+18   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+2    Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+19.3 Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+11   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+5    Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+16                                                    There is a REAL TRUTH about what makes people think, feel, and act that we can someday learn.
+6    Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+4    Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+20   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+3    Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
 13   Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-7      Reality and “truth” are made up by people (and scientists); scientific knowledge is just a reflection of our society’s pre-existing beliefs.
-13.1 Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-3.1  Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
-3.2  Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+4.1  Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+6.1  Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+20.1 Reality exists, but we may not be able to ever understand REAL TRUTH because our ability to study reality will always be influenced by people.
+8      Reality and “truth” are made up by people (and scientists); scientific knowledge is just a reflection of our society’s pre-existing beliefs.
                                                consent
-18   yes, you can add my responses to a class dataset.
-16   yes, you can add my responses to a class dataset.
-16.1 yes, you can add my responses to a class dataset.
-6    yes, you can add my responses to a class dataset.
-12   yes, you can add my responses to a class dataset.
 10   yes, you can add my responses to a class dataset.
-17   yes, you can add my responses to a class dataset.
-2    yes, you can add my responses to a class dataset.
-5    yes, you can add my responses to a class dataset.
-3    yes, you can add my responses to a class dataset.
 19   yes, you can add my responses to a class dataset.
-20   yes, you can add my responses to a class dataset.
-15   yes, you can add my responses to a class dataset.
 19.1 yes, you can add my responses to a class dataset.
-14   yes, you can add my responses to a class dataset.
+12   yes, you can add my responses to a class dataset.
+19.2 yes, you can add my responses to a class dataset.
+18   yes, you can add my responses to a class dataset.
+2    yes, you can add my responses to a class dataset.
+19.3 yes, you can add my responses to a class dataset.
+11   yes, you can add my responses to a class dataset.
+5    yes, you can add my responses to a class dataset.
+16   yes, you can add my responses to a class dataset.
+6    yes, you can add my responses to a class dataset.
+4    yes, you can add my responses to a class dataset.
+20   yes, you can add my responses to a class dataset.
+3    yes, you can add my responses to a class dataset.
 13   yes, you can add my responses to a class dataset.
-7    yes, you can add my responses to a class dataset.
-13.1 yes, you can add my responses to a class dataset.
-3.1  yes, you can add my responses to a class dataset.
-3.2  yes, you can add my responses to a class dataset.</code></pre>
+4.1  yes, you can add my responses to a class dataset.
+6.1  yes, you can add my responses to a class dataset.
+20.1 yes, you can add my responses to a class dataset.
+8    yes, you can add my responses to a class dataset.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>newclass <span class="ot">&lt;-</span> d[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(d), <span class="fu">nrow</span>(d), <span class="at">replace =</span> T), ]</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(newclass<span class="sc">$</span>self.skills)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.2</code></pre>
+<pre><code>[1] 3.05</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>allmyclassesaregreat <span class="ot">&lt;-</span> <span class="fu">array</span>()</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>)){</span>
@@ -1009,15 +1030,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(m) <span class="co"># similar!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.25785</code></pre>
+<pre><code>[1] 3.2496</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(m <span class="sc">&gt;</span> <span class="fl">2.5</span>) <span class="co"># all of them (100% greater than the midpoint of the scale.)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1000</code></pre>
+<pre><code>[1] 999</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(m) <span class="co"># sampling error!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1855001</code></pre>
+<pre><code>[1] 0.1880298</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(m, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>)) <span class="co"># our distribution of sampling estimates </span></span>
 <span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">c</span>(<span class="fu">mean</span>(d<span class="sc">$</span>self.skills),</span>
