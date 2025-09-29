@@ -1,0 +1,270 @@
+---
+title: "Lecture 4 | Sampling Error and Linear Models"
+format: 
+  html:
+    code-overflow: 'wrap'
+---
+
+![](images/clipboard-3051119200.png){fig-align="center" width="519"}
+
+## [Check-In Here](https://docs.google.com/forms/d/e/1FAIpQLSe-5mOk5GyxloW5syXGjPQ4zayc4ZaeYHmzkroLxVz7uOP_Jg/viewform?usp=header)
+
+**Load the onboarding dataset (name this d to follow along with professor code in lecture).** The variable `can.forloop` asked students whether they could write a for-loop or not. What is the difference in the number of students who said that YES they could for-loop, compared to the number who said either NO, MAYBE, or NO IDEA? Try to find a way to get R to calculate this difference without typing in numbers. In other words, use code to point R to the values in the data. (Hint : I used indexing and the summary function, but there are probably other ways to do this as well!)
+
+```{r}
+
+```
+
+### Announcements & Agenda
+
+**Agenda**
+
+-   9:10 - 10:00 : Check-In and Bootstrapping Review
+-   10:00 - 10:40 : Break + Presentation
+-   10:40 - 11:00 : Linear Models (the basics)
+-   11:00 - 12:00 : Linear Models (there's more)
+
+**Announcements**
+
+-   **Lab 3.** Just giving everyone credit. Four rooms was wild.
+
+-   **Mini Exam in TWO Weeks.**
+
+    -   I give you data and a question, you generate a report (in Quarto? Or just screenshot copy/paste for now is fine too.)
+
+        -   Data loading and cleaning.
+
+        -   Scale creating & descriptive statistics.
+
+        -   Linear Models
+
+        -   Bootstrapping
+
+        -   A fun challenge problem worth 1 point.
+
+    -   Ask questions if / when you have them. Don't struggle on your own. Plenty of time to do that in other spaces!
+
+    -   We will practice / review next week (Lab 5 is a practice exam.)
+
+    -   Think it will be chill, and if not then professor takes the blame, alright?
+
+## RECAP : Estimating Sampling Error
+
+### the for-loop stuff we ended on.
+
+### bootstrapping
+
+## BREAK TIME : Meet Back at 10:15
+
+## [Presentations](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
+
+## RECAP : The Mean as Prediction
+
+```{r}
+#| include: false
+d <- read.csv("~/Dropbox/!GRADSTATS/Datasets/CLASS DATASETS - 102 - FA25/Onboarding Data/honor_onboard_FA25.csv",
+                           stringsAsFactors = T)
+```
+
+### The Mean is a Prediction (of the Sample)
+
+::: panel-tabset
+## Where is the Mean?
+
+```{r}
+plot(d$self.skills, 
+     ylab = "Self-Perception of Skills",
+     xlab = "Index") 
+abline(h = mean(d$self.skills, na.rm = T), lwd = 0)
+```
+
+## There is the Mean!
+
+```{r}
+plot(d$self.skills, 
+     ylab = "Self-Perception of Skills",
+     xlab = "Index") 
+abline(h = mean(d$self.skills, na.rm = T), lwd = 5)
+```
+:::
+
+## There is Error in Our Prediction of the Sample (Residual Error)
+
+This prediction of the sample has some error (residual error). We can (and will need to) quantify this error.
+
+```{r}
+## quantifying errors (residuals)
+residuals <- d$self.skills - mean(d$self.skills, na.rm = T)
+SST <- sum(residuals^2)
+SST
+
+SST/length(residuals) # average of squared residuals (variance)
+sqrt(SST/length(residuals)) # average of residuals, unsquared (standard deviation)
+
+sd(d$self.skills) # slightly higher
+sqrt(SST/(length(residuals)-1)) # the 'real' equation; n-1 to inflate our estimate / adjust for small samples.
+```
+
+## The Mean is a Prediction of our Population (with Sampling Error)
+
+```{r}
+m <- array()
+for(i in c(1:1000)){
+ nd <- d[sample(1:nrow(d), nrow(d), replace = T),] # a new sample
+ m[i] <- mean(nd$self.skills, na.rm = T)
+}
+mean(d$self.skills, na.rm = T)
+mean(m) # similar!
+
+sum(m > 2.5) # all of them (100% greater than the midpoint of the scale.)
+
+sd(m) # sampling error!
+
+hist(m, xlim = c(1,5)) # our distribution of sampling estimates 
+abline(v = c(mean(d$self.skills),
+             mean(d$self.skills) + 1.96 * sd(m),
+             mean(d$self.skills) - 1.96 * sd(m)),
+       lwd = c(5,2,2), # two line widths
+       lty = c(1,2,2)) # two line types
+```
+
+## Linear Models : Improving our Predictions (Numeric IV)
+
+### The Mean as a Model
+
+Note : I skipped over this in class today; the basic idea is that we can define a linear model to predict a variable from some constant value (1), and the result of that will be the mean, since the mean is our best prediction (minimizes the residual errors) when we don't have any other information about the variable.
+
+```{r}
+lm(self.skills ~ 1, data = d) # predicting self.skills from a constant (1), using the datset = d
+mod0 <- lm(self.skills ~ 1, data = d) # saving this as a model object
+coef(mod0) # looking at the coefficients
+mod0$residuals # finding the residuals
+```
+
+### Use information in the IV to predict the DV
+
+Let's try the same activity, but now we will graph each individual's self-skill (still on the y-axis) in **relationship** to their perception of their classmates' skill (on the x-axis).
+
+::: panel-tabset
+## Where is the Line?
+
+```{r}
+plot(jitter(self.skills) ~ class.skills, data = d, 
+     ylab = "Self-Perception of Skills",
+     xlab = "Perception of Classmates' Skills") 
+abline(lm(self.skills ~ class.skills, data = d), lwd = 0)
+```
+
+## There is the Line!
+
+```{r}
+plot(jitter(self.skills) ~ class.skills, data = d, 
+     ylab = "Self-Perception of Skills",
+     xlab = "Perception of Classmates' Skills") 
+abline(lm(self.skills ~ class.skills, data = d), lwd = 5)
+```
+:::
+
+**The Linear Model** :
+
+![](images/clipboard-1514248515.png){fig-align="center" width="279"}
+
+To define a linear model, we will first use the `lm()` function to predict some DV from an IV.
+
+Then, we will graph the relationship between these two variables using the `plot()` function. I'm using `jitter()` on the DV in order to shift the points a little, since they are overlapping.
+
+Then, I draw a line (defined by the linear model) using the `abline()` function. I've made the line width = 5 and color red to make it POP.
+
+I can look at the coefficients of the model with the `coef()` function. These coefficients are described by the starting place of the line when the x value is zero (the intercept), and the adjustment we make to Y as the X values increase.
+
+```{r}
+mod1 <- lm(self.skills ~ class.skills, data = d)
+
+plot(jitter(self.skills) ~ class.skills, data = d, main = "Jittered Data") # jittered
+abline(mod1, lwd = 5, col = 'red')
+
+coef(mod1)
+# intercept = 1.95 = the predicted value of Y when ALL X values are ZERO.
+# slope = .38 = relationship between class.skills and our DV (self.skills)
+### as class.skills increase by ONE, then self.skills will increase by .38
+### these units are in the original unit of measurement (1-5 likert scale.)
+```
+
+### There is Error in Our Prediction (residual error --\> R\^2)
+
+In the graph above, I can see that the dots are not all exactly on the line. My predictions are wrong; this is residual error! For example, a person with an actual self-skill score of 2 has as a class-skill rating of 1. Our prediction of this person's self-skill score, based on their class-skill rating of 1 is the the result of the linear model :
+
+-   self.skill \~ 1.95 + .38 \* class.skill
+
+-   self.skill \~ 1.95 + .38 \* 1
+
+-   self.skill \~ 2.33
+
+So the person's residual score = the difference between their actual score and our prediction = 2 - 2.33 = -.33. Fortunately, R does the residual calcualtions for us, from the linear model object.
+
+```{r}
+mod1$residuals # R does the residual calculation for us. what will happen if we add this up?
+sum(mod1$residuals) # they add to....
+SSE <- sum(mod1$residuals^2) # so I square them
+SSE # the total squared error when I use my model to make predictions.
+
+## Visualizing Our Errors. (distance between actual scores and the line).
+par(mfrow = c(1,2))
+plot(d$self.skills, 
+     ylab = "Self-Perception of Skills",
+     xlab = "Index", main = "Mean as Model \n(SST = Total Sum of Squared Errors)") 
+abline(h = mean(d$self.skills, na.rm = T), lwd = 5)
+plot(jitter(self.skills) ~ class.skills, data = d, main = "Linear Model \n(SSE = Sum of Squared Errors When Model Making Predictions)", 
+     xlim = c(1,5)) # jittered
+abline(mod1, lwd = 5, col = 'red')
+
+
+SST <- sum((d$self.skills - mean(d$self.skills))^2) # defining the total error
+SST - SSE # a difference in errors when using the mean vs. our model
+(SST - SSE)/SST # the relative difference in errors = R^2 (R-squared.)
+
+summary(mod1)$r.squared # R does this for us. But good to do "by hand" to understand.
+
+```
+
+### There is Error in Our Prediction of the Population (sampling error)
+
+Note : I ran out of time to do this in class, but recorded a video at the VERY END of lecture recording that works through this code.
+
+```{r}
+#| eval: false
+#| include: true
+bucket <- array()
+for(i in c(1:1000)){
+  nd <- d[sample(1:nrow(d), nrow(d), replace = T), ]
+  modx <- lm(self.skills ~ class.skills, data = nd)
+  bucket[i] <- coef(modx)[2]
+}
+hist(bucket) # what do we expect to see?
+abline(v = mean(bucket), lwd = 5)
+abline(v = mean(bucket) + 1.96*sd(bucket), lwd = 2, lty = 'dashed')
+abline(v = mean(bucket) - 1.96*sd(bucket), lwd = 2, lty = 'dashed')
+mean(bucket)
+sd(bucket)
+
+
+
+```
+
+### Time for Another Example?
+
+Hah! Next time :)
+
+```{r}
+names(d) # what other (numeric, for now) variable might predict self.skills?
+
+```
+
+## FOR LAB 4.
+
+1.  Define linear models to predict a numeric DV from a numeric IV.
+2.  Interpret the intercept, slope, and R\^2 value.
+3.  Do some bootstrapping.
+4.  Repeat w/ a different dataset.
+5.  Play around with ggplot2()
+6.  Find and evaluate a graph.

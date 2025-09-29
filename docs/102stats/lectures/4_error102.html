@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lecture 4 | Linear Models</title>
+<title>Lecture 4 | Sampling Error and Linear Models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lecture 4 | Linear Models</h1>
+<h1 class="title">Lecture 4 | Sampling Error and Linear Models</h1>
 </div>
 
 
@@ -142,47 +142,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="check-in-here" class="level2">
 <h2 class="anchored" data-anchor-id="check-in-here"><a href="https://docs.google.com/forms/d/e/1FAIpQLSe-5mOk5GyxloW5syXGjPQ4zayc4ZaeYHmzkroLxVz7uOP_Jg/viewform?usp=header">Check-In Here</a></h2>
-<ol type="1">
-<li><p><strong>Load the onboarding dataset (name this d to follow along with professor code in lecture).</strong> The variable <code>can.forloop</code> asked students whether they could write a for-loop or not. What is the difference in the number of students who said that YES they could for-loop, compared to the number who said either NO, MAYBE, or NO IDEA? Try to find a way to get R to calculate this difference without typing in numbers. In other words, use code to point R to the values in the data. (Hint : I used indexing and the summary function, but there are probably other ways to do this as well!)</p></li>
-</ol>
-<!-- -->
-<ol start="3" type="1">
-<li><strong>(WE WILL DO THIS TOGETHER). Write a for-loop to estimate how much sampling error might influence this number.</strong> Generate 1000 new samples, and re-calculate the difference between YES and NO + MAYBEs. What percentage of re-sampled groups would show that there are more people who CAN write a for-loop than NOT, MAYBE, or HAD NO IDEA WHAT A FOR-LOOP IS??</li>
-</ol>
+<p><strong>Load the onboarding dataset (name this d to follow along with professor code in lecture).</strong> The variable <code>can.forloop</code> asked students whether they could write a for-loop or not. What is the difference in the number of students who said that YES they could for-loop, compared to the number who said either NO, MAYBE, or NO IDEA? Try to find a way to get R to calculate this difference without typing in numbers. In other words, use code to point R to the values in the data. (Hint : I used indexing and the summary function, but there are probably other ways to do this as well!)</p>
 <section id="announcements-agenda" class="level3">
 <h3 class="anchored" data-anchor-id="announcements-agenda">Announcements &amp; Agenda</h3>
 <p><strong>Agenda</strong></p>
 <ul>
-<li>9:10 - 9:30 : Check-In and Review</li>
-<li>9:30 - 10:30 : Linear Models (Basics)</li>
-<li>10:30 - 11:00 : Break &amp; Presentation</li>
-<li>11:00 - 12:00 : Linear Models (Continued)</li>
+<li>9:10 - 10:00 : Check-In and Bootstrapping Review</li>
+<li>10:00 - 10:40 : Break + Presentation</li>
+<li>10:40 - 11:00 : Linear Models (the basics)</li>
+<li>11:00 - 12:00 : Linear Models (there’s more)</li>
 </ul>
 <p><strong>Announcements</strong></p>
 <ul>
-<li><p><strong>Discord!?!?</strong></p></li>
-<li><p><strong>Lab Keys and Late Assignments.</strong></p>
-<ul>
-<li><p>would like to post key ASAP.</p></li>
-<li><p>but late labs + key = TROUBLE. Ideas?</p></li>
-</ul></li>
+<li><p><strong>Lab 3.</strong> Just giving everyone credit. Four rooms was wild.</p></li>
 <li><p><strong>Mini Exam in TWO Weeks.</strong></p>
 <ul>
-<li><p>I give you data and a question, you generate a report in Quarto.</p>
+<li><p>I give you data and a question, you generate a report (in Quarto? Or just screenshot copy/paste for now is fine too.)</p>
 <ul>
 <li><p>Data loading and cleaning.</p></li>
 <li><p>Scale creating &amp; descriptive statistics.</p></li>
-<li><p>Linear Models (TODAY!)</p></li>
+<li><p>Linear Models</p></li>
 <li><p>Bootstrapping</p></li>
 <li><p>A fun challenge problem worth 1 point.</p></li>
 </ul></li>
-<li><p>Take home (9AM-12PM).</p></li>
-<li><p>Ask questions on ZOOM if / when you have them. Okay? Don’t struggle on your own. Plenty of time to do that in other spaces!</p></li>
-<li><p>We will practice / review next week (Lab 5 a practice exam.)</p></li>
+<li><p>Ask questions if / when you have them. Don’t struggle on your own. Plenty of time to do that in other spaces!</p></li>
+<li><p>We will practice / review next week (Lab 5 is a practice exam.)</p></li>
 <li><p>Think it will be chill, and if not then professor takes the blame, alright?</p></li>
 </ul></li>
 </ul>
 </section>
+</section>
+<section id="recap-estimating-sampling-error" class="level2">
+<h2 class="anchored" data-anchor-id="recap-estimating-sampling-error">RECAP : Estimating Sampling Error</h2>
+<section id="the-for-loop-stuff-we-ended-on." class="level3">
+<h3 class="anchored" data-anchor-id="the-for-loop-stuff-we-ended-on.">the for-loop stuff we ended on.</h3>
+</section>
+<section id="bootstrapping" class="level3">
+<h3 class="anchored" data-anchor-id="bootstrapping">bootstrapping</h3>
+</section>
+</section>
+<section id="break-time-meet-back-at-1015" class="level2">
+<h2 class="anchored" data-anchor-id="break-time-meet-back-at-1015">BREAK TIME : Meet Back at 10:15</h2>
+</section>
+<section id="presentations" class="level2">
+<h2 class="anchored" data-anchor-id="presentations"><a href="https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing">Presentations</a></h2>
 </section>
 <section id="recap-the-mean-as-prediction" class="level2">
 <h2 class="anchored" data-anchor-id="recap-the-mean-as-prediction">RECAP : The Mean as Prediction</h2>
@@ -200,7 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="4_LinearModels_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="4_error102_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -215,7 +218,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="4_LinearModels_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="4_error102_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -234,23 +237,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>SST <span class="ot">&lt;-</span> <span class="fu">sum</span>(residuals<span class="sc">^</span><span class="dv">2</span>)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>SST</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 42.06061</code></pre>
+<pre><code>[1] 13.75</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>SST<span class="sc">/</span><span class="fu">length</span>(residuals) <span class="co"># average of squared residuals (variance)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.274564</code></pre>
+<pre><code>[1] 0.6875</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(SST<span class="sc">/</span><span class="fu">length</span>(residuals)) <span class="co"># average of residuals, unsquared (standard deviation)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.128966</code></pre>
+<pre><code>[1] 0.8291562</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(d<span class="sc">$</span>self.skills) <span class="co"># slightly higher</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.14647</code></pre>
+<pre><code>[1] 0.8506963</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(SST<span class="sc">/</span>(<span class="fu">length</span>(residuals)<span class="sc">-</span><span class="dv">1</span>)) <span class="co"># the 'real' equation; n-1 to inflate our estimate / adjust for small samples.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.14647</code></pre>
+<pre><code>[1] 0.8506963</code></pre>
 </div>
 </div>
 </section>
@@ -264,11 +267,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(d<span class="sc">$</span>self.skills, <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.424242</code></pre>
+<pre><code>[1] 3.25</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(m) <span class="co"># similar!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.418182</code></pre>
+<pre><code>[1] 3.2529</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(m <span class="sc">&gt;</span> <span class="fl">2.5</span>) <span class="co"># all of them (100% greater than the midpoint of the scale.)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -276,7 +279,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(m) <span class="co"># sampling error!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1907205</code></pre>
+<pre><code>[1] 0.186135</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(m, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>)) <span class="co"># our distribution of sampling estimates </span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">c</span>(<span class="fu">mean</span>(d<span class="sc">$</span>self.skills),</span>
@@ -287,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="4_LinearModels_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="4_error102_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -307,26 +310,20 @@ lm(formula = self.skills ~ 1, data = d)
 
 Coefficients:
 (Intercept)  
-      3.424  </code></pre>
+       3.25  </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>mod0 <span class="ot">&lt;-</span> <span class="fu">lm</span>(self.skills <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> d) <span class="co"># saving this as a model object</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(mod0) <span class="co"># looking at the coefficients</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept) 
-   3.424242 </code></pre>
+       3.25 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>mod0<span class="sc">$</span>residuals <span class="co"># finding the residuals</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>         1          2          3          4          5          6          7 
- 0.5757576  0.5757576  1.5757576 -0.4242424  1.5757576  1.5757576  0.5757576 
-         8          9         10         11         12         13         14 
--0.4242424  0.5757576  1.5757576  0.5757576 -1.4242424 -0.4242424 -0.4242424 
-        15         16         17         18         19         20         21 
--0.4242424 -0.4242424  0.5757576 -0.4242424  1.5757576 -0.4242424 -2.4242424 
-        22         23         24         25         26         27         28 
--2.4242424  1.5757576 -1.4242424  0.5757576 -0.4242424 -0.4242424  1.5757576 
-        29         30         31         32         33 
--0.4242424 -1.4242424 -0.4242424 -1.4242424  0.5757576 </code></pre>
+<pre><code>    1     2     3     4     5     6     7     8     9    10    11    12    13 
+-0.25 -1.25 -0.25  0.75 -0.25 -0.25  0.75  0.75 -0.25  0.75 -2.25  0.75  0.75 
+   14    15    16    17    18    19    20 
+-1.25 -0.25 -0.25  0.75 -0.25  0.75  0.75 </code></pre>
 </div>
 </div>
 </section>
@@ -345,7 +342,7 @@ Coefficients:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="4_LinearModels_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="4_error102_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -360,7 +357,7 @@ Coefficients:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="4_LinearModels_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="4_error102_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -386,14 +383,14 @@ Coefficients:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="4_LinearModels_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="4_error102_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(mod1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> (Intercept) class.skills 
-   1.9501188    0.3800475 </code></pre>
+   2.6530612    0.1530612 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># intercept = 1.95 = the predicted value of Y when ALL X values are ZERO.</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># slope = .38 = relationship between class.skills and our DV (self.skills)</span></span>
@@ -413,27 +410,21 @@ Coefficients:
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>mod1<span class="sc">$</span>residuals <span class="co"># R does the residual calculation for us. what will happen if we add this up?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>          1           2           3           4           5           6 
- 0.52969121  0.52969121  1.90973872 -0.47030879  1.90973872  1.52969121 
-          7           8           9          10          11          12 
- 0.14964371 -0.47030879  0.52969121  1.14964371  0.52969121 -1.47030879 
-         13          14          15          16          17          18 
--0.85035629 -0.09026128 -0.85035629 -0.09026128  0.52969121 -0.47030879 
-         19          20          21          22          23          24 
- 1.14964371 -0.47030879 -2.09026128 -2.85035629  1.14964371 -0.71021378 
-         25          26          27          28          29          30 
- 0.52969121 -0.47030879 -0.47030879  1.52969121 -0.47030879 -1.47030879 
-         31          32          33 
--0.09026128 -0.33016627  0.52969121 </code></pre>
+<pre><code>         1          2          3          4          5          6          7 
+-0.2653061 -1.2653061 -0.1122449  0.8877551 -0.1122449 -0.1122449  0.8877551 
+         8          9         10         11         12         13         14 
+ 0.7346939 -0.2653061  0.7346939 -2.2653061  0.7346939  0.5816327 -1.2653061 
+        15         16         17         18         19         20 
+-0.2653061 -0.1122449  0.7346939 -0.4183673  0.5816327  0.5816327 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(mod1<span class="sc">$</span>residuals) <span class="co"># they add to....</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.776357e-15</code></pre>
+<pre><code>[1] 0</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>SSE <span class="ot">&lt;-</span> <span class="fu">sum</span>(mod1<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span>) <span class="co"># so I square them</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>SSE <span class="co"># the total squared error when I use my model to make predictions.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 38.3753</code></pre>
+<pre><code>[1] 13.52041</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Visualizing Our Errors. (distance between actual scores and the line).</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
@@ -447,22 +438,22 @@ Coefficients:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="4_LinearModels_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="4_error102_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>SST <span class="ot">&lt;-</span> <span class="fu">sum</span>((d<span class="sc">$</span>self.skills <span class="sc">-</span> <span class="fu">mean</span>(d<span class="sc">$</span>self.skills))<span class="sc">^</span><span class="dv">2</span>) <span class="co"># defining the total error</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>SST <span class="sc">-</span> SSE <span class="co"># a difference in errors when using the mean vs. our model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.685309</code></pre>
+<pre><code>[1] 0.2295918</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>(SST <span class="sc">-</span> SSE)<span class="sc">/</span>SST <span class="co"># the relative difference in errors = R^2 (R-squared.)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.08761902</code></pre>
+<pre><code>[1] 0.01669759</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod1)<span class="sc">$</span>r.squared <span class="co"># R does this for us. But good to do "by hand" to understand.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.08761902</code></pre>
+<pre><code>[1] 0.01669759</code></pre>
 </div>
 </div>
 </section>
@@ -490,24 +481,18 @@ Coefficients:
 <div class="cell">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(d) <span class="co"># what other (numeric, for now) variable might predict self.skills?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "time"           "has.laptop"     "write.code"     "know.prog"     
- [5] "has.data"       "know.r"         "can.import"     "can.clean"     
- [9] "can.graph"      "can.render"     "can.lm"         "can.interp"    
-[13] "can.pvalue"     "can.sevsd"      "can.95ci"       "can.forloop"   
-[17] "self.skills"    "class.skills"   "self.excite"    "class.excite"  
-[21] "self.prep"      "class.prep"     "learn.concept"  "learn.r"       
-[25] "can.science"    "should.science" "truth.people"   "not.psychsci"  
-[29] "perf.pred"      "noperf.pred"    "too.complex"    "epistemology"  
-[33] "consent"       </code></pre>
+<pre><code> [1] "time"           "area"           "has.laptop"     "write.code"    
+ [5] "know.prog"      "has.data"       "know.r"         "can.import"    
+ [9] "can.clean"      "can.graph"      "can.render"     "can.lm"        
+[13] "can.interp"     "can.pvalue"     "can.sevsd"      "can.95ci"      
+[17] "can.forloop"    "self.skills"    "class.skills"   "self.excite"   
+[21] "class.excite"   "self.prep"      "class.prep"     "learn.concept" 
+[25] "learn.r"        "can.science"    "should.science" "truth.people"  
+[29] "not.psychsci"   "perf.pred"      "noperf.pred"    "too.complex"   
+[33] "epistemology"   "consent"       </code></pre>
 </div>
 </div>
 </section>
-</section>
-<section id="break-time-meet-back-at-1040" class="level2">
-<h2 class="anchored" data-anchor-id="break-time-meet-back-at-1040">BREAK TIME : Meet Back at 10:40</h2>
-</section>
-<section id="presentations" class="level2">
-<h2 class="anchored" data-anchor-id="presentations"><a href="https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing">Presentations</a></h2>
 </section>
 <section id="for-lab-4." class="level2">
 <h2 class="anchored" data-anchor-id="for-lab-4.">FOR LAB 4.</h2>

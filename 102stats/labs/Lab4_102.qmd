@@ -1,0 +1,46 @@
+---
+title: "Lab 4: Linear Models"
+format: 
+  html:
+    code-overflow: 'wrap'
+---
+
+## Lab Instructions.
+
+Answer the questions below as a .PDF (you can either render from Quarto as .PDF, or render as .html and then print this html file as a .PDF). Make sure to reference any external sources (e.g., stack exchange; ChatGPT; peer help) that you used at the top of your lab assignment. *If you use external resources, don't just copy / paste the code (and source) blindly, but spend time thinking (and writing in your Lab) about what these external sources are doing with the code / what techniques you are learning from this source.* 
+
+And please ask for help if you get stuck / are confused / professor did something wrong on Discord!
+
+## Problem 1 (In Discussion Section)
+
+1.  Use the self-esteem dataset (from Labs 2 and 3) to determine whether there is a relationship between self-esteem and age. Feel free to re-use your code (or Professor's code) from Labs 2 and 3. Include a graph of your linear model, and report the intercept and slope from the model. Below these statistics, explain what they tell you about the relationship between these two variables, and how you can see them on the graph.
+
+```{r}
+
+```
+
+2. Calculate R^2 "by hand"; confirm you did this correctly by comparing to the value that R calculates (you can access this by running `summary(mod)$r.squared`, with (mod) being the name of your model object. Note that in order to get the exact same value as R, you'll need to compare the residuals in your linear model to residuals when calculating the mean of *only the participants who had data on both age and self-esteem*. There are different ways to do this, but when calculating SST you can use the data from the linear model by calling `mod$model$SELFES` (assuming you named your model `mod` and your self-esteem variable `SELFES`). Below your R code, describe what this statistic tells you about the relationship between age and self-esteem.
+
+```{r}
+
+```
+
+3. Run a for-loop to estimate the amount of sampling error in the **slope** from this linear model, and use this estimate of sampling error to define the 95% Confidence Interval for the slope. The steps you'll take are similar to what we've done before with the for-loop; this time you'll need to extract the slope from a model of re-sampled data. I recorded a bonus video at the very end of our posted lecture video walking through how to do this (and code is also in the Lecture document.) Note : a 95% confidence interval for a slope is defined as `slope ± 1.96 * sampling error`.
+
+```{r}
+
+```
+
+## Problem 2. Step Problems.
+
+1. Load the two "Steps and BMI" data files from the Dataset Dropbox folder. There are two data files - data9b_m.txt describes the number of steps taken day for men, and data9b_w.txt for women. You will need to find a way to load .txt files into R, and then use `rbind()` (or another method) to merge the two files together into one dataset. (Make sure to add a column to each dataset to keep track of whether the data are for men or women.) Show that this worked.
+
+```{r}
+
+```
+
+2. Now, determine whether there is a relationship between the number of steps that people take and their BMI. Estimate the sampling error of this relationship. What do you conclude, based on these results?
+
+```{r}
+
+```
