@@ -9,7 +9,13 @@ format:
 
 ## [Check-In Here](https://docs.google.com/forms/d/e/1FAIpQLSe-5mOk5GyxloW5syXGjPQ4zayc4ZaeYHmzkroLxVz7uOP_Jg/viewform?usp=header)
 
-**Load the onboarding dataset (name this d to follow along with professor code in lecture).** The variable `can.forloop` asked students whether they could write a for-loop or not. What is the difference in the number of students who said that YES they could for-loop, compared to the number who said either NO, MAYBE, or NO IDEA? Try to find a way to get R to calculate this difference without typing in numbers. In other words, use code to point R to the values in the data. (Hint : I used indexing and the summary function, but there are probably other ways to do this as well!)
+**Load the onboarding dataset (name this d to follow along with professor code in lecture).**
+
+The variable `can.forloop` asked students whether they could write a for-loop or not.
+
+What is the difference in the number of students who said that YES they could for-loop, compared to the number who said either NO, MAYBE, or had NO IDEA? 
+
+Great to find the answer, but try to find a way to get R to calculate this difference using code so you don't have to manually type in any numbers for the calculation. (Hint : use indexing and the summary function.)
 
 ```{r}
 
@@ -26,9 +32,11 @@ format:
 
 **Announcements**
 
--   **Lab 3.** Just giving everyone credit. Four rooms was wild.
+-   **Lab 3.** Just giving everyone credit. Four rooms was wild I don't like thinking about it.
 
--   **Mini Exam in TWO Weeks.**
+-   **No Brian Exam.** Professor did not know what he was doing but thinks two exams in two weeks is a BAD IDEA.
+
+-   **Mini Exam is in TWO Weeks.** Yikes!!
 
     -   I give you data and a question, you generate a report (in Quarto? Or just screenshot copy/paste for now is fine too.)
 
@@ -52,7 +60,101 @@ format:
 
 ### the for-loop stuff we ended on.
 
-### bootstrapping
+We defined a fake dataset, called fakey with mean = 100 and sd = 30.
+
+```{r}
+fakey <- rnorm(10000000, mean = 100, sd = 30)
+hist(fakey)
+abline(v = mean(fakey), lwd = 5)
+mean(fakey)
+```
+
+We then took 1000 random samples (n = 10) from this fake dataset, calculated a statistic for each of these samples, and then
+
+```{r}
+truthbucket <- array()
+for(i in c(1:1000)){
+  lilfakey <- fakey[sample(1:length(fakey), 10)] # ten random individuals from fakey.
+  truthbucket[i] <- mean(lilfakey)
+}
+
+hist(truthbucket)
+abline(v = mean(truthbucket), lwd = 5, col = 'red')
+mean(truthbucket) # the mean
+sd(truthbucket) # the standard deviation 
+```
+
+#### DISCUSSION : 
+
+-   why are we doing this (taking random samples from this fake dataset?)
+
+-   what does the distribution of fakey describe?
+
+-   what does the distribution of truthbucket describe?
+
+-   what are TWO things you could do in order to decrease the standard deviation of lilfakey?
+
+#### ACTIVITY : the TWO things you could do in order to decrease the standard deviation of lilfakey.
+
+-   Thing One :
+
+```{r}
+
+```
+
+-   Thing Two :
+
+```{r}
+
+```
+
+### bootstrapping.
+
+#### the logic.
+
+Okay, let's work through a real example of using a for-loop to estimate sampling error with real data.
+
+The idea is somewhat impossible (just like raising yourself up by your bootstraps) : we are going to :
+
+1.  use our ONE dataset....to generate NEW datasets
+2.  from each NEW dataset, we will :
+    1.  calculate the test statistic we are interested in (i.e., the mean, but could be anything.)
+    2.  save this test statistics.
+    3.  examine the variation in test statistics.
+
+**Discussion :** what's a problem with this method? why do people do this??
+
+#### an example.
+
+Remember that in the onboarding survey, we saw people rated their own skills as lower than their classmates' skills.
+
+```{r}
+d <- read.csv("../datasets/Onboarding Data/honor_onboard_FA25.csv", stringsAsFactors = T, na.strings = "")
+par(mfrow = c(1,2))
+
+hist(d$self.skills, breaks = c(0:5), 
+     col = 'black', bor = 'white', main = "Computer Skills\n(Self-Perceptions)")
+
+hist(d$class.skills, breaks = c(0:5),
+     col = 'black', bor = 'white', main = "Computer Skills\n(Perceptions of Classmates)")
+```
+
+But would we expect to observe this same difference in a different sample of students???
+
+Let's use a for-loop to do this. Here's the logic bootstrapping to test this.
+
+```{r}
+
+
+```
+
+### defining the 95% confidence interval.
+
+```{r}
+
+```
+
+![](images/clipboard-2205385268.png)
 
 ## BREAK TIME : Meet Back at 10:15
 
@@ -85,6 +187,15 @@ plot(d$self.skills,
      ylab = "Self-Perception of Skills",
      xlab = "Index") 
 abline(h = mean(d$self.skills, na.rm = T), lwd = 5)
+```
+
+## This is How We Really Visualize The Mean!
+
+```{r}
+hist(d$self.skills, 
+     ylab = "Frequency",
+     xlab = "Self-Perception of Skills") 
+abline(v = mean(d$self.skills, na.rm = T), lwd = 5)
 ```
 :::
 
@@ -130,9 +241,9 @@ abline(v = c(mean(d$self.skills),
 
 ## Linear Models : Improving our Predictions (Numeric IV)
 
-### The Mean as a Model
+### The Mean as a Linear Model
 
-Note : I skipped over this in class today; the basic idea is that we can define a linear model to predict a variable from some constant value (1), and the result of that will be the mean, since the mean is our best prediction (minimizes the residual errors) when we don't have any other information about the variable.
+We can define a linear model to predict a variable from some constant value (1), and the result of that will be the mean, since the mean is our best prediction (minimizes the residual errors) when we don't have any other information about the variable.
 
 ```{r}
 lm(self.skills ~ 1, data = d) # predicting self.skills from a constant (1), using the datset = d
@@ -149,19 +260,19 @@ Let's try the same activity, but now we will graph each individual's self-skill 
 ## Where is the Line?
 
 ```{r}
-plot(jitter(self.skills) ~ class.skills, data = d, 
-     ylab = "Self-Perception of Skills",
-     xlab = "Perception of Classmates' Skills") 
-abline(lm(self.skills ~ class.skills, data = d), lwd = 0)
+plot(jitter(self.skills) ~ learn.r, data = d, 
+     ylab = "Self-Perception of Skills", ylim = c(1,5),
+     xlab = "Confidence in Learning R", xlim = c(1,5)) 
+abline(lm(self.skills ~ learn.r, data = d), lwd = 0)
 ```
 
 ## There is the Line!
 
 ```{r}
-plot(jitter(self.skills) ~ class.skills, data = d, 
-     ylab = "Self-Perception of Skills",
-     xlab = "Perception of Classmates' Skills") 
-abline(lm(self.skills ~ class.skills, data = d), lwd = 5)
+plot(jitter(self.skills) ~ learn.r, data = d, 
+     ylab = "Self-Perception of Skills", ylim = c(1,5),
+     xlab = "Confidence in Learning R", xlim = c(1,5)) 
+abline(lm(self.skills ~ learn.r, data = d), lwd = 5)
 ```
 :::
 
@@ -178,29 +289,39 @@ Then, I draw a line (defined by the linear model) using the `abline()` function.
 I can look at the coefficients of the model with the `coef()` function. These coefficients are described by the starting place of the line when the x value is zero (the intercept), and the adjustment we make to Y as the X values increase.
 
 ```{r}
-mod1 <- lm(self.skills ~ class.skills, data = d)
+mod1 <- lm(self.skills ~ learn.r, data = d)
 
-plot(jitter(self.skills) ~ class.skills, data = d, main = "Jittered Data") # jittered
+plot(jitter(self.skills) ~ learn.r, # dv is jittered
+     data = d, 
+     main = "Jittered Data",
+     xlim = c(1,5), ylim = c(1,5))
+
 abline(mod1, lwd = 5, col = 'red')
 
 coef(mod1)
-# intercept = 1.95 = the predicted value of Y when ALL X values are ZERO.
-# slope = .38 = relationship between class.skills and our DV (self.skills)
-### as class.skills increase by ONE, then self.skills will increase by .38
+# intercept = 1.46 = the predicted value of Y when ALL X values are ZERO.
+# slope = .46 = relationship between learn.r and our DV (self.skills)
+### as learn.r increase by ONE, then self.skills will increase by .46
 ### these units are in the original unit of measurement (1-5 likert scale.)
 ```
 
 ### There is Error in Our Prediction (residual error --\> R\^2)
 
-In the graph above, I can see that the dots are not all exactly on the line. My predictions are wrong; this is residual error! For example, a person with an actual self-skill score of 2 has as a class-skill rating of 1. Our prediction of this person's self-skill score, based on their class-skill rating of 1 is the the result of the linear model :
+In the graph above, I can see that the dots are not all exactly on the line. My predictions are wrong; this is residual error!
 
--   self.skill \~ 1.95 + .38 \* class.skill
+For example, a person who said their R knowledge is a 2 rated their skills as a 1. But this is different from our prediction (the line.)
 
--   self.skill \~ 1.95 + .38 \* 1
+To calculate this specific prediction, we can plug the person's R knowledge rating of 1 into our linear model :
 
--   self.skill \~ 2.33
+-   self.skill \~ 1.46 + .46 \* learn.r
 
-So the person's residual score = the difference between their actual score and our prediction = 2 - 2.33 = -.33. Fortunately, R does the residual calcualtions for us, from the linear model object.
+-   self.skill \~ 1.46 + .46 \* 2
+
+-   self.skill \~ 2.38
+
+So we predict a person who's learnR score is 2 would have a self-skill of 2.38. But this person is different - we call this a residual score = the difference between their actual score and our prediction = 2 - 2.38 = -.38. The fact this value is negative means the person is below the line.
+
+Fortunately, R does the residual calculations for us, from the linear model object.
 
 ```{r}
 mod1$residuals # R does the residual calculation for us. what will happen if we add this up?
@@ -214,7 +335,7 @@ plot(d$self.skills,
      ylab = "Self-Perception of Skills",
      xlab = "Index", main = "Mean as Model \n(SST = Total Sum of Squared Errors)") 
 abline(h = mean(d$self.skills, na.rm = T), lwd = 5)
-plot(jitter(self.skills) ~ class.skills, data = d, main = "Linear Model \n(SSE = Sum of Squared Errors When Model Making Predictions)", 
+plot(jitter(self.skills) ~ learn.r, data = d, main = "Linear Model \n(SSE = Sum of Squared Errors When Model Making Predictions)", 
      xlim = c(1,5)) # jittered
 abline(mod1, lwd = 5, col = 'red')
 
@@ -229,7 +350,7 @@ summary(mod1)$r.squared # R does this for us. But good to do "by hand" to unders
 
 ### There is Error in Our Prediction of the Population (sampling error)
 
-Note : I ran out of time to do this in class, but recorded a video at the VERY END of lecture recording that works through this code.
+Yes, it's bootstrapping time!
 
 ```{r}
 #| eval: false
@@ -237,7 +358,7 @@ Note : I ran out of time to do this in class, but recorded a video at the VERY E
 bucket <- array()
 for(i in c(1:1000)){
   nd <- d[sample(1:nrow(d), nrow(d), replace = T), ]
-  modx <- lm(self.skills ~ class.skills, data = nd)
+  modx <- lm(self.skills ~ learn.r, data = nd)
   bucket[i] <- coef(modx)[2]
 }
 hist(bucket) # what do we expect to see?
@@ -253,7 +374,7 @@ sd(bucket)
 
 ### Time for Another Example?
 
-Hah! Next time :)
+Probably not! But maybe!!!?
 
 ```{r}
 names(d) # what other (numeric, for now) variable might predict self.skills?
@@ -266,5 +387,4 @@ names(d) # what other (numeric, for now) variable might predict self.skills?
 2.  Interpret the intercept, slope, and R\^2 value.
 3.  Do some bootstrapping.
 4.  Repeat w/ a different dataset.
-5.  Play around with ggplot2()
-6.  Find and evaluate a graph.
+5.  Yeah!
