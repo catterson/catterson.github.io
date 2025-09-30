@@ -87,7 +87,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -112,10 +112,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-    </div>
+    
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -184,7 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="part-1-professor-check-in-code">Part 1 : Professor Check-In Code</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Q1. Load the mini_class dataset. </span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Call this mini to follow along with professor's code. </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Call this d to follow along with professor's code. </span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Q1. How many individuals are in this dataset?</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Q2. Graph the variable insta.follows (the number of accounts people follow on instagram)</span></span>
@@ -204,64 +203,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="do">## Q8. What is the average hours of sleep (hrs.sleep) for students in the class?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="part-2-likert-scales" class="level2 page-columns page-full">
+<section id="part-2-likert-scales" class="level2">
 <h2 class="anchored" data-anchor-id="part-2-likert-scales">Part 2 : Likert Scales</h2>
-<section id="conceptual-review" class="level3 page-columns page-full">
+<section id="conceptual-review" class="level3">
 <h3 class="anchored" data-anchor-id="conceptual-review">Conceptual Review</h3>
 <ul>
 <li><strong>ACTIVITY &amp; DISCUSSION :</strong> apply the terms below to the <a href="https://www.tandfonline.com/doi/pdf/10.1207/s15327752jpa4901_13?casa_token=p4kB11wLsD0AAAAA:22OL81OAq3yFj1pcT3yRjsOjsPHQsg5G3A3-EgEKWjMmShXXBHV0J64j7BqJMUX8jfG2Lk2tdrUY">Satisfaction with Life Scale</a></li>
 </ul>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<p><img src="images/clipboard-2712637950.png" class="img-fluid"></p>
-</div></div><div class="column-page-right">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 6%">
-<col style="width: 88%">
-<col style="width: 4%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><strong>Term</strong></td>
-<td><strong>Definition</strong></td>
-<td><strong>Usage / Example</strong></td>
-</tr>
-<tr class="even">
-<td><strong>Scale</strong></td>
-<td>The variable that you want to measure as a continuous variable.</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><strong>Item(s)</strong></td>
-<td>The specific question(s) in the scale. Each item measures some aspect of the variable the researcher is interested in.</td>
-<td></td>
-</tr>
-<tr class="even">
-<td><strong>Response Scale</strong></td>
-<td>How people answer the scale items. People give a number rating on a fixed range of options with labels. Many 5-point scales include the following labels (1 = Strongly Disagree; 2 = Disagree; 3 = Neutral; 4 = Agree; 5 = Strongly Agree.)</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><p><strong>Positively-</strong></p>
-<p><strong>Keyed Item</strong></p></td>
-<td>An item that measures the high end of the scale, where answering “yes” to the question means you are high on this variable.</td>
-<td></td>
-</tr>
-<tr class="even">
-<td><strong>Negatively-Keyed Item</strong></td>
-<td>An item that measures the low end of the scale, where answering “yes” to the question means you are low on the variable.</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><strong>Reverse Scoring</strong></td>
-<td><p>How researchers “flip” the negatively-keyed items to be positively-keyed. To calculate how to reverse-score an item, you can add the lower and upper limit of the full range. So to reverse-score a response scale that goes from 0 to 4 = 0 + 4 = subtract the negatively keyed items from 4. A response scale that goes from 1 to 15 = 1 + 15 = subtract the negatively keyed items from 16. And so on.</p>
-<p>This is confusing. We will practice in lecture some more, okay?</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
+<p><img src="images/clipboard-2712637950.png" class="img-fluid"> +—————————+———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————–+———————+ | <strong>Term</strong> | <strong>Definition</strong> | <strong>Usage / Example</strong> | +—————————+———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————–+———————+ | <strong>Scale</strong> | The variable that you want to measure as a continuous variable. | | +—————————+———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————–+———————+ | <strong>Item(s)</strong> | The specific question(s) in the scale. Each item measures some aspect of the variable the researcher is interested in. | | +—————————+———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————–+———————+ | <strong>Response Scale</strong> | How people answer the scale items. People give a number rating on a fixed range of options with labels. Many 5-point scales include the following labels (1 = Strongly Disagree; 2 = Disagree; 3 = Neutral; 4 = Agree; 5 = Strongly Agree.) | | +—————————+———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————–+———————+ | <strong>Positively-</strong> | An item that measures the high end of the scale, where answering “yes” to the question means you are high on this variable. | | | | | | | <strong>Keyed Item</strong> | | | +—————————+———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————–+———————+ | <strong>Negatively-Keyed Item</strong> | An item that measures the low end of the scale, where answering “yes” to the question means you are low on the variable. | | +—————————+———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————–+———————+ | <strong>Reverse Scoring</strong> | How researchers “flip” the negatively-keyed items to be positively-keyed. To calculate how to reverse-score an item, you can add the lower and upper limit of the full range. So to reverse-score a response scale that goes from 0 to 4 = 0 + 4 = subtract the negatively keyed items from 4. A response scale that goes from 1 to 15 = 1 + 15 = subtract the negatively keyed items from 16. And so on. | | | | | | | | This is confusing. We will practice in lecture some more, okay? | | +—————————+———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————–+———————+ :::</p>
 </section>
 <section id="in-r-personality-data" class="level3">
 <h3 class="anchored" data-anchor-id="in-r-personality-data">In R : Personality Data</h3>

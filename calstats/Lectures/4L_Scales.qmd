@@ -61,7 +61,7 @@ format:
 
 ```{r}
 ## Q1. Load the mini_class dataset. 
-## Call this mini to follow along with professor's code. 
+## Call this d to follow along with professor's code. 
 ## Q1. How many individuals are in this dataset?
 
 ## Q2. Graph the variable insta.follows (the number of accounts people follow on instagram)
@@ -88,11 +88,7 @@ format:
 
 -   **ACTIVITY & DISCUSSION :** apply the terms below to the [Satisfaction with Life Scale](https://www.tandfonline.com/doi/pdf/10.1207/s15327752jpa4901_13?casa_token=p4kB11wLsD0AAAAA:22OL81OAq3yFj1pcT3yRjsOjsPHQsg5G3A3-EgEKWjMmShXXBHV0J64j7BqJMUX8jfG2Lk2tdrUY)
 
-::: column-margin
 ![](images/clipboard-2712637950.png)
-:::
-
-::: column-page-right
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+
 | **Term**                  | **Definition**                                                                                                                                                                                                                                                                                                                                                                                            | **Usage / Example** |
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+
