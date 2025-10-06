@@ -70,7 +70,7 @@ R^2^ evaluates how much better the model is compared to using the mean to make p
 
 ::: tabset-dropdown
 ```{r}
-#| include: false
+#| echo: true
 d <- read.csv("~/Dropbox/!GRADSTATS/Datasets/World Happiness Report - 2024/World-happiness-report-2024.csv", stringsAsFactors = T)
 
 par(mfrow = c(1,2))
