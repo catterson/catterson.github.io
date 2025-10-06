@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5L_Methods</title>
+<title>Week 5 - ‘Normal’ Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,10 +64,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-68e2365ed708f55c597793be074e9239.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -85,10 +85,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -103,14 +102,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="https://catterson.github.io/ystats/"> 
 <span class="menu-text">Why Statistics?</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../calstats/calstatsSP25.html"> 
-<span class="menu-text">Cal Stats [Psych 101]</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../gradstats/gradstatsSP25.html"> 
-<span class="menu-text">Grad Stats [Psych 205]</span></a>
-  </li>  
 </ul>
           <div class="quarto-navbar-tools">
 </div>
@@ -121,13 +112,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">5L_Methods</h1>
+<h1 class="title">Week 5 - ‘Normal’ Data</h1>
 </div>
 
 
@@ -146,684 +138,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="check-in-review-time" class="level2">
 <h2 class="anchored" data-anchor-id="check-in-review-time"><a href="https://forms.gle/a4c5quZMgwwyY8Bc8">Check-In : Review Time!</a></h2>
-<p>Use the cal_mega dataset (from Lab 4) to answer the questions in the check-in. Make sure to save your work in an R script.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/Class Datasets/cal_mega_SP25.csv"</span>,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">stringsAsFactors =</span> T)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(m) <span class="co"># checking my data.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                       time    sex age                       eth
-1 2025/02/14 4:52:49 PM PST   Male  20                     Asian
-2 2025/02/14 4:52:49 PM PST Female  20 White / European American
-3 2025/02/14 4:53:00 PM PST Female  20 White / European American
-4 2025/02/14 4:53:21 PM PST Female  19                     Asian
-5 2025/02/14 4:54:09 PM PST Female  20           Asian and white
-6 2025/02/14 4:54:29 PM PST   Male  24                     Asian
-                               ed.mom                               ed.dad
-1                        Some college                         Some college
-2                        Some college  Professional / Post-graduate degree
-3 Professional / Post-graduate degree High school graduation or equivalent
-4                        Some college High school graduation or equivalent
-5                  College graduation                   College graduation
-6 Professional / Post-graduate degree  Professional / Post-graduate degree
-               income e1 a1 c1r n1 o1 e2 a2r c2r n2 o2r e3 a3 c3 n4r o4 e4 a4r
-1       Over $175,001  3  3   4  4  4  3   3   4  4   3  3  3  3   4  4  4   4
-2       Over $175,001  3  4   3  5  5  3   3   3  3   3  3  3  4   2  3  4   3
-3       Over $175,001  2  4   2  4  4  4   3   2  3   1  4  4  4   4  4  4   1
-4       Over $175,001  4  4   2  4  4  3   1   3  4   3  3  4  4   2  3  2   2
-5 $125,001 - $175,000  2  5   2  4  5  3   2   2  2   1  4  4  4   3  4  5   2
-6       Over $175,001  5  5   5  5  5  5   5   5  5   5  5  5  5   5  5  5   5
-  c4 n4r.1 o4r e5r a5 c5 n5r o5 e6r a6r c6r n6 o6r swls1 swls2 swls3 swls4
-1  2     2   2   3  2  2   3  3   2   2   3  3   2     2     3     3     3
-2  3     2   2   3  3  3   3  3   3   3   3  3   3     3     3     3     3
-3  2     3   1   1  5  5   4  4   2   2   1  1   1     5     5     5     4
-4  3     3   2   3  4 NA  NA NA  NA  NA  NA NA  NA    NA    NA    NA    NA
-5  4     3   1   3  5  5   5  5   2   3   2  4   1     4     4     4     4
-6  5     5   5   5  5  5   5  5   5   5   5  5   5     5     5     5     5
-  swls5 pow1 pow2r soul1 soul2r soul3 soul4r water1 water2 water3r water4r
-1     3    3     3     4      3     3      3      3      3       3       3
-2     3    3     3     3      4     4      4      4      4       2       3
-3     4    4     2     5      2     4      5      4      4       1       4
-4    NA   NA    NA    NA     NA    NA     NA     NA     NA      NA      NA
-5     4    4     2     4      4     3      4      5      5       1       1
-6     5    5     5     5      5     5      5      5      5       5       5
-  brekky1 brekky2 brekky3r thinkcap1 thinkcap2 thinkcap3r thinkcap4r goodcap1
-1       3       3        2         2         2          4          4        4
-2       4       3        3         3         3          3          3        2
-3       1       5        1         4         4          1          1        2
-4      NA      NA       NA        NA        NA         NA         NA       NA
-5       2       5        2         5         2          2          4        3
-6       5       5        5         5         5          5          5        5
-  goodcap2r goodcap3 goodcap4r pwe1 pwe2 pwe3 pwe4r dance1 dance2 dance3r
-1         4        3         3    4    4    3     2      2      2       2
-2         4        1         4    4    4    4     1      4      4       3
-3         4        2         4    1    4    2     2      5      4       1
-4        NA       NA        NA   NA   NA   NA    NA     NA     NA      NA
-5         4        2         4    2    1    1     3      5      4       1
-6         5        5         5    5    5    5     5      5      5       5
-  dance4r phone1 phone2 phone3r diffpeep1 diffpeep2 diffpeep3r diffpeep4r
-1       2      2      2       3         3         4          4          4
-2       3      3      3       3         3         3          3          3
-3       1      4      1       5         5         5          1          1
-4      NA     NA     NA      NA        NA        NA         NA         NA
-5       1      4      3       3         5         4          1          2
-6       5      5      5       5         5         5          5          5
-  timer1 timer2 timer3r timer4r nature1 nature2 nature3r nature4r parents1
-1      3      4       4       4       4       4        4        3        5
-2      3      3       3       3       3       3        3        3        5
-3      4      1       4       4       4       4        1        1        5
-4     NA     NA      NA      NA      NA      NA       NA       NA       NA
-5      4      3       2       4       5       4        2        3        4
-6      5      5       5       5       5       5        5        5        5
-  parents2 parents3r parents4r justworld1 justworld2 justworld3 justworld4 narc
-1        5         3         2          5          4          4          3    3
-2        5         3         3          3          1          3          3    1
-3        4         1         1          4          2          2          3    1
-4       NA        NA        NA         NA         NA         NA         NA   NA
-5        4         2         2          3          3          2          3    3
-6        5         5         5          5          5          5          5    5
-  sleep1 sleep2 sleep3R sleep4 sleep5 sleep6 sleep7 sleep8 pss1 pss2R pss3R
-1      2      2       2      2      3      3      2      3    3     3     2
-2      2      2       3      2      2      3      2      2    2     2     1
-3      1      1       3      1      1      0      0      4    0     3     3
-4      2      2       2      2     NA     NA     NA     NA   NA     2    NA
-5      2      2       3      1      1      1      3      2    3     3     2
-6      4      4       4      4      4      4      4      4    4     4     4
-  pss4 onlineshop1 onlineshop2 onlineshop3 onlineshop4 onlineshop5 onlineshop6R
-1    2           3           3           3           3           3            3
-2    3           1           2           1           1           1            3
-3    0           0           3           3           0           0            0
-4   NA          NA          NA          NA          NA          NA           NA
-5    1           1           1           1           0           0            3
-6    4           4           4           4           4           4            4
-  onlineshop7R taco.best smoke.pot pinepizzatasty procrastinate boba pref.book
-1            4       Yes        No             No            No  Yes       Yes
-2            3       Yes       Yes            Yes           Yes   No        No
-3            0        No        No            Yes            No   No        No
-4           NA        No        No             No           Yes   No        No
-5            3        No        No             No           Yes   No        No
-6            4        No        No             No            No   No        No
-  read.scifi need.caff love.music clubbed read.marx been.disney attend.class
-1         No        No        Yes      No        No          No          Yes
-2         No       Yes        Yes     Yes       Yes         Yes          Yes
-3         No       Yes        Yes     Yes       Yes         Yes          Yes
-4         No       Yes        Yes     Yes       Yes         Yes           No
-5        Yes        No        Yes      No       Yes         Yes          Yes
-6         No        No         No      No        No          No           No
-  had.breakfast call.folks tried.take
-1           Yes         No        Yes
-2           Yes        Yes        Yes
-3           Yes        Yes         No
-4            No         No         No
-5           Yes         No        Yes
-6            No         No         No
-                                                                                        job.work
-1                                                             No, I am just a student right now.
-2                                                             No, I am just a student right now.
-3   Yes, I am working a full-time job in addition to being a student (40 hours or more per week)
-4                                                             No, I am just a student right now.
-5 Yes, I am working a part-time job in addition to being a student (less than 40 hours per week)
-6                                                             No, I am just a student right now.
-  fav.weather hrs.sleep screens units hrs.screen items.amazon
-1       sunny         8       2    18        6.0            3
-2       sunny         8       2    16        8.0            1
-3    #fireszn         8       2    20        5.0            1
-4       rainy         8       2    15         NA            2
-5       sunny         8       2    16        4.5            0
-6       snowy         9       2    16        3.0            1</code></pre>
-</div>
-</div>
-<ul>
-<li><p>What is the sample size of this dataset?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 122</code></pre>
-</div>
-</div></li>
-<li><p>Create a likert scale to measure people’s love of Dancing. This was measured with the following variables : dance1, dance2, dance3r, and dance4r.&nbsp;Note that dance3r and dance4r are negatively-keyed, and will need to be reverse scored. What number will you need to subtract dance3r and dance4r from in order to reverse score them?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## STEP 1. CREATE A DATA FRAME TO ISOLATE THE SCALE ITEMS!</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>DANCE.df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(m<span class="sc">$</span>dance1, m<span class="sc">$</span>dance2, m<span class="sc">$</span>dance3r, m<span class="sc">$</span>dance4r)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>DANCE.df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    m.dance1 m.dance2 m.dance3r m.dance4r
-1          2        2         2         2
-2          4        4         3         3
-3          5        4         1         1
-4         NA       NA        NA        NA
-5          5        4         1         1
-6          5        5         5         5
-7          4        4         4         4
-8          3        2         2         2
-9          3        3         2         2
-10         3        2         3         3
-11         3        2         3         2
-12         4        1         1         1
-13         2        1         4         3
-14         3        4         2         2
-15         3        2         1         2
-16         4        5         1         1
-17         4        4         2         2
-18         3        1         1         1
-19         5        5         5         5
-20         4        3         2         2
-21         2        4         1         1
-22         5        4         2         1
-23         4        4         1         1
-24         1        1         5         5
-25         5        4         1         1
-26         4        4         1         1
-27         5        1         2         2
-28         5        4         1         2
-29         4        4         1         2
-30         2        2         3         3
-31         5        5         1         1
-32         2        1         4         4
-33         3        3         3         3
-34         4        4         2         2
-35         2        2         3         4
-36         4        4         1         1
-37         2        2         4         4
-38         3        3         3         2
-39         2        1         4         4
-40         4        3         1         1
-41         3        2         2         2
-42         5        5         1         1
-43         5        5         1         1
-44         3        3         2         2
-45         5        1         1         1
-46         4        5         1         1
-47         5        5         1         1
-48         2        2         4         2
-49         3        4         1         1
-50         3        2         2         1
-51         4        4         1         1
-52         1        1         1         1
-53         4        4         2         2
-54         3        2         2         3
-55         5        5         1         1
-56         3        2         2         1
-57         5        4         1         1
-58         4        3         1         1
-59         3        2         3         4
-60         5        5         1         1
-61         5        5         1         1
-62         5        2         1         2
-63         4        2         1         2
-64         1        1         5         3
-65         4        4         1         1
-66         4        3         1         1
-67         4        2         2         3
-68         1        1         5         4
-69         5        5         1         1
-70         5        2         1         2
-71         1        2         4         3
-72         5        5         1         1
-73         4        1         2         2
-74         1        1         4         4
-75         2        1         4         3
-76         4        1         3         4
-77         3        1         3         5
-78         4        2         1         1
-79         4        1         1         5
-80         4        1         2         4
-81         1        1         5         2
-82         5        2         1         2
-83         4        2         2         2
-84         5        4         2         3
-85         4        4         2         2
-86         2        2         3         2
-87         4        2         2         2
-88         5        4         1         2
-89         2        3         2         4
-90         4        4         2         2
-91         2        2         3         2
-92         4        2         1         2
-93         1        1         3         4
-94         4        5         2         1
-95         5        4         1         1
-96         2        2         4         4
-97         5        5         1         1
-98         1        1         5         5
-99         3        2         2         2
-100        4        4         4         2
-101        4        4         2         2
-102        2        2         4         4
-103        4        5         1         1
-104        3        3         3         2
-105        3        3         1         2
-106        3        1         1         1
-107        4        1         2         3
-108        4        2         3         2
-109        5        4         1         2
-110        3        3         3         3
-111        5        4         1         1
-112        1        1         5         2
-113        4        4         2         3
-114        3        1         2         3
-115        5        4         1         1
-116        4        3         2         2
-117        2        2         4         4
-118        4        3         2         2
-119       NA       NA        NA        NA
-120        2        1         4         5
-121       NA        3         3         3
-122        4        3         2         1</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## STEP 2 : reverse score the negatively keyed items in the scale.</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>DANCE.df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(m<span class="sc">$</span>dance1, m<span class="sc">$</span>dance2, <span class="dv">6</span><span class="sc">-</span>m<span class="sc">$</span>dance3r, <span class="dv">6</span><span class="sc">-</span>m<span class="sc">$</span>dance4r)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(DANCE.df, <span class="at">na.rm =</span> T) <span class="co"># a 1-5 scale = 1 + 5 = 6 = # to subract NK items from.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 5</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>DANCE.df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    m.dance1 m.dance2 X6...m.dance3r X6...m.dance4r
-1          2        2              4              4
-2          4        4              3              3
-3          5        4              5              5
-4         NA       NA             NA             NA
-5          5        4              5              5
-6          5        5              1              1
-7          4        4              2              2
-8          3        2              4              4
-9          3        3              4              4
-10         3        2              3              3
-11         3        2              3              4
-12         4        1              5              5
-13         2        1              2              3
-14         3        4              4              4
-15         3        2              5              4
-16         4        5              5              5
-17         4        4              4              4
-18         3        1              5              5
-19         5        5              1              1
-20         4        3              4              4
-21         2        4              5              5
-22         5        4              4              5
-23         4        4              5              5
-24         1        1              1              1
-25         5        4              5              5
-26         4        4              5              5
-27         5        1              4              4
-28         5        4              5              4
-29         4        4              5              4
-30         2        2              3              3
-31         5        5              5              5
-32         2        1              2              2
-33         3        3              3              3
-34         4        4              4              4
-35         2        2              3              2
-36         4        4              5              5
-37         2        2              2              2
-38         3        3              3              4
-39         2        1              2              2
-40         4        3              5              5
-41         3        2              4              4
-42         5        5              5              5
-43         5        5              5              5
-44         3        3              4              4
-45         5        1              5              5
-46         4        5              5              5
-47         5        5              5              5
-48         2        2              2              4
-49         3        4              5              5
-50         3        2              4              5
-51         4        4              5              5
-52         1        1              5              5
-53         4        4              4              4
-54         3        2              4              3
-55         5        5              5              5
-56         3        2              4              5
-57         5        4              5              5
-58         4        3              5              5
-59         3        2              3              2
-60         5        5              5              5
-61         5        5              5              5
-62         5        2              5              4
-63         4        2              5              4
-64         1        1              1              3
-65         4        4              5              5
-66         4        3              5              5
-67         4        2              4              3
-68         1        1              1              2
-69         5        5              5              5
-70         5        2              5              4
-71         1        2              2              3
-72         5        5              5              5
-73         4        1              4              4
-74         1        1              2              2
-75         2        1              2              3
-76         4        1              3              2
-77         3        1              3              1
-78         4        2              5              5
-79         4        1              5              1
-80         4        1              4              2
-81         1        1              1              4
-82         5        2              5              4
-83         4        2              4              4
-84         5        4              4              3
-85         4        4              4              4
-86         2        2              3              4
-87         4        2              4              4
-88         5        4              5              4
-89         2        3              4              2
-90         4        4              4              4
-91         2        2              3              4
-92         4        2              5              4
-93         1        1              3              2
-94         4        5              4              5
-95         5        4              5              5
-96         2        2              2              2
-97         5        5              5              5
-98         1        1              1              1
-99         3        2              4              4
-100        4        4              2              4
-101        4        4              4              4
-102        2        2              2              2
-103        4        5              5              5
-104        3        3              3              4
-105        3        3              5              4
-106        3        1              5              5
-107        4        1              4              3
-108        4        2              3              4
-109        5        4              5              4
-110        3        3              3              3
-111        5        4              5              5
-112        1        1              1              4
-113        4        4              4              3
-114        3        1              4              3
-115        5        4              5              5
-116        4        3              4              4
-117        2        2              2              2
-118        4        3              4              4
-119       NA       NA             NA             NA
-120        2        1              2              1
-121       NA        3              3              3
-122        4        3              4              5</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## STEP 3 : evaluate the reliability</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">alpha</span>(DANCE.df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Reliability analysis   
-Call: alpha(x = DANCE.df)
-
-  raw_alpha std.alpha G6(smc) average_r S/N   ase mean sd median_r
-      0.84      0.84    0.85      0.57 5.4 0.024  3.5  1     0.56
-
-    95% confidence boundaries 
-         lower alpha upper
-Feldt     0.79  0.84  0.88
-Duhachek  0.79  0.84  0.89
-
- Reliability if an item is dropped:
-               raw_alpha std.alpha G6(smc) average_r S/N alpha se  var.r med.r
-m.dance1            0.78      0.79    0.74      0.55 3.7    0.036 0.0276  0.47
-m.dance2            0.84      0.84    0.80      0.63 5.1    0.026 0.0175  0.67
-X6...m.dance3r      0.77      0.77    0.71      0.53 3.4    0.035 0.0091  0.48
-X6...m.dance4r      0.80      0.81    0.76      0.58 4.2    0.031 0.0158  0.64
-
- Item statistics 
-                 n raw.r std.r r.cor r.drop mean  sd
-m.dance1       119  0.85  0.85  0.79   0.72  3.5 1.2
-m.dance2       120  0.79  0.77  0.66   0.60  2.8 1.4
-X6...m.dance3r 120  0.86  0.86  0.83   0.73  3.8 1.3
-X6...m.dance4r 120  0.81  0.82  0.75   0.66  3.8 1.2
-
-Non missing response frequency for each item
-                  1    2    3    4    5 miss
-m.dance1       0.08 0.14 0.19 0.34 0.24 0.02
-m.dance2       0.22 0.26 0.13 0.26 0.13 0.02
-X6...m.dance3r 0.07 0.12 0.14 0.28 0.40 0.02
-X6...m.dance4r 0.06 0.12 0.13 0.34 0.34 0.02</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## STEP 4 : IF the items in the scale are reliable, then I want to squish (or average) all the items into ONE NUMBER for each person. This will be a NEW VARIABLE created from the likert scale.</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>DANCELOVE <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(DANCE.df)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="do">## USE THIS VARIABLE IN YOUR ANALYSES!!!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></li>
-<li><p>What is the alpha reliability of this scale? Round to two decimal places.</p>
-<ul>
-<li>see above!</li>
-</ul></li>
-<li><p>What is the mean of this scale? Round to two decimal places.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(m<span class="sc">$</span>DANCELOVE, <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.491597</code></pre>
-</div>
-</div></li>
-<li><p>Graph the variable as a histogram. Describe the shape; what do you learn about our class from this variable?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(m<span class="sc">$</span>DANCELOVE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
+<p><strong>Check-in uses the <a href="https://www.dropbox.com/scl/fi/xmwha0uv3mt2xqchpy8ss/mini_cal_data.csv?rlkey=tcmtn9za6w4zqbia11ckdvdil&amp;dl=0">mini-data</a> from Lab 3</strong> (in the Dropbox Dataset Folder).</p>
+<p><a href="https://docs.google.com/document/d/15o_tnKkH217S-fTqR6t-f73Z4neFaSCZRAC8IKB8By0/edit?usp=sharing"><strong>“Practice for Exam” Google Doc</strong></a><strong>.</strong> Create a copy of this document, and practice inputting your answers like you will for the R Exam next week.</p>
+<p><a href="https://www.dropbox.com/scl/fi/r195hsf9g5uml5vfuhefd/5_Review.R?rlkey=8sji1nwleu9ovvu78kmqg5c8y&amp;dl=0"><strong>Professor R Script</strong></a>(will update as professor works…name ur dataset d to follow along)</p>
+<ol type="1">
+<li><p>Load the dataset into R. Print the number of individuals in the dataset. Print the names of the variables in the dataset. Remember to screenshot both your code and output.</p></li>
+<li><p>The variable stoned72 describes whether students self-reported whether they used marijuana in the last 72 hours. Graph this variable. Below the graph, report the frequency of each group, and describe what you observe.</p></li>
+<li><p>The variables satlife, selfes, is.happy, and bored (negatively-keyed) all measure some form of well-being. Create a scale that is the combination of these four items. Report the alpha reliability of the scale (make sure to reverse-score the bored item). What do you observe about the reliability of these four items?</p></li>
+<li><p>Now, combine the four items into one variable. Graph this variable, and report the mean, median, and standard deviation. Describe what you observe about this variable.</p></li>
+<li><p><strong>CHALLENGE :</strong> Use indexing to create two versions of the dataset; one that contains the students who said they were stoned, and one that contains students who said they were not stoned. Graph and calculate the mean of our well-being scale for these two datasets. Is there a difference in well-being between these two groups of students?</p>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="5L_Methods_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="images/clipboard-310752360.png" class="quarto-figure quarto-figure-center figure-img" width="315" height="570"></p>
 </figure>
-</div>
-</div>
 </div></li>
-<li><p>The variable hrs.screen asked students to report how many hours of screens they used (according to their phone) in the last day. What is the mean of this variable? Round to two decimal places.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(m<span class="sc">$</span>hrs.screen, <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 5.943551</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>hrs.screen[m<span class="sc">$</span>hrs.screen <span class="sc">&lt;</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(m<span class="sc">$</span>hrs.screen)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="5L_Methods_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div></li>
-<li><p>How many people did not report their hours of screen usage (i.e., how many NAs are there in this variable?)</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m<span class="sc">$</span>hrs.screen)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  1.680   4.000   6.000   6.004   7.375  15.000      16 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(m<span class="sc">$</span>hrs.screen[m<span class="sc">$</span>hrs.screen <span class="sc">==</span> <span class="st">"NA"</span>]) <span class="co"># another way!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 16</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(m<span class="sc">$</span>hrs.screen)) <span class="co"># another way!!!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 16</code></pre>
-</div>
-</div></li>
-<li><p>What’s the z-score for someone who stared at their screen for 8-hours a day? Round to two decimal places.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dv">8</span> <span class="sc">-</span> <span class="fu">mean</span>(m<span class="sc">$</span>hrs.screen, <span class="at">na.rm =</span> T) <span class="co"># distance from the mean</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.99566</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(m<span class="sc">$</span>hrs.screen, <span class="at">na.rm =</span> T) <span class="co"># the average person differs from the mean by 2.7 hours!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2.74497</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">8</span> <span class="sc">-</span> <span class="fu">mean</span>(m<span class="sc">$</span>hrs.screen, <span class="at">na.rm =</span> T))<span class="sc">/</span><span class="fu">sd</span>(m<span class="sc">$</span>hrs.screen, <span class="at">na.rm =</span> T) <span class="co"># distance from the mean/sd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.7270244</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Z = .73</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">scale</span>(m<span class="sc">$</span>hrs.screen)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>               [,1]
-  [1,] -0.001580936
-  [2,]  0.727024443
-  [3,] -0.365883626
-  [4,]           NA
-  [5,] -0.548034971
-  [6,] -1.094489006
-  [7,]  1.455629823
-  [8,] -0.001580936
-  [9,] -0.730186316
- [10,]  0.362721754
- [11,]  0.362721754
- [12,]  0.727024443
- [13,] -0.001580936
- [14,]           NA
- [15,]  0.727024443
- [16,] -0.730186316
- [17,] -1.094489006
- [18,] -0.730186316
- [19,] -0.001580936
- [20,] -1.458791695
- [21,] -0.311238223
- [22,]  1.455629823
- [23,]           NA
- [24,]           NA
- [25,]  0.362721754
- [26,] -1.276640350
- [27,] -0.730186316
- [28,]  0.909175788
- [29,]  2.184235203
- [30,] -0.365883626
- [31,]           NA
- [32,]  1.455629823
- [33,]  1.455629823
- [34,]  0.362721754
- [35,] -0.001580936
- [36,] -1.094489006
- [37,]           NA
- [38,] -0.001580936
- [39,] -1.458791695
- [40,]  0.362721754
- [41,]  0.362721754
- [42,] -0.001580936
- [43,] -1.458791695
- [44,] -0.001580936
- [45,] -0.001580936
- [46,] -1.094489006
- [47,]  2.912840582
- [48,] -0.730186316
- [49,]  2.548537892
- [50,] -1.094489006
- [51,] -1.094489006
- [52,]           NA
- [53,]  0.362721754
- [54,] -0.365883626
- [55,]  1.455629823
- [56,]  0.144140140
- [57,] -0.001580936
- [58,]  0.727024443
- [59,] -1.094489006
- [60,]           NA
- [61,] -0.001580936
- [62,] -0.365883626
- [63,]           NA
- [64,] -0.730186316
- [65,] -0.001580936
- [66,]  0.362721754
- [67,] -0.365883626
- [68,] -0.365883626
- [69,] -1.094489006
- [70,]  0.362721754
- [71,] -0.730186316
- [72,]  0.727024443
- [73,]           NA
- [74,] -0.730186316
- [75,]           NA
- [76,] -0.001580936
- [77,]  0.727024443
- [78,]  2.184235203
- [79,] -1.032557548
- [80,] -1.094489006
- [81,] -0.365883626
- [82,] -0.001580936
- [83,] -1.458791695
- [84,] -0.365883626
- [85,] -1.094489006
- [86,]           NA
- [87,] -0.730186316
- [88,] -0.912337661
- [89,] -1.094489006
- [90,]  0.180570409
- [91,] -0.001580936
- [92,] -1.458791695
- [93,] -0.001580936
- [94,] -1.575368556
- [95,] -0.730186316
- [96,]           NA
- [97,] -0.001580936
- [98,] -0.730186316
- [99,]  1.819932513
-[100,]  0.727024443
-[101,] -0.001580936
-[102,]  1.455629823
-[103,] -0.821261988
-[104,]  0.727024443
-[105,] -0.365883626
-[106,]  1.455629823
-[107,]  3.277143272
-[108,]  0.362721754
-[109,] -0.799403827
-[110,]  1.455629823
-[111,]           NA
-[112,]  0.727024443
-[113,]  0.727024443
-[114,]  0.544873098
-[115,] -0.183732281
-[116,] -1.094489006
-[117,] -0.730186316
-[118,]           NA
-[119,]           NA
-[120,] -0.365883626
-[121,]  1.091327133
-[122,] -0.001580936
-attr(,"scaled:center")
-[1] 6.00434
-attr(,"scaled:scale")
-[1] 2.74497</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scale</span>(m<span class="sc">$</span>hrs.screen)[m<span class="sc">$</span>hrs.screen <span class="sc">==</span> <span class="dv">8</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.7270244        NA 0.7270244        NA 0.7270244        NA        NA
- [8]        NA        NA        NA 0.7270244        NA        NA 0.7270244
-[15]        NA        NA 0.7270244        NA        NA 0.7270244 0.7270244
-[22]        NA 0.7270244 0.7270244        NA        NA</code></pre>
-</div>
-</div></li>
-<li><p>What does this z-score tell you?</p></li>
-</ul>
+</ol>
 <section id="announcements" class="level3">
 <h3 class="anchored" data-anchor-id="announcements">Announcements</h3>
 <ul>
-<li><p><strong>Mini Exam is in NEXT weeks [2/28]</strong></p>
+<li><p><strong>Mini Exam is NEXT week [10/13]</strong></p>
 <ul>
 <li><p><a href="https://docs.google.com/document/d/1T2kz1AyiAvlWRx4mlNcqkI7NwCHr3Bldl4ryFXwdB2c/edit?usp=sharing">STUDY GUIDE HERE</a></p></li>
 <li><p>take home; open-note; open-book; DO ON YOUR OWN.</p></li>
 <li><p>held during normal class; 85 minutes (DSP students get extra time accommodations)</p></li>
-<li><p>practice exam will post next week</p></li>
+<li><p>get 50% of your missed points back. learning is a process and exams kinda suck, so hope this helps take some of the pressure off.</p></li>
 </ul></li>
-<li><p><strong>Lab 5.</strong> Do the Fall 2024 Mini Exam. Look over the key (video key!) after you’ve done. Submit your completed exam. Auto graded, but I want you do to. (PRACTICE PRACTICE PRACTICE!)</p></li>
-<li><p><strong>Milestone #1 Due in TWO weeks [3/9]</strong></p></li>
+<li><p><strong>Lab 5 (in discussion section) :</strong> do SP25 exam for practice (with a key); while GSI having Milestone #2 meetings. help others who are stuck if you finish early?</p></li>
+<li><p><strong>Milestone #2 :</strong> Will discuss today; get feedback in discussion section. Milestones counted as part of your lab assignment grade. #shrugemojigoeshere.</p></li>
+<li><p><strong>Tutoring / Extra Support :</strong></p>
+<ul>
+<li><p>D-lab no longer offering help.</p></li>
+<li><p>Reaching out to some former students. Thx for your patience!</p></li>
+<li><p>Student-student study groups. Hooray!</p></li>
+</ul></li>
 </ul>
 </section>
 <section id="agenda" class="level3">
 <h3 class="anchored" data-anchor-id="agenda">Agenda</h3>
 <ul>
-<li><p><strong>2:10 - 3:10 |</strong> Check-In and Review</p></li>
-<li><p><strong>3:10 - 3:30 |</strong> Reliability and Validity</p></li>
-<li><p><strong>3:30 - 3:42 |</strong> Break Time</p></li>
-<li><p><strong>3:42 - 4:30 |</strong> Project Workshop.</p></li>
+<li><p><strong>3:10 - 4:00 |</strong> Check-In and Review</p></li>
+<li><p><strong>4:00 - 4:20 |</strong> Z-Score Review</p></li>
+<li><p><strong>4:20 - 4:30 |</strong> Break Time</p></li>
+<li><p><strong>4:30 - 5:00 |</strong> Reliability and Validity</p></li>
+<li><p><strong>5:00 - 6:00 |</strong> Project Workshop</p></li>
 </ul>
 </section>
-<section id="professor-check-in-code" class="level3">
-<h3 class="anchored" data-anchor-id="professor-check-in-code">Professor Check-In Code</h3>
+</section>
+<section id="check-in-review" class="level2">
+<h2 class="anchored" data-anchor-id="check-in-review">Check-In Review</h2>
+<ul>
+<li><p><a href="https://docs.google.com/document/d/15o_tnKkH217S-fTqR6t-f73Z4neFaSCZRAC8IKB8By0/edit?usp=sharing"><strong>“Practice for Exam” Google Doc</strong></a><strong>.</strong> Create a copy of this document, and practice inputting your answers like you will for the R Exam next week.</p></li>
+<li><p><a href="https://www.dropbox.com/scl/fi/r195hsf9g5uml5vfuhefd/5_Review.R?rlkey=8sji1nwleu9ovvu78kmqg5c8y&amp;dl=0"><strong>Professor R Script</strong></a>(will update as professor works…name ur dataset d to follow along)</p></li>
+</ul>
+<section id="z-scores" class="level3">
+<h3 class="anchored" data-anchor-id="z-scores">Z-Scores</h3>
+<ul>
+<li><p>Raw Units : the individual’s score.</p></li>
+<li><p>Z-Score Units : how far the individual score is from the mean, in units of standard deviation.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets - FA25/mini_cal_data.csv"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d<span class="sc">$</span>insta.follows, <span class="at">main =</span> <span class="st">"Insta Follows in 'Raw' Units"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">scale</span>(d<span class="sc">$</span>insta.follows), <span class="at">main =</span> <span class="st">"Insta Follows in 'Z-Score' Units"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="5L_Methods_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 </section>
-<section id="reliability-and-validity" class="level2">
+<section id="reliability-and-validity" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="reliability-and-validity">Reliability and Validity</h2>
 <ul>
 <li><strong>Relevance to Psychological Science</strong>
@@ -835,7 +223,7 @@ attr(,"scaled:scale")
 </ul></li>
 </ul>
 <!-- -->
-<ul>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Brandt, D. J., Sommer, J., Krach, S., Bedenbender, J., Kircher, T., Paulus, F. M., &amp; Jansen, A. (2013). Test-retest reliability of fMRI brain activity during memory encoding. Frontiers in psychiatry, 4, 163. [<a href="https://www.frontiersin.org/articles/10.3389/fpsyt.2013.00163/full">Link to Full Article</a>]</p></div><div id="fn2"><p><sup>2</sup>&nbsp;Bennett, C. M., Miller, M. B., &amp; Wolford, G. L. (2009). Neural correlates of interspecies perspective taking in the post-mortem Atlantic Salmon: an argument for multiple comparisons correction. Neuroimage, 47(Suppl 1), S125. [<a href="http://prefrontal.org/files/posters/Bennett-Salmon-2009.pdf">Link to Full Article</a>]</p></div></div><ul>
 <li><strong>Relevance to Real-Life.</strong></li>
 </ul>
 <p>How would you evaluate the reliability and validity of the STEP COUNTER on your phone???</p>
@@ -851,86 +239,68 @@ attr(,"scaled:scale")
 </tr>
 <tr class="even">
 <td><strong>face :</strong>&nbsp;does our measure or result look like what it should look like?</td>
-<td>the unit of measurement looks like what I want it to look like (STEPS); anywhere from 0 to 20,000 (A BIG DAY?!)</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td><strong>convergent :</strong>&nbsp;is our measure similar to related concepts?</td>
-<td>does the step counter increase when I take steps.</td>
+<td></td>
 </tr>
 <tr class="even">
 <td><strong>discriminant :</strong>&nbsp;is our measure different from unrelated concepts?</td>
-<td>the number of steps should be unrelated to : shaking your phone; miles driven; # of tired students in a classroom on a Friday.</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td><strong>test-retest :</strong>&nbsp;do we get the same result if we take multiple measures?</td>
-<td>take X steps at one time point, then take X steps at another time point. X should be the same both times!</td>
+<td></td>
 </tr>
 <tr class="even">
 <td><strong>interrater reliability :</strong>&nbsp;would another observer make the same measurements?</td>
-<td>carry two phones; take X steps…phones should give the same answer (Z; not necessarily X!)</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td><strong>inter-item reliability :</strong>&nbsp;would one item in the likert scale be related to others?</td>
-<td>NOT RELEVANT FOR LIKERT SCALES.</td>
+<td></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="break-time-meet-back-at-348" class="level2">
-<h2 class="anchored" data-anchor-id="break-time-meet-back-at-348">BREAK TIME : MEET BACK AT 3:48</h2>
+<section id="break-time-meet-back-at-430" class="level2">
+<h2 class="anchored" data-anchor-id="break-time-meet-back-at-430">BREAK TIME : MEET BACK AT 4:30</h2>
 <p><img src="images/clipboard-1613162713.png" class="img-fluid"></p>
 </section>
-<section id="milestone-1-final-project-workshop" class="level2">
-<h2 class="anchored" data-anchor-id="milestone-1-final-project-workshop">Milestone #1 | Final Project Workshop</h2>
-<p><a href="https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?usp=sharing"><strong>Final Project Description &amp; Rubric + Milestone #1</strong></a></p>
-<p><strong>RECAP : Questions About the Research Process / Scientific Articles?</strong></p>
-<p><strong>Introduction Deconstruction :</strong></p>
-<p>The introduction starts broad, but then quickly focuses on the variables in your model so readers can understand a) what your study is about and b) why you’re doing your study.&nbsp;</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><strong>Section</strong></td>
-<td><strong>Brief Explanation</strong></td>
-</tr>
-<tr class="even">
-<td><strong>1. The Opening</strong></td>
-<td>Describe the question you have, and explain why this question matters</td>
-</tr>
-<tr class="odd">
-<td><strong>2. The Review</strong></td>
-<td>Describe what past research and theory has to say on the question and your theory. Your goal is to give the reader the background they need to understand why you are doing your study; you don’t need to cover EVERY single issue on your topic..</td>
-</tr>
-<tr class="even">
-<td><strong>3. The Critique</strong></td>
-<td>Explain why the past research is not “the final truth”, and what other new questions might be important to consider (and why these questions matter). Only point out limitations with past research that you will address in your study; other limitations that you think future research will address should go in the discussion section.</td>
-</tr>
-<tr class="odd">
-<td><strong>4. The Current Research</strong></td>
-<td>Explain what specific questions your study will address. Be clear by stating each idea as a hypothesis with language like, “I predict” or “My first hypothesis”.</td>
-</tr>
-</tbody>
-</table>
+<section id="final-project-workshop" class="level2">
+<h2 class="anchored" data-anchor-id="final-project-workshop">Final Project Workshop</h2>
+<section id="milestone-2" class="level3">
+<h3 class="anchored" data-anchor-id="milestone-2">Milestone #2</h3>
+<p><a href="https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0#bookmark=id.8eg84yu09e7c"><strong>Final Project Description &amp; Rubric + Milestone #2</strong></a></p>
+<p>Student Examples Go Here.</p>
+</section>
+<section id="milestone-3-launching-your-study-google-forms" class="level3">
+<h3 class="anchored" data-anchor-id="milestone-3-launching-your-study-google-forms">Milestone #3 : Launching Your Study (Google Forms)</h3>
+<ol type="1">
+<li><p><strong>Make sure your DV is measured numerically.</strong> A likert scale or number response is fine.</p></li>
+<li><p><strong>Use Multiple Choice Grid for likert scales.</strong></p>
 <ul>
-<li><strong>STEP 1 : read an excerpt from the introduction</strong><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a><strong>; identify (in the margins) each of part of the introduction (“The Opening”, “The Review”, “The Critique”, and “The Current Research”)</strong></li>
+<li>Each row is an item.</li>
+<li>Use a 1-5 scale to make it easy for participants to answer.</li>
+<li>Try to make all the items fit on the same “stem”, so it’s easier for participants to get in the flow.</li>
+<li>I do not require responses; good to let folks skip questions if they want (and know to exclude their data) rather than force them to give an answer, which might be bad data.</li>
+<li>You could add an “attention check” (e.g., “Mark Strongly Agree for this question.”) if you are worried about people not taking your survey seriously. But BETTER to just keep the survey short, and give your participant some motivation (“I can send you the results of my paper if you want!”)</li>
 </ul>
-<p><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcnv5T-L9K8lZOM0e2wsBu0AxW08Rp9iRpj_jT1lIwePEkHF18N2vz08I8mY_Zf1O4S7wKc0QPEVxb9jPIdHNiPAH-fhWIMiug413IRFr_tAI8ixj6fL2ztXM0a8wv9l52IQD6xtp4PePEi0o1_okaKnFZ8?key=xsrSgQ924CtGseFQqBVMLw.png" class="img-fluid"></p>
-<p><strong>ACTIVITY : Doing a Lit Review</strong></p>
+<p><img src="images/clipboard-2843954023.png" class="img-fluid"></p></li>
+<li><p><strong>Include demographic variables like age and sex;</strong> give people options to self-identify as something outside a forced binary!</p></li>
+<li><p><strong>Keep categorical variables to just a few levels;</strong> you will need a LOT of data to capture variation if there are too many levels! 3-4 groups per variable.</p>
+<p><img src="images/clipboard-538131922.png" class="img-fluid"></p></li>
+<li><p><strong>Make sure categorical variables are not better measured numerically;</strong> set “response validation” for any open-ended numbers you hope to collect to make data cleaning easier.</p>
+<p><img src="images/clipboard-3774686706.png" class="img-fluid"></p></li>
+<li><p><strong>Make sure each variable is measured independently of the others.</strong> For example, if I want to measure the relationship between happiness and reading, I would want to measure these separately.</p>
 <ul>
-<li><p><a href="https://docs.google.com/spreadsheets/d/1CGkY6Ior_Rga1rKsaDMj8zc1ueIB2ZsVvgucS2K9SDA/edit?usp=share_link">Lit Review Template</a></p>
-<ul>
-<li><p>Open document.</p></li>
-<li><p>Click File –&gt; Make a copy</p></li>
-</ul>
-<p><img src="images/clipboard-3633028995.png" class="img-fluid"></p>
-<ul>
-<li>Fill in with your own notes about the research you find!</li>
+<li>I am happy.</li>
+<li>I like to read.</li>
+<li><del>Reading makes me happy.</del> This mixes up the two variables (the DV and IV). It could be a cool measure on its own (love for reading scale?).</li>
 </ul></li>
-<li><p><a href="https://docs.google.com/spreadsheets/d/1owKimVnJnimzC6ulCL0QhyQVdUBVbeIe2PQuPsCoPDU/edit?usp=sharing">Link to Professor Example</a></p></li>
-</ul>
+</ol>
+</section>
 </section>
 <section id="check-out" class="level2">
 <h2 class="anchored" data-anchor-id="check-out"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdl3nqWlDUGVV9ytbhhvF2_C5JWTA7r0Rjn31ltquuv5hDAaw/viewform?usp=sf_link">Check-Out</a></h2>
@@ -939,14 +309,7 @@ attr(,"scaled:scale")
 </section>
 
 
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Brandt, D. J., Sommer, J., Krach, S., Bedenbender, J., Kircher, T., Paulus, F. M., &amp; Jansen, A. (2013). Test-retest reliability of fMRI brain activity during memory encoding. Frontiers in psychiatry, 4, 163. [<a href="https://www.frontiersin.org/articles/10.3389/fpsyt.2013.00163/full">Link to Full Article</a>]<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Bennett, C. M., Miller, M. B., &amp; Wolford, G. L. (2009). Neural correlates of interspecies perspective taking in the post-mortem Atlantic Salmon: an argument for multiple comparisons correction. Neuroimage, 47(Suppl 1), S125. [<a href="http://prefrontal.org/files/posters/Bennett-Salmon-2009.pdf">Link to Full Article</a>]<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p><a href="https://scholar.princeton.edu/sites/default/files/pfrymer/files/ajps12537_rev.pdf">Full article here</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1029,8 +392,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1141,7 +502,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

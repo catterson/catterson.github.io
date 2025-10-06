@@ -58,7 +58,7 @@ $\Large \epsilon$ = residual error = distance between the predicted values of y 
 :::
 
 ```{r}
-d <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/cal_mini_SP25.csv", stringsAsFactors = T)
+d <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/old class datasets/101 - class data - SP25/cal_mini_SP25.csv", stringsAsFactors = T)
 plot(d$insta.follows, main = "Mean as a Model (Red Line)",
      xlab = "Index (Row in Dataset)",
      ylab = "# Of Accounts a Person Follows")
@@ -282,45 +282,38 @@ SST - SSM5
 
     -   figuring out how to measure your variables.
 
-### Milestone 1. Defining IV2
+### **Introduction Deconstruction :**
 
-Consider the pattern that we found earlier in class. Do you think this pattern will always hold for all people? Or would it change for some people? How so??
+The introduction starts broad, but then quickly focuses on the variables in your model so readers can understand a) what your study is about and b) why you’re doing your study. 
 
-```{r}
-plot(insta.follows ~ insta.followers, data = d) # graphs the relationship 
-abline(mod5, lwd = 5, col = 'red') # draws a red line of width five based on mod
-```
++-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Section**                       | **Brief Explanation**                                                                                                                                                                                                                                                                                                                       |
++-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **1. The Opening**                | Describe the question you have, and explain why this question matters                                                                                                                                                                                                                                                                       |
++-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **2. The Review**                 | Describe what past research and theory has to say on the question and your theory. Your goal is to give the reader the background they need to understand why you are doing your study; you don’t need to cover EVERY single issue on your topic..                                                                                          |
++-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **3. The Critique**               | Explain why the past research is not “the final truth”, and what other new questions might be important to consider (and why these questions matter). Only point out limitations with past research that you will address in your study; other limitations that you think future research will address should go in the discussion section. |
++-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **4. The Current Research**       | Explain what specific questions your study will address. Be clear by stating each idea as a hypothesis with language like, “I predict” or “My first hypothesis”.                                                                                                                                                                            |
++-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-These other variables are called *moderator variables*, and they can be a good way to identify a second independent variable for your study / help advance science. Life is complex, and some established "effect" or pattern in the data will likely change as a result of some other variable!
+-   **STEP 1 : read an excerpt from the introduction**[^1]**; identify (in the margins) each of part of the introduction (“The Opening”, “The Review”, “The Critique”, and “The Current Research”)**
 
-### [Milestone 2. Creating Your Survey.](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0#bookmark=id.8eg84yu09e7c)
+[^1]: [Full article here](https://scholar.princeton.edu/sites/default/files/pfrymer/files/ajps12537_rev.pdf)
 
-I strongly recommend using Google Forms to build your survey. A few tips.
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcnv5T-L9K8lZOM0e2wsBu0AxW08Rp9iRpj_jT1lIwePEkHF18N2vz08I8mY_Zf1O4S7wKc0QPEVxb9jPIdHNiPAH-fhWIMiug413IRFr_tAI8ixj6fL2ztXM0a8wv9l52IQD6xtp4PePEi0o1_okaKnFZ8?key=xsrSgQ924CtGseFQqBVMLw)
 
-1.  **Make sure your DV is measured numerically.** A likert scale or number response is fine.
+**ACTIVITY : Doing a Lit Review**
 
-2.  **Use Multiple Choice Grid for likert scales.**
+-   [Lit Review Template](https://docs.google.com/spreadsheets/d/1CGkY6Ior_Rga1rKsaDMj8zc1ueIB2ZsVvgucS2K9SDA/edit?usp=share_link)
 
-    -   Each row is an item.
-    -   Use a 1-5 scale to make it easy for participants to answer.
-    -   Try to make all the items fit on the same "stem", so it's easier for participants to get in the flow.
-    -   I do not require responses; good to let folks skip questions if they want (and know to exclude their data) rather than force them to give an answer, which might be bad data.
-    -   You could add an "attention check" (e.g., "Mark Strongly Agree for this question.") if you are worried about people not taking your survey seriously. But BETTER to just keep the survey short, and give your participant some motivation ("I can send you the results of my paper if you want!")
+    -   Open document.
 
-    ![](images/clipboard-2843954023.png)
+    -   Click File –\> Make a copy
 
-3.  **Include demographic variables like age and sex;** give people options to self-identify as something outside a forced binary!
+    ![](images/clipboard-3633028995.png)
 
-4.  **Keep categorical variables to just a few levels;** you will need a LOT of data to capture variation if there are too many levels! 3-4 groups per variable.
+    -   Fill in with your own notes about the research you find!
 
-    ![](images/clipboard-538131922.png)
-
-5.  **Make sure categorical variables are not better measured numerically;** set "response validation" for any open-ended numbers you hope to collect to make data cleaning easier.
-
-    ![](images/clipboard-3774686706.png)
-
-6.  **Make sure each variable is measured independently of the others.** For example, if I want to measure the relationship between happiness and reading, I would want to measure these separately.
-
-    -   I am happy.
-    -   I like to read.
-    -   ~~Reading makes me happy.~~ This mixes up the two variables (the DV and IV). It could be a cool measure on its own (love for reading scale?).
+-   [Link to Professor Example](https://docs.google.com/spreadsheets/d/1owKimVnJnimzC6ulCL0QhyQVdUBVbeIe2PQuPsCoPDU/edit?usp=sharing)

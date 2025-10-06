@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -64,10 +64,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-68e2365ed708f55c597793be074e9239.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -84,7 +84,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -114,7 +114,6 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -132,14 +131,6 @@ window.Quarto = {
     <a class="nav-link" href="https://catterson.github.io/ystats/"> 
 <span class="menu-text">Why Statistics?</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../calstats/calstatsSP25.html"> 
-<span class="menu-text">Cal Stats [Psych 101]</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../gradstats/gradstatsSP25.html"> 
-<span class="menu-text">Grad Stats [Psych 205]</span></a>
-  </li>  
 </ul>
           <div class="quarto-navbar-tools">
 </div>
@@ -150,7 +141,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
@@ -234,7 +225,7 @@ window.Quarto = {
 <li><strong>on the graph:</strong> the distance between each dot and the line.</li>
 </ul>
 </div></div><div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/Class Datasets/cal_mini_SP25.csv"</span>, <span class="at">stringsAsFactors =</span> T)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/Class Datasets/old class datasets/101 - class data - SP25/cal_mini_SP25.csv"</span>, <span class="at">stringsAsFactors =</span> T)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d<span class="sc">$</span>insta.follows, <span class="at">main =</span> <span class="st">"Mean as a Model (Red Line)"</span>,</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Index (Row in Dataset)"</span>,</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"# Of Accounts a Person Follows"</span>)</span>
@@ -584,7 +575,7 @@ Coefficients:
 </div>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(mod<span class="sc">$</span>residuals) <span class="co"># add up to zero</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.904255e-12</code></pre>
+<pre><code>[1] 4.774847e-12</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>SSM <span class="ot">&lt;-</span> <span class="fu">sum</span>(mod<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span>) </span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>SSM <span class="co"># 37million errors.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -635,7 +626,7 @@ Coefficients:
 <section id="break-time-meet-back-at-352" class="level2">
 <h2 class="anchored" data-anchor-id="break-time-meet-back-at-352">BREAK TIME : MEET BACK AT 3:52</h2>
 </section>
-<section id="final-project-workshop" class="level2">
+<section id="final-project-workshop" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="final-project-workshop">Final Project Workshop</h2>
 <section id="milestone-1.-some-questions" class="level3">
 <h3 class="anchored" data-anchor-id="milestone-1.-some-questions">Milestone 1. Some Questions</h3>
@@ -661,52 +652,59 @@ Coefficients:
 </ul></li>
 </ul>
 </section>
-<section id="milestone-1.-defining-iv2" class="level3">
-<h3 class="anchored" data-anchor-id="milestone-1.-defining-iv2">Milestone 1. Defining IV2</h3>
-<p>Consider the pattern that we found earlier in class. Do you think this pattern will always hold for all people? Or would it change for some people? How so??</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(insta.follows <span class="sc">~</span> insta.followers, <span class="at">data =</span> d) <span class="co"># graphs the relationship </span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(mod5, <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">'red'</span>) <span class="co"># draws a red line of width five based on mod</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="6AL_ModelIntro_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>These other variables are called <em>moderator variables</em>, and they can be a good way to identify a second independent variable for your study / help advance science. Life is complex, and some established “effect” or pattern in the data will likely change as a result of some other variable!</p>
-</section>
-<section id="milestone-2.-creating-your-survey." class="level3">
-<h3 class="anchored" data-anchor-id="milestone-2.-creating-your-survey."><a href="https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0#bookmark=id.8eg84yu09e7c">Milestone 2. Creating Your Survey.</a></h3>
-<p>I strongly recommend using Google Forms to build your survey. A few tips.</p>
-<ol type="1">
-<li><p><strong>Make sure your DV is measured numerically.</strong> A likert scale or number response is fine.</p></li>
-<li><p><strong>Use Multiple Choice Grid for likert scales.</strong></p>
+<section id="introduction-deconstruction" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="introduction-deconstruction"><strong>Introduction Deconstruction :</strong></h3>
+<p>The introduction starts broad, but then quickly focuses on the variables in your model so readers can understand a) what your study is about and b) why you’re doing your study.&nbsp;</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Section</strong></td>
+<td><strong>Brief Explanation</strong></td>
+</tr>
+<tr class="even">
+<td><strong>1. The Opening</strong></td>
+<td>Describe the question you have, and explain why this question matters</td>
+</tr>
+<tr class="odd">
+<td><strong>2. The Review</strong></td>
+<td>Describe what past research and theory has to say on the question and your theory. Your goal is to give the reader the background they need to understand why you are doing your study; you don’t need to cover EVERY single issue on your topic..</td>
+</tr>
+<tr class="even">
+<td><strong>3. The Critique</strong></td>
+<td>Explain why the past research is not “the final truth”, and what other new questions might be important to consider (and why these questions matter). Only point out limitations with past research that you will address in your study; other limitations that you think future research will address should go in the discussion section.</td>
+</tr>
+<tr class="odd">
+<td><strong>4. The Current Research</strong></td>
+<td>Explain what specific questions your study will address. Be clear by stating each idea as a hypothesis with language like, “I predict” or “My first hypothesis”.</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>Each row is an item.</li>
-<li>Use a 1-5 scale to make it easy for participants to answer.</li>
-<li>Try to make all the items fit on the same “stem”, so it’s easier for participants to get in the flow.</li>
-<li>I do not require responses; good to let folks skip questions if they want (and know to exclude their data) rather than force them to give an answer, which might be bad data.</li>
-<li>You could add an “attention check” (e.g., “Mark Strongly Agree for this question.”) if you are worried about people not taking your survey seriously. But BETTER to just keep the survey short, and give your participant some motivation (“I can send you the results of my paper if you want!”)</li>
+<li><strong>STEP 1 : read an excerpt from the introduction</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a><strong>; identify (in the margins) each of part of the introduction (“The Opening”, “The Review”, “The Critique”, and “The Current Research”)</strong></li>
 </ul>
-<p><img src="images/clipboard-2843954023.png" class="img-fluid"></p></li>
-<li><p><strong>Include demographic variables like age and sex;</strong> give people options to self-identify as something outside a forced binary!</p></li>
-<li><p><strong>Keep categorical variables to just a few levels;</strong> you will need a LOT of data to capture variation if there are too many levels! 3-4 groups per variable.</p>
-<p><img src="images/clipboard-538131922.png" class="img-fluid"></p></li>
-<li><p><strong>Make sure categorical variables are not better measured numerically;</strong> set “response validation” for any open-ended numbers you hope to collect to make data cleaning easier.</p>
-<p><img src="images/clipboard-3774686706.png" class="img-fluid"></p></li>
-<li><p><strong>Make sure each variable is measured independently of the others.</strong> For example, if I want to measure the relationship between happiness and reading, I would want to measure these separately.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;<a href="https://scholar.princeton.edu/sites/default/files/pfrymer/files/ajps12537_rev.pdf">Full article here</a></p></div></div><p><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcnv5T-L9K8lZOM0e2wsBu0AxW08Rp9iRpj_jT1lIwePEkHF18N2vz08I8mY_Zf1O4S7wKc0QPEVxb9jPIdHNiPAH-fhWIMiug413IRFr_tAI8ixj6fL2ztXM0a8wv9l52IQD6xtp4PePEi0o1_okaKnFZ8?key=xsrSgQ924CtGseFQqBVMLw.png" class="img-fluid"></p>
+<p><strong>ACTIVITY : Doing a Lit Review</strong></p>
 <ul>
-<li>I am happy.</li>
-<li>I like to read.</li>
-<li><del>Reading makes me happy.</del> This mixes up the two variables (the DV and IV). It could be a cool measure on its own (love for reading scale?).</li>
+<li><p><a href="https://docs.google.com/spreadsheets/d/1CGkY6Ior_Rga1rKsaDMj8zc1ueIB2ZsVvgucS2K9SDA/edit?usp=share_link">Lit Review Template</a></p>
+<ul>
+<li><p>Open document.</p></li>
+<li><p>Click File –&gt; Make a copy</p></li>
+</ul>
+<p><img src="images/clipboard-3633028995.png" class="img-fluid"></p>
+<ul>
+<li>Fill in with your own notes about the research you find!</li>
 </ul></li>
-</ol>
+<li><p><a href="https://docs.google.com/spreadsheets/d/1owKimVnJnimzC6ulCL0QhyQVdUBVbeIe2PQuPsCoPDU/edit?usp=sharing">Link to Professor Example</a></p></li>
+</ul>
 
 
 </section>
 </section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -744,18 +742,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -787,7 +774,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -795,7 +802,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -892,7 +899,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

@@ -10,7 +10,7 @@ format:
 
 ```{r}
 #| include: false
-g <- read.csv("~/Dropbox/!GRADSTATS/gradlab/Datasets/MiniGrad/mini_grad_data.csv", # loading the data
+g <- read.csv("~/Dropbox/!GRADSTATS/gradlab/grad_SP25_datasets/MiniGrad/mini_grad_data.csv", # loading the data
               stringsAsFactors = T) # I want factors!
 ```
 
@@ -106,7 +106,7 @@ round(x, 2)
 Which graph (representing how the relationship between age and self-esteem changes depending on whether someone is Male, Female, or Other) do you like the most? Why??
 
 |                                      |                                      |
-|----------------------------------|--------------------------------------|
+|------------------------------------|------------------------------------|
 | ![](images/clipboard-2207191878.png) | ![](images/clipboard-1256235521.png) |
 
 ## Evaluating Linear Models : Z-Scores and Assumptions
