@@ -7,6 +7,10 @@ format:
 
 ## [Check-In : Review Time!](https://forms.gle/a4c5quZMgwwyY8Bc8)
 
+::: column-margin
+![](images/clipboard-310752360.png){fig-align="center" width="315" height="570"}
+:::
+
 **Check-in uses the [mini-data](https://www.dropbox.com/scl/fi/xmwha0uv3mt2xqchpy8ss/mini_cal_data.csv?rlkey=tcmtn9za6w4zqbia11ckdvdil&dl=0) from Lab 3** (in the Dropbox Dataset Folder).
 
 [**"Practice for Exam" Google Doc**](https://docs.google.com/document/d/15o_tnKkH217S-fTqR6t-f73Z4neFaSCZRAC8IKB8By0/edit?usp=sharing)**.** Create a copy of this document, and practice inputting your answers like you will for the R Exam next week.
@@ -22,8 +26,6 @@ format:
 4.  Now, combine the four items into one variable. Graph this variable, and report the mean, median, and standard deviation. Describe what you observe about this variable.
 
 5.  **CHALLENGE :** Use indexing to create two versions of the dataset; one that contains the students who said they were stoned, and one that contains students who said they were not stoned. Graph and calculate the mean of our well-being scale for these two datasets. Is there a difference in well-being between these two groups of students?
-
-    ![](images/clipboard-310752360.png){fig-align="center" width="315" height="570"}
 
 ### Announcements
 
@@ -102,7 +104,7 @@ plot(scale(d$insta.follows), main = "Insta Follows in 'Z-Score' Units")
 How would you evaluate the reliability and validity of the STEP COUNTER on your phone???
 
 |  |  |
-|------------------------------------|------------------------------------|
+|----|----|
 | **Term** | **Way of Testing** |
 | **face :** does our measure or result look like what it should look like? |  |
 | **convergent :** is our measure similar to related concepts? |  |
