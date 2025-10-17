@@ -7,35 +7,37 @@ format:
 
 ## [CHECK-IN : Post Mini-Exam Survey!](https://docs.google.com/forms/d/e/1FAIpQLSeQnoTd_QK7Lp91-T98IyCR0p0gqWNJiAPUAcEFmpbE7Qv0qg/viewform?usp=header)
 
-![](images/clipboard-3082930128.png)
+![](images/clipboard-3082930128.png){width="498"}
 
 ### Announcements
 
--   **Mini Exam Is Over!**
-    -   TAs working hard to grade!
-    -   Professor regrets the time error :(
--   **Mega Exam Changes :**
-    -   Rescheduled to 4/25
-    -   85 Minutes
-    -   Will be shorter than the Mini Exam (2-3 Problems!)
--   **Final Project Milestone #1 Due SUNDAY AT 11:59 PM**
-    -   Goals : Identify your model, and support your ideas with some past research.
-    -   DRAFT : DONE IS BETTER THAN PERFECT!
--   **Final Project Milestone #2** **Due Next Friday (After Class is Fine...Sunday okay?)**
-    -   Goals : Define your IV2 and draft your survey items.
-    -   Will work on in section next week.
+-   **R Exam Is Over!**
+    -   The one reader working hard to grade!
+    -   Key + "Learning from the R Exam" will post after all the exams are graded.
+-   **Final Project Milestone #3**
+    -   See Lecture 5 Notes for a guide.
+    -   Goal :
+        -   Start collecting data (in Google Forms); take other people's surveys.
+        -   **Try to have your final project data collected in the next week :** will analyze project data as part of lab assignments.
+        -   DONE IS BETTER THAN PERFECT. (But make sure your DV is measured with NUMBERS. This is critical.)
 
 ### Agenda
 
--   2:10 - 2:30 \| Check-In and Announcements / Exam Debrief.
+-   3:10 - 3:30 \| Check-In and Announcements / Exam Debrief.
 
--   2:30 - 3:15 \| The Linear Model (I LOVE LINES)
+-   3:30 - 4:15 \| The Linear Model (PREDICTION IS A LINE)
 
--   3:15 - 3:30 \| Break Time
+-   4:15 - 4:30 \| Break Time
 
--   3:30 - 4:30 \| Final Project Workshop (Milestone #1 –\> Milestone #2)
+-   4:30 - 5:00 \| The Linear Model (ERROR IN PREDICTIONS)
 
-## The Linear Model
+-   5:00 - 5:30 \| Reliability and Validity \[RECAP\]
+
+-   5:30 - 6:00 \| Final Project Workshop (Milestone #3)
+
+## The Linear Model : Prediction is a Line
+
+### [Link to Professor R Script](https://www.dropbox.com/scl/fi/acc9v4cvhpgxfwyq3fwnl/6A_IntroductionToLinearModels.R?rlkey=r1ux1fcu8qdnmd7kuftpp1qdi&dl=0)
 
 ### RECAP : The Mean as Prediction
 
@@ -58,7 +60,7 @@ $\Large \epsilon$ = residual error = distance between the predicted values of y 
 :::
 
 ```{r}
-d <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/old class datasets/101 - class data - SP25/cal_mini_SP25.csv", stringsAsFactors = T)
+d <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets - FA25/mini_cal_data.csv", stringsAsFactors = T)
 plot(d$insta.follows, main = "Mean as a Model (Red Line)",
      xlab = "Index (Row in Dataset)",
      ylab = "# Of Accounts a Person Follows")
@@ -73,7 +75,9 @@ SST <- sum(residual^2, na.rm = T)
 SST
 ```
 
-This number made no sense, but it is a critical statistic, since it quantifies how valid our predictions of individuals were when using the mean to make predictions. To give the statistics some context, we divided the sum of squared errors by the sample size (this is the variance) and then un-squared this number (by taking the square root). This new statistic - the standard deviation - served as an average of residual error that describes how far the average person differs from the mean.
+This number made no sense, but it is a critical statistic, since it quantifies how valid our predictions of individuals were when using the mean to make predictions.
+
+To give the statistics some context, we divided the sum of squared errors by the sample size (this is the variance) and then un-squared this number (by taking the square root). This new statistic - the standard deviation - served as an average of residual error that describes how far the average person differs from the mean.
 
 ```{r}
 n <- length(na.omit(d$insta.follows)) # total number of individuals; omitting missing data.
@@ -83,17 +87,12 @@ sd(d$insta.follows, na.rm = T) # the function to get the same answer.
 
 As scientists, our goal is to make accurate predictions of individuals. So we would want to find a way to make the sum of squared errors equal zero - have no error in our predictions. The mean is a good starting place, but it's one number. And people are complex.
 
-+----------------------------------------------+---------------------------------+
-| **the mean**                                 | **the linear model ™ ©**        |
-+----------------------------------------------+---------------------------------+
+|  |  |
+|------------------------------------------|------------------------------|
+| **the mean** | **the linear model ™ ©** |
 | ![](lecture_images/6L_egg1.gif){width="324"} | ![](lecture_images/6L_egg2.gif) |
-+----------------------------------------------+---------------------------------+
 
 **The mean is an okay starting place for our predictions, but we can try to do better!**
-
-```{r}
-names(d)
-```
 
 **DISCUSS :**
 
@@ -101,19 +100,14 @@ names(d)
 
 -   **THINK ABOUT A LINEAR MODEL :** how do you think the variables (above) would help (or not help) us predict the number of accounts someone follows on instagram (insta.follows)? Why / why not???
 
-+-------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+-------------------------------------------------------------------------+
-| **Variables we think would help us make predictions**                                                                                     | **Variables we think would not help us make predictions** | **Variables we have NO IDEA if they would help us make predictions?!?** |
-+-------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+-------------------------------------------------------------------------+
-| **number of followers** (the amount of followers you have is very similar to the amount of people you follow....unless you have an ego :  | being thirsty :                                           |                                                                         |
-|                                                                                                                                           |                                                           |                                                                         |
-| -   if you have an ego; then the number of accounts you follow will be lower and less related to the number of accounts that follow you.  | hair length                                               |                                                                         |
-|                                                                                                                                           |                                                           |                                                                         |
-| -   if you don't have an ego; then there should be a strong connection.                                                                   | caffeine intake?                                          |                                                                         |
-|                                                                                                                                           |                                                           |                                                                         |
-| **time spent on social media :**                                                                                                          | height?                                                   |                                                                         |
-|                                                                                                                                           |                                                           |                                                                         |
-| **socmedia.use :** people who say they use social media a lot will follow more accounts than people who say they do not use social media. |                                                           |                                                                         |
-+-------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+-------------------------------------------------------------------------+
+```{r}
+names(d[,sapply(d, is.numeric)])
+```
+
+|  |  |
+|----------------------------------|-----------------------------------------|
+| **Variables we think would help us make predictions** | **Variables we think would not help us make predictions** |
+|  |  |
 
 ### The Linear Model in FOUR EASY STEPS.
 
@@ -121,44 +115,30 @@ The model is a line that updates our predictions of one variable based on knowle
 
 1.  Define your model : what is your DV? What are your IVs? How do you think they will be related???
 
-    `# of accounts people follow on instagram ~ soc.mediause + error`
-
 2.  Graph your DV and IV(s) : make sure the data look good.
 
 ```{r}
 par(mfrow = c(1,2))
 hist(d$insta.follows)
-max(scale(d$insta.follows), na.rm = T) # looking to see the max value and its z-score to determine whether its an outlier or not
-
-hist(d$socialmed.use)
+hist(d$socmeduse)
 ```
 
 2.  Plot the relationship between the two variables.
 
 ```{r}
-plot(insta.follows ~ socialmed.use, data = d)
-mod <- lm(insta.follows ~ socialmed.use, data = d)
-abline(mod, lwd = 5, col = 'red')
+plot(insta.follows ~ socmeduse, data = d)
 ```
 
 3.  Define the linear model and interpret the intercept and slope of the model.
 
 ```{r}
-mod <- lm(insta.follows ~ socialmed.use, data = d) # defines the model; saves as mod
-mod # shows me what is inside mod
-plot(insta.follows ~ socialmed.use, data = d) # graphs the relationship 
+mod <- lm(insta.follows ~ socmeduse, data = d) # defines the model; saves as mod
+plot(insta.follows ~ socmeduse, data = d) # graphs the relationship.
 abline(mod, lwd = 5, col = 'red') # draws a red line of width five based on mod
+coef(mod) # shows us the terms inside mod.
 ```
 
-equation for a line : y = a + bX
-
-```{r}
-coef(mod)
-# THE MODEL : insta.follows = 284 + 43.9 * X
-## predicted value of insta.follows for someone with a social media usage of 5
-284 + 43.9 * 5
-
-```
+**equation for a line : y = a + bX**
 
 ::: column-margin
 $\Large y_i$ = the DV = each individual’s actual score on the dependent variable.
@@ -185,135 +165,71 @@ $\Large \epsilon_i$ = residual error = the distance between our prediction and t
 ## Activity : Define another model to predict insta.follows from another numeric IV!!!
 
 ```{r}
-# Zara! 
-hist(d$bored)
-plot(insta.follows ~ bored, data = d)
-mod2 <- lm(insta.follows ~ bored, data = d)
-abline(mod2)
-
-# Height!! (With the outliers)
-
-mod3 <- lm(insta.follows ~ height, data = d)
-plot(insta.follows ~ height, data = d)
-abline(mod3, lwd = 5)
-
-# Height!! (Without the outliers)
-d$H2 <- d$height
-d$H2[d$H2 < 40 | d$H2 > 100] <- NA # removing outliers!
-hist(d$H2) 
-mod4 <- lm(insta.follows ~ H2, data = d)
-plot(insta.follows ~ H2, data = d)
-abline(mod4, lwd = 5)
-
-# INSTA.FOLLOWERS
-d$insta.followers[d$insta.followers > 10000] <- NA # removing the outlier!
-mod5 <- lm(insta.follows ~ insta.followers, data = d)
-plot(insta.follows ~ insta.followers, data = d)
-abline(mod5, lwd = 5)
+## Student Examples Go Here?
 ```
 
-## Evaluating Error
+## BREAK TIME : MEET BACK AT 4:30
+
+![](images/clipboard-2931715095.png)
+
+## The Linear Model : Error in Our Predictions
 
 ```{r}
 par(mfrow = c(1,2))
-plot(d$insta.follows, main = "Mean as a Model (Red Line)",
+plot(d$insta.follows, main = "Using the Mean To Make Predictions (Black Line)",
      xlab = "Index (Row in Dataset)",
      ylab = "# Of Accounts a Person Follows")
-abline(h = mean(d$insta.follows, na.rm = T), lwd = 5, col = 'red')
+abline(h = mean(d$insta.follows, na.rm = T), lwd = 5, col = 'black')
 
-plot(insta.follows ~ socialmed.use, data = d) # graphs the relationship 
+plot(insta.follows ~ socmeduse, data = d,
+     main = "Using Linear Model to Make Predictions") # graphs the relationship 
 abline(mod, lwd = 5, col = 'red') # draws a red line of width five based on mod
 ```
 
 ```{r}
-SST # sum of squared errors when using the mean (we did this an hour ago)
+residual <- d$insta.follows - mean(d$insta.follows, na.rm = T)
+SST <- sum(residual^2, na.rm = T)
+SST
+
 mod$residuals # the residuals from my model
 sum(mod$residuals) # add up to zero
+
 SSM <- sum(mod$residuals^2) 
-SSM # 37million errors.
-SST - SSM # 1898280 LESS error when I use my model to make predictions.
-(SST - SSM)/SST # about .05 or 5% reduction in the total error. 
+SSM
+SST - SSM
+(SST - SSM)/SST
 ```
 
-\^\^\^ This is called $R^2$ \^\^\^
+## 
 
-```{r}
-par(mfrow = c(1,2))
-plot(d$insta.follows, main = "Mean as a Model (Red Line)",
-     xlab = "Index (Row in Dataset)",
-     ylab = "# Of Accounts a Person Follows")
-abline(h = mean(d$insta.follows, na.rm = T), lwd = 5, col = 'red')
+## Reliability and Validity
 
-plot(insta.follows ~ insta.followers, data = d) # graphs the relationship 
-abline(mod5, lwd = 5, col = 'red') # draws a red line of width five based on mod
+-   **Relevance to Psychological Science**
 
-SSM5 <- sum(mod5$residuals^2)
-SSM5
-SST - SSM5
-(SST - SSM5)/SST
+    -   **Reliability in Neuroscience**[^1]
 
-```
+        ![](lecture_images/5L_fmrireliabilityscan.png)
 
-## BREAK TIME : MEET BACK AT 3:52
+    -   **Validity in Neuroscience**[^2]
 
-## Final Project Workshop
+        ![](lecture_images/5L_fishfmri.png)
 
-### Milestone 1. Some Questions
+-   **Relevance to Real-Life.**
 
--   do we need to use the template? \[**NO!!!!** don't worry about the template; the point of the template is to help you organize and summarize the past reseach you are reading; your TA will need to see that you've found and thought about SOME past resaerch.\]
+[^1]: Brandt, D. J., Sommer, J., Krach, S., Bedenbender, J., Kircher, T., Paulus, F. M., & Jansen, A. (2013). Test-retest reliability of fMRI brain activity during memory encoding. Frontiers in psychiatry, 4, 163. \[[Link to Full Article](https://www.frontiersin.org/articles/10.3389/fpsyt.2013.00163/full)\]
 
--   i don't wanna outline an intro. \[just a draft...keep it simple\]
+[^2]: Bennett, C. M., Miller, M. B., & Wolford, G. L. (2009). Neural correlates of interspecies perspective taking in the post-mortem Atlantic Salmon: an argument for multiple comparisons correction. Neuroimage, 47(Suppl 1), S125. \[[Link to Full Article](http://prefrontal.org/files/posters/Bennett-Salmon-2009.pdf)\]
 
-    -   example outline : sleep quality
+How would you evaluate the reliability and validity of the STEP COUNTER on your phone???
 
-        -   THE POINT : sleep quality is how people feel after they sleep, such as how restful people are.
+|  |  |
+|------------------------------------|----------------------------------|
+| **Term** | **Way of Testing** |
+| **face :** does our measure or result look like what it should look like? |  |
+| **convergent :** is our measure similar to related concepts? |  |
+| **discriminant :** is our measure different from unrelated concepts? |  |
+| **test-retest :** do we get the same result if we take multiple measures? |  |
+| **interrater reliability :** would another observer make the same measurements? |  |
+| **inter-item reliability :** would one item in the likert scale be related to others? |  |
 
-        -   EVIDENCE / WHO CARES : sleep quality is importatn because it's related to productivity (CITATION), morale (CITATION), and social interaction (CITATION).
-
-        -   THE POINT : screen time is related to sleep quality.
-
-            -   EVIDENCE : In one study, researchers found Blah blah blah.
-
-            -   WHO CARES : Screen use is increasing (CITATION), and important to know how that might be affecting sleep quality in ways that might interfere with well-being.
-
--   FOCUS ON :
-
-    -   defining a linear model
-
-    -   figuring out how to measure your variables.
-
-### **Introduction Deconstruction :**
-
-The introduction starts broad, but then quickly focuses on the variables in your model so readers can understand a) what your study is about and b) why you’re doing your study. 
-
-+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **Section**                       | **Brief Explanation**                                                                                                                                                                                                                                                                                                                       |
-+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **1. The Opening**                | Describe the question you have, and explain why this question matters                                                                                                                                                                                                                                                                       |
-+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **2. The Review**                 | Describe what past research and theory has to say on the question and your theory. Your goal is to give the reader the background they need to understand why you are doing your study; you don’t need to cover EVERY single issue on your topic..                                                                                          |
-+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **3. The Critique**               | Explain why the past research is not “the final truth”, and what other new questions might be important to consider (and why these questions matter). Only point out limitations with past research that you will address in your study; other limitations that you think future research will address should go in the discussion section. |
-+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **4. The Current Research**       | Explain what specific questions your study will address. Be clear by stating each idea as a hypothesis with language like, “I predict” or “My first hypothesis”.                                                                                                                                                                            |
-+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
--   **STEP 1 : read an excerpt from the introduction**[^1]**; identify (in the margins) each of part of the introduction (“The Opening”, “The Review”, “The Critique”, and “The Current Research”)**
-
-[^1]: [Full article here](https://scholar.princeton.edu/sites/default/files/pfrymer/files/ajps12537_rev.pdf)
-
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcnv5T-L9K8lZOM0e2wsBu0AxW08Rp9iRpj_jT1lIwePEkHF18N2vz08I8mY_Zf1O4S7wKc0QPEVxb9jPIdHNiPAH-fhWIMiug413IRFr_tAI8ixj6fL2ztXM0a8wv9l52IQD6xtp4PePEi0o1_okaKnFZ8?key=xsrSgQ924CtGseFQqBVMLw)
-
-**ACTIVITY : Doing a Lit Review**
-
--   [Lit Review Template](https://docs.google.com/spreadsheets/d/1CGkY6Ior_Rga1rKsaDMj8zc1ueIB2ZsVvgucS2K9SDA/edit?usp=share_link)
-
-    -   Open document.
-
-    -   Click File –\> Make a copy
-
-    ![](images/clipboard-3633028995.png)
-
-    -   Fill in with your own notes about the research you find!
-
--   [Link to Professor Example](https://docs.google.com/spreadsheets/d/1owKimVnJnimzC6ulCL0QhyQVdUBVbeIe2PQuPsCoPDU/edit?usp=sharing)
+## Final Project Workshop (Milestone #3)
