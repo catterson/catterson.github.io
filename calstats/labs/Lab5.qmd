@@ -1,23 +1,23 @@
 ---
-title: "Lab 5"
+title: "Lab 5 - Prof. Key - FA25"
 format: html
 ---
 
-1.  **More Mini Models.** In lecture, we defined linear models using the “mini” dataset
+1.  **More Mini Models.** In lecture, we defined linear models using the “mini” dataset.
 
     -   Load the data and check to make sure the data loaded correctly. Then, choose two numeric variables from the dataset - how do you think these variables will be related to each other?
 
-    -   Graph your DV and IV as separate variables using the hist() function. Make sure there are no errors in the data, and do any data cleaning as necessary.
+    -   Graph your DV and IV as separate variables using the hist() function. Make sure there are no errors in the data, and do any data cleaning as necessary. Underneath the graphs, describe what you observe.
 
     -   Graph the relationship between the two variables, and add the regression line to the graph.
 
     -   Report the intercept, slope, and R2 value from your model.
 
-    -   Underneath the graph describe what you learn about the relationship between these two variables (making sure to reference the relevant statistics reported above.)
+    -   Underneath the graph describe what you learn about the relationship between these two variables (making sure to reference the relevant statistics reported above.
 
     -   Finally, use your human brain to make some conclusions. What seems important about this relationship? Why do you think this relationship occurs? How might we use this knowledge?
 
-2.  **Predict Ladder.Score from a variable from the world happiness dataset.** The [world happiness dataset](https://www.dropbox.com/scl/fi/p20l0aj1ttgdl4m75dqvm/World-happiness-report-2024.csv?rlkey=26t7eubo5rowkc0bvabceyzvg&dl=0) reports the average happiness (variable = Ladder.score) for each country in the world. Predict Ladder.score (DV) from one of the following numeric variables in the dataset : "Log.GDP.per.capita"; "Social.support”; "Healthy.life.expectancy"; "Freedom.to.make.life.choices"; “Generosity”; or "Perceptions.of.corruption". Make sure to include the following.
+2.  **(In Discussion Section) Predict Ladder.Score from a variable from the world happiness dataset.** The [world happiness dataset](https://www.dropbox.com/scl/fi/p20l0aj1ttgdl4m75dqvm/World-happiness-report-2024.csv?rlkey=26t7eubo5rowkc0bvabceyzvg&dl=0) reports the average happiness (variable = Ladder.score) for each country in the world. Work with a buddy to predict Ladder.score (DV) from one of the following numeric variables in the dataset : "Log.GDP.per.capita"; "Social.support”; "Healthy.life.expectancy"; "Freedom.to.make.life.choices"; “Generosity”; or "Perceptions.of.corruption". Make sure to include the following.
 
     -   Load your dataset and check to make sure the data are loaded correctly.
 
@@ -30,3 +30,5 @@ format: html
     -   Underneath the graph describe what you learn about the relationship between these two variables (making sure to reference the relevant statistics reported above.)
 
     -   Finally, use your human brain to make some conclusions. What seems important about this relationship? Why do you think this relationship occurs? How might we use this knowledge?
+
+3.  **(In Discussion Section) Share Your Code.** Share your code for Problem 2 with another student who chose a different IV to predict Ladder.score. Use their code to generate the
