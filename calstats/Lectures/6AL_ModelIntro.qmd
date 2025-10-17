@@ -105,7 +105,7 @@ names(d[,sapply(d, is.numeric)])
 ```
 
 |  |  |
-|----------------------------------|-----------------------------------------|
+|---------------------------------|---------------------------------------|
 | **Variables we think would help us make predictions** | **Variables we think would not help us make predictions** |
 |  |  |
 
@@ -191,7 +191,7 @@ residual <- d$insta.follows - mean(d$insta.follows, na.rm = T)
 SST <- sum(residual^2, na.rm = T)
 SST
 
-mod$residuals # the residuals from my model
+head(mod$residuals) # the residuals from my model
 sum(mod$residuals) # add up to zero
 
 SSM <- sum(mod$residuals^2) 
@@ -223,7 +223,7 @@ SST - SSM
 How would you evaluate the reliability and validity of the STEP COUNTER on your phone???
 
 |  |  |
-|------------------------------------|----------------------------------|
+|-------------------------------------|-----------------------------------|
 | **Term** | **Way of Testing** |
 | **face :** does our measure or result look like what it should look like? |  |
 | **convergent :** is our measure similar to related concepts? |  |

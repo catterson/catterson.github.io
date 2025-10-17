@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab5</title>
+<title>Lab 5</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,10 +30,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4968d28af72d4e5a34172c9bc5ef961b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -51,7 +51,6 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -69,14 +68,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="https://catterson.github.io/ystats/"> 
 <span class="menu-text">Why Statistics?</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../calstats/calstatsSP25.html"> 
-<span class="menu-text">Cal Stats [Psych 101]</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../gradstats/gradstatsSP25.html"> 
-<span class="menu-text">Grad Stats [Psych 205]</span></a>
-  </li>  
 </ul>
           <div class="quarto-navbar-tools">
 </div>
@@ -93,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lab5</h1>
+<h1 class="title">Lab 5</h1>
 </div>
 
 
@@ -110,8 +101,26 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>For Lab 5, take last semester’s <a href="https://docs.google.com/document/d/1T2kz1AyiAvlWRx4mlNcqkI7NwCHr3Bldl4ryFXwdB2c/edit?usp=sharing">Mini R Exam</a>. There’s a key posted for this, but you should try to work on the exam on your own, and use the key as a guide / learning experience after getting stuck for a few minutes :)</p>
-<p>Upload your completed practice exam to receive credit. Note you will not receive feedback from your TA, so make sure to look over the key.</p>
+<ol type="1">
+<li><p><strong>More Mini Models.</strong> In lecture, we defined linear models using the “mini” dataset</p>
+<ul>
+<li><p>Load the data and check to make sure the data loaded correctly. Then, choose two numeric variables from the dataset - how do you think these variables will be related to each other?</p></li>
+<li><p>Graph your DV and IV as separate variables using the hist() function. Make sure there are no errors in the data, and do any data cleaning as necessary.</p></li>
+<li><p>Graph the relationship between the two variables, and add the regression line to the graph.</p></li>
+<li><p>Report the intercept, slope, and R2 value from your model.</p></li>
+<li><p>Underneath the graph describe what you learn about the relationship between these two variables (making sure to reference the relevant statistics reported above.)</p></li>
+<li><p>Finally, use your human brain to make some conclusions. What seems important about this relationship? Why do you think this relationship occurs? How might we use this knowledge?</p></li>
+</ul></li>
+<li><p><strong>Predict Ladder.Score from a variable from the world happiness dataset.</strong> The <a href="https://www.dropbox.com/scl/fi/p20l0aj1ttgdl4m75dqvm/World-happiness-report-2024.csv?rlkey=26t7eubo5rowkc0bvabceyzvg&amp;dl=0">world happiness dataset</a> reports the average happiness (variable = Ladder.score) for each country in the world. Predict Ladder.score (DV) from one of the following numeric variables in the dataset : “Log.GDP.per.capita”; “Social.support”; “Healthy.life.expectancy”; “Freedom.to.make.life.choices”; “Generosity”; or “Perceptions.of.corruption”. Make sure to include the following.</p>
+<ul>
+<li><p>Load your dataset and check to make sure the data are loaded correctly.</p></li>
+<li><p>Graph your DV and IV as separate variables using the hist() function. Make sure there are no errors in the data, and do any data cleaning as necessary.</p></li>
+<li><p>Graph the relationship between the two variables, and add the regression line to the graph.</p></li>
+<li><p>Report the intercept, slope, and R2 value from your model.</p></li>
+<li><p>Underneath the graph describe what you learn about the relationship between these two variables (making sure to reference the relevant statistics reported above.)</p></li>
+<li><p>Finally, use your human brain to make some conclusions. What seems important about this relationship? Why do you think this relationship occurs? How might we use this knowledge?</p></li>
+</ul></li>
+</ol>
 
 
 
@@ -198,8 +207,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -310,7 +317,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
