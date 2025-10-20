@@ -192,18 +192,18 @@ window.Quarto = {
 <section id="the-linear-model-in-categorical-iv-form" class="level2">
 <h2 class="anchored" data-anchor-id="the-linear-model-in-categorical-iv-form">The Linear Model in (Categorical IV) Form</h2>
 <section id="section" class="level3">
-<h3 class="anchored" data-anchor-id="section"><img src="images/clipboard-4143273034.png" class="img-fluid" width="668"></h3>
+<h3 class="anchored" data-anchor-id="section"><img src="images/clipboard-2826245380.png" class="img-fluid"></h3>
 </section>
 <section id="two-level-categorical-iv-simple" class="level3">
-<h3 class="anchored">Two-Level Categorical IV : Simple!</h3>
+<h3 class="anchored" data-anchor-id="two-level-categorical-iv-simple">Two-Level Categorical IV : Simple!</h3>
 <section id="step-0-develop-a-question-and-set-hypotheses." class="level4">
 <h4 class="anchored" data-anchor-id="step-0-develop-a-question-and-set-hypotheses.">Step 0 : Develop a Question and Set Hypotheses.</h4>
 <ul>
 <li><p><strong>Question :</strong> In the paper (from the R Exam dataset), the researchers predicted that scholars of color would be less likely to use power words (variable = <code>power</code>) in their abstracts than White scholars. Test this theory.</p></li>
 <li><p><strong>Hypotheses :</strong></p>
 <ul>
-<li><p>Null Hypothesis :</p></li>
-<li><p>Alternative Hypothesis :</p></li>
+<li><p><strong>Null Hypothesis :</strong> more (or no difference) in power words among authors of color than white authors.</p></li>
+<li><p><strong>Alternative Hypothesis :</strong> fewer power words among authors of color than white authors.</p></li>
 </ul></li>
 </ul>
 </section>
@@ -211,54 +211,137 @@ window.Quarto = {
 <h4 class="anchored" data-anchor-id="step-1-load-data">Step 1 : Load Data</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven) <span class="co"># the package I found to load the exam data.</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">"~/Dropbox/!GRADSTATS/gradlab/Exams/objectivityposted.sav"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">"~/Dropbox/!GRADSTATS/gradlab/Exams/objectivityposted.sav"</span>) </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 10
+   jnum impactfactor hindex pocu      pubdate    WC journaltype power posemo
+  &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl+lbl&gt;   &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+1    14         3.09     18 -1 [wh]      2014   142           1  4.93   6.34
+2     3        12.3      NA -1 [wh]      1998   279           0  0.36   1.08
+3    25         1.24     25 -1 [wh]      2004   114           0  0.88   4.39
+4    25         1.24     NA  1 [rm]      2003   136           0  3.68   0   
+5    14         3.09      4  1 [rm]      2020   195           1  0.51   7.18
+6     9         7.35     27 -1 [wh]      2006   113           0  0.88   0.88
+# ℹ 1 more variable: negemo &lt;dbl&gt;</code></pre>
+</div>
 </div>
 </section>
 <section id="step-2-evaluate-your-individual-variables." class="level4">
 <h4 class="anchored" data-anchor-id="step-2-evaluate-your-individual-variables.">Step 2 : Evaluate Your Individual Variables.</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(d<span class="sc">$</span>power)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6_modeltests102_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>pocu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;labelled&lt;double&gt;[1688]&gt;
+   [1] -1 -1 -1  1  1 -1  1 -1 -1  1 -1  1 -1 -1 -1 -1 -1 -1  1  1 -1 -1 -1 -1
+  [25] -1 -1 -1  1 -1  1  1  1 -1  1  1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1 -1
+  [49] -1 -1 -1  1 -1 -1 -1 -1 -1 -1  1 -1 -1 -1 -1 -1 -1 -1 -1  1 -1 -1 -1 -1
+  [73] -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+  [97] -1 -1 -1 -1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+ [121] -1 -1 -1 -1  1 -1  1  1  1 -1 -1 -1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+ [145] -1  1 -1  1  1  1 -1  1 -1  1 -1 -1  1 -1  1  1  1 -1  1  1  1  1  1  1
+ [169]  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1 -1 -1  1  1  1  1  1  1  1
+ [193] -1  1  1  1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1 -1 -1 -1 -1
+ [217]  1 -1 -1 -1  1 -1 -1 -1 -1  1 -1 -1 -1 -1 -1 -1 -1 -1  1  1 -1  1 -1 -1
+ [241]  1 -1 -1 -1 -1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1 -1  1
+ [265]  1 -1 -1  1  1 -1 -1 -1 -1 -1  1 -1  1 -1 -1 -1  1 -1 -1 -1 -1  1 -1 -1
+ [289] -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1  1  1 -1 -1 -1 -1 -1 -1
+ [313] -1 -1 -1 -1 -1 -1 -1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1  1  1 -1  1
+ [337] -1 -1 -1 -1 -1  1 -1 -1 -1  1 -1 -1 -1 -1 -1 -1 -1 -1  1  1 -1 -1 -1 -1
+ [361] -1 -1 -1 -1 -1 -1  1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1  1  1  1 -1 -1 -1
+ [385] -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1 -1 -1 -1  1  1  1 -1 -1 -1 -1 -1 -1 -1
+ [409] -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1 -1  1  1  1 -1  1 -1 -1
+ [433] -1 -1 -1 -1  1 -1  1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+ [457] -1 -1 -1 -1 -1 -1 -1 -1 -1  1 -1 -1 -1 -1 -1 -1 -1 -1  1  1 -1 -1 -1 -1
+ [481] -1 -1 -1 -1  1 -1  1  1  1 -1 -1 -1 -1 -1 -1  1  1  1  1  1  1  1 -1 -1
+ [505] -1 -1 -1 -1  1 -1 -1  1  1 -1  1  1  1 -1 -1 -1  1 -1  1  1  1 -1  1  1
+ [529]  1  1 -1 -1 -1  1  1 -1  1  1 -1  1  1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+ [553] -1 -1 -1  1  1 -1  1 -1  1 -1 -1 -1 -1  1  1  1 -1  1 -1  1 -1 -1 -1 -1
+ [577] -1 -1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1 -1 -1  1 -1 -1
+ [601] -1 -1 -1  1  1 -1 -1  1 -1 -1 -1 -1 -1  1 -1 -1 -1  1  1 -1  1 -1 -1 -1
+ [625]  1  1  1  1 -1 -1 -1  1  1  1  1  1 -1 -1 -1 -1 -1 -1  1  1  1 -1 -1 -1
+ [649]  1 -1  1  1  1  1  1  1  1  1  1 -1 -1 -1  1 -1 -1 -1  1  1 -1  1 -1 -1
+ [673] -1 -1 -1 -1  1  1  1 -1 -1  1 -1  1  1 -1 -1 -1 -1 -1 -1 -1 -1  1  1  1
+ [697]  1 -1 -1 -1 -1 -1 -1 -1  1  1  1 -1 -1  1  1  1 -1 -1 -1 -1 -1 -1 -1 -1
+ [721] -1  1 -1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1  1 -1 -1  1 -1 -1 -1 -1
+ [745] -1 -1 -1 -1 -1 -1 -1  1 -1 -1 -1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1
+ [769]  1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1  1 -1 -1  1  1 -1
+ [793] -1  1  1  1  1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1 -1
+ [817]  1 -1 -1 -1 -1 -1  1 -1  1  1  1 -1  1 -1 -1 -1  1  1 -1 -1 -1 -1  1  1
+ [841]  1  1  1 -1 -1  1  1 -1 -1 -1 -1 -1 -1 -1 -1  1 -1 -1  1  1  1  1 -1 -1
+ [865] -1  1  1 -1 -1  1 -1 -1 -1 -1 -1 -1  1 -1  1 -1 -1  1  1  1  1  1 -1 -1
+ [889] -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1 -1  1
+ [913] -1 -1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1 -1 -1 -1 -1 -1 -1 -1  1 -1  1
+ [937]  1  1  1 -1 -1 -1 -1 -1  1 -1 -1 -1 -1 -1 -1  1  1 -1  1 -1  1 -1 -1 -1
+ [961]  1 -1 -1 -1 -1 -1 -1  1  1 -1 -1 -1  1  1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+ [985] -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1  1 -1  1  1  1  1  1 -1 -1  1  1
+[1009] -1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[1033] -1  1  1 -1 -1  1 -1 -1 -1  1  1  1 -1 -1  1  1 -1 -1 -1 -1  1 -1 -1  1
+[1057] -1 -1 -1 -1 -1 -1  1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1  1 -1 -1 -1 -1
+[1081] -1 -1 -1 -1 -1 -1 -1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[1105]  1  1  1 -1  1  1 -1 -1  1 -1 -1  1  1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1
+[1129]  1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1  1 -1 -1 -1
+[1153]  1  1 -1 -1  1  1 -1  1 -1  1  1 -1 -1 -1 -1  1 -1  1  1 -1 -1  1 -1 -1
+[1177] -1 -1  1  1 -1 -1  1 -1 -1 -1  1 -1  1 -1 -1 -1 -1 -1 -1  1  1  1  1  1
+[1201]  1  1  1 -1 -1 -1 -1 -1 -1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[1225] -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1  1  1  1  1 -1 -1 -1 -1 -1 -1 -1 -1
+[1249] -1 -1 -1  1  1  1  1  1 -1 -1 -1  1 -1  1  1  1  1 -1  1 -1  1 -1 -1  1
+[1273]  1 -1  1  1  1  1  1 -1 -1  1  1 -1 -1  1  1 -1 -1  1  1  1  1  1  1 -1
+[1297] -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[1321] -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1 -1  1  1  1 -1  1  1  1  1
+[1345] -1 -1  1  1  1  1  1  1  1  1  1  1  1  1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[1369] -1  1 -1 -1 -1 -1 -1 -1  1 -1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[1393] -1 -1  1 -1 -1 -1 -1 -1  1 -1 -1 -1 -1 -1 -1 -1  1 -1 -1 -1 -1 -1 -1 -1
+[1417] -1 -1 -1 -1  1  1 -1 -1 -1 -1 -1 -1 -1  1 -1  1  1  1  1 -1 -1  1  1  1
+[1441]  1  1  1  1  1  1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1  1  1  1  1  1
+[1465]  1  1  1  1  1  1  1  1  1  1  1  1  1 -1 -1 -1 -1 -1  1 -1 -1 -1 -1 -1
+[1489] -1  1  1  1  1 -1 -1  1  1  1  1 -1 -1 -1  1  1  1  1  1 -1 -1 -1 -1 -1
+[1513] -1 -1 -1 -1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1  1 -1  1 -1 -1 -1  1 -1
+[1537] -1 -1 -1  1  1  1  1  1 -1 -1 -1  1  1 -1 -1 -1 -1  1 -1 -1 -1 -1 -1 -1
+[1561] -1 -1 -1 -1 -1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[1585] -1 -1 -1  1  1  1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1 -1 -1 -1 -1 -1 -1 -1  1
+[1609] -1 -1 -1  1 -1 -1 -1 -1  1  1  1 -1 -1 -1 -1 -1 -1 -1  1  1  1  1 -1 -1
+[1633]  1  1  1  1  1  1 -1  1  1  1  1  1  1 -1  1  1  1  1  1 -1 -1 -1 -1 -1
+[1657] -1  1  1 -1 -1 -1 -1 -1 -1 -1 -1  1 -1 -1 -1 -1 -1  1  1  1 -1 -1  1  1
+[1681]  1  1 -1 -1 -1  1 -1  1
+
+Labels:
+ value label
+    -1    wh
+     1    rm</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>pocuF <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(d<span class="sc">$</span>pocu)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d<span class="sc">$</span>pocuF) <span class="co"># is categorical.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6_modeltests102_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(d<span class="sc">$</span>pocuF) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"White Authors"</span>, <span class="st">"Authors of Color"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d<span class="sc">$</span>pocuF) <span class="co"># is categorical.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6_modeltests102_files/figure-html/unnamed-chunk-2-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="step-3-define-and-interpret-your-linear-model." class="level4">
-<h4 class="anchored">Step 3 : Define and Interpret Your Linear Model.</h4>
-<ul>
-<li><p><strong>The Model :</strong> <span class="math inline">\(\hat{Y} = a + b_1 * X_1\)</span></p>
-<ul>
-<li><span class="math inline">\(a\)</span> (sometimes = Intercept = Predicted Value of Y when all X values are zero.</li>
-<li><span class="math inline">\(X_1\)</span> = A <strong>dummy coded</strong> categorical variable. This is often the default method of comparing two groups, and compares each level of the factor to a reference level.
-<ul>
-<li><p><span class="math inline">\(X_1\)</span> = 0 =</p></li>
-<li><p><span class="math inline">\(X_1\)</span> = 1 =</p></li>
-</ul></li>
-<li><span class="math inline">\(b_1\)</span> = the slope = the predicted change in Y as X changes by 1</li>
-</ul></li>
-<li><p><strong>Using the Model to Make Predictions</strong></p>
-<ul>
-<li><h2 id="predicted-dv-if-iv-0" class="anchored" data-anchor-id="step-3-define-and-interpret-your-linear-model.">predicted DV if IV = 0?</h2>
-<ul>
-<li></li>
-</ul></li>
-<li><h2 id="predicted-dv-if-iv-1" class="anchored">predicted DV if IV = 1?</h2>
-<ul>
-<li></li>
-</ul></li>
-<li>Note that these values are the same as the average DV for people who were in each group of the IV.</li>
-</ul></li>
-</ul>
-<!-- -->
-<ul>
-<li><p><strong>The Graph</strong>. A few ways to graph the linear model with the IV is categorical.</p>
-<ul>
-<li>Note that the <code>plot()</code> function draws a boxplot that illustrates the median of each group; whereas the linear model emphasizes the mean.</li>
-</ul></li>
-</ul>
+<h4 class="anchored" data-anchor-id="step-3-define-and-interpret-your-linear-model.">Step 3 : Define and Interpret Your Linear Model.</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot(DV ~ IV, data = d)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>For “quick” methods, I like <code>plotmeans()</code> from the <code>gplots()</code> library. This plots the mean of each group.</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("gplots")</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gplots) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gplots)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: 'gplots'</code></pre>
@@ -268,13 +351,123 @@ Attaching package: 'gplots'</code></pre>
 
     lowess</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plotmeans(DV ~ IV, data = d, connect = F)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(power <span class="sc">~</span> pocuF, <span class="at">data =</span> d)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(power <span class="sc">~</span> pocuF, <span class="at">data =</span> d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6_modeltests102_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(power <span class="sc">~</span> pocuF, <span class="at">data =</span> d)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(power <span class="sc">~</span> pocuF, <span class="at">data =</span> d, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="fu">range</span>(d<span class="sc">$</span>power, <span class="at">na.rm =</span> T)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in arrows(x, li, x, pmax(y - gap, li), col = barcol, lwd = lwd, :
+zero-length arrow is of indeterminate angle and so skipped
+Warning in arrows(x, li, x, pmax(y - gap, li), col = barcol, lwd = lwd, :
+zero-length arrow is of indeterminate angle and so skipped</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in arrows(x, ui, x, pmin(y + gap, ui), col = barcol, lwd = lwd, :
+zero-length arrow is of indeterminate angle and so skipped
+Warning in arrows(x, ui, x, pmin(y + gap, ui), col = barcol, lwd = lwd, :
+zero-length arrow is of indeterminate angle and so skipped</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>msd <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">mean</span>(d<span class="sc">$</span>power) <span class="sc">-</span> <span class="fu">sd</span>(d<span class="sc">$</span>power), <span class="fu">mean</span>(d<span class="sc">$</span>power) <span class="sc">+</span> <span class="fu">sd</span>(d<span class="sc">$</span>power))</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(power <span class="sc">~</span> pocuF, <span class="at">data =</span> d, <span class="at">ylim =</span> <span class="fu">c</span>(msd))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6_modeltests102_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## what do you see? what's effective about the graph? what's confusing / misleading???</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Notes on the graph :</p>
+<ul>
+<li><p>the good : included the sample size of each group; there appears to be a “BIG” difference between white authors and authors of color in terms of power words.</p></li>
+<li><p>the bad : zooming in exaggerates the difference….</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(power <span class="sc">~</span> pocuF, <span class="at">data =</span> d, <span class="at">connect =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6_modeltests102_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div></li>
+<li><p><strong>The Model :</strong> <span class="math inline">\(\hat{Y} = a + b_1 * X_1\)</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          (Intercept) pocuFAuthors of Color 
+            3.5632442            -0.4910325 </code></pre>
+</div>
+</div>
+<ul>
+<li><span class="math inline">\(a\)</span> (sometimes = Intercept = Predicted Value of Y when all X values are zero.</li>
+<li><span class="math inline">\(X_1\)</span> = A <strong>dummy coded</strong> categorical variable. This is often the default method of comparing two groups, and compares each level of the factor to a reference level.
+<ul>
+<li><p><span class="math inline">\(X_1\)</span> = 0 = not an author of color</p></li>
+<li><p><span class="math inline">\(X_1\)</span> = 1 = are an author of color</p></li>
+</ul></li>
+<li><span class="math inline">\(b_1\)</span> = the slope = the predicted change in Y as X changes by 1</li>
+</ul></li>
+<li><p><strong>Using the Model to Make Predictions</strong></p>
+<ul>
+<li><p>power words = 3.56 - .49 * Author of Color</p>
+<ul>
+<li><p>if author of color = “yes”, X = 1 = 3.56 - .49 * 1 = 3.07 = the intercept + the adjustment we make for this group.</p></li>
+<li><p>if author of color = “no”, X = 0 = 3.56 - .49 * 0 = 3.56 = the intercept</p></li>
+</ul></li>
+<li><p>Note that these values are the same as the average DV for people who were in each group of the IV.</p></li>
+</ul></li>
+<li><p><strong>The Graph</strong>. A few ways to graph the linear model with the IV is categorical.</p>
+<ul>
+<li>Note that the <code>plot()</code> function draws a boxplot that illustrates the median of each group; whereas the linear model emphasizes the mean.</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot(DV ~ IV, data = d)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>For “quick” methods, I like <code>plotmeans()</code> from the <code>gplots()</code> library. This plots the mean of each group.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("gplots")</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gplots) </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">#plotmeans(DV ~ IV, data = d, connect = F)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="step-4-evaluate-the-effect-size" class="level4">
 <h4 class="anchored" data-anchor-id="step-4-evaluate-the-effect-size">Step 4 : Evaluate the Effect Size?</h4>
 <ul>
-<li><span class="math inline">\(R^2\)</span> <strong>(Effect Size) :</strong> This describes the percentage of variation in hunger that is explained by our model (in this case, using whether someone had breakfast to make predictions of hunger.) So, using the model to make predictions of hunger reduces our squared errors by %17 (vs.&nbsp;using the mean to make predictions.)</li>
+<li><span class="math inline">\(R^2\)</span> <strong>(Effect Size) :</strong> This describes the percentage of variation in hunger that is explained by our model (in this case, using whether someone had breakfast to make predictions of hunger.) So, using the model to make predictions of hunger reduces our squared errors by %17 (vs.&nbsp;using the mean to make predictions.)
+<ul>
+<li>we see a very small <span class="math display">\[R^2\]</span> value.
+<ul>
+<li>This tells us : RACE DOESN’T PREDICT VERY MUCH POWER USAGE IN ABSTRACTS. BUT NON-ZERO!!!!</li>
+<li>This does NOT tell us :
+<ul>
+<li>whether this difference is “statistically significant” or not (i.e., is the difference consistent, or do we think that it’s there JUST because of sampling error????)</li>
+<li>whether the effect is important or matters : any biases in the field matter.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)<span class="sc">$</span>r.squared<span class="sc">*</span><span class="dv">100</span> <span class="co"># our model (using race to predict power usage) explains about .62% of the variation in power words used.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6201081</code></pre>
+</div>
+</div>
+<ul>
 <li><strong>Cohen’s D :</strong> (see below!)</li>
 </ul>
 </section>
@@ -285,35 +478,49 @@ Attaching package: 'gplots'</code></pre>
 <p>People find <span class="math inline">\(R^2\)</span> confusing and unit-less and about squared numbers and describes how good the model is as a whole; sometimes I just want to understand how BIG the difference between the groups is. One method people us is to compare the distance between groups, relative to the average distance between individuals (the standard deviation.)</p>
 <p>However, if we are assuming these groups are different in some important way, then we may not want to use a standard deviation statistic that considers individuals to belong to the same group. The pooled standard deviation is a weighted average of the standard deviation from each group.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">### subsetting the data into two groups.</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#d0 &lt;- d[d$IV == "levelA",]</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#d1 &lt;- d[d$IV == "levelB",]</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="do">## calculating the sample size of these two new datasets.</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#n0 &lt;- nrow(d0)</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#n1 &lt;- nrow(d1)</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#df0 &lt;- n0-1 # the sample size, minus 1</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">#df1 &lt;- n1-1</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#var0 &lt;- var(d0$DV)</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#var1 &lt;- var(d1$DV)</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">#poolvar &lt;- ((df1 * var1) + (df0 * var0))/(df1 + df0)</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">#poolsd &lt;- poolvar^.5</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co">#diff &lt;- coef(mod)[2] # the difference between groups (the slope)</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co">#diff/poolsd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="do">### subsetting the data into two groups.</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#d0 &lt;- d[d$IV == "levelA",]</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">#d1 &lt;- d[d$IV == "levelB",]</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="do">## calculating the sample size of these two new datasets.</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">#n0 &lt;- nrow(d0)</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co">#n1 &lt;- nrow(d1)</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co">#df0 &lt;- n0-1 # the sample size, minus 1</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="co">#df1 &lt;- n1-1</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="co">#var0 &lt;- var(d0$DV)</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="co">#var1 &lt;- var(d1$DV)</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="co">#poolvar &lt;- ((df1 * var1) + (df0 * var0))/(df1 + df0)</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="co">#poolsd &lt;- poolvar^.5</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="co">#diff &lt;- coef(mod)[2] # the difference between groups (the slope)</span></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a><span class="co">#diff/poolsd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
+<li><strong>Cohen’s D</strong> = slope / pooled(sd)</li>
 <li>The psych package has a cohen’s d function built in that calculates this for you.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#cohen.d(d$DV, d$IV)</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#cohen.d(DV ~ IV, data = d)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cohen.d</span>(power <span class="sc">~</span> pocuF, <span class="at">data =</span> d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call: cohen.d(x = power ~ pocuF, data = d)
+Cohen d statistic of difference between two means
+      lower effect upper
+power -0.27  -0.17 -0.07
+
+Multivariate (Mahalanobis) distance between groups
+[1] 0.17
+r equivalent of difference between two means
+power 
+-0.08 </code></pre>
 </div>
-<p>Okay, so what does this statistic mean? Well, this tells us that the difference between folks who had breakfast and those who did not (the slope in our model) is not even as large as the difference between any two random individuals (the pooled sd). But is this a little? A lot?</p>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#cohen.d(d$DV, d$IV)</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">#cohen.d(DV ~ IV, data = d)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Okay, so what does this statistic mean? Well, this tells us that the difference in power words between White Authors and Authors of Color (the slope in our model = -.49) is only .17 times the difference between any two random individuals (the pooled sd). But is this a little? A lot?</p>
 <ul>
 <li>Many people reference Cohen’s “convention” of what defines effect size to be small (d = .2), medium (.5), and large effect (d = .8). However, this summary glosses Cohen’s disclaimer, as well as a ton of other context that <a href="https://www.utstat.toronto.edu/brunner/oldclass/378f16/readings/CohenPower.pdf">Cohen provides in his original book</a>.</li>
 </ul>
@@ -328,7 +535,7 @@ Attaching package: 'gplots'</code></pre>
 <li>R will default to a reference level based on alphabetical order, so in this case, “No” will be the reference group. To change the reference group, you can relevel the factor.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># d$IVR &lt;- relevel(d$IV, ref = "references")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># d$IVR &lt;- relevel(d$IV, ref = "references")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -362,19 +569,88 @@ Attaching package: 'gplots'</code></pre>
 <p>Assumptions 4 and 5 can be examined using the plot() function in base R - you may have accidentally come across these when trying to graph your linear model.</p>
 <p>We talked about how to interpret these plots a little in lecture; here’s <a href="https://library.virginia.edu/data/articles/diagnostic-plots">another tutorial</a> that walks through the interpretation. Let us know (on Discord!) if you find another good example / explanation.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#par(mfrow = c(2,2))</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#plot(mod)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#par(mfrow = c(2,2))</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co">#plot(mod)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Assumption 6 can be examined by graphing the residuals of your model object with a histogram.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#par(mfrow = c(1,1))</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#hist(mod$residuals)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#par(mfrow = c(1,1))</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co">#hist(mod$residuals)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="step-6-estimate-sampling-error" class="level2">
 <h2 class="anchored" data-anchor-id="step-6-estimate-sampling-error">Step 6 : Estimate Sampling Error</h2>
 <p>Bootstrapping.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>bucket <span class="ot">&lt;-</span> <span class="fu">array</span>()</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>)){</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  dboot <span class="ot">&lt;-</span> d[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(d), <span class="fu">nrow</span>(d), <span class="at">replace =</span> T), ]</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  modboot <span class="ot">&lt;-</span> <span class="fu">lm</span>(power <span class="sc">~</span> pocuF, <span class="at">data =</span> dboot)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  bucket[i] <span class="ot">&lt;-</span> <span class="fu">coef</span>(modboot)[<span class="dv">2</span>]</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bucket) <span class="co"># should be close to original model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.4892475</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(bucket) <span class="co"># the estimate of sampling error</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1419557</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(bucket)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.881891422 -0.008095846</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>se <span class="ot">&lt;-</span> <span class="fu">sd</span>(bucket) <span class="co"># the estimate of sampling error</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">coef</span>(mod)[<span class="dv">2</span>] <span class="co"># the original slope</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>b <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> se <span class="co"># upper limit of 95% CI</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>pocuFAuthors of Color 
+           -0.2127992 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>b <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> se <span class="co"># lower limit of 95% CI</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>pocuFAuthors of Color 
+           -0.7692657 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(bucket)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(bucket), <span class="at">lwd =</span> <span class="dv">5</span>)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> b <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> se, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> b <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> se, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6_modeltests102_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="bringing-this-all-together-wtf-is-going-on" class="level3">
+<h3 class="anchored" data-anchor-id="bringing-this-all-together-wtf-is-going-on">BRINGING THIS ALL TOGETHER WTF IS GOING ON?!??!?!?!?!!?!?</h3>
+<p>We found a difference in the power words that White Authors and Authors of Color used in their abstracts (<u>b = -.49</u>, cohen’s d = .17, <span class="math display">\[R^2\]</span> = .0062, 95% CI = [-.77, -.22]).</p>
+<ul>
+<li><p>QUESTION : what statistic (cohen’s d; R^2, or the 95% CI) seems the most relevant for understanding this difference (b = -.49)????</p>
+<ul>
+<li><p><strong>95% CI =</strong> tells us the difference is “significant”…not just due to sampling error.</p>
+<ul>
+<li><p>as a researcher we want the CI to be narrow but tells us that our study is (maybe) a more accurate guess about what is going on with the “true” population.</p></li>
+<li><p>the 95% CI tells us nothing about the effect size.</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(power <span class="sc">~</span> pocuF, <span class="at">data =</span> d, <span class="at">connect =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6_modeltests102_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="presentations" class="level2">
 <h2 class="anchored" data-anchor-id="presentations"><a href="https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing">Presentations</a></h2>
@@ -385,11 +661,31 @@ Attaching package: 'gplots'</code></pre>
 <p>The basic equation for the standard error is : <span class="math inline">\(se = sd(x) / \sqrt{n}\)</span></p>
 <p>We can easily pull up these statistics using the summary() function. The interpretation of these statistics will take more time!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(mod)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = power ~ pocuF, data = d)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.5632 -2.0955 -0.7677  1.2943 14.9068 
+
+Coefficients:
+                      Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)            3.56324    0.08475  42.044   &lt;2e-16 ***
+pocuFAuthors of Color -0.49103    0.15139  -3.243   0.0012 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.885 on 1686 degrees of freedom
+Multiple R-squared:  0.006201,  Adjusted R-squared:  0.005612 
+F-statistic: 10.52 on 1 and 1686 DF,  p-value: 0.001204</code></pre>
+</div>
 </div>
 <p><strong>Standard Error</strong> is similar to the sampling error we estimated through bootstrapping (you will test this in Lab 6!).<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;(And side note : to get what R calculates in our model, we will weight each pooled variance by the sample size of each group.)</p></div></div><div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#sqrt((poolvar/n0) + (poolvar/n1))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">#sqrt((poolvar/n0) + (poolvar/n1))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>However, there are a few key conceptual and computational differences.</p>
 <table class="caption-top table">
@@ -433,8 +729,8 @@ Attaching package: 'gplots'</code></pre>
 </table>
 <p>Note that the t-test does the same thing that our linear model does; evaluates the difference in groups, relative to an estimate of the sampling error we might observe.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(mod)</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#t.test(d0$DV, d1$DV, var.equal = T)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(mod)</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co">#t.test(d0$DV, d1$DV, var.equal = T)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="activity-work-on-lab-6." class="level2">

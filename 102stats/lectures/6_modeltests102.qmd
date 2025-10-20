@@ -31,7 +31,7 @@ format:
 
 ## The Linear Model in (Categorical IV) Form
 
-### ![](images/clipboard-4143273034.png){width="668"}
+### ![](images/clipboard-2826245380.png)
 
 ### Two-Level Categorical IV : Simple!
 
@@ -41,49 +41,75 @@ format:
 
 -   **Hypotheses :**
 
-    -   Null Hypothesis :
+    -   **Null Hypothesis :** more (or no difference) in power words among authors of color than white authors.
 
-    -   Alternative Hypothesis :
+    -   **Alternative Hypothesis :** fewer power words among authors of color than white authors.
 
-#### Step 1 : Load Data 
+#### Step 1 : Load Data
 
 ```{r}
 library(haven) # the package I found to load the exam data.
 d <- read_sav("~/Dropbox/!GRADSTATS/gradlab/Exams/objectivityposted.sav") 
+head(d)
 ```
 
 #### Step 2 : Evaluate Your Individual Variables.
 
 ```{r}
-
+hist(d$power)
+d$pocu
+d$pocuF <- as.factor(d$pocu)
+plot(d$pocuF) # is categorical.
+levels(d$pocuF) <- c("White Authors", "Authors of Color")
+plot(d$pocuF) # is categorical.
 ```
 
 #### Step 3 : Define and Interpret Your Linear Model.
 
 ```{r}
-
+library(gplots)
+mod <- lm(power ~ pocuF, data = d)
+boxplot(power ~ pocuF, data = d)
+par(mfrow = c(1,3))
+plotmeans(power ~ pocuF, data = d)
+plotmeans(power ~ pocuF, data = d, ylim = c(range(d$power, na.rm = T)))
+msd <- c(mean(d$power) - sd(d$power), mean(d$power) + sd(d$power))
+plotmeans(power ~ pocuF, data = d, ylim = c(msd))
+## what do you see? what's effective about the graph? what's confusing / misleading???
 ```
+
+-   Notes on the graph :
+
+    -   the good : included the sample size of each group; there appears to be a "BIG" difference between white authors and authors of color in terms of power words.
+
+    -   the bad : zooming in exaggerates the difference....
+
+    ```{r}
+    plotmeans(power ~ pocuF, data = d, connect = F)
+    ```
 
 -   **The Model :** $\hat{Y} = a + b_1 * X_1$
 
+    ```{r}
+    coef(mod)
+    ```
+
     -   $a$ (sometimes = Intercept = Predicted Value of Y when all X values are zero.
     -   $X_1$ = A **dummy coded** categorical variable. This is often the default method of comparing two groups, and compares each level of the factor to a reference level.
-        -   $X_1$ = 0 =
+        -   $X_1$ = 0 = not an author of color
 
-        -   $X_1$ = 1 =
+        -   $X_1$ = 1 = are an author of color
     -   $b_1$ = the slope = the predicted change in Y as X changes by 1
 
 -   **Using the Model to Make Predictions**
 
-    -   predicted DV if IV = 0?
-        -   
-        -   
-    -   predicted DV if IV = 1?
-        -   
-        -   
-    -   Note that these values are the same as the average DV for people who were in each group of the IV.
+    -   power words = 3.56 - .49 \* Author of Color
 
-<!-- -->
+        -   if author of color = "yes", X = 1 = 3.56 - .49 \* 1 = 3.07 = the intercept + the adjustment we make for this group.
+
+        -   if author of color = "no", X = 0 = 3.56 - .49 \* 0 = 3.56 = the intercept
+
+    -   Note that these values are the same as the average DV for people who were in each group of the IV.
 
 -   **The Graph**. A few ways to graph the linear model with the IV is categorical.
 
@@ -104,6 +130,16 @@ library(gplots)
 #### Step 4 : Evaluate the Effect Size?
 
 -   $R^2$ **(Effect Size) :** This describes the percentage of variation in hunger that is explained by our model (in this case, using whether someone had breakfast to make predictions of hunger.) So, using the model to make predictions of hunger reduces our squared errors by %17 (vs. using the mean to make predictions.)
+    -   we see a very small $$R^2$$ value.
+        -   This tells us : RACE DOESN'T PREDICT VERY MUCH POWER USAGE IN ABSTRACTS. BUT NON-ZERO!!!!
+        -   This does NOT tell us :
+            -   whether this difference is "statistically significant" or not (i.e., is the difference consistent, or do we think that it's there JUST because of sampling error????)
+            -   whether the effect is important or matters : any biases in the field matter.
+
+```{r}
+summary(mod)$r.squared*100 # our model (using race to predict power usage) explains about .62% of the variation in power words used.
+```
+
 -   **Cohen's D :** (see below!)
 
 ## Something New : Cohen's D (Effect Size)
@@ -134,15 +170,17 @@ However, if we are assuming these groups are different in some important way, th
 #diff/poolsd
 ```
 
+-   **Cohen's D** = slope / pooled(sd)
 -   The psych package has a cohen's d function built in that calculates this for you.
 
 ```{r}
 library(psych)
+cohen.d(power ~ pocuF, data = d)
 #cohen.d(d$DV, d$IV)
 #cohen.d(DV ~ IV, data = d)
 ```
 
-Okay, so what does this statistic mean? Well, this tells us that the difference between folks who had breakfast and those who did not (the slope in our model) is not even as large as the difference between any two random individuals (the pooled sd). But is this a little? A lot?
+Okay, so what does this statistic mean? Well, this tells us that the difference in power words between White Authors and Authors of Color (the slope in our model = -.49) is only .17 times the difference between any two random individuals (the pooled sd). But is this a little? A lot?
 
 -   Many people reference Cohen's "convention" of what defines effect size to be small (d = .2), medium (.5), and large effect (d = .8). However, this summary glosses Cohen's disclaimer, as well as a ton of other context that [Cohen provides in his original book](https://www.utstat.toronto.edu/brunner/oldclass/378f16/readings/CohenPower.pdf).
 
@@ -215,7 +253,42 @@ Assumption 6 can be examined by graphing the residuals of your model object with
 Bootstrapping.
 
 ```{r}
+bucket <- array()
+for(i in c(1:1000)){
+  dboot <- d[sample(1:nrow(d), nrow(d), replace = T), ]
+  modboot <- lm(power ~ pocuF, data = dboot)
+  bucket[i] <- coef(modboot)[2]
+}
 
+mean(bucket) # should be close to original model
+sd(bucket) # the estimate of sampling error
+range(bucket)
+se <- sd(bucket) # the estimate of sampling error
+b <- coef(mod)[2] # the original slope
+
+b + 1.96 * se # upper limit of 95% CI
+b - 1.96 * se # lower limit of 95% CI
+
+hist(bucket)
+abline(v = mean(bucket), lwd = 5)
+abline(v = b + 1.96 * se, lwd = 2)
+abline(v = b - 1.96 * se, lwd = 2)
+```
+
+### BRINGING THIS ALL TOGETHER WTF IS GOING ON?!??!?!?!?!!?!?
+
+We found a difference in the power words that White Authors and Authors of Color used in their abstracts ([b = -.49]{.underline}, cohen's d = .17, $$R^2$$ = .0062, 95% CI = \[-.77, -.22\]).
+
+-   QUESTION : what statistic (cohen's d; R\^2, or the 95% CI) seems the most relevant for understanding this difference (b = -.49)????
+
+    -   **95% CI =** tells us the difference is "significant"...not just due to sampling error.
+
+        -   as a researcher we want the CI to be narrow but tells us that our study is (maybe) a more accurate guess about what is going on with the "true" population.
+
+        -   the 95% CI tells us nothing about the effect size.
+
+```{r}
+plotmeans(power ~ pocuF, data = d, connect = F)
 ```
 
 ## [Presentations](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
@@ -229,7 +302,7 @@ The basic equation for the standard error is : $se = sd(x) / \sqrt{n}$
 We can easily pull up these statistics using the summary() function. The interpretation of these statistics will take more time!
 
 ```{r}
-#summary(mod)
+summary(mod)
 ```
 
 **Standard Error** is similar to the sampling error we estimated through bootstrapping (you will test this in Lab 6!).[^1]

@@ -50,35 +50,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -137,8 +108,9 @@ window.Quarto = {
 <li>Load the data and make sure the data loaded correctly.</li>
 <li>Graph the variables that will go into your linear model, and do any data cleaning that’s necessary. Make sure your IV is saved as a categorical variable.</li>
 <li>Define the linear model. Graph the relationship between the two variables, report the slope and intercept, and explain what these terms mean.</li>
-<li>Calculate the two measures of effect size : cohen’s d and <span class="math display">\[R^2\]</span>. Describe what each of these statistics tell you.</li>
-<li>That’s right; it’s time to estimate sampling error of the slope! Use bootstrapping to estimate the 95% Confidence Interval for the slope, and explain what this statistics tells you about the relationship between the DV and the IV.</li>
+<li>Calculate the two measures of effect size : cohen’s d and R^2. Describe what each of these statistics tell you about the slope.</li>
+<li>Look over the lecture notes, and try to use this as a guide to evaluate the assumptions of regression. We will review these at the beginning of our next class, so okay if you have questions.</li>
+<li>That’s right; it’s time to estimate sampling error of the slope. Use bootstrapping to estimate the 95% Confidence Interval for the slope, and explain what this statistics tells you about the relationship between the DV and the IV.</li>
 <li>Finally, conclude - was the researcher’s theory supported?</li>
 </ol>
 </section>
@@ -146,19 +118,10 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="problem-2.-power-problems-no-linear-models-allowed">Problem 2. Power Problems, No Linear Models Allowed</h2>
 <p>In the paper, the researchers predicted that scholars of color would be less likely to use power words (variable = <code>power</code>) in their abstracts than White scholars. Test this theory without using a linear model.</p>
 <ol type="1">
-<li>Split the dataset into two new dataframes based on the variable <code>pocu</code>; confirm that this worked.</li>
-</ol>
-<!-- -->
-<ol start="2" type="1">
-<li>Graph the number of power words used for each group. Then, report the mean number of <code>power</code> words used for each group. Finally, report the difference in these means.</li>
-</ol>
-<!-- -->
-<ol start="3" type="1">
-<li>Use a for-loop to estimate the sampling error we might expect for a) the mean power for scholars of color, b) the mean power words for white scholars, and c) the difference between these means (you should be able to do this in one for-loop, but may need three separate “buckets” to save each of the three statistics.) Report these three average sampling errors. Then, calculate the 95% Confidence Interval for the difference in means. How does this statistic influence your understanding of the difference in power words between scholars of color and White scholars?</li>
-</ol>
-<!-- -->
-<ol start="4" type="1">
-<li>Reflect on the difference in power words between scholars of color and White scholars; how large does this difference seem? Note : there are lots of different ways to think about differences….less important to get the “stats” right here, and more important to just demonstrate you are thinking about ways you might contextualize this difference between one mean and another.</li>
+<li><p>Split the dataset into two new dataframes based on the variable <code>pocu</code>; confirm that this worked.</p></li>
+<li><p>Graph the number of power words used for each group. Then, report the mean number of <code>power</code> words used for each group. Finally, report the difference in these means.</p></li>
+<li><p>Use a for-loop to estimate the sampling error we might expect for a) the mean power for scholars of color, b) the mean power words for white scholars, and c) the difference between these means (you should be able to do this in one for-loop, but may need three separate “buckets” to save each of the three statistics.) Report these three average sampling errors. Then, calculate the 95% Confidence Interval for the difference in means. How does this statistic influence your understanding of the difference in power words between scholars of color and White scholars?</p></li>
+<li><p>Reflect on the difference in power words between scholars of color and White scholars; how large does this difference seem? Note : there are lots of different ways to think about differences….less important to get the “stats” right here, and more important to just demonstrate you are thinking about ways you might contextualize this difference between one mean and another.</p></li>
 </ol>
 
 
