@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab 6 - Key</title>
+<title>Lab6_102</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-68e2365ed708f55c597793be074e9239.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4968d28af72d4e5a34172c9bc5ef961b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -113,7 +113,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lab 6 - Key</h1>
+<h1 class="title">Lab6_102</h1>
 </div>
 
 
@@ -130,22 +130,36 @@ window.Quarto = {
 </header>
 
 
-<section id="lab-instructions." class="level2">
-<h2 class="anchored" data-anchor-id="lab-instructions.">Lab Instructions.</h2>
-<p>Answer the questions below as a .PDF (you can either render from Quarto as .PDF, or render as .html and then print this html file as a .PDF). Make sure to reference any external sources (e.g., stack exchange; ChatGPT; peer help) that you used at the top of your lab assignment. <em>If you use external resources, don’t just copy / paste the code (and source) blindly, but spend time thinking (and writing in your Lab) about what these external sources are doing with the code / what techniques you are learning from this source.</em> And please ask for help if you get stuck / are confused / professor did something wrong on Discord!</p>
+<section id="problem-1.-power-problems-linear-model-style." class="level2">
+<h2 class="anchored" data-anchor-id="problem-1.-power-problems-linear-model-style.">Problem 1. Power Problems, Linear Model Style.</h2>
+<p>In the paper, the researchers predicted that scholars of color would be less likely to use power words (variable = <code>power</code>) in their abstracts than White scholars. Test this theory using a linear model.</p>
+<ol type="1">
+<li>Load the data and make sure the data loaded correctly.</li>
+<li>Graph the variables that will go into your linear model, and do any data cleaning that’s necessary. Make sure your IV is saved as a categorical variable.</li>
+<li>Define the linear model. Graph the relationship between the two variables, report the slope and intercept, and explain what these terms mean.</li>
+<li>Calculate the two measures of effect size : cohen’s d and <span class="math display">\[R^2\]</span>. Describe what each of these statistics tell you.</li>
+<li>That’s right; it’s time to estimate sampling error of the slope! Use bootstrapping to estimate the 95% Confidence Interval for the slope, and explain what this statistics tells you about the relationship between the DV and the IV.</li>
+<li>Finally, conclude - was the researcher’s theory supported?</li>
+</ol>
 </section>
-<section id="problem-1." class="level2">
-<h2 class="anchored" data-anchor-id="problem-1.">Problem 1.</h2>
-<p>In lecture, Professor predicted hunger from whether a person had breakfast or not. Work with your buddies (or go solo) to define a new linear model to test whether having breakfast (the most important meal of the day) predicts any other numeric variable in the grad mini dataset. Before you define the model, write out your null and alternative hypothesis and explain the <strong>possible reasons</strong> why you might see a pattern in the data. Make sure to include a graph of the linear model (make the graph look nice), and report <em>and interpret</em> the intercept, slope, <span class="math inline">\(R^2\)</span>, and cohen’s d value of this model.</p>
-</section>
-<section id="problem-2.-sampling-error-via-bootstrapping-and-standard-error" class="level2">
-<h2 class="anchored" data-anchor-id="problem-2.-sampling-error-via-bootstrapping-and-standard-error">Problem 2. Sampling Error via Bootstrapping and Standard Error</h2>
-<p>Estimate sampling error of the slope in Problem 1 using bootstrapping, and then using the formula for standard error (as output by the <code>summary</code> function). Note that the sampling error estimate via bootstrapping and via standard error should be very similar to each other. (Spooky!) Below these statistics, describe what they tell you about the relationship you observed in Problem 1. Then, draw on your past stats knowledge and / or go through the supplemental readings on NHST in the syllabus - what does the p-value of the slope tell you? Okay to struggle here; it is confusing and we will chat more about this next week.</p>
-<p>As an optional challenge worth zero points, see if you can calculate the standard error by hand; you’ll need to use the equation for pooled variance (and equation for standard error when using pooled variance). This is not important and I don’t really know why I’m including it here…just tradition I guess.</p>
-</section>
-<section id="problem-3.-t-tests-are-a-linear-model." class="level2">
-<h2 class="anchored" data-anchor-id="problem-3.-t-tests-are-a-linear-model.">Problem 3. T-Tests are A Linear Model.</h2>
-<p>Confirm that the <code>t.test()</code> function reports the same statistics as your linear model. (You will need to add an argument to force R to assume equal variances between the groups. We will talk more about this next week!)</p>
+<section id="problem-2.-power-problems-no-linear-models-allowed" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2.-power-problems-no-linear-models-allowed">Problem 2. Power Problems, No Linear Models Allowed</h2>
+<p>In the paper, the researchers predicted that scholars of color would be less likely to use power words (variable = <code>power</code>) in their abstracts than White scholars. Test this theory without using a linear model.</p>
+<ol type="1">
+<li>Split the dataset into two new dataframes based on the variable <code>pocu</code>; confirm that this worked.</li>
+</ol>
+<!-- -->
+<ol start="2" type="1">
+<li>Graph the number of power words used for each group. Then, report the mean number of <code>power</code> words used for each group. Finally, report the difference in these means.</li>
+</ol>
+<!-- -->
+<ol start="3" type="1">
+<li>Use a for-loop to estimate the sampling error we might expect for a) the mean power for scholars of color, b) the mean power words for white scholars, and c) the difference between these means (you should be able to do this in one for-loop, but may need three separate “buckets” to save each of the three statistics.) Report these three average sampling errors. Then, calculate the 95% Confidence Interval for the difference in means. How does this statistic influence your understanding of the difference in power words between scholars of color and White scholars?</li>
+</ol>
+<!-- -->
+<ol start="4" type="1">
+<li>Reflect on the difference in power words between scholars of color and White scholars; how large does this difference seem? Note : there are lots of different ways to think about differences….less important to get the “stats” right here, and more important to just demonstrate you are thinking about ways you might contextualize this difference between one mean and another.</li>
+</ol>
 
 
 </section>

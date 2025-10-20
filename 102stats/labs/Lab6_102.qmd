@@ -1,0 +1,33 @@
+---
+title: "Lab6_102"
+format: html
+---
+
+## Problem 1. Power Problems, Linear Model Style.
+
+In the paper, the researchers predicted that scholars of color would be less likely to use power words (variable = `power`) in their abstracts than White scholars. Test this theory using a linear model.
+
+1.  Load the data and make sure the data loaded correctly.
+2.  Graph the variables that will go into your linear model, and do any data cleaning that's necessary. Make sure your IV is saved as a categorical variable.
+3.  Define the linear model. Graph the relationship between the two variables, report the slope and intercept, and explain what these terms mean.
+4.  Calculate the two measures of effect size : cohen's d and $$R^2$$. Describe what each of these statistics tell you.
+5.  That's right; it's time to estimate sampling error of the slope! Use bootstrapping to estimate the 95% Confidence Interval for the slope, and explain what this statistics tells you about the relationship between the DV and the IV.
+6.  Finally, conclude - was the researcher's theory supported?
+
+## Problem 2. Power Problems, No Linear Models Allowed
+
+In the paper, the researchers predicted that scholars of color would be less likely to use power words (variable = `power`) in their abstracts than White scholars. Test this theory without using a linear model.
+
+1.  Split the dataset into two new dataframes based on the variable `pocu`; confirm that this worked.
+
+<!-- -->
+
+2.  Graph the number of power words used for each group. Then, report the mean number of `power` words used for each group. Finally, report the difference in these means.
+
+<!-- -->
+
+3.  Use a for-loop to estimate the sampling error we might expect for a) the mean power for scholars of color, b) the mean power words for white scholars, and c) the difference between these means (you should be able to do this in one for-loop, but may need three separate "buckets" to save each of the three statistics.) Report these three average sampling errors. Then, calculate the 95% Confidence Interval for the difference in means. How does this statistic influence your understanding of the difference in power words between scholars of color and White scholars?
+
+<!-- -->
+
+4.  Reflect on the difference in power words between scholars of color and White scholars; how large does this difference seem? Note : there are lots of different ways to think about differences....less important to get the "stats" right here, and more important to just demonstrate you are thinking about ways you might contextualize this difference between one mean and another.

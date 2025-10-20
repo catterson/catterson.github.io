@@ -24,6 +24,3 @@ As an optional challenge worth zero points, see if you can calculate the standar
 Confirm that the `t.test()` function reports the same statistics as your linear model. (You will need to add an argument to force R to assume equal variances between the groups. We will talk more about this next week!)
 
 
-## Problem 4. More Factors, No Problem.
-
-The variable `food.pref` measures whether people prefer tacos, tortas, or burritos. Predict hunger from this categorical variable that has three levels; interpret the intercept, slope(s), and $R^2$ value and include a graph. Feel free to define some other linear model; key idea is to get practice working with linear models when the IV has more than two categories. You can use [Prof's 101 notes](https://docs.google.com/document/d/1DJ-6L5Nv3FE8a0Seg7T6stX931YI8n93W2NByb_hNd8/edit?tab=t.0#bookmark=id.ju039hal8wtn) as a guide on how to interpret a dummy coded variable when there are three (or more) levels.

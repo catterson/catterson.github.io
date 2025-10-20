@@ -5,130 +5,92 @@ format:
     code-overflow: 'wrap'
 ---
 
-## [Check-In Here](https://docs.google.com/forms/d/e/1FAIpQLSd2K8GcOb6cZznEsaB6T_5hC9hwPe7BEIZuV88_T2CUihS1LA/viewform?usp=header)
+## [Check-In Here](https://docs.google.com/forms/d/e/1FAIpQLSek4jAJ24maejf5pLMxuepzeuBmF6SoapW5Gtsiwvocqoc1Gg/viewform?usp=header) (unless you already did)
+
+-   \^\^\^ The "Exit Survey" I sent out after the exam.
+
+-   Can skip if you already did this, but only 5 students did as of 10:07 PM on Sunday.
 
 ### Agenda
 
--   9:10 - 9:20 \| Check-In / Mini Exam Debrief
+-   **11:10 - 11:25 \|** Check-In / R Exam Debrief
 
--   9:20 - 10:30 \| Linear Model when the IV is categorical
+-   **11:25 - 12:30 \|** Linear Model when the IV is categorical
 
--   10:30 - 10:45 \| BREAK
+-   **12:30 - 12:45 \|** BREAK
 
--   10:45 - 11:05 \| Student Presentations!
+-   **12:45 - 1:10 \|** Student Presentations!
 
--   11:10 - 12:00 \| T-Tests and Work on Lab 6
+-   **1:10 - 2:00 \|** T-Tests and Work on Lab 6
 
-### Mini Exam Debrief
+### R Exam Debrief
 
--   Not yet graded!
+-   Professor should post key ASAP? \[Y/N\]
 
--   Professor should post key? \[Y/N\]
-
-![](images/clipboard-1335587785.png)
-
-### Mega Exam :
-
--   **Rescheduled :** to 4/18 or 4/25 \[???\]
-
--   **De-emphasized :** now worth 10% of your grade (other 10% shifted to the chill final project)
-
--   **Will be shorter?** Group exam? A whole week to do like a lab? IDK. Let's check in later and see where we are at.
-
-### Ideas / Suggestions :
-
--   More practice in class; group work (in lecture, in section)??
-
--   Mixed responses about article discussions.
-
--   **Y'ALL :** Please Message / Email / Discord if Confused or Stuck (on Lab, in Class, etc.)
+-   Thanks for your patience :)
 
 ## The Linear Model in (Categorical IV) Form
 
+### ![](images/clipboard-4143273034.png){width="668"}
+
 ### Two-Level Categorical IV : Simple!
 
-#### Step 1 : Develop a Question and Set Hypotheses.
+#### Step 0 : Develop a Question and Set Hypotheses.
 
-Let's determine whether people who had breakfast were more or less hungry than people who did not have breakfast.
+-   **Question :** In the paper (from the R Exam dataset), the researchers predicted that scholars of color would be less likely to use power words (variable = `power`) in their abstracts than White scholars. Test this theory.
 
--   **OUR THEORY : people who eat breakfast are less hungry than those who do not.**
+-   **Hypotheses :**
 
--   Null Hypothesis (latin for "not any" / none) : no difference or eating breakfast –\> More hunger.
+    -   Null Hypothesis :
 
--   Alternative Hypothesis : **people who eat breakfast are less hungry than those who do not.**
+    -   Alternative Hypothesis :
 
--   QUESTION : what do you do when you feel the urge / see to HARK (hypothesis after results known)?
-
-    -   why it's a problem ??? :
-
-        -   the data could be a form of error (type I or type II); but more likely to cause problems if your theory is only based on the data, and not past research.
-
-        -   we are always going to be biased to find a result that works in our favor.
-
-    -   be transparent : "oh! cool!! Now I'm interested in this idea....let's replicate."
-
-    -   pre-registration : make your hypotheses in advance (and time-stamp them) and then update them if they change.
-
-    -   
-
-#### Step 2 : Load Data, Graph and Evaluate Your Individual Variables.
+#### Step 1 : Load Data 
 
 ```{r}
-m <- read.csv("~/Dropbox/!GRADSTATS/gradlab/Datasets/MiniGrad/mini_grad_data.csv", stringsAsFactors = T)
-head(m) # looks good 
-nrow(m) # yep.
+library(haven) # the package I found to load the exam data.
+d <- read_sav("~/Dropbox/!GRADSTATS/gradlab/Exams/objectivityposted.sav") 
+```
 
-par(mfrow = c(1,2))
-hist(m$hunger)
-plot(m$had.breakfast, xlab = "Had Breakfast")
+#### Step 2 : Evaluate Your Individual Variables.
+
+```{r}
+
 ```
 
 #### Step 3 : Define and Interpret Your Linear Model.
 
--   Our model will predict hunger from whether people had breakfast.
--   As before, we define a linear model using the `lm` function, and will see an intercept and slope.
-
 ```{r}
-mod <- lm(hunger ~ had.breakfast, data = m)
-coef(mod)
+
 ```
 
 -   **The Model :** $\hat{Y} = a + b_1 * X_1$
 
     -   $a$ (sometimes = Intercept = Predicted Value of Y when all X values are zero.
     -   $X_1$ = A **dummy coded** categorical variable. This is often the default method of comparing two groups, and compares each level of the factor to a reference level.
-        -   $X_1$ = 0 = had.breakfast = No (Not Yes)
+        -   $X_1$ = 0 =
 
-        -   $X_1$ = 1 = had.breakfast = Yes
+        -   $X_1$ = 1 =
     -   $b_1$ = the slope = the predicted change in Y as X changes by 1
 
 -   **Using the Model to Make Predictions**
 
-    -   predicted hunger if had.breakfast = Yes?
-        -   predicted hunger = 5.75 - 2.1 \* had.breakfastYes
-        -   `predicted hunger = 5.75 + -2.1 * 1 = 3.65`
-    -   predicted hunger if had.breakfast = No?
-        -   `predicted hunger = 5.75 - 2.1 * had.breakfastYes`
-        -   `predicted hunger = 5.75 - 2.1 * 0 = 5.75`
+    -   predicted DV if IV = 0?
+        -   
+        -   
+    -   predicted DV if IV = 1?
+        -   
+        -   
+    -   Note that these values are the same as the average DV for people who were in each group of the IV.
 
--   Note that these values are the same as the average hunger for people who had breakfast and for people who did not have breakfast.
-
-```{r}
-brekY <- m[m$had.breakfast == "Yes",]
-brekN <- m[m$had.breakfast == "No",]
-
-mean(brekY$hunger) # the intercept + the slope
-mean(brekN$hunger) # the intercept
-
-tapply(m$hunger, m$had.breakfast, mean) # another way to do this.
-```
+<!-- -->
 
 -   **The Graph**. A few ways to graph the linear model with the IV is categorical.
 
--   Note that the `plot()` function draws a boxplot that illustrates the median of each group; whereas the linear model emphasizes the mean.
+    -   Note that the `plot()` function draws a boxplot that illustrates the median of each group; whereas the linear model emphasizes the mean.
 
 ```{r}
-plot(hunger ~ had.breakfast, data = m)
+# plot(DV ~ IV, data = d)
 ```
 
 -   For "quick" methods, I like `plotmeans()` from the `gplots()` library. This plots the mean of each group.
@@ -136,96 +98,55 @@ plot(hunger ~ had.breakfast, data = m)
 ```{r}
 #install.packages("gplots")
 library(gplots) 
-plotmeans(hunger ~ had.breakfast, data = m, connect = F, ylim = c(0,10))
+#plotmeans(DV ~ IV, data = d, connect = F)
 ```
 
--   ggplot2 also has a method; nice for illustrating the individual points and making the graph look more professional?
+#### Step 4 : Evaluate the Effect Size?
 
-```{r}
-library(ggplot2)
-library(ggthemes)
-ggplot(m, aes(x=had.breakfast, y=hunger)) + # defining my space
-  stat_summary(fun=mean, geom="bar", fill="gray") + # adding a bar for the means
-  stat_summary(fun.data=mean_se, geom="errorbar", width=0.25) + # adding sampling error [more on this later!]
-  geom_dotplot(binaxis='y', binwidth=0.1, stackdir="center", alpha=0.5, stroke=0, dotsize=0.8) + # adding dots for the individual data; sorting them
-  coord_cartesian(ylim=c(0,10)) + # changing the limits of my y-axis.
-  xlab("Brekky") + ylab("Hunger") + # adding labels
-  theme_wsj() # adding a theme
-```
+-   $R^2$ **(Effect Size) :** This describes the percentage of variation in hunger that is explained by our model (in this case, using whether someone had breakfast to make predictions of hunger.) So, using the model to make predictions of hunger reduces our squared errors by %17 (vs. using the mean to make predictions.)
+-   **Cohen's D :** (see below!)
 
-#### Step 4 : Evaluate Your Model
+## Something New : Cohen's D (Effect Size)
 
--   Diagnostic Plots to see if those assumptions are met!
-
-```{r}
-par(mfrow = c(2,2))
-plot(mod)
-```
-
--   $R^2$ (Effect Size)
-
-How large is this difference? $R^2$ gives some context.
-
-```{r}
-summary(mod)$r.squared
-
-## ILLUSTRATING R^2 WHEN THE VARIABLE IS CATEGORICAL
-par(mfrow = c(1,2))
-plot(m$hunger)
-abline(h = mean(m$hunger, na.rm = T), lwd = 5)
-residuals <- m$hunger - mean(m$hunger, na.rm = T)
-SST <- sum(residuals^2)
-SST
-
-## THE MODEL
-plot(m$hunger, col = m$had.breakfast, pch = 19)
-abline(h = coef(mod)[1], lwd = 5, col = 'black') # line for non breakfast folks
-abline(h = coef(mod)[1] + coef(mod)[2], lwd = 5, col = 'red') # line for non breakfast folks
-SSM <- sum(mod$residuals^2)
-
-## R^2
-
-(SST - SSM)/SST
-
-```
-
-This describes the percentage of variation in hunger that is explained by our model (in this case, using whether someone had breakfast to make predictions of hunger.) So, using the model to make predictions of hunger reduces our squared errors by %17 (vs. using the mean to make predictions.)
-
-### Something New : Cohen's D (Effect Size)
-
-Okay, but people find $R^2$ confusing and unitless and about squared numbers and describes how good the model is as a whole; sometimes I just want to understand how BIG the difference between the groups is. One method people us is to compare the distance between groups, relative to the average distance between individuals (the standard deviation.)
+People find $R^2$ confusing and unit-less and about squared numbers and describes how good the model is as a whole; sometimes I just want to understand how BIG the difference between the groups is. One method people us is to compare the distance between groups, relative to the average distance between individuals (the standard deviation.)
 
 However, if we are assuming these groups are different in some important way, then we may not want to use a standard deviation statistic that considers individuals to belong to the same group. The pooled standard deviation is a weighted average of the standard deviation from each group.
 
 ```{r}
-nY <- nrow(brekY)
-nN <- nrow(brekN)
-dfY <- nY-1 # the sample size of breakfast eaters, minus 1
-dfN <- nN-1
+### subsetting the data into two groups.
+#d0 <- d[d$IV == "levelA",]
+#d1 <- d[d$IV == "levelB",]
 
-varY <- var(brekY$hunger)
-varN <- var(brekN$hunger)
+## calculating the sample size of these two new datasets.
+#n0 <- nrow(d0)
+#n1 <- nrow(d1)
 
-poolvar <- ((dfY * varY) + (dfN * varN))/(dfY + dfN)
-poolsd <- poolvar^.5
+#df0 <- n0-1 # the sample size, minus 1
+#df1 <- n1-1
 
-diff <- coef(mod)[2] # the difference between groups
-diff/poolsd
+#var0 <- var(d0$DV)
+#var1 <- var(d1$DV)
+
+#poolvar <- ((df1 * var1) + (df0 * var0))/(df1 + df0)
+#poolsd <- poolvar^.5
+
+#diff <- coef(mod)[2] # the difference between groups (the slope)
+#diff/poolsd
 ```
 
--   The psych package has a cohen's d function built in that calculates this for you. (Not sure why we are getting different manual estimate from the package tho?)
+-   The psych package has a cohen's d function built in that calculates this for you.
 
 ```{r}
 library(psych)
-cohen.d(m$hunger, m$had.breakfast)
-cohen.d(hunger ~ had.breakfast, data = m)
+#cohen.d(d$DV, d$IV)
+#cohen.d(DV ~ IV, data = d)
 ```
 
 Okay, so what does this statistic mean? Well, this tells us that the difference between folks who had breakfast and those who did not (the slope in our model) is not even as large as the difference between any two random individuals (the pooled sd). But is this a little? A lot?
 
 -   Many people reference Cohen's "convention" of what defines effect size to be small (d = .2), medium (.5), and large effect (d = .8). However, this summary glosses Cohen's disclaimer, as well as a ton of other context that [Cohen provides in his original book](https://www.utstat.toronto.edu/brunner/oldclass/378f16/readings/CohenPower.pdf).
 
-![](images/clipboard-3590087416.png)
+![](images/clipboard-3590087416.png){width="656"}
 
 -   ACTIVITY : Look over this nice [interactive guide for interpreting Cohen's D](https://rpsychologist.com/cohend/). How does this visualization help you think about the difference? Does this difference seem like a little? A lot??
 
@@ -236,25 +157,68 @@ Okay, so what does this statistic mean? Well, this tells us that the difference 
 -   R will default to a reference level based on alphabetical order, so in this case, "No" will be the reference group. To change the reference group, you can relevel the factor.
 
 ```{r}
-m$had.breakfastR <- relevel(m$had.breakfast, ref = "Yes")
-plot(m$had.breakfastR) # same data, different orientation
-
-modR <- lm(hunger ~ had.breakfastR, data = m)
-coef(modR)
-par(mfrow = c(1,2))
-plotmeans(hunger ~ had.breakfast, data = m, main = "No as Reference Group")
-plotmeans(hunger ~ had.breakfastR, data = m, main = "Yes as Reference Group")
+# d$IVR <- relevel(d$IV, ref = "references")
 ```
 
--   When the IV has more than 2 levels....professor demo on the board.
+## Step 5 : Evaluate The Assumptions of Linear Regression
 
-    ![](images/IMG_0567.JPG)
+### The Assumptions
+
+The interpretation of our linear model depends on a variety of different assumptions being met. You can read more about these from the great [Gelman & Hill's textbook : Data Analysis Using Regression](https://www.dropbox.com/scl/fi/iuhs0x2un3d4ivhcc3rug/Gelman_Hill_RegressionAssumptions.pdf?rlkey=blhc8bcxypu0ar5wvzpruslqk&dl=0). But below is a TLDR, with a few ideas of my own thrown in :)
+
+1.  **Validity.** Is your linear model the right model to answer the research question that you have? This is the big question, and often goes beyond the specific statistics that we are focusing on. Did you include the right variables in your model, or are you leaving something out? Are you studying the right sample of people, drawn from the right population? Are your measures valid? This is hard to do, and good to remember that it is hard so you ask yourself "am I doing a good job"?
+
+2.  **Reliability of Measures.** The variables in your linear model should be measured with low error (“garbage in, garbage out”). There are different ways to assess reliability.
+
+    -   **Cronbach's alpha** (`psych::alpha()`) is good for assessing the inter-item reliability of a likert scale.
+
+    -   **The Intraclass Correlation Coefficient (ICC)** is often used for observational ratings where multiple judges form impressions of the same target.
+
+    -   **Test-retest reliability** is a great way to ensure that physiological or single-item measures will yield repeatable measures over time (assuming the target of measurement has not changed between time points). One way to test this is to define a linear model to predict the measure at one time point from the measure at another; you'd expect to see a strong relationship.
+
+3.  **Independence.** This is a big one - the residuals in your model need to be unrelated to each other. That is, I should not be able to predict the value of one error from another error. When the data in a linear model come from distinct individuals who are unrelated to each other, this assumption is usually considered to be met. However, there are often types of studies where the data are not independent.
+
+    -   **Nested Data :** Often times, individuals in a dataset belong to a group where there's a clear dependence. For example, the happiness of individual members of a family is probably dependent on one another (since they share the same environment, stressors, etc.); the test-scores of children in a school are probably all related to each other (since they share the same teachers, administrators, funding, lead exposure in the drinking water, etc.)
+
+    -   **Repeated Measures :** If a person is measured multiple times, then their data at one time point will be related to their data at the second time point, since they are coming from the same person, with the same past experiences and beliefs and genetics and all that other good stuff.
+
+    If the data are not independent, then we will need to account for the dependence in the data. We will learn to do this when we review Multilevel Linear Models. (Spoiler : it's more lines.)
+
+4.  **Linearity.** The dependent (outcome) variable should be the result of one or more linear functions (slopes). In other words, the outcome is the result of a bunch of straight lines. If the straight lines don't properly "fit" or "explain" your data, then maybe you need some non-straight lines...you could bend the line (add a quadratic term), look for an interaction term (that tests whether there's a multiplicative relationship between the variables), or apply a non-linear transformation to the data (i.e., often times income is log transformed, since a 9,000 point difference between 1000 and 10,000 dollars/month is not the same as a 9,000 point difference between 1,000,000 and 1,009,000 dollars/month).
+
+5.  **Equal Variance of Errors (Homoscedasticity).** The errors associated with the predicted values of the DV (the residuals) should be similar for all different values of the IV. Homoscedasticity means that the residual errors in our outcome variable are distributed the same across the different values of the IV. Heteroscedasticity means there is some non-constant variability in errors, which means that your model may not be an appropriate explanation of the data.
+
+6.  **Normality of Errors (Residuals and Sampling).** This assumption is less emphasized as our datasets have gotten larger, and methods for estimating sampling error have improved. But the basic idea is that statistics like confidence intervals and estimates of slopes assume that the errors in our model are normally distributed. If they are not, it's likely that your model is not appropriately fitting the data (i.e., maybe some outliers are influencing the results.)
+
+### Testing Assumptions in R
+
+Assumptions 1-3 require critical thinking about your methods and measures.
+
+Assumptions 4 and 5 can be examined using the plot() function in base R - you may have accidentally come across these when trying to graph your linear model.
+
+We talked about how to interpret these plots a little in lecture; here's [another tutorial](https://library.virginia.edu/data/articles/diagnostic-plots) that walks through the interpretation. Let us know (on Discord!) if you find another good example / explanation.
+
+```{r}
+#par(mfrow = c(2,2))
+#plot(mod)
+```
+
+Assumption 6 can be examined by graphing the residuals of your model object with a histogram.
+
+```{r}
+#par(mfrow = c(1,1))
+#hist(mod$residuals)
+```
+
+## Step 6 : Estimate Sampling Error
+
+Bootstrapping.
+
+```{r}
+
+```
 
 ## [Presentations](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
-
--   [Racecraft](https://www.versobooks.com/products/2270-racecraft?srsltid=AfmBOorWzT4b__0V-YDe1jjuVD5R0696SFp9vZY5kT4THqIqxENSBrct) - historical and sociological critique of race as a category.
-
-    -   inspired a few psych research articles; prof will find.
 
 ## The T-Test
 
@@ -265,7 +229,7 @@ The basic equation for the standard error is : $se = sd(x) / \sqrt{n}$
 We can easily pull up these statistics using the summary() function. The interpretation of these statistics will take more time!
 
 ```{r}
-summary(mod)
+#summary(mod)
 ```
 
 **Standard Error** is similar to the sampling error we estimated through bootstrapping (you will test this in Lab 6!).[^1]
@@ -273,7 +237,7 @@ summary(mod)
 [^1]: (And side note : to get what R calculates in our model, we will weight each pooled variance by the sample size of each group.)
 
 ```{r}
-sqrt((poolvar/nY) + (poolvar/nN))
+#sqrt((poolvar/n0) + (poolvar/n1))
 ```
 
 However, there are a few key conceptual and computational differences.
@@ -299,14 +263,8 @@ However, there are a few key conceptual and computational differences.
 Note that the t-test does the same thing that our linear model does; evaluates the difference in groups, relative to an estimate of the sampling error we might observe.
 
 ```{r}
-summary(mod)
-t.test(brekY$hunger, brekN$hunger, var.equal = T)
+#summary(mod)
+#t.test(d0$DV, d1$DV, var.equal = T)
 ```
 
 ## Activity : Work on Lab 6.
-
--   Define a linear model to see whether breakfast (the most important meal of the day) is related to another numeric outcome variable.
-    -   Graph the relationship between the two variables.
-    -   Report and interpret statistics : intercept, slope, $R^2$, cohen's d.
-    -   Compare bootstrapping method to NHST method of estimating sampling error.
-    -   Read more about NHST and linear models when there's 3 or more levels.
