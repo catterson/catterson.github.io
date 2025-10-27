@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab 7</title>
+<title>Milestone #1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -50,35 +50,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -113,7 +84,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lab 7</h1>
+<h1 class="title">Milestone #1</h1>
 </div>
 
 
@@ -130,20 +101,8 @@ window.Quarto = {
 </header>
 
 
-<section id="problem-1." class="level2">
-<h2 class="anchored" data-anchor-id="problem-1.">Problem 1.</h2>
-<p>Load the <a href="https://www.dropbox.com/scl/fi/zo58mhzuzszfq08i48nfv/objectivityposted.csv?rlkey=umv19vet0ob3dhqfd58r8oifk&amp;dl=0">objectivity interrogations dataset</a> (linked here as a .csv file). Convert pocu to a categorical factor (you maybe already did this for the Lab assignment), and use this categorical factor in a linear model to predict (CHOOSE ONE!)</p>
-<ul>
-<li><p>the number of positive emotion words used in an abstract.</p></li>
-<li><p>the number of negative emotion words used in an abstract.</p></li>
-</ul>
-<p>For the linear model, report the slope and <span class="math display">\[R^2\]</span> value, and describe what these statistics tell you about the relationship between the two variables. Graph the linear model. Then, use bootstrapping and NHST to estimate the sampling error for each linear model. Can you replicate the results in the original paper (reprinted below)?</p>
-<p><img src="images/clipboard-2826245380.png" class="img-fluid"></p>
-</section>
-<section id="problem-2." class="level2">
-<h2 class="anchored" data-anchor-id="problem-2.">Problem 2.</h2>
-<p>The linear regression for Problem 1 defaults to dummy coded variables which you can use to report the predicted values of the DV for authors of color and white authors. In the paper, the authors report that they have coded scholars of color (“1”), and White scholars (“-1”). This is a form of “effect coding” called “sum coding” or “deviation coding”; <a href="https://marissabarlaz.github.io/portfolio/contrastcoding/#effects-coding">you can read more these coding schemes here</a> or <a href="https://stats.oarc.ucla.edu/spss/faq/coding-systems-for-categorical-variables-in-regression-analysis/">here is another example - note this is a clear example of the default tendency to use white people as the reference group</a>.</p>
-<p>In any case, re-define the <code>pocu</code> variable to have values of -1 and 1 as described in the article (or just reload the dataset which has this original coding). Then see how the linear model where you predict power from <code>pocu</code> changes when dummy coded (what you did for Problem 1) or effect coded. Which interpretation makes more sense? Do you feel like “effect coding” de-emphasizes the reference category, as described in last week’s reading?</p>
+<section id="getting-started." class="level2">
+<h2 class="anchored" data-anchor-id="getting-started.">Getting Started.</h2>
 
 
 </section>

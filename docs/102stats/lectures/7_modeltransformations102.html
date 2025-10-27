@@ -165,6 +165,33 @@ window.Quarto = {
 </header>
 
 
+<section id="check-in-evaluating-the-psych-program" class="level2">
+<h2 class="anchored" data-anchor-id="check-in-evaluating-the-psych-program"><a href="https://docs.google.com/forms/d/e/1FAIpQLSf6KGdfioblL0JKIQVDOJG0qZgTzQ5NFznZ1Jx4Qd0_HTse3Q/viewform?usp=publish-editor">Check-In : Evaluating the Psych Program</a></h2>
+<ul>
+<li>A few questions to see how things are going from y’alls perspective.</li>
+</ul>
+</section>
+<section id="announcement-and-agenda" class="level2">
+<h2 class="anchored" data-anchor-id="announcement-and-agenda">Announcement and Agenda</h2>
+<ul>
+<li><p><strong>Agenda :</strong></p>
+<ul>
+<li><p><strong>11:10 - 11:30.</strong> Check-In and Announcements.</p></li>
+<li><p><strong>11:30 - 12:20.</strong> Assumptions and Transformations.</p></li>
+<li><p><strong>12:20 - 12:40. BREAK</strong></p></li>
+<li><p><strong>12:40 - 1:00.</strong> Presentation.</p></li>
+<li><p><strong>1:00 - 2:00.</strong> T-Tests and Power.</p></li>
+</ul></li>
+<li><p><strong>Milestone #1 :</strong> Getting started on your Final Projects.</p>
+<ul>
+<li><p><a href="https://docs.google.com/spreadsheets/d/18rStQbEo419AcGX5S55UhusLllY-IFrJoGxUpkk2rgk/edit?usp=sharing">List of some datasets I’ve found</a>. Share others if you find good ones please!!!</p></li>
+<li><p>Using <a href="https://osf.io">OSF</a> to search for published datasets.</p></li>
+<li><p>Talking to your advisors / graduate students / TAs (/my old dissertation data?)</p></li>
+<li><p>Other sources / ideas?</p></li>
+</ul></li>
+<li><p><strong>Brain Exam pushed back a week.</strong></p></li>
+</ul>
+</section>
 <section id="comments-on-the-mid-semester-evaluation" class="level2">
 <h2 class="anchored" data-anchor-id="comments-on-the-mid-semester-evaluation">Comments on the Mid-Semester Evaluation</h2>
 <section id="ideas-for-changes" class="level3">
@@ -264,12 +291,27 @@ Attaching package: 'gplots'</code></pre>
 </section>
 <section id="transforming-regression-coefficients." class="level2">
 <h2 class="anchored" data-anchor-id="transforming-regression-coefficients.">Transforming Regression Coefficients.</h2>
-<p>Sometimes, we need (or want) to change the structure of our</p>
+<p>Sometimes, we need (or want) to change the structure of our data to address violated assumptions, or change the units and our interpretation.</p>
 <section id="numeric-transformations" class="level3">
 <h3 class="anchored" data-anchor-id="numeric-transformations">Numeric Transformations</h3>
-<section id="recap-linear-transformations-the-z-score" class="level4">
-<h4 class="anchored" data-anchor-id="recap-linear-transformations-the-z-score">RECAP : Linear Transformations : The Z-Score</h4>
-<p>Changes the units, but doesn’t change the position of the individual data point.</p>
+<section id="recap-linear-transformations" class="level4">
+<h4 class="anchored" data-anchor-id="recap-linear-transformations">RECAP : Linear Transformations</h4>
+<p>Linear transformations change the units, but do not change the position of the individual data point.</p>
+<ul>
+<li><p><strong>“Percent of Maximum Possible” (POMP)</strong></p>
+<ul>
+<li><p><strong>equation and example :</strong> <span class="math inline">\(100*\frac{x}{max(x)}\)</span></p></li>
+<li><p><strong>what it does :</strong> stretches out the scale of a variable, so 0 = people who scored the lowest and 100 = people who scored the highest.</p></li>
+<li><p><strong>when to use :</strong> maybe helps people conceptualize likert scales (but also can exaggerate effects; e.g., a 1-5 scale turns into a 0-100 scale, which makes the slope seem larger)</p></li>
+</ul></li>
+<li><p><strong>Mean-Centering :</strong></p>
+<ul>
+<li><p><strong>equation and example :</strong> <span class="math inline">\(x - mean(x)\)</span></p></li>
+<li><p><strong>what it does :</strong> redefines individual scores in terms of how far above or below the mean they are.</p></li>
+<li><p><strong>when to use :</strong> you want zero to be defined as the average of the variable, but do not want to lose the units of measurement (e.g., a zero for heart rate BMP is dead, but zero of mean-centered BMP is the average heart rate)</p></li>
+</ul></li>
+<li><p><strong>Z-Score</strong></p></li>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ncells <span class="ot">&lt;-</span> <span class="dv">10</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -402,11 +444,11 @@ t = b / se
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bucket) <span class="co"># should be close to original model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4861603</code></pre>
+<pre><code>[1] 0.4985354</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(bucket) <span class="co"># the estimate of sampling error</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1405015</code></pre>
+<pre><code>[1] 0.1401921</code></pre>
 </div>
 </div>
 </section>
@@ -472,7 +514,7 @@ F-statistic: 10.52 on 1 and 1686 DF,  p-value: 0.001204</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(bucket) <span class="co"># pretty close!! wow!!!!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1405015</code></pre>
+<pre><code>[1] 0.1401921</code></pre>
 </div>
 </div>
 </section>
@@ -682,8 +724,8 @@ F-statistic: 10.52 on 1 and 1686 DF,  p-value: 0.001204</code></pre>
 <p>In lecture, professor did some scribbles on the whiteboard to illustrate power, and tried to record these. He also said that he would record a few other videos.</p>
 <p>Prof.&nbsp;did not, in fact, find time in the present moment to record new videos. Bummer! But he did remember that he had recorded similar videos, and found some from 2018. (What were you doing in 2018?? Let us know on Discord; and as always - reach out if you still have questions about power!!)</p>
 <ul>
-<li><a href="https://www.loom.com/share/f393327465f54f3cbf5bbe8c349e3a2e?sid=45f72b59-894e-4d8d-a977-254d6e52f5c4">Recording #1 : Conceptual Example of Power</a></li>
-<li><a href="https://www.loom.com/share/62440c2754cd4874a22ef2f00618eaff">Recording #2 : Another Example</a>. Couldn’t immediately track down the original data analyses these refer to, but the slope (b = .44) and other statistics come from a paper I had rejected in part because reviewers complained that I only replicated the main result in 4 out of 5 studies. (The paper was also a hot mess.) Bummer! But it was a cool phenomenon; I sadly never published on it for a variety of REASONS, but the truth got out eventually someone published a very clearly written, much better, and perfectly replicating paper (across six studies!) on it 8 years later. Ahhh, one thing off the to-do list!</li>
+<li><p><a href="https://www.loom.com/share/f393327465f54f3cbf5bbe8c349e3a2e?sid=45f72b59-894e-4d8d-a977-254d6e52f5c4">Recording #1 : Conceptual Example of Power</a></p></li>
+<li><p><a href="https://www.loom.com/share/62440c2754cd4874a22ef2f00618eaff">Recording #2 : Another Example</a>. Couldn’t immediately track down the original data analyses these refer to, but the slope (b = .44) and other statistics come from a paper I had rejected in part because reviewers complained that I only replicated the main result in 4 out of 5 studies. (The paper was also a hot mess.) Bummer! But it was a cool phenomenon; I sadly never published on it for a variety of REASONS, but the truth got out eventually someone published a very clearly written, much better, and perfectly replicating paper (across six studies!) on it 8 years later. Ahhh, one thing off the to-do list!</p></li>
 </ul>
 </section>
 <section id="estimating-sample-size." class="level4">
