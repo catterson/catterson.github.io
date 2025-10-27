@@ -1,0 +1,413 @@
+---
+title: "7_modeltransformations102"
+format: html
+---
+
+## [Check-In : Evaluating the Psych Program](https://docs.google.com/forms/d/e/1FAIpQLSf6KGdfioblL0JKIQVDOJG0qZgTzQ5NFznZ1Jx4Qd0_HTse3Q/viewform?usp=publish-editor)
+
+-   A few questions to see how things are going from y'alls perspective.
+
+## Announcement and Agenda
+
+-   **Agenda :**
+
+    -   **11:10 - 11:30.** Check-In and Announcements.
+
+    -   **11:30 - 12:20.** Assumptions and Transformations.
+
+    -   **12:20 - 12:40. BREAK**
+
+    -   **12:40 - 1:00.** Presentation.
+
+    -   **1:00 - 2:00.** T-Tests and Power.
+
+-   **Milestone #1 :** Getting started on your Final Projects.
+
+    -   [List of some datasets I've found](https://docs.google.com/spreadsheets/d/18rStQbEo419AcGX5S55UhusLllY-IFrJoGxUpkk2rgk/edit?usp=sharing). Share others if you find good ones please!!!
+
+    -   Using [OSF](https://osf.io) to search for published datasets.
+
+    -   Talking to your advisors / graduate students / TAs (/my old dissertation data?)
+
+    -   Other sources / ideas?
+
+-   **Brain Exam pushed back a week.**
+
+## Comments on the Mid-Semester Evaluation
+
+### ideas for changes
+
+-   "...find ways to have more class participation in the presentations so we can really get into the topics and have a communal sense of the class, but thats not something the professor can control so I think its good as is."
+-   "...dive more into the statistics itself so i have some theoretical background for the tests im doing (for example, our method for our thesis was due yesterday, and i was struggling to understand how to apply LME to my neural time series data.."
+-   "...I think having some moment when there's time to pause... it doesn't have to be a 2-3 min pause, just like 20 sec so I can write the code as fast as the professor does."
+
+### other comments :
+
+-   "I'm still a little confused about data cleaning and when we should really take out data; how much is okay to remove from the dataset."
+-   "How are the article presentations supposed to help us?"
+-   "Honors has been very stressful... but its ok."
+
+## LAST TIME, ON METHODS IN PSYCHOLOGY....
+
+### We Found a Model
+
+```{r}
+library(psych)
+library(gplots)
+d <- read.csv("~/Dropbox/!GRADSTATS/gradlab/Exams/objectivityposted.csv", stringsAsFactors = T)
+names(d)
+
+d$pocuF <- as.factor(d$pocu)
+levels(d$pocuF) <- c("White Authors", "Authors of Color")
+d$pocuF <- relevel(d$pocuF, ref = "Authors of Color") # reconsidering the reference group!!
+
+## The Model
+plotmeans(power ~ pocuF, data = d, connect = F)
+mod <- lm(power ~ pocuF, data = d)
+coef(mod)
+```
+
+### I Asked Y'all To Do Some Interpretation of the Regression Assumptions.
+
+-   
+
+    ## **Validity. Were the data measured and collected in a valid way?**
+
+-   
+
+    ## **Reliability. Were the data measured with high reliability?**
+
+-   
+
+    ## **Independence. Does one data point give you any information about another individual's data point? (if yes, then not independent.)**
+
+-   
+
+    ## **Linearity. Are the predicted values of Y based on a constant and linear relationship with X?**
+
+```{r}
+par(mfrow = c(2,2))
+plot(mod)
+```
+
+-   
+
+    ## **Heteroscedasticity. Is there constant variation in the residuals across the fitted values?**
+
+-   
+
+    ## **Normality of Errors. Are the residuals in the model normally distributed?**
+
+```{r}
+hist(mod$residuals, breaks = 20)
+```
+
+## Transforming Regression Coefficients.
+
+Sometimes, we need (or want) to change the structure of our data to address violated assumptions, or change the units and our interpretation.
+
+### Numeric Transformations
+
+#### RECAP : Linear Transformations
+
+Linear transformations change the units, but do not change the position of the individual data point.
+
+-   **"Percent of Maximum Possible" (POMP)**
+
+    -   **equation and example :** $100*\frac{x}{max(x)}$
+
+    -   **what it does :** stretches out the scale of a variable, so 0 = people who scored the lowest and 100 = people who scored the highest.
+
+    -   **when to use :** maybe helps people conceptualize likert scales (but also can exaggerate effects; e.g., a 1-5 scale turns into a 0-100 scale, which makes the slope seem larger)
+
+-   **Mean-Centering :**
+
+    -   **equation and example :** $x - mean(x)$
+
+    -   **what it does :** redefines individual scores in terms of how far above or below the mean they are.
+
+    -   **when to use :** you want zero to be defined as the average of the variable, but do not want to lose the units of measurement (e.g., a zero for heart rate BMP is dead, but zero of mean-centered BMP is the average heart rate)
+
+-   **Z-Score**
+
+```{r}
+ncells <- 10
+
+breaks <- seq(min(d$power), max(d$power), length.out = ncells + 1)
+zbreaks <- seq(min(scale(d$power)), max(scale(d$power)), length.out = ncells + 1)
+
+par(mfrow = c(1,3))
+hist(d$power, breaks = breaks)
+hist(scale(d$power), breaks = zbreaks)
+plot(d$power, scale(d$power))
+```
+
+#### Non-Linear Transformations : Log; Square-Root; Exp; etc.
+
+-   **Log Transformation.**
+
+    -   **equation and example :** see the table below. Logs are confusing (I think.)
+
+    -   **what it does :** compresses the scale of a variable (the log takes a number, and transforms it to be the exponent which a specific base must be raised to create the number).
+
+    -   **when to use :** address heteroscedasticity by normalizing *positively skewed* data (e.g., count data; data with a floor effect); natural log is used in growth models.
+
++-------------------------+----------------------+-------------------------------------------------------+-------------------------------------------+
+| **Transformation in R** | **Base (b)**         | **Formal Definition**                                 | **Example**                               |
++-------------------------+----------------------+-------------------------------------------------------+-------------------------------------------+
+| log(x) \# natural log   | $e$ (Euler's Number) | $\log_{e}(x) \text{ or } \ln(x) = y \implies e^y = x$ |                                           |
++-------------------------+----------------------+-------------------------------------------------------+-------------------------------------------+
+| log10(x) \# log base 10 | $10$                 | $\log_{10}(x) = y \implies 10^y = x$                  | $\log_{10}(100) = 2$ because $10^2 = 100$ |
++-------------------------+----------------------+-------------------------------------------------------+-------------------------------------------+
+
+-   **Square-Root Transformation.**
+
+    -   **equation :** $\sqrt{x}$ or $x^{1/2}$
+
+    -   **in R :** `sqrt(x)` or `x^.5`
+
+    -   **what it does :** compresses the scale of a variable.
+
+    -   **when to use :** address heteroscedasticity; normalize positively skewed data.
+
+-   **Reciprocal Transformation.**
+
+    -   **equation :** $1/x$ or $-1/x$
+
+    -   **in R :** `1/x`
+
+    -   **what it does :** flips the data around
+
+    -   **when to use :** good when you want to reverse the order of data that are the same sign (e.g., make the largest value become the smallest value), or change the interpretation of some ratio data (e.g., convert "heart beats per minute into minutes per heart beat".)
+
+-   **Exponential Transformation.**
+
+    -   **what it does :** expands the scale of the variable;
+
+    -   **when to use :**
+
+**DISCUSSION :** Below are these three transformations applied to our measure of power words.
+
+-   What do you see?
+
+-   Which transformation seems the best to apply to our linear model? (And why?)
+
+```{r}
+par(mfrow = c(1,5))
+hist(d$power)
+hist(log10(d$power+1))
+hist(sqrt(d$power))
+hist(1/d$power)
+```
+
+**Adding this transformation to our linear model.**
+
+-   What changes do you notice?
+
+-   How do we know whether this transformation improved our model?
+
+```{r}
+
+```
+
+### Categorical Transformations
+
+1.  Re-leveling categorical variables.
+2.  Effect or Contrast Coding
+
+## Giving Context To Our Slope : The T-Test
+
+A t-test does compares this difference between groups (our slope) to an estimate of sampling error.
+
+$$
+t = b / se
+$$
+
+### Sampling Error.
+
+Previously, we've estimated sampling error using bootstrapping.
+
+```{r}
+## Sampling Error (Bootstrapping)
+bucket <- array()
+for(i in c(1:1000)){
+  dboot <- d[sample(1:nrow(d), nrow(d), replace = T), ]
+  modboot <- lm(power ~ pocuF, data = dboot)
+  bucket[i] <- coef(modboot)[2]
+}
+
+mean(bucket) # should be close to original model
+sd(bucket) # the estimate of sampling error
+```
+
+### The Standard Error.
+
+**The standard error** estimates how much of a difference we might find if we were drawing a random sample from a population where there was no difference in groups (the null population.)
+
+**The basic equation for the standard error is :** $se = sd(x) / \sqrt{n}$
+
+-   You can calculate this "by hand" if you'd like.
+
+```{r}
+## Pooling the SD
+d0 <- d[d$pocuF == "Authors of Color",]
+d1 <- d[d$pocuF == "White Authors",]
+
+## calculating the sample size of these two new datasets.
+n0 <- nrow(d0)
+n1 <- nrow(d1)
+
+df0 <- n0-1 # the sample size, minus 1
+df1 <- n1-1
+
+var0 <- var(d0$power)
+var1 <- var(d1$power)
+
+poolvar <- ((df1 * var1) + (df0 * var0))/(df1 + df0)
+sqrt((poolvar/n0) + (poolvar/n1))
+```
+
+-   However, most students and researchers do not like to do things by hand. And so we can easily pull up these statistics using the summary() function. The interpretation of these statistics will take more time!
+
+```{r}
+summary(mod)
+```
+
+**Standard Error** is similar to the sampling error we estimated through bootstrapping.[^1]
+
+[^1]: (And side note : to get what R calculates in our model, we will weight each pooled variance by the sample size of each group.)
+
+```{r}
+summary(mod)$coefficients[2,2] # pulling out the standard error of the slope.
+sd(bucket) # pretty close!! wow!!!!
+```
+
+### **Conceptual and Computational Differences Between NHST and Bootstrapping**
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
+|                                                                                                                                                   | Bootstrapping                                                                                                                                                                                                                                                                                                                                                          | Null Hypothesis Significance Testing (Standard Error)                                                                              |
++===================================================================================================================================================+========================================================================================================================================================================================================================================================================================================================================================================+====================================================================================================================================+
+| **how to estimate sampling error.**                                                                                                               | we generate lots of “new” samples from our original dataset. these new samples are the same size as our original sample, but we use sampling with replacement to make sure we don’t get the exact same people in the sample every time. the goal is to see how small changes to our sample (that we might find with sampling error) influence our results (the model). | we calculate a statistic that is based on:                                                                                         |
+|                                                                                                                                                   |                                                                                                                                                                                                                                                                                                                                                                        |                                                                                                                                    |
+| we want to estimate how much our statistics might change due to re-sampling, because our sample isn't a perfect representation of the population. |                                                                                                                                                                                                                                                                                                                                                                        | 1.  the variance in our sample (with the idea that the more individuals vary in the sample, the more sampling error we might have) |
+|                                                                                                                                                   |                                                                                                                                                                                                                                                                                                                                                                        |                                                                                                                                    |
+|                                                                                                                                                   |                                                                                                                                                                                                                                                                                                                                                                        | 2.  our sample size (with the idea that the larger our sample, the less sampling error we will find.)                              |
++---------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
+| **statistic we care about that defines sampling error**                                                                                           | standard deviation of the 1,000 (or however many) slopes we generated from bootstrapping.                                                                                                                                                                                                                                                                              | standard error (estimates how much the average slope would differ from b = 0….the expected slope assuming the null)                |
++---------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
+| **how to evaluate our slope, relative to sampling error**                                                                                         | calculate the % of slopes in the same direction as our slope                                                                                                                                                                                                                                                                                                           | t-value : evaluates slope you found, relative to slope you might find due to random chance.                                        |
+|                                                                                                                                                   |                                                                                                                                                                                                                                                                                                                                                                        |                                                                                                                                    |
+|                                                                                                                                                   | calculate 95% confidence intervals, and see whether that range includes zero and / or numbers in the opposite direction of the slope you found. (e.g., if you found a negative number, does the range include positive numbers? If so, then likely we’d find a positive relationship due to chance)                                                                    | use the t-value to calculate the probability given your distribution, and reject if p \< .05                                       |
+|                                                                                                                                                   |                                                                                                                                                                                                                                                                                                                                                                        |                                                                                                                                    |
+|                                                                                                                                                   |                                                                                                                                                                                                                                                                                                                                                                        | (or be more conservative and reject if p \< .01 or p \< .001).                                                                     |
++---------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
+
+### Yes, professor, but I learned about t-tests as their own thing?
+
+Note that the t-test does the same thing that our linear model does; evaluates the difference in groups, relative to an estimate of the sampling error we might observe.
+
+```{r}
+t.test(d0$power, d1$power, var.equal = T)
+```
+
+## [Presentations](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
+
+## Power Tests
+
+### what's the point, professor? (I'm tired.)
+
+-   **Power :** the probability that you would "correctly" observe a "true" relationship between two variables that exists.
+
+    -   **goal :** you want power to be HIGH. Power increases as...
+
+        -   **the effect size increases :** the bigger the difference, the more likely you'll detect it.
+
+        -   **your sample size increases :** the more people, the less sampling error, and the easier it is to have conidence that any difference you found is not just chance.
+
+        -   **you increase the threshold for rejecting the null hypothesis :** if the probability
+
+    -   **assumptions :** there is a true relationship; you have observed this relationship.
+
+-   **Reasons to Calculate Power :**
+
+    -   **Post-Hoc Power :** You did a study, and want to evaluate
+
+    -   **Power Planning :** You are planning to run a study, and want to know how many people to recruit to have the highest probability of observing the "true" effect (if it exists.)
+
+### a tour of null and alternative realities
+
+Watch the lecture recording (posted to bCourses) for a tour through these slides.
+
+```{=html}
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQMiQVIgG2WPl7t45rAYtUhrU1wnPNOxxeKX3zIj1eiMmN8M6nkEotx6sjDTECvRFwF4IzV5C30w-N5/embed?" frameborder="0" width="960" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+```
+
+![](images/clipboard-3964039536.png)
+
+### calculating in R (by hand)
+
+```{r}
+mod # a model object
+summary(mod) # a function applied to the object
+sm <- summary(mod) # saving this as an object
+objects(sm) # there is more inside.
+sm$coefficients # tadaa
+
+sm$coefficients[2,3] # our t-value
+mtval <- sm$coefficients[2,3]
+
+qt(.975, df = 147) # t-distribution approaches the normal distribution (with a 95% Interval cutoff of 1.96....) but we are not quite there.
+mcut <- qt(.975, 147) # t-distribution approaches the normal distribution (with a 95% Interval cutoff of 1.96....) but we are not quite there.
+
+pt(mtval - mcut, df = 147) # our power.
+```
+
+### calculating in R (a package)
+
+```{r}
+# install.packages("pwr")
+library(pwr)
+summary(mod)
+mr <- summary(mod)$r.squared^.5
+pwr.r.test(n = 149, r = mr)
+```
+
+### more power examples!
+
+#### Power Illustrated.
+
+In lecture, professor did some scribbles on the whiteboard to illustrate power, and tried to record these. He also said that he would record a few other videos.
+
+Prof. did not, in fact, find time in the present moment to record new videos. Bummer! But he did remember that he had recorded similar videos, and found some from 2018. (What were you doing in 2018?? Let us know on Discord; and as always - reach out if you still have questions about power!!)
+
+-   [Recording #1 : Conceptual Example of Power](https://www.loom.com/share/f393327465f54f3cbf5bbe8c349e3a2e?sid=45f72b59-894e-4d8d-a977-254d6e52f5c4)
+
+-   [Recording #2 : Another Example](https://www.loom.com/share/62440c2754cd4874a22ef2f00618eaff). Couldn't immediately track down the original data analyses these refer to, but the slope (b = .44) and other statistics come from a paper I had rejected in part because reviewers complained that I only replicated the main result in 4 out of 5 studies. (The paper was also a hot mess.) Bummer! But it was a cool phenomenon; I sadly never published on it for a variety of REASONS, but the truth got out eventually someone published a very clearly written, much better, and perfectly replicating paper (across six studies!) on it 8 years later. Ahhh, one thing off the to-do list!
+
+#### Estimating Sample Size.
+
+As discussed in the lecture slides (see recording), power is a function of effect size, sample size, and the alpha level (alpha = the Type I error that the researcher sets). This means that you can use these functions to estimate the sample size you need for a given power (the convention is often 80%).
+
+Let's say I want to know what sample size I need to detect a slope of r = .23.
+
+From the `pwr` package, I can define this effect, specifcy the power, type I error level, and whether I want to do a 1- or 2-tailed test.
+
+```{r}
+pwr.r.test(r = .23, power = .80, alternative = "two.sided")
+```
+
+I can also plot the result of this output and see how power increases as a function of my sample size.
+
+```{r}
+p.ex <- pwr.r.test(r = .23, power = .80, alternative = "two.sided")
+plot(p.ex)
+```
+
+### ...but you don't have to take my word for it.
+
+The approach to power described above assumes a normally distribution of sampling error. This is a good starting place, but not all distributions are gaussian! Below are a few different methods to help you estimate power across a wide variety of types of data.
+
+-   [Here's a nice overview of how to conduct sample size power analysis in R; it works through a few examples and discusses how to](https://rpubs.com/mbounthavong/sample_size_power_analysis_R)
+-   [This is a modern, thorough, and good overview of power, that also discusses ways to generate simulated data to estimate power.](https://aaroncaldwell.us/SuperpowerBook/introduction-to-power-analysis.html).
+-   [Here's another tutorial of an R package that works for a wide variety of different tests; many of which can be used when yout think the assumptions of linear regression are violated.](https://cran.r-project.org/web/packages/pwrss/vignettes/examples.html)
+-   Let me know if you find other useful resources to help calcualte or conceptualize power!
