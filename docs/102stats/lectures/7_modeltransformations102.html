@@ -255,16 +255,17 @@ Attaching package: 'gplots'</code></pre>
 </div>
 </section>
 <section id="i-asked-yall-to-do-some-interpretation-of-the-regression-assumptions." class="level3">
-<h3 class="anchored">I Asked Y’all To Do Some Interpretation of the Regression Assumptions.</h3>
+<h3 class="anchored" data-anchor-id="i-asked-yall-to-do-some-interpretation-of-the-regression-assumptions.">I Asked Y’all To Do Some Interpretation of the Regression Assumptions.</h3>
+<p>Professor answers to the regression assumptions typed out below.</p>
 <ul>
-<li><h2 id="validity.-were-the-data-measured-and-collected-in-a-valid-way" class="anchored" data-anchor-id="i-asked-yall-to-do-some-interpretation-of-the-regression-assumptions."><strong>Validity. Were the data measured and collected in a valid way?</strong></h2></li>
-<li><h2 id="reliability.-were-the-data-measured-with-high-reliability" class="anchored"><strong>Reliability. Were the data measured with high reliability?</strong></h2></li>
-<li><h2 id="independence.-does-one-data-point-give-you-any-information-about-another-individuals-data-point-if-yes-then-not-independent." class="anchored"><strong>Independence. Does one data point give you any information about another individual’s data point? (if yes, then not independent.)</strong></h2></li>
-<li><h2 id="linearity.-are-the-predicted-values-of-y-based-on-a-constant-and-linear-relationship-with-x" class="anchored"><strong>Linearity. Are the predicted values of Y based on a constant and linear relationship with X?</strong></h2></li>
+<li><p><strong>Validity. Were the data measured and collected in a valid way?</strong> I’d have to trust the researchers’ methods for getting these data, but feel like power words scraped by a comptuer program might have some validity issues, since it’s likely the algorithm the researchers are using (LIWC, from Pennebaker) isn’t really taking into full context (e.g., “not a strong relationship” would show as 1 power word.) Think it might also be hard to measure the author race, tho there’s always some error in measurement, so the question is whether the error is so biased that it skews the results, which is hard to say!</p></li>
+<li><p><strong>Reliability. Were the data measured with high reliability?</strong> Hmm, we don’t have a way to assess the reliability of these measures, since they are all single item ratings. Reliability is about repeatability, so I might want to check that the computer did its job right by having an unpaid RA working for that <em>valuable experience</em> manually count the power words, or maybe have a few RAs do some of the computer work and confirm there’s consistency between their responses. This is often something researchers do; will talk about other methods of estimating reliability later this semester. Another form of reliability - not examined here - would be to see whehter this trend holds up across other scientific disciplines.</p></li>
+<li><p><strong>Independence. Does one data point give you any information about another individual’s data point? (if yes, then not independent.)</strong> Ah, here is a violated assumption. The data are not technically independent - an author could have written multiple papers and their writing style for one article might influence their writing in another. Later, we will learn how to model this dependence in the data. I don’t think it’s super strong here / influnencing the results that much, but will be good to confirm. (And the authors mention in the paper they controlled for some of these effects with a multilevel linear model.)</p></li>
+<li><p><strong>Linearity. Are the predicted values of Y based on a constant and linear relationship with X?</strong> Time for some regression diagnostic plots! To run these, you plot the model object : <code>plot(mod)</code>. Many of y’all have probably done this accidentally, but now its time to use this intentionally.</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># splitting the graphics window into a 2x2 grid so we can see all four diagnostic plots.</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod) <span class="co"># the diagnostic plots.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -273,9 +274,11 @@ Attaching package: 'gplots'</code></pre>
 </div>
 </div>
 </div>
+<p>You can read more about what these plots are doing in last week’s lecture notes, but the basic idea is you want to see constant variation in the distribution of the residuals (errors in our predictions), and each of these graphs tries to illustrate the residuals in some novel way.</p>
+<p>I’m seeing some non-balanced graphs in the plots…for example, the residual vs.&nbsp;fitted graph below shows that my predicted values of power words for both groups (the authors of color on the left and white authors on the right) have more residuals far above the line than below. This is due to the highly-skewed data in power words, and I can see some of these patterns in the other graphs (e.g., in the Q-Q Residual plots where our actual residuals are much higher on the extreme ends than we might predict for a normal curve.) To fix this, I would probably apply some non-linear transformation to our DV to reduce the amount of skew.</p>
 <ul>
-<li><h2 id="heteroscedasticity.-is-there-constant-variation-in-the-residuals-across-the-fitted-values" class="anchored"><strong>Heteroscedasticity. Is there constant variation in the residuals across the fitted values?</strong></h2></li>
-<li><h2 id="normality-of-errors.-are-the-residuals-in-the-model-normally-distributed" class="anchored"><strong>Normality of Errors. Are the residuals in the model normally distributed?</strong></h2></li>
+<li><p><strong>Heteroscedasticity. Is there constant variation in the residuals across the fitted values?</strong> Again, there is non-constant variation in the residuals across the fitted values. I expect this to improve when we apply the non-linear transformation to the DV in our model. And maybe account for some of that non-Independence. I’m not super concerned about the individuals exerting leverage - they look far away, but looking at my original model I notice a) there’s a lot of data, so outliers won’t have as much influence and b) these leverage statistics are small in value. You can read more about how leverage is calculated (see Lecture 5 notes), but Cook’s Distance calculates a threshold for an “appropriate” amount of leverage, and these data fall within that range.</p></li>
+<li><p><strong>Normality of Errors. Are the residuals in the model normally distributed?</strong> The residuals are not normal; doing a non-linear transformation of the DV will improve the normality of this.</p></li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(mod<span class="sc">$</span>residuals, <span class="at">breaks =</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -296,7 +299,7 @@ Attaching package: 'gplots'</code></pre>
 <h3 class="anchored" data-anchor-id="numeric-transformations">Numeric Transformations</h3>
 <section id="recap-linear-transformations" class="level4">
 <h4 class="anchored" data-anchor-id="recap-linear-transformations">RECAP : Linear Transformations</h4>
-<p>Linear transformations change the units, but do not change the position of the individual data point.</p>
+<p>Linear transformations change the units, but do not change the position of the individual data points. Below are a few new examples of linear transformations, hanging out with our old friend the z-score.</p>
 <ul>
 <li><p><strong>“Percent of Maximum Possible” (POMP)</strong></p>
 <ul>
@@ -306,11 +309,16 @@ Attaching package: 'gplots'</code></pre>
 </ul></li>
 <li><p><strong>Mean-Centering :</strong></p>
 <ul>
-<li><p><strong>equation and example :</strong> <span class="math inline">\(x - mean(x)\)</span></p></li>
+<li><p><strong>equation and example :</strong> <span class="math inline">\(x_i - mean(x)\)</span></p></li>
 <li><p><strong>what it does :</strong> redefines individual scores in terms of how far above or below the mean they are.</p></li>
 <li><p><strong>when to use :</strong> you want zero to be defined as the average of the variable, but do not want to lose the units of measurement (e.g., a zero for heart rate BMP is dead, but zero of mean-centered BMP is the average heart rate)</p></li>
 </ul></li>
-<li><p><strong>Z-Score</strong></p></li>
+<li><p><strong>Z-Score.</strong> We already discussed and defined this in a previous lecture.</p>
+<ul>
+<li><p><strong>equation and example :</strong> <span class="math inline">\(z = \frac{x_i - mean(x)}{sd(x)}\)</span></p></li>
+<li><p><strong>what it does :</strong> redefines individual scores in terms of how far above or below the mean they are, relative to the standard deviation (so, how different from the mean a score is, but contextualizing this difference in terms of how .)</p></li>
+<li><p><strong>when to use :</strong> you want to remove the units from your measure (and model).</p></li>
+</ul></li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ncells <span class="ot">&lt;-</span> <span class="dv">10</span></span>
@@ -333,6 +341,7 @@ Attaching package: 'gplots'</code></pre>
 </section>
 <section id="non-linear-transformations-log-square-root-exp-etc." class="level4">
 <h4 class="anchored" data-anchor-id="non-linear-transformations-log-square-root-exp-etc.">Non-Linear Transformations : Log; Square-Root; Exp; etc.</h4>
+<p>Non-linear transformations radically alter the shape of your distribution, and the position of your individual data (relative to each other). These transformations are most often used to make non-normal distributions look more normal.</p>
 <ul>
 <li><p><strong>Log Transformation.</strong></p>
 <ul>
@@ -381,16 +390,11 @@ Attaching package: 'gplots'</code></pre>
 <ul>
 <li><p><strong>equation :</strong> <span class="math inline">\(1/x\)</span> or <span class="math inline">\(-1/x\)</span></p></li>
 <li><p><strong>in R :</strong> <code>1/x</code></p></li>
-<li><p><strong>what it does :</strong> flips the data around</p></li>
+<li><p><strong>what it does :</strong> flips the data around (so highest point = the lowest point)</p></li>
 <li><p><strong>when to use :</strong> good when you want to reverse the order of data that are the same sign (e.g., make the largest value become the smallest value), or change the interpretation of some ratio data (e.g., convert “heart beats per minute into minutes per heart beat”.)</p></li>
 </ul></li>
-<li><p><strong>Exponential Transformation.</strong></p>
-<ul>
-<li><p><strong>what it does :</strong> expands the scale of the variable;</p></li>
-<li><p><strong>when to use :</strong></p></li>
-</ul></li>
 </ul>
-<p><strong>DISCUSSION :</strong> Below are these three transformations applied to our measure of power words.</p>
+<p><strong>DISCORD DISCUSSION :</strong> Below are these three transformations applied to our measure of power words.</p>
 <ul>
 <li><p>What do you see?</p></li>
 <li><p>Which transformation seems the best to apply to our linear model? (And why?)</p></li>
@@ -416,16 +420,10 @@ Attaching package: 'gplots'</code></pre>
 </ul>
 </section>
 </section>
-<section id="categorical-transformations" class="level3">
-<h3 class="anchored" data-anchor-id="categorical-transformations">Categorical Transformations</h3>
-<ol type="1">
-<li>Re-leveling categorical variables.</li>
-<li>Effect or Contrast Coding</li>
-</ol>
-</section>
 </section>
 <section id="giving-context-to-our-slope-the-t-test" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="giving-context-to-our-slope-the-t-test">Giving Context To Our Slope : The T-Test</h2>
+<p><a href="https://catterson.github.io/ystats/chapters/8R_SamplingError.html#estimating-sampling-error-with-null-hypothesis-significance-testing-nhst">You can read my Intro Chapter on interpreting NHST here.</a></p>
 <p>A t-test does compares this difference between groups (our slope) to an estimate of sampling error.</p>
 <p><span class="math display">\[
 t = b / se
@@ -444,11 +442,11 @@ t = b / se
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bucket) <span class="co"># should be close to original model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4985354</code></pre>
+<pre><code>[1] 0.4794735</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(bucket) <span class="co"># the estimate of sampling error</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1401921</code></pre>
+<pre><code>[1] 0.1414262</code></pre>
 </div>
 </div>
 </section>
@@ -514,7 +512,7 @@ F-statistic: 10.52 on 1 and 1686 DF,  p-value: 0.001204</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(bucket) <span class="co"># pretty close!! wow!!!!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1401921</code></pre>
+<pre><code>[1] 0.1414262</code></pre>
 </div>
 </div>
 </section>
@@ -583,195 +581,8 @@ mean of x mean of y
 </section>
 <section id="presentations" class="level2">
 <h2 class="anchored" data-anchor-id="presentations"><a href="https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing">Presentations</a></h2>
-</section>
-<section id="power-tests" class="level2">
-<h2 class="anchored" data-anchor-id="power-tests">Power Tests</h2>
-<section id="whats-the-point-professor-im-tired." class="level3">
-<h3 class="anchored" data-anchor-id="whats-the-point-professor-im-tired.">what’s the point, professor? (I’m tired.)</h3>
-<ul>
-<li><p><strong>Power :</strong> the probability that you would “correctly” observe a “true” relationship between two variables that exists.</p>
-<ul>
-<li><p><strong>goal :</strong> you want power to be HIGH. Power increases as…</p>
-<ul>
-<li><p><strong>the effect size increases :</strong> the bigger the difference, the more likely you’ll detect it.</p></li>
-<li><p><strong>your sample size increases :</strong> the more people, the less sampling error, and the easier it is to have conidence that any difference you found is not just chance.</p></li>
-<li><p><strong>you increase the threshold for rejecting the null hypothesis :</strong> if the probability</p></li>
-</ul></li>
-<li><p><strong>assumptions :</strong> there is a true relationship; you have observed this relationship.</p></li>
-</ul></li>
-<li><p><strong>Reasons to Calculate Power :</strong></p>
-<ul>
-<li><p><strong>Post-Hoc Power :</strong> You did a study, and want to evaluate</p></li>
-<li><p><strong>Power Planning :</strong> You are planning to run a study, and want to know how many people to recruit to have the highest probability of observing the “true” effect (if it exists.)</p></li>
-</ul></li>
-</ul>
-</section>
-<section id="a-tour-of-null-and-alternative-realities" class="level3">
-<h3 class="anchored" data-anchor-id="a-tour-of-null-and-alternative-realities">a tour of null and alternative realities</h3>
-<p>Watch the lecture recording (posted to bCourses) for a tour through these slides.</p>
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQMiQVIgG2WPl7t45rAYtUhrU1wnPNOxxeKX3zIj1eiMmN8M6nkEotx6sjDTECvRFwF4IzV5C30w-N5/embed?" frameborder="0" width="960" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-<p><img src="images/clipboard-3964039536.png" class="img-fluid"></p>
-</section>
-<section id="calculating-in-r-by-hand" class="level3">
-<h3 class="anchored" data-anchor-id="calculating-in-r-by-hand">calculating in R (by hand)</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>mod <span class="co"># a model object</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = power ~ pocuF, data = d)
-
-Coefficients:
-       (Intercept)  pocuFWhite Authors  
-             3.072               0.491  </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod) <span class="co"># a function applied to the object</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = power ~ pocuF, data = d)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--3.5632 -2.0955 -0.7677  1.2943 14.9068 
-
-Coefficients:
-                   Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)          3.0722     0.1254  24.491   &lt;2e-16 ***
-pocuFWhite Authors   0.4910     0.1514   3.243   0.0012 ** 
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 2.885 on 1686 degrees of freedom
-Multiple R-squared:  0.006201,  Adjusted R-squared:  0.005612 
-F-statistic: 10.52 on 1 and 1686 DF,  p-value: 0.001204</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>sm <span class="ot">&lt;-</span> <span class="fu">summary</span>(mod) <span class="co"># saving this as an object</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">objects</span>(sm) <span class="co"># there is more inside.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "adj.r.squared" "aliased"       "call"          "coefficients" 
- [5] "cov.unscaled"  "df"            "fstatistic"    "r.squared"    
- [9] "residuals"     "sigma"         "terms"        </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>sm<span class="sc">$</span>coefficients <span class="co"># tadaa</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                    Estimate Std. Error   t value      Pr(&gt;|t|)
-(Intercept)        3.0722117  0.1254447 24.490557 1.418967e-113
-pocuFWhite Authors 0.4910325  0.1513899  3.243495  1.203825e-03</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>sm<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">3</span>] <span class="co"># our t-value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.243495</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>mtval <span class="ot">&lt;-</span> sm<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">3</span>]</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(.<span class="dv">975</span>, <span class="at">df =</span> <span class="dv">147</span>) <span class="co"># t-distribution approaches the normal distribution (with a 95% Interval cutoff of 1.96....) but we are not quite there.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.976233</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>mcut <span class="ot">&lt;-</span> <span class="fu">qt</span>(.<span class="dv">975</span>, <span class="dv">147</span>) <span class="co"># t-distribution approaches the normal distribution (with a 95% Interval cutoff of 1.96....) but we are not quite there.</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(mtval <span class="sc">-</span> mcut, <span class="at">df =</span> <span class="dv">147</span>) <span class="co"># our power.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.8964672</code></pre>
-</div>
-</div>
-</section>
-<section id="calculating-in-r-a-package" class="level3">
-<h3 class="anchored" data-anchor-id="calculating-in-r-a-package">calculating in R (a package)</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("pwr")</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = power ~ pocuF, data = d)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--3.5632 -2.0955 -0.7677  1.2943 14.9068 
-
-Coefficients:
-                   Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)          3.0722     0.1254  24.491   &lt;2e-16 ***
-pocuFWhite Authors   0.4910     0.1514   3.243   0.0012 ** 
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 2.885 on 1686 degrees of freedom
-Multiple R-squared:  0.006201,  Adjusted R-squared:  0.005612 
-F-statistic: 10.52 on 1 and 1686 DF,  p-value: 0.001204</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>mr <span class="ot">&lt;-</span> <span class="fu">summary</span>(mod)<span class="sc">$</span>r.squared<span class="sc">^</span>.<span class="dv">5</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.r.test</span>(<span class="at">n =</span> <span class="dv">149</span>, <span class="at">r =</span> mr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-     approximate correlation power calculation (arctangh transformation) 
-
-              n = 149
-              r = 0.07874694
-      sig.level = 0.05
-          power = 0.1594073
-    alternative = two.sided</code></pre>
-</div>
-</div>
-</section>
-<section id="more-power-examples" class="level3">
-<h3 class="anchored" data-anchor-id="more-power-examples">more power examples!</h3>
-<section id="power-illustrated." class="level4">
-<h4 class="anchored" data-anchor-id="power-illustrated.">Power Illustrated.</h4>
-<p>In lecture, professor did some scribbles on the whiteboard to illustrate power, and tried to record these. He also said that he would record a few other videos.</p>
-<p>Prof.&nbsp;did not, in fact, find time in the present moment to record new videos. Bummer! But he did remember that he had recorded similar videos, and found some from 2018. (What were you doing in 2018?? Let us know on Discord; and as always - reach out if you still have questions about power!!)</p>
-<ul>
-<li><p><a href="https://www.loom.com/share/f393327465f54f3cbf5bbe8c349e3a2e?sid=45f72b59-894e-4d8d-a977-254d6e52f5c4">Recording #1 : Conceptual Example of Power</a></p></li>
-<li><p><a href="https://www.loom.com/share/62440c2754cd4874a22ef2f00618eaff">Recording #2 : Another Example</a>. Couldn’t immediately track down the original data analyses these refer to, but the slope (b = .44) and other statistics come from a paper I had rejected in part because reviewers complained that I only replicated the main result in 4 out of 5 studies. (The paper was also a hot mess.) Bummer! But it was a cool phenomenon; I sadly never published on it for a variety of REASONS, but the truth got out eventually someone published a very clearly written, much better, and perfectly replicating paper (across six studies!) on it 8 years later. Ahhh, one thing off the to-do list!</p></li>
-</ul>
-</section>
-<section id="estimating-sample-size." class="level4">
-<h4 class="anchored" data-anchor-id="estimating-sample-size.">Estimating Sample Size.</h4>
-<p>As discussed in the lecture slides (see recording), power is a function of effect size, sample size, and the alpha level (alpha = the Type I error that the researcher sets). This means that you can use these functions to estimate the sample size you need for a given power (the convention is often 80%).</p>
-<p>Let’s say I want to know what sample size I need to detect a slope of r = .23.</p>
-<p>From the <code>pwr</code> package, I can define this effect, specifcy the power, type I error level, and whether I want to do a 1- or 2-tailed test.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.r.test</span>(<span class="at">r =</span> .<span class="dv">23</span>, <span class="at">power =</span> .<span class="dv">80</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-     approximate correlation power calculation (arctangh transformation) 
-
-              n = 145.2367
-              r = 0.23
-      sig.level = 0.05
-          power = 0.8
-    alternative = two.sided</code></pre>
-</div>
-</div>
-<p>I can also plot the result of this output and see how power increases as a function of my sample size.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>p.ex <span class="ot">&lt;-</span> <span class="fu">pwr.r.test</span>(<span class="at">r =</span> .<span class="dv">23</span>, <span class="at">power =</span> .<span class="dv">80</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(p.ex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="7_modeltransformations102_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="but-you-dont-have-to-take-my-word-for-it." class="level3">
-<h3 class="anchored" data-anchor-id="but-you-dont-have-to-take-my-word-for-it.">…but you don’t have to take my word for it.</h3>
-<p>The approach to power described above assumes a normally distribution of sampling error. This is a good starting place, but not all distributions are gaussian! Below are a few different methods to help you estimate power across a wide variety of types of data.</p>
-<ul>
-<li><a href="https://rpubs.com/mbounthavong/sample_size_power_analysis_R">Here’s a nice overview of how to conduct sample size power analysis in R; it works through a few examples and discusses how to</a></li>
-<li><a href="https://aaroncaldwell.us/SuperpowerBook/introduction-to-power-analysis.html">This is a modern, thorough, and good overview of power, that also discusses ways to generate simulated data to estimate power.</a>.</li>
-<li><a href="https://cran.r-project.org/web/packages/pwrss/vignettes/examples.html">Here’s another tutorial of an R package that works for a wide variety of different tests; many of which can be used when yout think the assumptions of linear regression are violated.</a></li>
-<li>Let me know if you find other useful resources to help calcualte or conceptualize power!</li>
-</ul>
 
 
-</section>
 </section>
 
 

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -30,10 +30,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4968d28af72d4e5a34172c9bc5ef961b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -80,10 +80,9 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -98,14 +97,6 @@ window.Quarto = {
     <a class="nav-link" href="https://catterson.github.io/ystats/"> 
 <span class="menu-text">Why Statistics?</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../calstats/calstatsSP25.html"> 
-<span class="menu-text">Cal Stats [Psych 101]</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../gradstats/gradstatsSP25.html"> 
-<span class="menu-text">Grad Stats [Psych 205]</span></a>
-  </li>  
 </ul>
           <div class="quarto-navbar-tools">
 </div>
@@ -116,9 +107,10 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -139,6 +131,73 @@ window.Quarto = {
 </header>
 
 
+<section id="the-mascot-dataset." class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="the-mascot-dataset.">The Mascot Dataset.</h2>
+<p>Hi class! Had hoped to guide y’all through this in lecture, but am sick and so I will not be doing this. But hoping your GSI can lead y’all, and we can use Discord to discuss any issues / other questions.</p>
+<p>Please read below; a little more set-up than normal for our Lab Assignment. When submitting the assignmen, please only include answers to the Lab Question - cut out all the other content.</p>
+<section id="description-of-research-question-and-problem" class="level3">
+<h3 class="anchored" data-anchor-id="description-of-research-question-and-problem">Description of Research Question (and Problem)</h3>
+<ul>
+<li><p><strong>Research Question : “Why do people differ in their beliefs about native american mascots?”</strong></p>
+<ul>
+<li><p><strong>Researcher (&amp; Berkeley alumnus) <a href="http://www.michaelwkraus.com/">Michael Kraus</a> :</strong> Informed by his experiences as a new faculty member at the University of Illinois at Urbana-Champaign.</p></li>
+<li><p><strong>DISCUSSION :</strong> Do we need this science? What are the arguments you’ve heard for why native american mascots are / are not racist?</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="link-to-data-and-description-of-variables" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="link-to-data-and-description-of-variables">Link to Data and Description of Variables</h3>
+<ul>
+<li><a href="https://www.dropbox.com/s/sknsv99q8gvlpfh/mascot_data.csv?dl=0">Link to Mascot Dataset</a> + <a href="https://www.dropbox.com/scl/fi/8kbh8zqcqcx6g9jurl8up/CODEBOOK-Mascot_Data.pdf?rlkey=ny3okktolmyezbwzim3aiw5sl&amp;dl=0">Full Codebook</a></li>
+<li><strong>Implicit and Explicit Prejudice in the Mascot Dataset</strong></li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 72%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Variable</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr class="even">
+<td>attitude</td>
+<td>a scale created based on a 13-item survey about attitudes toward native american mascots at UIUC, measured with items such as “I wish the Chief were still the mascot” and “Chief Illiniwek is a racist symbol (negatively-keyed item)”. Higher numbers = more positive rating of the mascot.</td>
+</tr>
+<tr class="odd">
+<td>IATscore</td>
+<td>a continuous implicit measure of the person’s unconscious prejudice toward / against Native Americans, measured in terms of how fast people are to associate Native American (vs.&nbsp;White) names with Past (vs.&nbsp;Present) terms. Higher scores = more Present-White and Past-Native American bias.</td>
+</tr>
+<tr class="even">
+<td>prejudiceNatAm</td>
+<td>a continuous explicit measure of the person’s conscious prejudice against Native Ameicans, measured with items such as, “Native Americans are a vanishing culture and there are few “real” Indians” and “It is now unnecessary for the U.S. government to honor their treaty obligations to Native tribes.” Higher numbers = more prejudice against Native Americans.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><strong>Below are the specific measures that were used.</strong></p>
+<p>Note : the IAT is not a perfect measure, and there’s a fair amount of debate about whether it is a reliable and valid measure as claimed (see here and here and here for academic examples of some of this debate). FWIW my hot take is that I believe a) implicit measures are really hard to quantify, b) the underlying mechanism that experiences shape our cognition is real, c) we live in a society that prioritizes white and male voices in various ways (history education; modern media; etc.), d) that A-C together would suggest it is very likely people would hold unconscious biases that reflect those in society, and E) it’s important to identify and name those biases if you want to address them. Happy to chat more; thx for attending my footnote talk. Anyway, <a href="https://implicit.harvard.edu/implicit/takeatest.html">here’s a link to learn more or take a test for yourself</a>.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Measures of Implicit and Explicit Prejudice</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong><img src="images/6B_ExpPrej.png" class="img-fluid"></strong></td>
+</tr>
+<tr class="even">
+<td><strong><img src="images/6B_ImpPrej.png" class="img-fluid"></strong></td>
+</tr>
+</tbody>
+</table>
+</div></div></section>
+</section>
+<section id="the-lab-questions" class="level2">
+<h2 class="anchored" data-anchor-id="the-lab-questions">The Lab Questions</h2>
 <section id="problem-1." class="level3">
 <h3 class="anchored" data-anchor-id="problem-1.">Problem 1.</h3>
 <p>These data measure Midwestern college students’ implicit and explicit prejudiced attitudes toward Native Americans, and their support for a college Native American mascot considered racist by local tribes. The researchers predicted that both implicit prejudice (IV1 = IATscore) and explicit prejudice (IV2 = prejudiceNatAm) would be related to more positive attitudes toward the native american mascot (DV = attitude). Test these researchers theory.</p>
@@ -156,12 +215,9 @@ window.Quarto = {
 <section id="problem-3-on-your-own." class="level3">
 <h3 class="anchored" data-anchor-id="problem-3-on-your-own.">Problem 3 (On Your Own).</h3>
 <p>Identify another numeric variable from the mascot dataset that you think will predict attitudes toward the mascot. Define the linear model, report the statistics and graph needed to understand the relationship, and explain what you observe about the relationship between the two variables below.</p>
+
+
 </section>
-<section id="problem-4-in-discussion-section." class="level3">
-<h3 class="anchored" data-anchor-id="problem-4-in-discussion-section.">Problem 4 (In Discussion Section).</h3>
-<p>Work with your classmates to identify a numeric DV that you are interested in predicting. Then, work with a buddy to choose a numeric IV that y’all think will BEST predict this DV. Write out your prediction (how do you think these two variables will be related?) Define the linear model needed to test this prediction, report the statistics and graph needed to understand the relationship, and explain what you observe below your graph. Why do you think this relationship exists? Then, z-score your DV and IV in the linear model, and report (and interpret) the slope and <span class="math inline">\(R^2\)</span> value. How did these statistics change? How did they remain the same? Compare the results of your model to another team - whose model was a “better” model? Why / how do you know?</p>
-
-
 </section>
 
 </main> <!-- /main -->
@@ -247,8 +303,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -359,7 +413,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

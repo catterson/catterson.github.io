@@ -69,34 +69,28 @@ coef(mod)
 
 ### I Asked Y'all To Do Some Interpretation of the Regression Assumptions.
 
--   
+Professor answers to the regression assumptions typed out below.
 
-    ## **Validity. Were the data measured and collected in a valid way?**
+-   **Validity. Were the data measured and collected in a valid way?** I'd have to trust the researchers' methods for getting these data, but feel like power words scraped by a comptuer program might have some validity issues, since it's likely the algorithm the researchers are using (LIWC, from Pennebaker) isn't really taking into full context (e.g., "not a strong relationship" would show as 1 power word.) Think it might also be hard to measure the author race, tho there's always some error in measurement, so the question is whether the error is so biased that it skews the results, which is hard to say!
 
--   
+-   **Reliability. Were the data measured with high reliability?** Hmm, we don't have a way to assess the reliability of these measures, since they are all single item ratings. Reliability is about repeatability, so I might want to check that the computer did its job right by having an unpaid RA working for that *valuable experience* manually count the power words, or maybe have a few RAs do some of the computer work and confirm there's consistency between their responses. This is often something researchers do; will talk about other methods of estimating reliability later this semester. Another form of reliability - not examined here - would be to see whehter this trend holds up across other scientific disciplines.
 
-    ## **Reliability. Were the data measured with high reliability?**
+-   **Independence. Does one data point give you any information about another individual's data point? (if yes, then not independent.)** Ah, here is a violated assumption. The data are not technically independent - an author could have written multiple papers and their writing style for one article might influence their writing in another. Later, we will learn how to model this dependence in the data. I don't think it's super strong here / influnencing the results that much, but will be good to confirm. (And the authors mention in the paper they controlled for some of these effects with a multilevel linear model.)
 
--   
-
-    ## **Independence. Does one data point give you any information about another individual's data point? (if yes, then not independent.)**
-
--   
-
-    ## **Linearity. Are the predicted values of Y based on a constant and linear relationship with X?**
+-   **Linearity. Are the predicted values of Y based on a constant and linear relationship with X?** Time for some regression diagnostic plots! To run these, you plot the model object : `plot(mod)`. Many of y'all have probably done this accidentally, but now its time to use this intentionally.
 
 ```{r}
-par(mfrow = c(2,2))
-plot(mod)
+par(mfrow = c(2,2)) # splitting the graphics window into a 2x2 grid so we can see all four diagnostic plots.
+plot(mod) # the diagnostic plots.
 ```
 
--   
+You can read more about what these plots are doing in last week's lecture notes, but the basic idea is you want to see constant variation in the distribution of the residuals (errors in our predictions), and each of these graphs tries to illustrate the residuals in some novel way.
 
-    ## **Heteroscedasticity. Is there constant variation in the residuals across the fitted values?**
+I'm seeing some non-balanced graphs in the plots...for example, the residual vs. fitted graph below shows that my predicted values of power words for both groups (the authors of color on the left and white authors on the right) have more residuals far above the line than below. This is due to the highly-skewed data in power words, and I can see some of these patterns in the other graphs (e.g., in the Q-Q Residual plots where our actual residuals are much higher on the extreme ends than we might predict for a normal curve.) To fix this, I would probably apply some non-linear transformation to our DV to reduce the amount of skew.
 
--   
+-   **Heteroscedasticity. Is there constant variation in the residuals across the fitted values?** Again, there is non-constant variation in the residuals across the fitted values. I expect this to improve when we apply the non-linear transformation to the DV in our model. And maybe account for some of that non-Independence. I'm not super concerned about the individuals exerting leverage - they look far away, but looking at my original model I notice a) there's a lot of data, so outliers won't have as much influence and b) these leverage statistics are small in value. You can read more about how leverage is calculated (see Lecture 5 notes), but Cook's Distance calculates a threshold for an "appropriate" amount of leverage, and these data fall within that range.
 
-    ## **Normality of Errors. Are the residuals in the model normally distributed?**
+-   **Normality of Errors. Are the residuals in the model normally distributed?** The residuals are not normal; doing a non-linear transformation of the DV will improve the normality of this.
 
 ```{r}
 hist(mod$residuals, breaks = 20)
@@ -110,7 +104,7 @@ Sometimes, we need (or want) to change the structure of our data to address viol
 
 #### RECAP : Linear Transformations
 
-Linear transformations change the units, but do not change the position of the individual data point.
+Linear transformations change the units, but do not change the position of the individual data points. Below are a few new examples of linear transformations, hanging out with our old friend the z-score.
 
 -   **"Percent of Maximum Possible" (POMP)**
 
@@ -122,13 +116,19 @@ Linear transformations change the units, but do not change the position of the i
 
 -   **Mean-Centering :**
 
-    -   **equation and example :** $x - mean(x)$
+    -   **equation and example :** $x_i - mean(x)$
 
     -   **what it does :** redefines individual scores in terms of how far above or below the mean they are.
 
     -   **when to use :** you want zero to be defined as the average of the variable, but do not want to lose the units of measurement (e.g., a zero for heart rate BMP is dead, but zero of mean-centered BMP is the average heart rate)
 
--   **Z-Score**
+-   **Z-Score.** We already discussed and defined this in a previous lecture.
+
+    -   **equation and example :** $z = \frac{x_i - mean(x)}{sd(x)}$
+
+    -   **what it does :** redefines individual scores in terms of how far above or below the mean they are, relative to the standard deviation (so, how different from the mean a score is, but contextualizing this difference in terms of how .)
+
+    -   **when to use :** you want to remove the units from your measure (and model).
 
 ```{r}
 ncells <- 10
@@ -143,6 +143,8 @@ plot(d$power, scale(d$power))
 ```
 
 #### Non-Linear Transformations : Log; Square-Root; Exp; etc.
+
+Non-linear transformations radically alter the shape of your distribution, and the position of your individual data (relative to each other). These transformations are most often used to make non-normal distributions look more normal.
 
 -   **Log Transformation.**
 
@@ -176,17 +178,11 @@ plot(d$power, scale(d$power))
 
     -   **in R :** `1/x`
 
-    -   **what it does :** flips the data around
+    -   **what it does :** flips the data around (so highest point = the lowest point)
 
     -   **when to use :** good when you want to reverse the order of data that are the same sign (e.g., make the largest value become the smallest value), or change the interpretation of some ratio data (e.g., convert "heart beats per minute into minutes per heart beat".)
 
--   **Exponential Transformation.**
-
-    -   **what it does :** expands the scale of the variable;
-
-    -   **when to use :**
-
-**DISCUSSION :** Below are these three transformations applied to our measure of power words.
+**DISCORD DISCUSSION :** Below are these three transformations applied to our measure of power words.
 
 -   What do you see?
 
@@ -210,12 +206,9 @@ hist(1/d$power)
 
 ```
 
-### Categorical Transformations
-
-1.  Re-leveling categorical variables.
-2.  Effect or Contrast Coding
-
 ## Giving Context To Our Slope : The T-Test
+
+[You can read my Intro Chapter on interpreting NHST here.](https://catterson.github.io/ystats/chapters/8R_SamplingError.html#estimating-sampling-error-with-null-hypothesis-significance-testing-nhst)
 
 A t-test does compares this difference between groups (our slope) to an estimate of sampling error.
 
@@ -311,103 +304,3 @@ t.test(d0$power, d1$power, var.equal = T)
 ```
 
 ## [Presentations](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
-
-## Power Tests
-
-### what's the point, professor? (I'm tired.)
-
--   **Power :** the probability that you would "correctly" observe a "true" relationship between two variables that exists.
-
-    -   **goal :** you want power to be HIGH. Power increases as...
-
-        -   **the effect size increases :** the bigger the difference, the more likely you'll detect it.
-
-        -   **your sample size increases :** the more people, the less sampling error, and the easier it is to have conidence that any difference you found is not just chance.
-
-        -   **you increase the threshold for rejecting the null hypothesis :** if the probability
-
-    -   **assumptions :** there is a true relationship; you have observed this relationship.
-
--   **Reasons to Calculate Power :**
-
-    -   **Post-Hoc Power :** You did a study, and want to evaluate
-
-    -   **Power Planning :** You are planning to run a study, and want to know how many people to recruit to have the highest probability of observing the "true" effect (if it exists.)
-
-### a tour of null and alternative realities
-
-Watch the lecture recording (posted to bCourses) for a tour through these slides.
-
-```{=html}
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQMiQVIgG2WPl7t45rAYtUhrU1wnPNOxxeKX3zIj1eiMmN8M6nkEotx6sjDTECvRFwF4IzV5C30w-N5/embed?" frameborder="0" width="960" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-```
-
-![](images/clipboard-3964039536.png)
-
-### calculating in R (by hand)
-
-```{r}
-mod # a model object
-summary(mod) # a function applied to the object
-sm <- summary(mod) # saving this as an object
-objects(sm) # there is more inside.
-sm$coefficients # tadaa
-
-sm$coefficients[2,3] # our t-value
-mtval <- sm$coefficients[2,3]
-
-qt(.975, df = 147) # t-distribution approaches the normal distribution (with a 95% Interval cutoff of 1.96....) but we are not quite there.
-mcut <- qt(.975, 147) # t-distribution approaches the normal distribution (with a 95% Interval cutoff of 1.96....) but we are not quite there.
-
-pt(mtval - mcut, df = 147) # our power.
-```
-
-### calculating in R (a package)
-
-```{r}
-# install.packages("pwr")
-library(pwr)
-summary(mod)
-mr <- summary(mod)$r.squared^.5
-pwr.r.test(n = 149, r = mr)
-```
-
-### more power examples!
-
-#### Power Illustrated.
-
-In lecture, professor did some scribbles on the whiteboard to illustrate power, and tried to record these. He also said that he would record a few other videos.
-
-Prof. did not, in fact, find time in the present moment to record new videos. Bummer! But he did remember that he had recorded similar videos, and found some from 2018. (What were you doing in 2018?? Let us know on Discord; and as always - reach out if you still have questions about power!!)
-
--   [Recording #1 : Conceptual Example of Power](https://www.loom.com/share/f393327465f54f3cbf5bbe8c349e3a2e?sid=45f72b59-894e-4d8d-a977-254d6e52f5c4)
-
--   [Recording #2 : Another Example](https://www.loom.com/share/62440c2754cd4874a22ef2f00618eaff). Couldn't immediately track down the original data analyses these refer to, but the slope (b = .44) and other statistics come from a paper I had rejected in part because reviewers complained that I only replicated the main result in 4 out of 5 studies. (The paper was also a hot mess.) Bummer! But it was a cool phenomenon; I sadly never published on it for a variety of REASONS, but the truth got out eventually someone published a very clearly written, much better, and perfectly replicating paper (across six studies!) on it 8 years later. Ahhh, one thing off the to-do list!
-
-#### Estimating Sample Size.
-
-As discussed in the lecture slides (see recording), power is a function of effect size, sample size, and the alpha level (alpha = the Type I error that the researcher sets). This means that you can use these functions to estimate the sample size you need for a given power (the convention is often 80%).
-
-Let's say I want to know what sample size I need to detect a slope of r = .23.
-
-From the `pwr` package, I can define this effect, specifcy the power, type I error level, and whether I want to do a 1- or 2-tailed test.
-
-```{r}
-pwr.r.test(r = .23, power = .80, alternative = "two.sided")
-```
-
-I can also plot the result of this output and see how power increases as a function of my sample size.
-
-```{r}
-p.ex <- pwr.r.test(r = .23, power = .80, alternative = "two.sided")
-plot(p.ex)
-```
-
-### ...but you don't have to take my word for it.
-
-The approach to power described above assumes a normally distribution of sampling error. This is a good starting place, but not all distributions are gaussian! Below are a few different methods to help you estimate power across a wide variety of types of data.
-
--   [Here's a nice overview of how to conduct sample size power analysis in R; it works through a few examples and discusses how to](https://rpubs.com/mbounthavong/sample_size_power_analysis_R)
--   [This is a modern, thorough, and good overview of power, that also discusses ways to generate simulated data to estimate power.](https://aaroncaldwell.us/SuperpowerBook/introduction-to-power-analysis.html).
--   [Here's another tutorial of an R package that works for a wide variety of different tests; many of which can be used when yout think the assumptions of linear regression are violated.](https://cran.r-project.org/web/packages/pwrss/vignettes/examples.html)
--   Let me know if you find other useful resources to help calcualte or conceptualize power!
