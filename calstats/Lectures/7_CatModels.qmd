@@ -8,21 +8,23 @@ format:
 ## [Check-In : A Quick Study](https://docs.google.com/forms/d/e/1FAIpQLSfJC8RLLtQf0Px0yz1nJjx-8CGXFrMcuUg_b3od54kHHPCEHQ/viewform?usp=sf_link)
 
 -   No talking, no looking up answers!
--   Will discuss next week :)
+-   Will use data in lecture :)
 
 ![](images/7_cattree.png){fig-align="center" width="485"}
 
 ## Announcements & Reminders :
 
--   **It is almost Spring Break.** Class will end early today :)
--   **4/4 Lecture is ON ZOOM.** Will keep it short and engaging! Plan to participate / engage if you attend, or just watch the recording.
--   **Start Collecting Final Project Data?!** Your GSI hopefully has (or will) give you feedback on your final project; start collecting data. Make sure :
-    -   Your DV is numeric.
-    -   You measure each variable in your linear model as a separate variable.
-    -   Each question has one response option (no "multiple multiple choice" or "checkbox".)
-    -   Other issues?
+-   **THE END IS NEAR.** Five lectures left. Actually this feels like a lot?
+-   **Lab 7 : Start Analyzing Your Final Project Data!**
+    -   Export data as a .csv
+    -   Data cleaning :
+        -   get rid of "Extra" columns & rows.
+        -   rename variables –\> codebook
+        -   convert likert scales ("1 - Strongly Disagree") to numbers (1)
+    -   Descriptive Statistics.
+    -   DO THIS IN SECTION WHERE YOU CAN GET HELP!!!
 
-## $R^2$ In Real-Life
+## RECAP : $R^2$ In Real-Life
 
 ::: column-margin
 ![](images/clipboard-606508161.png)
@@ -31,21 +33,24 @@ format:
 ![](images/clipboard-1347662291.png)
 
 -   **DISCUSS :** **what do these linear models tell us about the relationship between GPA, SAT (IVs) and freshman grades (DV)?**
+    -   answers.
+    -   go.
+    -   here.
 
 ## When the IV is Categorical...
 
 ### We Load the Data
 
 ```{r}
-d <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/cal_mini_SP25.csv", stringsAsFactors = T)
+d <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets - FA25/mini_cal_data.csv", stringsAsFactors = T)
 ```
 
 ### We Graph our Variables.
 
 ```{r}
-hist(d$satlife)
+hist(d$is.happy)
 plot(d$stoned72) # an empty level!
-levels(d$stoned72)[1] <- NA
+levels(d$stoned72)[1] <- NA # careful, only do this one time.
 plot(d$stoned72) # an empty level is GONE.
 ```
 
@@ -54,7 +59,7 @@ plot(d$stoned72) # an empty level is GONE.
 The Model Coefficients : An Intercept and Slope
 
 ```{r}
-mod <- lm(satlife ~ stoned72, data = d)
+mod <- lm(is.happy ~ stoned72, data = d)
 coef(mod)
 ```
 
@@ -62,7 +67,7 @@ The Graph Will Help Our Interpretation.
 
 ```{r}
 library(gplots)
-plotmeans(satlife ~ stoned72, data = d)
+plotmeans(is.happy ~ stoned72, data = d)
 coef(mod)
 summary(mod)$r.squared
 ```
@@ -71,47 +76,70 @@ summary(mod)$r.squared
     -   when stoned72 = 0 = "No" (Or not "Yes")
     -   when stoned72 = 1 = "Yes"
 -   The Intercept is : The Predicted Value of Y when all X-Values are Zero.
+    -   this means :
 -   The Slope is : How our Predicted Value of Y changes when X changes by one.
+    -   this means :
 
 ### We Interpret Our Linear Model.
 
--   What is the relationship?
--   How strong is this relationship?
--   Why do we find this relationship in the data?
-    -   CAUSALITY : smoking marijuana causes people to feel more satisfied with their lives.
-        -   marijuana cuts off oxygen to brain; makes them delirious?
-        -   it is an effective stress management strategy
-        -   dopamine spikes highest when anticipating; the question triggered the response and life is good TM
-        -   you are numbing yourself to the horrors in the world, escaping into a void of short-term pleasure and a delusion that things will be okay omg is everyone looking at me right now okay I'm gonna stop next time...I promise...
-        -   satlife is a temporary state.
-        -   maybe some recency bias; people who were stoned only thinking about short-term positive feelings; not contextualizng the pain; the horror.
-        -   drugs make you feel good!!!!
-        -   not smoking / doing drugs might cause you to be lower in satisfaction with life because you are attending to things?
-    -   REVERSE CAUSATION : satisfaction with life might cause people to smoke weed?
-        -   people who are feelin great feel like they can sit back; blaze one up; just relaaaaaxxxxxx.
-        -   people who are HECKA STRESSED might not want to invite marijuana into their lives.
-    -   CONFOUND / THIRD VARIABLE :
-        -   a chill personality (someone low in Negative Emotion) may a) be more likely to use marijuana and b) more likely to be satisfied w/ their life.
-        -   money : someone with a lot of \$\$ might be more satisfied with their lives, and more likley to buy weed (which does have a cost).
-        -   free time / sleep / stress.
-    -   CHANCE : we found this pattern due to chance.
--   Who cares about this relationship?
--   What other questions do we have about these data?
+-   **Stat Stuff : What are the important numbers?**
+    -   What is the relationship?
+    -   How strong is this relationship?
+-   **Brain Stuff : What's the point?**
+    -   [Why]{.underline} does this relationship in the data exist?
+    -   [What other questions]{.underline} might we ask?
+    -   [Who cares]{.underline} about this relationship? (How could we use this knowledge)?
 
-### YOUR TURN : Define another linear model to predict a numeric DV from a categorical IV (with 2 levels.)
+### Work Time. 
 
-Studnet Example Go Here.
+**Define another linear model to predict a numeric DV from a categorical IV (with 2 levels.)**
+
+-   Student Example :
 
 ```{r}
 
 ```
 
-Studnet Example Go Here.
+-   Student Example :
 
 ```{r}
 
 ```
 
-## Final Project Questions Go Here!
+## BREAK TIME.
+
+## When there are 3 (or more levels...)
+
+-   Still just a linear model!
+
+**Anchoring Study : Example**
+
+![](images/clipboard-3672991615.png)
+
+-   **Question :** Will the number that people see BEFORE making their own rating influence their decision?
+
+-   **Theory :**
+
+    -   OPTION A: People who see a HIGHER number before making their own rating will make a HIGHER number than people who see the LOWER number.
+    -   OPTION B : People who see a LOWER number before making their own rating will make a HIGHER number than people who see the HIGHER number.
+    -   OPTION C : There will be NO DIFFERENCES between the groups.
+
+-   **Linear Models :** DV \~ IV
+
+-   **Data :** the “anchor_SP25.csv" dataset
+
+    -   Load the data and check to make sure the data loaded correctly.
+    -   Graph the variables; remove outliers and / or empty levels.
+
+-   **Results :**
+
+    -   Define your Linear Models
+    -   Interpret Your Results
+
+-   **Discuss :**
+
+    -   Why do we observe this pattern?
+    -   How could we use this knowledge in real-life?
+    -   What other questions do you have? What else would you want to learn about?
 
 ## ALL DONE! YAY.

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -30,10 +30,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4968d28af72d4e5a34172c9bc5ef961b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -51,7 +51,6 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -69,14 +68,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="https://catterson.github.io/ystats/"> 
 <span class="menu-text">Why Statistics?</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../calstats/calstatsSP25.html"> 
-<span class="menu-text">Cal Stats [Psych 101]</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../gradstats/gradstatsSP25.html"> 
-<span class="menu-text">Grad Stats [Psych 205]</span></a>
-  </li>  
 </ul>
           <div class="quarto-navbar-tools">
 </div>
@@ -89,17 +80,33 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
 
 <section id="lab-7" class="level2">
 <h2 class="anchored" data-anchor-id="lab-7">Lab 7</h2>
-<p>Lab 7 is a self-care lab. Your assignment is to do something nice to yourself that you wouldn’t have normally done if you had a HW assignment :). Submit a sentence here to get credit, and feel free to post on Discord if you’d like to share publically.</p>
-<p>Spring Break!</p>
+<section id="question-1.-anchoring-dataset." class="level3">
+<h3 class="anchored" data-anchor-id="question-1.-anchoring-dataset.">Question 1. Anchoring Dataset.</h3>
+<p><strong>Use the anchoring dataset to predict cat speeds, tree heights, and meat consumption from the experimental condition that people were in.</strong></p>
+<ol type="1">
+<li>Load the data, and check to make sure it loaded correctly.</li>
+<li>Graph your variables - make sure there are no errors or outliers.</li>
+<li>Define a linear model for each DV. Make sure to include a graph or each model, report the intercept, slope, and R2 for each model. What do these statistics tell you?</li>
+<li><a href="https://catterson.github.io/ystats/chapters/9R_ModelExtensions.html#part-2-experimental-methods">Read the chapter notes on experiments</a>, and apply these ideas to the anchoring study. How was this an example of an experiment (e.g., what were the conditions; was it randomly assigned; etc.)</li>
+<li>Conclude - what do these models tell us about the phenomenon of anchoring? How we might use this knowledge?</li>
+</ol>
+</section>
+<section id="question-2.-your-final-project-dataset-in-r." class="level3">
+<h3 class="anchored" data-anchor-id="question-2.-your-final-project-dataset-in-r.">Question 2. Your Final Project Dataset in R.</h3>
+<p><strong>Finish collecting your final project data, export these data into a .csv format, do some (extra) data cleaning to make your project dataset nice and organized, and then start doing descriptive statistics for your variables.</strong></p>
+<p><a href="https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0#bookmark=kix.f8xqppo2xcej"><strong>There are videos and steps in the Final Project Description on how to do this you should watch</strong></a><strong>. You will also work on this in Discussion Section!!</strong></p>
+<p>To show you’ve done this, start filling in some of the descriptive statistics for your final project in the some kind of table (see below for an example of what this could look like.)</p>
+<p><img src="images/clipboard-1686461134.png" class="img-fluid"></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -138,18 +145,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -181,7 +177,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -189,7 +205,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -286,7 +302,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

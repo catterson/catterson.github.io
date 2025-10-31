@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -64,10 +64,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-68e2365ed708f55c597793be074e9239.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -84,7 +84,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -114,7 +114,6 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -132,14 +131,6 @@ window.Quarto = {
     <a class="nav-link" href="https://catterson.github.io/ystats/"> 
 <span class="menu-text">Why Statistics?</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../calstats/calstatsSP25.html"> 
-<span class="menu-text">Cal Stats [Psych 101]</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../gradstats/gradstatsSP25.html"> 
-<span class="menu-text">Grad Stats [Psych 205]</span></a>
-  </li>  
 </ul>
           <div class="quarto-navbar-tools">
 </div>
@@ -150,7 +141,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
@@ -178,7 +169,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="check-in-a-quick-study"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfJC8RLLtQf0Px0yz1nJjx-8CGXFrMcuUg_b3od54kHHPCEHQ/viewform?usp=sf_link">Check-In : A Quick Study</a></h2>
 <ul>
 <li>No talking, no looking up answers!</li>
-<li>Will discuss next week :)</li>
+<li>Will use data in lecture :)</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -189,25 +180,34 @@ window.Quarto = {
 <section id="announcements-reminders" class="level2">
 <h2 class="anchored" data-anchor-id="announcements-reminders">Announcements &amp; Reminders :</h2>
 <ul>
-<li><strong>It is almost Spring Break.</strong> Class will end early today :)</li>
-<li><strong>4/4 Lecture is ON ZOOM.</strong> Will keep it short and engaging! Plan to participate / engage if you attend, or just watch the recording.</li>
-<li><strong>Start Collecting Final Project Data?!</strong> Your GSI hopefully has (or will) give you feedback on your final project; start collecting data. Make sure :
+<li><strong>THE END IS NEAR.</strong> Five lectures left. Actually this feels like a lot?</li>
+<li><strong>Lab 7 : Start Analyzing Your Final Project Data!</strong>
 <ul>
-<li>Your DV is numeric.</li>
-<li>You measure each variable in your linear model as a separate variable.</li>
-<li>Each question has one response option (no “multiple multiple choice” or “checkbox”.)</li>
-<li>Other issues?</li>
+<li>Export data as a .csv</li>
+<li>Data cleaning :
+<ul>
+<li>get rid of “Extra” columns &amp; rows.</li>
+<li>rename variables –&gt; codebook</li>
+<li>convert likert scales (“1 - Strongly Disagree”) to numbers (1)</li>
+</ul></li>
+<li>Descriptive Statistics.</li>
+<li>DO THIS IN SECTION WHERE YOU CAN GET HELP!!!</li>
 </ul></li>
 </ul>
 </section>
-<section id="r2-in-real-life" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="r2-in-real-life"><span class="math inline">\(R^2\)</span> In Real-Life</h2>
+<section id="recap-r2-in-real-life" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="recap-r2-in-real-life">RECAP : <span class="math inline">\(R^2\)</span> In Real-Life</h2>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><img src="images/clipboard-606508161.png" class="img-fluid"></p>
 </div></div><p><img src="images/clipboard-1347662291.png" class="img-fluid"></p>
 <ul>
-<li><strong>DISCUSS :</strong> <strong>what do these linear models tell us about the relationship between GPA, SAT (IVs) and freshman grades (DV)?</strong></li>
+<li><strong>DISCUSS :</strong> <strong>what do these linear models tell us about the relationship between GPA, SAT (IVs) and freshman grades (DV)?</strong>
+<ul>
+<li>answers.</li>
+<li>go.</li>
+<li>here.</li>
+</ul></li>
 </ul>
 </section>
 <section id="when-the-iv-is-categorical" class="level2">
@@ -215,13 +215,13 @@ window.Quarto = {
 <section id="we-load-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="we-load-the-data">We Load the Data</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/Class Datasets/cal_mini_SP25.csv"</span>, <span class="at">stringsAsFactors =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets - FA25/mini_cal_data.csv"</span>, <span class="at">stringsAsFactors =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="we-graph-our-variables." class="level3">
 <h3 class="anchored" data-anchor-id="we-graph-our-variables.">We Graph our Variables.</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(d<span class="sc">$</span>satlife)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(d<span class="sc">$</span>is.happy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -237,7 +237,7 @@ window.Quarto = {
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(d<span class="sc">$</span>stoned72)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(d<span class="sc">$</span>stoned72)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span> <span class="co"># careful, only do this one time.</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d<span class="sc">$</span>stoned72) <span class="co"># an empty level is GONE.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -252,11 +252,11 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="we-define-and-graph-our-linear-model.">We Define and Graph Our Linear Model.</h3>
 <p>The Model Coefficients : An Intercept and Slope</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(satlife <span class="sc">~</span> stoned72, <span class="at">data =</span> d)</span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(is.happy <span class="sc">~</span> stoned72, <span class="at">data =</span> d)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept) stoned72yes 
-   6.960317    0.994228 </code></pre>
+  6.6823529   0.5576471 </code></pre>
 </div>
 </div>
 <p>The Graph Will Help Our Interpretation.</p>
@@ -271,7 +271,7 @@ Attaching package: 'gplots'</code></pre>
 
     lowess</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(satlife <span class="sc">~</span> stoned72, <span class="at">data =</span> d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(is.happy <span class="sc">~</span> stoned72, <span class="at">data =</span> d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -282,11 +282,11 @@ Attaching package: 'gplots'</code></pre>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept) stoned72yes 
-   6.960317    0.994228 </code></pre>
+  6.6823529   0.5576471 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.03745752</code></pre>
+<pre><code>[1] 0.01029735</code></pre>
 </div>
 </div>
 <ul>
@@ -295,53 +295,79 @@ Attaching package: 'gplots'</code></pre>
 <li>when stoned72 = 0 = “No” (Or not “Yes”)</li>
 <li>when stoned72 = 1 = “Yes”</li>
 </ul></li>
-<li>The Intercept is : The Predicted Value of Y when all X-Values are Zero.</li>
-<li>The Slope is : How our Predicted Value of Y changes when X changes by one.</li>
+<li>The Intercept is : The Predicted Value of Y when all X-Values are Zero.
+<ul>
+<li>this means :</li>
+</ul></li>
+<li>The Slope is : How our Predicted Value of Y changes when X changes by one.
+<ul>
+<li>this means :</li>
+</ul></li>
 </ul>
 </section>
 <section id="we-interpret-our-linear-model." class="level3">
 <h3 class="anchored" data-anchor-id="we-interpret-our-linear-model.">We Interpret Our Linear Model.</h3>
 <ul>
+<li><strong>Stat Stuff : What are the important numbers?</strong>
+<ul>
 <li>What is the relationship?</li>
 <li>How strong is this relationship?</li>
-<li>Why do we find this relationship in the data?
-<ul>
-<li>CAUSALITY : smoking marijuana causes people to feel more satisfied with their lives.
-<ul>
-<li>marijuana cuts off oxygen to brain; makes them delirious?</li>
-<li>it is an effective stress management strategy</li>
-<li>dopamine spikes highest when anticipating; the question triggered the response and life is good TM</li>
-<li>you are numbing yourself to the horrors in the world, escaping into a void of short-term pleasure and a delusion that things will be okay omg is everyone looking at me right now okay I’m gonna stop next time…I promise…</li>
-<li>satlife is a temporary state.</li>
-<li>maybe some recency bias; people who were stoned only thinking about short-term positive feelings; not contextualizng the pain; the horror.</li>
-<li>drugs make you feel good!!!!</li>
-<li>not smoking / doing drugs might cause you to be lower in satisfaction with life because you are attending to things?</li>
 </ul></li>
-<li>REVERSE CAUSATION : satisfaction with life might cause people to smoke weed?
+<li><strong>Brain Stuff : What’s the point?</strong>
 <ul>
-<li>people who are feelin great feel like they can sit back; blaze one up; just relaaaaaxxxxxx.</li>
-<li>people who are HECKA STRESSED might not want to invite marijuana into their lives.</li>
+<li><u>Why</u> does this relationship in the data exist?</li>
+<li><u>What other questions</u> might we ask?</li>
+<li><u>Who cares</u> about this relationship? (How could we use this knowledge)?</li>
 </ul></li>
-<li>CONFOUND / THIRD VARIABLE :
-<ul>
-<li>a chill personality (someone low in Negative Emotion) may a) be more likely to use marijuana and b) more likely to be satisfied w/ their life.</li>
-<li>money : someone with a lot of $$ might be more satisfied with their lives, and more likley to buy weed (which does have a cost).</li>
-<li>free time / sleep / stress.</li>
-</ul></li>
-<li>CHANCE : we found this pattern due to chance.</li>
-</ul></li>
-<li>Who cares about this relationship?</li>
-<li>What other questions do we have about these data?</li>
 </ul>
 </section>
-<section id="your-turn-define-another-linear-model-to-predict-a-numeric-dv-from-a-categorical-iv-with-2-levels." class="level3">
-<h3 class="anchored" data-anchor-id="your-turn-define-another-linear-model-to-predict-a-numeric-dv-from-a-categorical-iv-with-2-levels.">YOUR TURN : Define another linear model to predict a numeric DV from a categorical IV (with 2 levels.)</h3>
-<p>Studnet Example Go Here.</p>
-<p>Studnet Example Go Here.</p>
+<section id="work-time." class="level3">
+<h3 class="anchored" data-anchor-id="work-time.">Work Time.</h3>
+<p><strong>Define another linear model to predict a numeric DV from a categorical IV (with 2 levels.)</strong></p>
+<ul>
+<li>Student Example :</li>
+</ul>
+<ul>
+<li>Student Example :</li>
+</ul>
 </section>
 </section>
-<section id="final-project-questions-go-here" class="level2">
-<h2 class="anchored" data-anchor-id="final-project-questions-go-here">Final Project Questions Go Here!</h2>
+<section id="break-time." class="level2">
+<h2 class="anchored" data-anchor-id="break-time.">BREAK TIME.</h2>
+</section>
+<section id="when-there-are-3-or-more-levels" class="level2">
+<h2 class="anchored" data-anchor-id="when-there-are-3-or-more-levels">When there are 3 (or more levels…)</h2>
+<ul>
+<li>Still just a linear model!</li>
+</ul>
+<p><strong>Anchoring Study : Example</strong></p>
+<p><img src="images/clipboard-3672991615.png" class="img-fluid"></p>
+<ul>
+<li><p><strong>Question :</strong> Will the number that people see BEFORE making their own rating influence their decision?</p></li>
+<li><p><strong>Theory :</strong></p>
+<ul>
+<li>OPTION A: People who see a HIGHER number before making their own rating will make a HIGHER number than people who see the LOWER number.</li>
+<li>OPTION B : People who see a LOWER number before making their own rating will make a HIGHER number than people who see the HIGHER number.</li>
+<li>OPTION C : There will be NO DIFFERENCES between the groups.</li>
+</ul></li>
+<li><p><strong>Linear Models :</strong> DV ~ IV</p></li>
+<li><p><strong>Data :</strong> the “anchor_SP25.csv” dataset</p>
+<ul>
+<li>Load the data and check to make sure the data loaded correctly.</li>
+<li>Graph the variables; remove outliers and / or empty levels.</li>
+</ul></li>
+<li><p><strong>Results :</strong></p>
+<ul>
+<li>Define your Linear Models</li>
+<li>Interpret Your Results</li>
+</ul></li>
+<li><p><strong>Discuss :</strong></p>
+<ul>
+<li>Why do we observe this pattern?</li>
+<li>How could we use this knowledge in real-life?</li>
+<li>What other questions do you have? What else would you want to learn about?</li>
+</ul></li>
+</ul>
 </section>
 <section id="all-done-yay." class="level2">
 <h2 class="anchored" data-anchor-id="all-done-yay.">ALL DONE! YAY.</h2>
@@ -385,18 +411,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -428,7 +443,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -436,7 +471,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -533,7 +568,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

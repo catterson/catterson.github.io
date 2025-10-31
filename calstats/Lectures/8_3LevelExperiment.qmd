@@ -8,27 +8,22 @@ format:
 ## [Check-In : A Quick Study](https://docs.google.com/forms/d/e/1FAIpQLScvaoHqhyguIXKfj9m7q5ykKMryRI9exKUdRU_7l98xAjU4dw/viewform?usp=sf_link)
 
 ```{r include=FALSE}
-library(psych)
-m <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/cal_mega_SP25.csv", stringsAsFactors = T)
-names(m)
-SWLS.df <- with(m, data.frame(swls1, swls2, swls3, swls4, swls5))
-alpha(SWLS.df)
-m$SWLS <- rowMeans(SWLS.df, na.rm = T)
-hist(m$SWLS)
-levels(m$call.folks)[1] <- NA
-plot(m$call.folks)
+d <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets - FA25/mini_cal_data.csv", stringsAsFactors = T)
+names(d)
+levels(d$stoned72)[1] <- NA
+hist(d$satlife)
 ```
 
-Professor wanted to see if calling your parents / guardians was related to having a more satisfied life. He analyzed data from the mega dataset, and defined the linear model below (satisfaction with life \~ call.folks (yes / no) + error. Use the following output to answer the check-in questions.
+Professor wanted to see if students marijuana use was related to being happier. He analyzed data from the mini dataset, and defined the linear model below (is.happy \~ was stoned in last 72 hours (yes / no) + error. Use the following output to answer the check-in questions.
 
 ```{r}
-mod <- lm(SWLS ~ call.folks, data = m)
+mod <- lm(is.happy ~ stoned72, data = d)
 round(coef(mod), 2)
 ```
 
--   What is the predicted value of satisfaction with life for someone who calls their parents?
--   What is the predicted value of satisfaction with life for someone who does not call their parents?
--   What is the difference in satisfaction with life between someone who does and does not call their parents?
+-   What is the predicted value of satisfaction with life for someone who WAS stoned in the last 72 hours?
+-   What is the predicted value of satisfaction with life for someone who WAS NOT stoned in the last 72 hours?
+-   What is the difference in satisfaction with life between someone who WAS and WAS NOT stoned in the last 72 hours?
 -   Can professor say that calling parents CAUSES people to have a different satisfaction with life? Why / why not?
 
 ## Announcements & Agenda.
