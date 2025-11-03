@@ -16,7 +16,7 @@ These data ask you to analyze the quantitative data from the check-in we did las
 
 4.  Below the table, report what you observe about the relationships between each variable as you would in a paper, and any other comments or observations about the fit of the model. Who cares about these relationships? How might we use these data in the world?
 
-5.  Finally, choose one statistic you most care about, and report i) the power that you had to detect this effect in the model, and ii) the sample size that you would need to have 80% power. (Note : if we ran out of time to talk about how to do (ii); play around with the `pwr` functions to calculate n given an effect size, power, and alpha.)
+5.  SKIP THIS : Finally, choose one statistic you most care about, and report i) the power that you had to detect this effect in the model, and ii) the sample size that you would need to have 80% power. (Note : if we ran out of time to talk about how to do (ii); play around with the `pwr` functions to calculate n given an effect size, power, and alpha.)
 
 ## Problem 2. ggplot2
 
@@ -36,7 +36,7 @@ There are probably hundreds of tutorials on how to do this online, and some good
 
 Mess around with ggplot2 - look to some of the tutorials and resources below (and share others you find on discord!?!) - and use this tool to create a graph that helps you understand something about the data in a way that you may not have with the base R graphs. Or maybe the graph is more confusing? IDK. Point is to play around with this tool and see what happens. Yay.
 
-## Resources 
+## Resources
 
 -   A [textbook chapter walking through the basics of ggplot2](https://socviz.co/makeplot.html#makeplot)
 

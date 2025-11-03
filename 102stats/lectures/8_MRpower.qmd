@@ -3,21 +3,22 @@ title: "Class 8 : MR. Power"
 format: html
 ---
 
-## [Check-In : Interpreting NHST](https://docs.google.com/forms/d/e/1FAIpQLSejuhovb8Fb5hKUMRLaNJPdEw5NzjgRem3457dgokkhZ6hYAw/viewform?usp=header)
-
 ![](images/clipboard-1691769457.png){width="548"}
 
-### **Look at the regression output in the lecture document to answer these questions.** **You will need to click through the different tabs to view all three models (and Model 1 regression diagnostic).**
+## [Check-In : Interpreting NHST](https://docs.google.com/forms/d/e/1FAIpQLSejuhovb8Fb5hKUMRLaNJPdEw5NzjgRem3457dgokkhZ6hYAw/viewform?usp=header)
 
-**The study is described as the following :** The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college's administration to monitor salary differences between male and female faculty members."
+-   **Look at the regression output in the lecture document to answer these questions.** You will need to click through the different tabs to view all three models (and Model 1 regression diagnostic).
 
--   salary : the salary of the professor, in cold, hard, US American Dollars.
+-   **The study is described as the following :** The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college's administration to monitor salary differences between male and female faculty members."
 
--   yrs.service : the years of service the professor had at the college.
+    -   salary : the salary of the professor, in cold, hard, US American Dollars.
 
--   sex : whether the professor was Male or Female
+    -   yrs.service : the years of service the professor had at the college.
+
+    -   sex : whether the professor was Male or Female
 
 ```{r}
+#| include: false
 library(car)
 library(gplots)
 mod1 <- lm(salary ~ yrs.service, data = Salaries)
@@ -70,6 +71,9 @@ plot(mod1)
 ```{r}
 mod1x <- lm(salary ~ yrs.service + I(yrs.service^2), data = Salaries)
 summary(mod1x)
+## salary = 85155 + 3011 * years.service - 51 * years.service^2
+
+plot(mod1x)
 
 ```
 
@@ -104,12 +108,14 @@ ggplot(data = Salaries, aes(x = yrs.service, y = salary)) +
 
 What are some ways we could answer this question???
 
--   answers
--   go
--   here
+-   R\^2 goes up!!!
+-   the quadratic term was significant!!!!
+-   there's less heteroscedasticity (one of the assumptions of regresssion in those plots!!!)
 
 ```{r}
-
+mod1
+mod1x
+anova(mod1, mod1x)
 ```
 
 ## [Presentation #1](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
@@ -126,27 +132,62 @@ What are some ways we could answer this question???
 ### In Practice.
 
 ```{r}
-
+mod1 <- lm(salary ~ yrs.service, data = Salaries)
+mod2 <- lm(salary ~ sex, data = Salaries)
+mod3 <- lm(yrs.service ~ sex, data = Salaries)
+mod4 <- lm(salary ~ yrs.service + sex, data = Salaries)
+summary(mod4)
 ```
 
-#### Discussion : What Do You Observe Changing About the Slopes?
+#### Discussion : What Do You Observe Changing About the Model???? What's the same???
 
--   blah
+-   the effect of gender :
 
--   blah
+    -   males STILL make more than females (b = 9071), even when accounting for years of service.
 
--   blah
+    -   this effect went down in size (it was 14,088 in the bivariate model) = "partial mediation" (CAREFUL!!!!)
 
-### Reporting Effects in a Regression Table (see Sierra review in Discussion Section!!!)
+    -   with this lower efffect size, we are LESS confidient that the difference is not just random sampling (p-value for gender difference = .06 = is no longer significant)
 
-**Table 1.** Unstandardized Regression Coefficients; Predicting Height from Long.Hair and Is.Female.
+-   the effect of yrs.service :
 
-|               | Model 1 | Model 2 | Model 3 |
-|---------------|---------|---------|---------|
-| Intercept     |         |         |         |
-| Years Service |         |         |         |
-| Sex           |         |         |         |
-| $R^2$         |         |         |         |
+    -   we still see a positive relationship: more years of service = more \$ (b = \$747.6 for every extra year or service.)
+
+    -   this effect also went down a little (was b = 779.6 in the bivariate model (model 1).)
+
+    -   the effect is still significant.
+
+-   the model : our predictions are pretty much the same.....but a little higher (R\^2 went from .11 to .12.)
+
+-   QUESTIONS WE HAVE :
+
+    -   what's going on with F-TEST.
+
+    -   how does the model actually account for the co-variation / unique effects???
+
+## BREAK TIME : MEET BACK AT 12:57 PM THANKS!
+
+### Reporting Effects in a Regression Table
+
+**Table 1.** Unstandardized Regression Coefficients; Predicting Salary from Years of Service and Sex.
+
+|               | Model 1    | Model 2    | Model 3    |
+|---------------|------------|------------|------------|
+| Intercept     | 99974      | 101002     | 92356      |
+| Years Service | 779.6 \*\* | ----       | 747.6 \*\* |
+| Sex           | ---        | 14088 \*\* | 9071 (+)   |
+| $R^2$         | .11        | .02        | .12        |
+
+Or, using a fun R package to do this.
+
+```{r}
+library(jtools)
+export_summs(mod1, mod2, mod4)
+?export_summs
+
+library(sjPlot)
+tab_model(mod1, mod2, mod4)
+```
 
 ### Multiple Regression : Visualized in Multi-Dimensional Space!
 
@@ -174,6 +215,52 @@ It's nice to organize your slopes and results using a regression table. R can ma
 library(jtools)
 export_summs(mod1, mod2, mod4)
 ```
+
+## Hey, Professor. Some of us are applying to graduate school and could use some guidance or help?
+
+**Not Code. Personal Statements, Professor!!!!**
+
+-   Start with what you're doing at Cal –\> **why you are ready to begin at the specific school (and advisor(s)) you're applying to.**
+
+    -   applying to work with specific people - focus on a primary, but list a few others.
+
+    -   check website (or e-mail) before to see if they are accepting. If you e-mail....
+
+        -   1-2 sentences about who you are, working at Cal with professor (HT advisor) on a project related to (connect to their interests; flatter them).
+
+        -   I'm super interested in your work on BLAH BLAH BLAH.
+
+        -   Wondering if you are accepting new students. Also interested in OTHER TOPICS, and possibly working with Drs. SOSO on other projects as I progress through the program. I know programs differ in the extent to whcih they encourage or allow studnets to work with multiple advisors, and wondered what your perspective was.
+
+        -   Thanks for your time!
+
+-   Outline of Your Statement
+
+    -   Intro (very brief) : who you are, and a brief overview of some of the skills / accomplishments / interests that demonstrate YOU READY to be a grad student.
+
+    -   Middle Parts : Your Past Experiences.
+
+        -   The Point : give specific and clear examples of the work you did. Explain how this demonstrates more broad skills (e.g., intellect and work ethic, passion for psychology, resilience,) And then connect these skills to the work you might do as a grad student.
+
+        -   Some ideas : classes you took, work you did as an RA, honors thesis project, attending conferences, mentoring, supervising.
+
+        -   Example : "Took stats classes" --\> "Learned how to use the program R to clean data, define linear models, estimate sampling error using bootstrap methods, critically evaluate graphs....etc. In grad school, I'm excited to....take more advanced stats classes? work with existing datasets the lab might have?? Just connect to your future! Connect this work to what you might do in graduate school. Was it related to the kinds of topics you might want to study in grad school? If so, cool! Can explain how they prepare you for the kinds of work you mgiht want to do, then go more specifically into that and those research interests. If not related, still talk about the broad skills.
+
+        -   Example : "I was a research assistant for X lab." \[Cool, but incomplete!!!\] —\> BETTER : I was a research assistant for X lab, where I worked on a project related to (PROJECT TOPIC GOES HERE.) In this role, I helped designed study materials, worked closely with the researchers to develop participant recruitment strategies, helped run the study, and attended regular lab meetings where. These experiences demonstrate....
+
+    -   Final Part : Your specific research interests / the school you are applying to.
+
+        -   you are applying to work with a specific advisor (or maybe a few), so connect your own interests to those that others are doing at the school.
+
+        -   great to have broad interests and not be 100% locked into an idea, but also good to show that you have specific ideas about what you want to do.
+
+        -   "I'm interested in BLAH BLAH. At SPECIFIC SCHOOL GO HERE, I hope to work with Dr. BLAH BLAH on studies related to BLAH. I'm also really interested in learning more about Drs. BLAH and BLAHs work...."
+
+        -   Other things to include :
+
+            -   coursework / areas of specialty this program has.
+
+            -   things related to the community you are interested in working with (e.g., are they in an urban setting that might work with specific populations?)
 
 ## Power Tests
 
@@ -283,6 +370,4 @@ The approach to power described above assumes a normally distribution of samplin
 -   [Here's another tutorial of an R package that works for a wide variety of different tests; many of which can be used when yout think the assumptions of linear regression are violated.](https://cran.r-project.org/web/packages/pwrss/vignettes/examples.html)
 -   Let me know if you find other useful resources to help calcualte or conceptualize power!
 
-## [Presentation #2](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
-
-## Time for Quarto? NEXT WEEK I PROMISE.
+## 

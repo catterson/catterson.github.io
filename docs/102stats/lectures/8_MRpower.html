@@ -164,42 +164,24 @@ window.Quarto = {
 </header>
 
 
+<p><img src="images/clipboard-1691769457.png" class="img-fluid" width="548"></p>
 <section id="check-in-interpreting-nhst" class="level2">
 <h2 class="anchored" data-anchor-id="check-in-interpreting-nhst"><a href="https://docs.google.com/forms/d/e/1FAIpQLSejuhovb8Fb5hKUMRLaNJPdEw5NzjgRem3457dgokkhZ6hYAw/viewform?usp=header">Check-In : Interpreting NHST</a></h2>
-<p><img src="images/clipboard-1691769457.png" class="img-fluid" width="548"></p>
-<section id="look-at-the-regression-output-in-the-lecture-document-to-answer-these-questions.-you-will-need-to-click-through-the-different-tabs-to-view-all-three-models-and-model-1-regression-diagnostic." class="level3">
-<h3 class="anchored" data-anchor-id="look-at-the-regression-output-in-the-lecture-document-to-answer-these-questions.-you-will-need-to-click-through-the-different-tabs-to-view-all-three-models-and-model-1-regression-diagnostic."><strong>Look at the regression output in the lecture document to answer these questions.</strong> <strong>You will need to click through the different tabs to view all three models (and Model 1 regression diagnostic).</strong></h3>
-<p><strong>The study is described as the following :</strong> The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”</p>
+<ul>
+<li><p><strong>Look at the regression output in the lecture document to answer these questions.</strong> You will need to click through the different tabs to view all three models (and Model 1 regression diagnostic).</p></li>
+<li><p><strong>The study is described as the following :</strong> The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”</p>
 <ul>
 <li><p>salary : the salary of the professor, in cold, hard, US American Dollars.</p></li>
 <li><p>yrs.service : the years of service the professor had at the college.</p></li>
 <li><p>sex : whether the professor was Male or Female</p></li>
+</ul></li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: carData</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gplots)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'gplots'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:stats':
-
-    lowess</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> yrs.service, <span class="at">data =</span> Salaries)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> sex, <span class="at">data =</span> Salaries)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(yrs.service <span class="sc">~</span> sex, <span class="at">data =</span> Salaries)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Model 1.</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Model 2.</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Model 3.</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Diagnostics for Model 1.</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -220,8 +202,8 @@ Residual standard error: 28580 on 395 degrees of freedom
 Multiple R-squared:  0.1121,    Adjusted R-squared:  0.1098 
 F-statistic: 49.85 on 1 and 395 DF,  p-value: 7.529e-12</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(salary <span class="sc">~</span> yrs.service, <span class="at">data =</span> Salaries)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(mod1, <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(salary <span class="sc">~</span> yrs.service, <span class="at">data =</span> Salaries)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(mod1, <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -233,7 +215,7 @@ F-statistic: 49.85 on 1 and 395 DF,  p-value: 7.529e-12</code></pre>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -254,7 +236,7 @@ Residual standard error: 30030 on 395 degrees of freedom
 Multiple R-squared:  0.01921,   Adjusted R-squared:  0.01673 
 F-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(salary <span class="sc">~</span> sex, <span class="at">data =</span> Salaries)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(salary <span class="sc">~</span> sex, <span class="at">data =</span> Salaries)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -266,7 +248,7 @@ F-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667</code></pre>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -287,7 +269,7 @@ Residual standard error: 12.87 on 395 degrees of freedom
 Multiple R-squared:  0.02364,   Adjusted R-squared:  0.02116 
 F-statistic: 9.562 on 1 and 395 DF,  p-value: 0.002127</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(yrs.service <span class="sc">~</span> sex, <span class="at">data =</span> Salaries)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(yrs.service <span class="sc">~</span> sex, <span class="at">data =</span> Salaries)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -299,8 +281,8 @@ F-statistic: 9.562 on 1 and 395 DF,  p-value: 0.002127</code></pre>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -313,7 +295,6 @@ F-statistic: 9.562 on 1 and 395 DF,  p-value: 0.002127</code></pre>
 </div>
 </div>
 </section>
-</section>
 <section id="addressing-regression-assumptions" class="level2">
 <h2 class="anchored" data-anchor-id="addressing-regression-assumptions">Addressing Regression Assumptions</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -324,8 +305,8 @@ F-statistic: 9.562 on 1 and 395 DF,  p-value: 0.002127</code></pre>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mod1x <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> yrs.service <span class="sc">+</span> <span class="fu">I</span>(yrs.service<span class="sc">^</span><span class="dv">2</span>), <span class="at">data =</span> Salaries)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod1x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mod1x <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> yrs.service <span class="sc">+</span> <span class="fu">I</span>(yrs.service<span class="sc">^</span><span class="dv">2</span>), <span class="at">data =</span> Salaries)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod1x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -347,14 +328,45 @@ Residual standard error: 26920 on 394 degrees of freedom
 Multiple R-squared:  0.2143,    Adjusted R-squared:  0.2103 
 F-statistic: 53.74 on 2 and 394 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## salary = 85155 + 3011 * years.service - 51 * years.service^2</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod1x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_MRpower_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_MRpower_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_MRpower_files/figure-html/unnamed-chunk-7-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_MRpower_files/figure-html/unnamed-chunk-7-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
 </div>
 </div>
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fake.dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">yrs.service =</span> <span class="fu">seq</span>(<span class="fu">min</span>(Salaries<span class="sc">$</span>yrs.service), <span class="fu">max</span>(Salaries<span class="sc">$</span>yrs.service), <span class="at">length.out =</span> <span class="dv">100</span>))</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>pred.dat <span class="ot">&lt;-</span> <span class="fu">predict</span>(mod1x, fake.dat)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(salary <span class="sc">~</span> yrs.service, <span class="at">data =</span> Salaries)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(fake.dat<span class="sc">$</span>yrs.service, pred.dat, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fake.dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">yrs.service =</span> <span class="fu">seq</span>(<span class="fu">min</span>(Salaries<span class="sc">$</span>yrs.service), <span class="fu">max</span>(Salaries<span class="sc">$</span>yrs.service), <span class="at">length.out =</span> <span class="dv">100</span>))</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>pred.dat <span class="ot">&lt;-</span> <span class="fu">predict</span>(mod1x, fake.dat)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(salary <span class="sc">~</span> yrs.service, <span class="at">data =</span> Salaries)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(fake.dat<span class="sc">$</span>yrs.service, pred.dat, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -366,18 +378,18 @@ F-statistic: 53.74 on 2 and 394 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Salaries, <span class="fu">aes</span>(<span class="at">x =</span> yrs.service, <span class="at">y =</span> salary)) <span class="sc">+</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, </span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">2</span>, <span class="at">raw =</span> <span class="cn">TRUE</span>), </span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span> <span class="st">"red"</span>, </span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"A GGplot Model"</span>,</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Years of Service"</span>,</span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Salary"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Salaries, <span class="fu">aes</span>(<span class="at">x =</span> yrs.service, <span class="at">y =</span> salary)) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">2</span>, <span class="at">raw =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span> <span class="st">"red"</span>, </span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"A GGplot Model"</span>,</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Years of Service"</span>,</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Salary"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -393,10 +405,44 @@ F-statistic: 53.74 on 2 and 394 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h3 class="anchored" data-anchor-id="did-this-change-make-things-better">Did this change make things better??</h3>
 <p>What are some ways we could answer this question???</p>
 <ul>
-<li>answers</li>
-<li>go</li>
-<li>here</li>
+<li>R^2 goes up!!!</li>
+<li>the quadratic term was significant!!!!</li>
+<li>there’s less heteroscedasticity (one of the assumptions of regresssion in those plots!!!)</li>
 </ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>mod1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = salary ~ yrs.service, data = Salaries)
+
+Coefficients:
+(Intercept)  yrs.service  
+    99974.7        779.6  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>mod1x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = salary ~ yrs.service + I(yrs.service^2), data = Salaries)
+
+Coefficients:
+     (Intercept)       yrs.service  I(yrs.service^2)  
+        85155.40           3011.28            -51.13  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mod1, mod1x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: salary ~ yrs.service
+Model 2: salary ~ yrs.service + I(yrs.service^2)
+  Res.Df        RSS Df  Sum of Sq      F    Pr(&gt;F)    
+1    395 3.2259e+11                                   
+2    394 2.8544e+11  1 3.7152e+10 51.283 3.951e-12 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="presentation-1" class="level2">
@@ -415,69 +461,12 @@ F-statistic: 53.74 on 2 and 394 DF,  p-value: &lt; 2.2e-16</code></pre>
 </section>
 <section id="in-practice." class="level3">
 <h3 class="anchored" data-anchor-id="in-practice.">In Practice.</h3>
-<section id="discussion-what-do-you-observe-changing-about-the-slopes" class="level4">
-<h4 class="anchored" data-anchor-id="discussion-what-do-you-observe-changing-about-the-slopes">Discussion : What Do You Observe Changing About the Slopes?</h4>
-<ul>
-<li><p>blah</p></li>
-<li><p>blah</p></li>
-<li><p>blah</p></li>
-</ul>
-</section>
-</section>
-<section id="reporting-effects-in-a-regression-table-see-sierra-review-in-discussion-section" class="level3">
-<h3 class="anchored" data-anchor-id="reporting-effects-in-a-regression-table-see-sierra-review-in-discussion-section">Reporting Effects in a Regression Table (see Sierra review in Discussion Section!!!)</h3>
-<p><strong>Table 1.</strong> Unstandardized Regression Coefficients; Predicting Height from Long.Hair and Is.Female.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th>Model 1</th>
-<th>Model 2</th>
-<th>Model 3</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Intercept</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Years Service</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Sex</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(R^2\)</span></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="multiple-regression-visualized-in-multi-dimensional-space" class="level3">
-<h3 class="anchored" data-anchor-id="multiple-regression-visualized-in-multi-dimensional-space">Multiple Regression : Visualized in Multi-Dimensional Space!</h3>
-<p>The code below won’t run in quarto, and may not work on your comptuer; for teaching purposes!</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('rgl')</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('car')</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgl)</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter3d</span>(<span class="fu">as.numeric</span>(Salaries<span class="sc">$</span>sex), <span class="co"># IV1 - must be numeric (if not already)</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>          Salaries<span class="sc">$</span>salary, <span class="co"># DV</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>          Salaries<span class="sc">$</span>yrs.service) <span class="co"># IV2 - must be numeric (if not already)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> yrs.service <span class="sc">+</span> sex, <span class="at">data =</span> Salaries)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> yrs.service, <span class="at">data =</span> Salaries)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> sex, <span class="at">data =</span> Salaries)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(yrs.service <span class="sc">~</span> sex, <span class="at">data =</span> Salaries)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> yrs.service <span class="sc">+</span> sex, <span class="at">data =</span> Salaries)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -500,7 +489,73 @@ Multiple R-squared:  0.1198,    Adjusted R-squared:  0.1154
 F-statistic: 26.82 on 2 and 394 DF,  p-value: 1.201e-11</code></pre>
 </div>
 </div>
-<p>It’s nice to organize your slopes and results using a regression table. R can make these for you.</p>
+<section id="discussion-what-do-you-observe-changing-about-the-model-whats-the-same" class="level4">
+<h4 class="anchored" data-anchor-id="discussion-what-do-you-observe-changing-about-the-model-whats-the-same">Discussion : What Do You Observe Changing About the Model???? What’s the same???</h4>
+<ul>
+<li><p>the effect of gender :</p>
+<ul>
+<li><p>males STILL make more than females (b = 9071), even when accounting for years of service.</p></li>
+<li><p>this effect went down in size (it was 14,088 in the bivariate model) = “partial mediation” (CAREFUL!!!!)</p></li>
+<li><p>with this lower efffect size, we are LESS confidient that the difference is not just random sampling (p-value for gender difference = .06 = is no longer significant)</p></li>
+</ul></li>
+<li><p>the effect of yrs.service :</p>
+<ul>
+<li><p>we still see a positive relationship: more years of service = more $ (b = $747.6 for every extra year or service.)</p></li>
+<li><p>this effect also went down a little (was b = 779.6 in the bivariate model (model 1).)</p></li>
+<li><p>the effect is still significant.</p></li>
+</ul></li>
+<li><p>the model : our predictions are pretty much the same…..but a little higher (R^2 went from .11 to .12.)</p></li>
+<li><p>QUESTIONS WE HAVE :</p>
+<ul>
+<li><p>what’s going on with F-TEST.</p></li>
+<li><p>how does the model actually account for the co-variation / unique effects???</p></li>
+</ul></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="break-time-meet-back-at-1257-pm-thanks" class="level2">
+<h2 class="anchored" data-anchor-id="break-time-meet-back-at-1257-pm-thanks">BREAK TIME : MEET BACK AT 12:57 PM THANKS!</h2>
+<section id="reporting-effects-in-a-regression-table" class="level3">
+<h3 class="anchored" data-anchor-id="reporting-effects-in-a-regression-table">Reporting Effects in a Regression Table</h3>
+<p><strong>Table 1.</strong> Unstandardized Regression Coefficients; Predicting Salary from Years of Service and Sex.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Model 1</th>
+<th>Model 2</th>
+<th>Model 3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Intercept</td>
+<td>99974</td>
+<td>101002</td>
+<td>92356</td>
+</tr>
+<tr class="even">
+<td>Years Service</td>
+<td>779.6 **</td>
+<td>—-</td>
+<td>747.6 **</td>
+</tr>
+<tr class="odd">
+<td>Sex</td>
+<td>—</td>
+<td>14088 **</td>
+<td>9071 (+)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(R^2\)</span></td>
+<td>.11</td>
+<td>.02</td>
+<td>.12</td>
+</tr>
+</tbody>
+</table>
+<p>Or, using a fun R package to do this.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(mod1, mod2, mod4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -529,8 +584,195 @@ F-statistic: 26.82 on 2 and 394 DF,  p-value: 1.201e-11</code></pre>
 </tbody></table>
 
 </div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>?export_summs</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Install package "strengejacke" from GitHub (`devtools::install_github("strengejacke/strengejacke")`) to load all sj-packages at once!</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(mod1, mod2, mod4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">&nbsp;</td>
+<td colspan="3" data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">salary</td>
+<td colspan="3" data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">salary</td>
+<td colspan="3" data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">salary</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Predictors</td>
+<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Estimates</td>
+<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">CI</td>
+<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">p</td>
+<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Estimates</td>
+<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">CI</td>
+<td style="text-align: center;">p</td>
+<td style="text-align: center;">Estimates</td>
+<td style="text-align: center;">CI</td>
+<td style="text-align: center;">p</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">(Intercept)</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">99974.65</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">95223.64&nbsp;–&nbsp;104725.67</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>&lt;0.001</strong></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">101002.41</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">91547.22&nbsp;–&nbsp;110457.60</td>
+<td style="text-align: center;"><strong>&lt;0.001</strong></td>
+<td style="text-align: center;">92356.95</td>
+<td style="text-align: center;">83037.72&nbsp;–&nbsp;101676.17</td>
+<td style="text-align: center;"><strong>&lt;0.001</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">yrs service</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">779.57</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">562.49&nbsp;–&nbsp;996.65</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>&lt;0.001</strong></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">747.61</td>
+<td style="text-align: center;">528.61&nbsp;–&nbsp;966.62</td>
+<td style="text-align: center;"><strong>&lt;0.001</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">sex [Male]</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">14088.01</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">4131.11&nbsp;–&nbsp;24044.91</td>
+<td style="text-align: center;"><strong>0.006</strong></td>
+<td style="text-align: center;">9071.80</td>
+<td style="text-align: center;">-486.21&nbsp;–&nbsp;18629.81</td>
+<td style="text-align: center;">0.063</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">Observations</td>
+<td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">397</td>
+<td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">397</td>
+<td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">397</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">R<sup>2</sup> / R<sup>2</sup> adjusted</td>
+<td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.112 / 0.110</td>
+<td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.019 / 0.017</td>
+<td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.120 / 0.115</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
 </div>
 </section>
+<section id="multiple-regression-visualized-in-multi-dimensional-space" class="level3">
+<h3 class="anchored" data-anchor-id="multiple-regression-visualized-in-multi-dimensional-space">Multiple Regression : Visualized in Multi-Dimensional Space!</h3>
+<p>The code below won’t run in quarto, and may not work on your comptuer; for teaching purposes!</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('rgl')</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('car')</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgl)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter3d</span>(<span class="fu">as.numeric</span>(Salaries<span class="sc">$</span>sex), <span class="co"># IV1 - must be numeric (if not already)</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>          Salaries<span class="sc">$</span>salary, <span class="co"># DV</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>          Salaries<span class="sc">$</span>yrs.service) <span class="co"># IV2 - must be numeric (if not already)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> yrs.service <span class="sc">+</span> sex, <span class="at">data =</span> Salaries)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = salary ~ yrs.service + sex, data = Salaries)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-81757 -20614  -3376  16779 101707 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  92356.9     4740.2  19.484  &lt; 2e-16 ***
+yrs.service    747.6      111.4   6.711 6.74e-11 ***
+sexMale       9071.8     4861.6   1.866   0.0628 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 28490 on 394 degrees of freedom
+Multiple R-squared:  0.1198,    Adjusted R-squared:  0.1154 
+F-statistic: 26.82 on 2 and 394 DF,  p-value: 1.201e-11</code></pre>
+</div>
+</div>
+<p>It’s nice to organize your slopes and results using a regression table. R can make these for you.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(mod1, mod2, mod4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  ">
+<colgroup><col><col><col><col></colgroup><tbody><tr>
+<th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Model 1</th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Model 2</th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Model 3</th></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(Intercept)</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">99974.65 ***</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">101002.41 ***</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">92356.95 ***</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(2416.61)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(4809.39)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(4740.19)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">yrs.service</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">779.57 ***</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">747.61 ***</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(110.42)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(111.40)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">sexMale</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">14088.01 **&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">9071.80&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(5064.58)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(4861.64)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">N</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">397&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">397&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">397&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">R2</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.11&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.02&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.12&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th colspan="4" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"> *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.</th></tr>
+</tbody></table>
+
+</div>
+</div>
+</section>
+</section>
+<section id="hey-professor.-some-of-us-are-applying-to-graduate-school-and-could-use-some-guidance-or-help" class="level2">
+<h2 class="anchored" data-anchor-id="hey-professor.-some-of-us-are-applying-to-graduate-school-and-could-use-some-guidance-or-help">Hey, Professor. Some of us are applying to graduate school and could use some guidance or help?</h2>
+<p><strong>Not Code. Personal Statements, Professor!!!!</strong></p>
+<ul>
+<li><p>Start with what you’re doing at Cal –&gt; <strong>why you are ready to begin at the specific school (and advisor(s)) you’re applying to.</strong></p>
+<ul>
+<li><p>applying to work with specific people - focus on a primary, but list a few others.</p></li>
+<li><p>check website (or e-mail) before to see if they are accepting. If you e-mail….</p>
+<ul>
+<li><p>1-2 sentences about who you are, working at Cal with professor (HT advisor) on a project related to (connect to their interests; flatter them).</p></li>
+<li><p>I’m super interested in your work on BLAH BLAH BLAH.</p></li>
+<li><p>Wondering if you are accepting new students. Also interested in OTHER TOPICS, and possibly working with Drs. SOSO on other projects as I progress through the program. I know programs differ in the extent to whcih they encourage or allow studnets to work with multiple advisors, and wondered what your perspective was.</p></li>
+<li><p>Thanks for your time!</p></li>
+</ul></li>
+</ul></li>
+<li><p>Outline of Your Statement</p>
+<ul>
+<li><p>Intro (very brief) : who you are, and a brief overview of some of the skills / accomplishments / interests that demonstrate YOU READY to be a grad student.</p></li>
+<li><p>Middle Parts : Your Past Experiences.</p>
+<ul>
+<li><p>The Point : give specific and clear examples of the work you did. Explain how this demonstrates more broad skills (e.g., intellect and work ethic, passion for psychology, resilience,) And then connect these skills to the work you might do as a grad student.</p></li>
+<li><p>Some ideas : classes you took, work you did as an RA, honors thesis project, attending conferences, mentoring, supervising.</p></li>
+<li><p>Example : “Took stats classes” –&gt; “Learned how to use the program R to clean data, define linear models, estimate sampling error using bootstrap methods, critically evaluate graphs….etc. In grad school, I’m excited to….take more advanced stats classes? work with existing datasets the lab might have?? Just connect to your future! Connect this work to what you might do in graduate school. Was it related to the kinds of topics you might want to study in grad school? If so, cool! Can explain how they prepare you for the kinds of work you mgiht want to do, then go more specifically into that and those research interests. If not related, still talk about the broad skills.</p></li>
+<li><p>Example : “I was a research assistant for X lab.” [Cool, but incomplete!!!] —&gt; BETTER : I was a research assistant for X lab, where I worked on a project related to (PROJECT TOPIC GOES HERE.) In this role, I helped designed study materials, worked closely with the researchers to develop participant recruitment strategies, helped run the study, and attended regular lab meetings where. These experiences demonstrate….</p></li>
+</ul></li>
+<li><p>Final Part : Your specific research interests / the school you are applying to.</p>
+<ul>
+<li><p>you are applying to work with a specific advisor (or maybe a few), so connect your own interests to those that others are doing at the school.</p></li>
+<li><p>great to have broad interests and not be 100% locked into an idea, but also good to show that you have specific ideas about what you want to do.</p></li>
+<li><p>“I’m interested in BLAH BLAH. At SPECIFIC SCHOOL GO HERE, I hope to work with Dr.&nbsp;BLAH BLAH on studies related to BLAH. I’m also really interested in learning more about Drs. BLAH and BLAHs work….”</p></li>
+<li><p>Other things to include :</p>
+<ul>
+<li><p>coursework / areas of specialty this program has.</p></li>
+<li><p>things related to the community you are interested in working with (e.g., are they in an urban setting that might work with specific populations?)</p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
 </section>
 <section id="power-tests" class="level2">
 <h2 class="anchored" data-anchor-id="power-tests">Power Tests</h2>
@@ -563,22 +805,22 @@ F-statistic: 26.82 on 2 and 394 DF,  p-value: 1.201e-11</code></pre>
 <section id="calculating-in-r-by-hand" class="level3">
 <h3 class="anchored" data-anchor-id="calculating-in-r-by-hand">calculating in R (by hand)</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="do">## The Model</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(salary <span class="sc">~</span> sex, <span class="at">data =</span> Salaries)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="do">## The Model</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(salary <span class="sc">~</span> sex, <span class="at">data =</span> Salaries)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="8_MRpower_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="8_MRpower_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> sex, <span class="at">data =</span> Salaries)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(mod2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> sex, <span class="at">data =</span> Salaries)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(mod2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)     sexMale 
   101002.41    14088.01 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>mod2 <span class="co"># a model object</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>mod2 <span class="co"># a model object</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -588,7 +830,7 @@ Coefficients:
 (Intercept)      sexMale  
      101002        14088  </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod2) <span class="co"># a function applied to the object</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod2) <span class="co"># a function applied to the object</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -609,32 +851,32 @@ Residual standard error: 30030 on 395 degrees of freedom
 Multiple R-squared:  0.01921,   Adjusted R-squared:  0.01673 
 F-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>sm <span class="ot">&lt;-</span> <span class="fu">summary</span>(mod2) <span class="co"># saving this as an object</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">objects</span>(sm) <span class="co"># there is more inside.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>sm <span class="ot">&lt;-</span> <span class="fu">summary</span>(mod2) <span class="co"># saving this as an object</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">objects</span>(sm) <span class="co"># there is more inside.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "adj.r.squared" "aliased"       "call"          "coefficients" 
  [5] "cov.unscaled"  "df"            "fstatistic"    "r.squared"    
  [9] "residuals"     "sigma"         "terms"        </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>sm<span class="sc">$</span>coefficients <span class="co"># tadaa</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>sm<span class="sc">$</span>coefficients <span class="co"># tadaa</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Estimate Std. Error   t value     Pr(&gt;|t|)
 (Intercept) 101002.41   4809.386 21.001103 2.683482e-66
 sexMale      14088.01   5064.579  2.781674 5.667107e-03</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>sm<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">3</span>] <span class="co"># our t-value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>sm<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">3</span>] <span class="co"># our t-value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.781674</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>mtval <span class="ot">&lt;-</span> sm<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">3</span>]</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(.<span class="dv">975</span>, <span class="at">df =</span> <span class="dv">147</span>) <span class="co"># t-distribution approaches the normal distribution (with a 95% Interval cutoff of 1.96....) but we are not quite there.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>mtval <span class="ot">&lt;-</span> sm<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(.<span class="dv">975</span>, <span class="at">df =</span> <span class="dv">147</span>) <span class="co"># t-distribution approaches the normal distribution (with a 95% Interval cutoff of 1.96....) but we are not quite there.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.976233</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>mcut <span class="ot">&lt;-</span> <span class="fu">qt</span>(.<span class="dv">975</span>, <span class="dv">147</span>) <span class="co"># t-distribution approaches the normal distribution (with a 95% Interval cutoff of 1.96....) but we are not quite there.</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(mtval <span class="sc">-</span> mcut, <span class="at">df =</span> <span class="dv">147</span>) <span class="co"># our power.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>mcut <span class="ot">&lt;-</span> <span class="fu">qt</span>(.<span class="dv">975</span>, <span class="dv">147</span>) <span class="co"># t-distribution approaches the normal distribution (with a 95% Interval cutoff of 1.96....) but we are not quite there.</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(mtval <span class="sc">-</span> mcut, <span class="at">df =</span> <span class="dv">147</span>) <span class="co"># our power.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.7890669</code></pre>
 </div>
@@ -643,9 +885,9 @@ sexMale      14088.01   5064.579  2.781674 5.667107e-03</code></pre>
 <section id="calculating-in-r-a-package" class="level3">
 <h3 class="anchored" data-anchor-id="calculating-in-r-a-package">calculating in R (a package)</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("pwr")</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("pwr")</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -666,9 +908,9 @@ Residual standard error: 30030 on 395 degrees of freedom
 Multiple R-squared:  0.01921,   Adjusted R-squared:  0.01673 
 F-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>nm <span class="ot">&lt;-</span> <span class="fu">nrow</span>(mod2<span class="sc">$</span>model)</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>mr <span class="ot">&lt;-</span> <span class="fu">summary</span>(mod2)<span class="sc">$</span>r.squared<span class="sc">^</span>.<span class="dv">5</span></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.r.test</span>(<span class="at">n =</span> nm, <span class="at">r =</span> mr) <span class="co"># similar to our calculation "by hand"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>nm <span class="ot">&lt;-</span> <span class="fu">nrow</span>(mod2<span class="sc">$</span>model)</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>mr <span class="ot">&lt;-</span> <span class="fu">summary</span>(mod2)<span class="sc">$</span>r.squared<span class="sc">^</span>.<span class="dv">5</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.r.test</span>(<span class="at">n =</span> nm, <span class="at">r =</span> mr) <span class="co"># similar to our calculation "by hand"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
      approximate correlation power calculation (arctangh transformation) 
@@ -697,7 +939,7 @@ F-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667</code></pre>
 <p>Let’s say I want to know what sample size I need to detect a slope of r = .23.</p>
 <p>From the <code>pwr</code> package, I can define this effect, specifcy the power, type I error level, and whether I want to do a 1- or 2-tailed test.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.r.test</span>(<span class="at">r =</span> .<span class="dv">23</span>, <span class="at">power =</span> .<span class="dv">80</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.r.test</span>(<span class="at">r =</span> .<span class="dv">23</span>, <span class="at">power =</span> .<span class="dv">80</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
      approximate correlation power calculation (arctangh transformation) 
@@ -711,12 +953,12 @@ F-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667</code></pre>
 </div>
 <p>I can also plot the result of this output and see how power increases as a function of my sample size.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>p.ex <span class="ot">&lt;-</span> <span class="fu">pwr.r.test</span>(<span class="at">r =</span> .<span class="dv">23</span>, <span class="at">power =</span> .<span class="dv">80</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(p.ex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>p.ex <span class="ot">&lt;-</span> <span class="fu">pwr.r.test</span>(<span class="at">r =</span> .<span class="dv">23</span>, <span class="at">power =</span> .<span class="dv">80</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(p.ex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="8_MRpower_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="8_MRpower_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -734,11 +976,8 @@ F-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667</code></pre>
 </section>
 </section>
 </section>
-<section id="presentation-2" class="level2">
-<h2 class="anchored" data-anchor-id="presentation-2"><a href="https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing">Presentation #2</a></h2>
-</section>
-<section id="time-for-quarto-next-week-i-promise." class="level2">
-<h2 class="anchored" data-anchor-id="time-for-quarto-next-week-i-promise.">Time for Quarto? NEXT WEEK I PROMISE.</h2>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
 
 
 </section>
