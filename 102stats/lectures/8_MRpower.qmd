@@ -2,14 +2,12 @@
 title: "Class 8 : MR. Power"
 format: html
 ---
+
 ## [Check-In : Interpreting NHST](https://docs.google.com/forms/d/e/1FAIpQLSejuhovb8Fb5hKUMRLaNJPdEw5NzjgRem3457dgokkhZ6hYAw/viewform?usp=header)
 
 ![](images/clipboard-1691769457.png){width="548"}
 
-
-**Look at the regression output in the lecture document to answer these questions.** These data come from the Salaries dataset, part of the car package : library(car).
-
-You will need to click through the different tabs to view all three models (and Model 1 regression diagnostic).
+### **Look at the regression output in the lecture document to answer these questions.** **You will need to click through the different tabs to view all three models (and Model 1 regression diagnostic).**
 
 **The study is described as the following :** The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college's administration to monitor salary differences between male and female faculty members."
 
@@ -22,7 +20,6 @@ You will need to click through the different tabs to view all three models (and 
 ```{r}
 library(car)
 library(gplots)
-head(Salaries)
 mod1 <- lm(salary ~ yrs.service, data = Salaries)
 mod2 <- lm(salary ~ sex, data = Salaries)
 mod3 <- lm(yrs.service ~ sex, data = Salaries)
