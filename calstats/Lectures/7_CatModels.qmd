@@ -94,7 +94,7 @@ summary(mod)$r.squared
 
 **Define another linear model to predict a numeric DV from a categorical IV (with 2 levels.)**
 
--   Student Example :
+-   Prof Example :
 
 ```{r}
 

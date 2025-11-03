@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lecture 8 - Experiments and Models</title>
+<title>Lab8_102</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -67,7 +33,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-68e2365ed708f55c597793be074e9239.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4968d28af72d4e5a34172c9bc5ef961b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -87,7 +53,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -112,14 +78,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-    </div>
+    
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lecture 8 - Experiments and Models</h1>
+<h1 class="title">Lab8_102</h1>
 </div>
 
 
@@ -136,224 +101,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="check-in-a-quick-study" class="level2">
-<h2 class="anchored" data-anchor-id="check-in-a-quick-study"><a href="https://docs.google.com/forms/d/e/1FAIpQLScvaoHqhyguIXKfj9m7q5ykKMryRI9exKUdRU_7l98xAjU4dw/viewform?usp=sf_link">Check-In : A Quick Study</a></h2>
-<p>Professor wanted to see if students marijuana use was related to being happier. He analyzed data from the mini dataset, and defined the linear model below (is.happy ~ was stoned in last 72 hours (yes / no) + error. Use the following output to answer the check-in questions.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(is.happy <span class="sc">~</span> stoned72, <span class="at">data =</span> d)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">coef</span>(mod), <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(Intercept) stoned72yes 
-       6.68        0.56 </code></pre>
-</div>
-</div>
+<section id="problem-2.-making-a-nice-report-using-quarto." class="level2">
+<h2 class="anchored" data-anchor-id="problem-2.-making-a-nice-report-using-quarto.">Problem 2. Making a Nice Report using Quarto.</h2>
+<p>Cool that you did all these analyses! But, sadly, no one wants to read all that.</p>
+<p>Use Quarto to condense your analyses down into a 1-page document that you might show to an busy and somewhat-interested advisor, friend, romantic partner, or cryptocurrency billionaire trust-fund kid looking to invest some of their “fun money”.</p>
+<p>Professor likely ran out of time to demonstrate how to use Quarto, but lots of resources exist in the world!</p>
 <ul>
-<li>What is the predicted value of satisfaction with life for someone who WAS stoned in the last 72 hours?</li>
-<li>What is the predicted value of satisfaction with life for someone who WAS NOT stoned in the last 72 hours?</li>
-<li>What is the difference in satisfaction with life between someone who WAS and WAS NOT stoned in the last 72 hours?</li>
-<li>Can professor say that calling parents CAUSES people to have a different satisfaction with life? Why / why not?</li>
+<li></li>
 </ul>
+<p>The Quarto document should contain the code that you use to a) load the data (and libraries that you need) and b) execute the analyses to report the statistics. However, your readers probably do not need to see ALL of this code. So experiment / play around with making the code blocks visible for the viewer, and think about what information is most necessary for your audience to see in order to understand your results.</p>
+<p>Render the .qmd file as a PDF (or render as HTML, and then save this page as a PDF…honestly this is easier and looks better.)</p>
+<p>When you are done, upload the PDF to the assignment on bCourses. We will go over a few examples next week - okay if this is messy; we are learning!</p>
 </section>
-<section id="announcements-agenda." class="level2">
-<h2 class="anchored" data-anchor-id="announcements-agenda.">Announcements &amp; Agenda.</h2>
-<ul>
-<li>Announcements
-<ul>
-<li><strong>Milestone #3 |</strong> Methods Section &amp; Descriptive Statistics.</li>
-<li>We On Zoom!
-<ul>
-<li>Default mute.</li>
-<li>Webcam on in breakout rooms “required”; nice during lecture.</li>
-<li>Chat: keep it focused to questions during lecture; will build in time for social connection, etc. (feel free to spam discord w/ multitasking livestreamofconsciousness)</li>
-</ul></li>
-<li>Questions, Comments, Concerns?</li>
-</ul></li>
-<li>Agenda
-<ul>
-<li>2:10 - 2:30 | Check-In and Announcements</li>
-<li>2:30 - 2:45 | Experimental Methods Review</li>
-<li>2:45 - 3:15 | Anchoring Study (Part 1)</li>
-<li>3:15 - 3:30 | Mega Break Time</li>
-<li>3:30 - 3:55 | Anchoring Study (Part 2)</li>
-<li>3:55 - 4:00 | Mini Break Time</li>
-<li>4:00 - 4:30 | Introduction to Sampling Error and Bias</li>
-<li>4:30 - 5:00 | Conclusion</li>
-</ul></li>
-</ul>
-</section>
-<section id="experimental-methods" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="experimental-methods">Experimental Methods</h2>
-<section id="the-definition-of-causality" class="level3">
-<h3 class="anchored" data-anchor-id="the-definition-of-causality">The Definition of Causality</h3>
-<ol type="1">
-<li>The cause and effect are contiguous in space and time.</li>
-<li>The cause must be prior to the effect. (no reverse causation)</li>
-<li>There must be a constant union betwixt the cause and effect. (“Tis chiefly this quality, that constitutes the relation.”) (no random chance)</li>
-<li>The same cause always produces the same effect, and the same effect never arises but from the same cause. (not “just” some third variable)[^1]</li>
-</ol>
-<p>[^1]but remember, life is complex and there are often multiple causes of human behavior!</p>
-</section>
-<section id="manipulation-watch-out-for-misleading-control-variables" class="level3">
-<h3 class="anchored" data-anchor-id="manipulation-watch-out-for-misleading-control-variables">Manipulation : Watch out for Misleading Control Variables</h3>
-<ul>
-<li>RECAP : the manipulation (A/B Testing) : researchers create multiple groups (conditions) and change ONE THING (the IV) about a person’s experience in each group &amp; observe the result (the DV).
-<ul>
-<li>treatment / experimental condition : the IV is present (the change happens)</li>
-<li>control / comparison condition : the IV is absent (the default experience / no change)</li>
-<li>KEY IDEA : the comparison group matters!</li>
-</ul></li>
-<li>Example : sitting in a 3 statistics and research methods class…
-<ul>
-<li>DECREASES boredom compared to…
-<ul>
-<li>example go here</li>
-</ul></li>
-<li>INCREASES boredom compared to…
-<ul>
-<li>example go here</li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section id="real-life-examples-of-difficult-control-conditions" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="real-life-examples-of-difficult-control-conditions">Real-Life Examples of Difficult Control Conditions</h3>
-<section id="power-posing-study1-is-this-a-fair-comparison-manipulation-why-why-not" class="level4">
-<h4 class="anchored" data-anchor-id="power-posing-study1-is-this-a-fair-comparison-manipulation-why-why-not">Power Posing Study**<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Is this a fair comparison / manipulation? Why / why not?</h4>
-<p><img src="images/clipboard-2384287427.png" class="img-fluid"></p>
-</section>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Carney, D. R., Cuddy, A. J., &amp; Yap, A. J. (2010). Power posing: Brief nonverbal displays affect neuroendocrine levels and risk tolerance. Psychological science, 21(10), 1363-1368. <a href="https://faculty.haas.berkeley.edu/dana_carney/power.poses.PS.2010.pdf">link to article</a> + <a href="https://www.sciencedaily.com/releases/2017/09/170911095932.htm">link to summary of non-replication</a></p></div></div><section id="gratitude-study" class="level4">
-<h4 class="anchored" data-anchor-id="gratitude-study">Gratitude Study:</h4>
-<p>Read the prompt below. Answer the following questions in your breakout room discussion.</p>
-<ol type="1">
-<li>ICE-BREAKER : What’s something that you are grateful for?</li>
-<li>What did the experimenters manipulate? Which of these were experimental and control conditions?</li>
-<li>What are some other things that differ between the experimental and control conditions (potential confounds)?</li>
-<li>What are some other (better) control conditions that you might include in this study?</li>
-</ol>
-<p><a href="images/clipboard-2207627893.png"></a></p>
-</section>
-</section>
-</section>
-<section id="anchoring-as-an-experiment" class="level2">
-<h2 class="anchored" data-anchor-id="anchoring-as-an-experiment">Anchoring as an Experiment</h2>
-<section id="the-theory-and-experimental-design" class="level3">
-<h3 class="anchored" data-anchor-id="the-theory-and-experimental-design">The Theory and Experimental Design</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>High Condition</th>
-<th>Low Condition</th>
-<th>Control Condition</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 70%">
-<col style="width: 29%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Key Term and Definition</th>
-<th>Example in the Anchoring Study</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>outcome =</strong> THE DV = what was being measured <em>after</em> the manipulation?</td>
-<td></td>
-</tr>
-<tr class="even">
-<td><strong>manipulation</strong> = THE IV = what were ALL the things that the researcher changed about a person’s experience (across experimental conditions)?</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><strong>random assignment</strong> = were all possible confound variables balanced across conditions?</td>
-<td></td>
-</tr>
-<tr class="even">
-<td><strong>double-blind</strong> = did the study avoid demand characteristics (where experimenter might have influenced behavior when giving the study) &amp; placebo effects (where participants might have acted in a certain way because they knew they were being experimented on)?</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><strong>generalizability =</strong> did the study have external validity? what was the effect size (R2)?</td>
-<td></td>
-</tr>
-<tr class="even">
-<td><strong>ethics =</strong> should researchers do this type of study? (Predict &amp; Control)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="anchoring-data-to-test-the-theory" class="level3">
-<h3 class="anchored" data-anchor-id="anchoring-data-to-test-the-theory">Anchoring : Data to Test the Theory</h3>
-<p>IN BREAKOUT ROOMS!!!</p>
-<ul>
-<li><p><strong>Question :</strong> Will the number that people see BEFORE making their own rating influence their decision?</p></li>
-<li><p><strong>Theory :</strong></p>
-<ul>
-<li>OPTION A: People who see a HIGHER number before making their own rating will make a HIGHER number than people who see the LOWER number.</li>
-<li>OPTION B : People who see a LOWER number before making their own rating will make a HIGHER number than people who see the HIGHER number.</li>
-<li>OPTION C : There will be NO DIFFERENCES between the groups.</li>
-</ul></li>
-<li><p><strong>Linear Models :</strong> DV ~ IV</p></li>
-<li><p><strong>Data :</strong> the “anchor_SP25.csv” dataset</p>
-<ul>
-<li>Load the data and check to make sure the data loaded correctly.</li>
-<li>Graph the variables; remove outliers and / or empty levels.</li>
-</ul></li>
-<li><p><strong>Results :</strong></p>
-<ul>
-<li>Define your Linear Models</li>
-<li>Interpret Your Results</li>
-</ul></li>
-<li><p><strong>Discuss :</strong></p>
-<ul>
-<li>Why do we observe this pattern?</li>
-<li>How could we use this knowledge in real-life?</li>
-<li>What other questions do you have? What else would you want to learn about?</li>
-</ul></li>
-</ul>
-</section>
-</section>
-<section id="break-time" class="level2">
-<h2 class="anchored" data-anchor-id="break-time">BREAK TIME :</h2>
-</section>
-<section id="focus-your-power" class="level2">
-<h2 class="anchored" data-anchor-id="focus-your-power">FOCUS YOUR POWER</h2>
-</section>
-<section id="is-this-the-real-life-is-this-just-fantasy-sampling-error-and-bias" class="level2">
-<h2 class="anchored" data-anchor-id="is-this-the-real-life-is-this-just-fantasy-sampling-error-and-bias">Is this the real life? Is this just fantasy? (Sampling Error and Bias)</h2>
-<ul>
-<li><strong>KEY IDEA :</strong> A good sample is a random sample: each individual in the population has an equal chance of being selected in your sample. your sample will never equal the population.</li>
-<li><strong>Sampling bias :</strong> the sample is different from the population because of some error in our method of sampling that influences the dependent variable in a predictable way.
-<ul>
-<li><strong>Examples :</strong>
-<ul>
-<li><strong>Self-Selection Bias :</strong> People CHOOSE to be in the study.</li>
-<li><strong>Survivor Bias :</strong> Participants may drop out, and you are only collecting data from a specific group of people who “lasted”.</li>
-<li><strong>Many Other Types Exist :</strong> Wikipedia has a very long list of types of sampling biases.</li>
-</ul></li>
-<li><strong>GOAL :</strong> identify sources of bias and minimize / test to see their influence.</li>
-</ul></li>
-<li><strong>Sampling error :</strong> the sample is different from the population because of random reasons.
-<ul>
-<li><strong>Example :</strong> even if your sample has zero bias, there will always be some amount of sampling error unless you survey the ENTIRE population.</li>
-<li><strong>Goal :</strong> Model the role of CHANCE in influencing the relationship between two variables.</li>
-</ul></li>
-</ul>
+<section id="problem-3.-quarto-is-fun.-we-are-having-fun." class="level2">
+<h2 class="anchored" data-anchor-id="problem-3.-quarto-is-fun.-we-are-having-fun.">Problem 3. Quarto is Fun. We are Having Fun.</h2>
+<p>Note : Quarto is super flexible - lots of ways to use. I made my humble webpage in Quarto (hosted by github pages, but you can host on other platforms as well), and the lil’ stats textbook for my 101 class in Quarto, and this Lab Document in Quarto. So for this last problem, play around with Quarto, and upload something you think is neat (either a link to a helpful resource, or a screenshot of something you did, or maybe a link to your own website that now exists in the world) to the class Discord page.</p>
+<p>Fun!!!</p>
 
 
 </section>
-
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

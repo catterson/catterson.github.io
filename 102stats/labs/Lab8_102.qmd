@@ -1,0 +1,26 @@
+---
+title: "Lab8_102"
+format: html
+---
+
+## Problem 2. Making a Nice Report using Quarto.
+
+Cool that you did all these analyses! But, sadly, no one wants to read all that.
+
+Use Quarto to condense your analyses down into a 1-page document that you might show to an busy and somewhat-interested advisor, friend, romantic partner, or cryptocurrency billionaire trust-fund kid looking to invest some of their "fun money".
+
+Professor likely ran out of time to demonstrate how to use Quarto, but lots of resources exist in the world!
+
+-   
+
+The Quarto document should contain the code that you use to a) load the data (and libraries that you need) and b) execute the analyses to report the statistics. However, your readers probably do not need to see ALL of this code. So experiment / play around with making the code blocks visible for the viewer, and think about what information is most necessary for your audience to see in order to understand your results.
+
+Render the .qmd file as a PDF (or render as HTML, and then save this page as a PDF...honestly this is easier and looks better.)
+
+When you are done, upload the PDF to the assignment on bCourses. We will go over a few examples next week - okay if this is messy; we are learning!
+
+## Problem 3. Quarto is Fun. We are Having Fun.
+
+Note : Quarto is super flexible - lots of ways to use. I made my humble webpage in Quarto (hosted by github pages, but you can host on other platforms as well), and the lil' stats textbook for my 101 class in Quarto, and this Lab Document in Quarto. So for this last problem, play around with Quarto, and upload something you think is neat (either a link to a helpful resource, or a screenshot of something you did, or maybe a link to your own website that now exists in the world) to the class Discord page.
+
+Fun!!!

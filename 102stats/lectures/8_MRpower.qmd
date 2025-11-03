@@ -1,7 +1,182 @@
 ---
-title: "8_MRpower"
+title: "Class 8 : MR. Power"
 format: html
 ---
+## [Check-In : Interpreting NHST](https://docs.google.com/forms/d/e/1FAIpQLSejuhovb8Fb5hKUMRLaNJPdEw5NzjgRem3457dgokkhZ6hYAw/viewform?usp=header)
+
+![](images/clipboard-1691769457.png){width="548"}
+
+
+**Look at the regression output in the lecture document to answer these questions.** These data come from the Salaries dataset, part of the car package : library(car).
+
+You will need to click through the different tabs to view all three models (and Model 1 regression diagnostic).
+
+**The study is described as the following :** The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college's administration to monitor salary differences between male and female faculty members."
+
+-   salary : the salary of the professor, in cold, hard, US American Dollars.
+
+-   yrs.service : the years of service the professor had at the college.
+
+-   sex : whether the professor was Male or Female
+
+```{r}
+library(car)
+library(gplots)
+head(Salaries)
+mod1 <- lm(salary ~ yrs.service, data = Salaries)
+mod2 <- lm(salary ~ sex, data = Salaries)
+mod3 <- lm(yrs.service ~ sex, data = Salaries)
+```
+
+::: panel-tabset
+#### Model 1.
+
+```{r}
+summary(mod1)
+plot(salary ~ yrs.service, data = Salaries)
+abline(mod1, lwd = 5)
+```
+
+#### Model 2.
+
+```{r}
+summary(mod2)
+plotmeans(salary ~ sex, data = Salaries)
+```
+
+#### Model 3.
+
+```{r}
+summary(mod3)
+plotmeans(yrs.service ~ sex, data = Salaries)
+```
+
+#### Diagnostics for Model 1.
+
+```{r}
+par(mfrow = c(2,2))
+plot(mod1)
+```
+:::
+
+## Addressing Regression Assumptions
+
+::: panel-tabset
+### Original Model
+
+```{r}
+
+```
+
+### Adjusted Model
+
+```{r}
+mod1x <- lm(salary ~ yrs.service + I(yrs.service^2), data = Salaries)
+summary(mod1x)
+
+```
+
+### Visualizing the Adjusted Model (base R)
+
+```{r}
+fake.dat <- data.frame(yrs.service = seq(min(Salaries$yrs.service), max(Salaries$yrs.service), length.out = 100))
+pred.dat <- predict(mod1x, fake.dat)
+plot(salary ~ yrs.service, data = Salaries)
+lines(fake.dat$yrs.service, pred.dat, col = "red", lwd = 5)
+```
+
+### Visualizing the Adjusted Model (ggplot2)
+
+```{r}
+library(ggplot2)
+library(ggthemes)
+ggplot(data = Salaries, aes(x = yrs.service, y = salary)) +
+  geom_point() +
+  geom_smooth(method = "lm", 
+              formula = y ~ poly(x, 2, raw = TRUE), 
+              color = "red", 
+              se = TRUE,
+              linewidth = 2) +
+  labs(title = "A GGplot Model",
+       x = "Years of Service",
+       y = "Salary")
+```
+:::
+
+### Did this change make things better??
+
+What are some ways we could answer this question???
+
+-   answers
+-   go
+-   here
+
+```{r}
+
+```
+
+## [Presentation #1](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
+
+## More Regression : Multiple Regression
+
+### Benefits of Multiple Regression: Life is Complex!
+
+1.  Account for multiple variables to help predict and explain the DV.
+2.  Control for the effect of on IV on the relationship between another IV and the DV.
+3.  Compare unique effects of each IV on the DV. See how the slope of one IV compares to the slope of another IV. (*Need to standardize your variables, to make sure that they are all on the same scale.*)
+4.  **NEXT WEEK : Interaction Effects!!!** See how the relationship between one IV and the DV changes depending on another IV.
+
+### In Practice.
+
+```{r}
+
+```
+
+#### Discussion : What Do You Observe Changing About the Slopes?
+
+-   blah
+
+-   blah
+
+-   blah
+
+### Reporting Effects in a Regression Table (see Sierra review in Discussion Section!!!)
+
+**Table 1.** Unstandardized Regression Coefficients; Predicting Height from Long.Hair and Is.Female.
+
+|               | Model 1 | Model 2 | Model 3 |
+|---------------|---------|---------|---------|
+| Intercept     |         |         |         |
+| Years Service |         |         |         |
+| Sex           |         |         |         |
+| $R^2$         |         |         |         |
+
+### Multiple Regression : Visualized in Multi-Dimensional Space!
+
+The code below won't run in quarto, and may not work on your comptuer; for teaching purposes!
+
+``` r
+#install.packages('rgl')
+#install.packages('car')
+library(car)
+library(rgl)
+
+scatter3d(as.numeric(Salaries$sex), # IV1 - must be numeric (if not already)
+          Salaries$salary, # DV
+          Salaries$yrs.service) # IV2 - must be numeric (if not already)
+```
+
+```{r}
+mod4 <- lm(salary ~ yrs.service + sex, data = Salaries)
+summary(mod4)
+```
+
+It's nice to organize your slopes and results using a regression table. R can make these for you.
+
+```{r}
+library(jtools)
+export_summs(mod1, mod2, mod4)
+```
 
 ## Power Tests
 
@@ -38,21 +213,14 @@ Watch the lecture recording for a tour through these slides.
 ### calculating in R (by hand)
 
 ```{r}
-d <- read.csv("~/Dropbox/!GRADSTATS/gradlab/Exams/objectivityposted.csv", stringsAsFactors = T)
-library(gplots)
-
-d$pocuF <- as.factor(d$pocu)
-levels(d$pocuF) <- c("White Authors", "Authors of Color")
-d$pocuF <- relevel(d$pocuF, ref = "Authors of Color") # reconsidering the reference group!!
-
 ## The Model
-plotmeans(power ~ pocuF, data = d, connect = F)
-mod <- lm(power ~ pocuF, data = d)
-coef(mod)
+plotmeans(salary ~ sex, data = Salaries)
+mod2 <- lm(salary ~ sex, data = Salaries)
+coef(mod2)
 
-mod # a model object
-summary(mod) # a function applied to the object
-sm <- summary(mod) # saving this as an object
+mod2 # a model object
+summary(mod2) # a function applied to the object
+sm <- summary(mod2) # saving this as an object
 objects(sm) # there is more inside.
 sm$coefficients # tadaa
 
@@ -70,24 +238,27 @@ pt(mtval - mcut, df = 147) # our power.
 ```{r}
 # install.packages("pwr")
 library(pwr)
-summary(mod)
-mr <- summary(mod)$r.squared^.5
-pwr.r.test(n = 149, r = mr)
+summary(mod2)
+nm <- nrow(mod2$model)
+mr <- summary(mod2)$r.squared^.5
+pwr.r.test(n = nm, r = mr) # similar to our calculation "by hand"
 ```
 
-### more power examples!
+### ACTIVITY : calculate the power we had to detect the "independent" effect of sex on Salary, controlling for years of experience.
+
+```{r}
+
+```
 
 #### Power Illustrated.
 
-In lecture, professor did some scribbles on the whiteboard to illustrate power, and tried to record these. He also said that he would record a few other videos.
-
-Prof. did not, in fact, find time in the present moment to record new videos. Bummer! But he did remember that he had recorded similar videos, and found some from 2018. (What were you doing in 2018?? Let us know on Discord; and as always - reach out if you still have questions about power!!)
+In lecture, professor likely did some scribbles on the whiteboard to illustrate power. One day, professor would like to find the time to record some more official videos illustrating power. However, he does currently not have this time. However, he did remember that - in 2018 - he had this time and thought thse videos might help. (What were you doing in 2018?? Let us know on Discord; and as always - reach out if you still have questions about power!!)
 
 -   [Recording #1 : Conceptual Example of Power](https://www.loom.com/share/f393327465f54f3cbf5bbe8c349e3a2e?sid=45f72b59-894e-4d8d-a977-254d6e52f5c4)
 
 -   [Recording #2 : Another Example](https://www.loom.com/share/62440c2754cd4874a22ef2f00618eaff). Couldn't immediately track down the original data analyses these refer to, but the slope (b = .44) and other statistics come from a paper I had rejected in part because reviewers complained that I only replicated the main result in 4 out of 5 studies. (The paper was also a hot mess.) Bummer! But it was a cool phenomenon; I sadly never published on it for a variety of REASONS, but the truth got out eventually someone published a very clearly written, much better, and perfectly replicating paper (across six studies!) on it 8 years later. Ahhh, one thing off the to-do list!
 
-#### Estimating Sample Size.
+#### Using Power to Estimate Sample Size.
 
 As discussed in the lecture slides (see recording), power is a function of effect size, sample size, and the alpha level (alpha = the Type I error that the researcher sets). This means that you can use these functions to estimate the sample size you need for a given power (the convention is often 80%).
 
@@ -106,7 +277,7 @@ p.ex <- pwr.r.test(r = .23, power = .80, alternative = "two.sided")
 plot(p.ex)
 ```
 
-### ...but you don't have to take my word for it.
+#### ...but you don't have to take my word for it. (More Resources)
 
 The approach to power described above assumes a normally distribution of sampling error. This is a good starting place, but not all distributions are gaussian! Below are a few different methods to help you estimate power across a wide variety of types of data.
 
@@ -114,3 +285,7 @@ The approach to power described above assumes a normally distribution of samplin
 -   [This is a modern, thorough, and good overview of power, that also discusses ways to generate simulated data to estimate power.](https://aaroncaldwell.us/SuperpowerBook/introduction-to-power-analysis.html).
 -   [Here's another tutorial of an R package that works for a wide variety of different tests; many of which can be used when yout think the assumptions of linear regression are violated.](https://cran.r-project.org/web/packages/pwrss/vignettes/examples.html)
 -   Let me know if you find other useful resources to help calcualte or conceptualize power!
+
+## [Presentation #2](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
+
+## Time for Quarto? NEXT WEEK I PROMISE.

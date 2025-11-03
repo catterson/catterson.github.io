@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Milestone #1</title>
+<title>Lab 7 - Power and Multiple Regression</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -50,6 +50,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -84,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Milestone #1</h1>
+<h1 class="title">Lab 7 - Power and Multiple Regression</h1>
 </div>
 
 
@@ -101,8 +130,39 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="getting-started." class="level2">
-<h2 class="anchored" data-anchor-id="getting-started.">Getting Started.</h2>
+<section id="problem-1.-more-regression-more-predictors-more-power." class="level2">
+<h2 class="anchored" data-anchor-id="problem-1.-more-regression-more-predictors-more-power.">Problem 1. More Regression, More Predictors, More Power.</h2>
+<p>These data ask you to analyze the quantitative data from the check-in we did last week (which asked questions about students’ thoughts about the psych program.)</p>
+<ol type="1">
+<li><p>Choose on variable from the psych_eval dataset that you are interested in learning more about (your DV). Then, identify at least two other variables (IVs) that you think might be related to this DV. Write out specific predictions about the relationship(s) you expect for the relationship between IV1 and the DV, IV2 and the DV, and how these relationships might change in a multiple regression. (Note : if there are a few variables that seem very similar to each other in what they are measuring, you can combine them as a likert scale, and use the alpha reliability to determine whether the items all “belong” together in one scale.)</p></li>
+<li><p>Graph these variables, report the relevant descriptive statistics, and then describe (using human language) what you learn about the individuals in the study based on these distributions and statistics.</p></li>
+<li><p>Define a series of linear models to predict the DV from each IV (separately, and then together in a linear model with two IVs.) Report the intercept, slope(s), standard error, t-test, and p-value for each coefficient, and <span class="math inline">\(R^2\)</span> for the model. Great to organize these in a regression table.</p></li>
+<li><p>Below the table, report what you observe about the relationships between each variable as you would in a paper, and any other comments or observations about the fit of the model. Who cares about these relationships? How might we use these data in the world?</p></li>
+<li><p>Finally, choose one statistic you most care about, and report i) the power that you had to detect this effect in the model, and ii) the sample size that you would need to have 80% power. (Note : if we ran out of time to talk about how to do (ii); play around with the <code>pwr</code> functions to calculate n given an effect size, power, and alpha.)</p></li>
+</ol>
+</section>
+<section id="problem-2.-ggplot2" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2.-ggplot2">Problem 2. ggplot2</h2>
+<p>Create four graphs using Problem 1 data using ggplot2.</p>
+<ul>
+<li><p>a histogram showing variation in a numeric variable.</p></li>
+<li><p>a bar graph showing count data for a categorical variable.</p></li>
+<li><p>a scatterplot that depicts the relationship between two numeric variables, with regression line and 95% confidence interval.</p></li>
+<li><p>a bar graph that reports the mean of a variable for multiple groups, and illustrates 95% confidence interval for each estimated group mean.</p></li>
+</ul>
+<p>There are probably hundreds of tutorials on how to do this online, and some good textbooks as well that I will link below, and AI tools are pretty effective at generating code for graphs because there’s so much online documentation.</p>
+</section>
+<section id="problem-3.-graphs-are-fun.-we-are-having-fun." class="level2">
+<h2 class="anchored" data-anchor-id="problem-3.-graphs-are-fun.-we-are-having-fun.">Problem 3. Graphs are Fun. We Are Having Fun.</h2>
+<p>Mess around with ggplot2 - look to some of the tutorials and resources below (and share others you find on discord!?!) - and use this tool to create a graph that helps you understand something about the data in a way that you may not have with the base R graphs. Or maybe the graph is more confusing? IDK. Point is to play around with this tool and see what happens. Yay.</p>
+</section>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
+<ul>
+<li><p>A <a href="https://socviz.co/makeplot.html#makeplot">textbook chapter walking through the basics of ggplot2</a></p></li>
+<li><p>More <a href="https://r4ds.hadley.nz/data-visualize.html">in-depth chapter walking through ggplot2</a></p></li>
+<li><p>A <a href="https://r-graph-gallery.com/ggplot2-package.html">gallery of graphs made with ggplot2</a></p></li>
+</ul>
 
 
 </section>

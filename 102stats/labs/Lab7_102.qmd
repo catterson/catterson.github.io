@@ -1,7 +1,45 @@
 ---
-title: "Milestone #1"
+title: "Lab 7 - Power and Multiple Regression"
 format: html
+editor: visual
 ---
 
-## Getting Started.
+## Problem 1. More Regression, More Predictors, More Power.
 
+These data ask you to analyze the quantitative data from the check-in we did last week (which asked questions about students' thoughts about the psych program.)
+
+1.  Choose on variable from the psych_eval dataset that you are interested in learning more about (your DV). Then, identify at least two other variables (IVs) that you think might be related to this DV. Write out specific predictions about the relationship(s) you expect for the relationship between IV1 and the DV, IV2 and the DV, and how these relationships might change in a multiple regression. (Note : if there are a few variables that seem very similar to each other in what they are measuring, you can combine them as a likert scale, and use the alpha reliability to determine whether the items all "belong" together in one scale.)
+
+2.  Graph these variables, report the relevant descriptive statistics, and then describe (using human language) what you learn about the individuals in the study based on these distributions and statistics.
+
+3.  Define a series of linear models to predict the DV from each IV (separately, and then together in a linear model with two IVs.) Report the intercept, slope(s), standard error, t-test, and p-value for each coefficient, and $R^2$ for the model. Great to organize these in a regression table.
+
+4.  Below the table, report what you observe about the relationships between each variable as you would in a paper, and any other comments or observations about the fit of the model. Who cares about these relationships? How might we use these data in the world?
+
+5.  Finally, choose one statistic you most care about, and report i) the power that you had to detect this effect in the model, and ii) the sample size that you would need to have 80% power. (Note : if we ran out of time to talk about how to do (ii); play around with the `pwr` functions to calculate n given an effect size, power, and alpha.)
+
+## Problem 2. ggplot2
+
+Create four graphs using Problem 1 data using ggplot2.
+
+-   a histogram showing variation in a numeric variable.
+
+-   a bar graph showing count data for a categorical variable.
+
+-   a scatterplot that depicts the relationship between two numeric variables, with regression line and 95% confidence interval.
+
+-   a bar graph that reports the mean of a variable for multiple groups, and illustrates 95% confidence interval for each estimated group mean.
+
+There are probably hundreds of tutorials on how to do this online, and some good textbooks as well that I will link below, and AI tools are pretty effective at generating code for graphs because there's so much online documentation.
+
+## Problem 3. Graphs are Fun. We Are Having Fun.
+
+Mess around with ggplot2 - look to some of the tutorials and resources below (and share others you find on discord!?!) - and use this tool to create a graph that helps you understand something about the data in a way that you may not have with the base R graphs. Or maybe the graph is more confusing? IDK. Point is to play around with this tool and see what happens. Yay.
+
+## Resources 
+
+-   A [textbook chapter walking through the basics of ggplot2](https://socviz.co/makeplot.html#makeplot)
+
+-   More [in-depth chapter walking through ggplot2](https://r4ds.hadley.nz/data-visualize.html)
+
+-   A [gallery of graphs made with ggplot2](https://r-graph-gallery.com/ggplot2-package.html)
