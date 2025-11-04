@@ -33,9 +33,26 @@ format:
 ![](images/clipboard-1347662291.png)
 
 -   **DISCUSS :** **what do these linear models tell us about the relationship between GPA, SAT (IVs) and freshman grades (DV)?**
-    -   answers.
-    -   go.
-    -   here.
+    -   freshman grades \~ HS GPA + error
+        -   slope = .39
+        -   R\^2 = .16
+    -   freshman grades \~ SAT + error
+        -   slope = .46
+        -   R\^2 = .21
+    -   these are relatively large effects in psychology. ONE THING predicts ANOTHER 15-20%!!!!
+    -   SAT is a "BETTER" predictor of UC Freshman GPA (higher slope; higher R\^2 value.)
+    -   WHY SHOULD WE NOT TRUST THIS / LET THIS BE THE END????
+        -   Where are the data from??? \[ALL UC students\]
+        -   SAT may not be the best measure of knowledge.
+            -   EXAMPLE : could focus on quality of projects; work experience; life experience (qualitative essay / "are you happy")
+        -   THE POINT : SAT can also be a reflection of how much MONEY you have.
+            -   EXAMPLES : money could help you buy sat tutors, private proctoring to help you cheat, pay to take it more than once, just livin' off that allowance your parents give you and time to study all summer.
+            -   WHO CARES :
+                -   people who may not have the means to pay to do well on the SAT migth be denied entry into an institution that, in theory, is meant to help them increase their ability to succeed.
+                -   if you have money to do well on the SAT, then you also have the same resources to succeed in college (live on campus so not commuting / working multiple jobs; pay for a tutor; see your family when you want to)
+
+0---------------------.3--------------.5------------------------------------1.00\
+(average!!!)
 
 ## When the IV is Categorical...
 
@@ -67,30 +84,64 @@ The Graph Will Help Our Interpretation.
 
 ```{r}
 library(gplots)
+par(mfrow = c(1,2))
 plotmeans(is.happy ~ stoned72, data = d)
+plotmeans(is.happy ~ stoned72, data = d, ylim = c(0,10))
 coef(mod)
 summary(mod)$r.squared
 ```
 
+-   DISCUSS : what do we see on this graph? What makes sense / is confusing?????
+
+    -   people who were stoned are higher in happiness (b = .557)
+    -   there are more nos than yesses (n = sample size for each group; and sampling error bars give a hint.)
+    -   the graph magnifies the difference....good to give it some context (if not a z-score, then the full range of the scale!)
+    -   OTHER QUSTIONS WE MIGHT HAVE :
+        -   what are those tie-figher looking bars (b-wing???) \[sampling error\]
+        -   are there differneces in people who were honest about weed usage and those who were not?
+
+-   OUR EQUATION : happiness = 6.68 + .55 \* stoned72YES
+
+    ```         
+    6.6823529   0.5576471 
+    ```
+
 -   The IV has been DUMMY CODED.
+
     -   when stoned72 = 0 = "No" (Or not "Yes")
     -   when stoned72 = 1 = "Yes"
+
 -   The Intercept is : The Predicted Value of Y when all X-Values are Zero.
-    -   this means :
+
+    -   this means : happiness for someone who's X value is NOT stoned
+
 -   The Slope is : How our Predicted Value of Y changes when X changes by one.
-    -   this means :
+
+    -   this means : if someone IS stoned, we adjust that prediction by .55 points up.
 
 ### We Interpret Our Linear Model.
 
 -   **Stat Stuff : What are the important numbers?**
     -   What is the relationship?
+        -   people who used weed were more happy (b = .55) than those who ddi not.
     -   How strong is this relationship?
+        -   not very strong! R\^2 = .01 = smoking weed (or not) explains 1% of variation in people's happiness.
 -   **Brain Stuff : What's the point?**
     -   [Why]{.underline} does this relationship in the data exist?
+        -   CAUSAL :
+            -   weed is a drug and that drug, like most drugs, makes people feel good (at least in the short term) / feeling creative, especially when it's not criminalizd so you don't hae to worry about that sound you just heard at the door, omg is someone out there....not gonna look whoa what time is it.....
+        -   REVERSE CAUSATION : people who are higher in happiness are more likely to say they use wed?
+        -   THIRD VARIABLE :
+            -   people are using weed in social situations, and it's the "hanging out with friends while not stressing about class" part of the experience that is relevant to happiness, and not the drug.
+            -   maybe it's about pain management
+            -   when people are thinking about using the drug, it's activating positive memories of relaxing...but not really about the drug itself.
+        -   CHANCE.
     -   [What other questions]{.underline} might we ask?
     -   [Who cares]{.underline} about this relationship? (How could we use this knowledge)?
 
-### Work Time. 
+# BREAK TIME : MEET BACK IN THIRTEEN MINUTES!!!!!
+
+### Work Time.
 
 **Define another linear model to predict a numeric DV from a categorical IV (with 2 levels.)**
 
