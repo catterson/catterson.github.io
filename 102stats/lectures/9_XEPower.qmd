@@ -1,0 +1,218 @@
+---
+title: "9_QuartoPower"
+format: html
+---
+
+## [Check-In : NHST Re-Review](https://docs.google.com/forms/d/e/1FAIpQLSejuhovb8Fb5hKUMRLaNJPdEw5NzjgRem3457dgokkhZ6hYAw/viewform?usp=header)
+
+![](images/clipboard-3663456942.png){width="558"}
+
+```{r}
+#install.packages("jtools")
+library(gplots)
+library(jtools)
+library(car)
+mod1 <- lm(salary ~ yrs.service, data = Salaries)
+mod2 <- lm(salary ~ sex, data = Salaries)
+mod3 <- lm(yrs.service ~ sex, data = Salaries)
+mod4 <- lm(salary ~ yrs.service + sex, data = Salaries)
+export_summs(mod1, mod2, mod4)
+```
+
+## Power Tests
+
+### what's the point, professor? (I'm tired.)
+
+-   **Power :** the probability that you would "correctly" observe a "true" relationship between two variables that exists.
+
+    -   **goal :** you want power to be HIGH. Power increases as...
+
+        -   **the effect size increases :** the bigger the difference, the more likely you'll detect it.
+
+        -   **your sample size increases :** the more people, the less sampling error, and the easier it is to have confidence that any difference you found is not just chance.
+
+        -   **you increase the threshold for rejecting the null hypothesis :** if the probability
+
+    -   **assumptions :** there is a true relationship; you have observed this relationship.
+
+-   **Reasons to Calculate Power :**
+
+    -   **Post-Hoc Power :** You did a study, and want to further contextualize your guess about how much sampling error influenced your results.
+
+    -   **Power Planning :** You are planning to run a study, and want to know how many people to recruit to have the highest probability of observing the "true" effect (if it exists.)
+
+### a tour of null and alternative realities
+
+Watch the lecture recording for a tour through these slides.
+
+```{=html}
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQMiQVIgG2WPl7t45rAYtUhrU1wnPNOxxeKX3zIj1eiMmN8M6nkEotx6sjDTECvRFwF4IzV5C30w-N5/embed?" frameborder="0" width="960" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+```
+
+![](images/clipboard-3964039536.png)
+
+### calculating in R (by hand)
+
+```{r}
+## The Model
+plotmeans(salary ~ sex, data = Salaries)
+mod2 <- lm(salary ~ sex, data = Salaries)
+coef(mod2)
+
+mod2 # a model object
+summary(mod2) # a function applied to the object
+sm <- summary(mod2) # saving this as an object
+objects(sm) # there is more inside.
+sm$coefficients # tadaa
+
+sm$coefficients[2,3] # our t-value
+mtval <- sm$coefficients[2,3]
+
+qt(.975, df = 395) # t-distribution approaches the normal distribution (with a 95% Interval cutoff of 1.96....)
+
+mcut <- qt(.975, 395) # saving this cutoff value.
+
+pt(mtval - mcut, df = 395) # our power.
+```
+
+### calculating in R (a package)
+
+```{r}
+# install.packages("pwr")
+library(pwr)
+summary(mod2)
+nm <- nrow(mod2$model)
+mr <- summary(mod2)$r.squared^.5
+pwr.r.test(n = nm, r = mr) # similar to our calculation "by hand"
+```
+
+### ACTIVITY : calculate the power we had to detect the "independent" effect of sex on Salary, controlling for years of experience.
+
+```{r}
+
+```
+
+#### Power Illustrated.
+
+In lecture, professor likely did some scribbles on the whiteboard to illustrate power. One day, professor would like to find the time to record some more official videos illustrating power. However, he does currently not have this time. However, he did remember that - in 2018 - he had this time and thought thse videos might help. (What were you doing in 2018?? Let us know on Discord; and as always - reach out if you still have questions about power!!)
+
+-   [Recording #1 : Conceptual Example of Power](https://www.loom.com/share/f393327465f54f3cbf5bbe8c349e3a2e?sid=45f72b59-894e-4d8d-a977-254d6e52f5c4)
+
+-   [Recording #2 : Another Example](https://www.loom.com/share/62440c2754cd4874a22ef2f00618eaff). Couldn't immediately track down the original data analyses these refer to, but the slope (b = .44) and other statistics come from a paper I had rejected in part because reviewers complained that I only replicated the main result in 4 out of 5 studies. (The paper was also a hot mess.) Bummer! But it was a cool phenomenon; I sadly never published on it for a variety of REASONS, but the truth got out eventually someone published a very clearly written, much better, and perfectly replicating paper (across six studies!) on it 8 years later. Ahhh, one thing off the to-do list!
+
+#### Using Power to Estimate Sample Size.
+
+As discussed in the lecture slides (see recording), power is a function of effect size, sample size, and the alpha level (alpha = the Type I error that the researcher sets). This means that you can use these functions to estimate the sample size you need for a given power (the convention is often 80%).
+
+Let's say I want to know what sample size I need to detect a slope of r = .23.
+
+From the `pwr` package, I can define this effect, specifcy the power, type I error level, and whether I want to do a 1- or 2-tailed test.
+
+```{r}
+pwr.r.test(r = .23, power = .80, alternative = "two.sided")
+```
+
+I can also plot the result of this output and see how power increases as a function of my sample size.
+
+```{r}
+p.ex <- pwr.r.test(r = .23, power = .80, alternative = "two.sided")
+plot(p.ex)
+```
+
+#### ...but you don't have to take my word for it. (More Resources)
+
+The approach to power described above assumes a normally distribution of sampling error. This is a good starting place, but not all distributions are gaussian! Below are a few different methods to help you estimate power across a wide variety of types of data.
+
+-   [Here's a nice overview of how to conduct sample size power analysis in R; it works through a few examples and discusses how to](https://rpubs.com/mbounthavong/sample_size_power_analysis_R)
+-   [This is a modern, thorough, and good overview of power, that also discusses ways to generate simulated data to estimate power.](https://aaroncaldwell.us/SuperpowerBook/introduction-to-power-analysis.html).
+-   [Here's another tutorial of an R package that works for a wide variety of different tests; many of which can be used when yout think the assumptions of linear regression are violated.](https://cran.r-project.org/web/packages/pwrss/vignettes/examples.html)
+-   Let me know if you find other useful resources to help calcualte or conceptualize power!
+
+## Multiple Regression : More Regression
+
+### Labeling Changes
+
+1.  "Independent" Effect. The slope of the IV does not change when other variables are added to the model.
+2.  "Suppression" Effect. The slope of the IV gets stronger (in either direction) when other variables are added to the model.
+3.  "Mediation" Effect. The slope of the IV gets closer to zero when other variables are added to the model. *Careful : "mediation" often implies some causal relationship, and it is very hard (/impossible?) to estimate causal relationships without experimental methods. Some links below that go deeper into this.*
+
+### How Large a Change is Enough to Matter???
+
+Is the difference in slope between Model 1 and Model 3 significant?
+
+```{r}
+export_summs(mod1, mod2, mod4)
+```
+
+```{r}
+bucket <- array()
+for(i in c(1:1000)){
+  sim <- Salaries[sample(1:nrow(Salaries), nrow(Salaries), replace = T),]
+  xm1 <- lm(salary ~ sex, data = sim)
+  xm2 <- lm(salary ~ sex + yrs.service, data = sim)
+  bucket[i] <- coef(xm1)[2] - coef(xm2)[2]
+}
+sum(bucket > 0)
+```
+
+### Would You Like to Learn More?
+
+-   [The Difference Between “Significant” and “Not Significant” is not Itself Statistically Significant](https://sites.stat.columbia.edu/gelman/research/published/signif4.pdf)
+-   [A conceptual review of mediation, and tour through the 'mediation' package.](https://library.virginia.edu/data/articles/introduction-to-mediation-analysis)
+-   Preacher KJ, Hayes AF. Asymptotic and resampling strategies for assessing and comparing indirect effects in multiple mediator models. Behav Res Methods. 2008;40(3):879-891. doi:10.3758/BRM.40.3.879
+-   [A nice and recent summary of why caution is needed for mediation analysis.](https://www.the100.ci/2025/03/20/reviewer-notes-thats-a-very-nice-mediation-analysis-you-have-there-it-would-be-a-shame-if-something-happened-to-it/)
+
+## [Presentations](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
+
+## Multiple Regression : Moderation / Interaction Effects
+
+### Picture is worth...that's right class...1000 words.
+
+```{r}
+library(ggplot2)
+library(ggthemes)
+ggplot(data = Salaries, aes(x = yrs.service, y = salary, color = sex)) + 
+  geom_point(size = .5, alpha = .3, position = "jitter") + 
+  labs(title = "The Interaction Effect", x = "Years of Service", y = "Salary", color = "Sex") +
+  geom_smooth(method = lm) + theme_apa()
+```
+
+### Still just a linear model...
+
+A linear model whose IVs *must* be standardized!!
+
+```{r}
+mod5 <- lm(salary ~ yrs.service * sex, data = Salaries)
+m5z <- scale_lm(mod5, scale.response = T) # 
+m5z
+```
+
+```{r}
+cf5 <- coef(m5z)
+plot(scale(salary) ~ scale(yrs.service), col = sex, data = Salaries, pch = 19)
+abline(a = cf5[1],
+       b = cf5[3], 
+       col = "black", lwd = 5) # line for females
+abline(a = cf5[1] + cf5[2],
+       b = cf5[3] + cf5[4], 
+       col = "red", lwd = 5) # line for males
+```
+
+### Reporting, and in a table.
+
+```{r}
+export_summs(mod1, mod2, mod4, mod5)
+```
+
+### Would You Like To Learn More?
+
+As always, let me know if you find great resources :)
+
+-   [The Interactions Package](https://interactions.jacob-long.com). The author of jtools has made what looks like a super clean way to graph interaction effects in R, using ggplot2.
+-   [Visualization Tutorials](https://sebastiansauer.github.io/vis_interaction_effects/). Other, more cumbersome methods of plotting interaction effects exist!
+
+## It's Project Time
+
+-   Find a buddy : someone who you haven't spoken to
+
+-   
