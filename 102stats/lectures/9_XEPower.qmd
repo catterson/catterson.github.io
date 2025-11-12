@@ -89,7 +89,7 @@ pwr.r.test(n = nm, r = mr) # similar to our calculation "by hand"
 ### ACTIVITY : calculate the power we had to detect the "independent" effect of sex on Salary, controlling for years of experience.
 
 ```{r}
-
+summary(mod4)
 ```
 
 #### Power Illustrated.

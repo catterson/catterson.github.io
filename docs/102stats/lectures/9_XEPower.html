@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9_QuartoPower</title>
+<title>Quarto Power</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">9_QuartoPower</h1>
+<h1 class="title">Quarto Power</h1>
 </div>
 
 
@@ -338,6 +338,30 @@ F-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667</code></pre>
 </section>
 <section id="activity-calculate-the-power-we-had-to-detect-the-independent-effect-of-sex-on-salary-controlling-for-years-of-experience." class="level3">
 <h3 class="anchored" data-anchor-id="activity-calculate-the-power-we-had-to-detect-the-independent-effect-of-sex-on-salary-controlling-for-years-of-experience.">ACTIVITY : calculate the power we had to detect the “independent” effect of sex on Salary, controlling for years of experience.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = salary ~ yrs.service + sex, data = Salaries)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-81757 -20614  -3376  16779 101707 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  92356.9     4740.2  19.484  &lt; 2e-16 ***
+yrs.service    747.6      111.4   6.711 6.74e-11 ***
+sexMale       9071.8     4861.6   1.866   0.0628 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 28490 on 394 degrees of freedom
+Multiple R-squared:  0.1198,    Adjusted R-squared:  0.1154 
+F-statistic: 26.82 on 2 and 394 DF,  p-value: 1.201e-11</code></pre>
+</div>
+</div>
 <section id="power-illustrated." class="level4">
 <h4 class="anchored" data-anchor-id="power-illustrated.">Power Illustrated.</h4>
 <p>In lecture, professor likely did some scribbles on the whiteboard to illustrate power. One day, professor would like to find the time to record some more official videos illustrating power. However, he does currently not have this time. However, he did remember that - in 2018 - he had this time and thought thse videos might help. (What were you doing in 2018?? Let us know on Discord; and as always - reach out if you still have questions about power!!)</p>
@@ -352,7 +376,7 @@ F-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667</code></pre>
 <p>Let’s say I want to know what sample size I need to detect a slope of r = .23.</p>
 <p>From the <code>pwr</code> package, I can define this effect, specifcy the power, type I error level, and whether I want to do a 1- or 2-tailed test.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.r.test</span>(<span class="at">r =</span> .<span class="dv">23</span>, <span class="at">power =</span> .<span class="dv">80</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.r.test</span>(<span class="at">r =</span> .<span class="dv">23</span>, <span class="at">power =</span> .<span class="dv">80</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
      approximate correlation power calculation (arctangh transformation) 
@@ -366,8 +390,8 @@ F-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667</code></pre>
 </div>
 <p>I can also plot the result of this output and see how power increases as a function of my sample size.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>p.ex <span class="ot">&lt;-</span> <span class="fu">pwr.r.test</span>(<span class="at">r =</span> .<span class="dv">23</span>, <span class="at">power =</span> .<span class="dv">80</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(p.ex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>p.ex <span class="ot">&lt;-</span> <span class="fu">pwr.r.test</span>(<span class="at">r =</span> .<span class="dv">23</span>, <span class="at">power =</span> .<span class="dv">80</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(p.ex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -403,7 +427,7 @@ F-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667</code></pre>
 <h3 class="anchored" data-anchor-id="how-large-a-change-is-enough-to-matter">How Large a Change is Enough to Matter???</h3>
 <p>Is the difference in slope between Model 1 and Model 3 significant?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(mod1, mod2, mod4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(mod1, mod2, mod4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  ">
 <colgroup><col><col><col><col></colgroup><tbody><tr>
@@ -431,14 +455,14 @@ F-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>bucket <span class="ot">&lt;-</span> <span class="fu">array</span>()</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>)){</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  sim <span class="ot">&lt;-</span> Salaries[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(Salaries), <span class="fu">nrow</span>(Salaries), <span class="at">replace =</span> T),]</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  xm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> sex, <span class="at">data =</span> sim)</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  xm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> sex <span class="sc">+</span> yrs.service, <span class="at">data =</span> sim)</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  bucket[i] <span class="ot">&lt;-</span> <span class="fu">coef</span>(xm1)[<span class="dv">2</span>] <span class="sc">-</span> <span class="fu">coef</span>(xm2)[<span class="dv">2</span>]</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(bucket <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>bucket <span class="ot">&lt;-</span> <span class="fu">array</span>()</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>)){</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  sim <span class="ot">&lt;-</span> Salaries[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(Salaries), <span class="fu">nrow</span>(Salaries), <span class="at">replace =</span> T),]</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  xm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> sex, <span class="at">data =</span> sim)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  xm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> sex <span class="sc">+</span> yrs.service, <span class="at">data =</span> sim)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  bucket[i] <span class="ot">&lt;-</span> <span class="fu">coef</span>(xm1)[<span class="dv">2</span>] <span class="sc">-</span> <span class="fu">coef</span>(xm2)[<span class="dv">2</span>]</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(bucket <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1000</code></pre>
 </div>
@@ -462,12 +486,12 @@ F-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667</code></pre>
 <section id="picture-is-worththats-right-class1000-words." class="level3">
 <h3 class="anchored" data-anchor-id="picture-is-worththats-right-class1000-words.">Picture is worth…that’s right class…1000 words.</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Salaries, <span class="fu">aes</span>(<span class="at">x =</span> yrs.service, <span class="at">y =</span> salary, <span class="at">color =</span> sex)) <span class="sc">+</span> </span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> .<span class="dv">5</span>, <span class="at">alpha =</span> .<span class="dv">3</span>, <span class="at">position =</span> <span class="st">"jitter"</span>) <span class="sc">+</span> </span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"The Interaction Effect"</span>, <span class="at">x =</span> <span class="st">"Years of Service"</span>, <span class="at">y =</span> <span class="st">"Salary"</span>, <span class="at">color =</span> <span class="st">"Sex"</span>) <span class="sc">+</span></span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm) <span class="sc">+</span> <span class="fu">theme_apa</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Salaries, <span class="fu">aes</span>(<span class="at">x =</span> yrs.service, <span class="at">y =</span> salary, <span class="at">color =</span> sex)) <span class="sc">+</span> </span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> .<span class="dv">5</span>, <span class="at">alpha =</span> .<span class="dv">3</span>, <span class="at">position =</span> <span class="st">"jitter"</span>) <span class="sc">+</span> </span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"The Interaction Effect"</span>, <span class="at">x =</span> <span class="st">"Years of Service"</span>, <span class="at">y =</span> <span class="st">"Salary"</span>, <span class="at">color =</span> <span class="st">"Sex"</span>) <span class="sc">+</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm) <span class="sc">+</span> <span class="fu">theme_apa</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
@@ -484,9 +508,9 @@ F-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667</code></pre>
 <h3 class="anchored" data-anchor-id="still-just-a-linear-model">Still just a linear model…</h3>
 <p>A linear model whose IVs <em>must</em> be standardized!!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>mod5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> yrs.service <span class="sc">*</span> sex, <span class="at">data =</span> Salaries)</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>m5z <span class="ot">&lt;-</span> <span class="fu">scale_lm</span>(mod5, <span class="at">scale.response =</span> T) <span class="co"># </span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>m5z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>mod5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> yrs.service <span class="sc">*</span> sex, <span class="at">data =</span> Salaries)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>m5z <span class="ot">&lt;-</span> <span class="fu">scale_lm</span>(mod5, <span class="at">scale.response =</span> T) <span class="co"># </span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>m5z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -500,14 +524,14 @@ yrs.service:sexMale
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>cf5 <span class="ot">&lt;-</span> <span class="fu">coef</span>(m5z)</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">scale</span>(salary) <span class="sc">~</span> <span class="fu">scale</span>(yrs.service), <span class="at">col =</span> sex, <span class="at">data =</span> Salaries, <span class="at">pch =</span> <span class="dv">19</span>)</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a =</span> cf5[<span class="dv">1</span>],</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">b =</span> cf5[<span class="dv">3</span>], </span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">lwd =</span> <span class="dv">5</span>) <span class="co"># line for females</span></span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a =</span> cf5[<span class="dv">1</span>] <span class="sc">+</span> cf5[<span class="dv">2</span>],</span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">b =</span> cf5[<span class="dv">3</span>] <span class="sc">+</span> cf5[<span class="dv">4</span>], </span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">5</span>) <span class="co"># line for males</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>cf5 <span class="ot">&lt;-</span> <span class="fu">coef</span>(m5z)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">scale</span>(salary) <span class="sc">~</span> <span class="fu">scale</span>(yrs.service), <span class="at">col =</span> sex, <span class="at">data =</span> Salaries, <span class="at">pch =</span> <span class="dv">19</span>)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a =</span> cf5[<span class="dv">1</span>],</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">b =</span> cf5[<span class="dv">3</span>], </span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">lwd =</span> <span class="dv">5</span>) <span class="co"># line for females</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a =</span> cf5[<span class="dv">1</span>] <span class="sc">+</span> cf5[<span class="dv">2</span>],</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">b =</span> cf5[<span class="dv">3</span>] <span class="sc">+</span> cf5[<span class="dv">4</span>], </span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">5</span>) <span class="co"># line for males</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -520,7 +544,7 @@ yrs.service:sexMale
 <section id="reporting-and-in-a-table." class="level3">
 <h3 class="anchored" data-anchor-id="reporting-and-in-a-table.">Reporting, and in a table.</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(mod1, mod2, mod4, mod5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(mod1, mod2, mod4, mod5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  ">
 <colgroup><col><col><col><col><col></colgroup><tbody><tr>
