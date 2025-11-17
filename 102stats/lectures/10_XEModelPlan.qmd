@@ -1,5 +1,119 @@
 ---
-title: "10_XEModelPlan"
+title: "Class 10 : Project Plan and Interaction Effects and GLM Why Not?"
 format: html
 ---
 
+![](images/clipboard-1796865579.png)
+
+## Announcements
+
+-   Changes to Agenda?
+
+-   No Brain Exam..an Extra Lab for the Points? (And When???!)
+
+## Agenda?
+
+1.  Final Project Time
+2.  Understanding and Interpreting Interaction Effects
+3.  Presentation(s)
+4.  GLM (Preview) & Lab
+
+## Priority 1 : Project Time
+
+1.  Find your name-tag and say hello. Do y'all know each other well?! Go bears.
+2.  Review your project so far. What did you submit for the lab assignment?
+3.  What are your next steps for the project?
+4.  How would you fill out [these pre-registration questions](https://aspredicted.org) that you will need to submit for Milestone 2. Here are some [tips on how to answer these questions](https://datacolada.org/64).
+    a.  Have any data been collected for this study already?
+
+    b.  What's the main question being asked or hypothesis being tested in this study?
+
+    c.  Describe the key dependent variable(s) specifying how they will be measured.
+
+    d.  Are you doing an experiment or observational ("correlational") study?
+
+        a.  **Experiment :** How many and which conditions will participants be assigned to?
+
+        b.  **Observational :** What are some of the other key variables you will include in your study, and how will they be measured?
+
+    e.  Specify exactly which analyses you will conduct to examine the main question/hypothesis.
+
+    f.  Describe exactly how outliers will be defined and handled, and your precise rule(s) for excluding observations.
+
+    g.  How many observations will be collected or what will determine sample size?\
+        No need to justify decision, but be precise about [exactly]{.underline} how the number will be determined.
+5.  What questions do you have / obstacles are you running into?
+
+## Priority 2 : Understanding and Interpreting Interaction Effects
+
+### **FRANTZ FANON READING.**
+
+1.  What did you think about the reading???
+
+2.  What is his main point?
+
+3.  Have you observed this in the wild / our modern society?
+
+4.  How would or might you test this idea with data, as a modern psychologist would???
+
+5.  Any other questions / ideas / comments?
+
+### [**SEE PROFESSOR HANDOUT.**](https://docs.google.com/document/d/1YVzL5ud5UGy82KXqGrc-mjSRFJh7ocuQpXdIBmbvd0o/edit?usp=sharing)
+
+and then....
+
+### [Check-In : Interpreting Interaction Effects](https://docs.google.com/forms/d/e/1FAIpQLSeEVV8NYLIPFdC1VbHT0KbTS-shG-F7UdrT7EzH7WC4AQS9VQ/viewform?usp=header)
+
+-   [Here's a link to the dataset, but you don't really need it](https://www.dropbox.com/scl/fi/yz6r4vghy935hzuqhv72m/World-happiness-report-2024.csv?rlkey=hw6jjjfdyx0p9uqj5ehy4w6e6&dl=0).
+
+::: {.callout-tip collapse="true"}
+### R Code for the graph
+
+```{r}
+h <- read.csv("~/Dropbox/!GRADSTATS/Datasets/World Happiness Report - 2024/World-happiness-report-2024.csv", stringsAsFactors = T)
+library(ggplot2)
+library(jtools)
+
+## Some data cleaning.
+h$GDPcat <- ifelse(scale(h$Log.GDP.per.capita) > sd(h$Log.GDP.per.capita, na.rm = T), "High GDP", "Low GDP")
+h$GDPcat <- as.factor(h$GDPcat)
+plot(h$GDPcat)
+```
+:::
+
+```{r}
+ggplot(data = subset(h, !is.na(h$GDPcat)), aes(x = scale(Ladder.score), y = scale(Social.support), color = GDPcat)) + 
+  geom_point(alpha = .5, position = "jitter") +
+  geom_smooth(method = "lm") + labs(title = "Check-In Graph") + ylab("Social Support") + xlab("Happiness (Ladder Score)") +
+  theme_apa()
+```
+
+Interaction Effect : social support = .08 + .25*GDP + .60* Ladder - .10 \* (GDP \* Ladder) BLUE LINE : social support = .08 + .25*-1 + .60* Ladder - .10 \* (-1 \* Ladder) = -.17 + .7 \* Ladder RED LINE : = .08 + .25*1 + .60* Ladder - .10 \* (1 \* Ladder) = .32 + .5 \* Ladder
+
+::: {.callout-tip collapse="true"}
+### R Code for the models
+
+```{r}
+mod1 <- lm(scale(Social.support) ~ scale(Log.GDP.per.capita), data = h)
+mod2 <- lm(scale(Social.support) ~ scale(Ladder.score), data = h)
+mod3 <- lm(scale(Social.support) ~ scale(Log.GDP.per.capita) + scale(Ladder.score), data = h)
+mod4 <- lm(scale(Social.support) ~ scale(Ladder.score) * scale(Log.GDP.per.capita), data = h)
+export_summs(mod1, mod2, mod3, mod4)
+```
+:::
+
+## Priority 3 : BREAK TIME
+
+## Priority 4 : [Presentation(s)](https://docs.google.com/presentation/d/1YZQ45_oj6TgiSIUpU7N6Ek5iTk2nn4T5RIpCz6Xi1K4/edit?usp=sharing)
+
+## Priority 5 : GLM Overview
+
++--------------------------------------+------------------------------------------------+
+| Linear Model                         | Generalized Linear Model (Logistic Regression) |
++======================================+================================================+
+| ![](images/clipboard-1778270223.png) | ![](images/clipboard-1931460763.png)           |
+|                                      |                                                |
+|                                      | ![](images/clipboard-1163445626.png)           |
++--------------------------------------+------------------------------------------------+
+
+## 

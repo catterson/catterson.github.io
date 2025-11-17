@@ -51,7 +51,6 @@ export_summs(mod1, mod2, mod3,
              error_format = "[se = {std.error}, t = {statistic}]", transform.response = T, scale = T, confint = T)
 ```
 
-
 ## Multiple Regression : More Regression
 
 ### Labeling Changes
