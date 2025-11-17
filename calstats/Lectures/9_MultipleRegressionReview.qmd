@@ -1,0 +1,220 @@
+---
+title: "Lecture 10 - Multiple Regression"
+format: 
+  html:
+    code-overflow: wrap
+---
+
+![](images/clipboard-148237661.png){fig-align="center"}
+
+## [Check-In : Testing Theories](https://docs.google.com/forms/d/e/1FAIpQLSeQNQq1O8s_f0tx3l2FxIJo9Rt6zgmZA40T2AqLFdwjFtFtpA/viewform?usp=sf_link)
+
+Use the R output below to answer the questions in the check-in.
+
+```{r}
+#| include: false
+library(gplots)
+d <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/covid_behavior_data.csv", stringsAsFactors = T)
+```
+
+### Model 1 : Predicting Handwashing from Gender
+
+```{r}
+#| message: false
+#| warning: false
+mod1 <- lm(Handwash ~ gender, data = d)
+summary(mod1)
+plotmeans(Handwash ~ gender, data = d,
+          col = "white", barcol = "white", ylim = c(1,5))
+```
+
+## Agenda & Announcements
+
+1.  **Brain Exam is THIS WEEK in Discussion Section**
+    -   start discussion section with a review / practice
+    -   then the brain exam : 12 minutes.
+2.  **Milestone #5 : Due Monday.**
+3.  **Milestone #6 : Nah.**
+4.  **THE END IS NEAR**
+    -   **NEXT WEEK** : Project Workshop
+    -   **LAST CLASS** : The learning has stopped. So what did we learn again?
+    -   **RRR Week (Virtual)** Project Workshop...basically professor office hours for whoever shows up.
+5.  TODAY :
+    -   3:10 - 4:00. NHST and Brain Exam 2 Review
+    -   4:00 - 4:30. Multiple Regression (More Regression)
+    -   4:30 - 4:40. Break Time.
+    -   4:40 - 5:00. More Multiple Regression
+    -   5:00 - 6:00. Project Workshop Time (Milestone 4 Review)
+
+## Check-In Review : NHST Practice
+
+### Other Questions About Model 1.
+
+1.  What are the **four reasons** we might observe this pattern?
+2.  How might **sampling bias** influence these results?
+3.  How might **measurment error** influence these results?
+
+### More Practice? For the models below.
+
+1.  What's the relationship between the two variables?
+2.  Is this relationship considered "statistically significant"? Why / why not?
+3.  Is this relationship considered "large"? Why / why not?
+4.  Critical Thinking :
+
+::: panel-tabset
+### Model 2 : Predicting Handwashing from Conscientiousness (Personality)
+
+```{r}
+mod2 <- lm(Handwash ~ CONSC, data = d)
+summary(mod2)
+plot(jitter(Handwash) ~ jitter(CONSC), data = d)
+```
+
+### Model 3 : Predicting Handwashing from Political Orientation
+
+```{r}
+mod3 <- lm(Handwash ~ political_party, data = d)
+summary(mod3)
+plotmeans(Handwash ~ political_party, data = d, ylim = c(1,5))
+```
+:::
+
+### Some Pre-Recorded NHST Review Videos
+
+-   **Note : I used last semester's dataset for these examples, so you will likely get different results if you try and replicate in this semester's class; a good example of how NHST doesn't really tell us whether the results are "truth" or not, or whether they will replicate, etc.**
+
+-   [**Example 1 : LOVEWATER \~ smoke.pot**](https://www.loom.com/share/67776eb1a41f4b5eaa0ca5312d0663ad?sid=534835dc-c163-4604-b985-137b2bede4ac)
+
+-   [**Examples 2 - 4 : faster explanations!**](https://www.loom.com/share/8b755a32fe094e9eb1fc0bd7f16991bd?sid=b0c120f4-4190-4115-9722-da0a19856006)
+
+![](images/clipboard-422460195.png)
+
+![](images/clipboard-927357432.png)
+
+## 
+
+## Chapter 10 Recap : Multiple Regression (Hair Length Predicts Height?!?!?????)
+
+### Data Cleaning and Descriptive Statistics
+
+```{r}
+## Data Cleaning
+library(gplots)
+d <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets - FA25/mini_cal_data.csv", stringsAsFactors = T)
+
+d$height[d$height < 10 | d$height > 100] <- NA
+levels(d$is.female)[1] <- NA
+#levels(d$long.hair)[1] <- NA
+
+par(mfrow = c(1,3))
+hist(d$height)
+plot(d$is.female, xlab = "Is Female?")
+plot(d$long.hair, xlab = "Has Long Hair?")
+```
+
+### Activity and Discussion : Comparing Models
+
+1.  **ICE-BREAKER :**
+
+    1.  *let's keep it light mode :* if you HAD to get a tattoo, what would you get? where would you get it? would it face toward you or other people?
+
+    2.  *bring on the heavy mode :* if you could change one thing about your childhood, what would you change?
+
+2.  **MODEL INTERPRETATION :** What Do You Observe in Model 1? Model 2?
+
+3.  **MODEL 3 :** What Do You Observe Changing About the Slopes from the Bivariate Model (Models 1 and Model 2) to the Multivariate Model (Model 3)?
+
+4.  **Other Questions That You, the Students, Have?**
+
+::: panel-tabset
+#### Height \~ long.hair
+
+```{r}
+moda <- lm(height ~ long.hair, data = d)
+summary(moda)
+plotmeans(height ~ long.hair, data = d, connect = F)
+```
+
+#### Height \~ is.female
+
+```{r}
+modb <- lm(height ~ is.female, data = d)
+summary(modb)
+plotmeans(height ~ is.female, data = d, connect = F)
+```
+
+#### height \~ long.hair + is.female
+
+```{r}
+modc <- lm(height ~ long.hair + is.female, data = d)
+## NO GRAPH FOR THE MULTIPLE REGRESSION
+summary(modc)
+```
+:::
+
+### IV1 and IV2 are related to each other, and each related to the DV)
+
+```{r}
+plot(d$long.hair ~ d$is.female)
+```
+
+### Multiple Regression : Visualized in Multi-Dimensional Space!
+
+The code below may not work on your computer; see lecture recording for an interpretation / explanation!
+
+``` r
+
+#install.packages('rgl')
+#install.packages('car')
+library(car)
+library(rgl)
+
+scatter3d(as.numeric(d$is.female), # IV1 - must be numeric (if not already)
+          d$height, # DV
+          as.numeric(d$long.hair)) # IV2 - must be numeric (if not already)
+```
+
+### Reporting Effects in a Regression Table.
+
+**Table 1.** Unstandardized Regression Coefficients; Predicting Height from Long.Hair and Is.Female.
+
+|                             | Model 1 | Model 2 | Model 3 |
+|-----------------------------|---------|---------|---------|
+| Intercept                   |         |         |         |
+| Long.Hair (0 = No; 1 = Yes) |         |         |         |
+| Is.Female (0 = No; 1 = Yes) |         |         |         |
+| $R^2$                       |         |         |         |
+
+**There's a Package in R For This!**
+
+```{r}
+# install.packages("jtools") # a new package!!!
+library(jtools) # make sure you installed the new package first.
+export_summs(moda, modb, modc,
+             coefs = c("Long Hair (0 = No, 1 = Yes)" = "long.hairYes",
+                       "Is Female (0 = No, 1 = Yes)" = "is.femaleYes"))
+```
+
+## BREAK TIME : MEET BACK AT 4:40
+
+![](images/clipboard-3386439454.png)
+
+## MORE on Multiple Regression Tables
+
+-   **ICE BREAKER :** If you could learn one skill all at once (like Neo in the Matrix; have y'all seen that movie???), what would it be??
+
+-   **Evaluate the table above and think about multiple regression.**
+
+    -   how would you write out Model 1, Model 2, Model 3, etc.
+
+        -   Model 1 :
+
+    -   what do we learn from this table / what changes in slope seem important (and why)? 
+
+    -   what are some other real-life (and psychological) examples of situations where a 3rd variable might be important to study??
+
+    -   what is the multivariate regression you will include in your final project? why might this be interesting to test?
+
+![](images/clipboard-3796023116.png)
+
+## Milestone #4 : Anyone want to share their project?

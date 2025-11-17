@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lecture 10 - Multiple Regression &amp; MEGA Review</title>
+<title>Lecture 10 - Multiple Regression</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -147,7 +147,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lecture 10 - Multiple Regression &amp; MEGA Review</h1>
+<h1 class="title">Lecture 10 - Multiple Regression</h1>
 </div>
 
 
@@ -164,42 +164,19 @@ window.Quarto = {
 </header>
 
 
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-148237661.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 <section id="check-in-testing-theories" class="level2">
 <h2 class="anchored" data-anchor-id="check-in-testing-theories"><a href="https://docs.google.com/forms/d/e/1FAIpQLSeQNQq1O8s_f0tx3l2FxIJo9Rt6zgmZA40T2AqLFdwjFtFtpA/viewform?usp=sf_link">Check-In : Testing Theories</a></h2>
-<p><strong>Work with a buddy, or go lone wolf, to test the following theories using the “cal_mini” dataset. Name the dataset d to follow along with the professor.</strong></p>
-<ol type="1">
-<li>There is a relationship between how tired people are (DV = tired) and how bored people are (IV = bored).</li>
-<li>There is a relationship between how tired people are (DV = tired) and how many hours of sleep people got (IV = hrs.sleep).</li>
-</ol>
-<p><strong>You and your buddy should each define and interpret ONE of the linear models above. Use the models to answer the questions below for the check-in?</strong></p>
-<ol type="1">
-<li>What is the relationship between bored and tired (in “raw” / “unstandardized” units)?</li>
-<li>Is this result statistically significant? Why / why not?</li>
-<li>What is the relationship between hrs.sleep and tired (in “raw” / “unstandardized” units)?</li>
-<li>Is this result statistically significant? Why / why not?</li>
-<li>Which variable - bored or hrs.sleep - is a BETTER predictor of tired? Why / how do you know?</li>
-</ol>
-<p><strong>Professor Code</strong></p>
+<p>Use the R output below to answer the questions in the check-in.</p>
+<section id="model-1-predicting-handwashing-from-gender" class="level3">
+<h3 class="anchored" data-anchor-id="model-1-predicting-handwashing-from-gender">Model 1 : Predicting Handwashing from Gender</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gplots)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'gplots'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:stats':
-
-    lowess</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/Chapter Datasets/covid_behavior_data.csv"</span>, <span class="at">stringsAsFactors =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Model 1 : Predicting Handwashing from Gender</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Model 2 : Predicting Handwashing from Conscientiousness (Personality)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Model 3 : Predicting Handwashing from Political Orientation</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Handwash <span class="sc">~</span> gender, <span class="at">data =</span> d)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Handwash <span class="sc">~</span> gender, <span class="at">data =</span> d)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -221,33 +198,69 @@ Residual standard error: 0.8556 on 402 degrees of freedom
 Multiple R-squared:  0.03184,   Adjusted R-squared:  0.02943 
 F-statistic: 13.22 on 1 and 402 DF,  p-value: 0.0003131</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(Handwash <span class="sc">~</span> gender, <span class="at">data =</span> d,</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">col =</span> <span class="st">"white"</span>, <span class="at">barcol =</span> <span class="st">"white"</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in arrows(x, li, x, pmax(y - gap, li), col = barcol, lwd = lwd, :
-zero-length arrow is of indeterminate angle and so skipped
-Warning in arrows(x, li, x, pmax(y - gap, li), col = barcol, lwd = lwd, :
-zero-length arrow is of indeterminate angle and so skipped</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in arrows(x, ui, x, pmin(y + gap, ui), col = barcol, lwd = lwd, :
-zero-length arrow is of indeterminate angle and so skipped
-Warning in arrows(x, ui, x, pmin(y + gap, ui), col = barcol, lwd = lwd, :
-zero-length arrow is of indeterminate angle and so skipped</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(Handwash <span class="sc">~</span> gender, <span class="at">data =</span> d,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">col =</span> <span class="st">"white"</span>, <span class="at">barcol =</span> <span class="st">"white"</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="10_MultipleRegressionReview_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="9_MultipleRegressionReview_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+</section>
+</section>
+<section id="agenda-announcements" class="level2">
+<h2 class="anchored" data-anchor-id="agenda-announcements">Agenda &amp; Announcements</h2>
+<ol type="1">
+<li><strong>Brain Exam is THIS WEEK in Discussion Section</strong>
+<ul>
+<li>start discussion section with a review / practice</li>
+<li>then the brain exam : 12 minutes.</li>
+</ul></li>
+<li><strong>Milestone #5 : Due Monday.</strong></li>
+<li><strong>Milestone #6 : Nah.</strong></li>
+<li><strong>THE END IS NEAR</strong>
+<ul>
+<li><strong>NEXT WEEK</strong> : Project Workshop</li>
+<li><strong>LAST CLASS</strong> : The learning has stopped. So what did we learn again?</li>
+<li><strong>RRR Week (Virtual)</strong> Project Workshop…basically professor office hours for whoever shows up.</li>
+</ul></li>
+<li>TODAY :
+<ul>
+<li>3:10 - 4:00. NHST and Brain Exam 2 Review</li>
+<li>4:00 - 4:30. Multiple Regression (More Regression)</li>
+<li>4:30 - 4:40. Break Time.</li>
+<li>4:40 - 5:00. More Multiple Regression</li>
+<li>5:00 - 6:00. Project Workshop Time (Milestone 4 Review)</li>
+</ul></li>
+</ol>
+</section>
+<section id="check-in-review-nhst-practice" class="level2">
+<h2 class="anchored" data-anchor-id="check-in-review-nhst-practice">Check-In Review : NHST Practice</h2>
+<section id="other-questions-about-model-1." class="level3">
+<h3 class="anchored" data-anchor-id="other-questions-about-model-1.">Other Questions About Model 1.</h3>
+<ol type="1">
+<li>What are the <strong>four reasons</strong> we might observe this pattern?</li>
+<li>How might <strong>sampling bias</strong> influence these results?</li>
+<li>How might <strong>measurment error</strong> influence these results?</li>
+</ol>
+</section>
+<section id="more-practice-for-the-models-below." class="level3">
+<h3 class="anchored" data-anchor-id="more-practice-for-the-models-below.">More Practice? For the models below.</h3>
+<ol type="1">
+<li>What’s the relationship between the two variables?</li>
+<li>Is this relationship considered “statistically significant”? Why / why not?</li>
+<li>Is this relationship considered “large”? Why / why not?</li>
+<li>Critical Thinking :</li>
+</ol>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Model 2 : Predicting Handwashing from Conscientiousness (Personality)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Model 3 : Predicting Handwashing from Political Orientation</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Handwash <span class="sc">~</span> CONSC, <span class="at">data =</span> d)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Handwash <span class="sc">~</span> CONSC, <span class="at">data =</span> d)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -269,20 +282,20 @@ Residual standard error: 0.8688 on 403 degrees of freedom
 Multiple R-squared:  0.0003804, Adjusted R-squared:  -0.0021 
 F-statistic: 0.1534 on 1 and 403 DF,  p-value: 0.6956</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">jitter</span>(Handwash) <span class="sc">~</span> <span class="fu">jitter</span>(CONSC), <span class="at">data =</span> d, <span class="at">col =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">jitter</span>(Handwash) <span class="sc">~</span> <span class="fu">jitter</span>(CONSC), <span class="at">data =</span> d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="10_MultipleRegressionReview_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="9_MultipleRegressionReview_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Handwash <span class="sc">~</span> political_party, <span class="at">data =</span> d)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Handwash <span class="sc">~</span> political_party, <span class="at">data =</span> d)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -304,8 +317,7 @@ Residual standard error: 0.8567 on 403 degrees of freedom
 Multiple R-squared:  0.02804,   Adjusted R-squared:  0.02563 
 F-statistic: 11.63 on 1 and 403 DF,  p-value: 0.0007153</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(Handwash <span class="sc">~</span> political_party, <span class="at">data =</span> d,</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">col =</span> <span class="st">"white"</span>, <span class="at">barcol =</span> <span class="st">"white"</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(Handwash <span class="sc">~</span> political_party, <span class="at">data =</span> d, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in arrows(x, li, x, pmax(y - gap, li), col = barcol, lwd = lwd, :
 zero-length arrow is of indeterminate angle and so skipped
@@ -321,7 +333,7 @@ zero-length arrow is of indeterminate angle and so skipped</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="10_MultipleRegressionReview_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="9_MultipleRegressionReview_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -329,73 +341,42 @@ zero-length arrow is of indeterminate angle and so skipped</code></pre>
 </div>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(Handwash <span class="sc">~</span> gender, <span class="at">data =</span> d, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>))</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">jitter</span>(Handwash) <span class="sc">~</span> <span class="fu">jitter</span>(CONSC), <span class="at">data =</span> d)</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(mod2, <span class="at">lwd =</span> <span class="dv">5</span>)</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(Handwash <span class="sc">~</span> political_party, <span class="at">data =</span> d, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="10_MultipleRegressionReview_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-148237661.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<p><strong>Professor Code Goes Here.</strong></p>
 </section>
-<section id="agenda-announcements" class="level2">
-<h2 class="anchored" data-anchor-id="agenda-announcements">Agenda &amp; Announcements</h2>
-<ol type="1">
-<li><strong>Brain Exam is THIS WEEK.</strong>
+<section id="some-pre-recorded-nhst-review-videos" class="level3">
+<h3 class="anchored" data-anchor-id="some-pre-recorded-nhst-review-videos">Some Pre-Recorded NHST Review Videos</h3>
 <ul>
-<li>start discussion section with a review / practice</li>
-<li>then the brain exam : 10 minutes.</li>
-</ul></li>
-<li><strong>Milestone #5 : Due Sunday</strong></li>
-<li><strong>Milestone #5 : Draft!</strong>
-<ul>
-<li>Due Friday, May 2nd at 2:00 PM</li>
-<li>Bring it all together!!!!</li>
-</ul></li>
-<li><strong>THE END IS NEAR</strong>
-<ul>
-<li><strong>5/2 : Last Class :</strong> The learning has stopped. So what did we learn again?</li>
-<li><strong>5/9 : RRR Week (Virtual) :</strong> Project Workshop</li>
-</ul></li>
-</ol>
+<li><p><strong>Note : I used last semester’s dataset for these examples, so you will likely get different results if you try and replicate in this semester’s class; a good example of how NHST doesn’t really tell us whether the results are “truth” or not, or whether they will replicate, etc.</strong></p></li>
+<li><p><a href="https://www.loom.com/share/67776eb1a41f4b5eaa0ca5312d0663ad?sid=534835dc-c163-4604-b985-137b2bede4ac"><strong>Example 1 : LOVEWATER ~ smoke.pot</strong></a></p></li>
+<li><p><a href="https://www.loom.com/share/8b755a32fe094e9eb1fc0bd7f16991bd?sid=b0c120f4-4190-4115-9722-da0a19856006"><strong>Examples 2 - 4 : faster explanations!</strong></a></p></li>
+</ul>
+<p><img src="images/clipboard-422460195.png" class="img-fluid"></p>
+<p><img src="images/clipboard-927357432.png" class="img-fluid"></p>
 </section>
-<section id="break-time-meet-back-at-330" class="level2">
-<h2 class="anchored" data-anchor-id="break-time-meet-back-at-330">BREAK TIME : MEET BACK AT 3:30</h2>
-<p><img src="images/clipboard-3386439454.png" class="img-fluid"></p>
 </section>
-<section id="review-multiple-regression-hair-length-predicts-height" class="level2">
-<h2 class="anchored" data-anchor-id="review-multiple-regression-hair-length-predicts-height">REVIEW : Multiple Regression (Hair Length Predicts Height?!?!?????)</h2>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+</section>
+<section id="chapter-10-recap-multiple-regression-hair-length-predicts-height" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-10-recap-multiple-regression-hair-length-predicts-height">Chapter 10 Recap : Multiple Regression (Hair Length Predicts Height?!?!?????)</h2>
 <section id="data-cleaning-and-descriptive-statistics" class="level3">
 <h3 class="anchored" data-anchor-id="data-cleaning-and-descriptive-statistics">Data Cleaning and Descriptive Statistics</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Data Cleaning</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gplots)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets - FA25/mini_cal_data.csv"</span>, <span class="at">stringsAsFactors =</span> T)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>height[d<span class="sc">$</span>height <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">|</span> d<span class="sc">$</span>height <span class="sc">&gt;</span> <span class="dv">100</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(d<span class="sc">$</span>is.female)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co">#levels(d$long.hair)[1] &lt;- NA</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(d<span class="sc">$</span>height)</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d<span class="sc">$</span>is.female, <span class="at">xlab =</span> <span class="st">"Is Female?"</span>)</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d<span class="sc">$</span>long.hair, <span class="at">xlab =</span> <span class="st">"Has Long Hair?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Data Cleaning</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gplots)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets - FA25/mini_cal_data.csv"</span>, <span class="at">stringsAsFactors =</span> T)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>height[d<span class="sc">$</span>height <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">|</span> d<span class="sc">$</span>height <span class="sc">&gt;</span> <span class="dv">100</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(d<span class="sc">$</span>is.female)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#levels(d$long.hair)[1] &lt;- NA</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(d<span class="sc">$</span>height)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d<span class="sc">$</span>is.female, <span class="at">xlab =</span> <span class="st">"Is Female?"</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d<span class="sc">$</span>long.hair, <span class="at">xlab =</span> <span class="st">"Has Long Hair?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="10_MultipleRegressionReview_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="9_MultipleRegressionReview_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -418,16 +399,8 @@ zero-length arrow is of indeterminate angle and so skipped</code></pre>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d<span class="sc">$</span>long.hair)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="10_MultipleRegressionReview_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>moda <span class="ot">&lt;-</span> <span class="fu">lm</span>(height <span class="sc">~</span> long.hair, <span class="at">data =</span> d)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(moda)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>moda <span class="ot">&lt;-</span> <span class="fu">lm</span>(height <span class="sc">~</span> long.hair, <span class="at">data =</span> d)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(moda)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -449,11 +422,11 @@ Residual standard error: 3.776 on 188 degrees of freedom
 Multiple R-squared:  0.0349,    Adjusted R-squared:  0.02977 
 F-statistic: 6.799 on 1 and 188 DF,  p-value: 0.009854</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(height <span class="sc">~</span> long.hair, <span class="at">data =</span> d, <span class="at">connect =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(height <span class="sc">~</span> long.hair, <span class="at">data =</span> d, <span class="at">connect =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="10_MultipleRegressionReview_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="9_MultipleRegressionReview_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -461,8 +434,8 @@ F-statistic: 6.799 on 1 and 188 DF,  p-value: 0.009854</code></pre>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>modb <span class="ot">&lt;-</span> <span class="fu">lm</span>(height <span class="sc">~</span> is.female, <span class="at">data =</span> d)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>modb <span class="ot">&lt;-</span> <span class="fu">lm</span>(height <span class="sc">~</span> is.female, <span class="at">data =</span> d)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -484,11 +457,11 @@ Residual standard error: 3.269 on 187 degrees of freedom
 Multiple R-squared:  0.2632,    Adjusted R-squared:  0.2592 
 F-statistic: 66.79 on 1 and 187 DF,  p-value: 4.438e-14</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(height <span class="sc">~</span> is.female, <span class="at">data =</span> d, <span class="at">connect =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(height <span class="sc">~</span> is.female, <span class="at">data =</span> d, <span class="at">connect =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="10_MultipleRegressionReview_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="9_MultipleRegressionReview_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -496,8 +469,9 @@ F-statistic: 66.79 on 1 and 187 DF,  p-value: 4.438e-14</code></pre>
 </div>
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>modc <span class="ot">&lt;-</span> <span class="fu">lm</span>(height <span class="sc">~</span> long.hair <span class="sc">+</span> is.female, <span class="at">data =</span> d)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>modc <span class="ot">&lt;-</span> <span class="fu">lm</span>(height <span class="sc">~</span> long.hair <span class="sc">+</span> is.female, <span class="at">data =</span> d)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="do">## NO GRAPH FOR THE MULTIPLE REGRESSION</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -528,11 +502,11 @@ F-statistic: 35.02 on 2 and 186 DF,  p-value: 1.235e-13</code></pre>
 <section id="iv1-and-iv2-are-related-to-each-other-and-each-related-to-the-dv" class="level3">
 <h3 class="anchored" data-anchor-id="iv1-and-iv2-are-related-to-each-other-and-each-related-to-the-dv">IV1 and IV2 are related to each other, and each related to the DV)</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d<span class="sc">$</span>long.hair <span class="sc">~</span> d<span class="sc">$</span>is.female)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d<span class="sc">$</span>long.hair <span class="sc">~</span> d<span class="sc">$</span>is.female)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="10_MultipleRegressionReview_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="9_MultipleRegressionReview_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -541,15 +515,15 @@ F-statistic: 35.02 on 2 and 186 DF,  p-value: 1.235e-13</code></pre>
 <section id="multiple-regression-visualized-in-multi-dimensional-space" class="level3">
 <h3 class="anchored" data-anchor-id="multiple-regression-visualized-in-multi-dimensional-space">Multiple Regression : Visualized in Multi-Dimensional Space!</h3>
 <p>The code below may not work on your computer; see lecture recording for an interpretation / explanation!</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('rgl')</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('car')</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgl)</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter3d</span>(<span class="fu">as.numeric</span>(d<span class="sc">$</span>is.female), <span class="co"># IV1 - must be numeric (if not already)</span></span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>          d<span class="sc">$</span>height, <span class="co"># DV</span></span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">as.numeric</span>(d<span class="sc">$</span>long.hair)) <span class="co"># IV2 - must be numeric (if not already)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('rgl')</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('car')</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgl)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter3d</span>(<span class="fu">as.numeric</span>(d<span class="sc">$</span>is.female), <span class="co"># IV1 - must be numeric (if not already)</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>          d<span class="sc">$</span>height, <span class="co"># DV</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">as.numeric</span>(d<span class="sc">$</span>long.hair)) <span class="co"># IV2 - must be numeric (if not already)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="reporting-effects-in-a-regression-table." class="level3">
 <h3 class="anchored" data-anchor-id="reporting-effects-in-a-regression-table.">Reporting Effects in a Regression Table.</h3>
@@ -592,11 +566,11 @@ F-statistic: 35.02 on 2 and 186 DF,  p-value: 1.235e-13</code></pre>
 </table>
 <p><strong>There’s a Package in R For This!</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("jtools") # a new package!!!</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools) <span class="co"># make sure you installed the new package first.</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(moda, modb, modc,</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">coefs =</span> <span class="fu">c</span>(<span class="st">"Long Hair (0 = No, 1 = Yes)"</span> <span class="ot">=</span> <span class="st">"long.hairYes"</span>,</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Is Female (0 = No, 1 = Yes)"</span> <span class="ot">=</span> <span class="st">"is.femaleYes"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("jtools") # a new package!!!</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools) <span class="co"># make sure you installed the new package first.</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(moda, modb, modc,</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">coefs =</span> <span class="fu">c</span>(<span class="st">"Long Hair (0 = No, 1 = Yes)"</span> <span class="ot">=</span> <span class="st">"long.hairYes"</span>,</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Is Female (0 = No, 1 = Yes)"</span> <span class="ot">=</span> <span class="st">"is.femaleYes"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  ">
 <colgroup><col><col><col><col></colgroup><tbody><tr>
@@ -621,8 +595,12 @@ F-statistic: 35.02 on 2 and 186 DF,  p-value: 1.235e-13</code></pre>
 </div>
 </section>
 </section>
-<section id="multiple-regression-tables" class="level2">
-<h2 class="anchored" data-anchor-id="multiple-regression-tables">Multiple Regression Tables</h2>
+<section id="break-time-meet-back-at-440" class="level2">
+<h2 class="anchored" data-anchor-id="break-time-meet-back-at-440">BREAK TIME : MEET BACK AT 4:40</h2>
+<p><img src="images/clipboard-3386439454.png" class="img-fluid"></p>
+</section>
+<section id="more-on-multiple-regression-tables" class="level2">
+<h2 class="anchored" data-anchor-id="more-on-multiple-regression-tables">MORE on Multiple Regression Tables</h2>
 <ul>
 <li><p><strong>ICE BREAKER :</strong> If you could learn one skill all at once (like Neo in the Matrix; have y’all seen that movie???), what would it be??</p></li>
 <li><p><strong>Evaluate the table above and think about multiple regression.</strong></p>
@@ -638,26 +616,10 @@ F-statistic: 35.02 on 2 and 186 DF,  p-value: 1.235e-13</code></pre>
 </ul>
 <p><img src="images/clipboard-3796023116.png" class="img-fluid"></p>
 </section>
-<section id="milestone-4-anyone-want-to-share-their-example" class="level2">
-<h2 class="anchored" data-anchor-id="milestone-4-anyone-want-to-share-their-example">Milestone #4 : Anyone want to share their example?</h2>
-<ul>
-<li>Student Work Go Here.</li>
-</ul>
-<section id="some-pre-recorded-nhst-review-videos" class="level3">
-<h3 class="anchored" data-anchor-id="some-pre-recorded-nhst-review-videos">Some Pre-Recorded NHST Review Videos</h3>
-<ul>
-<li><p><strong>Note : I used last semester’s dataset for these examples, so you will likely get different results if you try and replicate in this semester’s class; a good example of how NHST doesn’t really tell us whether the results are “truth” or not, or whether they will replicate, etc.</strong></p></li>
-<li><p><a href="https://www.loom.com/share/67776eb1a41f4b5eaa0ca5312d0663ad?sid=534835dc-c163-4604-b985-137b2bede4ac"><strong>Example 1 : LOVEWATER ~ smoke.pot</strong></a></p></li>
-</ul>
-<p><img src="images/clipboard-2608622757.png" class="img-fluid"></p>
-<ul>
-<li><a href="https://www.loom.com/share/8b755a32fe094e9eb1fc0bd7f16991bd?sid=b0c120f4-4190-4115-9722-da0a19856006"><strong>Examples 2 - 4 : faster explanations!</strong></a></li>
-</ul>
-<p><img src="images/clipboard-422460195.png" class="img-fluid"></p>
-<p><img src="images/clipboard-927357432.png" class="img-fluid"></p>
+<section id="milestone-4-anyone-want-to-share-their-project" class="level2">
+<h2 class="anchored" data-anchor-id="milestone-4-anyone-want-to-share-their-project">Milestone #4 : Anyone want to share their project?</h2>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
