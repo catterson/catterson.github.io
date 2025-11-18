@@ -1,0 +1,56 @@
+---
+title: "Not a Lab 9"
+format: html
+---
+
+Feel free to work with others on this; think it would be *very cool* to treat this as a group assignment. Or go lone wolf (AWOOOOOO.)
+
+## Data and Paper
+
+**[Link to Dataset.](https://www.dropbox.com/scl/fi/kzz9y8j8pugg6bs2xr60u/dehumanization_mturk_utych.csv?rlkey=kh7k1lmsgy1od68k0xge7c844&dl=0)**
+
+**Description of Variables :** These data were adapted from a study[^1] on Dehumanizing Language and Attitudes Toward Immigrants in the United States. There was no original codebook to the study, but Professor did some detective work and identified the following variables.
+
+[^1]: Utych, S. M. (2018). How dehumanization influences attitudes toward immigrants. Political Research Quarterly, 71(2), 440-452.
+
+-   **v1-v10 :** meta data collected by the survey tool (Qualtrics)
+
+-   **consent :** whether the participant consented to the study.
+
+-   **age :** participant’s age
+
+-   **gender :** 1 = Male; 2 = Female
+
+-   **race :** the researchers did not include a codebook for this variable; 5 = white participants; 6 = other.
+
+-   **nondht :** whether participants read a text using non-dehumanizing language about immigrants
+
+-   **panas_3 :** how much participants report feeling anger toward immigrants
+
+-   **dh_treat :** The experimental condition; participants read a text adapted from political speeches that described immigrants in non-dehumanizing (dh_treat = 0) or dehumanizing (dh_treat = 1) terms. 
+
+-   **Immigration Measures :** After reading the text, participants were asked about their attitudes toward immigration.
+
+    -   **imm1 :** “Do you think the number of immigrants from foreign countries who are permitted to come to the United States to live should be INCREASED, LEFT THE SAME as it is now, or DECREASED?” \[higher numbers = more support for immigration\]
+
+    -   **imm2 :** “Would you favor or oppose legislation to increase border security in order to make it more difficult for individuals to enter the country?” \[higher numbers = less support for immigration\]
+
+    -   **imm3 :** “Would you favor or oppose legislation that would allow undocumented immigrants already in the country to apply for legal status?” \[higher numbers = more support for immigration\]
+
+-   **Evaluation of Text : After reading the text, participants were asked about their thoughts toward the text.**
+
+    -   **texteval_1 :** the text was realistic
+
+    -   **texteval_3 :** the text was persuasive
+
+    -   **texteval_4 :** ?????
+
+    -   **texteval_5 :** the text was unnatural
+
+## Submit answers to the following questions on the Not a Lab 9 Discussion
+
+1.  The author wanted to test "how the dehumanization of immigrants influences immigration policy attitudes". To do this, they conducted an experiment, in which participants read either a dehumanizing or non-dehumanizing political speech about immigrants (**variable = dh_treat**) and then measured participants attitudes about three separate immigration questions (**variables = imm1, imm2, imm3**). Without looking at the results of the original paper, think about what linear model(s) you would define (based on the variables measured) to test this research question. Make sure you consider relevant control and / or confound variables to include, and explain why these are needed. Then, define and interpret this linear model. Was dehumanizing political speech related to immigration policy attitudes? Report your results as you might in a paper or conference talk.
+
+2.  [**Look at Table 1 from the original paper**](https://www.dropbox.com/scl/fi/c26fhjow3h2a7a8lxncfc/utych-2017-how-dehumanization-influences-attitudes-toward-immigrants.pdf?rlkey=6g0t7f3whpnpc0n4oqd9s7k4o&dl=0) **(do this after you complete Question 1!!!).** How did the researcher's linear models differ from your own? See if you can recreate the author's results using the variables in the dataset (feel free to just focus on one model). 
+
+3. Skim the method section; do you feel like this was a valid way to answer the question? Why / why not? What other questions do you have? *(Note : I think there's a lot to unpack about this paper! We will do so next week.)*
