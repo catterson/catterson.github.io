@@ -28,7 +28,7 @@ library(arm)
 #h <- readxl::read_xls("~/Downloads/in.excel.for.adcat.hormone.data.xls")
 #h <- h[,-1]
 #write.csv(h, "~/Dropbox/!GRADSTATS/gradlab/Datasets/hormone_dataset.csv", row.names = F)
-h <- read.csv("~/Dropbox/!GRADSTATS/gradlab/Datasets/hormone_dataset.csv")
+h <- read.csv("~/Dropbox/!GRADSTATS/Datasets/hormone_dataset.csv")
 h$sexF <- as.factor(h$sex)
 levels(h$sexF) <- c("Male", "Female")
 h$sexF <- relevel(h$sexF, ref = "Female")
