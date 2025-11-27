@@ -1,5 +1,5 @@
 ---
-title: "Lecture 12 | Conclusion to Introduction to Statstics"
+title: "Class 11 | Conclusion to Introduction to Statstics"
 format: 
   html:
       code-overflow: wrap
@@ -9,34 +9,40 @@ format:
 
 ![](lecture_images/11_schoolout.png){fig-align="center"}
 
-## Announcements and Agenda
+### Agenda
 
--   **2:10 - 2:25.** Check-In and Announcements
+-   **3:10 - 3:25.** Check-In and Announcements
 
--   **2:25 - 3:30.** Final Project Stuff
+-   **3:25 - 4:30.** Final Final Project Stuff
 
--   **3:30 - 3:45.** Break Time
+-   **4:30 - 4:45.** Break Time
 
--   **3:45 - ????.** The Learning is Over; Would You Like to Learn More???
+-   **4:45 - ????.** The Learning is Over; Would You Like to Learn More???
 
-## Final Project Stuff
+### Announcements
+
+-   **No Final Exam.** Yay.
+
+-   **Final Project Due 12/13 at 11:59 PM.** Late submissions risk an incomplete in the class. Incomplete grades\\s are only given for students missing the final project, but otherwise passing the class. I am sorry that it is so hard to be a Berkeley student sometimes \<3
+
+## Final Final Project Stuff
 
 ### Professor Advice
 
 1.  [**Use the rubric as a guide**](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0#bookmark=kix.b5sonortvquz)**.**
-    1.  Set reasonable expectations : "done is better than perfect".
-    2.  If it's not there, your TA cannot give you credit for it.
-    3.  No "right" way to do the study; just want to see evidence that you tried and are learning. (But see the rubric.)
+    -   **"Done is better than perfect".** Prioritize the most important things; set reasonable expectations for yourself and boundaries for the time that you have (e.g., lit review can be superficial; okay if you can't figure out how to create a scale, just
+    -   **Make it clear how and where you are doing the work.** Label your sections with headers; make sure your tables and graphs are visible.
+    -   **There is no "right" way to do the study.** We want to see evidence that you tried and are learning. (But see the rubric.)
 2.  **Keep it simple.**
-    1.  **Simple measures :**
+    -   **Simple measures :**
         1.  okay to use one measure of your DV even thought you had two.
         2.  okay to simplify your categorical variable (e.g., "which of these 15 music types do you love the most" –\> "do you like experimental jazz (0 = no; 1 = yes)")
-    2.  **Simple models :** okay to just
-    3.  **Discussion Section :** summary of ways that you could have (or should have) been more complicated in the Discussion Section
-    4.  **Appendix :** List of [all]{.underline} your measures. Good practice to be fully transparent about what you measured in the study.
+    -   **Simple models :** okay to just
+    -   **Discussion Section :** summary of ways that you could have (or should have) been more complicated in the Discussion Section
+    -   **Appendix :** List of [all]{.underline} your measures. Good practice to be fully transparent about what you measured in the study.
 3.  **Use paragraphs and headers to guide the reader.**
-    1.  Each new idea is a new paragraph. No solid wall of text please!
-    2.  Headers help orient your reader to the different contents.
+    -   Each new idea is a new paragraph. No solid wall of text please!
+    -   Headers help orient your reader to the different contents.
 
 ### More Writing
 
@@ -74,25 +80,25 @@ format:
 
 ### The Rich Lyons ~*is our chancellor and the professor of this class has*~ Invited ~*me to give a*~ Distinguished GoBears Guest Lecture
 
--   Student Milestone 5 Example Goes Here
+-   Student Example Goes Here
 
--   Student Milestone 5 Example Goes Here
+-   Student Example Goes Here
 
--   Student Milestone 5 Example Goes Here
+-   Student Example Goes Here
 
-## BREAK TIME : MEET BACK AT 3:45
+## BREAK TIME : MEET BACK AT 4:45
 
 ## ![](images/clipboard-3924345851.png)The Learning is Over; Would You Like to Learn More?
 
 ### Things to Remember in 50 Years
 
-#### **You** [*Can*]{.underline} **Learn Statistics and Computers :** It is a process :)
+#### **1. You** [*Can*]{.underline} **Learn Statistics and Computers :** It is a process :)
 
 -   check-in graph goes here.
 
-#### **Life is Complex :** Psychology *Tries* to Use Statistics to Study Complexity
+#### **2. Life is Complex :** Psychology *Tries* to Use Statistics to Study Complexity
 
-##### Linear Models Make Predictions (with Errors)
+##### 2A. Linear Models Make Predictions (with Errors)
 
 -   Hard to quantify; but best estimates that the average correlation between two variables is *r \< .30*
 
@@ -104,7 +110,7 @@ format:
 
 -   But also, remember that a "correlation" / slope could look like any of the following graphs \[[Anscombe's Quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet)\]
 
-##### **Not Just Error...Researchers are biased.**
+##### **2B. Not Just Error in our Models...researchers are biased too.**
 
 +------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Bias                                                                                     | Your Final Project Experiences?                                                                                                                                          |
@@ -128,21 +134,19 @@ format:
 |                                                                                          | -   Clap : Yes / No                                                                                                                                                      |
 +------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-##### **Our Methods and Measures Are Biased....**
-
-##### Maybe All of Science is Biased?
+##### **2C. Oh and our Methods and Measures Are Biased....**Maybe All of Science is Biased?
 
 -   **p-hacking :** making changes to your model or data in order to "get" your p-values.
 
-    -   **visit :** [tinyurl.com/phackingfun](https://fivethirtyeight.com/features/science-isnt-broken/#part1)
+    -   **visit :** <https://stats.andrewheiss.com/hack-your-way/>
 
     -   **model : economic performance \~ political power + error**
 
-        -   decide how to operationalize **political power**
+        -   decide how to operationalize political power
 
-        -   **decide how to operationalize economic performance**
+        -   decide how to operationalize economic performance
 
-        -   **decide how to adjust your model**
+        -   decide how to adjust your model
 
 ![](images/clipboard-2957243318.png)
 
@@ -150,7 +154,7 @@ format:
 
 [![Original study effect size versus replication effect size (correlation coefficients).](images/clipboard-2290097992.png){fig-alt="Diagonal line represents replication effect size equal to original effect size. Dotted line represents replication effect size of 0. Points below the dotted line were effects in the opposite direction of the original. Density plots are separated by significant (blue) and nonsignificant (red) effects."}](https://www.science.org/doi/10.1126/science.aac4716)
 
-##### **Good to identify that bias and change it.**
+##### **2D. Science is a process, so goal is to identify that bias and try to minimize it with future research.**
 
 -   **Pre-Registration :** Deciding what you are going to do
 
@@ -162,7 +166,7 @@ format:
 
     -   [Open Science Foundation (OSF)](https://osf.io). Hosting
 
-##### Is there even a "TRUTH" about what people are like?
+##### 2E. But wait...is there even a "TRUTH" about what people are like?
 
 | Beginning of Semester                | End of Semester |
 |--------------------------------------|-----------------|
@@ -170,7 +174,7 @@ format:
 
 ### Things to Immediately Forget (or Learn More About)
 
-#### Quadratic Effects : A Regression Line Can Bend
+#### 1. Quadratic Effects : A Regression Line Can Bend
 
 ![](images/clipboard-2558630596.png)
 
@@ -178,9 +182,9 @@ format:
 
 ![](images/clipboard-792611093.png)
 
-#### Interaction Effects : The Regression Line Changes Depending on Some Other Variable
+#### 2. Interaction Effects : The Regression Line Changes Depending on Some Other Variable
 
--   [**Link to (OPTIONAL) Videos.**](https://docs.google.com/document/d/1aJQHbTE38_-_qOPtFcH_EpYK6CP8LFc8w1Pf44tklG4/edit?usp=sharing) No chapter (yet!)
+-   **Link to (OPTIONAL) Chapter.**
 
 -   **Data :** Bertrand, M., & Mullainathan, S. (2004). Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. American economic review, 94(4), 991-1013.
 
@@ -273,7 +277,7 @@ summary(mlmod)
 
 #### Courses at Cal!
 
--   **Psych 102 (Honors Students Priority).** Taught be me in the Fall :)
+-   **Psych 102 (Honors Students Priority).** You will need to advocate HARD for yourself to take this class.
 
 -   **Stat 133.** Hear good things?
 

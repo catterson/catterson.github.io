@@ -1,0 +1,95 @@
+---
+title: "12_TheEnd"
+format: html
+---
+
+## [**Check-In : The Learning Has Stopped (Long Live The Learning)**](https://docs.google.com/forms/d/e/1FAIpQLSch8I8aVxQEYssCt7ZUbRcQ9zINsy9yzvqiS4YQca1xJeHh_w/viewform?usp=dialog)
+
+![](images/clipboard-1038042391.png)
+
+## **More MLM (or, in this case, “Linear Mixed Model”)**
+
+-   ICE BREAKER : what’s your favorite place in the bay area to see nature?
+
+-   THE STUDY : participants were shocked while looking at either virtual nature, urban, or indoor images (while getting their brains scanned).
+
+-   THE TABLE :
+
+    -   What is going on with this models?
+
+    -   What seems important?
+
+    -   What seems irrelevant?
+
+    -   What questions do you have?
+
+| Abstract \[[full article](https://www.nature.com/articles/s41467-025-56870-2#Abs1)\] | Linear Model Table \[[link to SI materials](https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-025-56870-2/MediaObjects/41467_2025_56870_MOESM1_ESM.pdf)\] |
+|------------------------------------|------------------------------------|
+| ![](images/clipboard-1711381528.png) | ![](images/clipboard-4277360809.png) |
+
+## **Final Project Show and Tell**
+
+-   **Find a Buddy.**
+
+    -   Walk them through your study!
+
+        -   What is your question (and why should we care)?
+
+        -   How did you measure / manipulate these variables?
+
+    -   Walk them through your graph / results!
+
+-   **Some volunteers to share with the class?** Low-stakes practice for more stressful situations where you will be more prepared :)
+
+## **Would You Like to Learn More?** 
+
+### **Watch Out for Overfitting in Your Models**
+
+When your model is too complex, each variable in the model (parameter) increases the model complexity.
+
+-   ACTIVITY : Where would you draw the line of best fit here?
+
+```{r}
+library(ggplot2)
+# Fakin' some data.
+set.seed(42)
+n <- 100
+x <- seq(-5, 5, length.out = n)
+y <- sin(x) + rnorm(n, sd = 2)
+d <- data.frame(x, y)
+
+# Graphin the fake data.
+ggplot(d, aes(x, y)) +
+  geom_point(size = 2) +
+  # stat_smooth(method = "lm", formula = y ~ poly(x, 25), se = FALSE, color = "red", size = 2) +
+  # labs(title = "Overfit Model (25-Degree Polynomial IV") +
+  theme_minimal()
+```
+
+-   **KEY IDEA :** **complex models that perfectly fit the data are problematic**
+
+    -   You essentially describing your sample, and not the underlying population (which is usually the goal of multiple regression.)
+
+-   We don’t expect over-fit models to generalize to other samples. \[[Image source](https://m-clark.github.io/book-of-models/machine_learning.html#fig-over-under)\]
+
+    ![](images/clipboard-1581050331.png)
+
+### Cross Validation : Conceptual Understanding
+
+**Cross Validation.** To ensure your model generalizes to other samples, you can a) replicate, or b) cross-validate your data. Cross validation involves dividing your sample into sub-samples; define a model on one sample, then test the model in the other(s).
+
+![](images/clipboard-78651328.png)
+
+#### Interpreting Cross Validation
+
+**You’ll often see a few different methods of evaluating model fit.**
+
+-   **R\^2.** Our good friend. The proportion of variance explained by the model (vs. the mean)
+
+-   **Rooted Mean Squared Error (RMSE)**. The average amount of residual error (actual - predicted values).
+
+-   **Mean Absoulte Error.** The average of the absolute value of the residuals; less sensitive to outliers than RMSE or R\^2.
+
+And there are different methods of defining the test and training datasets. And different packages and tutorials to do this. [Here’s one, called “Leave one out cross validation - LOOCV”](#0); gif below via Wikipedia.
+
+![](images/10_960px-LOOCV.gif){fig-align="center"}
