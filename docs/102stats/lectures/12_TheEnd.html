@@ -168,8 +168,135 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="check-in-the-learning-has-stopped-long-live-the-learning"><a href="https://docs.google.com/forms/d/e/1FAIpQLSch8I8aVxQEYssCt7ZUbRcQ9zINsy9yzvqiS4YQca1xJeHh_w/viewform?usp=dialog"><strong>Check-In : The Learning Has Stopped (Long Live The Learning)</strong></a></h2>
 <p><img src="images/clipboard-1038042391.png" class="img-fluid"></p>
 </section>
-<section id="more-mlm-or-in-this-case-linear-mixed-model" class="level2">
-<h2 class="anchored" data-anchor-id="more-mlm-or-in-this-case-linear-mixed-model"><strong>More MLM (or, in this case, “Linear Mixed Model”)</strong></h2>
+<section id="announcements" class="level2">
+<h2 class="anchored" data-anchor-id="announcements"><strong>Announcements :</strong></h2>
+<ul>
+<li><p><strong>Final Project Due.</strong></p></li>
+<li><p><strong>Next Week :</strong> Virtual RRR Time (on Zoom) 11-????</p></li>
+<li><p><strong>Outstanding Grades :</strong> prof will do ASAP</p>
+<ul>
+<li><p>Brain Exam</p></li>
+<li><p>Discussion Posts</p></li>
+<li><p>Discussion Presentations</p></li>
+<li><p>Attendance / Check-Ins.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="part-1-more-mlm-or-in-this-case-linear-mixed-model" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-more-mlm-or-in-this-case-linear-mixed-model"><strong>Part 1 : More MLM (or, in this case, “Linear Mixed Model”)</strong></h2>
+<section id="example-1-another-sleepstudy" class="level3">
+<h3 class="anchored" data-anchor-id="example-1-another-sleepstudy">Example 1 : Another sleepstudy</h3>
+<p>A classic teaching dataset from lmer. Hooray!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Matrix</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>?sleepstudy</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> sleepstudy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>A Question :</strong> Is there a relationship between number of days of sleep deprivation and reaction time?</p>
+<section id="the-graph" class="level4">
+<h4 class="anchored" data-anchor-id="the-graph">The Graph</h4>
+<p>How might we graph this in ggplot?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sleepstudy, <span class="fu">aes</span>(<span class="at">y =</span> Reaction, <span class="at">x =</span> Days, <span class="at">color =</span> Subject)) <span class="sc">+</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># facet_wrap(~Subject) + </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="12_TheEnd_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># geom_line(aes(group = Subject), linewidth = 0.75)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="interpreting-the-model-random-intercepts" class="level4">
+<h4 class="anchored" data-anchor-id="interpreting-the-model-random-intercepts">Interpreting the Model (Random Intercepts)</h4>
+<p>What model would we define?</p>
+<ul>
+<li><p>Reaction is the DV</p></li>
+<li><p>I’m adding Days as a Fixed IV (so I’ll get the average effect of # of days of sleep deprivation on reaction time)</p></li>
+<li><p>I’m also adding a random intercept : <code>(1 | Subject)</code> that will estimate how much the intercept (the 1 term) of individual raction times (the level 2 variable) varies by Subject (the level 1 grouping variable).</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>l2 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Reaction <span class="sc">~</span> Days <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> Subject), <span class="at">data =</span> sleepstudy)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(l2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by REML ['lmerMod']
+Formula: Reaction ~ Days + (1 | Subject)
+   Data: sleepstudy
+
+REML criterion at convergence: 1786.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.2257 -0.5529  0.0109  0.5188  4.2506 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Subject  (Intercept) 1378.2   37.12   
+ Residual              960.5   30.99   
+Number of obs: 180, groups:  Subject, 18
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept) 251.4051     9.7467   25.79
+Days         10.4673     0.8042   13.02
+
+Correlation of Fixed Effects:
+     (Intr)
+Days -0.371</code></pre>
+</div>
+</div>
+<p>How do we interpret the results of this model?</p>
+<ul>
+<li><p><strong>Fixed Effects :</strong> these deal with the “average” effects - ignoring all those important individual differences (which are accounted for in the random effects.)</p>
+<ul>
+<li><p>Intercept = 251.41 = the average person’s reaction time at 0 days of sleep deprivation is 251.4 milliseconds.</p></li>
+<li><p>Days = 10.47 = for every day of sleep deprivation, the average person’s reaction time increases by 10.47 MS; the standard error is an estimate of how much variation we’d expect in this average slope due</p></li>
+</ul></li>
+<li><p><strong>Random Effects :</strong> these describe those individual differences in people’s starting responses to the DV (random intercepts) and individual differences in the relationship between the IV and the DV (random slopes).</p>
+<ul>
+<li><p>Subject (Intercept) = 37.12</p></li>
+<li><p>Residual = 30.99</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="interpreting-the-model-random-intercepts-and-slopes" class="level4">
+<h4 class="anchored" data-anchor-id="interpreting-the-model-random-intercepts-and-slopes">Interpreting the Model (Random Intercepts and Slopes)</h4>
+<p><strong>What model would we define?</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lmer</span>(Reaction <span class="sc">~</span> Days <span class="sc">+</span> (Days <span class="sc">|</span> Subject), <span class="at">data =</span> sleepstudy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by REML ['lmerMod']
+Formula: Reaction ~ Days + (Days | Subject)
+   Data: sleepstudy
+REML criterion at convergence: 1743.628
+Random effects:
+ Groups   Name        Std.Dev. Corr
+ Subject  (Intercept) 24.741       
+          Days         5.922   0.07
+ Residual             25.592       
+Number of obs: 180, groups:  Subject, 18
+Fixed Effects:
+(Intercept)         Days  
+     251.41        10.47  </code></pre>
+</div>
+</div>
+<p>How do we interpret the results of this model?</p>
+</section>
+</section>
+<section id="example-2-nature-and-pain" class="level3">
+<h3 class="anchored" data-anchor-id="example-2-nature-and-pain">Example 2 : Nature and Pain</h3>
 <ul>
 <li><p><strong>ICE BREAKER :</strong> what’s your favorite place in the bay area to see nature?</p></li>
 <li><p><strong>THE STUDY :</strong> participants were shocked while looking at images (virtual nature, urban, or indoor) while getting their brains scanned. participants rated the subjective unpleasantness of each trial.</p></li>
@@ -196,8 +323,9 @@ window.Quarto = {
 </tbody>
 </table>
 </section>
-<section id="final-project-show-and-tell" class="level2">
-<h2 class="anchored" data-anchor-id="final-project-show-and-tell"><strong>Final Project Show and Tell</strong></h2>
+</section>
+<section id="part-2-final-project-show-and-tell" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-final-project-show-and-tell"><strong>Part 2 : Final Project Show and Tell</strong></h2>
 <ul>
 <li><p><strong>Find a Buddy.</strong></p>
 <ul>
@@ -210,9 +338,22 @@ window.Quarto = {
 </ul></li>
 <li><p><strong>Some volunteers to share with the class?</strong> Low-stakes practice for more stressful situations where you will be more prepared :)</p></li>
 </ul>
+<p><strong>Common Statistical Mistakes.</strong> Any you are doing? Questions?? Feeling the pressure???</p>
+<ol type="1">
+<li><p>Absence of an adequate control condition/group</p></li>
+<li><p>Interpreting comparisons between two effects without directly comparing them</p></li>
+<li><p>Spurious correlations</p></li>
+<li><p>Inflating the units of analysis</p></li>
+<li><p>Correlation and causation</p></li>
+<li><p>Use of small samples</p></li>
+<li><p>Circular analysis</p></li>
+<li><p>Flexibility of analysis</p></li>
+<li><p>Failing to correct for multiple comparisons</p></li>
+<li><p>Over-interpreting non-significant results</p></li>
+</ol>
 </section>
-<section id="would-you-like-to-learn-more" class="level2">
-<h2 class="anchored" data-anchor-id="would-you-like-to-learn-more"><strong>Would You Like to Learn More?</strong></h2>
+<section id="part-3-would-you-like-to-learn-more" class="level2">
+<h2 class="anchored" data-anchor-id="part-3-would-you-like-to-learn-more"><strong>Part 3 : Would You Like to Learn More?</strong></h2>
 <section id="watch-out-for-overfitting-in-your-models" class="level3">
 <h3 class="anchored" data-anchor-id="watch-out-for-overfitting-in-your-models"><strong>Watch Out for Overfitting in Your Models</strong></h3>
 <p>When your model is too complex, each variable in the model (parameter) increases the model complexity.</p>
@@ -220,24 +361,24 @@ window.Quarto = {
 <li>ACTIVITY : Where would you draw the line of best fit here?</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Fakin' some data.</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="at">length.out =</span> n)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sin</span>(x) <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">sd =</span> <span class="dv">2</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x, y)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Graphin the fake data.</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># stat_smooth(method = "lm", formula = y ~ poly(x, 25), se = FALSE, color = "red", size = 2) +</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># labs(title = "Overfit Model (25-Degree Polynomial IV") +</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Fakin' some data.</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="at">length.out =</span> n)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sin</span>(x) <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x, y)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Graphin the fake data.</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># stat_smooth(method = "lm", formula = y ~ poly(x, 25), se = FALSE, color = "red", size = 2) +</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># labs(title = "Overfit Model (25-Degree Polynomial IV") +</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="12_TheEnd_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="12_TheEnd_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -269,36 +410,36 @@ Example : Cross-Validating an Interaction Effect
 <div class="callout-body-container callout-body">
 <p><strong>The Graph : The Relationship Between Social Support and Happiness Depends on GDP</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!GRADSTATS/Datasets/World Happiness Report - 2024/World-happiness-report-2024.csv"</span>, <span class="at">stringsAsFactors =</span> T)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Some data cleaning.</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>h<span class="sc">$</span>GDPcat <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">scale</span>(h<span class="sc">$</span>Log.GDP.per.capita) <span class="sc">&gt;</span> <span class="fu">sd</span>(h<span class="sc">$</span>Log.GDP.per.capita, <span class="at">na.rm =</span> T), <span class="st">"High GDP"</span>, <span class="st">"Low GDP"</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>h<span class="sc">$</span>GDPcat <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(h<span class="sc">$</span>GDPcat)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># plot(h$GDPcat) # making sure this re-leveling worked.</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">subset</span>(h, <span class="sc">!</span><span class="fu">is.na</span>(h<span class="sc">$</span>GDPcat)), <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">scale</span>(Ladder.score), <span class="at">x =</span> <span class="fu">scale</span>(Social.support), <span class="at">color =</span> GDPcat)) <span class="sc">+</span> </span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>, <span class="at">position =</span> <span class="st">"jitter"</span>) <span class="sc">+</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Graph of an Interaction Effect from Lecture 10"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Social Support"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Happiness (Ladder Score)"</span>) <span class="sc">+</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_apa</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!GRADSTATS/Datasets/World Happiness Report - 2024/World-happiness-report-2024.csv"</span>, <span class="at">stringsAsFactors =</span> T)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Some data cleaning.</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>h<span class="sc">$</span>GDPcat <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">scale</span>(h<span class="sc">$</span>Log.GDP.per.capita) <span class="sc">&gt;</span> <span class="fu">sd</span>(h<span class="sc">$</span>Log.GDP.per.capita, <span class="at">na.rm =</span> T), <span class="st">"High GDP"</span>, <span class="st">"Low GDP"</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>h<span class="sc">$</span>GDPcat <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(h<span class="sc">$</span>GDPcat)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># plot(h$GDPcat) # making sure this re-leveling worked.</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">subset</span>(h, <span class="sc">!</span><span class="fu">is.na</span>(h<span class="sc">$</span>GDPcat)), <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">scale</span>(Ladder.score), <span class="at">x =</span> <span class="fu">scale</span>(Social.support), <span class="at">color =</span> GDPcat)) <span class="sc">+</span> </span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>, <span class="at">position =</span> <span class="st">"jitter"</span>) <span class="sc">+</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Graph of an Interaction Effect from Lecture 10"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Social Support"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Happiness (Ladder Score)"</span>) <span class="sc">+</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_apa</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="12_TheEnd_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="12_TheEnd_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p><strong>Table : Linear Models for the Interaction Effect from Lecture 10</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">scale</span>(Ladder.score) <span class="sc">~</span> <span class="fu">scale</span>(Log.GDP.per.capita), <span class="at">data =</span> h)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">scale</span>(Ladder.score) <span class="sc">~</span> <span class="fu">scale</span>(Social.support), <span class="at">data =</span> h)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">scale</span>(Ladder.score) <span class="sc">~</span> <span class="fu">scale</span>(Log.GDP.per.capita) <span class="sc">+</span> <span class="fu">scale</span>(Social.support), <span class="at">data =</span> h)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">scale</span>(Ladder.score) <span class="sc">~</span> <span class="fu">scale</span>(Social.support) <span class="sc">*</span> <span class="fu">scale</span>(Log.GDP.per.capita), <span class="at">data =</span> h)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(mod1, mod2, mod3, mod4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">scale</span>(Ladder.score) <span class="sc">~</span> <span class="fu">scale</span>(Log.GDP.per.capita), <span class="at">data =</span> h)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">scale</span>(Ladder.score) <span class="sc">~</span> <span class="fu">scale</span>(Social.support), <span class="at">data =</span> h)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">scale</span>(Ladder.score) <span class="sc">~</span> <span class="fu">scale</span>(Log.GDP.per.capita) <span class="sc">+</span> <span class="fu">scale</span>(Social.support), <span class="at">data =</span> h)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">scale</span>(Ladder.score) <span class="sc">~</span> <span class="fu">scale</span>(Social.support) <span class="sc">*</span> <span class="fu">scale</span>(Log.GDP.per.capita), <span class="at">data =</span> h)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(mod1, mod2, mod3, mod4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  ">
 <colgroup><col><col><col><col><col></colgroup><tbody><tr>
@@ -331,21 +472,21 @@ Example : Cross-Validating an Interaction Effect
 </div>
 <p><strong>Here’s the most simple example of cross-validation (“train-test split”; “holdout cross validation”)</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="fu">nrow</span>(h), <span class="at">replace =</span> T, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">7</span>, .<span class="dv">3</span>)) <span class="co"># using the sample function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="fu">nrow</span>(h), <span class="at">replace =</span> T, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">7</span>, .<span class="dv">3</span>)) <span class="co"># using the sample function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] 1 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 1 1 0 1 0
  [38] 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 1 0 0 1 0 0 1 0 1 1 0 1 0 0 1 0
  [75] 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 0 0 0 1 1 0 0 0 0 0 1 0
 [112] 0 0 1 0 0 1 1 0 0 0 0 0 1 0 1 1 1 1 0 0 0 0 0 0 0 1 0 0 0 1 0 0</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">424242</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>random.selection <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="fu">nrow</span>(h), <span class="at">replace =</span> T, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">7</span>, .<span class="dv">3</span>))</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>htrain <span class="ot">&lt;-</span> h[random.selection <span class="sc">==</span> <span class="dv">0</span>,]</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>htest <span class="ot">&lt;-</span> h[random.selection <span class="sc">==</span> <span class="dv">1</span>,]</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Model in training Data</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>train.mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Ladder.score <span class="sc">~</span> Social.support <span class="sc">*</span> Log.GDP.per.capita, <span class="at">data =</span> htrain)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(train.mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">424242</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>random.selection <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="fu">nrow</span>(h), <span class="at">replace =</span> T, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">7</span>, .<span class="dv">3</span>))</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>htrain <span class="ot">&lt;-</span> h[random.selection <span class="sc">==</span> <span class="dv">0</span>,]</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>htest <span class="ot">&lt;-</span> h[random.selection <span class="sc">==</span> <span class="dv">1</span>,]</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Model in training Data</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>train.mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Ladder.score <span class="sc">~</span> Social.support <span class="sc">*</span> Log.GDP.per.capita, <span class="at">data =</span> htrain)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(train.mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -370,7 +511,7 @@ Residual standard error: 0.6336 on 77 degrees of freedom
 Multiple R-squared:  0.7538,    Adjusted R-squared:  0.7442 
 F-statistic: 78.57 on 3 and 77 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(train.mod) <span class="co"># the predicted values of the DV, based on our model.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(train.mod) <span class="co"># the predicted values of the DV, based on our model.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       1        2        4        6        7        8        9       10 
 7.135230 7.073353 6.977285 6.893786 7.124321 6.861858 6.871832 6.829994 
@@ -395,8 +536,8 @@ F-statistic: 78.57 on 3 and 77 DF,  p-value: &lt; 2.2e-16</code></pre>
      143 
 3.081519 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Applying the model to our testing dataset.</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(train.mod, <span class="at">newdata =</span> htest) <span class="co"># produces predicted values from our training model, using the testing data.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Applying the model to our testing dataset.</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(train.mod, <span class="at">newdata =</span> htest) <span class="co"># produces predicted values from our training model, using the testing data.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       3        5       11       14       15       16       23       25 
 7.318721 6.910581 6.959649 6.505973 6.806142 6.787351 6.734791 5.849235 
@@ -415,18 +556,18 @@ F-statistic: 78.57 on 3 and 77 DF,  p-value: &lt; 2.2e-16</code></pre>
      136      137      138      139 
 3.686886 5.114035 4.410461 4.028756 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>predval.test <span class="ot">&lt;-</span> <span class="fu">predict</span>(train.mod, <span class="at">newdata =</span> htest)  <span class="co"># saves these predicted values from the testing dataset.</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Calculating R^2</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>test.mod.resid <span class="ot">&lt;-</span> htest<span class="sc">$</span>Ladder.score <span class="sc">-</span> predval.test</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>SSE <span class="ot">&lt;-</span> <span class="fu">sum</span>(test.mod.resid<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> T)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>SSE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>predval.test <span class="ot">&lt;-</span> <span class="fu">predict</span>(train.mod, <span class="at">newdata =</span> htest)  <span class="co"># saves these predicted values from the testing dataset.</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Calculating R^2</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>test.mod.resid <span class="ot">&lt;-</span> htest<span class="sc">$</span>Ladder.score <span class="sc">-</span> predval.test</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>SSE <span class="ot">&lt;-</span> <span class="fu">sum</span>(test.mod.resid<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> T)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>SSE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 19.87085</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>test.resid <span class="ot">&lt;-</span> htest<span class="sc">$</span>Ladder.score <span class="sc">-</span> <span class="fu">mean</span>(htest<span class="sc">$</span>Ladder.score, <span class="at">na.rm =</span> T)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>SST <span class="ot">&lt;-</span> <span class="fu">sum</span>(test.resid<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> T)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>(SST <span class="sc">-</span> SSE)<span class="sc">/</span>SST</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>test.resid <span class="ot">&lt;-</span> htest<span class="sc">$</span>Ladder.score <span class="sc">-</span> <span class="fu">mean</span>(htest<span class="sc">$</span>Ladder.score, <span class="at">na.rm =</span> T)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>SST <span class="ot">&lt;-</span> <span class="fu">sum</span>(test.resid<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> T)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>(SST <span class="sc">-</span> SSE)<span class="sc">/</span>SST</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.7104798</code></pre>
 </div>
@@ -450,15 +591,15 @@ F-statistic: 78.57 on 3 and 77 DF,  p-value: &lt; 2.2e-16</code></pre>
 </figure>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("caret")</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("caret")</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: lattice</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>train.control <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">"LOOCV"</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>loocvmod <span class="ot">&lt;-</span> <span class="fu">train</span>(Ladder.score <span class="sc">~</span> Social.support <span class="sc">*</span> Log.GDP.per.capita, <span class="at">data =</span> h, <span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">trControl =</span> train.control, <span class="at">na.action =</span> <span class="st">"na.omit"</span>)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(loocvmod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>train.control <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">"LOOCV"</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>loocvmod <span class="ot">&lt;-</span> <span class="fu">train</span>(Ladder.score <span class="sc">~</span> Social.support <span class="sc">*</span> Log.GDP.per.capita, <span class="at">data =</span> h, <span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">trControl =</span> train.control, <span class="at">na.action =</span> <span class="st">"na.omit"</span>)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(loocvmod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear Regression 
 
@@ -486,11 +627,11 @@ Tuning parameter 'intercept' was held constant at a value of TRUE</code></pre>
 <li><p><span class="math inline">\(\huge VIF_j=\frac{1}{1-R_{j}^{2}}\)</span></p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: carData</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(mod4) <span class="co"># doesn't seem like multicollinearity is a problem.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(mod4) <span class="co"># doesn't seem like multicollinearity is a problem.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>there are higher-order terms (interactions) in this model
 consider setting type = 'predictor'; see ?vif</code></pre>
@@ -503,8 +644,8 @@ consider setting type = 'predictor'; see ?vif</code></pre>
 scale(Social.support):scale(Log.GDP.per.capita) 
                                        1.433238 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="do">## creating a highly correlated second IV for the sake of this example.</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">jitter</span>(h<span class="sc">$</span>Healthy.life.expectancy, <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="do">## creating a highly correlated second IV for the sake of this example.</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">jitter</span>(h<span class="sc">$</span>Healthy.life.expectancy, <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1]  0.63649887  0.68930612  0.71828952  0.66823278  0.78147940  0.64639281
   [7]  0.66783200  0.65547462  0.71468602  0.72225337  0.71773673  0.64999642
@@ -531,18 +672,18 @@ scale(Social.support):scale(Log.GDP.per.capita)
 [133]  0.33585422  0.29027768  0.12197319  0.39450247  0.18769012  0.21595348
 [139]  0.24276263  0.24909294 -0.03799866  0.57172747  0.27471988</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>h<span class="sc">$</span>health2 <span class="ot">&lt;-</span> <span class="fu">jitter</span>(h<span class="sc">$</span>Healthy.life.expectancy, <span class="dv">300</span>)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(h<span class="sc">$</span>health2, h<span class="sc">$</span>Healthy.life.expectancy) <span class="co"># yup.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>h<span class="sc">$</span>health2 <span class="ot">&lt;-</span> <span class="fu">jitter</span>(h<span class="sc">$</span>Healthy.life.expectancy, <span class="dv">300</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(h<span class="sc">$</span>health2, h<span class="sc">$</span>Healthy.life.expectancy) <span class="co"># yup.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="12_TheEnd_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="12_TheEnd_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>multimod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Ladder.score <span class="sc">~</span> Healthy.life.expectancy <span class="sc">+</span> health2, <span class="at">data =</span> h) <span class="co"># both in the model.</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(multimod) <span class="co"># results! Things look good....</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>multimod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Ladder.score <span class="sc">~</span> Healthy.life.expectancy <span class="sc">+</span> health2, <span class="at">data =</span> h) <span class="co"># both in the model.</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(multimod) <span class="co"># results! Things look good....</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -566,7 +707,7 @@ Residual standard error: 0.7703 on 137 degrees of freedom
 Multiple R-squared:  0.5809,    Adjusted R-squared:  0.5747 
 F-statistic: 94.93 on 2 and 137 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(multimod) <span class="co"># ...but wait!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(multimod) <span class="co"># ...but wait!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Healthy.life.expectancy                 health2 
                24.78939                24.78939 </code></pre>

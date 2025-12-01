@@ -7,7 +7,90 @@ format: html
 
 ![](images/clipboard-1038042391.png)
 
-## **More MLM (or, in this case, “Linear Mixed Model”)**
+## **Announcements :**
+
+-   **Final Project Due.**
+
+-   **Next Week :** Virtual RRR Time (on Zoom) 11-????
+
+-   **Outstanding Grades :** prof will do ASAP
+
+    -   Brain Exam
+
+    -   Discussion Posts
+
+    -   Discussion Presentations
+
+    -   Attendance / Check-Ins.
+
+## **Part 1 : More MLM (or, in this case, “Linear Mixed Model”)**
+
+### Example 1 : Another sleepstudy
+
+A classic teaching dataset from lmer. Hooray!
+
+```{r}
+library(lme4)
+?sleepstudy
+s <- sleepstudy
+```
+
+**A Question :** Is there a relationship between number of days of sleep deprivation and reaction time?
+
+#### The Graph
+
+How might we graph this in ggplot?
+
+```{r}
+library(ggplot2)
+ggplot(sleepstudy, aes(y = Reaction, x = Days, color = Subject)) + 
+  geom_point(size=2) + 
+  # facet_wrap(~Subject) + 
+  geom_smooth(method = "lm")
+  # geom_line(aes(group = Subject), linewidth = 0.75)
+```
+
+#### Interpreting the Model (Random Intercepts)
+
+What model would we define?
+
+-   Reaction is the DV
+
+-   I'm adding Days as a Fixed IV (so I'll get the average effect of \# of days of sleep deprivation on reaction time)
+
+-   I'm also adding a random intercept : `(1 | Subject)` that will estimate how much the intercept (the 1 term) of individual raction times (the level 2 variable) varies by Subject (the level 1 grouping variable).
+
+```{r}
+library(lme4)
+l2 <- lmer(Reaction ~ Days + (1 | Subject), data = sleepstudy)
+summary(l2)
+```
+
+How do we interpret the results of this model?
+
+-   **Fixed Effects :** these deal with the "average" effects - ignoring all those important individual differences (which are accounted for in the random effects.)
+
+    -   Intercept = 251.41 = the average person's reaction time at 0 days of sleep deprivation is 251.4 milliseconds.
+
+    -   Days = 10.47 = for every day of sleep deprivation, the average person's reaction time increases by 10.47 MS; the standard error is an estimate of how much variation we'd expect in this average slope due
+
+-   **Random Effects :** these describe those individual differences in people's starting responses to the DV (random intercepts) and individual differences in the relationship between the IV and the DV (random slopes).
+
+    -   Subject (Intercept) = 37.12
+
+    -   Residual = 30.99
+
+#### Interpreting the Model (Random Intercepts and Slopes)
+
+**What model would we define?**
+
+```{r}
+lmer(Reaction ~ Days + (Days | Subject), data = sleepstudy)
+```
+
+How do we interpret the results of this model?
+
+### Example 2 : Nature and Pain
 
 -   **ICE BREAKER :** what’s your favorite place in the bay area to see nature?
 
@@ -27,7 +110,7 @@ format: html
 |------------------------------------|------------------------------------|
 | ![](images/clipboard-1711381528.png) | ![](images/clipboard-4277360809.png) |
 
-## **Final Project Show and Tell**
+## **Part 2 : Final Project Show and Tell**
 
 -   **Find a Buddy.**
 
@@ -41,7 +124,29 @@ format: html
 
 -   **Some volunteers to share with the class?** Low-stakes practice for more stressful situations where you will be more prepared :)
 
-## **Would You Like to Learn More?**
+**Common Statistical Mistakes.** Any you are doing? Questions?? Feeling the pressure???
+
+1.  Absence of an adequate control condition/group
+
+2.  Interpreting comparisons between two effects without directly comparing them
+
+3.  Spurious correlations
+
+4.  Inflating the units of analysis
+
+5.  Correlation and causation
+
+6.  Use of small samples
+
+7.  Circular analysis
+
+8.  Flexibility of analysis
+
+9.  Failing to correct for multiple comparisons
+
+10. Over-interpreting non-significant results
+
+## **Part 3 : Would You Like to Learn More?**
 
 ### **Watch Out for Overfitting in Your Models**
 
@@ -81,7 +186,6 @@ ggplot(d, aes(x, y)) +
 ![](images/clipboard-78651328.png)
 
 ::: {.callout-tip collapse="true"}
-
 #### Example : Cross-Validating an Interaction Effect
 
 **The Graph : The Relationship Between Social Support and Happiness Depends on GDP**
@@ -166,7 +270,6 @@ loocvmod <- train(Ladder.score ~ Social.support * Log.GDP.per.capita, data = h, 
 print(loocvmod)
 ```
 
-
 ### Watch Out for Multicollinearity.
 
 If your independent variables are highly related, then your multivariate regression slope estimates are not uniquely determined. weird things happen to your coefficients, and this makes it hard to interpret your effects.
@@ -201,7 +304,7 @@ vif(multimod) # ...but wait!
 
 #### There's a LOT of Error in Our Predictions of People.
 
-![Richard, F. D., Bond Jr, C. F., & Stokes-Zoota, J. J. (2003). One hundred years of social psychology quantitatively described. Review of general psychology, 7(4), 331-363.](images/clipboard-512392152.png){alt="Richard, F. D., Bond Jr, C. F., & Stokes-Zoota, J. J. (2003). One hundred years of social psychology quantitatively described. Review of general psychology, 7(4), 331-363." width="478"}
+![Richard, F. D., Bond Jr, C. F., & Stokes-Zoota, J. J. (2003). One hundred years of social psychology quantitatively described. Review of general psychology, 7(4), 331-363.](images/clipboard-512392152.png){width="478"}
 
 #### But Life, In General, is Complex
 
@@ -223,7 +326,7 @@ vif(multimod) # ...but wait!
 
 -   Allen C, Mehler DMA (2019) Correction: Open science challenges, benefits and tips in early career and beyond. PLOS Biology 17(12): e3000587. [https://doi.org/10.1371/journal.pbio.3000587](https://doi.org/10.1371/journal.pbio.3000587Allen%20C,%20Mehler%20DMA%20(2019)%20Correction:%20Open%20science%20challenges,%20benefits%20and%20tips%20in%20early%20career%20and%20beyond.%20PLOS%20Biology%2017(12):%20e3000587.%20https://doi.org/10.1371/journal.pbio.3000587)
 
-![Percentages of null findings among RRs and traditional (non-RR) literature \[46,47\], with their respective 95% confidence intervals.](images/clipboard-1668702103.png){alt="Percentages of null findings among RRs and traditional (non-RR) literature [46,47], with their respective 95% confidence intervals." width="486"}
+![Percentages of null findings among RRs and traditional (non-RR) literature \[46,47\], with their respective 95% confidence intervals.](images/clipboard-1668702103.png){width="486"}
 
 #### Other Methods Exist for Describing the World
 
