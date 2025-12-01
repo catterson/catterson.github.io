@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>12_TheEnd</title>
+<title>Class 12 - The End</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,6 +84,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -118,7 +147,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">12_TheEnd</h1>
+<h1 class="title">Class 12 - The End</h1>
 </div>
 
 
@@ -142,9 +171,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="more-mlm-or-in-this-case-linear-mixed-model" class="level2">
 <h2 class="anchored" data-anchor-id="more-mlm-or-in-this-case-linear-mixed-model"><strong>More MLM (or, in this case, “Linear Mixed Model”)</strong></h2>
 <ul>
-<li><p>ICE BREAKER : what’s your favorite place in the bay area to see nature?</p></li>
-<li><p>THE STUDY : participants were shocked while looking at either virtual nature, urban, or indoor images (while getting their brains scanned).</p></li>
-<li><p>THE TABLE :</p>
+<li><p><strong>ICE BREAKER :</strong> what’s your favorite place in the bay area to see nature?</p></li>
+<li><p><strong>THE STUDY :</strong> participants were shocked while looking at images (virtual nature, urban, or indoor) while getting their brains scanned. participants rated the subjective unpleasantness of each trial.</p></li>
+<li><p><strong>THE TABLE :</strong></p>
 <ul>
 <li><p>What is going on with this models?</p></li>
 <li><p>What seems important?</p></li>
@@ -226,22 +255,393 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="cross-validation-conceptual-understanding">Cross Validation : Conceptual Understanding</h3>
 <p><strong>Cross Validation.</strong>&nbsp;To ensure your model generalizes to other samples, you can a) replicate, or b) cross-validate your data. Cross validation involves dividing your sample into sub-samples; define a model on one sample, then test the model in the other(s).</p>
 <p><img src="images/clipboard-78651328.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example : Cross-Validating an Interaction Effect
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>The Graph : The Relationship Between Social Support and Happiness Depends on GDP</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!GRADSTATS/Datasets/World Happiness Report - 2024/World-happiness-report-2024.csv"</span>, <span class="at">stringsAsFactors =</span> T)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Some data cleaning.</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>h<span class="sc">$</span>GDPcat <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">scale</span>(h<span class="sc">$</span>Log.GDP.per.capita) <span class="sc">&gt;</span> <span class="fu">sd</span>(h<span class="sc">$</span>Log.GDP.per.capita, <span class="at">na.rm =</span> T), <span class="st">"High GDP"</span>, <span class="st">"Low GDP"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>h<span class="sc">$</span>GDPcat <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(h<span class="sc">$</span>GDPcat)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># plot(h$GDPcat) # making sure this re-leveling worked.</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">subset</span>(h, <span class="sc">!</span><span class="fu">is.na</span>(h<span class="sc">$</span>GDPcat)), <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">scale</span>(Ladder.score), <span class="at">x =</span> <span class="fu">scale</span>(Social.support), <span class="at">color =</span> GDPcat)) <span class="sc">+</span> </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>, <span class="at">position =</span> <span class="st">"jitter"</span>) <span class="sc">+</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Graph of an Interaction Effect from Lecture 10"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Social Support"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Happiness (Ladder Score)"</span>) <span class="sc">+</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_apa</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="12_TheEnd_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Table : Linear Models for the Interaction Effect from Lecture 10</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">scale</span>(Ladder.score) <span class="sc">~</span> <span class="fu">scale</span>(Log.GDP.per.capita), <span class="at">data =</span> h)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">scale</span>(Ladder.score) <span class="sc">~</span> <span class="fu">scale</span>(Social.support), <span class="at">data =</span> h)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">scale</span>(Ladder.score) <span class="sc">~</span> <span class="fu">scale</span>(Log.GDP.per.capita) <span class="sc">+</span> <span class="fu">scale</span>(Social.support), <span class="at">data =</span> h)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">scale</span>(Ladder.score) <span class="sc">~</span> <span class="fu">scale</span>(Social.support) <span class="sc">*</span> <span class="fu">scale</span>(Log.GDP.per.capita), <span class="at">data =</span> h)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(mod1, mod2, mod3, mod4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  ">
+<colgroup><col><col><col><col><col></colgroup><tbody><tr>
+<th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Model 1</th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Model 2</th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Model 3</th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Model 4</th></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(Intercept)</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.00&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.00&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.00&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-0.09&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.05)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.05)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.04)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.06)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">scale(Log.GDP.per.capita)</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.78 ***</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.38 ***</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.34 ***</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.05)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.07)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.07)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">scale(Social.support)</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.82 ***</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.55 ***</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.64 ***</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.05)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.07)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.07)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">scale(Social.support):scale(Log.GDP.per.capita)</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.13 *&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.06)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">N</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">R2</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.59&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.66&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.73&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.74&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th colspan="5" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"> *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.</th></tr>
+</tbody></table>
+
+</div>
+</div>
+<p><strong>Here’s the most simple example of cross-validation (“train-test split”; “holdout cross validation”)</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="fu">nrow</span>(h), <span class="at">replace =</span> T, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">7</span>, .<span class="dv">3</span>)) <span class="co"># using the sample function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] 1 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 1 1 0 1 0
+ [38] 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 1 0 0 1 0 0 1 0 1 1 0 1 0 0 1 0
+ [75] 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 0 0 0 1 1 0 0 0 0 0 1 0
+[112] 0 0 1 0 0 1 1 0 0 0 0 0 1 0 1 1 1 1 0 0 0 0 0 0 0 1 0 0 0 1 0 0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">424242</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>random.selection <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="fu">nrow</span>(h), <span class="at">replace =</span> T, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">7</span>, .<span class="dv">3</span>))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>htrain <span class="ot">&lt;-</span> h[random.selection <span class="sc">==</span> <span class="dv">0</span>,]</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>htest <span class="ot">&lt;-</span> h[random.selection <span class="sc">==</span> <span class="dv">1</span>,]</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Model in training Data</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>train.mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Ladder.score <span class="sc">~</span> Social.support <span class="sc">*</span> Log.GDP.per.capita, <span class="at">data =</span> htrain)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(train.mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Ladder.score ~ Social.support * Log.GDP.per.capita, 
+    data = htrain)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-1.6407 -0.3823  0.0727  0.3667  1.2845 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                         3.3152     0.8238   4.024 0.000133 ***
+Social.support                      0.7625     0.7030   1.085 0.281444    
+Log.GDP.per.capita                 -0.3721     0.8248  -0.451 0.653165    
+Social.support:Log.GDP.per.capita   1.1410     0.6266   1.821 0.072497 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.6336 on 77 degrees of freedom
+  (2 observations deleted due to missingness)
+Multiple R-squared:  0.7538,    Adjusted R-squared:  0.7442 
+F-statistic: 78.57 on 3 and 77 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(train.mod) <span class="co"># the predicted values of the DV, based on our model.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       1        2        4        6        7        8        9       10 
+7.135230 7.073353 6.977285 6.893786 7.124321 6.861858 6.871832 6.829994 
+      12       13       17       18       19       20       21       22 
+6.226749 6.540176 6.959481 6.877903 6.696600 6.404965 6.856755 6.098574 
+      24       29       31       34       35       37       38       39 
+6.646297 5.768824 6.485067 6.880177 6.558980 6.244588 6.282021 6.446558 
+      41       42       44       46       51       53       54       55 
+6.385499 5.418369 5.821278 6.757584 6.442304 5.341571 5.710209 6.412559 
+      58       60       61       63       65       67       68       70 
+6.070923 5.819241 4.986850 6.600110 5.978203 5.782169 5.550716 6.199191 
+      74       75       79       84       85       86       87       89 
+5.430531 5.825515 4.322492 5.889255 5.529930 6.086642 5.000752 4.090630 
+      91       93       94       97       98       99      101      102 
+5.181336 4.801076 4.676863 4.070036 5.859680 4.337256 4.882258 5.025275 
+     104      105      108      110      111      112      114      116 
+4.538053 5.841144 4.106776 4.147098 4.318803 4.143023 4.670770 3.206190 
+     117      119      120      121      122      123      127      128 
+4.919463 4.891486 4.402009 4.073373 4.148257 4.298796 5.121814 5.538658 
+     129      130      132      133      134      140      141      142 
+3.406342 4.545065 3.567231 5.023060 4.427402 3.925790 4.425851 4.149352 
+     143 
+3.081519 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Applying the model to our testing dataset.</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(train.mod, <span class="at">newdata =</span> htest) <span class="co"># produces predicted values from our training model, using the testing data.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       3        5       11       14       15       16       23       25 
+7.318721 6.910581 6.959649 6.505973 6.806142 6.787351 6.734791 5.849235 
+      26       27       28       30       32       33       36       40 
+6.418403 6.462812 6.528031 6.853932 6.021541 5.226853 6.743818 6.746631 
+      43       45       47       48       49       50       52       56 
+5.450941 6.852365 5.854924 6.248302 6.519124 6.066788 5.977630 6.841798 
+      57       59       64       66       69       71       72       73 
+6.114564 5.720941 6.113327 5.501434 5.922356 5.791608 6.265510 5.398525 
+      76       77       78       80       81       82       83       90 
+6.098167 6.296563 5.761549 5.550235 6.559611 5.559175 6.011906 4.344333 
+      92       95       96      100      103      106      107      109 
+5.029329 5.246298 4.066328 5.507476       NA 5.519041 3.874870 4.060831 
+     113      115      118      124      125      126      131      135 
+4.258512 4.980537 4.807166 3.986804 5.010633 4.248014 4.208966 4.878107 
+     136      137      138      139 
+3.686886 5.114035 4.410461 4.028756 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>predval.test <span class="ot">&lt;-</span> <span class="fu">predict</span>(train.mod, <span class="at">newdata =</span> htest)  <span class="co"># saves these predicted values from the testing dataset.</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Calculating R^2</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>test.mod.resid <span class="ot">&lt;-</span> htest<span class="sc">$</span>Ladder.score <span class="sc">-</span> predval.test</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>SSE <span class="ot">&lt;-</span> <span class="fu">sum</span>(test.mod.resid<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> T)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>SSE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 19.87085</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>test.resid <span class="ot">&lt;-</span> htest<span class="sc">$</span>Ladder.score <span class="sc">-</span> <span class="fu">mean</span>(htest<span class="sc">$</span>Ladder.score, <span class="at">na.rm =</span> T)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>SST <span class="ot">&lt;-</span> <span class="fu">sum</span>(test.resid<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> T)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>(SST <span class="sc">-</span> SSE)<span class="sc">/</span>SST</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7104798</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <section id="interpreting-cross-validation" class="level4">
 <h4 class="anchored" data-anchor-id="interpreting-cross-validation">Interpreting Cross Validation</h4>
 <p><strong>You’ll often see a few different methods of evaluating model fit.</strong></p>
 <ul>
-<li><p><strong>R^2.</strong> Our good friend. The proportion of variance explained by the model (vs.&nbsp;the mean)</p></li>
-<li><p><strong>Rooted Mean Squared Error (RMSE)</strong>. The average amount of residual error (actual - predicted values).</p></li>
-<li><p><strong>Mean Absoulte Error.</strong>&nbsp;The average of the absolute value of the residuals; less sensitive to outliers than RMSE or R^2.</p></li>
+<li><span class="math inline">\(R^2\)</span>. Our good friend. The proportion of variance explained by the model (vs.&nbsp;the mean)</li>
+<li><strong>Rooted Mean Squared Error (RMSE)</strong>. The average amount of residual error (actual - predicted values).</li>
+<li><strong>Mean Absoulte Error.</strong> The average of the absolute value of the residuals; less sensitive to outliers than RMSE or <span class="math inline">\(R^2\)</span>.</li>
 </ul>
-<p>And there are different methods of defining the test and training datasets. And different packages and tutorials to do this. <a href="#0">Here’s one, called “Leave one out cross validation - LOOCV”</a>; gif below via Wikipedia.</p>
+<p>And there are different methods of defining the test and training datasets. And different packages and tutorials to do this.</p>
+<p><a href="https://www.sthda.com/english/articles/38-regression-model-validation/157-cross-validation-essentials-in-r/">Here’s one, called “Leave one out cross validation - LOOCV”</a>; gif below via Wikipedia.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/10_960px-LOOCV.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("caret")</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: lattice</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>train.control <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">"LOOCV"</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>loocvmod <span class="ot">&lt;-</span> <span class="fu">train</span>(Ladder.score <span class="sc">~</span> Social.support <span class="sc">*</span> Log.GDP.per.capita, <span class="at">data =</span> h, <span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">trControl =</span> train.control, <span class="at">na.action =</span> <span class="st">"na.omit"</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(loocvmod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear Regression 
+
+143 samples
+  2 predictor
+
+No pre-processing
+Resampling: Leave-One-Out Cross-Validation 
+Summary of sample sizes: 139, 139, 139, 139, 139, 139, ... 
+Resampling results:
+
+  RMSE       Rsquared   MAE      
+  0.6342914  0.7098648  0.4796968
+
+Tuning parameter 'intercept' was held constant at a value of TRUE</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="watch-out-for-multicollinearity." class="level3">
+<h3 class="anchored" data-anchor-id="watch-out-for-multicollinearity.">Watch Out for Multicollinearity.</h3>
+<p>If your independent variables are highly related, then your multivariate regression slope estimates are not uniquely determined. weird things happen to your coefficients, and this makes it hard to interpret your effects.</p>
+<ul>
+<li><p><strong>IN R :</strong> check the “variance inflation factor” (VIF); a measure of how much one IV is related to all the other IVs in the model. “Tradition” is that if VIF is &gt; 5 (or I’ve also seen VIF &gt; 10) there’s a problem in the regression.</p></li>
+<li><p><span class="math inline">\(\huge VIF_j=\frac{1}{1-R_{j}^{2}}\)</span></p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: carData</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(mod4) <span class="co"># doesn't seem like multicollinearity is a problem.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>there are higher-order terms (interactions) in this model
+consider setting type = 'predictor'; see ?vif</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                          scale(Social.support) 
+                                       2.847840 
+                      scale(Log.GDP.per.capita) 
+                                       2.222549 
+scale(Social.support):scale(Log.GDP.per.capita) 
+                                       1.433238 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="do">## creating a highly correlated second IV for the sake of this example.</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">jitter</span>(h<span class="sc">$</span>Healthy.life.expectancy, <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1]  0.63649887  0.68930612  0.71828952  0.66823278  0.78147940  0.64639281
+  [7]  0.66783200  0.65547462  0.71468602  0.72225337  0.71773673  0.64999642
+ [13]  0.62952106  0.64185465  0.72092831  0.69836634  0.64067483  0.60323449
+ [19]  0.61564585  0.70589567  0.74527554  0.54082440  0.57966955  0.74032124
+ [25]  0.52293196  0.54462176  0.75101008  0.55563685  0.60367356  0.74810486
+ [31]  0.69789473  0.54448689  0.56294229  0.69718620  0.62746987  0.69055692
+ [37]  0.62267421  0.70380172  0.62007029  0.68723153  0.74690172  0.49826800
+ [43]  0.58734907  0.50056514  0.69238462  0.52731539  0.57692015  0.64389105
+ [49]  0.57280871  0.69425428  0.82612563  0.77274534  0.38400182  0.57725457
+ [55]  0.70352020  0.61930331  0.55762718  0.57337490  0.53553203  0.65959492
+ [61]  0.45026458          NA  0.66845212  0.69307250  0.59281784  0.52861070
+ [67]  0.54621673  0.69875356  0.45710762  0.43500797  0.56482900  0.54559839
+ [73]  0.50964668  0.60188374  0.54674710  0.60113762  0.41675213  0.67774238
+ [79]  0.45482879  0.51207586  0.53754193  0.65166685  0.26579890  0.58060330
+ [85]  0.53234986  0.85807969  0.66611649          NA  0.25647428  0.12829974
+ [91]  0.51774245  0.49561179  0.47517286  0.47895859  0.35411168  0.25447142
+ [97]  0.21655523  0.58171885  0.35686944  0.51373138  0.48182973  0.20760587
+[103]          NA  0.31835400  0.46658725  0.34832926  0.52310604  0.28958395
+[109]  0.33832352  0.33133514  0.42088085  0.27791840  0.16285129  0.31895572
+[115]  0.62433954  0.30866350  0.37751970  0.43665557  0.41469131  0.38656597
+[121]  0.32196352  0.25386893  0.35348747  0.26579842  0.62022055  0.43845057
+[127]  0.49687114  0.62927456  0.48772773  0.38520825  0.37719937  0.40156511
+[133]  0.33585422  0.29027768  0.12197319  0.39450247  0.18769012  0.21595348
+[139]  0.24276263  0.24909294 -0.03799866  0.57172747  0.27471988</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>h<span class="sc">$</span>health2 <span class="ot">&lt;-</span> <span class="fu">jitter</span>(h<span class="sc">$</span>Healthy.life.expectancy, <span class="dv">300</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(h<span class="sc">$</span>health2, h<span class="sc">$</span>Healthy.life.expectancy) <span class="co"># yup.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="12_TheEnd_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>multimod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Ladder.score <span class="sc">~</span> Healthy.life.expectancy <span class="sc">+</span> health2, <span class="at">data =</span> h) <span class="co"># both in the model.</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(multimod) <span class="co"># results! Things look good....</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Ladder.score ~ Healthy.life.expectancy + health2, 
+    data = h)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.0155 -0.4313  0.1701  0.5191  1.5809 
+
+Coefficients:
+                        Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)               2.6514     0.2202  12.041  &lt; 2e-16 ***
+Healthy.life.expectancy   7.5885     1.9725   3.847 0.000182 ***
+health2                  -2.0676     1.8604  -1.111 0.268360    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.7703 on 137 degrees of freedom
+  (3 observations deleted due to missingness)
+Multiple R-squared:  0.5809,    Adjusted R-squared:  0.5747 
+F-statistic: 94.93 on 2 and 137 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(multimod) <span class="co"># ...but wait!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Healthy.life.expectancy                 health2 
+               24.78939                24.78939 </code></pre>
+</div>
+</div>
+</section>
+<section id="things-to-read" class="level3">
+<h3 class="anchored" data-anchor-id="things-to-read">Things to Read!</h3>
+<ul>
+<li><a href="https://m-clark.github.io/book-of-models/machine_learning.html#sec-ml-generalization">An overview of ML methods (including the partitioning approach) for evaluating models</a></li>
+<li><a href="https://www.sthda.com/english/articles/38-regression-model-validation/157-cross-validation-essentials-in-r/">Another overview of cross-validation methods.</a></li>
+<li><a href="https://online.stat.psu.edu/stat462/node/180/">Some more notes on multicollinearity and VIFs.</a></li>
+</ul>
+</section>
+<section id="a-discussion-on-effect-size-and-the-course-and-psychology" class="level3">
+<h3 class="anchored" data-anchor-id="a-discussion-on-effect-size-and-the-course-and-psychology">A Discussion on Effect Size and the Course and Psychology</h3>
+<section id="theres-a-lot-of-error-in-our-predictions-of-people." class="level4">
+<h4 class="anchored" data-anchor-id="theres-a-lot-of-error-in-our-predictions-of-people.">There’s a LOT of Error in Our Predictions of People.</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-512392152.png" class="img-fluid figure-img" width="478"></p>
+<figcaption>Richard, F. D., Bond Jr, C. F., &amp; Stokes-Zoota, J. J. (2003). One hundred years of social psychology quantitatively described. Review of general psychology, 7(4), 331-363.</figcaption>
+</figure>
+</div>
+</section>
+<section id="but-life-in-general-is-complex" class="level4">
+<h4 class="anchored" data-anchor-id="but-life-in-general-is-complex">But Life, In General, is Complex</h4>
+<ul>
+<li><p><strong>ARTICLE :</strong> <a href="https://www.researchgate.net/profile/Stephen-Finn-4/publication/289963910_Psychological_testing_and_psychological_assessment_A_review_of_evidence_and_issues/links/5a7f3f2baca272a73768210d/Psychological-testing-and-psychological-assessment-A-review-of-evidence-and-issues.pdf">Meyer, G. J., Finn, S. E., Eyde, L. D., Kay, G. G., Moreland, K. L., Dies, R. R., Eisman, E.J., Kubiszyn, &amp; Reed, G. M. (2001). Psychological testing and psychological assessment: A review of evidence and issues. American psychologist, 56(2), 128.</a></p></li>
+<li><p><strong>ACTIVITY :</strong></p>
+<ul>
+<li><p>Find a “Hard Science” effect from Table 1. Does the size of this correlation surprise you? Why / why not?</p></li>
+<li><p>Find a “Psych Science” effect from Table 2. Does the size of this correlation surprise you? Why / why not?</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="small-effects-matter" class="level4">
+<h4 class="anchored" data-anchor-id="small-effects-matter">Small Effects Matter</h4>
+<ul>
+<li>Funder DC, Ozer DJ. Evaluating Effect Size in Psychological Research: Sense and Nonsense. Advances in Methods and Practices in Psychological Science. 2019;2(2):156-168. <a href="https://journals.sagepub.com/doi/full/10.1177/2515245919847202#bibr28-2515245919847202">doi:10.1177/2515245919847202</a></li>
+</ul>
+<p><img src="images/clipboard-1259562376.png" class="img-fluid"></p>
+</section>
+<section id="doing-good-science-is-hard-but-important-to-be-valid" class="level4">
+<h4 class="anchored" data-anchor-id="doing-good-science-is-hard-but-important-to-be-valid">Doing Good Science is Hard But Important to Be “Valid”</h4>
+<ul>
+<li>Allen C, Mehler DMA (2019) Correction: Open science challenges, benefits and tips in early career and beyond. PLOS Biology 17(12): e3000587. <a href="https://doi.org/10.1371/journal.pbio.3000587Allen%20C,%20Mehler%20DMA%20(2019)%20Correction:%20Open%20science%20challenges,%20benefits%20and%20tips%20in%20early%20career%20and%20beyond.%20PLOS%20Biology%2017(12):%20e3000587.%20https://doi.org/10.1371/journal.pbio.3000587">https://doi.org/10.1371/journal.pbio.3000587</a></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1668702103.png" class="img-fluid figure-img" width="486"></p>
+<figcaption>Percentages of null findings among RRs and traditional (non-RR) literature [46,47], with their respective 95% confidence intervals.</figcaption>
+</figure>
+</div>
+</section>
+<section id="other-methods-exist-for-describing-the-world" class="level4">
+<h4 class="anchored" data-anchor-id="other-methods-exist-for-describing-the-world">Other Methods Exist for Describing the World</h4>
+<ol type="1">
+<li>Qualitative studies.</li>
+<li>Philosophy.</li>
+<li>Critical Theory.</li>
+<li>History.</li>
+<li>Art.</li>
+<li>Religion / faith.</li>
+</ol>
+</section>
+<section id="what-are-the-benefits-of-using-the-scientific-approach-what-are-the-limitations-or-dangers" class="level4">
+<h4 class="anchored" data-anchor-id="what-are-the-benefits-of-using-the-scientific-approach-what-are-the-limitations-or-dangers">What are the Benefits of Using the Scientific Approach? What are the Limitations (or Dangers)?</h4>
+<section id="is-a-valid-psychological-science-possible" class="level5">
+<h5 class="anchored" data-anchor-id="is-a-valid-psychological-science-possible">Is a “Valid” Psychological Science Possible?</h5>
+<p><sup><sub>Farewell!&nbsp;Feel&nbsp;free&nbsp;to&nbsp;stay&nbsp;in&nbsp;touch&nbsp;:)&nbsp;it&nbsp;has&nbsp;been&nbsp;a&nbsp;pleasure&nbsp;and&nbsp;privilege&nbsp;to&nbsp;work&nbsp;with&nbsp;y’all&nbsp;this&nbsp;semester&nbsp;&lt;3</sub></sup></p>
+<p><img src="images/clipboard-1645322211.png" class="img-fluid" alt="Farewell! Feel free to stay in touch :) it has been a pleasure and privilege to work with y'all this semester <3"></p>
 
 
+</section>
 </section>
 </section>
 </section>

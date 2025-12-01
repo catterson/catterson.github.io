@@ -1,5 +1,5 @@
 ---
-title: "12_TheEnd"
+title: "Class 12 - The End"
 format: html
 ---
 
@@ -9,11 +9,11 @@ format: html
 
 ## **More MLM (or, in this case, “Linear Mixed Model”)**
 
--   ICE BREAKER : what’s your favorite place in the bay area to see nature?
+-   **ICE BREAKER :** what’s your favorite place in the bay area to see nature?
 
--   THE STUDY : participants were shocked while looking at either virtual nature, urban, or indoor images (while getting their brains scanned).
+-   **THE STUDY :** participants were shocked while looking at images (virtual nature, urban, or indoor) while getting their brains scanned. participants rated the subjective unpleasantness of each trial.
 
--   THE TABLE :
+-   **THE TABLE :**
 
     -   What is going on with this models?
 
@@ -41,7 +41,7 @@ format: html
 
 -   **Some volunteers to share with the class?** Low-stakes practice for more stressful situations where you will be more prepared :)
 
-## **Would You Like to Learn More?** 
+## **Would You Like to Learn More?**
 
 ### **Watch Out for Overfitting in Your Models**
 
@@ -80,16 +80,164 @@ ggplot(d, aes(x, y)) +
 
 ![](images/clipboard-78651328.png)
 
+::: {.callout-tip collapse="true"}
+
+#### Example : Cross-Validating an Interaction Effect
+
+**The Graph : The Relationship Between Social Support and Happiness Depends on GDP**
+
+```{r}
+#| echo: true
+h <- read.csv("~/Dropbox/!GRADSTATS/Datasets/World Happiness Report - 2024/World-happiness-report-2024.csv", stringsAsFactors = T)
+library(ggplot2)
+library(jtools)
+
+## Some data cleaning.
+h$GDPcat <- ifelse(scale(h$Log.GDP.per.capita) > sd(h$Log.GDP.per.capita, na.rm = T), "High GDP", "Low GDP")
+h$GDPcat <- as.factor(h$GDPcat)
+# plot(h$GDPcat) # making sure this re-leveling worked.
+ggplot(data = subset(h, !is.na(h$GDPcat)), aes(y = scale(Ladder.score), x = scale(Social.support), color = GDPcat)) + 
+  geom_point(alpha = .5, position = "jitter") +
+  geom_smooth(method = "lm") + labs(title = "Graph of an Interaction Effect from Lecture 10") + xlab("Social Support") + ylab("Happiness (Ladder Score)") +
+  theme_apa()
+```
+
+**Table : Linear Models for the Interaction Effect from Lecture 10**
+
+```{r}
+#| echo: true
+mod1 <- lm(scale(Ladder.score) ~ scale(Log.GDP.per.capita), data = h)
+mod2 <- lm(scale(Ladder.score) ~ scale(Social.support), data = h)
+mod3 <- lm(scale(Ladder.score) ~ scale(Log.GDP.per.capita) + scale(Social.support), data = h)
+mod4 <- lm(scale(Ladder.score) ~ scale(Social.support) * scale(Log.GDP.per.capita), data = h)
+export_summs(mod1, mod2, mod3, mod4)
+```
+
+**Here's the most simple example of cross-validation ("train-test split"; "holdout cross validation")**
+
+```{r}
+sample(0:1, nrow(h), replace = T, prob = c(.7, .3)) # using the sample function
+
+set.seed(424242)
+random.selection <- sample(0:1, nrow(h), replace = T, prob = c(.7, .3))
+htrain <- h[random.selection == 0,]
+htest <- h[random.selection == 1,]
+
+## Model in training Data
+train.mod <- lm(Ladder.score ~ Social.support * Log.GDP.per.capita, data = htrain)
+summary(train.mod)
+predict(train.mod) # the predicted values of the DV, based on our model.
+
+## Applying the model to our testing dataset.
+predict(train.mod, newdata = htest) # produces predicted values from our training model, using the testing data.
+predval.test <- predict(train.mod, newdata = htest)  # saves these predicted values from the testing dataset.
+
+## Calculating R^2
+test.mod.resid <- htest$Ladder.score - predval.test
+SSE <- sum(test.mod.resid^2, na.rm = T)
+SSE
+
+test.resid <- htest$Ladder.score - mean(htest$Ladder.score, na.rm = T)
+SST <- sum(test.resid^2, na.rm = T)
+(SST - SSE)/SST
+```
+:::
+
 #### Interpreting Cross Validation
 
-**You’ll often see a few different methods of evaluating model fit.**
+**You'll often see a few different methods of evaluating model fit.**
 
--   **R\^2.** Our good friend. The proportion of variance explained by the model (vs. the mean)
-
+-   $R^2$. Our good friend. The proportion of variance explained by the model (vs. the mean)
 -   **Rooted Mean Squared Error (RMSE)**. The average amount of residual error (actual - predicted values).
+-   **Mean Absoulte Error.** The average of the absolute value of the residuals; less sensitive to outliers than RMSE or $R^2$.
 
--   **Mean Absoulte Error.** The average of the absolute value of the residuals; less sensitive to outliers than RMSE or R\^2.
+And there are different methods of defining the test and training datasets. And different packages and tutorials to do this.
 
-And there are different methods of defining the test and training datasets. And different packages and tutorials to do this. [Here’s one, called “Leave one out cross validation - LOOCV”](#0); gif below via Wikipedia.
+[Here's one, called "Leave one out cross validation - LOOCV"](https://www.sthda.com/english/articles/38-regression-model-validation/157-cross-validation-essentials-in-r/); gif below via Wikipedia.
 
 ![](images/10_960px-LOOCV.gif){fig-align="center"}
+
+```{r}
+# install.packages("caret")
+library(caret)
+train.control <- trainControl(method = "LOOCV")
+loocvmod <- train(Ladder.score ~ Social.support * Log.GDP.per.capita, data = h, method = "lm",
+                  trControl = train.control, na.action = "na.omit")
+print(loocvmod)
+```
+
+
+### Watch Out for Multicollinearity.
+
+If your independent variables are highly related, then your multivariate regression slope estimates are not uniquely determined. weird things happen to your coefficients, and this makes it hard to interpret your effects.
+
+-   **IN R :** check the "variance inflation factor" (VIF); a measure of how much one IV is related to all the other IVs in the model. "Tradition" is that if VIF is \> 5 (or I've also seen VIF \> 10) there's a problem in the regression.
+
+-   $\huge VIF_j=\frac{1}{1-R_{j}^{2}}$
+
+```{r}
+library(car)
+
+vif(mod4) # doesn't seem like multicollinearity is a problem.
+
+## creating a highly correlated second IV for the sake of this example.
+jitter(h$Healthy.life.expectancy, 300)
+h$health2 <- jitter(h$Healthy.life.expectancy, 300)
+
+plot(h$health2, h$Healthy.life.expectancy) # yup.
+
+multimod <- lm(Ladder.score ~ Healthy.life.expectancy + health2, data = h) # both in the model.
+summary(multimod) # results! Things look good....
+vif(multimod) # ...but wait!
+```
+
+### Things to Read!
+
+-   [An overview of ML methods (including the partitioning approach) for evaluating models](https://m-clark.github.io/book-of-models/machine_learning.html#sec-ml-generalization)
+-   [Another overview of cross-validation methods.](https://www.sthda.com/english/articles/38-regression-model-validation/157-cross-validation-essentials-in-r/)
+-   [Some more notes on multicollinearity and VIFs.](https://online.stat.psu.edu/stat462/node/180/)
+
+### A Discussion on Effect Size and the Course and Psychology
+
+#### There's a LOT of Error in Our Predictions of People.
+
+![Richard, F. D., Bond Jr, C. F., & Stokes-Zoota, J. J. (2003). One hundred years of social psychology quantitatively described. Review of general psychology, 7(4), 331-363.](images/clipboard-512392152.png){alt="Richard, F. D., Bond Jr, C. F., & Stokes-Zoota, J. J. (2003). One hundred years of social psychology quantitatively described. Review of general psychology, 7(4), 331-363." width="478"}
+
+#### But Life, In General, is Complex
+
+-   **ARTICLE :** [Meyer, G. J., Finn, S. E., Eyde, L. D., Kay, G. G., Moreland, K. L., Dies, R. R., Eisman, E.J., Kubiszyn, & Reed, G. M. (2001). Psychological testing and psychological assessment: A review of evidence and issues. American psychologist, 56(2), 128.](https://www.researchgate.net/profile/Stephen-Finn-4/publication/289963910_Psychological_testing_and_psychological_assessment_A_review_of_evidence_and_issues/links/5a7f3f2baca272a73768210d/Psychological-testing-and-psychological-assessment-A-review-of-evidence-and-issues.pdf)
+
+-   **ACTIVITY :**
+
+    -   Find a "Hard Science" effect from Table 1. Does the size of this correlation surprise you? Why / why not?
+
+    -   Find a "Psych Science" effect from Table 2. Does the size of this correlation surprise you? Why / why not?
+
+#### Small Effects Matter
+
+-   Funder DC, Ozer DJ. Evaluating Effect Size in Psychological Research: Sense and Nonsense. Advances in Methods and Practices in Psychological Science. 2019;2(2):156-168. [doi:10.1177/2515245919847202](https://journals.sagepub.com/doi/full/10.1177/2515245919847202#bibr28-2515245919847202)
+
+![](images/clipboard-1259562376.png)
+
+#### Doing Good Science is Hard But Important to Be "Valid"
+
+-   Allen C, Mehler DMA (2019) Correction: Open science challenges, benefits and tips in early career and beyond. PLOS Biology 17(12): e3000587. [https://doi.org/10.1371/journal.pbio.3000587](https://doi.org/10.1371/journal.pbio.3000587Allen%20C,%20Mehler%20DMA%20(2019)%20Correction:%20Open%20science%20challenges,%20benefits%20and%20tips%20in%20early%20career%20and%20beyond.%20PLOS%20Biology%2017(12):%20e3000587.%20https://doi.org/10.1371/journal.pbio.3000587)
+
+![Percentages of null findings among RRs and traditional (non-RR) literature \[46,47\], with their respective 95% confidence intervals.](images/clipboard-1668702103.png){alt="Percentages of null findings among RRs and traditional (non-RR) literature [46,47], with their respective 95% confidence intervals." width="486"}
+
+#### Other Methods Exist for Describing the World
+
+1.  Qualitative studies.
+2.  Philosophy.
+3.  Critical Theory.
+4.  History.
+5.  Art.
+6.  Religion / faith.
+
+#### What are the Benefits of Using the Scientific Approach? What are the Limitations (or Dangers)?
+
+##### Is a “Valid” Psychological Science Possible?
+
+^~Farewell! Feel free to stay in touch :) it has been a pleasure and privilege to work with y'all this semester \<3~^
+
+![](images/clipboard-1645322211.png){alt="Farewell! Feel free to stay in touch :) it has been a pleasure and privilege to work with y'all this semester <3"}

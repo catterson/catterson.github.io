@@ -9,10 +9,11 @@ format:
 
 ![](images/clipboard-3900952240.png)
 
-|                                      |                                      |
-|--------------------------------------|--------------------------------------|
++--------------------------------------+--------------------------------------+
 | **Graph A**                          | **Graph B**                          |
++--------------------------------------+--------------------------------------+
 | ![](images/clipboard-1251750432.png) | ![](images/clipboard-4240830297.png) |
++--------------------------------------+--------------------------------------+
 
 ## Announcements
 
@@ -103,10 +104,13 @@ format:
 
 ### Why These Models Matter?
 
-| "Fixed Effects" | "Random Effects" |
-|----|----|
++--------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| "Fixed Effects"                      | "Random Effects"                                                                                                                  |
++======================================+===================================================================================================================================+
 | ![](images/clipboard-2869584700.png) | [![](images/clipboard-3127063891.png)](https://www.r-bloggers.com/2020/11/simpsons-paradox-and-misleading-statistical-inference/) |
-| ![](images/clipboard-4032942124.png) | ![](images/clipboard-2789774520.png) |
++--------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| ![](images/clipboard-4032942124.png) | ![](images/clipboard-2789774520.png)                                                                                              |
++--------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
 
 ### The Formulas
 
@@ -296,7 +300,7 @@ How do we interpret the results of this model?
 
     -   Days = 10.47 = for every day of sleep deprivation, the average person's reaction time increases by 10.47 MS; the standard error is an estimate of how much variation we'd expect in this average slope due
 
--   **Random Effects :** these describe those individual differences; specifcally the
+-   **Random Effects :** these describe those individual differences in people's starting responses to the DV (random intercepts) and individual differences in the relationship between the IV and the DV (random slopes).
 
     -   Subject (Intercept) = 37.12
 
