@@ -5,13 +5,9 @@ format: html
 #chalkboard: true
 ---
 
-# Welcome to Psych 101
-
-**access these lecture notes here : tinyurl.com/hipsychstats**
+# Hello Again!
 
 [**click on this link to check-in (or visit : tinyurl.com/first101class)**](https://docs.google.com/forms/d/e/1FAIpQLSekU91xhyXiYxxOsWbSGuJ3pAmPOazq9L_24hkcQpej-n0bBg/viewform?usp=header)
-
-![](lecture_images/1L_digitalstyle.webp){fig-alt="a cartoon computer enthusiastically leads a collection of cartoon animals and muppets through a cartoon digital landscape" fig-align="center"}
 
 ## Announcements
 
@@ -20,22 +16,35 @@ format: html
 -   **Join the Class Discord :** link on bCourses
 -   **Next Week :**
     -   Attend Discussion Section
-    -   Complete Lab 1 (will start in lecture!)
-    -   Read Chapter 2
-    -   Complete Quiz 2
+    -   Read Chapter 1
+    -   Complete Quiz 1
 
 ## Agenda
 
--   3:10 - 3:20 : Check-In & Announcements
--   3:20 - 3:30 : RECAP : Variables and Variation
--   3:30 - 4:20 : IN R : Defining Variables
+-   2:10 - 2:20 : Check-In & Announcements
+-   2:20 - 2:30 : RECAP : Variables and Variation
+-   2:30 - 3:20 : IN R : Defining Variables
 -   4:20 - 4:30 : Break #1
 -   4:30 - 5:00 : RECAP : Prediction and Linear Models
 -   5:00 - 5:05 : Break #2
 -   5:05 - 5:30 : DISCUSSION : Research Questions as Linear Model
 -   5:30 - 6:00 : So you're interested in going to graduate school?
 
-# RECAP : Psychological Life is Variation
+# Part 1 : Who and Why and What Statistics?
+
+## Who Statistics?
+
+-   **Professor :** Arman (Daniel) Catterson
+
+    -   **say :** Arman…Professor…Professor Catterson…Dr. Catterson
+
+    -   **from :** Austin, TX to UC Berkeley to stayin in the bay forever 😎 teaching here and at Diablo Valley College
+
+    -   
+
+## Why Statistics?
+
+## What Statistics?
 
 ## Activity : Variables and Variation in the Room
 
@@ -206,8 +215,6 @@ plot(laundryhang) # a way to graph the non-numeric variable
 ```
 
 ## Break Time: Meet Back at 4:25
-
-![](lecture_images/1L_breakhugme.avif){fig-align="center"}
 
 ## Prediction & Power
 
@@ -399,10 +406,10 @@ Psychological scientists seek to better understand variation, in order to help m
 
 Some Data \[[Source](https://ncses.nsf.gov/pubs/nsf24300/report/postgraduation-trends#definite-commitments-at-graduation)\]
 
-+----------------------+---------------------------------------------+
-| PhDs get jobs?       | ![](lecture_images/1L_jobs1.png)            |
-+----------------------+---------------------------------------------+
-| but not in academia… | ![](lecture_images/1L_jobs2.png)            |
-+----------------------+---------------------------------------------+
-| \$\$\$\$\$\$\$\$     | ![](lecture_images/1L_jobs3.png)            |
-+----------------------+---------------------------------------------+
++----------------------+--------------------------------------------+
+| PhDs get jobs?       | ![](lecture_images/1L_jobs1.png)           |
++----------------------+--------------------------------------------+
+| but not in academia… | ![](lecture_images/1L_jobs2.png)           |
++----------------------+--------------------------------------------+
+| \$\$\$\$\$\$\$\$     | ![](lecture_images/1L_jobs3.png)           |
++----------------------+--------------------------------------------+
