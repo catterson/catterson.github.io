@@ -16,6 +16,6 @@ website:
 format:
   html:
     theme: lux
-    toc: false
+    toc: true
     reference-location: margin
     citation-location: margin
