@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2026.1.23)  23 JAN 2026 11:25
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2026.1.23)  23 JAN 2026 11:51
  restricted system commands enabled.
 **0L_WelcomeStats.tex
 (./0L_WelcomeStats.tex
@@ -1007,5 +1007,42 @@ File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 ) (/Users/adcat/Library/TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-! error:  (file lecture_images/1L_digitalstyle.png) (readpng): internal error
+Package tocbasic Info: character protrusion at toc deactivated on input line 180.
+No file 0L_WelcomeStats.toc.
+\tf@toc=\write3
+
+\openout3 = 0L_WelcomeStats.toc
+<images/clipboard-3517259230.png, id=5, 1927.2pt x 1084.05pt>
+File: images/clipboard-3517259230.png Graphic file (type png)
+<use images/clipboard-3517259230.png>
+Package luatex.def Info: images/clipboard-3517259230.png  used on input line 194.
+(luatex.def)             Requested size: 1927.19533pt x 1084.04736pt.
+
+Overfull \hbox (22.85805pt too wide) in paragraph at lines 194--194
+[][]  
+ []
+
+[1
+
+
+{/Users/adcat/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}<./images/clipboard-3517259230.png>]
+<lecture_images/0L_KermitBike.png, id=18, 283.0575pt x 179.67125pt>
+File: lecture_images/0L_KermitBike.png Graphic file (type png)
+<use lecture_images/0L_KermitBike.png>
+Package luatex.def Info: lecture_images/0L_KermitBike.png  used on input line 251.
+(luatex.def)             Requested size: 318.4648pt x 202.14609pt.
+[2]
+<images/clipboard-505165644.png, id=28, 720.6925pt x 1079.03125pt>
+File: images/clipboard-505165644.png Graphic file (type png)
+<use images/clipboard-505165644.png>
+Package luatex.def Info: images/clipboard-505165644.png  used on input line 283.
+(luatex.def)             Requested size: 720.69075pt x 1079.02863pt.
+[3<./lecture_images/0L_KermitBike.png>] [4<./images/clipboard-505165644.png>]
+<images/clipboard-1475096039.png, id=42, 768.8725pt x 1007.765pt>
+File: images/clipboard-1475096039.png Graphic file (type png)
+<use images/clipboard-1475096039.png>
+Package luatex.def Info: images/clipboard-1475096039.png  used on input line 335.
+(luatex.def)             Requested size: 768.87062pt x 1007.76254pt.
+[5]
+! error:  (pdf backend): \pdfextension endlink cannot be used in vertical mode
 !  ==> Fatal error occurred, no output PDF file produced!

@@ -10,7 +10,7 @@
   numbers=noendperiod]{scrartcl}
 \usepackage{xcolor}
 \usepackage{amsmath,amssymb}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\setcounter{secnumdepth}{5}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
@@ -173,6 +173,12 @@
 \begin{document}
 \maketitle
 
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
 
 \subsection{Welcome to Psych 101}\label{welcome-to-psych-101}
 
@@ -182,12 +188,10 @@
   \href{https://docs.google.com/forms/d/e/1FAIpQLSdUFSyKnQBLoCZKxb9ZqzmwbEUo8gCqtwKAEaf-wJAfoVKlbA/viewform?usp=header}{\textbf{take
   this quick check-in survey : tinyurl.com/hifirstclass}}
 \item
-  access these lecture notes here : tinyurl.com/hipsychstats
+  \textbf{access these notes here} : tinyurl.com/welcome101class
 \end{itemize}
 
-\begin{center}
-\pandocbounded{\includegraphics[keepaspectratio]{lecture_images/1L_digitalstyle.png}}
-\end{center}
+\subsection{\texorpdfstring{\protect\pandocbounded{\includegraphics[keepaspectratio]{images/clipboard-3517259230.png}}}{}}\label{section}
 
 \subsection{Announcements}\label{announcements}
 
@@ -241,7 +245,7 @@ Catterson}\label{professor-arman-daniel-catterson}
   Catterson\ldots Dr.~Catterson
 \item
   \textbf{from :} Austin, TX to UC Berkeley to stayin in the bay forever
-  😎 teaching here as an adjunct and full-time at Diablo Valley College.
+  teaching here as an adjunct and full-time at Diablo Valley College.
 
   \begin{center}
   \includegraphics[width=4.40625in,height=\textheight,keepaspectratio]{lecture_images/0L_KermitBike.png}
@@ -292,7 +296,7 @@ Y'ALL!!!}\label{students-this-class-is-for-yall}
     of class? What went into that decision?
   \item
     \textbf{Why Psych 214?} Why are psych majors are REQUIRED to take a
-    stats class 😈 ??
+    stats class??
   \end{itemize}
 \end{itemize}
 
@@ -457,7 +461,7 @@ Science.}}{Goal of Science.}}\label{goal-of-science.}
 
 \begin{itemize}
 \item
-  \textbf{free :} open source, no cost,~
+  \textbf{free :} open source, no cost,
 \item
   \textbf{flexible :} can do many things (stats, graphs, authoring,
   works well with python tools)
