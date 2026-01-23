@@ -1,0 +1,1066 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+\ifLuaTeX
+  \usepackage{luacolor}
+  \usepackage[soul]{lua-ul}
+\else
+  \usepackage{soul}
+\fi
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Class 1 \textbar{} Why Statistics?},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Class 1 \textbar{} Why Statistics?}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+
+\section{Hello Again!}\label{hello-again}
+
+\href{https://docs.google.com/forms/d/e/1FAIpQLSekU91xhyXiYxxOsWbSGuJ3pAmPOazq9L_24hkcQpej-n0bBg/viewform?usp=header}{\textbf{click
+on this link to check-in (or visit : tinyurl.com/first101class)}}
+
+\subsection{Announcements}\label{announcements}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Section Swap :} post on bCourses to find someone to swap with.
+\item
+  \textbf{Waitlisted Students :} Thanks for your patience! Go
+  bears\ldots{}
+\item
+  \textbf{Join the Class Discord :} link on bCourses
+\item
+  \textbf{Next Week :}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Attend Discussion Section
+  \item
+    Read Chapter 1
+  \item
+    Complete Quiz 1
+  \end{itemize}
+\end{itemize}
+
+\subsection{Agenda}\label{agenda}
+
+\begin{itemize}
+\tightlist
+\item
+  2:10 - 2:20 : Check-In \& Announcements
+\item
+  2:20 - 2:30 : RECAP : Variables and Variation
+\item
+  2:30 - 3:20 : IN R : Defining Variables
+\item
+  4:20 - 4:30 : Break \#1
+\item
+  4:30 - 5:00 : RECAP : Prediction and Linear Models
+\item
+  5:00 - 5:05 : Break \#2
+\item
+  5:05 - 5:30 : DISCUSSION : Research Questions as Linear Model
+\item
+  5:30 - 6:00 : So you're interested in going to graduate school?
+\end{itemize}
+
+\section{Part 1 : Who and Why and What
+Statistics?}\label{part-1-who-and-why-and-what-statistics}
+
+\subsection{Who Statistics?}\label{who-statistics}
+
+\begin{itemize}
+\item
+  \textbf{Professor :} Arman (Daniel) Catterson
+
+  \begin{itemize}
+  \item
+    \textbf{say :} Arman\ldots Professor\ldots Professor
+    Catterson\ldots Dr.~Catterson
+  \item
+    \textbf{from :} Austin, TX to UC Berkeley to stayin in the bay
+    forever 😎 teaching here and at Diablo Valley College
+  \item
+  \end{itemize}
+\end{itemize}
+
+\subsection{Why Statistics?}\label{why-statistics}
+
+\subsection{What Statistics?}\label{what-statistics}
+
+\subsection{Activity : Variables and Variation in the
+Room}\label{activity-variables-and-variation-in-the-room}
+
+\textbf{Class Activity.} Let's create a list of variables that we
+observe in this classroom.
+
+\begin{itemize}
+\item
+  color of shirt
+\item
+  glasses
+\item
+  hair length
+\item
+  gender
+
+  \begin{itemize}
+  \item
+    affect : gender norms in how we are raised to process emotions
+    (example : boys are taught to suppress SOME emotions, and okay /
+    encouraged to express others like AnGER, whereas girls are
+    perceieved as being ``overly-emotional''; but okay to be
+    ANGRY\ldots.''
+  \item
+    behavior : ``gender norms'' in terms of roles, occupations,
+    behavior, language (e.g., women are ``homemakers'' who raise the
+    children.)
+  \item
+    cognition : how you perceive yourself based on your gender
+    (transgender identity); how you perceive yourself acting in a gender
+    role in relationship that is in a patriarchal context (OR NOT!)
+  \end{itemize}
+\item
+  transfer vs/ non-transfer
+\item
+  eye color
+\item
+  height
+\end{itemize}
+
+\textbf{Key Terms.} From the readings.
+
+\begin{itemize}
+\item
+  Affect, Behavior, Cognition
+\item
+  Between vs.~Within-Person Variation
+\end{itemize}
+
+\textbf{{[}7 Minutes{]} Answer the following questions with your buddy.}
+
+Find a buddy in the class! (There's a discord thread if you prefer to
+communicate with someone online.)
+
+\begin{itemize}
+\item
+  If you could have dinner with anyone in the world (living or dead) who
+  would it be?
+\item
+  Why are you a psychology major? What interests you about people (or
+  non-human animals)?
+\item
+  How would you label this interest as a variable?
+
+  \begin{itemize}
+  \item
+    Are you interested in the between-person or within-person version of
+    this variable?
+  \item
+    Are you interested in the Affective, Behavioral, or Cognitive aspect
+    of this variable?
+  \end{itemize}
+\end{itemize}
+
+\textbf{Student Examples}
+
+\begin{itemize}
+\item
+  liam : living on vs.~off campus and how that perceived stress
+
+  \begin{itemize}
+  \item
+    stress : affect
+  \item
+    living situation (on vs.~off) : behavior
+  \end{itemize}
+\item
+  isabella : disorders (psychosis or schizophrenia)
+\end{itemize}
+
+\textbf{Student Questions :}
+
+\begin{itemize}
+\item
+  is it possible to study how people become emotionally involved with
+  AI?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    YES!!!
+  \end{itemize}
+\end{itemize}
+
+\section{IN R : Defining Variables}\label{in-r-defining-variables}
+
+\subsection{Thinking about Programming (Free Association
+Activity)}\label{thinking-about-programming-free-association-activity}
+
+\begin{itemize}
+\tightlist
+\item
+  Close your eyes
+\item
+  Take a deep breath (inhale / exhale)
+\item
+  Visualize an image based on the word that you hear me say.
+\item
+  What do you observe?
+\end{itemize}
+
+\subsection{The R Console}\label{the-r-console}
+
+The console is where R does its work.
+
+\begin{itemize}
+\item
+  \textbf{ACTIVITY :} Look at the image below. What do you see? What
+  makes sense / what seems confusing?
+\item
+  \includegraphics[width=5.4375in,height=\textheight,keepaspectratio]{lecture_images/1_RConsole.png}
+\end{itemize}
+
+\subsection{R Studio and Source Files
+(.R)}\label{r-studio-and-source-files-.r}
+
+In this class, we'll be using RStudio. RStudio is an IDE (Integrated
+Development Environment) that includes the console along with other
+useful windows and tools.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{The Console} is at the bottom left of the IDE. Hi console!
+\item
+  \textbf{The R script} is at the top left of the IDE, and is a document
+  that you use to write (and organize) code. You will want to do most of
+  your work in the R script, and feel an appropriate level of anxiety
+  when you notice that your Rscript is unsaved (as indicated by the red
+  text and *).
+\item
+  \textbf{The Environment} is at the top right of the IDE, and shows you
+  all of the ``objects'' that you have defined in R.
+\item
+  \textbf{The File Window} is at the bottom right of the IDE, and shows
+  you the files. Note that there are tabs here for Plots (where graphs
+  will pop up), Packages (things you can download to give R extra
+  features), a Help viewer (sometimes very useful!).
+\end{itemize}
+
+\pandocbounded{\includegraphics[keepaspectratio]{lecture_images/clipboard-1807596003.png}}
+
+\subsubsection{\texorpdfstring{\textbf{ACTIVTY :} open up
+RStudio}{ACTIVTY : open up RStudio}}\label{activty-open-up-rstudio}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{You are Programming!} Type some math into an Rscript, and send
+  it to the console. THAT'S RIGHT.
+\item
+  \textbf{Work on Lab 1, Question 1 :} Define two variables in R : one
+  numeric, and one string. \emph{Note : you can use the data that we
+  collected in class, or collect your own data (make sure each variable
+  has at least ten data points).} ``Print'' each variable in R, and
+  paste the output as a screenshot. Then, graph the numeric variable as
+  a ``histogram'' and the string variable as a ``plot''. Below your
+  graph, describe what you observe about the individuals in the dataset
+  for each variable. See the lecture videos in Chapter 2 for a guide on
+  how to do this!
+\end{enumerate}
+
+\subsection{R CODE : Variables and
+Variation}\label{r-code-variables-and-variation}
+
+\subsubsection{Numeric Variables in R}\label{numeric-variables-in-r}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2519}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7481}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Code
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{variable }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\CommentTok{\#, \#, \#, \#, etc.)}
+
+
+
+\NormalTok{tired }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+\end{minipage} & \textbf{variable} = an object that you will define in R
+
+\textbf{\textless-} = ``assign''; tells R to save whatever comes on the
+right to whatever object is on the left.
+
+\textbf{c} = combine : tells R to combine whatever happens in the
+parentheses
+
+\textbf{()} = parentheses to group related terms
+
+\textbf{\# =} what you store in the variable; each item should be
+separated by a comma and space. \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{variable)}
+\end{Highlighting}
+\end{Shaded}
+\end{minipage} & \textbf{For continuous variables :} draws a
+histogram. \\
+\end{longtable}
+
+\subsection{Example : Creating Numeric
+Variables}\label{example-creating-numeric-variables}
+
+Note : the code below might not run depending on your browser settings.
+professor will demonstrate this in class using R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prof.sleep \textless{}{-} c(5.5, 5, 7, 8.5, 6.5, 5, 7.0, 7.5, 7.5, 6, 6.5, 5) \# hours of sleep professor got the last few nights.}
+\NormalTok{print(prof.sleep) \# one way to "print" the variable}
+\NormalTok{prof.sleep \# another way to "print" the variable}
+\NormalTok{hist(prof.sleep) \# a way to graph the variable (a histogram)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{String Variables}\label{string-variables}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2322}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7678}}@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{variable }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(“name1”, “name2”, “name1”, etc.)}
+
+\NormalTok{emotion }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(“sad”, “happy”, “sad”)}
+\end{Highlighting}
+\end{Shaded}
+\end{minipage} & \textbf{variable} = an object that you will define in R
+
+\textbf{\textless-} = ``assign''; tells R to save whatever comes on the
+right to whatever object is on the left.
+
+\textbf{c} = combine : tells R to combine whatever happens in the
+parentheses
+
+\textbf{()} = parentheses to group related terms
+
+\textbf{\# =} what you store in the variable; each item should be
+separated by a comma and space. \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{as.factor}\NormalTok{(variable)}
+
+\FunctionTok{as.factor}\NormalTok{(emotion)}
+\end{Highlighting}
+\end{Shaded}
+\end{minipage} & \textbf{as.factor()} \# converts a string variable into
+a categorical factor \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{verbatim}
+variable <- as.factor(variable)
+\end{verbatim}
+\end{minipage} & \textbf{\# ``}saves'' this conversion as the original
+variable \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{variable)}
+\end{Highlighting}
+\end{Shaded}
+\end{minipage} & \textbf{For categorical variables :} draws a barplot.
+For continuous variables :~ illustrates values of the variable (y-axis)
+as a function of their index (x-axis). \\
+\end{longtable}
+
+\subsubsection{Example in R : Creating Non-Numeric
+Variables}\label{example-in-r-creating-non-numeric-variables}
+
+The data below describe the categories of family laundry that was
+hanging in my apartment to dry. As before, the code below might not run
+depending on your browser settings. professor will demonstrate this in
+class using R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{laundryhang }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"shirt"}\NormalTok{, }\StringTok{"shirt"}\NormalTok{, }\StringTok{"leggings"}\NormalTok{, }\StringTok{"leggings"}\NormalTok{, }\StringTok{"shirt"}\NormalTok{, }
+             \StringTok{"shirt"}\NormalTok{, }\StringTok{"leggings"}\NormalTok{, }\StringTok{"pants"}\NormalTok{, }\StringTok{"sweater"}\NormalTok{, }\StringTok{"sweater"}\NormalTok{) }\CommentTok{\# defining a string variable}
+\FunctionTok{print}\NormalTok{(laundryhang)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ [1] "shirt"    "shirt"    "leggings" "leggings" "shirt"    "shirt"   
+ [7] "leggings" "pants"    "sweater"  "sweater" 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{laundryhang }\CommentTok{\# another way to "print" the variable}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ [1] "shirt"    "shirt"    "leggings" "leggings" "shirt"    "shirt"   
+ [7] "leggings" "pants"    "sweater"  "sweater" 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{laundryhang }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(laundryhang) }\CommentTok{\# changing the format of the sting variable into a categorical factor}
+\FunctionTok{plot}\NormalTok{(laundryhang) }\CommentTok{\# a way to graph the non{-}numeric variable}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{1L_WhyStats_files/figure-pdf/unnamed-chunk-2-1.pdf}}
+
+\subsection{Break Time: Meet Back at
+4:25}\label{break-time-meet-back-at-425}
+
+\subsection{Prediction \& Power}\label{prediction-power}
+
+\subsubsection{Predictions in Real Life}\label{predictions-in-real-life}
+
+\begin{itemize}
+\tightlist
+\item
+  EXAMPLE : PROFESSOR WILL LET US OUT EARLY ON THE FIRST DAY
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Knowledge (what information did you use to make the
+    prediction)?}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      past experience with other professors
+    \item
+      syllabus seemed FUN and LIGHT HEARTED like someone who would let
+      us out EARLY
+    \item
+      you want to get out early\ldots and so will MANIFEST that through
+      the power of PREDICTION.
+    \end{itemize}
+  \item
+    \textbf{Power (ways your predictions influence future behaviors)}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      making a plan to leave
+    \item
+      trying to see if we can leverage this activity into actually
+      getting out early (\#MANIFEST)
+    \item
+      did not bring a snack
+    \end{itemize}
+  \item
+    \textbf{Was The Predicton Valid?}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      WE WILL FIND OUT.
+    \end{itemize}
+  \item
+    \textbf{Work on Lab Question.} What's a prediction about people that
+    you made today? What information did you use to make this
+    prediction? How did (or could) you use this prediction to influence
+    outcomes? Were you valid in your predictions? Finally, write a
+    linear model that defines the prediction (and information that you
+    used) as a formula (e.g., DV \textasciitilde{} IV1 + IV2 + \ldots{}
+    + error).
+  \item
+    STUDENT EXAMPLE : Naomi
+
+    \begin{itemize}
+    \tightlist
+    \item
+      prediction : was gonna be late to class
+    \item
+      knowledge : have practice until 3:30 on Mondays and coaches be
+      like that.
+    \item
+      power :
+
+      \begin{itemize}
+      \tightlist
+      \item
+        rushed after you got let out
+      \item
+        ran uphill
+      \item
+        asked friend (whoI predicted was gonna get here early) to save a
+        seat.
+      \end{itemize}
+    \item
+      valid : yes, I was 2-minutes late.
+    \item
+      model :
+
+      \begin{itemize}
+      \tightlist
+      \item
+        time to get to class \textasciitilde{} previous class time +
+        coach personality + campus geography + own personal walking
+        speed after tennis practice + weather + ERROR
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Scientific Predictions}\label{scientific-predictions}
+
+Psychological scientists seek to better understand variation, in order
+to help make valid predictions in ways that help exert power over our
+environments.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.6049}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.3951}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Topic
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Other Questions We Might Ask?
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\pandocbounded{\includegraphics[keepaspectratio]{lecture_images/1L_prosthetic.mp4}}
+& \\
+\includegraphics[width=6.25in,height=\textheight,keepaspectratio]{lecture_images/1L_fb.png}\footnote{Here's
+  \href{https://www.nytimes.com/2016/05/06/business/facebook-bends-the-rules-of-audience-engagement-to-its-advantage.html}{a
+  link to the article} where this headline comes from. These data are a
+  little dated, and I couldn't immediately find more recent data - my
+  guess is Meta does not really want to advertise that people are using
+  the product more and more. However, in
+  \href{https://s21.q4cdn.com/399680738/files/doc_financials/2024/q2/Earnings-Presentation-Q2-2024.pdf}{reports
+  to investors} reports consistent growth in metrics like ``ad
+  impressions'' and ``daily active users''. Let me know if you find
+  other sources to show how technology companies are capturing more and
+  more of our attention!} & \\
+\end{longtable}
+
+\subsection{The Linear Model}\label{the-linear-model}
+
+\begin{center}
+\includegraphics[width=7.69792in,height=\textheight,keepaspectratio]{images/clipboard-606362939.png}
+\end{center}
+
+\subsubsection{RECAP : Definition and
+Examples}\label{recap-definition-and-examples}
+
+\begin{itemize}
+\item
+  Steps to Take :~
+
+  \begin{itemize}
+  \item
+    \textbf{list the variable that you want to predict (the DV)}
+  \item
+    \textbf{list the variables that you think will help predict the DV
+    (the IVs)}
+
+    \begin{itemize}
+    \item
+      \textbf{NOTE : you do not (and can not) account for EVERY variable
+      in your linear model!}
+    \item
+      \textbf{IN FACT : researchers are very specific about the
+      variables they will include.}
+    \item
+      \textbf{ERROR will capture all the other variables not in your
+      model.}
+    \end{itemize}
+  \end{itemize}
+\item
+  Example : What predicts why people differ in the amount of screen time
+  that they use (between or within-person differences)?
+
+  \begin{itemize}
+  \tightlist
+  \item
+  \end{itemize}
+\end{itemize}
+
+\textbf{KEY IDEA : Linear Models Help Organize and Quantify Prediction}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{organize :} a model specifies what information (IV) we think
+  might help us predict the DV
+\item
+  \textbf{quantify :} when we add statistics to our model (much later!),
+  we will see\ldots{}
+
+  \begin{itemize}
+  \item
+    \textbf{the direction of the prediction :} is there a positive or
+    negative relationship between the IV and the DV?
+  \item
+    \textbf{the ``weight'' of the prediction :} how much does each IV
+    help us predict the DV?
+
+    \begin{itemize}
+    \item
+      what is the ``best'' predictor in our model?
+    \item
+      what is the ``worst'' predictor in our model?
+    \end{itemize}
+  \item
+    \textbf{the amount of error in our prediction :} how well does the
+    model as a whole help us predict individual scores? how well does
+    the model generalize to ``reality''?
+  \end{itemize}
+\item
+  \textbf{A Real-Life Linear Model in the Wild :}
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=4.07292in,height=\textheight,keepaspectratio]{1L_WhyStats_files/mediabag/AD_4nXcXn1H6Tcp4pWwk.pdf}
+\end{center}
+
+\subsubsection{From Prediction --\textgreater{} Linear
+Model}\label{from-prediction-linear-model}
+
+\begin{itemize}
+\item
+  student example prediction :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    as a model :
+  \end{itemize}
+\item
+  student example prediction :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    as a model :
+  \end{itemize}
+\end{itemize}
+
+\subsection{Work on Lab 1 : Predictions \& Research
+Questions.}\label{work-on-lab-1-predictions-research-questions.}
+
+\subsubsection{On Your Own}\label{on-your-own}
+
+\textbf{Lab 1, Question 2 :} What's a prediction about people that you
+made today? What information did you use to make this prediction? How
+did (or could) you use this prediction to influence outcomes? Were you
+valid in your predictions? Finally, write a linear model that defines
+the prediction (and information that you used) as a formula (e.g., DV
+\textasciitilde{} IV1 + IV2 + \ldots{} + error).
+
+\textbf{Lab 1, Question 3 :} Identify a research question that you might
+be interested to study as a psychologist (this could be what you wrote
+about in Lab 1, or something new.) Then, define the DV for this
+question, and explain what interests you about this question and how
+this variable might be understood as an example of affect, behavior,
+and/or cognition. Next, explain what between-person and within-person
+variation might look like for this variable. Finally, identify some
+other variables that you think will predict this DV, and write out this
+question (and your theory) as a linear model.
+
+\textbf{Lab 1, Quesiton 4 (In Discussion Section).} With your discussion
+section, define each of the six biases described in the Goldacre (2010)
+reading on cognitive biases, and come up with an example from real-life.
+
+\section{Next Time on Psych 101.}\label{next-time-on-psych-101.}
+
+\begin{itemize}
+\tightlist
+\item
+  Take this Exit Survey Now : tinyurl.com/onlinebyeintro
+\item
+  Attend Discussion Section \& Complete Lab 1
+\item
+  Read Chapter 2 \& take Quiz 2
+\end{itemize}
+
+\section{So You Think You Want to Be a
+Researcher?}\label{so-you-think-you-want-to-be-a-researcher}
+
+\subsection{Getting Research Experience as an
+RA}\label{getting-research-experience-as-an-ra}
+
+\begin{itemize}
+\item
+  \textbf{RA = Research Assistant}
+
+  \begin{itemize}
+  \item
+    Mostly Unpaid Experiences
+  \item
+    Some paid experiences exist!
+
+    \begin{itemize}
+    \item
+      From the berkeley website\ldots{}
+    \item
+      \href{https://haas.berkeley.edu/mors/faculty/}{Busine\$\$ \$chool}
+    \item
+      Stanford {[}maybe paid{]}
+    \item
+      \href{https://docs.google.com/spreadsheets/d/1IX7f1N_VXUkSnnJPTpLg-pUto0427XBK_jxRxNFhmps/edit?gid=1345132026\#gid=1345132026}{A
+      list a student sent me that they found}.
+    \item
+      ``Cold calling'' labs who are doing work you think is cool.
+    \item
+      Chat with your TAs / Professors
+    \end{itemize}
+  \end{itemize}
+\item
+  \textbf{As an RA :}
+
+  \begin{itemize}
+  \item
+    work with data : transcribing data; behavioral coding data;
+    recruiting and participants to collect data; setting up
+    psychophysiological recordings; cleaning data; etc.
+  \item
+    \textbf{other opportunities to gain skills you can demonstrate :}
+
+    \begin{itemize}
+    \item
+      reading \& discussing papers
+    \item
+      working with IRB (institutional review board - an ethics thing)
+    \item
+      analyzing data → presenting research at a conference (poster) or
+      submitting a paper for publication {[}your golden ticket{]}
+    \item
+      general mentorship (how to apply to grad school; where to apply;
+      who to talk to \& e-mail; etc.)
+    \item
+      NOTE : this work and these skills apply to other work outside of
+      research applications {[}time management; coordinating schedules;
+      juggling responsibilities; etc.{]}
+    \end{itemize}
+  \item
+    \textbf{get a sense of whether this {[}work or lab{]} is for you?}
+
+    \begin{itemize}
+    \item
+      do you enjoy the work? are you going to look forward to showing up
+      and doing the work / fulfilling the commitment?~
+    \item
+      are you working with a horrible monster?
+
+      \begin{itemize}
+      \item
+        not responsive
+      \item
+        inconsistent work / no plan for your work
+      \item
+        kind of a bully (emotionally abusive → stealing your work)~
+      \end{itemize}
+    \item
+      or are you working with someone who is super cool and a positive
+      influence on mentoring young minds!?!?! {[}YES!!!!{]}
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\subsection{Applying to Graduate
+School}\label{applying-to-graduate-school}
+
+\begin{itemize}
+\item
+  \textbf{You are applying to work on research with a specific
+  professor(s) at a school.}
+
+  \begin{itemize}
+  \item
+    Should have a sense of the topic you want to pursue.
+  \item
+    Good to have a narrative about how your past work and studies have
+    prepared you for this topic / demonstrate an enduring interest in
+    the topic.
+  \end{itemize}
+\item
+  \textbf{Independent Thesis / Research Project :}
+
+  \begin{itemize}
+  \item
+    \textbf{an official honors' thesis}
+  \item
+    \textbf{undergraduate research project (e.g., SURF; Psych 101!)}
+  \item
+    \textbf{your own independent study / advanced work you did as an RA}
+  \end{itemize}
+\item
+  \textbf{Personal Statement : Experiences with Research You Can Write
+  About}
+
+  \begin{itemize}
+  \item
+    \st{I'm fascinated by people\ldots Over the last year, I worked on
+    an independent research study to better understand\ldots.}
+  \item
+    Working as an RA; your research project; attending / presenting at a
+    conference; etc.
+  \end{itemize}
+\item
+  \textbf{3-4 Letters of Recommendation :} folks who can speak
+  personally to your ability to do research.
+\item
+  \textbf{Clinical Students : some kind of clinical internship /
+  experience 😟}
+\item
+  \textbf{Talk to people who are doing the thing you want to be doing
+  about their journey}
+\end{itemize}
+
+\subsubsection{The Academic Job Market}\label{the-academic-job-market}
+
+Some Data
+{[}\href{https://ncses.nsf.gov/pubs/nsf24300/report/postgraduation-trends\#definite-commitments-at-graduation}{Source}{]}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.3194}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.6250}}@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+PhDs get jobs? &
+\pandocbounded{\includegraphics[keepaspectratio]{lecture_images/1L_jobs1.png}} \\
+but not in academia\ldots{} &
+\pandocbounded{\includegraphics[keepaspectratio]{lecture_images/1L_jobs2.png}} \\
+\$\$\$\$\$\$\$\$ &
+\pandocbounded{\includegraphics[keepaspectratio]{lecture_images/1L_jobs3.png}} \\
+\end{longtable}
+
+
+
+
+\end{document}
