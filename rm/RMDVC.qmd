@@ -1,0 +1,37 @@
+---
+title: "Psych 215 - SP26"
+format: html
+editor: visual
+navbar: false
+---
+
+## Research Methods in Psychology
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(googlesheets4)
+library(gt)
+library(tidyverse)
+options(knitr.kable.NA = "")
+gs4_deauth()
+d <- read_sheet("https://docs.google.com/spreadsheets/d/1OegmH097biy7yzrxX98NgkXa04WU65EF4e4xwm0rusI/edit?usp=sharing", sheet = "215")
+d$Week <- format(d$Week, "%m/%d")
+```
+
+Hi class! This page will contain deadlines and links to course readings and lecture notes. Please use Canvas to...
+
+-   ...submit Reading Quiz, Discussion Posts, and Projects.
+
+-   ...access Lecture Recordings and the Syllabus.
+
+## Course Outline
+
+Note : Chapters are from our course textbook : [Why Statistics?](http://catterson.github.io/ystats/)
+
+```{r}
+#| echo: false
+knitr::kable(d, padding = 5)
+```
