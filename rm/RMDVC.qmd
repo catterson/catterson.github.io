@@ -18,7 +18,7 @@ library(tidyverse)
 options(knitr.kable.NA = "")
 gs4_deauth()
 d <- read_sheet("https://docs.google.com/spreadsheets/d/1OegmH097biy7yzrxX98NgkXa04WU65EF4e4xwm0rusI/edit?usp=sharing", sheet = "215")
-d$Week <- format(d$Week, "%m/%d")
+d$Date <- format(d$Date, "%m/%d")
 ```
 
 Hi class! This page will contain deadlines and links to course readings and lecture notes. Please use Canvas to...
