@@ -1,444 +1,353 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>Class 1 | Why Statistics?</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-</style>
-
-
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<html lang="en"><head>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-26827f95213357c060b998e0666f8ebe.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
 
-
+  <title>Chapter 1 | Why Statistics?</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-5f66212b01f094180b8d10b5b9960144.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
 </head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
 
-<body class="nav-fixed quarto-light">
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Chapter 1 | Why Statistics?</h1>
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    </a>
-  </div>
-          <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://catterson.github.io/ystats/"> 
-<span class="menu-text">Why Statistics?</span></a>
-  </li>  
-</ul>
-          <div class="quarto-navbar-tools">
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-    </div>
-<!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Class 1 | Why Statistics?</h1>
+<div class="quarto-title-authors">
 </div>
 
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="hello-again" class="level1">
+</section>
+<section>
+<section id="hello-again" class="title-slide slide level1 center">
 <h1>Hello Again!</h1>
-<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSekU91xhyXiYxxOsWbSGuJ3pAmPOazq9L_24hkcQpej-n0bBg/viewform?usp=header"><strong>click on this link to check-in (or visit : tinyurl.com/first101class)</strong></a></p>
-<section id="announcements" class="level2">
-<h2 class="anchored" data-anchor-id="announcements">Announcements</h2>
 <ul>
-<li><strong>Section Swap :</strong> post on bCourses to find someone to swap with.</li>
-<li><strong>Waitlisted Students :</strong> Thanks for your patience! Go bears…</li>
-<li><strong>Join the Class Discord :</strong> link on bCourses</li>
-<li><strong>Next Week :</strong>
+<li><p><strong>these notes on bCourses, or :</strong> <a href="https://catterson.github.io/calstats/calstatsSP26.html">catterson.github.io/calstats/calstatsSP26.html</a></p></li>
+<li><p><a href="https://docs.google.com/forms/d/e/1FAIpQLSekU91xhyXiYxxOsWbSGuJ3pAmPOazq9L_24hkcQpej-n0bBg/viewform?usp=header"><strong>click on this link to check-in</strong></a></p></li>
+</ul>
+
+<img data-src="images/clipboard-792871999.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="announcements" class="title-slide slide level2 center">
+<h2>Announcements</h2>
 <ul>
-<li>Attend Discussion Section</li>
-<li>Read Chapter 1</li>
-<li>Complete Quiz 1</li>
-</ul></li>
+<li><strong>Section Swap :</strong> post on bCourses to find someone to swap with (now open.)</li>
+<li><strong>Waitlisted Students :</strong> Thanks for your patience! Go bears.</li>
+<li><strong>Office Hours :</strong> Fridays at 9:00 AM on Zoom.</li>
 </ul>
 </section>
-<section id="agenda" class="level2">
-<h2 class="anchored" data-anchor-id="agenda">Agenda</h2>
+
+<section id="agenda" class="title-slide slide level2 center">
+<h2>Agenda</h2>
 <ul>
 <li>2:10 - 2:20 : Check-In &amp; Announcements</li>
-<li>2:20 - 2:30 : RECAP : Variables and Variation</li>
-<li>2:30 - 3:20 : IN R : Defining Variables</li>
-<li>4:20 - 4:30 : Break #1</li>
-<li>4:30 - 5:00 : RECAP : Prediction and Linear Models</li>
-<li>5:00 - 5:05 : Break #2</li>
-<li>5:05 - 5:30 : DISCUSSION : Research Questions as Linear Model</li>
-<li>5:30 - 6:00 : So you’re interested in going to graduate school?</li>
+<li>2:20 - 3:20 : Defining Variables in R</li>
+<li>3:20 - 3:30 : Break #1</li>
+<li>3:30 - 4:00 : From (Research) Questions to Linear Models to Predictions</li>
+<li>4:00 - 4:05 : Break #2</li>
+<li>4:05 - 4:30 : So you’re interested in going to graduate school?</li>
+<li>4:30 - 5:00 : DISCUSSION : Project Questions</li>
 </ul>
 </section>
 </section>
-<section id="part-1-who-and-why-and-what-statistics" class="level1">
-<h1>Part 1 : Who and Why and What Statistics?</h1>
-<section id="who-statistics" class="level2">
-<h2 class="anchored" data-anchor-id="who-statistics">Who Statistics?</h2>
+<section>
+<section id="recap-defining-research-questions" class="title-slide slide level1 center">
+<h1>RECAP : Defining Research Questions</h1>
+
+</section>
+<section id="student-examples-from-milestone-1" class="slide level3">
+<h3>Student Examples from Milestone #1</h3>
 <ul>
-<li><p><strong>Professor :</strong> Arman (Daniel) Catterson</p>
-<ul>
-<li><p><strong>say :</strong> Arman…Professor…Professor Catterson…Dr.&nbsp;Catterson</p></li>
-<li><p><strong>from :</strong> Austin, TX to UC Berkeley to stayin in the bay forever 😎 teaching here and at Diablo Valley College</p></li>
-<li></li>
-</ul></li>
+<li>What’s the variable at the focus of the following questions?</li>
+<li>What does between vs.&nbsp;within-person variation look like?</li>
+<li>Are you interested in the AFFECT, BEHAVIOR, or COGNITIVE part of this variable?</li>
 </ul>
 </section>
-<section id="why-statistics" class="level2">
-<h2 class="anchored" data-anchor-id="why-statistics">Why Statistics?</h2>
-</section>
-<section id="what-statistics" class="level2">
-<h2 class="anchored" data-anchor-id="what-statistics">What Statistics?</h2>
-</section>
-<section id="activity-variables-and-variation-in-the-room" class="level2">
-<h2 class="anchored" data-anchor-id="activity-variables-and-variation-in-the-room">Activity : Variables and Variation in the Room</h2>
-<p><strong>Class Activity.</strong> Let’s create a list of variables that we observe in this classroom.</p>
+<section id="developing-research-questions-from-real-life" class="slide level3">
+<h3>Developing Research Questions from Real-Life</h3>
 <ul>
-<li><p>color of shirt</p></li>
-<li><p>glasses</p></li>
-<li><p>hair length</p></li>
-<li><p>gender</p>
-<ul>
-<li><p>affect : gender norms in how we are raised to process emotions (example : boys are taught to suppress SOME emotions, and okay / encouraged to express others like AnGER, whereas girls are perceieved as being “overly-emotional”; but okay to be ANGRY….”</p></li>
-<li><p>behavior : “gender norms” in terms of roles, occupations, behavior, language (e.g., women are “homemakers” who raise the children.)</p></li>
-<li><p>cognition : how you perceive yourself based on your gender (transgender identity); how you perceive yourself acting in a gender role in relationship that is in a patriarchal context (OR NOT!)</p></li>
-</ul></li>
-<li><p>transfer vs/ non-transfer</p></li>
-<li><p>eye color</p></li>
-<li><p>height</p></li>
+<li>What are some real-life events that we want to better understand or change?</li>
+<li>What are some research questions that we might develop based on real-life events?</li>
+<li>How can we think about these questions using the ABCs of Psychology?</li>
+<li>Is this a question about between-person or within-person variation?</li>
 </ul>
-<p><strong>Key Terms.</strong> From the readings.</p>
-<ul>
-<li><p>Affect, Behavior, Cognition</p></li>
-<li><p>Between vs.&nbsp;Within-Person Variation</p></li>
-</ul>
-<p><strong>[7 Minutes] Answer the following questions with your buddy.</strong></p>
-<p>Find a buddy in the class! (There’s a discord thread if you prefer to communicate with someone online.)</p>
-<ul>
-<li><p>If you could have dinner with anyone in the world (living or dead) who would it be?</p></li>
-<li><p>Why are you a psychology major? What interests you about people (or non-human animals)?</p></li>
-<li><p>How would you label this interest as a variable?</p>
-<ul>
-<li><p>Are you interested in the between-person or within-person version of this variable?</p></li>
-<li><p>Are you interested in the Affective, Behavioral, or Cognitive aspect of this variable?</p></li>
-</ul></li>
-</ul>
-<p><strong>Student Examples</strong></p>
-<ul>
-<li><p>liam : living on vs.&nbsp;off campus and how that perceived stress</p>
-<ul>
-<li><p>stress : affect</p></li>
-<li><p>living situation (on vs.&nbsp;off) : behavior</p></li>
-</ul></li>
-<li><p>isabella : disorders (psychosis or schizophrenia)</p></li>
-</ul>
-<p><strong>Student Questions :</strong></p>
-<ul>
-<li><p>is it possible to study how people become emotionally involved with AI?</p>
-<ul>
-<li>YES!!!</li>
-</ul></li>
-</ul>
+</section></section>
+<section>
+<section id="part-1-defining-variables-in-r" class="title-slide slide level1 center">
+<h1>Part 1 : Defining Variables in R</h1>
+
 </section>
+<section id="numeric-variables-in-r" class="slide level3">
+<h3>Numeric Variables in R</h3>
 </section>
-<section id="in-r-defining-variables" class="level1 page-columns page-full">
-<h1>IN R : Defining Variables</h1>
-<section id="thinking-about-programming-free-association-activity" class="level2">
-<h2 class="anchored" data-anchor-id="thinking-about-programming-free-association-activity">Thinking about Programming (Free Association Activity)</h2>
-<ul>
-<li>Close your eyes</li>
-<li>Take a deep breath (inhale / exhale)</li>
-<li>Visualize an image based on the word that you hear me say.</li>
-<li>What do you observe?</li>
-</ul>
+<section id="section" class="slide level3">
+<h3><img data-src="images/clipboard-812337385.png"></h3>
 </section>
-<section id="the-r-console" class="level2">
-<h2 class="anchored" data-anchor-id="the-r-console">The R Console</h2>
-<p>The console is where R does its work.</p>
-<ul>
-<li><p><strong>ACTIVITY :</strong> Look at the image below. What do you see? What makes sense / what seems confusing?</p></li>
-<li><p><img src="lecture_images/1_RConsole.png" class="img-fluid" width="522"></p></li>
-</ul>
-</section>
-<section id="r-studio-and-source-files-.r" class="level2">
-<h2 class="anchored" data-anchor-id="r-studio-and-source-files-.r">R Studio and Source Files (.R)</h2>
-<p>In this class, we’ll be using RStudio. RStudio is an IDE (Integrated Development Environment) that includes the console along with other useful windows and tools.</p>
-<ul>
-<li><strong>The Console</strong> is at the bottom left of the IDE. Hi console!</li>
-<li><strong>The R script</strong> is at the top left of the IDE, and is a document that you use to write (and organize) code. You will want to do most of your work in the R script, and feel an appropriate level of anxiety when you notice that your Rscript is unsaved (as indicated by the red text and *).</li>
-<li><strong>The Environment</strong> is at the top right of the IDE, and shows you all of the “objects” that you have defined in R.</li>
-<li><strong>The File Window</strong> is at the bottom right of the IDE, and shows you the files. Note that there are tabs here for Plots (where graphs will pop up), Packages (things you can download to give R extra features), a Help viewer (sometimes very useful!).</li>
-</ul>
-<p><img src="lecture_images/clipboard-1807596003.png" class="img-fluid"></p>
-<section id="activty-open-up-rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="activty-open-up-rstudio"><strong>ACTIVTY :</strong> open up RStudio</h3>
-<ol type="1">
-<li><strong>You are Programming!</strong> Type some math into an Rscript, and send it to the console. THAT’S RIGHT.</li>
-<li><strong>Work on Lab 1, Question 1 :</strong> Define two variables in R : one numeric, and one string. <em>Note : you can use the data that we collected in class, or collect your own data (make sure each variable has at least ten data points).</em> “Print” each variable in R, and paste the output as a screenshot. Then, graph the numeric variable as a “histogram” and the string variable as a “plot”. Below your graph, describe what you observe about the individuals in the dataset for each variable. See the lecture videos in Chapter 2 for a guide on how to do this!</li>
-</ol>
-</section>
-</section>
-<section id="r-code-variables-and-variation" class="level2">
-<h2 class="anchored" data-anchor-id="r-code-variables-and-variation">R CODE : Variables and Variation</h2>
-<section id="numeric-variables-in-r" class="level3">
-<h3 class="anchored" data-anchor-id="numeric-variables-in-r">Numeric Variables in R</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 74%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>variable <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="co">#, #, #, #, etc.)</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>tired <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></td>
-<td><p><strong>variable</strong> = an object that you will define in R</p>
-<p><strong>&lt;-</strong> = “assign”; tells R to save whatever comes on the right to whatever object is on the left.</p>
-<p><strong>c</strong> = combine : tells R to combine whatever happens in the parentheses</p>
-<p><strong>()</strong> = parentheses to group related terms</p>
-<p><strong># =</strong> what you store in the variable; each item should be separated by a comma and space.</p></td>
-</tr>
-<tr class="even">
-<td><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(dat<span class="sc">$</span>variable)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></td>
-<td><strong>For continuous variables :</strong> draws a histogram.</td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="example-creating-numeric-variables" class="level2">
-<h2 class="anchored" data-anchor-id="example-creating-numeric-variables">Example : Creating Numeric Variables</h2>
+<section id="in-r-creating-numeric-variables" class="slide level3">
+<h3>In R : Creating Numeric Variables</h3>
 <p>Note : the code below might not run depending on your browser settings. professor will demonstrate this in class using R.</p>
 <div class="cell">
-<pre class="webr cell-code"><code>prof.sleep &lt;- c(5.5, 5, 7, 8.5, 6.5, 5, 7.0, 7.5, 7.5, 6, 6.5, 5) # hours of sleep professor got the last few nights.
-print(prof.sleep) # one way to "print" the variable
-prof.sleep # another way to "print" the variable
-hist(prof.sleep) # a way to graph the variable (a histogram)</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># defining the hours of sleep I got the last few nights.</span></span>
+<span id="cb1-2"><a></a>prof.sleep <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">5.5</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="fl">8.5</span>, <span class="fl">6.5</span>, <span class="dv">5</span>, <span class="fl">7.0</span>, <span class="fl">7.5</span>, <span class="fl">7.5</span>, <span class="dv">6</span>, <span class="fl">6.5</span>, <span class="dv">5</span>) </span>
+<span id="cb1-3"><a></a>prof.sleep <span class="co"># this asks R to show the variable</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 5.5 5.0 7.0 8.5 6.5 5.0 7.0 7.5 7.5 6.0 6.5 5.0</code></pre>
 </div>
-</section>
-<section id="string-variables" class="level2">
-<h2 class="anchored" data-anchor-id="string-variables">String Variables</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 23%">
-<col style="width: 76%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>variable <span class="ot">&lt;-</span> <span class="fu">c</span>(“name1”, “name2”, “name1”, etc.)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>emotion <span class="ot">&lt;-</span> <span class="fu">c</span>(“sad”, “happy”, “sad”)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></td>
-<td><p><strong>variable</strong> = an object that you will define in R</p>
-<p><strong>&lt;-</strong> = “assign”; tells R to save whatever comes on the right to whatever object is on the left.</p>
-<p><strong>c</strong> = combine : tells R to combine whatever happens in the parentheses</p>
-<p><strong>()</strong> = parentheses to group related terms</p>
-<p><strong># =</strong> what you store in the variable; each item should be separated by a comma and space.</p></td>
-</tr>
-<tr class="even">
-<td><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.factor</span>(variable)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">as.factor</span>(emotion)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></td>
-<td><strong>as.factor()</strong> # converts a string variable into a categorical factor</td>
-</tr>
-<tr class="odd">
-<td><pre><code>variable &lt;- as.factor(variable)</code></pre></td>
-<td><strong># “</strong>saves” this conversion as the original variable</td>
-</tr>
-<tr class="even">
-<td><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dat<span class="sc">$</span>variable)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></td>
-<td><strong>For categorical variables :</strong> draws a barplot. For continuous variables :&nbsp; illustrates values of the variable (y-axis) as a function of their index (x-axis).</td>
-</tr>
-</tbody>
-</table>
-<section id="example-in-r-creating-non-numeric-variables" class="level3">
-<h3 class="anchored" data-anchor-id="example-in-r-creating-non-numeric-variables">Example in R : Creating Non-Numeric Variables</h3>
-<p>The data below describe the categories of family laundry that was hanging in my apartment to dry. As before, the code below might not run depending on your browser settings. professor will demonstrate this in class using R.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">hist</span>(prof.sleep) <span class="co"># this asks R to graph the variable (a histogram)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="1L_WhyStats_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
+<section id="string-variables-in-r" class="slide level3">
+<h3>String Variables in R</h3>
+
+<img data-src="images/clipboard-2893888681.png" class="r-stretch"></section>
+<section id="example-in-r-creating-non-numeric-variables" class="slide level3 smaller">
+<h3>Example in R : Creating Non-Numeric Variables</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>laundryhang <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"shirt"</span>, <span class="st">"shirt"</span>, <span class="st">"leggings"</span>, <span class="st">"leggings"</span>, <span class="st">"shirt"</span>, </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>             <span class="st">"shirt"</span>, <span class="st">"leggings"</span>, <span class="st">"pants"</span>, <span class="st">"sweater"</span>, <span class="st">"sweater"</span>) <span class="co"># defining a string variable</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(laundryhang)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># defining the string variable; laundry I was drying.</span></span>
+<span id="cb4-2"><a></a>laundryhang <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"shirt"</span>, <span class="st">"shirt"</span>, <span class="st">"leggings"</span>, <span class="st">"shirt"</span>, </span>
+<span id="cb4-3"><a></a>                 <span class="st">"leggings"</span>, <span class="st">"shirt"</span>, <span class="st">"shirt"</span>, <span class="st">"sweater"</span>,</span>
+<span id="cb4-4"><a></a>                 <span class="st">"leggings"</span>, <span class="st">"pants"</span>, <span class="st">"sweater"</span>, <span class="st">"sweater"</span>)</span>
+<span id="cb4-5"><a></a>laundryhang <span class="co"># another way to "print" the variable</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "shirt"    "shirt"    "leggings" "leggings" "shirt"    "shirt"   
- [7] "leggings" "pants"    "sweater"  "sweater" </code></pre>
+<pre><code> [1] "shirt"    "shirt"    "leggings" "shirt"    "leggings" "shirt"   
+ [7] "shirt"    "sweater"  "leggings" "pants"    "sweater"  "sweater" </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>laundryhang <span class="co"># another way to "print" the variable</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "shirt"    "shirt"    "leggings" "leggings" "shirt"    "shirt"   
- [7] "leggings" "pants"    "sweater"  "sweater" </code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># changing the format of the sting variable into a categorical factor</span></span>
+<span id="cb6-2"><a></a>laundryhang <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(laundryhang) </span>
+<span id="cb6-3"><a></a></span>
+<span id="cb6-4"><a></a><span class="co"># graph the non-numeric variable</span></span>
+<span id="cb6-5"><a></a><span class="fu">plot</span>(laundryhang) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>laundryhang <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(laundryhang) <span class="co"># changing the format of the sting variable into a categorical factor</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(laundryhang) <span class="co"># a way to graph the non-numeric variable</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="1L_WhyStats_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<img data-src="1L_WhyStats_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<section id="activty-work-on-lab-1-question-1." class="slide level3">
+<h3><strong>ACTIVTY :</strong> Work on Lab 1, Question 1.</h3>
+<ol type="1">
+<li><strong>Open up the Weekly RScript.</strong> Type some math into the Rscript, and send it to the console. THAT’S RIGHT. YOU ARE A PROGRAMMER. FRIEND OF COMPUTERS. CODE WIZARD.</li>
+<li><strong>Work on Lab 1, Question 1 :</strong> Define two variables in R : one numeric, and one string. <em>Note : you can use the data that we collected in class, or collect your own data (make sure each variable has at least ten data points).</em> “Print” each variable in R, and paste the output as a screenshot. Then, graph the numeric variable as a “histogram” and the string variable as a “plot”. Below each graph, describe what you observe about the individuals in the dataset for each variable.</li>
+</ol>
+</section>
+<section id="r-code-variables-and-variation" class="title-slide slide level2 center">
+<h2>R CODE : Variables and Variation</h2>
+
+</section>
+
+<section id="break-time-meet-back-at-_______" class="title-slide slide level2 center">
+<h2>Break Time: Meet Back at _______</h2>
+<iframe data-external="1" src="https://www.youtube.com/embed/NUnJc82ptd4" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 </section>
 </section>
-<section id="break-time-meet-back-at-425" class="level2">
-<h2 class="anchored" data-anchor-id="break-time-meet-back-at-425">Break Time: Meet Back at 4:25</h2>
+<section>
+<section id="from-variables-to-predictions-and-beyond" class="title-slide slide level1 center">
+<h1>From Variables to Predictions (and Beyond)</h1>
+
 </section>
-<section id="prediction-power" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="prediction-power">Prediction &amp; Power</h2>
-<section id="predictions-in-real-life" class="level3">
-<h3 class="anchored" data-anchor-id="predictions-in-real-life">Predictions in Real Life</h3>
+<section id="prediction-power" class="title-slide slide level2 center">
+<h2>Prediction &amp; Power</h2>
+
+</section>
+<section id="predictions-in-real-life" class="slide level3">
+<h3>Predictions in Real Life</h3>
 <ul>
-<li>EXAMPLE : PROFESSOR WILL LET US OUT EARLY ON THE FIRST DAY
+<li>EXAMPLE : will it rain today?
 <ul>
-<li><strong>Knowledge (what information did you use to make the prediction)?</strong>
-<ul>
-<li>past experience with other professors</li>
-<li>syllabus seemed FUN and LIGHT HEARTED like someone who would let us out EARLY</li>
-<li>you want to get out early…and so will MANIFEST that through the power of PREDICTION.</li>
+<li><strong>Knowledge (what information did you use to make the prediction)?</strong></li>
+<li><strong>Power (ways your predictions influence future behaviors)</strong></li>
+<li><strong>Was The Predicton Valid?</strong></li>
 </ul></li>
-<li><strong>Power (ways your predictions influence future behaviors)</strong>
-<ul>
-<li>making a plan to leave</li>
-<li>trying to see if we can leverage this activity into actually getting out early (#MANIFEST)</li>
-<li>did not bring a snack</li>
-</ul></li>
-<li><strong>Was The Predicton Valid?</strong>
-<ul>
-<li>WE WILL FIND OUT.</li>
-</ul></li>
-<li><strong>Work on Lab Question.</strong> What’s a prediction about people that you made today? What information did you use to make this prediction? How did (or could) you use this prediction to influence outcomes? Were you valid in your predictions? Finally, write a linear model that defines the prediction (and information that you used) as a formula (e.g., DV ~ IV1 + IV2 + … + error).</li>
-<li>STUDENT EXAMPLE : Naomi
-<ul>
-<li>prediction : was gonna be late to class</li>
-<li>knowledge : have practice until 3:30 on Mondays and coaches be like that.</li>
-<li>power :
-<ul>
-<li>rushed after you got let out</li>
-<li>ran uphill</li>
-<li>asked friend (whoI predicted was gonna get here early) to save a seat.</li>
-</ul></li>
-<li>valid : yes, I was 2-minutes late.</li>
-<li>model :
-<ul>
-<li>time to get to class ~ previous class time + coach personality + campus geography + own personal walking speed after tennis practice + weather + ERROR</li>
-</ul></li>
-</ul></li>
-</ul></li>
+<li><strong>Work on Lab Question.</strong> What’s a prediction about people (or the world) that you made today? What information did you use to make this prediction? How did (or could) you use this prediction to influence outcomes? Were you valid in your predictions? Finally, write a linear model that defines the prediction (and information that you used) as a formula (e.g., DV ~ IV1 + IV2 + … + error).</li>
 </ul>
 </section>
-<section id="scientific-predictions" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="scientific-predictions">Scientific Predictions</h3>
+<section id="scientific-predictions" class="slide level3">
+<h3>Scientific Predictions</h3>
 <p>Psychological scientists seek to better understand variation, in order to help make valid predictions in ways that help exert power over our environments.</p>
-<table class="caption-top table">
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Topic</th>
@@ -447,26 +356,23 @@ hist(prof.sleep) # a way to graph the variable (a histogram)</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td><video src="lecture_images/1L_prosthetic.mp4" class="img-fluid" controls=""><a href="lecture_images/1L_prosthetic.mp4">Video</a></video></td>
+<td><video data-src="lecture_images/1L_prosthetic.mp4" controls=""><a href="lecture_images/1L_prosthetic.mp4">Video</a></video></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><img src="lecture_images/1L_fb.png" class="img-fluid" width="600"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></td>
+<td><img data-src="lecture_images/1L_fb.png" width="600"><sup>1</sup></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Here’s <a href="https://www.nytimes.com/2016/05/06/business/facebook-bends-the-rules-of-audience-engagement-to-its-advantage.html">a link to the article</a> where this headline comes from. These data are a little dated, and I couldn’t immediately find more recent data - my guess is Meta does not really want to advertise that people are using the product more and more. However, in <a href="https://s21.q4cdn.com/399680738/files/doc_financials/2024/q2/Earnings-Presentation-Q2-2024.pdf">reports to investors</a> reports consistent growth in metrics like “ad impressions” and “daily active users”. Let me know if you find other sources to show how technology companies are capturing more and more of our attention!</p></div></div></section>
-</section>
-<section id="the-linear-model" class="level2">
-<h2 class="anchored" data-anchor-id="the-linear-model">The Linear Model</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-606362939.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="739"></p>
-</figure>
-</div>
-<section id="recap-definition-and-examples" class="level3">
-<h3 class="anchored" data-anchor-id="recap-definition-and-examples">RECAP : Definition and Examples</h3>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Here’s <a href="https://www.nytimes.com/2016/05/06/business/facebook-bends-the-rules-of-audience-engagement-to-its-advantage.html">a link to the article</a> where this headline comes from. These data are a little dated, and I couldn’t immediately find more recent data - my guess is Meta does not really want to advertise that people are using the product more and more. However, in <a href="https://s21.q4cdn.com/399680738/files/doc_financials/2024/q2/Earnings-Presentation-Q2-2024.pdf">reports to investors</a> reports consistent growth in metrics like “ad impressions” and “daily active users”. Let me know if you find other sources to show how technology companies are capturing more and more of our attention!</p></li></ol></aside></section>
+
+<section id="the-linear-model" class="title-slide slide level2 center">
+<h2>The Linear Model</h2>
+
+<img data-src="images/clipboard-606362939.png" class="quarto-figure quarto-figure-center r-stretch" width="739"></section>
+<section id="recap-definition-and-examples" class="slide level3">
+<h3>RECAP : Definition and Examples</h3>
 <ul>
 <li><p>Steps to Take :&nbsp;</p>
 <ul>
@@ -498,14 +404,10 @@ hist(prof.sleep) # a way to graph the variable (a histogram)</code></pre>
 </ul></li>
 <li><strong>A Real-Life Linear Model in the Wild :</strong></li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcXn1H6Tcp4pWwkbuqkGa9Pw2BW5X8LTLtU4oDmpQwVPHAh-OkVuuWRz7Ir6K3vGW_BYcRgnFsA5baC9KErNgMksdqxswLEeDKZkhyR2n-hZ7CPb8-CJnx_kx8Rd2atrHMxRQuvBR6gE1m61LL1NXi92g1Q?key=-c8GtewYj7xaFRpMDwKIPQ.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="391"></p>
-</figure>
-</div>
-</section>
-<section id="from-prediction-linear-model" class="level3">
-<h3 class="anchored" data-anchor-id="from-prediction-linear-model">From Prediction –&gt; Linear Model</h3>
+
+<img data-src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcXn1H6Tcp4pWwkbuqkGa9Pw2BW5X8LTLtU4oDmpQwVPHAh-OkVuuWRz7Ir6K3vGW_BYcRgnFsA5baC9KErNgMksdqxswLEeDKZkhyR2n-hZ7CPb8-CJnx_kx8Rd2atrHMxRQuvBR6gE1m61LL1NXi92g1Q?key=-c8GtewYj7xaFRpMDwKIPQ.png" class="quarto-figure quarto-figure-center r-stretch" width="391"></section>
+<section id="from-prediction-linear-model" class="slide level3">
+<h3>From Prediction –&gt; Linear Model</h3>
 <ul>
 <li><p>student example prediction :</p>
 <ul>
@@ -517,29 +419,25 @@ hist(prof.sleep) # a way to graph the variable (a histogram)</code></pre>
 </ul></li>
 </ul>
 </section>
-</section>
-<section id="work-on-lab-1-predictions-research-questions." class="level2">
-<h2 class="anchored" data-anchor-id="work-on-lab-1-predictions-research-questions.">Work on Lab 1 : Predictions &amp; Research Questions.</h2>
-<section id="on-your-own" class="level3">
-<h3 class="anchored" data-anchor-id="on-your-own">On Your Own</h3>
-<p><strong>Lab 1, Question 2 :</strong> What’s a prediction about people that you made today? What information did you use to make this prediction? How did (or could) you use this prediction to influence outcomes? Were you valid in your predictions? Finally, write a linear model that defines the prediction (and information that you used) as a formula (e.g., DV ~ IV1 + IV2 + … + error).</p>
-<p><strong>Lab 1, Question 3 :</strong> Identify a research question that you might be interested to study as a psychologist (this could be what you wrote about in Lab 1, or something new.) Then, define the DV for this question, and explain what interests you about this question and how this variable might be understood as an example of affect, behavior, and/or cognition. Next, explain what between-person and within-person variation might look like for this variable. Finally, identify some other variables that you think will predict this DV, and write out this question (and your theory) as a linear model.</p>
-<p><strong>Lab 1, Quesiton 4 (In Discussion Section).</strong> With your discussion section, define each of the six biases described in the Goldacre (2010) reading on cognitive biases, and come up with an example from real-life.</p>
+<section id="take-this-exit-survey-now-tinyurl.comonlinebyeintro" class="slide level3">
+<h3>Take this Exit Survey Now : tinyurl.com/onlinebyeintro</h3>
 </section>
 </section>
-</section>
-<section id="next-time-on-psych-101." class="level1">
+<section id="next-time-on-psych-101." class="title-slide slide level1 center">
 <h1>Next Time on Psych 101.</h1>
 <ul>
-<li>Take this Exit Survey Now : tinyurl.com/onlinebyeintro</li>
 <li>Attend Discussion Section &amp; Complete Lab 1</li>
 <li>Read Chapter 2 &amp; take Quiz 2</li>
 </ul>
 </section>
-<section id="so-you-think-you-want-to-be-a-researcher" class="level1">
+
+<section>
+<section id="so-you-think-you-want-to-be-a-researcher" class="title-slide slide level1 center">
 <h1>So You Think You Want to Be a Researcher?</h1>
-<section id="getting-research-experience-as-an-ra" class="level2">
-<h2 class="anchored" data-anchor-id="getting-research-experience-as-an-ra">Getting Research Experience as an RA</h2>
+
+</section>
+<section id="getting-research-experience-as-an-ra" class="title-slide slide level2 center">
+<h2>Getting Research Experience as an RA</h2>
 <ul>
 <li><p><strong>RA = Research Assistant</strong></p>
 <ul>
@@ -579,8 +477,9 @@ hist(prof.sleep) # a way to graph the variable (a histogram)</code></pre>
 </ul></li>
 </ul>
 </section>
-<section id="applying-to-graduate-school" class="level2">
-<h2 class="anchored" data-anchor-id="applying-to-graduate-school">Applying to Graduate School</h2>
+
+<section id="applying-to-graduate-school" class="title-slide slide level2 center">
+<h2>Applying to Graduate School</h2>
 <ul>
 <li><p><strong>You are applying to work on research with a specific professor(s) at a school.</strong></p>
 <ul>
@@ -602,26 +501,27 @@ hist(prof.sleep) # a way to graph the variable (a histogram)</code></pre>
 <li><p><strong>Clinical Students : some kind of clinical internship / experience 😟</strong></p></li>
 <li><p><strong>Talk to people who are doing the thing you want to be doing about their journey</strong></p></li>
 </ul>
-<section id="the-academic-job-market" class="level3">
-<h3 class="anchored" data-anchor-id="the-academic-job-market">The Academic Job Market</h3>
+</section>
+<section id="the-academic-job-market" class="slide level3">
+<h3>The Academic Job Market</h3>
 <p>Some Data [<a href="https://ncses.nsf.gov/pubs/nsf24300/report/postgraduation-trends#definite-commitments-at-graduation">Source</a>]</p>
-<table class="caption-top table">
+<table class="caption-top">
 <colgroup>
-<col style="width: 31%">
-<col style="width: 62%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <tbody>
 <tr class="odd">
 <td>PhDs get jobs?</td>
-<td><img src="lecture_images/1L_jobs1.png" class="img-fluid"></td>
+<td><img data-src="lecture_images/1L_jobs1.png"></td>
 </tr>
 <tr class="even">
 <td>but not in academia…</td>
-<td><img src="lecture_images/1L_jobs2.png" class="img-fluid"></td>
+<td><img data-src="lecture_images/1L_jobs2.png"></td>
 </tr>
 <tr class="odd">
 <td>$$$$$$$$</td>
-<td><img src="lecture_images/1L_jobs3.png" class="img-fluid"></td>
+<td><img data-src="lecture_images/1L_jobs3.png"></td>
 </tr>
 </tbody>
 </table>
@@ -629,413 +529,435 @@ hist(prof.sleep) # a way to graph the variable (a histogram)</code></pre>
 
 </section>
 </section>
-</section>
 
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
 
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
-    }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
-    }
-    const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
-    });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
-    }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-        }
-      }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
         },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
-    }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
       });
-    }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
         }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
             }
           }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
           }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
           }
-          return note.innerHTML;
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
         }
-      } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+                // target, if specified
+                link.setAttribute("target", "_blank");
+                if (link.getAttribute("rel") === null) {
+                  link.setAttribute("rel", "noopener");
+                }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
         }
-      }
-    }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
         }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
             }
           } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
             });
           }
-        } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
-            if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
         }
-      }, function(instance) {
       });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
-      } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
-        });
-      }
-    }
-  });
-  </script>
-</div> <!-- /content -->
-
-
-
+      </script>
+    
 
 </body></html>

@@ -1,0 +1,44 @@
+---
+title: ""
+format: html
+editor: visual
+---
+
+## Week 2 - Friday, January 30th
+
+### Class Slides
+
+```{=html}
+<iframe class="slide-deck" src="/calstats/Lectures/1L_WhyStats.html" width="100%" height="500px" title=""></iframe>
+```
+
+### Due Next Week
+
+1.  Attend Discussion Section
+2.  Complete Lab 1
+3.  Read the [Chapter 2](https://catterson.github.io/ystats/chapters/2R_Data.html) of ***Why Statistics?*** on Data.
+4.  Complete Quiz 3 on bCourses.
+
+# Lab 2
+
+**Copy and paste these questions into a document (Google Doc or Word).** Please number your responses to help your GSI grade. There’s no word count, and we won’t penalize students for grammar or spelling. Do your best to explain your ideas in your own words, and if you get stuck or confused, post on Discord / ask your GSI / explain why you got stuck and what you tried to do to figure things out.
+
+1.  **Define two variables in R : one numeric, and one string.** *You can use the data that we collected in class, or collect your own data (make sure each variable has at least ten data points).* “Print” each variable in R, and paste the output as a screenshot. Then, graph the numeric variable as a “histogram” and the string variable as a “plot”. Below each graph, describe what you observe about the individuals in the dataset for each variable.
+
+2.  **What’s a prediction about people that you made today?** What information did you use to make this prediction? How did (or could) you use this prediction to influence outcomes? Were you valid in your predictions? Finally, write a linear model that defines the prediction (and information that you used) as a formula (e.g., DV \~ IV1 + IV2 + … + error).
+
+3.  **Define a linear model that you might use for your final project.** Why does this research question interest you? Do you think it's possible to make perfect predictions about this dependent variable? How might you use this knowledge to change the world (For good? For bad?)
+
+4.  **In Discussion Section.** With your discussion section, define each of the six biases described in the Goldacre (2010) reading on cognitive biases, and come up with an example from real-life.
+
+|                        |                |                       |
+|------------------------|----------------|-----------------------|
+| **Bias**               | **Definition** | **Real-Life Example** |
+| Positive Evidence      |                |                       |
+| Previous Belief        |                |                       |
+| Patterns in Randomness |                |                       |
+| Availability Bias      |                |                       |
+| Social Influence       |                |                       |
+| Regression to the Mean |                |                       |
+
+5.  **AI Disclosure.** Please describe how you used AI tools; make sure you include specific prompts here. Thanks!

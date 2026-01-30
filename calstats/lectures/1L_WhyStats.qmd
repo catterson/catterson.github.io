@@ -1,259 +1,124 @@
 ---
-title: "Class 1 | Why Statistics?"
-format: html
-#format: revealjs
-#chalkboard: true
+title: "Chapter 1 | Why Statistics?"
+format: 
+  revealjs: 
+    slide-level: 3
+    link-external-newwindow: true
+    chalkboard: true
+    controls: true
+    code-overflow: wrap
+tbl-colwidths: [50,50]
 ---
 
 # Hello Again!
 
-[**click on this link to check-in (or visit : tinyurl.com/first101class)**](https://docs.google.com/forms/d/e/1FAIpQLSekU91xhyXiYxxOsWbSGuJ3pAmPOazq9L_24hkcQpej-n0bBg/viewform?usp=header)
+-   **these notes on bCourses, or :** [catterson.github.io/calstats/calstatsSP26.html](https://catterson.github.io/calstats/calstatsSP26.html)
+
+-   [**click on this link to check-in**](https://docs.google.com/forms/d/e/1FAIpQLSekU91xhyXiYxxOsWbSGuJ3pAmPOazq9L_24hkcQpej-n0bBg/viewform?usp=header)
+
+![](images/clipboard-792871999.png){fig-align="center"}
 
 ## Announcements
 
--   **Section Swap :** post on bCourses to find someone to swap with.
--   **Waitlisted Students :** Thanks for your patience! Go bears...
--   **Join the Class Discord :** link on bCourses
--   **Next Week :**
-    -   Attend Discussion Section
-    -   Read Chapter 1
-    -   Complete Quiz 1
+-   **Section Swap :** post on bCourses to find someone to swap with (now open.)
+-   **Waitlisted Students :** Thanks for your patience! Go bears.
+-   **Office Hours :** Fridays at 9:00 AM on Zoom.
 
 ## Agenda
 
 -   2:10 - 2:20 : Check-In & Announcements
--   2:20 - 2:30 : RECAP : Variables and Variation
--   2:30 - 3:20 : IN R : Defining Variables
--   4:20 - 4:30 : Break #1
--   4:30 - 5:00 : RECAP : Prediction and Linear Models
--   5:00 - 5:05 : Break #2
--   5:05 - 5:30 : DISCUSSION : Research Questions as Linear Model
--   5:30 - 6:00 : So you're interested in going to graduate school?
+-   2:20 - 3:20 : Defining Variables in R
+-   3:20 - 3:30 : Break #1
+-   3:30 - 4:00 : From (Research) Questions to Linear Models to Predictions
+-   4:00 - 4:05 : Break #2
+-   4:05 - 4:30 : So you're interested in going to graduate school?
+-   4:30 - 5:00 : DISCUSSION : Project Questions
 
-# Part 1 : Who and Why and What Statistics?
+# RECAP : Defining Research Questions
 
-## Who Statistics?
+### Student Examples from Milestone #1
 
--   **Professor :** Arman (Daniel) Catterson
+-   What's the variable at the focus of the following questions?
+-   What does between vs. within-person variation look like?
+-   Are you interested in the AFFECT, BEHAVIOR, or COGNITIVE part of this variable?
 
-    -   **say :** Arman…Professor…Professor Catterson…Dr. Catterson
+### Developing Research Questions from Real-Life
 
-    -   **from :** Austin, TX to UC Berkeley to stayin in the bay forever 😎 teaching here and at Diablo Valley College
+-   What are some real-life events that we want to better understand or change?
+-   What are some research questions that we might develop based on real-life events?
+-   How can we think about these questions using the ABCs of Psychology?
+-   Is this a question about between-person or within-person variation?
 
-    -   
-
-## Why Statistics?
-
-## What Statistics?
-
-## Activity : Variables and Variation in the Room
-
-**Class Activity.** Let's create a list of variables that we observe in this classroom.
-
--   color of shirt
-
--   glasses
-
--   hair length
-
--   gender
-
-    -   affect : gender norms in how we are raised to process emotions (example : boys are taught to suppress SOME emotions, and okay / encouraged to express others like AnGER, whereas girls are perceieved as being "overly-emotional"; but okay to be ANGRY...."
-
-    -   behavior : "gender norms" in terms of roles, occupations, behavior, language (e.g., women are "homemakers" who raise the children.)
-
-    -   cognition : how you perceive yourself based on your gender (transgender identity); how you perceive yourself acting in a gender role in relationship that is in a patriarchal context (OR NOT!)
-
--   transfer vs/ non-transfer
-
--   eye color
-
--   height
-
-**Key Terms.** From the readings.
-
--   Affect, Behavior, Cognition
-
--   Between vs. Within-Person Variation
-
-**\[7 Minutes\] Answer the following questions with your buddy.**
-
-Find a buddy in the class! (There's a discord thread if you prefer to communicate with someone online.)
-
--   If you could have dinner with anyone in the world (living or dead) who would it be?
-
--   Why are you a psychology major? What interests you about people (or non-human animals)?
-
--   How would you label this interest as a variable?
-
-    -   Are you interested in the between-person or within-person version of this variable?
-
-    -   Are you interested in the Affective, Behavioral, or Cognitive aspect of this variable?
-
-**Student Examples**
-
--   liam : living on vs. off campus and how that perceived stress
-
-    -   stress : affect
-
-    -   living situation (on vs. off) : behavior
-
--   isabella : disorders (psychosis or schizophrenia)
-
-**Student Questions :**
-
--   is it possible to study how people become emotionally involved with AI?
-
-    -   YES!!!
-
-# IN R : Defining Variables
-
-## Thinking about Programming (Free Association Activity)
-
--   Close your eyes
--   Take a deep breath (inhale / exhale)
--   Visualize an image based on the word that you hear me say.
--   What do you observe?
-
-## The R Console
-
-The console is where R does its work.
-
--   **ACTIVITY :** Look at the image below. What do you see? What makes sense / what seems confusing?
-
--   ![](lecture_images/1_RConsole.png){width="522"}
-
-## R Studio and Source Files (.R)
-
-In this class, we'll be using RStudio. RStudio is an IDE (Integrated Development Environment) that includes the console along with other useful windows and tools.
-
--   **The Console** is at the bottom left of the IDE. Hi console!
--   **The R script** is at the top left of the IDE, and is a document that you use to write (and organize) code. You will want to do most of your work in the R script, and feel an appropriate level of anxiety when you notice that your Rscript is unsaved (as indicated by the red text and \*).
--   **The Environment** is at the top right of the IDE, and shows you all of the "objects" that you have defined in R.
--   **The File Window** is at the bottom right of the IDE, and shows you the files. Note that there are tabs here for Plots (where graphs will pop up), Packages (things you can download to give R extra features), a Help viewer (sometimes very useful!).
-
-![](lecture_images/clipboard-1807596003.png)
-
-### **ACTIVTY :** open up RStudio
-
-1.  **You are Programming!** Type some math into an Rscript, and send it to the console. THAT'S RIGHT.
-2.  **Work on Lab 1, Question 1 :** Define two variables in R : one numeric, and one string. *Note : you can use the data that we collected in class, or collect your own data (make sure each variable has at least ten data points).* “Print” each variable in R, and paste the output as a screenshot. Then, graph the numeric variable as a “histogram” and the string variable as a “plot”. Below your graph, describe what you observe about the individuals in the dataset for each variable. See the lecture videos in Chapter 2 for a guide on how to do this!
-
-## R CODE : Variables and Variation
+# Part 1 : Defining Variables in R
 
 ### Numeric Variables in R
 
-+---------------------------------+----------------------------------------------------------------------------------------------------+
-| Code                            | Description                                                                                        |
-+=================================+====================================================================================================+
-| ``` r                           | **variable** = an object that you will define in R                                                 |
-| variable <- c(#, #, #, #, etc.) |                                                                                                    |
-|                                 | **\<-** = “assign”; tells R to save whatever comes on the right to whatever object is on the left. |
-|                                 |                                                                                                    |
-|                                 | **c** = combine : tells R to combine whatever happens in the parentheses                           |
-| tired <- c(1,2,3,4)             |                                                                                                    |
-| ```                             | **()** = parentheses to group related terms                                                        |
-|                                 |                                                                                                    |
-|                                 | **\# =** what you store in the variable; each item should be separated by a comma and space.       |
-+---------------------------------+----------------------------------------------------------------------------------------------------+
-| ``` r                           | **For continuous variables :** draws a histogram.                                                  |
-| hist(dat$variable)              |                                                                                                    |
-| ```                             |                                                                                                    |
-+---------------------------------+----------------------------------------------------------------------------------------------------+
+### ![](images/clipboard-812337385.png)
 
-## Example : Creating Numeric Variables
+### In R : Creating Numeric Variables
 
 Note : the code below might not run depending on your browser settings. professor will demonstrate this in class using R.
 
-```{webr}
-prof.sleep <- c(5.5, 5, 7, 8.5, 6.5, 5, 7.0, 7.5, 7.5, 6, 6.5, 5) # hours of sleep professor got the last few nights.
-print(prof.sleep) # one way to "print" the variable
-prof.sleep # another way to "print" the variable
-hist(prof.sleep) # a way to graph the variable (a histogram)
+```{R}
+#| echo: true
+# defining the hours of sleep I got the last few nights.
+prof.sleep <- c(5.5, 5, 7, 8.5, 6.5, 5, 7.0, 7.5, 7.5, 6, 6.5, 5) 
+prof.sleep # this asks R to show the variable
+hist(prof.sleep) # this asks R to graph the variable (a histogram)
 ```
 
-## String Variables
+### String Variables in R
 
-+------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``` r                                          | **variable** = an object that you will define in R                                                                                                              |
-| variable <- c(“name1”, “name2”, “name1”, etc.) |                                                                                                                                                                 |
-|                                                | **\<-** = “assign”; tells R to save whatever comes on the right to whatever object is on the left.                                                              |
-| emotion <- c(“sad”, “happy”, “sad”)            |                                                                                                                                                                 |
-| ```                                            | **c** = combine : tells R to combine whatever happens in the parentheses                                                                                        |
-|                                                |                                                                                                                                                                 |
-|                                                | **()** = parentheses to group related terms                                                                                                                     |
-|                                                |                                                                                                                                                                 |
-|                                                | **\# =** what you store in the variable; each item should be separated by a comma and space.                                                                    |
-+------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``` r                                          | **as.factor()** \# converts a string variable into a categorical factor                                                                                         |
-| as.factor(variable)                            |                                                                                                                                                                 |
-|                                                |                                                                                                                                                                 |
-| as.factor(emotion)                             |                                                                                                                                                                 |
-| ```                                            |                                                                                                                                                                 |
-+------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ```                                            | **\# “**saves” this conversion as the original variable                                                                                                         |
-| variable <- as.factor(variable)                |                                                                                                                                                                 |
-| ```                                            |                                                                                                                                                                 |
-+------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``` r                                          | **For categorical variables :** draws a barplot. For continuous variables :  illustrates values of the variable (y-axis) as a function of their index (x-axis). |
-| plot(dat$variable)                             |                                                                                                                                                                 |
-| ```                                            |                                                                                                                                                                 |
-+------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+![](images/clipboard-2893888681.png)
 
-### Example in R : Creating Non-Numeric Variables
-
-The data below describe the categories of family laundry that was hanging in my apartment to dry. As before, the code below might not run depending on your browser settings. professor will demonstrate this in class using R.
+### Example in R : Creating Non-Numeric Variables {.smaller}
 
 ```{r}
-laundryhang <- c("shirt", "shirt", "leggings", "leggings", "shirt", 
-             "shirt", "leggings", "pants", "sweater", "sweater") # defining a string variable
-print(laundryhang)
+#| echo: true
+# defining the string variable; laundry I was drying.
+laundryhang <- c("shirt", "shirt", "leggings", "shirt", 
+                 "leggings", "shirt", "shirt", "sweater",
+                 "leggings", "pants", "sweater", "sweater")
 laundryhang # another way to "print" the variable
 
-laundryhang <- as.factor(laundryhang) # changing the format of the sting variable into a categorical factor
-plot(laundryhang) # a way to graph the non-numeric variable
+# changing the format of the sting variable into a categorical factor
+laundryhang <- as.factor(laundryhang) 
+
+# graph the non-numeric variable
+plot(laundryhang) 
 ```
 
-## Break Time: Meet Back at 4:25
+### **ACTIVTY :** Work on Lab 1, Question 1.
+
+1.  **Open up the Weekly RScript.** Type some math into the Rscript, and send it to the console. THAT'S RIGHT. YOU ARE A PROGRAMMER. FRIEND OF COMPUTERS. CODE WIZARD.
+2.  **Work on Lab 1, Question 1 :** Define two variables in R : one numeric, and one string. *Note : you can use the data that we collected in class, or collect your own data (make sure each variable has at least ten data points).* “Print” each variable in R, and paste the output as a screenshot. Then, graph the numeric variable as a “histogram” and the string variable as a “plot”. Below each graph, describe what you observe about the individuals in the dataset for each variable.
+
+## R CODE : Variables and Variation
+
+## Break Time: Meet Back at \_\_\_\_\_\_\_
+
+{{< video https://www.youtube.com/watch?v=NUnJc82ptd4 >}}
+
+# From Variables to Predictions (and Beyond)
 
 ## Prediction & Power
 
 ### Predictions in Real Life
 
--   EXAMPLE : PROFESSOR WILL LET US OUT EARLY ON THE FIRST DAY
+-   EXAMPLE : will it rain today?
     -   **Knowledge (what information did you use to make the prediction)?**
-        -   past experience with other professors
-        -   syllabus seemed FUN and LIGHT HEARTED like someone who would let us out EARLY
-        -   you want to get out early...and so will MANIFEST that through the power of PREDICTION.
     -   **Power (ways your predictions influence future behaviors)**
-        -   making a plan to leave
-        -   trying to see if we can leverage this activity into actually getting out early (#MANIFEST)
-        -   did not bring a snack
     -   **Was The Predicton Valid?**
-        -   WE WILL FIND OUT.
-    -   **Work on Lab Question.** What’s a prediction about people that you made today? What information did you use to make this prediction? How did (or could) you use this prediction to influence outcomes? Were you valid in your predictions? Finally, write a linear model that defines the prediction (and information that you used) as a formula (e.g., DV \~ IV1 + IV2 + … + error).
-    -   STUDENT EXAMPLE : Naomi
-        -   prediction : was gonna be late to class
-        -   knowledge : have practice until 3:30 on Mondays and coaches be like that.
-        -   power :
-            -   rushed after you got let out
-            -   ran uphill
-            -   asked friend (whoI predicted was gonna get here early) to save a seat.
-        -   valid : yes, I was 2-minutes late.
-        -   model :
-            -   time to get to class \~ previous class time + coach personality + campus geography + own personal walking speed after tennis practice + weather + ERROR
+-   **Work on Lab Question.** What’s a prediction about people (or the world) that you made today? What information did you use to make this prediction? How did (or could) you use this prediction to influence outcomes? Were you valid in your predictions? Finally, write a linear model that defines the prediction (and information that you used) as a formula (e.g., DV \~ IV1 + IV2 + … + error).
 
 ### Scientific Predictions
 
 Psychological scientists seek to better understand variation, in order to help make valid predictions in ways that help exert power over our environments.
 
-+------------------------------------------------+-------------------------------+
-| Topic                                          | Other Questions We Might Ask? |
-+================================================+===============================+
-| ![](lecture_images/1L_prosthetic.mp4)          |                               |
-+------------------------------------------------+-------------------------------+
-| ![](lecture_images/1L_fb.png){width="600"}[^1] |                               |
-+------------------------------------------------+-------------------------------+
+| Topic | Other Questions We Might Ask? |
+|----|----|
+| ![](lecture_images/1L_prosthetic.mp4) |  |
+| ![](lecture_images/1L_fb.png){width="600"}[^1] |  |
 
 [^1]: Here's [a link to the article](https://www.nytimes.com/2016/05/06/business/facebook-bends-the-rules-of-audience-engagement-to-its-advantage.html) where this headline comes from. These data are a little dated, and I couldn't immediately find more recent data - my guess is Meta does not really want to advertise that people are using the product more and more. However, in [reports to investors](https://s21.q4cdn.com/399680738/files/doc_financials/2024/q2/Earnings-Presentation-Q2-2024.pdf) reports consistent growth in metrics like "ad impressions" and "daily active users". Let me know if you find other sources to show how technology companies are capturing more and more of our attention!
 
@@ -306,19 +171,10 @@ Psychological scientists seek to better understand variation, in order to help m
 
     -   as a model :
 
-## Work on Lab 1 : Predictions & Research Questions.
-
-### On Your Own
-
-**Lab 1, Question 2 :** What’s a prediction about people that you made today? What information did you use to make this prediction? How did (or could) you use this prediction to influence outcomes? Were you valid in your predictions? Finally, write a linear model that defines the prediction (and information that you used) as a formula (e.g., DV \~ IV1 + IV2 + … + error).
-
-**Lab 1, Question 3 :** Identify a research question that you might be interested to study as a psychologist (this could be what you wrote about in Lab 1, or something new.) Then, define the DV for this question, and explain what interests you about this question and how this variable might be understood as an example of affect, behavior, and/or cognition. Next, explain what between-person and within-person variation might look like for this variable. Finally, identify some other variables that you think will predict this DV, and write out this question (and your theory) as a linear model.
-
-**Lab 1, Quesiton 4 (In Discussion Section).** With your discussion section, define each of the six biases described in the Goldacre (2010) reading on cognitive biases, and come up with an example from real-life.
+### Take this Exit Survey Now : tinyurl.com/onlinebyeintro
 
 # Next Time on Psych 101.
 
--   Take this Exit Survey Now : tinyurl.com/onlinebyeintro
 -   Attend Discussion Section & Complete Lab 1
 -   Read Chapter 2 & take Quiz 2
 
@@ -406,10 +262,8 @@ Psychological scientists seek to better understand variation, in order to help m
 
 Some Data \[[Source](https://ncses.nsf.gov/pubs/nsf24300/report/postgraduation-trends#definite-commitments-at-graduation)\]
 
-+----------------------+--------------------------------------------+
-| PhDs get jobs?       | ![](lecture_images/1L_jobs1.png)           |
-+----------------------+--------------------------------------------+
-| but not in academia… | ![](lecture_images/1L_jobs2.png)           |
-+----------------------+--------------------------------------------+
-| \$\$\$\$\$\$\$\$     | ![](lecture_images/1L_jobs3.png)           |
-+----------------------+--------------------------------------------+
+|                      |                                  |
+|----------------------|----------------------------------|
+| PhDs get jobs?       | ![](lecture_images/1L_jobs1.png) |
+| but not in academia… | ![](lecture_images/1L_jobs2.png) |
+| \$\$\$\$\$\$\$\$     | ![](lecture_images/1L_jobs3.png) |
