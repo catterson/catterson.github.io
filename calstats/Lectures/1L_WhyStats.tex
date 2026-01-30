@@ -7,8 +7,10 @@
 \documentclass[
   letterpaper,
   DIV=11,
-  numbers=noendperiod]{scrartcl}
+  numbers=noendperiod,
+  oneside]{scrartcl}
 \usepackage{xcolor}
+\usepackage[left=1in,marginparwidth=2.0666666666667in,textwidth=4.1333333333333in,marginparsep=0.3in]{geometry}
 \usepackage{amsmath,amssymb}
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 \usepackage{iftex}
@@ -194,11 +196,15 @@
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
+\makeatletter
+\@ifpackageloaded{sidenotes}{}{\usepackage{sidenotes}}
+\@ifpackageloaded{marginnote}{}{\usepackage{marginnote}}
+\makeatother
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
-  pdftitle={Class 1 \textbar{} Why Statistics?},
+  pdftitle={Chapter 1 \textbar{} Why Statistics?},
   colorlinks=true,
   linkcolor={blue},
   filecolor={Maroon},
@@ -207,7 +213,7 @@
   pdfcreator={LaTeX via pandoc}}
 
 
-\title{Class 1 \textbar{} Why Statistics?}
+\title{Chapter 1 \textbar{} Why Statistics?}
 \author{}
 \date{}
 \begin{document}
@@ -216,32 +222,35 @@
 
 \section{Hello Again!}\label{hello-again}
 
-\href{https://docs.google.com/forms/d/e/1FAIpQLSekU91xhyXiYxxOsWbSGuJ3pAmPOazq9L_24hkcQpej-n0bBg/viewform?usp=header}{\textbf{click
-on this link to check-in (or visit : tinyurl.com/first101class)}}
+\begin{itemize}
+\item
+  \textbf{these notes on bCourses, or :}
+  \href{https://catterson.github.io/calstats/calstatsSP26.html}{catterson.github.io/calstats/calstatsSP26.html}
+\item
+  find these notes, then
+  \href{https://docs.google.com/forms/d/e/1FAIpQLSekU91xhyXiYxxOsWbSGuJ3pAmPOazq9L_24hkcQpej-n0bBg/viewform?usp=header}{\textbf{click
+  on this link to check-in}}
+\end{itemize}
+
+\begin{center}
+\pandocbounded{\includegraphics[keepaspectratio]{images/clipboard-792871999.png}}
+\end{center}
 
 \subsection{Announcements}\label{announcements}
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Section Swap :} post on bCourses to find someone to swap with.
+  \textbf{Section Swap :} post on bCourses your \& swap buddy info (now
+  open.)
 \item
-  \textbf{Waitlisted Students :} Thanks for your patience! Go
-  bears\ldots{}
+  \textbf{Office Hours :} Fridays at 9:00 AM on Zoom.
 \item
-  \textbf{Join the Class Discord :} link on bCourses
+  Commuinicate course conflicts with GSI (okay to miss lecture; watch
+  recording \& do check-in.)
 \item
-  \textbf{Next Week :}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Attend Discussion Section
-  \item
-    Read Chapter 1
-  \item
-    Complete Quiz 1
-  \end{itemize}
+  \textbf{Next Week :} Section, Lab 1 (\emph{Partial Key Posted}),
+  Chapter 2 Quiz, Lecture, Repeat.
 \end{itemize}
 
 \subsection{Agenda}\label{agenda}
@@ -251,520 +260,180 @@ on this link to check-in (or visit : tinyurl.com/first101class)}}
 \item
   2:10 - 2:20 : Check-In \& Announcements
 \item
-  2:20 - 2:30 : RECAP : Variables and Variation
+  2:20 - 3:20 : Variables
 \item
-  2:30 - 3:20 : IN R : Defining Variables
+  3:20 - 3:30 : Break \#1
 \item
-  4:20 - 4:30 : Break \#1
+  3:30 - 4:00 : Linear Models and Predictions
 \item
-  4:30 - 5:00 : RECAP : Prediction and Linear Models
+  4:00 - 4:05 : Break \#2
 \item
-  5:00 - 5:05 : Break \#2
+  4:05 - 4:30 : So you're interested in going to graduate school?
 \item
-  5:05 - 5:30 : DISCUSSION : Research Questions as Linear Model
-\item
-  5:30 - 6:00 : So you're interested in going to graduate school?
+  4:30 - 5:00 : DISCUSSION : Project Questions
 \end{itemize}
 
-\section{Part 1 : Who and Why and What
-Statistics?}\label{part-1-who-and-why-and-what-statistics}
+\section{Part 1 : Variables}\label{part-1-variables}
 
-\subsection{Who Statistics?}\label{who-statistics}
+\subsection{RECAP : Defining Research
+Questions}\label{recap-defining-research-questions}
 
-\begin{itemize}
-\item
-  \textbf{Professor :} Arman (Daniel) Catterson
-
-  \begin{itemize}
-  \item
-    \textbf{say :} Arman\ldots Professor\ldots Professor
-    Catterson\ldots Dr.~Catterson
-  \item
-    \textbf{from :} Austin, TX to UC Berkeley to stayin in the bay
-    forever 😎 teaching here and at Diablo Valley College
-  \item
-  \end{itemize}
-\end{itemize}
-
-\subsection{Why Statistics?}\label{why-statistics}
-
-\subsection{What Statistics?}\label{what-statistics}
-
-\subsection{Activity : Variables and Variation in the
-Room}\label{activity-variables-and-variation-in-the-room}
-
-\textbf{Class Activity.} Let's create a list of variables that we
-observe in this classroom.
-
-\begin{itemize}
-\item
-  color of shirt
-\item
-  glasses
-\item
-  hair length
-\item
-  gender
-
-  \begin{itemize}
-  \item
-    affect : gender norms in how we are raised to process emotions
-    (example : boys are taught to suppress SOME emotions, and okay /
-    encouraged to express others like AnGER, whereas girls are
-    perceieved as being ``overly-emotional''; but okay to be
-    ANGRY\ldots.''
-  \item
-    behavior : ``gender norms'' in terms of roles, occupations,
-    behavior, language (e.g., women are ``homemakers'' who raise the
-    children.)
-  \item
-    cognition : how you perceive yourself based on your gender
-    (transgender identity); how you perceive yourself acting in a gender
-    role in relationship that is in a patriarchal context (OR NOT!)
-  \end{itemize}
-\item
-  transfer vs/ non-transfer
-\item
-  eye color
-\item
-  height
-\end{itemize}
-
-\textbf{Key Terms.} From the readings.
-
-\begin{itemize}
-\item
-  Affect, Behavior, Cognition
-\item
-  Between vs.~Within-Person Variation
-\end{itemize}
-
-\textbf{{[}7 Minutes{]} Answer the following questions with your buddy.}
-
-Find a buddy in the class! (There's a discord thread if you prefer to
-communicate with someone online.)
-
-\begin{itemize}
-\item
-  If you could have dinner with anyone in the world (living or dead) who
-  would it be?
-\item
-  Why are you a psychology major? What interests you about people (or
-  non-human animals)?
-\item
-  How would you label this interest as a variable?
-
-  \begin{itemize}
-  \item
-    Are you interested in the between-person or within-person version of
-    this variable?
-  \item
-    Are you interested in the Affective, Behavioral, or Cognitive aspect
-    of this variable?
-  \end{itemize}
-\end{itemize}
-
-\textbf{Student Examples}
-
-\begin{itemize}
-\item
-  liam : living on vs.~off campus and how that perceived stress
-
-  \begin{itemize}
-  \item
-    stress : affect
-  \item
-    living situation (on vs.~off) : behavior
-  \end{itemize}
-\item
-  isabella : disorders (psychosis or schizophrenia)
-\end{itemize}
-
-\textbf{Student Questions :}
-
-\begin{itemize}
-\item
-  is it possible to study how people become emotionally involved with
-  AI?
-
-  \begin{itemize}
-  \tightlist
-  \item
-    YES!!!
-  \end{itemize}
-\end{itemize}
-
-\section{IN R : Defining Variables}\label{in-r-defining-variables}
-
-\subsection{Thinking about Programming (Free Association
-Activity)}\label{thinking-about-programming-free-association-activity}
+\subsubsection{Student Examples from Milestone
+\#1}\label{student-examples-from-milestone-1}
 
 \begin{itemize}
 \tightlist
 \item
-  Close your eyes
+  What's the variable at the focus of the following questions?
 \item
-  Take a deep breath (inhale / exhale)
+  What does between vs.~within-person variation look like? Which one is
+  more interesting to you?
 \item
-  Visualize an image based on the word that you hear me say.
+  Are you interested in the AFFECT, BEHAVIOR, or COGNITIVE part of this
+  variable?
 \item
-  What do you observe?
+  How would you measure this variable with numbers? Do you think this is
+  possible?
 \end{itemize}
 
-\subsection{The R Console}\label{the-r-console}
-
-The console is where R does its work.
-
-\begin{itemize}
-\item
-  \textbf{ACTIVITY :} Look at the image below. What do you see? What
-  makes sense / what seems confusing?
-\item
-  \includegraphics[width=5.4375in,height=\textheight,keepaspectratio]{lecture_images/1_RConsole.png}
-\end{itemize}
-
-\subsection{R Studio and Source Files
-(.R)}\label{r-studio-and-source-files-.r}
-
-In this class, we'll be using RStudio. RStudio is an IDE (Integrated
-Development Environment) that includes the console along with other
-useful windows and tools.
+\subsubsection{Developing Research Questions from
+Real-Life}\label{developing-research-questions-from-real-life}
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{The Console} is at the bottom left of the IDE. Hi console!
+  What are some real-life events that we want to better understand or
+  change?
 \item
-  \textbf{The R script} is at the top left of the IDE, and is a document
-  that you use to write (and organize) code. You will want to do most of
-  your work in the R script, and feel an appropriate level of anxiety
-  when you notice that your Rscript is unsaved (as indicated by the red
-  text and *).
+  What are some research questions that we might develop based on
+  real-life events?
 \item
-  \textbf{The Environment} is at the top right of the IDE, and shows you
-  all of the ``objects'' that you have defined in R.
+  How can we think about these questions using the ABCs of Psychology?
 \item
-  \textbf{The File Window} is at the bottom right of the IDE, and shows
-  you the files. Note that there are tabs here for Plots (where graphs
-  will pop up), Packages (things you can download to give R extra
-  features), a Help viewer (sometimes very useful!).
+  Is this a question about between-person or within-person variation?
+\item
+  How would you measure this variable with numbers? Do you think this is
+  possible?
 \end{itemize}
 
-\pandocbounded{\includegraphics[keepaspectratio]{lecture_images/clipboard-1807596003.png}}
+\subsection{From Research Questions to Variables in
+R}\label{from-research-questions-to-variables-in-r}
 
-\subsubsection{\texorpdfstring{\textbf{ACTIVTY :} open up
-RStudio}{ACTIVTY : open up RStudio}}\label{activty-open-up-rstudio}
+\subsubsection{Numeric Variables in R}\label{numeric-variables-in-r}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/clipboard-812337385.png}}
+
+\subsubsection{Example In R : Creating Numeric
+Variables}\label{example-in-r-creating-numeric-variables}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{num.var }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{6}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{7}\NormalTok{)}
+\FunctionTok{hist}\NormalTok{(num.var)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{1L_WhyStats_files/figure-pdf/unnamed-chunk-1-1.pdf}}
+
+\subsubsection{String Variables in R}\label{string-variables-in-r}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/clipboard-2893888681.png}}
+
+\subsubsection{Example in R : Creating Non-Numeric
+Variables}\label{example-in-r-creating-non-numeric-variables}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cat.var }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"string"}\NormalTok{, }\StringTok{"string"}\NormalTok{, }\StringTok{"string"}\NormalTok{, }\StringTok{"yarn"}\NormalTok{)}
+\NormalTok{cat.var }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(cat.var)}
+\FunctionTok{plot}\NormalTok{(cat.var)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{1L_WhyStats_files/figure-pdf/unnamed-chunk-2-1.pdf}}
+
+\subsubsection{\texorpdfstring{\textbf{ACTIVTY :} Work on Lab 1,
+Question
+1.}{ACTIVTY : Work on Lab 1, Question 1.}}\label{activty-work-on-lab-1-question-1.}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \textbf{You are Programming!} Type some math into an Rscript, and send
-  it to the console. THAT'S RIGHT.
+  \textbf{Access Lab 1 (in the Week notes).} Copy and paste the
+  questions into a Word or Google Document.
+\item
+  \textbf{Open RStudio and a new RScript.} Type some math into the
+  Rscript, and send it to the console. THAT'S RIGHT. YOU ARE A
+  PROGRAMMER. FRIEND OF COMPUTERS. CODE WIZARD.
 \item
   \textbf{Work on Lab 1, Question 1 :} Define two variables in R : one
   numeric, and one string. \emph{Note : you can use the data that we
   collected in class, or collect your own data (make sure each variable
   has at least ten data points).} ``Print'' each variable in R, and
   paste the output as a screenshot. Then, graph the numeric variable as
-  a ``histogram'' and the string variable as a ``plot''. Below your
+  a ``histogram'' and the string variable as a ``plot''. Below each
   graph, describe what you observe about the individuals in the dataset
-  for each variable. See the lecture videos in Chapter 2 for a guide on
-  how to do this!
+  for each variable.
 \end{enumerate}
 
-\subsection{R CODE : Variables and
-Variation}\label{r-code-variables-and-variation}
+\subsection{Break Time: Meet Back at}\label{break-time-meet-back-at}
 
-\subsubsection{Numeric Variables in R}\label{numeric-variables-in-r}
+\url{https://www.youtube.com/watch?v=NUnJc82ptd4}
 
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2519}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7481}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Code
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Description
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-\begin{minipage}[t]{\linewidth}\raggedright
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{variable }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\CommentTok{\#, \#, \#, \#, etc.)}
+\section{From Variables to Predictions (and
+Beyond)}\label{from-variables-to-predictions-and-beyond}
 
+\subsection{Prediction \& Power in Real
+Life}\label{prediction-power-in-real-life}
 
-
-\NormalTok{tired }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-\end{minipage} & \textbf{variable} = an object that you will define in R
-
-\textbf{\textless-} = ``assign''; tells R to save whatever comes on the
-right to whatever object is on the left.
-
-\textbf{c} = combine : tells R to combine whatever happens in the
-parentheses
-
-\textbf{()} = parentheses to group related terms
-
-\textbf{\# =} what you store in the variable; each item should be
-separated by a comma and space. \\
-\begin{minipage}[t]{\linewidth}\raggedright
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{hist}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{variable)}
-\end{Highlighting}
-\end{Shaded}
-\end{minipage} & \textbf{For continuous variables :} draws a
-histogram. \\
-\end{longtable}
-
-\subsection{Example : Creating Numeric
-Variables}\label{example-creating-numeric-variables}
-
-Note : the code below might not run depending on your browser settings.
-professor will demonstrate this in class using R.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{prof.sleep \textless{}{-} c(5.5, 5, 7, 8.5, 6.5, 5, 7.0, 7.5, 7.5, 6, 6.5, 5) \# hours of sleep professor got the last few nights.}
-\NormalTok{print(prof.sleep) \# one way to "print" the variable}
-\NormalTok{prof.sleep \# another way to "print" the variable}
-\NormalTok{hist(prof.sleep) \# a way to graph the variable (a histogram)}
-\end{Highlighting}
-\end{Shaded}
-
-\subsection{String Variables}\label{string-variables}
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2322}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7678}}@{}}
-\toprule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-\begin{minipage}[t]{\linewidth}\raggedright
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{variable }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(“name1”, “name2”, “name1”, etc.)}
-
-\NormalTok{emotion }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(“sad”, “happy”, “sad”)}
-\end{Highlighting}
-\end{Shaded}
-\end{minipage} & \textbf{variable} = an object that you will define in R
-
-\textbf{\textless-} = ``assign''; tells R to save whatever comes on the
-right to whatever object is on the left.
-
-\textbf{c} = combine : tells R to combine whatever happens in the
-parentheses
-
-\textbf{()} = parentheses to group related terms
-
-\textbf{\# =} what you store in the variable; each item should be
-separated by a comma and space. \\
-\begin{minipage}[t]{\linewidth}\raggedright
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{as.factor}\NormalTok{(variable)}
-
-\FunctionTok{as.factor}\NormalTok{(emotion)}
-\end{Highlighting}
-\end{Shaded}
-\end{minipage} & \textbf{as.factor()} \# converts a string variable into
-a categorical factor \\
-\begin{minipage}[t]{\linewidth}\raggedright
-\begin{verbatim}
-variable <- as.factor(variable)
-\end{verbatim}
-\end{minipage} & \textbf{\# ``}saves'' this conversion as the original
-variable \\
-\begin{minipage}[t]{\linewidth}\raggedright
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{plot}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{variable)}
-\end{Highlighting}
-\end{Shaded}
-\end{minipage} & \textbf{For categorical variables :} draws a barplot.
-For continuous variables :~ illustrates values of the variable (y-axis)
-as a function of their index (x-axis). \\
-\end{longtable}
-
-\subsubsection{Example in R : Creating Non-Numeric
-Variables}\label{example-in-r-creating-non-numeric-variables}
-
-The data below describe the categories of family laundry that was
-hanging in my apartment to dry. As before, the code below might not run
-depending on your browser settings. professor will demonstrate this in
-class using R.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{laundryhang }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"shirt"}\NormalTok{, }\StringTok{"shirt"}\NormalTok{, }\StringTok{"leggings"}\NormalTok{, }\StringTok{"leggings"}\NormalTok{, }\StringTok{"shirt"}\NormalTok{, }
-             \StringTok{"shirt"}\NormalTok{, }\StringTok{"leggings"}\NormalTok{, }\StringTok{"pants"}\NormalTok{, }\StringTok{"sweater"}\NormalTok{, }\StringTok{"sweater"}\NormalTok{) }\CommentTok{\# defining a string variable}
-\FunctionTok{print}\NormalTok{(laundryhang)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
- [1] "shirt"    "shirt"    "leggings" "leggings" "shirt"    "shirt"   
- [7] "leggings" "pants"    "sweater"  "sweater" 
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{laundryhang }\CommentTok{\# another way to "print" the variable}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
- [1] "shirt"    "shirt"    "leggings" "leggings" "shirt"    "shirt"   
- [7] "leggings" "pants"    "sweater"  "sweater" 
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{laundryhang }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(laundryhang) }\CommentTok{\# changing the format of the sting variable into a categorical factor}
-\FunctionTok{plot}\NormalTok{(laundryhang) }\CommentTok{\# a way to graph the non{-}numeric variable}
-\end{Highlighting}
-\end{Shaded}
-
-\pandocbounded{\includegraphics[keepaspectratio]{1L_WhyStats_files/figure-pdf/unnamed-chunk-2-1.pdf}}
-
-\subsection{Break Time: Meet Back at
-4:25}\label{break-time-meet-back-at-425}
-
-\subsection{Prediction \& Power}\label{prediction-power}
-
-\subsubsection{Predictions in Real Life}\label{predictions-in-real-life}
+EXAMPLE : what will your bedtime be tonight?
 
 \begin{itemize}
 \tightlist
 \item
-  EXAMPLE : PROFESSOR WILL LET US OUT EARLY ON THE FIRST DAY
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \textbf{Knowledge (what information did you use to make the
-    prediction)?}
-
-    \begin{itemize}
-    \tightlist
-    \item
-      past experience with other professors
-    \item
-      syllabus seemed FUN and LIGHT HEARTED like someone who would let
-      us out EARLY
-    \item
-      you want to get out early\ldots and so will MANIFEST that through
-      the power of PREDICTION.
-    \end{itemize}
-  \item
-    \textbf{Power (ways your predictions influence future behaviors)}
-
-    \begin{itemize}
-    \tightlist
-    \item
-      making a plan to leave
-    \item
-      trying to see if we can leverage this activity into actually
-      getting out early (\#MANIFEST)
-    \item
-      did not bring a snack
-    \end{itemize}
-  \item
-    \textbf{Was The Predicton Valid?}
-
-    \begin{itemize}
-    \tightlist
-    \item
-      WE WILL FIND OUT.
-    \end{itemize}
-  \item
-    \textbf{Work on Lab Question.} What's a prediction about people that
-    you made today? What information did you use to make this
-    prediction? How did (or could) you use this prediction to influence
-    outcomes? Were you valid in your predictions? Finally, write a
-    linear model that defines the prediction (and information that you
-    used) as a formula (e.g., DV \textasciitilde{} IV1 + IV2 + \ldots{}
-    + error).
-  \item
-    STUDENT EXAMPLE : Naomi
-
-    \begin{itemize}
-    \tightlist
-    \item
-      prediction : was gonna be late to class
-    \item
-      knowledge : have practice until 3:30 on Mondays and coaches be
-      like that.
-    \item
-      power :
-
-      \begin{itemize}
-      \tightlist
-      \item
-        rushed after you got let out
-      \item
-        ran uphill
-      \item
-        asked friend (whoI predicted was gonna get here early) to save a
-        seat.
-      \end{itemize}
-    \item
-      valid : yes, I was 2-minutes late.
-    \item
-      model :
-
-      \begin{itemize}
-      \tightlist
-      \item
-        time to get to class \textasciitilde{} previous class time +
-        coach personality + campus geography + own personal walking
-        speed after tennis practice + weather + ERROR
-      \end{itemize}
-    \end{itemize}
-  \end{itemize}
+  \textbf{Knowledge (what information did you use to make the
+  prediction)?}
+\item
+  \textbf{Power (ways your predictions influence future behaviors)}
+\item
+  \textbf{Was The Prediction Valid?}
 \end{itemize}
 
-\subsubsection{Scientific Predictions}\label{scientific-predictions}
+\subsubsection{\texorpdfstring{\textbf{Work on Lab Question
+2.}}{Work on Lab Question 2.}}\label{work-on-lab-question-2.}
+
+What's a prediction about people (or the world) that you made today?
+What information did you use to make this prediction? How did (or could)
+you use this prediction to influence outcomes? Were you valid in your
+predictions? Finally, write a linear model that defines the prediction
+(and information that you used) as a formula (e.g., DV \textasciitilde{}
+IV1 + IV2 + \ldots{} + error).
+
+\subsection{Scientific Predictions}\label{scientific-predictions}
 
 Psychological scientists seek to better understand variation, in order
 to help make valid predictions in ways that help exert power over our
 environments.
 
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.6049}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.3951}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Topic
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Other Questions We Might Ask?
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
+Knowledge of Neurons
+
 \pandocbounded{\includegraphics[keepaspectratio]{lecture_images/1L_prosthetic.mp4}}
-& \\
-\includegraphics[width=6.25in,height=\textheight,keepaspectratio]{lecture_images/1L_fb.png}\footnote{Here's
-  \href{https://www.nytimes.com/2016/05/06/business/facebook-bends-the-rules-of-audience-engagement-to-its-advantage.html}{a
-  link to the article} where this headline comes from. These data are a
-  little dated, and I couldn't immediately find more recent data - my
-  guess is Meta does not really want to advertise that people are using
-  the product more and more. However, in
-  \href{https://s21.q4cdn.com/399680738/files/doc_financials/2024/q2/Earnings-Presentation-Q2-2024.pdf}{reports
-  to investors} reports consistent growth in metrics like ``ad
-  impressions'' and ``daily active users''. Let me know if you find
-  other sources to show how technology companies are capturing more and
-  more of our attention!} & \\
-\end{longtable}
+
+Knowledge of Addiction
+
+\includegraphics[width=6.05208in,height=\textheight,keepaspectratio]{lecture_images/1L_fb.png}
+
+\marginnote{\begin{footnotesize}
+
+\href{https://www.nytimes.com/2016/05/06/business/facebook-bends-the-rules-of-audience-engagement-to-its-advantage.html}{Link
+to NYT article}. These data are a little dated; couldn't find more
+recent data on this, but in
+\href{https://s21.q4cdn.com/399680738/files/doc_financials/2024/q2/Earnings-Presentation-Q2-2024.pdf}{reports
+to investors} reports consistent growth in metrics like ``ad
+impressions'' and ``daily active users''.
+
+\end{footnotesize}}
 
 \subsection{The Linear Model}\label{the-linear-model}
 
@@ -777,7 +446,7 @@ Examples}\label{recap-definition-and-examples}
 
 \begin{itemize}
 \item
-  Steps to Take :~
+  DV \textasciitilde{} IV1 + IV2 + IV3 + \ldots{} + ERROR
 
   \begin{itemize}
   \item
@@ -799,16 +468,13 @@ Examples}\label{recap-definition-and-examples}
     \end{itemize}
   \end{itemize}
 \item
-  Example : What predicts why people differ in the amount of screen time
-  that they use (between or within-person differences)?
-
-  \begin{itemize}
-  \tightlist
-  \item
-  \end{itemize}
+  Example : Define a linear model to predict why people differ in the
+  amount of screen time that they use (between or within-person
+  differences)?
 \end{itemize}
 
-\textbf{KEY IDEA : Linear Models Help Organize and Quantify Prediction}
+\subsubsection{KEY IDEA : Linear Models Help Organize and Quantify
+Prediction}\label{key-idea-linear-models-help-organize-and-quantify-prediction}
 
 \begin{itemize}
 \tightlist
@@ -838,68 +504,75 @@ Examples}\label{recap-definition-and-examples}
     model as a whole help us predict individual scores? how well does
     the model generalize to ``reality''?
   \end{itemize}
-\item
-  \textbf{A Real-Life Linear Model in the Wild :}
 \end{itemize}
 
-\begin{center}
-\includegraphics[width=4.07292in,height=\textheight,keepaspectratio]{1L_WhyStats_files/mediabag/AD_4nXcXn1H6Tcp4pWwk.pdf}
-\end{center}
+\subsubsection{A Real-Life Linear Model in the
+Wild.}\label{a-real-life-linear-model-in-the-wild.}
 
-\subsubsection{From Prediction --\textgreater{} Linear
-Model}\label{from-prediction-linear-model}
+\pandocbounded{\includegraphics[keepaspectratio]{images/clipboard-1655892865.png}}
+
+\subsubsection{From Prediction to Linear
+Models}\label{from-prediction-to-linear-models}
 
 \begin{itemize}
+\tightlist
 \item
-  student example prediction :
-
-  \begin{itemize}
-  \tightlist
-  \item
-    as a model :
-  \end{itemize}
-\item
-  student example prediction :
-
-  \begin{itemize}
-  \tightlist
-  \item
-    as a model :
-  \end{itemize}
+  I predict that attendance will improve students grades in the class.
 \end{itemize}
 
-\subsection{Work on Lab 1 : Predictions \& Research
-Questions.}\label{work-on-lab-1-predictions-research-questions.}
+\texttt{\textasciitilde{}\ attendance\ \textasciitilde{}\ grades\ +\ error}
 
-\subsubsection{On Your Own}\label{on-your-own}
+\begin{itemize}
+\tightlist
+\item
+  Write a model for your prediction (Lab 1, Q2)
+\end{itemize}
 
-\textbf{Lab 1, Question 2 :} What's a prediction about people that you
-made today? What information did you use to make this prediction? How
-did (or could) you use this prediction to influence outcomes? Were you
-valid in your predictions? Finally, write a linear model that defines
-the prediction (and information that you used) as a formula (e.g., DV
-\textasciitilde{} IV1 + IV2 + \ldots{} + error).
+\subsection{Is science adequate?}\label{is-science-adequate}
 
-\textbf{Lab 1, Question 3 :} Identify a research question that you might
-be interested to study as a psychologist (this could be what you wrote
-about in Lab 1, or something new.) Then, define the DV for this
-question, and explain what interests you about this question and how
-this variable might be understood as an example of affect, behavior,
-and/or cognition. Next, explain what between-person and within-person
-variation might look like for this variable. Finally, identify some
-other variables that you think will predict this DV, and write out this
-question (and your theory) as a linear model.
+``The revolutionary viewpoint of a movement which thinks it can dominate
+current history by means of scientific knowledge remains
+\emph{bourgeois\ldots{}}the utopian socialists, remaining prisoners of
+the mode of exposition of scientific truth, conceived this truth in
+terms of its pure abstract image\ldots.it is on the model of
+\emph{astronomy} that the utopians thought they would discover and
+demonstrate the laws of society.'' (82-83)
 
-\textbf{Lab 1, Quesiton 4 (In Discussion Section).} With your discussion
-section, define each of the six biases described in the Goldacre (2010)
-reading on cognitive biases, and come up with an example from real-life.
+\begin{itemize}
+\tightlist
+\item
+  What makes sense / is confusing about this quote?
+\item
+  What are some problems with ``the model of astronomy''?
+\end{itemize}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/clipboard-1625483785.png}}
+
+\subsection{Is science adequate?}\label{is-science-adequate-1}
+
+``If you want knowledge, you must take part in the practice of changing
+reality. If you want to know the taste of a pear, you must change the
+pear by eating it yourself. If you want to know the structure and
+properties of the atom, you must make physical and chemical experiments
+to change the state of the atom. If you want to know the theory and
+methods of revolution, you must take part in revolution. All genuine
+knowledge originates in direct experience.'' -
+\href{https://www.marxists.org/reference/archive/mao/selected-works/volume-1/mswv1_16.htm}{Mao}
+
+\href{https://pacscenter.stanford.edu/publication/extreme-protest-tactics-reduce-popular-support-for-social-movements/}{\begin{center}
+\pandocbounded{\includegraphics[keepaspectratio]{images/clipboard-3026795340.png}}
+\end{center}
+}
+
+\subsubsection{Take this Exit Survey Now:
+tinyurl.com/onlinebyeintro}\label{take-this-exit-survey-now-tinyurl.comonlinebyeintro}
+
+\pandocbounded{\includegraphics[keepaspectratio]{1L_WhyStats_files/mediabag/frog-dance-frog.gif}}
 
 \section{Next Time on Psych 101.}\label{next-time-on-psych-101.}
 
 \begin{itemize}
 \tightlist
-\item
-  Take this Exit Survey Now : tinyurl.com/onlinebyeintro
 \item
   Attend Discussion Section \& Complete Lab 1
 \item
@@ -912,81 +585,88 @@ Researcher?}\label{so-you-think-you-want-to-be-a-researcher}
 \subsection{Getting Research Experience as an
 RA}\label{getting-research-experience-as-an-ra}
 
+\subsubsection{\texorpdfstring{\textbf{RA = Research
+Assistant}}{RA = Research Assistant}}\label{ra-research-assistant}
+
 \begin{itemize}
 \item
-  \textbf{RA = Research Assistant}
+  Mostly Unpaid Experiences
 
   \begin{itemize}
   \item
-    Mostly Unpaid Experiences
+    From the berkeley website\ldots{}
   \item
-    Some paid experiences exist!
-
-    \begin{itemize}
-    \item
-      From the berkeley website\ldots{}
-    \item
-      \href{https://haas.berkeley.edu/mors/faculty/}{Busine\$\$ \$chool}
-    \item
-      Stanford {[}maybe paid{]}
-    \item
-      \href{https://docs.google.com/spreadsheets/d/1IX7f1N_VXUkSnnJPTpLg-pUto0427XBK_jxRxNFhmps/edit?gid=1345132026\#gid=1345132026}{A
-      list a student sent me that they found}.
-    \item
-      ``Cold calling'' labs who are doing work you think is cool.
-    \item
-      Chat with your TAs / Professors
-    \end{itemize}
+    ``Cold calling'' labs who are doing work you think is cool.
+  \item
+    Chat with your TAs / Professors
   \end{itemize}
 \item
-  \textbf{As an RA :}
+  Some paid experiences exist!
 
   \begin{itemize}
   \item
-    work with data : transcribing data; behavioral coding data;
-    recruiting and participants to collect data; setting up
-    psychophysiological recordings; cleaning data; etc.
+    \href{https://haas.berkeley.edu/mors/faculty/}{Busine\$\$ \$chool}
   \item
-    \textbf{other opportunities to gain skills you can demonstrate :}
+    \href{https://docs.google.com/spreadsheets/d/1IX7f1N_VXUkSnnJPTpLg-pUto0427XBK_jxRxNFhmps/edit?gid=1345132026\#gid=1345132026}{A
+    list a student sent me that they found}.
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Work You Do as an RA}\label{work-you-do-as-an-ra}
+
+\begin{itemize}
+\item
+  \textbf{work with data :} transcribing data; behavioral coding data;
+  recruiting and participants to collect data; setting up
+  psychophysiological recordings; cleaning data; etc.
+\item
+  \textbf{other opportunities to gain skills you can demonstrate :}
+
+  \begin{itemize}
+  \item
+    reading \& discussing papers
+  \item
+    working with IRB (institutional review board - an ethics thing)
+  \item
+    analyzing data → presenting research at a conference (poster) or
+    submitting a paper for publication {[}your golden ticket{]}
+  \item
+    general mentorship (how to apply to grad school; where to apply; who
+    to talk to \& e-mail; etc.)
+  \item
+    NOTE : this work and these skills apply to other work outside of
+    research applications {[}time management; coordinating schedules;
+    juggling responsibilities; etc.{]}
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{What You Get Out of This}\label{what-you-get-out-of-this}
+
+\begin{itemize}
+\item
+  \textbf{Course credit (hah), a letter of recommendation, ability to
+  write about experiences that you have had (see above).}
+\item
+  \textbf{Vibes : is this {[}work or lab{]} for you?}
+
+  \begin{itemize}
+  \item
+    do you enjoy the work? are you going to look forward to showing up
+    and doing the work / fulfilling the commitment?~
+  \item
+    are you working with a horrible monster?
 
     \begin{itemize}
     \item
-      reading \& discussing papers
+      not responsive
     \item
-      working with IRB (institutional review board - an ethics thing)
+      inconsistent work / no plan for your work
     \item
-      analyzing data → presenting research at a conference (poster) or
-      submitting a paper for publication {[}your golden ticket{]}
-    \item
-      general mentorship (how to apply to grad school; where to apply;
-      who to talk to \& e-mail; etc.)
-    \item
-      NOTE : this work and these skills apply to other work outside of
-      research applications {[}time management; coordinating schedules;
-      juggling responsibilities; etc.{]}
+      kind of a bully (emotionally abusive → stealing your work)~
     \end{itemize}
   \item
-    \textbf{get a sense of whether this {[}work or lab{]} is for you?}
-
-    \begin{itemize}
-    \item
-      do you enjoy the work? are you going to look forward to showing up
-      and doing the work / fulfilling the commitment?~
-    \item
-      are you working with a horrible monster?
-
-      \begin{itemize}
-      \item
-        not responsive
-      \item
-        inconsistent work / no plan for your work
-      \item
-        kind of a bully (emotionally abusive → stealing your work)~
-      \end{itemize}
-    \item
-      or are you working with someone who is super cool and a positive
-      influence on mentoring young minds!?!?! {[}YES!!!!{]}
-    \end{itemize}
+    or are you working with someone who is super cool and a positive
+    influence on mentoring young minds!?!?! {[}YES!!!!{]}
   \end{itemize}
 \end{itemize}
 
@@ -1042,13 +722,13 @@ School}\label{applying-to-graduate-school}
 
 \subsubsection{The Academic Job Market}\label{the-academic-job-market}
 
-Some Data
-{[}\href{https://ncses.nsf.gov/pubs/nsf24300/report/postgraduation-trends\#definite-commitments-at-graduation}{Source}{]}
-
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.3194}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.6250}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8500}}@{}}
+\caption{Academic Job Market Data
+{[}\href{https://ncses.nsf.gov/pubs/nsf24300/report/postgraduation-trends\#definite-commitments-at-graduation}{Source}{]}}\tabularnewline
 \toprule\noalign{}
+\endfirsthead
 \endhead
 \bottomrule\noalign{}
 \endlastfoot

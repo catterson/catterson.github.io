@@ -1,12 +1,12 @@
 ---
 title: "Chapter 1 | Why Statistics?"
-format: 
-  revealjs: 
-    slide-level: 3
-    link-external-newwindow: true
-    chalkboard: true
-    controls: true
-    code-overflow: wrap
+format: html
+#  revealjs: 
+#    slide-level: 3
+#    link-external-newwindow: true
+#    chalkboard: true
+#    controls: true
+#    code-overflow: wrap
 tbl-colwidths: [50,50]
 ---
 
@@ -37,16 +37,7 @@ tbl-colwidths: [50,50]
 
 # Part 1 : Variables
 
-## RECAP : Defining Research Questions
-
-### Student Examples from Milestone #1
-
--   What's the variable at the focus of the following questions?
--   What does between vs. within-person variation look like? Which one is more interesting to you?
--   Are you interested in the AFFECT, BEHAVIOR, or COGNITIVE part of this variable?
--   How would you measure this variable with numbers? Do you think this is possible?
-
-### Developing Research Questions from Real-Life
+## Developing Research Questions from Real-Life
 
 -   What are some real-life events that we want to better understand or change?
 -   What are some research questions that we might develop based on real-life events?
@@ -94,7 +85,6 @@ plot(cat.var)
 ## Break Time: Meet Back at
 
 {{< video https://www.youtube.com/watch?v=NUnJc82ptd4 width="800" height="450" >}}
-
 
 # From Variables to Predictions (and Beyond)
 
@@ -168,7 +158,7 @@ Knowledge of Addiction
 
 ### A Real-Life Linear Model in the Wild.
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcXn1H6Tcp4pWwkbuqkGa9Pw2BW5X8LTLtU4oDmpQwVPHAh-OkVuuWRz7Ir6K3vGW_BYcRgnFsA5baC9KErNgMksdqxswLEeDKZkhyR2n-hZ7CPb8-CJnx_kx8Rd2atrHMxRQuvBR6gE1m61LL1NXi92g1Q?key=-c8GtewYj7xaFRpMDwKIPQ){fig-align="center" width="391"}
+![](images/clipboard-1655892865.png)
 
 ### From Prediction to Linear Models
 
