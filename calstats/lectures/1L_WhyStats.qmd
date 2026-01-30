@@ -14,33 +14,37 @@ tbl-colwidths: [50,50]
 
 -   **these notes on bCourses, or :** [catterson.github.io/calstats/calstatsSP26.html](https://catterson.github.io/calstats/calstatsSP26.html)
 
--   [**click on this link to check-in**](https://docs.google.com/forms/d/e/1FAIpQLSekU91xhyXiYxxOsWbSGuJ3pAmPOazq9L_24hkcQpej-n0bBg/viewform?usp=header)
+-   find these notes, then [**click on this link to check-in**](https://docs.google.com/forms/d/e/1FAIpQLSekU91xhyXiYxxOsWbSGuJ3pAmPOazq9L_24hkcQpej-n0bBg/viewform?usp=header)
 
 ![](images/clipboard-792871999.png){fig-align="center"}
 
 ## Announcements
 
--   **Section Swap :** post on bCourses to find someone to swap with (now open.)
--   **Waitlisted Students :** Thanks for your patience! Go bears.
+-   **Section Swap :** post on bCourses your & swap buddy info (now open.)
 -   **Office Hours :** Fridays at 9:00 AM on Zoom.
+-   Commuinicate course conflicts with GSI (okay to miss lecture; watch recording & do check-in.)
+-   **Next Week :** Section, Lab 1 (*Partial Key Posted*), Chapter 2 Quiz, Lecture, Repeat.
 
 ## Agenda
 
 -   2:10 - 2:20 : Check-In & Announcements
--   2:20 - 3:20 : Defining Variables in R
+-   2:20 - 3:20 : Variables
 -   3:20 - 3:30 : Break #1
--   3:30 - 4:00 : From (Research) Questions to Linear Models to Predictions
+-   3:30 - 4:00 : Linear Models and Predictions
 -   4:00 - 4:05 : Break #2
 -   4:05 - 4:30 : So you're interested in going to graduate school?
 -   4:30 - 5:00 : DISCUSSION : Project Questions
 
-# RECAP : Defining Research Questions
+# Part 1 : Variables
+
+## RECAP : Defining Research Questions
 
 ### Student Examples from Milestone #1
 
 -   What's the variable at the focus of the following questions?
--   What does between vs. within-person variation look like?
+-   What does between vs. within-person variation look like? Which one is more interesting to you?
 -   Are you interested in the AFFECT, BEHAVIOR, or COGNITIVE part of this variable?
+-   How would you measure this variable with numbers? Do you think this is possible?
 
 ### Developing Research Questions from Real-Life
 
@@ -48,23 +52,22 @@ tbl-colwidths: [50,50]
 -   What are some research questions that we might develop based on real-life events?
 -   How can we think about these questions using the ABCs of Psychology?
 -   Is this a question about between-person or within-person variation?
+-   How would you measure this variable with numbers? Do you think this is possible?
 
-# Part 1 : Defining Variables in R
+## From Research Questions to Variables in R
 
 ### Numeric Variables in R
 
-### ![](images/clipboard-812337385.png)
+![](images/clipboard-812337385.png)
 
-### In R : Creating Numeric Variables
-
-Note : the code below might not run depending on your browser settings. professor will demonstrate this in class using R.
+### Example In R : Creating Numeric Variables
 
 ```{R}
 #| echo: true
-# defining the hours of sleep I got the last few nights.
-prof.sleep <- c(5.5, 5, 7, 8.5, 6.5, 5, 7.0, 7.5, 7.5, 6, 6.5, 5) 
-prof.sleep # this asks R to show the variable
-hist(prof.sleep) # this asks R to graph the variable (a histogram)
+
+num.var <- c(6,7,6,7,6,7,6,7)
+hist(num.var)
+
 ```
 
 ### String Variables in R
@@ -75,60 +78,67 @@ hist(prof.sleep) # this asks R to graph the variable (a histogram)
 
 ```{r}
 #| echo: true
-# defining the string variable; laundry I was drying.
-laundryhang <- c("shirt", "shirt", "leggings", "shirt", 
-                 "leggings", "shirt", "shirt", "sweater",
-                 "leggings", "pants", "sweater", "sweater")
-laundryhang # another way to "print" the variable
 
-# changing the format of the sting variable into a categorical factor
-laundryhang <- as.factor(laundryhang) 
+cat.var <- c("string", "string", "string", "yarn")
+cat.var <- as.factor(cat.var)
+plot(cat.var)
 
-# graph the non-numeric variable
-plot(laundryhang) 
 ```
 
-### **ACTIVTY :** Work on Lab 1, Question 1.
+### **ACTIVTY :** Work on Lab 1, Question 1. {.smaller}
 
-1.  **Open up the Weekly RScript.** Type some math into the Rscript, and send it to the console. THAT'S RIGHT. YOU ARE A PROGRAMMER. FRIEND OF COMPUTERS. CODE WIZARD.
-2.  **Work on Lab 1, Question 1 :** Define two variables in R : one numeric, and one string. *Note : you can use the data that we collected in class, or collect your own data (make sure each variable has at least ten data points).* “Print” each variable in R, and paste the output as a screenshot. Then, graph the numeric variable as a “histogram” and the string variable as a “plot”. Below each graph, describe what you observe about the individuals in the dataset for each variable.
+1.  **Access Lab 1 (in the Week notes).** Copy and paste the questions into a Word or Google Document.
+2.  **Open RStudio and a new RScript.** Type some math into the Rscript, and send it to the console. THAT'S RIGHT. YOU ARE A PROGRAMMER. FRIEND OF COMPUTERS. CODE WIZARD.
+3.  **Work on Lab 1, Question 1 :** Define two variables in R : one numeric, and one string. *Note : you can use the data that we collected in class, or collect your own data (make sure each variable has at least ten data points).* “Print” each variable in R, and paste the output as a screenshot. Then, graph the numeric variable as a “histogram” and the string variable as a “plot”. Below each graph, describe what you observe about the individuals in the dataset for each variable.
 
-## R CODE : Variables and Variation
+## Break Time: Meet Back at
 
-## Break Time: Meet Back at \_\_\_\_\_\_\_
+{{< video https://www.youtube.com/watch?v=NUnJc82ptd4 width="800" height="450" >}}
 
-{{< video https://www.youtube.com/watch?v=NUnJc82ptd4 >}}
 
 # From Variables to Predictions (and Beyond)
 
-## Prediction & Power
+## Prediction & Power in Real Life
 
-### Predictions in Real Life
+EXAMPLE : what will your bedtime be tonight?
 
--   EXAMPLE : will it rain today?
-    -   **Knowledge (what information did you use to make the prediction)?**
-    -   **Power (ways your predictions influence future behaviors)**
-    -   **Was The Predicton Valid?**
--   **Work on Lab Question.** What’s a prediction about people (or the world) that you made today? What information did you use to make this prediction? How did (or could) you use this prediction to influence outcomes? Were you valid in your predictions? Finally, write a linear model that defines the prediction (and information that you used) as a formula (e.g., DV \~ IV1 + IV2 + … + error).
+-   **Knowledge (what information did you use to make the prediction)?**
+-   **Power (ways your predictions influence future behaviors)**
+-   **Was The Prediction Valid?**
 
-### Scientific Predictions
+### **Work on Lab Question 2.**
+
+What’s a prediction about people (or the world) that you made today? What information did you use to make this prediction? How did (or could) you use this prediction to influence outcomes? Were you valid in your predictions? Finally, write a linear model that defines the prediction (and information that you used) as a formula (e.g., DV \~ IV1 + IV2 + … + error).
+
+## Scientific Predictions {.smaller}
 
 Psychological scientists seek to better understand variation, in order to help make valid predictions in ways that help exert power over our environments.
 
-| Topic | Other Questions We Might Ask? |
-|----|----|
-| ![](lecture_images/1L_prosthetic.mp4) |  |
-| ![](lecture_images/1L_fb.png){width="600"}[^1] |  |
+::::: columns
+::: {.column width="50%"}
+Knowledge of Neurons
 
-[^1]: Here's [a link to the article](https://www.nytimes.com/2016/05/06/business/facebook-bends-the-rules-of-audience-engagement-to-its-advantage.html) where this headline comes from. These data are a little dated, and I couldn't immediately find more recent data - my guess is Meta does not really want to advertise that people are using the product more and more. However, in [reports to investors](https://s21.q4cdn.com/399680738/files/doc_financials/2024/q2/Earnings-Presentation-Q2-2024.pdf) reports consistent growth in metrics like "ad impressions" and "daily active users". Let me know if you find other sources to show how technology companies are capturing more and more of our attention!
+![](lecture_images/1L_prosthetic.mp4)
+:::
+
+::: {.column width="50%"}
+Knowledge of Addiction
+
+![](lecture_images/1L_fb.png){width="581"}
+:::
+:::::
+
+::: aside
+[Link to NYT article](https://www.nytimes.com/2016/05/06/business/facebook-bends-the-rules-of-audience-engagement-to-its-advantage.html). These data are a little dated; couldn't find more recent data on this, but in [reports to investors](https://s21.q4cdn.com/399680738/files/doc_financials/2024/q2/Earnings-Presentation-Q2-2024.pdf) reports consistent growth in metrics like "ad impressions" and "daily active users".
+:::
 
 ## The Linear Model
 
 ![](images/clipboard-606362939.png){fig-align="center" width="739"}
 
-### RECAP : Definition and Examples
+### RECAP : Definition and Examples {.smaller}
 
--   Steps to Take : 
+-   DV \~ IV1 + IV2 + IV3 + ... + ERROR
 
     -   **list the variable that you want to predict (the DV)**
 
@@ -140,11 +150,9 @@ Psychological scientists seek to better understand variation, in order to help m
 
         -   **ERROR will capture all the other variables not in your model.**
 
--   Example : What predicts why people differ in the amount of screen time that they use (between or within-person differences)?
+-   Example : Define a linear model to predict why people differ in the amount of screen time that they use (between or within-person differences)?
 
-    -   
-
-**KEY IDEA : Linear Models Help Organize and Quantify Prediction**
+### KEY IDEA : Linear Models Help Organize and Quantify Prediction {.smaller}
 
 -   **organize :** a model specifies what information (IV) we think might help us predict the DV
 -   **quantify :** when we add statistics to our model (much later!), we will see…
@@ -157,21 +165,49 @@ Psychological scientists seek to better understand variation, in order to help m
         -   what is the “worst” predictor in our model?
 
     -   **the amount of error in our prediction :** how well does the model as a whole help us predict individual scores? how well does the model generalize to "reality"?
--   **A Real-Life Linear Model in the Wild :**
+
+### A Real-Life Linear Model in the Wild.
 
 ![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcXn1H6Tcp4pWwkbuqkGa9Pw2BW5X8LTLtU4oDmpQwVPHAh-OkVuuWRz7Ir6K3vGW_BYcRgnFsA5baC9KErNgMksdqxswLEeDKZkhyR2n-hZ7CPb8-CJnx_kx8Rd2atrHMxRQuvBR6gE1m61LL1NXi92g1Q?key=-c8GtewYj7xaFRpMDwKIPQ){fig-align="center" width="391"}
 
-### From Prediction –\> Linear Model
+### From Prediction to Linear Models
 
--   student example prediction :
+-   I predict that attendance will improve students grades in the class.
 
-    -   as a model :
+`~ attendance ~ grades + error`
 
--   student example prediction :
+-   Write a model for your prediction (Lab 1, Q2)
 
-    -   as a model :
+## Is science adequate? {.smaller}
 
-### Take this Exit Survey Now : tinyurl.com/onlinebyeintro
+::::: columns
+::: {.column width="70%"}
+“The revolutionary viewpoint of a movement which thinks it can dominate current history by means of scientific knowledge remains *bourgeois…*the utopian socialists, remaining prisoners of the mode of exposition of scientific truth, conceived this truth in terms of its pure abstract image….it is on the model of *astronomy* that the utopians thought they would discover and demonstrate the laws of society.” (82-83)
+
+-   What makes sense / is confusing about this quote?
+-   What are some problems with "the model of astronomy"?
+:::
+
+::: {.column width="30%"}
+![](images/clipboard-1625483785.png)
+:::
+:::::
+
+## Is science adequate? {.smaller}
+
+::::: columns
+::: {.column width="50%"}
+"If you want knowledge, you must take part in the practice of changing reality. If you want to know the taste of a pear, you must change the pear by eating it yourself. If you want to know the structure and properties of the atom, you must make physical and chemical experiments to change the state of the atom. If you want to know the theory and methods of revolution, you must take part in revolution. All genuine knowledge originates in direct experience." - [Mao](https://www.marxists.org/reference/archive/mao/selected-works/volume-1/mswv1_16.htm)
+:::
+
+::: {.column width="50%"}
+[![](images/clipboard-3026795340.png){fig-align="center"}](https://pacscenter.stanford.edu/publication/extreme-protest-tactics-reduce-popular-support-for-social-movements/)
+:::
+:::::
+
+### Take this Exit Survey Now: tinyurl.com/onlinebyeintro
+
+![](https://media.tenor.com/vcaQr7Q-LcUAAAAi/frog-dance-frog.gif)
 
 # Next Time on Psych 101.
 
@@ -182,55 +218,57 @@ Psychological scientists seek to better understand variation, in order to help m
 
 ## Getting Research Experience as an RA
 
--   **RA = Research Assistant**
+### **RA = Research Assistant**
 
-    -   Mostly Unpaid Experiences
+-   Mostly Unpaid Experiences
 
-    -   Some paid experiences exist!
+    -   From the berkeley website…
 
-        -   From the berkeley website…
+    -   “Cold calling” labs who are doing work you think is cool.
 
-        -   [Busine\$\$ \$chool](https://haas.berkeley.edu/mors/faculty/)
+    -   Chat with your TAs / Professors
 
-        -   Stanford \[maybe paid\]
+-   Some paid experiences exist!
 
-        -   [A list a student sent me that they found](https://docs.google.com/spreadsheets/d/1IX7f1N_VXUkSnnJPTpLg-pUto0427XBK_jxRxNFhmps/edit?gid=1345132026#gid=1345132026).
+    -   [Busine\$\$ \$chool](https://haas.berkeley.edu/mors/faculty/)
 
-        -   “Cold calling” labs who are doing work you think is cool.
+    -   [A list a student sent me that they found](https://docs.google.com/spreadsheets/d/1IX7f1N_VXUkSnnJPTpLg-pUto0427XBK_jxRxNFhmps/edit?gid=1345132026#gid=1345132026).
 
-        -   Chat with your TAs / Professors
+### Work You Do as an RA {.smaller}
 
--   **As an RA :**
+-   **work with data :** transcribing data; behavioral coding data; recruiting and participants to collect data; setting up psychophysiological recordings; cleaning data; etc.
 
-    -   work with data : transcribing data; behavioral coding data; recruiting and participants to collect data; setting up psychophysiological recordings; cleaning data; etc.
+-   **other opportunities to gain skills you can demonstrate :**
 
-    -   **other opportunities to gain skills you can demonstrate :**
+    -   reading & discussing papers
 
-        -   reading & discussing papers
+    -   working with IRB (institutional review board - an ethics thing)
 
-        -   working with IRB (institutional review board - an ethics thing)
+    -   analyzing data → presenting research at a conference (poster) or submitting a paper for publication \[your golden ticket\]
 
-        -   analyzing data → presenting research at a conference (poster) or submitting a paper for publication \[your golden ticket\]
+    -   general mentorship (how to apply to grad school; where to apply; who to talk to & e-mail; etc.)
 
-        -   general mentorship (how to apply to grad school; where to apply; who to talk to & e-mail; etc.)
+    -   NOTE : this work and these skills apply to other work outside of research applications \[time management; coordinating schedules; juggling responsibilities; etc.\]
 
-        -   NOTE : this work and these skills apply to other work outside of research applications \[time management; coordinating schedules; juggling responsibilities; etc.\]
+### What You Get Out of This {.smaller}
 
-    -   **get a sense of whether this \[work or lab\] is for you?**
+-   **Course credit (hah), a letter of recommendation, ability to write about experiences that you have had (see above).**
 
-        -   do you enjoy the work? are you going to look forward to showing up and doing the work / fulfilling the commitment? 
+-   **Vibes : is this \[work or lab\] for you?**
 
-        -   are you working with a horrible monster?
+    -   do you enjoy the work? are you going to look forward to showing up and doing the work / fulfilling the commitment? 
 
-            -   not responsive
+    -   are you working with a horrible monster?
 
-            -   inconsistent work / no plan for your work
+        -   not responsive
 
-            -   kind of a bully (emotionally abusive → stealing your work) 
+        -   inconsistent work / no plan for your work
 
-        -   or are you working with someone who is super cool and a positive influence on mentoring young minds!?!?! \[YES!!!!\]
+        -   kind of a bully (emotionally abusive → stealing your work) 
 
-## Applying to Graduate School
+    -   or are you working with someone who is super cool and a positive influence on mentoring young minds!?!?! \[YES!!!!\]
+
+## Applying to Graduate School {.smaller}
 
 -   **You are applying to work on research with a specific professor(s) at a school.**
 
@@ -258,12 +296,12 @@ Psychological scientists seek to better understand variation, in order to help m
 
 -   **Talk to people who are doing the thing you want to be doing about their journey**
 
-### The Academic Job Market
-
-Some Data \[[Source](https://ncses.nsf.gov/pubs/nsf24300/report/postgraduation-trends#definite-commitments-at-graduation)\]
+### The Academic Job Market {.smaller}
 
 |                      |                                  |
 |----------------------|----------------------------------|
 | PhDs get jobs?       | ![](lecture_images/1L_jobs1.png) |
 | but not in academia… | ![](lecture_images/1L_jobs2.png) |
 | \$\$\$\$\$\$\$\$     | ![](lecture_images/1L_jobs3.png) |
+
+: Academic Job Market Data \[[Source](https://ncses.nsf.gov/pubs/nsf24300/report/postgraduation-trends#definite-commitments-at-graduation)\] {tbl-colwidths="\[15,85\]"}

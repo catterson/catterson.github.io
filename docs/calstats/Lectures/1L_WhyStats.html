@@ -205,16 +205,17 @@
 <h1>Hello Again!</h1>
 <ul>
 <li><p><strong>these notes on bCourses, or :</strong> <a href="https://catterson.github.io/calstats/calstatsSP26.html">catterson.github.io/calstats/calstatsSP26.html</a></p></li>
-<li><p><a href="https://docs.google.com/forms/d/e/1FAIpQLSekU91xhyXiYxxOsWbSGuJ3pAmPOazq9L_24hkcQpej-n0bBg/viewform?usp=header"><strong>click on this link to check-in</strong></a></p></li>
+<li><p>find these notes, then <a href="https://docs.google.com/forms/d/e/1FAIpQLSekU91xhyXiYxxOsWbSGuJ3pAmPOazq9L_24hkcQpej-n0bBg/viewform?usp=header"><strong>click on this link to check-in</strong></a></p></li>
 </ul>
 
 <img data-src="images/clipboard-792871999.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="announcements" class="title-slide slide level2 center">
 <h2>Announcements</h2>
 <ul>
-<li><strong>Section Swap :</strong> post on bCourses to find someone to swap with (now open.)</li>
-<li><strong>Waitlisted Students :</strong> Thanks for your patience! Go bears.</li>
+<li><strong>Section Swap :</strong> post on bCourses your &amp; swap buddy info (now open.)</li>
 <li><strong>Office Hours :</strong> Fridays at 9:00 AM on Zoom.</li>
+<li>Commuinicate course conflicts with GSI (okay to miss lecture; watch recording &amp; do check-in.)</li>
+<li><strong>Next Week :</strong> Section, Lab 1 (<em>Partial Key Posted</em>), Chapter 2 Quiz, Lecture, Repeat.</li>
 </ul>
 </section>
 
@@ -222,9 +223,9 @@
 <h2>Agenda</h2>
 <ul>
 <li>2:10 - 2:20 : Check-In &amp; Announcements</li>
-<li>2:20 - 3:20 : Defining Variables in R</li>
+<li>2:20 - 3:20 : Variables</li>
 <li>3:20 - 3:30 : Break #1</li>
-<li>3:30 - 4:00 : From (Research) Questions to Linear Models to Predictions</li>
+<li>3:30 - 4:00 : Linear Models and Predictions</li>
 <li>4:00 - 4:05 : Break #2</li>
 <li>4:05 - 4:30 : So you’re interested in going to graduate school?</li>
 <li>4:30 - 5:00 : DISCUSSION : Project Questions</li>
@@ -232,16 +233,21 @@
 </section>
 </section>
 <section>
-<section id="recap-defining-research-questions" class="title-slide slide level1 center">
-<h1>RECAP : Defining Research Questions</h1>
+<section id="part-1-variables" class="title-slide slide level1 center">
+<h1>Part 1 : Variables</h1>
+
+</section>
+<section id="recap-defining-research-questions" class="title-slide slide level2 center">
+<h2>RECAP : Defining Research Questions</h2>
 
 </section>
 <section id="student-examples-from-milestone-1" class="slide level3">
 <h3>Student Examples from Milestone #1</h3>
 <ul>
 <li>What’s the variable at the focus of the following questions?</li>
-<li>What does between vs.&nbsp;within-person variation look like?</li>
+<li>What does between vs.&nbsp;within-person variation look like? Which one is more interesting to you?</li>
 <li>Are you interested in the AFFECT, BEHAVIOR, or COGNITIVE part of this variable?</li>
+<li>How would you measure this variable with numbers? Do you think this is possible?</li>
 </ul>
 </section>
 <section id="developing-research-questions-from-real-life" class="slide level3">
@@ -251,30 +257,23 @@
 <li>What are some research questions that we might develop based on real-life events?</li>
 <li>How can we think about these questions using the ABCs of Psychology?</li>
 <li>Is this a question about between-person or within-person variation?</li>
+<li>How would you measure this variable with numbers? Do you think this is possible?</li>
 </ul>
-</section></section>
-<section>
-<section id="part-1-defining-variables-in-r" class="title-slide slide level1 center">
-<h1>Part 1 : Defining Variables in R</h1>
+</section>
+
+<section id="from-research-questions-to-variables-in-r" class="title-slide slide level2 center">
+<h2>From Research Questions to Variables in R</h2>
 
 </section>
 <section id="numeric-variables-in-r" class="slide level3">
 <h3>Numeric Variables in R</h3>
-</section>
-<section id="section" class="slide level3">
-<h3><img data-src="images/clipboard-812337385.png"></h3>
-</section>
-<section id="in-r-creating-numeric-variables" class="slide level3">
-<h3>In R : Creating Numeric Variables</h3>
-<p>Note : the code below might not run depending on your browser settings. professor will demonstrate this in class using R.</p>
+
+<img data-src="images/clipboard-812337385.png" class="r-stretch"></section>
+<section id="example-in-r-creating-numeric-variables" class="slide level3">
+<h3>Example In R : Creating Numeric Variables</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># defining the hours of sleep I got the last few nights.</span></span>
-<span id="cb1-2"><a></a>prof.sleep <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">5.5</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="fl">8.5</span>, <span class="fl">6.5</span>, <span class="dv">5</span>, <span class="fl">7.0</span>, <span class="fl">7.5</span>, <span class="fl">7.5</span>, <span class="dv">6</span>, <span class="fl">6.5</span>, <span class="dv">5</span>) </span>
-<span id="cb1-3"><a></a>prof.sleep <span class="co"># this asks R to show the variable</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] 5.5 5.0 7.0 8.5 6.5 5.0 7.0 7.5 7.5 6.0 6.5 5.0</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">hist</span>(prof.sleep) <span class="co"># this asks R to graph the variable (a histogram)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>num.var <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">6</span>,<span class="dv">7</span>)</span>
+<span id="cb1-2"><a></a><span class="fu">hist</span>(num.var)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="1L_WhyStats_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
@@ -285,38 +284,24 @@
 <section id="example-in-r-creating-non-numeric-variables" class="slide level3 smaller">
 <h3>Example in R : Creating Non-Numeric Variables</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># defining the string variable; laundry I was drying.</span></span>
-<span id="cb4-2"><a></a>laundryhang <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"shirt"</span>, <span class="st">"shirt"</span>, <span class="st">"leggings"</span>, <span class="st">"shirt"</span>, </span>
-<span id="cb4-3"><a></a>                 <span class="st">"leggings"</span>, <span class="st">"shirt"</span>, <span class="st">"shirt"</span>, <span class="st">"sweater"</span>,</span>
-<span id="cb4-4"><a></a>                 <span class="st">"leggings"</span>, <span class="st">"pants"</span>, <span class="st">"sweater"</span>, <span class="st">"sweater"</span>)</span>
-<span id="cb4-5"><a></a>laundryhang <span class="co"># another way to "print" the variable</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "shirt"    "shirt"    "leggings" "shirt"    "leggings" "shirt"   
- [7] "shirt"    "sweater"  "leggings" "pants"    "sweater"  "sweater" </code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># changing the format of the sting variable into a categorical factor</span></span>
-<span id="cb6-2"><a></a>laundryhang <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(laundryhang) </span>
-<span id="cb6-3"><a></a></span>
-<span id="cb6-4"><a></a><span class="co"># graph the non-numeric variable</span></span>
-<span id="cb6-5"><a></a><span class="fu">plot</span>(laundryhang) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>cat.var <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"string"</span>, <span class="st">"string"</span>, <span class="st">"string"</span>, <span class="st">"yarn"</span>)</span>
+<span id="cb2-2"><a></a>cat.var <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(cat.var)</span>
+<span id="cb2-3"><a></a><span class="fu">plot</span>(cat.var)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="1L_WhyStats_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
-<section id="activty-work-on-lab-1-question-1." class="slide level3">
+<section id="activty-work-on-lab-1-question-1." class="slide level3 smaller">
 <h3><strong>ACTIVTY :</strong> Work on Lab 1, Question 1.</h3>
 <ol type="1">
-<li><strong>Open up the Weekly RScript.</strong> Type some math into the Rscript, and send it to the console. THAT’S RIGHT. YOU ARE A PROGRAMMER. FRIEND OF COMPUTERS. CODE WIZARD.</li>
+<li><strong>Access Lab 1 (in the Week notes).</strong> Copy and paste the questions into a Word or Google Document.</li>
+<li><strong>Open RStudio and a new RScript.</strong> Type some math into the Rscript, and send it to the console. THAT’S RIGHT. YOU ARE A PROGRAMMER. FRIEND OF COMPUTERS. CODE WIZARD.</li>
 <li><strong>Work on Lab 1, Question 1 :</strong> Define two variables in R : one numeric, and one string. <em>Note : you can use the data that we collected in class, or collect your own data (make sure each variable has at least ten data points).</em> “Print” each variable in R, and paste the output as a screenshot. Then, graph the numeric variable as a “histogram” and the string variable as a “plot”. Below each graph, describe what you observe about the individuals in the dataset for each variable.</li>
 </ol>
 </section>
-<section id="r-code-variables-and-variation" class="title-slide slide level2 center">
-<h2>R CODE : Variables and Variation</h2>
 
-</section>
-
-<section id="break-time-meet-back-at-_______" class="title-slide slide level2 center">
-<h2>Break Time: Meet Back at _______</h2>
-<iframe data-external="1" src="https://www.youtube.com/embed/NUnJc82ptd4" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<section id="break-time-meet-back-at" class="title-slide slide level2 center">
+<h2>Break Time: Meet Back at</h2>
+<iframe data-external="1" src="https://www.youtube.com/embed/NUnJc82ptd4" width="800" height="450" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 </section>
 </section>
 <section>
@@ -324,57 +309,44 @@
 <h1>From Variables to Predictions (and Beyond)</h1>
 
 </section>
-<section id="prediction-power" class="title-slide slide level2 center">
-<h2>Prediction &amp; Power</h2>
-
-</section>
-<section id="predictions-in-real-life" class="slide level3">
-<h3>Predictions in Real Life</h3>
-<ul>
-<li>EXAMPLE : will it rain today?
+<section id="prediction-power-in-real-life" class="title-slide slide level2 center">
+<h2>Prediction &amp; Power in Real Life</h2>
+<p>EXAMPLE : what will your bedtime be tonight?</p>
 <ul>
 <li><strong>Knowledge (what information did you use to make the prediction)?</strong></li>
 <li><strong>Power (ways your predictions influence future behaviors)</strong></li>
-<li><strong>Was The Predicton Valid?</strong></li>
-</ul></li>
-<li><strong>Work on Lab Question.</strong> What’s a prediction about people (or the world) that you made today? What information did you use to make this prediction? How did (or could) you use this prediction to influence outcomes? Were you valid in your predictions? Finally, write a linear model that defines the prediction (and information that you used) as a formula (e.g., DV ~ IV1 + IV2 + … + error).</li>
+<li><strong>Was The Prediction Valid?</strong></li>
 </ul>
 </section>
-<section id="scientific-predictions" class="slide level3">
-<h3>Scientific Predictions</h3>
+<section id="work-on-lab-question-2." class="slide level3">
+<h3><strong>Work on Lab Question 2.</strong></h3>
+<p>What’s a prediction about people (or the world) that you made today? What information did you use to make this prediction? How did (or could) you use this prediction to influence outcomes? Were you valid in your predictions? Finally, write a linear model that defines the prediction (and information that you used) as a formula (e.g., DV ~ IV1 + IV2 + … + error).</p>
+</section>
+
+<section id="scientific-predictions" class="title-slide slide level2 smaller center">
+<h2>Scientific Predictions</h2>
 <p>Psychological scientists seek to better understand variation, in order to help make valid predictions in ways that help exert power over our environments.</p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Topic</th>
-<th>Other Questions We Might Ask?</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><video data-src="lecture_images/1L_prosthetic.mp4" controls=""><a href="lecture_images/1L_prosthetic.mp4">Video</a></video></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><img data-src="lecture_images/1L_fb.png" width="600"><sup>1</sup></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>Here’s <a href="https://www.nytimes.com/2016/05/06/business/facebook-bends-the-rules-of-audience-engagement-to-its-advantage.html">a link to the article</a> where this headline comes from. These data are a little dated, and I couldn’t immediately find more recent data - my guess is Meta does not really want to advertise that people are using the product more and more. However, in <a href="https://s21.q4cdn.com/399680738/files/doc_financials/2024/q2/Earnings-Presentation-Q2-2024.pdf">reports to investors</a> reports consistent growth in metrics like “ad impressions” and “daily active users”. Let me know if you find other sources to show how technology companies are capturing more and more of our attention!</p></li></ol></aside></section>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Knowledge of Neurons</p>
+<p><video data-src="lecture_images/1L_prosthetic.mp4" controls=""><a href="lecture_images/1L_prosthetic.mp4">Video</a></video></p>
+</div><div class="column" style="width:50%;">
+<p>Knowledge of Addiction</p>
+<p><img data-src="lecture_images/1L_fb.png" width="581"></p>
+</div></div>
+
+<aside><div>
+<p><a href="https://www.nytimes.com/2016/05/06/business/facebook-bends-the-rules-of-audience-engagement-to-its-advantage.html">Link to NYT article</a>. These data are a little dated; couldn’t find more recent data on this, but in <a href="https://s21.q4cdn.com/399680738/files/doc_financials/2024/q2/Earnings-Presentation-Q2-2024.pdf">reports to investors</a> reports consistent growth in metrics like “ad impressions” and “daily active users”.</p>
+</div></aside></section>
 
 <section id="the-linear-model" class="title-slide slide level2 center">
 <h2>The Linear Model</h2>
 
 <img data-src="images/clipboard-606362939.png" class="quarto-figure quarto-figure-center r-stretch" width="739"></section>
-<section id="recap-definition-and-examples" class="slide level3">
+<section id="recap-definition-and-examples" class="slide level3 smaller">
 <h3>RECAP : Definition and Examples</h3>
 <ul>
-<li><p>Steps to Take :&nbsp;</p>
+<li><p>DV ~ IV1 + IV2 + IV3 + … + ERROR</p>
 <ul>
 <li><p><strong>list the variable that you want to predict (the DV)</strong></p></li>
 <li><p><strong>list the variables that you think will help predict the DV (the IVs)</strong></p>
@@ -384,12 +356,11 @@
 <li><p><strong>ERROR will capture all the other variables not in your model.</strong></p></li>
 </ul></li>
 </ul></li>
-<li><p>Example : What predicts why people differ in the amount of screen time that they use (between or within-person differences)?</p>
-<ul>
-<li></li>
-</ul></li>
+<li><p>Example : Define a linear model to predict why people differ in the amount of screen time that they use (between or within-person differences)?</p></li>
 </ul>
-<p><strong>KEY IDEA : Linear Models Help Organize and Quantify Prediction</strong></p>
+</section>
+<section id="key-idea-linear-models-help-organize-and-quantify-prediction" class="slide level3 smaller">
+<h3>KEY IDEA : Linear Models Help Organize and Quantify Prediction</h3>
 <ul>
 <li><strong>organize :</strong> a model specifies what information (IV) we think might help us predict the DV</li>
 <li><strong>quantify :</strong> when we add statistics to our model (much later!), we will see…
@@ -402,26 +373,54 @@
 </ul></li>
 <li><p><strong>the amount of error in our prediction :</strong> how well does the model as a whole help us predict individual scores? how well does the model generalize to “reality”?</p></li>
 </ul></li>
-<li><strong>A Real-Life Linear Model in the Wild :</strong></li>
 </ul>
+</section>
+<section id="a-real-life-linear-model-in-the-wild." class="slide level3">
+<h3>A Real-Life Linear Model in the Wild.</h3>
 
 <img data-src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcXn1H6Tcp4pWwkbuqkGa9Pw2BW5X8LTLtU4oDmpQwVPHAh-OkVuuWRz7Ir6K3vGW_BYcRgnFsA5baC9KErNgMksdqxswLEeDKZkhyR2n-hZ7CPb8-CJnx_kx8Rd2atrHMxRQuvBR6gE1m61LL1NXi92g1Q?key=-c8GtewYj7xaFRpMDwKIPQ.png" class="quarto-figure quarto-figure-center r-stretch" width="391"></section>
-<section id="from-prediction-linear-model" class="slide level3">
-<h3>From Prediction –&gt; Linear Model</h3>
+<section id="from-prediction-to-linear-models" class="slide level3">
+<h3>From Prediction to Linear Models</h3>
 <ul>
-<li><p>student example prediction :</p>
+<li>I predict that attendance will improve students grades in the class.</li>
+</ul>
+<p><code>~ attendance ~ grades + error</code></p>
 <ul>
-<li>as a model :</li>
-</ul></li>
-<li><p>student example prediction :</p>
-<ul>
-<li>as a model :</li>
-</ul></li>
+<li>Write a model for your prediction (Lab 1, Q2)</li>
 </ul>
 </section>
-<section id="take-this-exit-survey-now-tinyurl.comonlinebyeintro" class="slide level3">
-<h3>Take this Exit Survey Now : tinyurl.com/onlinebyeintro</h3>
+
+<section id="is-science-adequate" class="title-slide slide level2 smaller center">
+<h2>Is science adequate?</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p>“The revolutionary viewpoint of a movement which thinks it can dominate current history by means of scientific knowledge remains <em>bourgeois…</em>the utopian socialists, remaining prisoners of the mode of exposition of scientific truth, conceived this truth in terms of its pure abstract image….it is on the model of <em>astronomy</em> that the utopians thought they would discover and demonstrate the laws of society.” (82-83)</p>
+<ul>
+<li>What makes sense / is confusing about this quote?</li>
+<li>What are some problems with “the model of astronomy”?</li>
+</ul>
+</div><div class="column" style="width:30%;">
+<p><img data-src="images/clipboard-1625483785.png"></p>
+</div></div>
 </section>
+
+<section id="is-science-adequate-1" class="title-slide slide level2 smaller center">
+<h2>Is science adequate?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>“If you want knowledge, you must take part in the practice of changing reality. If you want to know the taste of a pear, you must change the pear by eating it yourself. If you want to know the structure and properties of the atom, you must make physical and chemical experiments to change the state of the atom. If you want to know the theory and methods of revolution, you must take part in revolution. All genuine knowledge originates in direct experience.” - <a href="https://www.marxists.org/reference/archive/mao/selected-works/volume-1/mswv1_16.htm">Mao</a></p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://pacscenter.stanford.edu/publication/extreme-protest-tactics-reduce-popular-support-for-social-movements/"><img data-src="images/clipboard-3026795340.png" class="quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="take-this-exit-survey-now-tinyurl.comonlinebyeintro" class="slide level3">
+<h3>Take this Exit Survey Now: tinyurl.com/onlinebyeintro</h3>
+
+<img data-src="https://media.tenor.com/vcaQr7Q-LcUAAAAi/frog-dance-frog.gif" class="r-stretch"></section>
 </section>
 <section id="next-time-on-psych-101." class="title-slide slide level1 center">
 <h1>Next Time on Psych 101.</h1>
@@ -438,23 +437,28 @@
 </section>
 <section id="getting-research-experience-as-an-ra" class="title-slide slide level2 center">
 <h2>Getting Research Experience as an RA</h2>
+
+</section>
+<section id="ra-research-assistant" class="slide level3">
+<h3><strong>RA = Research Assistant</strong></h3>
 <ul>
-<li><p><strong>RA = Research Assistant</strong></p>
-<ul>
-<li><p>Mostly Unpaid Experiences</p></li>
-<li><p>Some paid experiences exist!</p>
+<li><p>Mostly Unpaid Experiences</p>
 <ul>
 <li><p>From the berkeley website…</p></li>
-<li><p><a href="https://haas.berkeley.edu/mors/faculty/">Busine$$ $chool</a></p></li>
-<li><p>Stanford [maybe paid]</p></li>
-<li><p><a href="https://docs.google.com/spreadsheets/d/1IX7f1N_VXUkSnnJPTpLg-pUto0427XBK_jxRxNFhmps/edit?gid=1345132026#gid=1345132026">A list a student sent me that they found</a>.</p></li>
 <li><p>“Cold calling” labs who are doing work you think is cool.</p></li>
 <li><p>Chat with your TAs / Professors</p></li>
 </ul></li>
-</ul></li>
-<li><p><strong>As an RA :</strong></p>
+<li><p>Some paid experiences exist!</p>
 <ul>
-<li><p>work with data : transcribing data; behavioral coding data; recruiting and participants to collect data; setting up psychophysiological recordings; cleaning data; etc.</p></li>
+<li><p><a href="https://haas.berkeley.edu/mors/faculty/">Busine$$ $chool</a></p></li>
+<li><p><a href="https://docs.google.com/spreadsheets/d/1IX7f1N_VXUkSnnJPTpLg-pUto0427XBK_jxRxNFhmps/edit?gid=1345132026#gid=1345132026">A list a student sent me that they found</a>.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="work-you-do-as-an-ra" class="slide level3 smaller">
+<h3>Work You Do as an RA</h3>
+<ul>
+<li><p><strong>work with data :</strong> transcribing data; behavioral coding data; recruiting and participants to collect data; setting up psychophysiological recordings; cleaning data; etc.</p></li>
 <li><p><strong>other opportunities to gain skills you can demonstrate :</strong></p>
 <ul>
 <li><p>reading &amp; discussing papers</p></li>
@@ -463,7 +467,13 @@
 <li><p>general mentorship (how to apply to grad school; where to apply; who to talk to &amp; e-mail; etc.)</p></li>
 <li><p>NOTE : this work and these skills apply to other work outside of research applications [time management; coordinating schedules; juggling responsibilities; etc.]</p></li>
 </ul></li>
-<li><p><strong>get a sense of whether this [work or lab] is for you?</strong></p>
+</ul>
+</section>
+<section id="what-you-get-out-of-this" class="slide level3 smaller">
+<h3>What You Get Out of This</h3>
+<ul>
+<li><p><strong>Course credit (hah), a letter of recommendation, ability to write about experiences that you have had (see above).</strong></p></li>
+<li><p><strong>Vibes : is this [work or lab] for you?</strong></p>
 <ul>
 <li><p>do you enjoy the work? are you going to look forward to showing up and doing the work / fulfilling the commitment?&nbsp;</p></li>
 <li><p>are you working with a horrible monster?</p>
@@ -474,11 +484,10 @@
 </ul></li>
 <li><p>or are you working with someone who is super cool and a positive influence on mentoring young minds!?!?! [YES!!!!]</p></li>
 </ul></li>
-</ul></li>
 </ul>
 </section>
 
-<section id="applying-to-graduate-school" class="title-slide slide level2 center">
+<section id="applying-to-graduate-school" class="title-slide slide level2 smaller center">
 <h2>Applying to Graduate School</h2>
 <ul>
 <li><p><strong>You are applying to work on research with a specific professor(s) at a school.</strong></p>
@@ -502,13 +511,13 @@
 <li><p><strong>Talk to people who are doing the thing you want to be doing about their journey</strong></p></li>
 </ul>
 </section>
-<section id="the-academic-job-market" class="slide level3">
+<section id="the-academic-job-market" class="slide level3 smaller">
 <h3>The Academic Job Market</h3>
-<p>Some Data [<a href="https://ncses.nsf.gov/pubs/nsf24300/report/postgraduation-trends#definite-commitments-at-graduation">Source</a>]</p>
 <table class="caption-top">
+<caption>Academic Job Market Data [<a href="https://ncses.nsf.gov/pubs/nsf24300/report/postgraduation-trends#definite-commitments-at-graduation">Source</a>]</caption>
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 15%">
+<col style="width: 85%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -529,7 +538,6 @@
 
 </section>
 </section>
-
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
