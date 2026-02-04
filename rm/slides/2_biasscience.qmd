@@ -8,7 +8,7 @@ format:
     controls: true
 ---
 
-# Week 2
+# Week 2{.smaller}
 
 Check-In Here : [**tinyurl.com/hibiases**](https://docs.google.com/forms/d/e/1FAIpQLSc6wy7of8-Mx8VZRXJmxF1hEisdoK-ZeKCJgx192n85xIOtdw/viewform?usp=sf_link)
 
@@ -52,9 +52,42 @@ Check-In Here : [**tinyurl.com/hibiases**](https://docs.google.com/forms/d/e/1FA
 
 ## RECAP : Goal of Science to Predict & Control
 
-### Some Example Research Questions {.smaller}
+### Research Questions : Writing Linear Models {.smaller}
 
 ::::: columns
+
+::: {.column width="50%"}
+-   **Linear Model** : an equation that simplifies our question & theory.
+
+    -   DV ~ IV1 + IV2 + ... + IVk + ERROR
+    -   DV = what you want to predict or control (focus of your study)
+    -   IV = all the varaiable(s) you think might help predict the DV. 
+    -   ERROR = life is complex! our predictions will be imperfect
+:::
+
+::: {.column width="50%"}
+-   **Fiona :** "...how creativity changes in our minds as we grow older."
+
+-   **London :** "As we age, why is it that we begin to naturally feel attracted to different aesthetic styles in our lives?"
+
+-   **Aracely :** "how we interact with other people and how they influence us in different ways."
+
+-   **Jake :** "how different age groups use AI chatbots like ChatGPT."
+:::
+:::::
+
+### Research Questions : Hypotheses {.smaller}
+
+::::: columns
+
+::: {.column width="50%"}
+-   **Hypotheses** : falsifiable predictions based on your theory.
+
+    -   H0 = null hypothesis = if the theory is NOT SUPPORTED, then I expect…
+
+    -   HA, = alternative hypothesis = if the theory is SUPPORTED, then I expect...
+:::
+
 ::: {.column width="50%"}
 -   **Fiona :** "...how creativity changes in our minds as we grow older."
 
@@ -65,14 +98,8 @@ Check-In Here : [**tinyurl.com/hibiases**](https://docs.google.com/forms/d/e/1FA
 -   **Jake :** "how different age groups use AI chatbots like ChatGPT."
 :::
 
-::: {.column width="50%"}
--   **Hypotheses** : falsifiable predictions based on your theory.
-
-    -   H0 = null hypothesis = if the theory is NOT SUPPORTED, then I expect…
-
-    -   HA, = alternative hypothesis = if the theory is SUPPORTED, then I expect...
-:::
 :::::
+
 
 ### ACTIVITY :
 
