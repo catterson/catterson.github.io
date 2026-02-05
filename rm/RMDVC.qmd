@@ -21,21 +21,23 @@ d <- read_sheet("https://docs.google.com/spreadsheets/d/1OegmH097biy7yzrxX98NgkX
 d$Date <- format(d$Date, "%m/%d")
 ```
 
-Hi class! This page will contain deadlines and links to course readings and lecture notes. Please use Canvas to...
+Hi class! This page will contain deadlines and links to course readings and lecture notes.
 
--   ...submit Reading Quiz, Discussion Posts, and Projects.
+**Please use Canvas to :**
 
--   ...access Lecture Recordings and the Syllabus.
+-   submit Reading Quiz, Discussion Posts, and Project Assignments.
+
+-   access the Syllabus, Lecture Recordings, and our class Vision Board.
 
 ## Course Materials
 
 -   [Dig Deeper Description & Rubric](/rm/notes/digdeeper.html)
 
--   Final Project Description & Rubric \[TBD\]
+-   Final Project Description & Rubric
 
 ## Course Outline
 
-Note : Chapters are from our course textbook : [Why Statistics?](http://catterson.github.io/ystats/)
+Note : Chapters are from the open-source textbook : [Research Methods in Psychology (4th Edition)](https://kpu.pressbooks.pub/psychmethods4e/). Note that each chapter has several sections within it that you'll need to click through. Here's a link to [download a PDF](https://kpu.pressbooks.pub/psychmethods4e/open/download?type=pdf) of the textbook.
 
 ```{r}
 #| echo: false
