@@ -15,7 +15,7 @@ website:
     collapse: false
 format:
   html:
-    theme: lux
+    theme: flatly
     toc: true
     reference-location: margin
     citation-location: margin
