@@ -1,269 +1,250 @@
 ---
-format: html
+title: "Chapter 2 | Working with Data"
+format: 
+  revealjs: 
+    slide-level: 3
+    link-external-newwindow: true
+    chalkboard: true
+    controls: true
+    code-overflow: wrap
+tbl-colwidths: [50,50]
 ---
 
-# Class 2 \| Working With Data
+# Check-In, Agenda, and Announcements
 
-## Check-In, Agenda, and Announcements
+Welcome Back!
 
-Welcome Back! Access this Document Here : catterson.github.io/calstats/calstatsFA25.html
+-   Access this Document Here : catterson.github.io/calstats/calstatsSP26.html
 
-[**PLEASE COMPLETE THIS CHECK-IN : tinyurl.com/againmodels**](https://docs.google.com/forms/d/e/1FAIpQLSeRxOyLnGN7GO7ZQYziTuElo8k39b1feE915glmQMqI-1JBTA/viewform?usp=sf_link)
+-   [**PLEASE COMPLETE THIS CHECK-IN : tinyurl.com/againmodels**](https://docs.google.com/forms/d/e/1FAIpQLSeRxOyLnGN7GO7ZQYziTuElo8k39b1feE915glmQMqI-1JBTA/viewform?usp=sf_link)
 
 ![](lecture_images/2L_KermitCouch.png){fig-align="center" width="401"}
 
-## Agenda
+## Agenda {.smaller}
 
--   **3:10 - 3:20.** Check-In & Review
+-   **2:10 - 2:20.** Check-In & Review
 
--   **3:20 - 4:00.** No stats in this class.
+-   **2:20 - 3:20.** Working with Data Using Computer Tool (R)
 
--   **4:00 - 4:10. BREAK TIME #1**
+-   **3:30 - 3:40. BREAK TIME #1.** Long break.
 
--   **4:10 - 5:00.** R in this class (loading data & graphing variables)
+-   **3:40 - 4:00.** Operationalization, Construct, and Measurement, Oh My!
 
--   **5:00 - 5:05. Break Time #2**
+-   **4:00 - 4:25.** Getting started on literature reviews.
 
--   **5:05 - 5:30.** Operationalization, Construct, and Measurement, Oh My!
+-   **4:35 - 5:00.** Farewell & Questions About Grad School.
 
--   **5:30 - 6:00.** Wrap Up & Questions About Grad School.
-
-## Announcements
+## Announcements {.smaller}
 
 -   **DISCORD IS BUMPIN :**
 
-    -   **students (and *sometimes* professor) helping students :** with the R stuff; the real stuff; the gobears stuff.
+    -   **students (*and sometimes professor*) helping students :** with the R stuff; the real stuff; the gobears stuff.
 
-        ![](images/clipboard-3577138052.png)
-
-    -   **students helping professor :** thinking about non-binary; non-categorical measures of gender (and race).
+    -   **students helping professor :** "notes for next time" and clarifications for this time.
 
 -   **Lab 2 is Posted.** We are going to work on this today. Yay.
 
--   **Brain Exam in Two Weeks.**
+-   **Brain Exam in Three Weeks (in section after the Chapter 4 lecture.)**
 
-    -   We will practice next week. Gonna be chill.
+    -   We will practice in class and in section. Gonna be chill.
 
-    -   If can't attend section; attend another section. Or talk to GSI.
+    -   If can't attend section; talk to your GSI (best : take in another one of their sections.)
 
-    -   **DSP :** you'll have extra time as needed. Can find quiet space as needed (just leave TECH in the classroom?)
+    -   **DSP :** you'll have extra time (and quiet space) as needed. Went well last semester.
 
--   **"I want more work!", said the student(s).**
+-   **"I want to learn more than is provided!", said the student(s).**
 
-    -   **ggplot2 :** for fancy graphs
+    -   **ggplot2 :** for fancy graphs.
 
-    -   **Quarto / RMarkdown :** for more authentic ways of embedding code, output, and words together. (what I'm writing the textbook, class notes, and lab assignments in.)
+    -   **Quarto / RMarkdown :** for more authentic ways of embedding code, output, and words together. (what I'm writing the textbook and class notes in.)
 
-# PART 1 : No Statistics In This Class
+## Check-In Review 
 
-## A Picture Is Worth 1000 Words
+![](images/clipboard-2218300954.png){fig-align="center"}
 
-### Florence Nightingale :
+# PART 1 : Data With Human Brain and R
 
-1.  Did you learn about Florence Nightingale in other classes?
+*A Picture Is Worth 1000 Words.*
+
+## Florence Nightingale {.smaller}
+
+::::: columns
+::: {.column width="60%"}
+1.  Did you learn about Florence Nightingale in other classes? \[Clap : Yes / No\]
 2.  What did you remember learning about Florence Nightingale in other classes?
+:::
 
-|  |  |
-|---------------------------|---------------------------------------------|
-| ![](lecture_images/2L_Florence.png) | ![](lecture_images/2L_FlorenceData.png) |
+::: {.column width="40%"}
+![](lecture_images/2L_Florence.png){fig-align="right"}
+:::
+:::::
 
-### Discussion.
+### Class Discussion. {.smaller}
 
-Look at the graph below, and use it to answer the following questions.
+::::: columns
+::: {.column width="40%"}
+1.  **Ice Breaker :** What's your favorite way to feel better when sick?
+2.  What’s going on in this graph / who cares / how can we use this knowledge??
+3.  What variables are in the graph? How would you organize them as a linear model?
+:::
 
-1.  **Ice Breaker :** What's the worst time you've been sick? What's your best way of trying to feel better / self-care when sick?
-2.  **Look at the graph below :** What’s going on in this graph / who cares / how can we use this knowledge??
-    1.  there are three colors!!!
-        1.  each color = a specific cause of death = A VARIABLE! = A CATEGORICAL [FACTOR]{.underline} VARIABLE = in the way this variable was measured, you could only die for one reasons.
-            1.  LEVELS = the specific causes = wounds, disease, other
-            2.  pattern : see more gray (death from disease)
-        2.  months is also happening on this graph!! = A CATEGORICAL VARIABLE = you cannot be in multiple monthses; you must be in one month.
-            1.  FACTOR = months
-            2.  LEVEL = january, february, march, etc...
-        3.  number of deaths = NUMERIC VARIABLE (COUNT DATA)
-    2.  lots of dying \[war is awful\]
-3.  **It's all linear models :** What are the variables in this graph? How would you organize these as a linear model?
-    1.  death \~ [type of death]{.underline} + month + error
-
+::: {.column width="60%"}
 ![](lecture_images/2L_FlorenceGraph.png){fig-align="center"}
+:::
+:::::
 
-## Learning from Histograms (No Statistics Terms!)
+## Lab 2
 
-Below are some data that I graphed[^1]. Take 1-2 minutes and SILENTLY (on your own) think about what you learn about the variable from this graph. Avoid FANCY STATS LANGUAGE - just explain the main ideas without those labels for now.
+-   Paste Lab 2 questions into a Google Document you can edit.
 
-[^1]: You will work with these later in the semester once we review how to create a likert scale (that combines 10 questions into one variable).
+-   Create a new R Script; save it as Lab 2.
 
-```{r}
-#| include: false
-d <- read.csv("../datasets/Self-Esteem Dataset/data.csv", stringsAsFactors = T, na.strings = "0", sep = "\t")
-head(d)
-names(d)
-summary(as.factor(d$Q4))
-SELFES.df <- data.frame(d[,c(1:2,4,6,7)], 5-d[,c(3,5,8:10)])
-summary(SELFES.df)
-library(psych)
-alpha(SELFES.df)
-d$SELFES <- rowMeans(SELFES.df, na.rm = T)
-```
+-   **Access the [Onboarding Survey Data and Codebook](https://www.dropbox.com/scl/fo/u8zr1swbl700sml2f1acp/AN0R4J7tyLqrIaUvDCAxDZs?rlkey=yhbjcobmlm8he9eu3i19mdiv7&dl=0)**
 
-```{r}
-hist(d$SELFES, col = 'black', bor = 'white', 
-     main = "Histogram of Self-Esteem", 
-     xlab = "Self-Esteem Score", breaks = 15)
-```
+### THE CODEBOOK : Onboarding Survey {.smaller}
 
-**Things We Learned From the Graph**
-
--   the graph is about self-esteem
-
--   the graph goes from a self-esteem of 1.0 to 4.0
-
--   RIVA : most self-esteem scores are about 2.5
-
--   MIA : as you go toward each end (1 or 4) there are less people with that specific self-esteem.
-
-    -   more people have a self-esteem in the middle than either really high or really low –\> twice-ish as many people reported 4 vs. a 1.
-
--   graph is a little lumpier on the RIGHT side; more people tend to say they have a higher self-esteem than a lower self-esteem.
-
--   this is a LARGE dataset
-
-**Things We Cannot Learn From the Graph**
-
--   RYAN : no idea the full range of the scale; or people's individual scores (people are grouped into categories); we don't know how self-esteem was measured.
-
--   other variables related to the demographics of these people : age, gender, occupation, height, weight, nation, education, etc.
-
--   REASONS FOR WHY GRAPH IS A LITTLE LUMPIER ON THE LEFT-SIDE THAN THE RIGHT SIDE????
-
-    -   healthy to have a high self-esteem, and most people are healthy in 2025 CAPITALISM RULES NO PROBLEMS!!!
-
-    -   social desirability to have higher self-esteem, so people tending to report that.
-
-    -   the people who were surveyed had high self-esteem .
-
-# BREAK TIME : MEET BACK AT 4:25!!!!
-
-![](lecture_images/2L_Matrix.png){fig-alt="an image from the movie THE MATRIX, where we see a man sitting at a variety of computer terminals with many wires." fig-align="center"}
-
-# PART 2 : Working in R
-
-## CODE BOOK : The Covid-19 Behavior Dataset
-
--   **Look over the codebook (below).**
+::::: columns
+::: {.column width="40%"}
+-   **Look over the codebook --\>**
 
     -   What is one variable from the dataset that is interesting to you (if any)?
-
     -   Is this categorical or numeric data?
+    -   What predictions do you have about what this variable will look like?
+    -   How might we use knowledge of this variable?
+:::
 
-    -   What predictions do you have about this variable?
+::: {.column width="60%"}
+![](images/clipboard-3167511214.png)
+:::
+:::::
 
-    -   How might you use this variable in a linear model (as a DV or as a IV?)
+### DATASET : the Onboarding Survey {.smaller}
 
--   **Loading Data Issues :**
+-   **Load the Data into R :**
 
-    -   **rename this to something short!**
+    -   make sure you are working with stats_onboard.csv
 
     -   **posit.cloud :** clicking on the name to load (vs. the “Import Dataset”)
 
-[Link to Data (also on bCourses)](https://www.dropbox.com/s/is3i75yovjiveht/covid_behavior_data.csv?dl=0)
+-   **The Three Things to Remember When Loading Data:**
 
-![](lecture_images/2L_covidCODE.png){fig-align="center"}
+    -   rename the long file name to something short!
 
-## IN R : The Covid-19 Behavior Dataset
+    -   check the headers
 
-Things we will do.
+    -   set stringAsFactor = TRUE
 
--   Open up Lab 2
+### Work on the Lab :
 
--   Create an RScript
+-   Graph two variables, make the graphs look nice, and learn about the individuals in the data from the graph.
 
--   Load the Covid-19 Behavior Dataset (.csv file) and the CODE BOOK (.pdf)
+    -   two numeric variables
 
-    -   the CODEBOOK explains what the variables measured
+    -   one categorical variable?
 
-    -   the .csv data file contains the data.
+    -   no stats terms!
 
-    -   Make sure the data loaded correctly into R
+-   Save your work for Lab 2, Question 1. Yeah!
 
--   Graph some variables and learn about the individuals from this graph
+### Student Show and Tell? {.smaller}
 
-    -   numeric data
+the Chancellor Rich Lyons ~*is our Chancellor. Professor asked for a*~ Guest Lecture
 
-    -   categorical data
+# BREAK TIME : MEET BACK AT ______ !!!!
 
--   Save your work for Lab 2, Questions 1 and 2 and 3. Yeah!
+![](lecture_images/2L_Matrix.png){fig-alt="an image from the movie THE MATRIX, where we see a man sitting at a variety of computer terminals with many wires." fig-align="center"}
 
-# BREAK TIME : MEET BACK AT 5:18 \[5 min\]
-
-![](images/clipboard-3262071838.png)
-
-**WE BACK, AND MINI CLASS DATA IS LIVE :** [**tinyurl.com/miniclassexit**](https://docs.google.com/forms/d/e/1FAIpQLScvBoQcnSzw_vi5cS5GazYaAAuH0HPcDIi2uCnZuhVWBSTVfg/viewform?usp=sf_link)
-
-MEANWHILE, SOME STUDENT QUESTIONS :
-
--   can u share your script?
-
--   how does your code wrap around (like NEO's sunglasses??)
-
-# PART 3 : Defining Data
+# PART 2 : Defining Data
 
 ## Operationalization, Construct, and Measurement Error
 
 -   **operationalization** : how researchers define the variable(s) they will study; this is a process; often the focus of a researcher’s question in the scientific method.
 -   **construct** : some operationalized psychological phenomenon of interest. some examples below :
-    -   voxel : three dimensional area of brain activation
-    -   self-esteem : how a person feels about themselves
-    -   secure attachment style : how much a person seeks out and trusts a relationship partner.
+    -   **voxel :** three dimensional area of brain activation
+    -   **self-esteem :** how a person feels about themselves
+    -   **secure attachment style :** how much a person seeks out and trusts a relationship partner.
 -   **measurement error :** when there is a lack of validity in our measures. The more error in our measures, the more error there will be in our predictions (“garbage in → garbage out”).
 
-**KEY IDEA :** the way a variable is measured is CRITICAL.
+## **KEY IDEA :** the way a variable is measured is CRITICAL.
 
--   **The News Article :** What comes to mind when you think of a "Cognitive Test"?
+What comes to mind when you think of a "Cognitive Examination"?
 
-![](lecture_images/2L_TrumpMedia.png){fig-align="center"}
+### **ACED the "Cognitive Examination"**
 
--   **The Scientific Operationalization of this "Cognitive Test"**
+![](images/clipboard-388249856.png){fig-align="center"}
+
+### **The Scientific Operationalization of the Cognitive Examination**
 
 ![](lecture_images/2L_MOCA.png){fig-align="center"}
 
-## ACTIVITY : Counting Interruptions
+## ACTIVITY : No talking please!
 
-[**Check-in :**](https://docs.google.com/forms/d/e/1FAIpQLSd4GahfYtKFiSEFL5blw0lAG6jZepRzmnAewfUI9_iUf3dv9w/viewform?usp=sf_link)[**tinyurl.com/dudesinterrupting**](http://tinyurl.com/dudesinterrupting)
+-   [**Check-in :**](https://docs.google.com/forms/d/e/1FAIpQLSd4GahfYtKFiSEFL5blw0lAG6jZepRzmnAewfUI9_iUf3dv9w/viewform?usp=sf_link) [**tinyurl.com/dudesinterrupting**](http://tinyurl.com/dudesinterrupting)
+
+-   Want to create consistent conditions for all to watch and hear. Thank you.
+
+### Counting Interruptions
 
 1.  Count the number of interruptions in the video (which professor will play below). 
 
 2.  Submit your answer, **then wait for the letter of the day.**
 
-![](lecture_images/1_interruption_oreilly&frank_operationalization.m4v)
+![](lecture_images/1_interruption_oreilly&frank_operationalization.m4v){fig-align="center"}
 
-**DISCUSSION TOPICS :**
+### **DISCUSSION TOPICS :**
 
 -   Why is this a problem for science???
 
-    -   everyone has a different definition of the number of interruptions AND everyone all watched the SAME video.
-
-    -   if we had a PERFECT measure of an interruption, then everyone's number would be the same.
-
 -   How do we OPERATIONALIZE an INTERRUPTION?
-
-    -   ONLY COUNT the number of times guy on the RIGHT is interrupted.
-
-    -   ONE INTERRUPTION = the person on the RIGHT has to STOP their sentence and RESTART.
 
 -   What PREDICTIONS can we make about counting interruptions a second time?
 
-    -   there will be more similarity in our data the second time (LESS variation in t2 responses vs. t1)
+# PART 3 : GETTING STARTED ON LITERATURE REVIEWS.
 
-    -   people will count fewer interruptions in T2 vs. T1
+## Academic Business : Questions About These Terms? {.smaller}
 
-        -   we are only counting ONE person's interruption.
+**The People Involved:**
 
-        -   the person had to RESTART their sentence.
+-   **author : the person(s) who writes the article**
 
-# FOR NEXT WEEK
+-   **affiliations :** where the authors come from
 
-1.  Discussion Section : working on Lab 2; chatting about final project ideaz.
-2.  Lab 2
-3.  Read Chapter 3 and Complete Quiz 3
-4.  Stay safe out there; be kind to self and others.
+-   **editor :** a person who sends the article to review, and ultimately decides whether to accept / reject an article for publication.
+
+-   **peer reviewers :** other scientists who comment on the article and give feedback before it is published (unpaid, anonymous, and uncredited on the paper.
+
+**Types of Scientific Articles**
+
+-   **original report :** one or more studies where researchers collect original data to answer a specific question(s)
+
+-   **replication :** a copy of a previous original report (with new people)
+
+-   **literature review :** summarizes main ideas from past research to find common themes
+
+-   **meta-analysis :** summarizes data from past studies to find common themes.
+
+**The Ways To Evaluate :**
+
+-   **citation count : the number of times that other people reference a specific article.**
+
+-   **impact factor :** the average number of times the average article in a journal has been cited in an average year
+
+-   **jargon :** the specific words psychologists use to define variables.
+
+-   **APA Citation (or “Citation in APA Format”) :** a super specific way of referencing an article that you do NOT need to memorize because computers do this for us.
+
+## Literature Review
+
+-   [Link to Annotated Bibliography Template](https://docs.google.com/spreadsheets/d/1Z6bwMrtC6glf2X2A55-cq0pI-smUV5LyLy9eyDiM5nA/edit?usp=sharing)
+
+-   **Goals :**
+
+    -   Learn more about the topic than you did before.
+
+    -   See what past research has been done on your topic.
+
+    -   Keep an organized record of what you find so you can access it later.
+
+# BYE BYE : FOR NEXT WEEK {.smaller}
+
+![](images/clipboard-3262071838.png)

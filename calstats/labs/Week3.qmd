@@ -1,0 +1,38 @@
+---
+title: ""
+format: html
+editor: visual
+---
+
+## Week 3 - Friday, February 6th
+
+### Class Slides and Materials
+
+```{=html}
+<iframe class="slide-deck" src="/calstats/Lectures/2L_WorkingWithData.html" width="100%" height="500px" title=""></iframe>
+```
+
+-   [Link to Onboarding Codebook and Dataset](https://www.dropbox.com/scl/fo/u8zr1swbl700sml2f1acp/AN0R4J7tyLqrIaUvDCAxDZs?rlkey=yhbjcobmlm8he9eu3i19mdiv7&dl=0)
+-   [Link to Annotated Bibliography Template](https://docs.google.com/spreadsheets/d/1Z6bwMrtC6glf2X2A55-cq0pI-smUV5LyLy9eyDiM5nA/edit?usp=sharing)
+-   [Link to Folder with Professor R Scripts and Notes](https://www.dropbox.com/scl/fo/gl6k038pu9duy75jvq1t0/ALCXZvj5iBfl0uCRfZfZiHM?rlkey=kon74xzou91hkhgx8tfjmdet5&dl=0)
+
+### Due Next Week
+
+1.  Attend Discussion Section
+2.  Complete and Submit Lab 2
+3.  Read [Chapter 3](https://catterson.github.io/ystats/chapters/3R_Description.html) of ***Why Statistics?*** on Descriptive Statistics.
+4.  Complete Chapter 3 Quiz on bCourses.
+
+# Lab 2
+
+**Copy and paste these questions into a document (Google Doc or Word).** Please number your responses to help your GSI grade. There’s no word count, and we won’t penalize students for grammar or spelling. Do your best to explain your ideas in your own words, and if you get stuck or confused, post on Discord / ask your GSI / explain why you got stuck and what you tried to do to figure things out.
+
+1.  **In Class : Number Problems :** Graph two numeric variables from the onboarding dataset. Change the arguments on the graph to make them look “nice”. Below the graphs, describe what you learn about the individuals for each variable (no stats terminology yet!) and conclude with additional questions you have about each variable.
+
+2.  **(In Discussion Section) Load the “covid_behavior_dataset.csv” (in the Chapter Dataset folder).** Check to make sure the data loaded correctly with the head() function. Report the sample size and names of the variables from this dataset, and look over the code book. Choose two variables from the dataset - one numeric and one categorical - that you would be interested to learn more about. How do you think people in the dataset will differ on these variables? Then, graph each variable side by side (try to use the par() function to do this), make the graphs "look nice". Below the graphs describe what you learn about the individuals in the dataset for each variable (no stats terms yet) and conclude with additional questions you have about each variable.
+
+3.  **(In Discussion Section). Find a buddy.** If you missed discussion section, then find someone on Discord or make up a buddy in your mind and do the work for them. Share your R code with them from Problem 2. Use (or adapt) the R code to reproduce their graph. You're doing open-science!
+
+4.  **(In Discussion Section). Get Started on a Lit Review.** Use Google Scholar to search for articles related to your final project topic. Keep track of the articles somehow (here's a [simple google spreadsheet template you can use](https://docs.google.com/spreadsheets/d/1Z6bwMrtC6glf2X2A55-cq0pI-smUV5LyLy9eyDiM5nA/edit?usp=sharing); share on Discord if you find other nice ways to keep things organized. If you wanna go down a rabbit hole, try using Zotero or Paperpile.) Share a link to your annotated bibliography here, and great if you wanna share on the [Psych 101 Vision Board](https://docs.google.com/spreadsheets/d/1WMn8SH-yQC-5bNcnQR-Jp5RWkxutVlKNmxCgMDgompI/edit?usp=sharing) (make sure your permissions are set so others can view, but not edit, your work.)
+
+5.  **AI Disclosure.** Please describe how you used AI tools; make sure you include specific prompts here. Thanks!

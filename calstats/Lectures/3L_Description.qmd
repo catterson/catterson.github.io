@@ -3,6 +3,9 @@ title: "Class 3 | Description"
 format: html
 ---
 
+-   **MINI CLASS DATA IS LIVE :** [**tinyurl.com/miniclassexit**](https://docs.google.com/forms/d/e/1FAIpQLScvBoQcnSzw_vi5cS5GazYaAAuH0HPcDIi2uCnZuhVWBSTVfg/viewform?usp=sf_link)
+
+
 ## [check-in : tinyurl.com/interruptlifewithR](https://docs.google.com/forms/d/e/1FAIpQLSeHOpY9ubskHAQmCAVLRCD0tAy6Hd_feajTSHn9ilutA_S3qQ/viewform?usp=sf_link)
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+
@@ -77,15 +80,15 @@ format: html
 #### Where the Line?
 
 ```{r}
-mini <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets - FA25/mini_cal_data.csv", stringsAsFactors = T)
-plot(mini$hrs.sleep[mini$hrs.sleep < 24])
+#mini <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets - FA25/mini_cal_data.csv", stringsAsFactors = T)
+#plot(mini$hrs.sleep[mini$hrs.sleep < 24])
 ```
 
 #### There the Line!
 
 ```{r}
-plot(mini$hrs.sleep[mini$hrs.sleep < 24])
-abline(h = mean(mini$hrs.sleep[mini$hrs.sleep < 24], na.rm = T), col = 'red', lwd = 5)
+#plot(mini$hrs.sleep[mini$hrs.sleep < 24])
+#abline(h = mean(mini$hrs.sleep[mini$hrs.sleep < 24], na.rm = T), col = 'red', lwd = 5)
 ```
 :::
 
