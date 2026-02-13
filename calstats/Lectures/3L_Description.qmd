@@ -1,152 +1,169 @@
 ---
-title: "Class 3 | Description"
-format: html
+title: "Chapter 3 | Description"
+format: 
+  revealjs: 
+    slide-level: 3
+    link-external-newwindow: true
+    chalkboard: true
+    controls: true
+    auto-stretch: false
+    code-overflow: wrap
+tbl-colwidths: [50,50]
 ---
 
--   **MINI CLASS DATA IS LIVE :** [**tinyurl.com/miniclassexit**](https://docs.google.com/forms/d/e/1FAIpQLScvBoQcnSzw_vi5cS5GazYaAAuH0HPcDIi2uCnZuhVWBSTVfg/viewform?usp=sf_link)
-
-
-## [check-in : tinyurl.com/interruptlifewithR](https://docs.google.com/forms/d/e/1FAIpQLSeHOpY9ubskHAQmCAVLRCD0tAy6Hd_feajTSHn9ilutA_S3qQ/viewform?usp=sf_link)
-
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+
-| -   [**link to RScript**](https://www.dropbox.com/scl/fi/tyxiyi2tbyir1svp34lxi/3T_Description.R?rlkey=lde2z1xcbbzk922iokcfk0edh&e=1&dl=0) **\[will update as professor saves the script\]** | ![](images/clipboard-1056536258.png) |
-|                                                                                                                                                                                             |                                      |
-| -   [**data are here - or find on bCourses**](https://www.dropbox.com/scl/fi/k9xcg707ihffv00hhj48c/interruption_FA25.csv?rlkey=26m0t7cqgn2do97u698lmnr73&dl=0)                              |                                      |
-|                                                                                                                                                                                             |                                      |
-|     -   name the dataset `d`                                                                                                                                                                |                                      |
-|                                                                                                                                                                                             |                                      |
-| ![](images/clipboard-3432465072.png){fig-align="center" width="317"}                                                                                                                        |                                      |
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+
-
-**Professor Check-In Code Goes Here**
-
 ```{r}
-## CHECK-IN : the interruption dataset
-##  Download the "interruption" dataset and import the data to RStudio.
-
-# Q1. How many individuals are in this dataset?
-
-# Q2. How many variables are in this dataset?
-
-# Q3. What is the value of the second row, third column of this dataset?
-
-# Q4. How many individuals said "yes, I can relax my feet"?
-
-# Q5. How many individuals said "no, my feet were already totally relaxed"?
-
+#| eval: false
+#| include: false
 ```
 
-**Agenda and Announcements**
+# Welcome Back
 
--   3:10 - 3:30 \| Check-In & Announcements
+CHECK-IN : [tinyurl.com/miniclassexit](https://docs.google.com/forms/d/e/1FAIpQLScvBoQcnSzw_vi5cS5GazYaAAuH0HPcDIi2uCnZuhVWBSTVfg/viewform?usp=sf_link){.smaller}
 
--   3:30 - 4:45 \| Describing Data in R (and Removing Outliers)
+::::: columns
+::: {.column width="60%"}
+**Agenda**
 
--   4:45 - 5:00 \| BREAK TIME
+-   **2:10 - 2:20.** Check-In & Announcements.
 
--   5:00 - 5:20 \| Student Show and Tell
+-   **2:20 - 3:40.** Describing Data with Brain and R.
 
--   5:20 - 6:00 \| Final Project Workshop
+-   **3:40 - 3:50.** BREAK TIME
 
-## Part 1 : Describing Data
+-   **3:40 - 4:00.** Milestone #2 (Intros)
 
-### Lab 3, Problem 1. Interruption Problems
+-   **4:00 - 5:00.** Okay.
+:::
 
-**Download the “interruption” data from bCourses, and import this data into R. This dataset has two variables of the number of interruptions counted before (int1) and after (int2) our operationalization.**
+::: {.column width="40%"}
+![](images/clipboard-1056536258.png)
+:::
+:::::
 
-1.  Load the data (I'll call it d if you want to follow along with my code), check to make sure it loaded correctly, and report the sample size and names of the variables.
+## Part 1 : Describing Data with Brain.
 
-2.  Graph these variables as a histogram (use the par() function to graph them side by side). Change the arguments so the graphs have the same x-axis and y-axis ranges, and nice labels.
+### KEY IDEA : The Mean as Prediction {.smaller}
 
-3.  Report the mean, median, range, and standard deviation for both variables. Then, calculate the standard deviation “by hand” for int1 (you should get a similar, but not exact, number, as what R gives you.)
-
-4.  Describe how these statistics changed after operationalizing an interruption, and why these changes make sense given the nature of our operationalizations. Then, decide whether our operationalization would be good enough if we were researchers trying to scientifically study interruptions.
-
-5.  Graph a categorical variable from the dataset and report the frequency of each group.
-
-### KEY IDEA : The Mean as Prediction
-
--   How would you feel...
+::::: columns
+::: {.column width="60%"}
+-   **How would you feel... GOOD / BAD / INDIFFERENT**
     -   ...if I told you that the average on the R Exam last semester was a 50%?
     -   ...if I told you that the average on the R Exam last semester was a 90%?
-    -   ...if someone called you "average"?
--   Why would you feel this way?
+    -   ...if everyone you knew and loved called you "average"?
+-   **Why would you feel this way?**
+:::
 
-![](lecture_images/3L_ChatGPTFrogWizard.png){fig-alt="a frog wizard sitting on a toadstool wearing a hat and holding a crystal ball as illustrated by ChatGPT as an oil painting" fig-align="center" width="360"}
+::: {.column width="40%"}
+[![](images/clipboard-2307822371.png){fig-align="center"}](https://en.wikipedia.org/wiki/The_Sorcerer%27s_Apprentice)
+:::
+:::::
 
--   Where would a vertical line best fit through these data?
+### LET'S PLAY : WHERE THE LINE?{.smaller}
+
+Where would a vertical line best fit through these data?
 
 ::: panel-tabset
 #### Where the Line?
 
 ```{r}
-#mini <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets - FA25/mini_cal_data.csv", stringsAsFactors = T)
-#plot(mini$hrs.sleep[mini$hrs.sleep < 24])
+#| fig-width: 7
+#| fig-height: 7
+#| fig-align: center
+m <- read.csv("~/Dropbox/!WHY STATS/Professor Datasets/Conspiracy Beliefs/data.csv", stringsAsFactors = T)
+plot(m$familysize[m$familysize < 24], ylab = "Family Size (# of Persons)")
 ```
 
 #### There the Line!
 
 ```{r}
-#plot(mini$hrs.sleep[mini$hrs.sleep < 24])
-#abline(h = mean(mini$hrs.sleep[mini$hrs.sleep < 24], na.rm = T), col = 'red', lwd = 5)
+#| fig-width: 7
+#| fig-height: 7
+#| fig-align: center
+plot(m$familysize[m$familysize < 24], ylab = "Family Size (# of Persons)")
+abline(h = mean(m$familysize[m$familysize < 24], na.rm = T), col = 'red', lwd = 5)
 ```
+
+#### What's Going On?
+
+The histogram organizes the data, but you can see the same patterns in both graphs.
+```{r}
+#| fig-width: 14
+#| fig-height: 7
+#| fig-align: center
+par(mfrow = c(1,2))
+plot(m$familysize[m$familysize < 24], ylab = "Family Size (# of Persons)")
+abline(h = mean(m$familysize[m$familysize < 24], na.rm = T), col = 'red', lwd = 5)
+hist(m$familysize[m$familysize < 24], ylab = "Family Size (# of Persons)", main = "")
+abline(v = mean(m$familysize[m$familysize < 24], na.rm = T), col = 'red', lwd = 5)
+```
+
+The mean family size in this dataset is : 
+```{r}
+mean(m$familysize[m$familysize < 24], na.rm = T)
+```
+
 :::
 
-### The Mean As Prediction (and Error)
+### The Mean As Prediction (and Error){.smaller}
 
-The following equation formalizes this idea, that an individual's score is related to the mean and error.
+-   How can you visualize each of these components?
+-   How might you translate this equation into a simpler language?
+
+:::: {.columns}
+
+::: {.column width="40%"}
+```{r}
+#| fig-width: 7
+#| fig-height: 7
+#| fig-align: center
+plot(m$familysize[m$familysize < 24], ylab = "Family Size (# of Persons)")
+abline(h = mean(m$familysize[m$familysize < 24], na.rm = T), col = 'red', lwd = 5)
+```
+
+:::
+
+::: {.column width="60%"}
 
 $$
 \Huge y_i = \bar{Y} + \epsilon_i
 $$
 
-We can break this up into the following components :
-
 -   $y_i$ = the individual’s ($_i$) actual score of a variable ($y$) we are trying to predict.
-    -   on the graph : each individual dot; the value on the y-axis is the individual's score; value of the x-axis is the person's index (when people submitted the survey).
 -   $\bar{Y}$ = our prediction (the mean, in this case)
-    -   on the graph : the solid line is drawn at the mean for the variable.
 -   $\epsilon_i$ = residual error
-    -   on the graph : the vertical distance between the predicted values of y (the line) and the individual's actual value of y (the dot)
 
-I like to remember that an individual's actual score comes first in the equation, because as researchers we (supposedly) care about REAL PEOPLE and not just data or predictions.
+:::
+
+::::
+
+
+## Part 2 : Describing Data in R.
+
+[hey, another check-in. tinyurl.com/interruptlifewithR](https://docs.google.com/forms/d/e/1FAIpQLSeHOpY9ubskHAQmCAVLRCD0tAy6Hd_feajTSHn9ilutA_S3qQ/viewform?usp=sf_link)
+
+-   load the interruption data
+
+-   name the dataset d to follow along with professor.
+
+![](images/clipboard-3432465072.png){fig-align="center"}
+
+### Lab 3, Problem 1. Interruption Problems{.smaller}
+
+**Download the “interruption” data from bCourses, and import this data into R. This dataset has two variables of the number of interruptions counted before (int1) and after (int2) our operationalization.**
+
+1.  Load the data (I'll call it d if you want to follow along with my code), check to make sure it loaded correctly, and report the sample size and names of the variables.
+2.  Graph these variables as a histogram (use the par() function to graph them side by side). Change the arguments so the graphs have the same x-axis and y-axis ranges, and nice labels.
+3.  Report the mean, median, range, and standard deviation for each variables. Add vertical lines to your graphs above that illustrate the mean (in red), the median (in blue), and the standard deviation (in dashed red).
+4.  Describe how these statistics changed after operationalizing an interruption, and why these changes make sense given the nature of our operationalizations. Then, explain why the median is closer to the mean for Time 2.
+5.  Just to make sure we can still do this, graph a categorical variable from the dataset, report the frequency of each group, and describe what you learn from the distribution.
 
 ## BREAK TIME : MEET BACK AT 4:45
-
-## ![](lecture_images/3L_KikiArt.png)
-
-## Part 2 : More R Practice
-
-**Work on Lab 3, Problem 2.2.** Choose another numeric variable from the dataset (see the codebook for a guide). Graph this variable as a histogram, and report the mean, median, standard deviation, and range. Make sure to do any necessary data cleaning (e.g., outlier removal), make the graph look nice, and describe what each descriptive statistic teaches you about the people in the dataset (you do not need to draw them again on the graph, unless you want to / find this helpful!)
-
-```{r}
-
-```
-
-**Share Your Work With the Class!** Post a screenshot of your graph on the class Discord; and then come up to the front to talk about your variable! Yeah?!?
-
-```{r}
-
-```
+![](lecture_images/3L_KikiArt.png)
 
 ## Part 3 : Final Project Workshop
 
-**This Week : Decide on a Dependent Variable**
+-   Looking at some literature reviews.
 
--   Jasmine :
-    -   MODEL : mental health in muslim community \~ level of spirituality + upbringing + ERROR
-        -   QUESTION : what are some ways Jasmine could focus these variables?
-            -   mental health in muslim community :
-            -   level of spirituality :
-            -   upbringing :
-                -   trauma
-                -   socioeconomic status
-                -   number of parents / caregivers / siblings in the household
-                -   education
-                -   location : immigrant or 2nd-gen or proximity to other muslim community members.
-                -   income.
-        -   
+-   Refining our Linear Models.
 
-**Find some past research on your DV and [get started on your literature review](https://docs.google.com/spreadsheets/d/1CGkY6Ior_Rga1rKsaDMj8zc1ueIB2ZsVvgucS2K9SDA/edit?usp=sharing).**
-
--   Professor ideas go here.
+-   Introducing the idea of a *moderator variable*
