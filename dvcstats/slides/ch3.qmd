@@ -60,8 +60,6 @@ tbl-colwidths: [50,50]
 
 ### LET'S PLAY : WHERE THE LINE? {.smaller}
 
-Where would a vertical line best fit through these data?
-
 ::: panel-tabset
 #### Where the Line?
 
@@ -69,8 +67,8 @@ Where would a vertical line best fit through these data?
 #| fig-width: 7
 #| fig-height: 7
 #| fig-align: center
-m <- read.csv("~/Dropbox/!WHY STATS/Professor Datasets/Conspiracy Beliefs/data.csv", stringsAsFactors = T)
-plot(m$familysize[m$familysize < 24], ylab = "Family Size (# of Persons)")
+m <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/Covid Behavior Data/covid_behavior_data.csv", stringsAsFactors = T)
+plot(m$Handwash, ylab = "Handwashing Behavior")
 ```
 
 #### There the Line!
@@ -79,23 +77,23 @@ plot(m$familysize[m$familysize < 24], ylab = "Family Size (# of Persons)")
 #| fig-width: 7
 #| fig-height: 7
 #| fig-align: center
-plot(m$familysize[m$familysize < 24], ylab = "Family Size (# of Persons)")
-abline(h = mean(m$familysize[m$familysize < 24], na.rm = T), col = 'red', lwd = 5)
+plot(m$Handwash, ylab = "Handwashing Behavior")
+abline(h = mean(m$Handwash, na.rm = T), col = 'red', lwd = 5)
 ```
 
 #### What's Going On?
 
-The histogram organizes the data, but you can see the same patterns in both graphs. **The Mean = `r mean(m$familysize[m$familysize < 24], na.rm = T)`**
+The histogram organizes the data, but you can see the same patterns in both graphs. **The Mean = `r mean(m$Handwash, na.rm = T)`**
 
 ```{r}
 #| fig-width: 14
 #| fig-height: 7
 #| fig-align: center
 par(mfrow = c(1,2))
-plot(m$familysize[m$familysize < 24], ylab = "Family Size (# of Persons)")
-abline(h = mean(m$familysize[m$familysize < 24], na.rm = T), col = 'red', lwd = 5)
-hist(m$familysize[m$familysize < 24], xlab = "Family Size (# of Persons)", main = "")
-abline(v = mean(m$familysize[m$familysize < 24], na.rm = T), col = 'red', lwd = 5)
+plot(m$Handwash, ylab = "Handwashing Behavior")
+abline(h = mean(m$Handwash, na.rm = T), col = 'red', lwd = 5)
+hist(m$Handwash, xlab = "Handwashing Behavior", main = "")
+abline(v = mean(m$Handwash, na.rm = T), col = 'red', lwd = 5)
 ```
 :::
 
@@ -110,8 +108,8 @@ abline(v = mean(m$familysize[m$familysize < 24], na.rm = T), col = 'red', lwd = 
 #| fig-width: 7
 #| fig-height: 7
 #| fig-align: center
-plot(m$familysize[m$familysize < 24], ylab = "Family Size (# of Persons)")
-abline(h = mean(m$familysize[m$familysize < 24], na.rm = T), col = 'red', lwd = 5)
+plot(m$Handwash, ylab = "Handwashing Behavior")
+abline(h = mean(m$Handwash, na.rm = T), col = 'red', lwd = 5)
 ```
 :::
 
