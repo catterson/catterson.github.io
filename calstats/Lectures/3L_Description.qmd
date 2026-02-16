@@ -54,11 +54,11 @@ CHECK-IN : [tinyurl.com/miniclassexit](https://docs.google.com/forms/d/e/1FAIpQL
 :::
 
 ::: {.column width="40%"}
-[![](images/clipboard-2307822371.png){fig-align="center"}](https://en.wikipedia.org/wiki/The_Sorcerer%27s_Apprentice)
+[![](images/clipboard-3102981519.png){fig-align="center"}](https://en.wikipedia.org/wiki/The_Sorcerer%27s_Apprentice)
 :::
 :::::
 
-### LET'S PLAY : WHERE THE LINE?{.smaller}
+### LET'S PLAY : WHERE THE LINE? {.smaller}
 
 Where would a vertical line best fit through these data?
 
@@ -86,6 +86,7 @@ abline(h = mean(m$familysize[m$familysize < 24], na.rm = T), col = 'red', lwd = 
 #### What's Going On?
 
 The histogram organizes the data, but you can see the same patterns in both graphs.
+
 ```{r}
 #| fig-width: 14
 #| fig-height: 7
@@ -97,20 +98,19 @@ hist(m$familysize[m$familysize < 24], ylab = "Family Size (# of Persons)", main 
 abline(v = mean(m$familysize[m$familysize < 24], na.rm = T), col = 'red', lwd = 5)
 ```
 
-The mean family size in this dataset is : 
+The mean family size in this dataset is :
+
 ```{r}
 mean(m$familysize[m$familysize < 24], na.rm = T)
 ```
-
 :::
 
-### The Mean As Prediction (and Error){.smaller}
+### The Mean As Prediction (and Error) {.smaller}
 
 -   How can you visualize each of these components?
 -   How might you translate this equation into a simpler language?
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
 ```{r}
 #| fig-width: 7
@@ -119,11 +119,9 @@ mean(m$familysize[m$familysize < 24], na.rm = T)
 plot(m$familysize[m$familysize < 24], ylab = "Family Size (# of Persons)")
 abline(h = mean(m$familysize[m$familysize < 24], na.rm = T), col = 'red', lwd = 5)
 ```
-
 :::
 
 ::: {.column width="60%"}
-
 $$
 \Huge y_i = \bar{Y} + \epsilon_i
 $$
@@ -131,11 +129,8 @@ $$
 -   $y_i$ = the individual’s ($_i$) actual score of a variable ($y$) we are trying to predict.
 -   $\bar{Y}$ = our prediction (the mean, in this case)
 -   $\epsilon_i$ = residual error
-
 :::
-
-::::
-
+:::::
 
 ## Part 2 : Describing Data in R.
 
@@ -147,7 +142,7 @@ $$
 
 ![](images/clipboard-3432465072.png){fig-align="center"}
 
-### Lab 3, Problem 1. Interruption Problems{.smaller}
+### Lab 3, Problem 1. Interruption Problems {.smaller}
 
 **Download the “interruption” data from bCourses, and import this data into R. This dataset has two variables of the number of interruptions counted before (int1) and after (int2) our operationalization.**
 
@@ -158,6 +153,7 @@ $$
 5.  Just to make sure we can still do this, graph a categorical variable from the dataset, report the frequency of each group, and describe what you learn from the distribution.
 
 ## BREAK TIME : MEET BACK AT 4:45
+
 ![](lecture_images/3L_KikiArt.png)
 
 ## Part 3 : Final Project Workshop

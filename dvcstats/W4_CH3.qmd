@@ -1,0 +1,48 @@
+---
+title: ""
+format: html
+editor: visual
+---
+
+# Week 4
+
+## Class Slides and Materials
+
+```{=html}
+<iframe class="slide-deck" src="/dvcstats/slides/ch3.html" width="100%" height="500px" title=""></iframe>
+```
+
+-   [Link to World Happiness Dataset](https://www.dropbox.com/scl/fi/p20l0aj1ttgdl4m75dqvm/World-happiness-report-2024.csv?rlkey=26t7eubo5rowkc0bvabceyzvg&dl=0)
+-   [Link to World Happiness Codebook](https://www.dropbox.com/scl/fi/r2qglmwftnmvtq508lwak/WHR_Dictionary_2024.rtf?rlkey=5yowapmbnyixth8cl92qtz8qo&dl=0)
+
+## Due Next Week
+
+1.  Complete and Submit Lab 3
+3.  Read [Chapter 4](https://catterson.github.io/ystats/chapters/3R_Description.html) of ***Why Statistics?*** on Descriptive Statistics.
+4.  Complete Chapter 4 Quiz on bCourses.
+
+# Lab 3
+
+Use R to answer the following questions. Make sure that you show your R code and the output (result or graphs.) You can do this by taking a screenshot and pasting into your Google / Word Document, or (for students wanting an extra challenge) working in a Quarto document.
+
+## Problem 1. World Happiness Problems.
+
+**Download the “World Happiness” data, and import this data into R. We'll be focusing on .**
+
+1.  Load the data (I'll call it d if you want to follow along with my code), check to make sure it loaded correctly, and report the sample size and names of the variables.
+2.  Graph the variable "ladder" as a histogram. Change the arguments to make the graph "look nice".
+3.  Report the mean, median, range, and standard deviation for this variables. Add vertical lines to your graphs above that illustrate the mean (in red), the median (in blue), and the standard deviation (in dashed red).
+4.  Describe what each of these statistics tells you about the happiness of countries in the dataset. (Human brain stuff; no R needed! Goal is to connect the stats to knowledge and understanding of the variable.)
+5.  Describe what additional questions you have about this variable (what do you NOT learn about happiness levels of countries from this variable, and what might you want to know?)
+
+## Problem 2. More World Problems.
+
+**Graph a numeric variable from the World Happiness Dataset, run descriptive statistics (mean, median, range, standard deviation), and describe what these statistics tell you about the data in the graph. What do you learn about this variable? What other questions about this variable do you have?**
+
+## Problem 3. More Brain Exam Practice.
+
+[Here's a link to a previous semester's BRAIN EXAM](https://docs.google.com/document/d/1U6hmo9fdHqn8UEXsueaR7HUPYQoaZbcKVP8pP9eS1IE/edit?usp=sharing). Answer the questions, and use the key (posted to the partial key) to review your answers. For this problem, just explain how the practice exam went for you. Note that each semester's exam will be a little different.
+
+## AI Disclosure.
+
+**Please describe how you used AI tools; make sure you include specific prompts here. Thanks!**

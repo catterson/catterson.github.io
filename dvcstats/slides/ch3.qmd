@@ -1,0 +1,163 @@
+---
+title: "Chapter 3 | Description"
+format: 
+  revealjs: 
+    slide-level: 3
+    link-external-newwindow: true
+    chalkboard: true
+    controls: true
+    auto-stretch: false
+    code-overflow: wrap
+tbl-colwidths: [50,50]
+---
+
+```{r}
+#| eval: false
+#| include: false
+```
+
+# Welcome Back
+
+[Check-In Here : **tinyurl.com/dvcminidata**](https://docs.google.com/forms/d/e/1FAIpQLSdQJEpElxkP24rGAwMSnx8XebvXC1md7u-5i5HkBUMjwZJkQg/viewform?usp=header)
+
+::::: columns
+::: {.column width="60%"}
+**Agenda**
+
+-   **8:55 - 9:10.** Check-In.
+
+-   **9:10 - 9:40.** Describing Data with Brain.
+
+-   **9:40 - 10:10.** Describing Data with R.
+
+-   **10:10 - 10:20.** Break Time
+
+-   **10:20 - 11:00.** Work on Lab 3.
+:::
+
+::: {.column width="40%"}
+![](images/clipboard-1056536258.png)
+:::
+:::::
+
+## Part 1 : Describing Data with Brain.
+
+### KEY IDEA : The Mean as Prediction {.smaller}
+
+::::: columns
+::: {.column width="60%"}
+-   **How would you feel... GOOD / BAD / INDIFFERENT**
+    -   ...if I told you that the average on the R Exam last semester was a 50%?
+    -   ...if I told you that the average on the R Exam last semester was a 90%?
+    -   ...if everyone you knew and loved called you "average"?
+-   **Why would you feel this way?**
+:::
+
+::: {.column width="40%"}
+![](images/clipboard-89346034.png)
+:::
+:::::
+
+### LET'S PLAY : WHERE THE LINE? {.smaller}
+
+Where would a vertical line best fit through these data?
+
+::: panel-tabset
+#### Where the Line?
+
+```{r}
+#| fig-width: 7
+#| fig-height: 7
+#| fig-align: center
+m <- read.csv("~/Dropbox/!WHY STATS/Professor Datasets/Conspiracy Beliefs/data.csv", stringsAsFactors = T)
+plot(m$familysize[m$familysize < 24], ylab = "Family Size (# of Persons)")
+```
+
+#### There the Line!
+
+```{r}
+#| fig-width: 7
+#| fig-height: 7
+#| fig-align: center
+plot(m$familysize[m$familysize < 24], ylab = "Family Size (# of Persons)")
+abline(h = mean(m$familysize[m$familysize < 24], na.rm = T), col = 'red', lwd = 5)
+```
+
+#### What's Going On?
+
+The histogram organizes the data, but you can see the same patterns in both graphs. **The Mean = `r mean(m$familysize[m$familysize < 24], na.rm = T)`**
+
+```{r}
+#| fig-width: 14
+#| fig-height: 7
+#| fig-align: center
+par(mfrow = c(1,2))
+plot(m$familysize[m$familysize < 24], ylab = "Family Size (# of Persons)")
+abline(h = mean(m$familysize[m$familysize < 24], na.rm = T), col = 'red', lwd = 5)
+hist(m$familysize[m$familysize < 24], xlab = "Family Size (# of Persons)", main = "")
+abline(v = mean(m$familysize[m$familysize < 24], na.rm = T), col = 'red', lwd = 5)
+```
+:::
+
+### The Mean As Prediction (and Error) {.smaller}
+
+-   How can you visualize each of these components?
+-   How might you translate this equation into a simpler language?
+
+::::: columns
+::: {.column width="40%"}
+```{r}
+#| fig-width: 7
+#| fig-height: 7
+#| fig-align: center
+plot(m$familysize[m$familysize < 24], ylab = "Family Size (# of Persons)")
+abline(h = mean(m$familysize[m$familysize < 24], na.rm = T), col = 'red', lwd = 5)
+```
+:::
+
+::: {.column width="60%"}
+$$
+\Huge y_i = \bar{Y} + \epsilon_i
+$$
+
+-   $y_i$ = the individual’s ($_i$) actual score of a variable ($y$) we are trying to predict.
+-   $\bar{Y}$ = our prediction (the mean, in this case)
+-   $\epsilon_i$ = residual error
+:::
+:::::
+
+## Part 2 : Describing Data in R. {.smaller}
+
+-   [hey, another check-in. tinyurl.com/happycountrydata](https://forms.gle/CtELAZwwwq5Xb1f18)
+
+-   **World Happiness Report :** [Dataset (load this into R!)](https://www.dropbox.com/scl/fi/p20l0aj1ttgdl4m75dqvm/World-happiness-report-2024.csv?rlkey=26t7eubo5rowkc0bvabceyzvg&dl=0) + [Codebook (just for looking!)](https://www.dropbox.com/scl/fi/r2qglmwftnmvtq508lwak/WHR_Dictionary_2024.rtf?rlkey=5yowapmbnyixth8cl92qtz8qo&dl=0)
+
+    -   **change the dataset name :** something short!
+
+    -   **check the headers :** do the variables have the correct names?
+
+    -   **stringAsFactors = T :** make sure that string data are converted to categorical data
+
+### Problem 1. World Happiness Problems. {.smaller}
+
+**Download the “World Happiness” data, and import this data into R. We'll be focusing on .**
+
+1.  Load the data (I'll call it d if you want to follow along with my code), check to make sure it loaded correctly, and report the sample size and names of the variables.
+2.  Graph the variable "ladder" as a histogram. Change the arguments to make the graph "look nice".
+3.  Report the mean, median, range, and standard deviation for this variables. Add vertical lines to your graphs above that illustrate the mean (in red), the median (in blue), and the standard deviation (in dashed red).
+4.  Describe what each of these statistics tells you about the happiness of countries in the dataset. (Human brain stuff; no R needed! Goal is to connect the stats to knowledge and understanding of the variable.)
+5.  Describe what additional questions you have about this variable (what do you NOT learn about happiness levels of countries from this variable, and what might you want to know?)
+
+## BREAK TIME : MEET BACK AT 10:20
+
+![](images/clipboard-351826034.png){fig-align="center"}
+
+## Part 3 : Working on Lab 3, Problem 2.
+
+**In Small Groups:** Graph a numeric variable from the World Happiness Dataset, run descriptive statistics (mean, median, range, standard deviation), and describe what these statistics tell you about the data in the graph. What do you learn about this variable? What other questions about this variable do you have?
+
+-   [ZOOM CREW](https://docs.google.com/spreadsheets/d/1ksj0F4KTqrP4qm8p1rkkdHIr4FBEzfNDvpwDAlQf6Xc/edit?usp=sharing) : tinyurl.com/zoomstatsbord
+
+-   [ROOM CREW](https://docs.google.com/spreadsheets/u/0/d/1J-Q1VpAlmanW_JkCT3tElGDx4k_CmyI7iRp3_5Oteqw/edit) : tinyurl.com/classstatsbord
+
+    \
