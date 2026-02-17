@@ -128,13 +128,15 @@ $$
 
 -   [hey, another check-in. tinyurl.com/happycountrydata](https://forms.gle/CtELAZwwwq5Xb1f18)
 
--   **World Happiness Report :** [Dataset (load this into R!)](https://www.dropbox.com/scl/fi/p20l0aj1ttgdl4m75dqvm/World-happiness-report-2024.csv?rlkey=26t7eubo5rowkc0bvabceyzvg&dl=0) + [Codebook (just for looking!)](https://www.dropbox.com/scl/fi/r2qglmwftnmvtq508lwak/WHR_Dictionary_2024.rtf?rlkey=5yowapmbnyixth8cl92qtz8qo&dl=0)
+-   [World Happiness Report Dataset](https://www.dropbox.com/scl/fi/taxxqet4y89zw6fei55lj/DATASET_happy_data.csv?rlkey=iqe5x45qntnaqee9jks7vsn3f&dl=0)
 
     -   **change the dataset name :** something short!
 
     -   **check the headers :** do the variables have the correct names?
 
     -   **stringAsFactors = T :** make sure that string data are converted to categorical data
+
+![](images/clipboard-54870168.png)
 
 ### Problem 1. World Happiness Problems. {.smaller}
 
