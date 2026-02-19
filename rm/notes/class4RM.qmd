@@ -33,20 +33,30 @@ navbar: false
 
 ### Readings for Next Week (and Quiz 4)
 
-1.  [**Sign up for a FREE account with posit.cloud**](https://posit.cloud/plans/free)**.** We will use this program to analyze some data in class next week. NO PRIOR KNOWLEDGE OF R OR STATISTICS IS ASSUMED. We will learn and practice together :) Totally fine to have questions / be confused - you won't be expected to work with this program on your own, and I think you'll find it fun.
+**NOTE :** **Do not spend more than 60 minutes (total) working on the R Stuff (and hopefully much less time!) As long as you can create a free account with posit.cloud, you'll be fine next week in class. Reach out if you are feeling overwhelmed tho!**
 
-    -   **WATCH THIS VIDEO : [Setting up your account and doing some basic math](https://www.loom.com/share/3d342fc70e724ab4bab8cd7765d3d94d)**. I also recorded a bonus video at the end of this on how to create a variable of numbers in R. Cool if you want to create your own variable, but not necessary.
+1.  [**Sign up for a FREE account with posit.cloud**](https://posit.cloud/plans/free)**.** We will use this program to analyze some data in class next week. NO PRIOR KNOWLEDGE OF R OR STATISTICS IS ASSUMED. We will learn and practice together :)
 
-    -   [**Taking a screenshot**](https://www.take-a-screenshot.org)**.** For showing what you did in R. Yay!
+2.  **WATCH THESE THREE VIDEOS.** I try to help walk you through how to use these programs. Don't worry if you get stuck or confused...totally fine to have questions / be confused - you won't be expected to work with this program on your own for this class, and hopefully you will find it to be a positive experience.
 
-### Week 4 Discussion Questions. \[PAUSE. PROFESSOR REVISE.\]
+    1.  [**Setting up your account and doing some basic math**](https://www.loom.com/share/3d342fc70e724ab4bab8cd7765d3d94d).
+
+    2.  [**Downloading and loading an RScript into R.**](https://www.loom.com/share/66867ee8cf404b239df61e7921673586) To answer the quiz questions for this week.
+
+    3.  [**Creating (and graphing) a variable in R**.](https://www.loom.com/share/4d22e48cc28b438295e41c38933d9ac2) Just some more practice working with R.
+
+### Week 4 Discussion Questions!
 
 **YOUR POST :** Use the readings to answer the following questions. Please submit answers to the graded Canvas discussion post to help me keep track of your work, but when prompted please also copy / paste your work to our [Vision Board](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing) so we can more easily see (and expand upon) this work together in class.
 
-1.  
+1.  **Thoughts on with Computers.** We are going to use the posit.cloud program to analyze some data in this class and do real statistics. How are you feeling about working with a computer and doing some statistics? Good to be mindful of the feelings (positive and negative) we are experiencing!
 
-2.  **Working with Computers.** We are going to use the posit.cloud program to analyze some data in this class and do real statistics. I understand that these words might trigger many negative emotions for students (but also may trigger positive emotions...life is complex!) Watch the videos on how to get setup with posit.cloud and submit a screenshot of using posit.cloud to answer a math equation that gave you trouble as a kid. Or, if you want to go into Professor Rambles Bonus Video territory, make a picture of a variable you created. Honestly, just create an account and come to class and you'll be okay.
+2.  **Learning Computers.** Watch the three videos on how to get setup with posit.cloud. Use R to answer a math equation that used to give you trouble as a child (or adult). Did R get the answer right? If you got stuck, that's fine - just let us know.
 
-3.  **REPLY TO ANOTHER STUDENT.** Look over their draft of the SPAFF rating scale. Help them revise at least one part of their behavioral coding guidelines to improve the validity of the observation.
+3.  **Creating Variables.** In the last video, I show how to create a variable in R. Adapt my code to try and create your own variable in R. Take a screenshot of your graph (or copy the graph) and include it with your response. (If you can't get this to work with 15 minutes of trying, just explain how / where you got stuck.)
+
+4.  **Sharing Code.** Include the code you needed to define your variable and graph the variable as a histogram. You don't need to upload a script for this, just share the code as text.
+
+5.  **I love bread too (Mandatory Student Interaction).** Reply to another student (ideally someone without a reply). What do you see or learn about the student's variable? Can you reproduce their graph by copying, pasting, and running their code into your own R script? How is the R stuff feeling for you?
 
 ![](images/clipboard-2944693964.png){fig-align="center" width="364"}
