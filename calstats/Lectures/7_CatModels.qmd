@@ -59,16 +59,13 @@ format:
 ### We Load the Data
 
 ```{r}
-d <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets - FA25/mini_cal_data.csv", stringsAsFactors = T)
+
 ```
 
 ### We Graph our Variables.
 
 ```{r}
-hist(d$is.happy)
-plot(d$stoned72) # an empty level!
-levels(d$stoned72)[1] <- NA # careful, only do this one time.
-plot(d$stoned72) # an empty level is GONE.
+
 ```
 
 ### We Define and Graph Our Linear Model.
@@ -76,19 +73,13 @@ plot(d$stoned72) # an empty level is GONE.
 The Model Coefficients : An Intercept and Slope
 
 ```{r}
-mod <- lm(is.happy ~ stoned72, data = d)
-coef(mod)
+
 ```
 
 The Graph Will Help Our Interpretation.
 
 ```{r}
-library(gplots)
-par(mfrow = c(1,2))
-plotmeans(is.happy ~ stoned72, data = d)
-plotmeans(is.happy ~ stoned72, data = d, ylim = c(0,10))
-coef(mod)
-summary(mod)$r.squared
+
 ```
 
 -   DISCUSS : what do we see on this graph? What makes sense / is confusing?????
@@ -194,3 +185,33 @@ summary(mod)$r.squared
     -   What other questions do you have? What else would you want to learn about?
 
 ## ALL DONE! YAY.
+
+# Milestone #3 : Launching Your Study (Google Forms)
+
+1.  **Make sure your DV is measured numerically.** A likert scale or number response is fine.
+
+2.  **Use Multiple Choice Grid for likert scales.**
+
+    -   Each row is an item.
+    -   Use a 1-5 scale to make it easy for participants to answer.
+    -   Try to make all the items fit on the same "stem", so it's easier for participants to get in the flow.
+    -   I do not require responses; good to let folks skip questions if they want (and know to exclude their data) rather than force them to give an answer, which might be bad data.
+    -   You could add an "attention check" (e.g., "Mark Strongly Agree for this question.") if you are worried about people not taking your survey seriously. But BETTER to just keep the survey short, and give your participant some motivation ("I can send you the results of my paper if you want!")
+
+    ![](images/clipboard-2843954023.png)
+
+3.  **Include demographic variables like age and sex;** give people options to self-identify as something outside a forced binary!
+
+4.  **Keep categorical variables to just a few levels;** you will need a LOT of data to capture variation if there are too many levels! 3-4 groups per variable.
+
+    ![](images/clipboard-538131922.png)
+
+5.  **Make sure categorical variables are not better measured numerically;** set "response validation" for any open-ended numbers you hope to collect to make data cleaning easier.
+
+    ![](images/clipboard-3774686706.png)
+
+6.  **Make sure each variable is measured independently of the others.** For example, if I want to measure the relationship between happiness and reading, I would want to measure these separately.
+
+    -   I am happy.
+    -   I like to read.
+    -   ~~Reading makes me happy.~~ This mixes up the two variables (the DV and IV). It could be a cool measure on its own (love for reading scale?).

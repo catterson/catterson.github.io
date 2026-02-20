@@ -1,0 +1,166 @@
+---
+title: ""
+format: 
+  revealjs: 
+    slide-level: 3
+    link-external-newwindow: true
+    chalkboard: true
+    controls: true
+    auto-stretch: false
+    code-overflow: wrap
+tbl-colwidths: [75,25]
+---
+
+## [Check-In : Review Time!](https://forms.gle/a4c5quZMgwwyY8Bc8)
+
+::::: columns
+::: {.column width="50%"}
+-   Use the MINI dataset.
+-   Name it d to follow along with professor code.
+:::
+
+::: {.column width="50%"}
+![](images/clipboard-310752360.png){fig-align="center"}
+:::
+:::::
+
+## Check-In Review
+
+::: r-fit-text
+Follow along with professor's R Script for this week.
+
+1.  **The R Stuff :** graphs, descriptive statistics (standard deviation), and outliers.
+2.  **The Brain Stuff :** "normal" distributions.
+3.  **Questions, Concerns, Comments?** What feels hard or confusing? A moment of pause.
+:::
+
+## Quarto : Why are we learning this?
+
+-   An authentic skill (professor uses)
+
+    -   Saves trouble of screenshotting : integrates code and text.
+    -   some GSIs are introducing it :)
+
+-   WARNING : professor still gets frustrated when using quarto. If you are feeling dread / maxxed out, then just use an Rscript + screenshot method. Okay?
+
+## Quarto : From Source –\> Render
+
+::: r-fit-text
+-   What looks different about our R Script? What looks the same (or similar??)
+
+![](images/clipboard-2196759662.png)
+:::
+
+## BREAK TIME.
+
+## RECAP : Reliability and Validity
+
+### **Relevance to Real-Life.**
+
+::: r-fit-text
+How would you evaluate the reliability and validity of the STEP COUNTER on your phone???
+
+|  |  |
+|------------------------------------|------------------------------------|
+| **Term** | **Way of Testing** |
+| **face :** does our measure or result look like what it should look like? |  |
+| **convergent :** is our measure similar to related concepts? |  |
+| **discriminant :** is our measure different from unrelated concepts? |  |
+| **test-retest :** do we get the same result if we take multiple measures? |  |
+| **interrater reliability :** would another observer make the same measurements? |  |
+| **inter-item reliability :** would one item in the likert scale be related to others? |  |
+:::
+
+### Relevance to Psychological Science
+
+#### Reliability in Neuroscience {.smaller}
+
+![Brandt, D. J., Sommer, J., Krach, S., Bedenbender, J., Kircher, T., Paulus, F. M., & Jansen, A. (2013). Test-retest reliability of fMRI brain activity during memory encoding. Frontiers in psychiatry, 4, 163. [Link to Full Article](https://www.frontiersin.org/articles/10.3389/fpsyt.2013.00163/full)](lecture_images/5L_fmrireliabilityscan.png)
+
+### Relevance to Psychological Science
+
+#### Validity in Neuroscience {.smaller}
+
+![Bennett, C. M., Miller, M. B., & Wolford, G. L. (2009). Neural correlates of interspecies perspective taking in the post-mortem Atlantic Salmon: an argument for multiple comparisons correction. Neuroimage, 47(Suppl 1), S125. [Link to Full Article](http://prefrontal.org/files/posters/Bennett-Salmon-2009.pdf)](lecture_images/5L_fishfmri.png)
+
+## Final Project Time.
+
+### Find a sheet of paper and pencil; draw this cube as precisely as possible.
+
+![](images/clipboard-2877891595.png){fig-align="center"}
+
+### [Milestone #2](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0#bookmark=id.8eg84yu09e7c)
+
+-   **Part 1 :** Outlining Your Introduction (and thinking about IV2)
+-   **Part 2 (NEXT WEEK) :** Defining your measures.
+
+### KEEP IT SIMPLE : but life is complex {.smaller}
+
+1.  Start with your linear model; just focus on one DV and two IVs.
+2.  Ways to think about IV2.
+    -   **As a “Mediator”, “Confound”, or “Control” Variable.** Where the relationship between IV1 and the DV might be smaller, larger, or no different than IV2.  ***EXAMPLE :** I’d expect a stronger relationship between a person’s health (DV) and whether they  have running shoes or not (IV1) than whether they have a raincoat or not (IV2). I’d also expect the relationship between health and running shoes to go away when you also account for whether the person goes running (IV2).*
+    -   **As a “Moderator” or “Interaction Effect”.** When the relationship between IV1 and the DV depends on the level of IV2. ***EXAMPLE :** the relationship between going for a run (IV1) and health (DV) depends on whether the person is running in a place with high or low air quality (IV2). If the air quality is bad, then running is negatively related to health. If the air quality is good, then running is positively related to health.* 
+
+### Introduction Deconstruction. {.smaller}
+
+::: r-fit-text
+Start broad, but focus to your specific question!
+
+|  |  |
+|-------------------------|----------------------------------------------|
+| **Section** | **Brief Explanation** |
+| **1. The Opening** | Describe the question you have, and explain why this question matters |
+| **2. The Review** | Describe what past research and theory has to say on the question and your theory. Your goal is to give the reader the background they need to understand why you are doing your study; you don’t need to cover EVERY single issue on your topic.. |
+| **3. The Critique** | Explain why the past research is not “the final truth”, and what other new questions might be important to consider (and why these questions matter). Only point out limitations with past research that you will address in your study; other limitations that you think future research will address should go in the discussion section. |
+| **4. The Current Research** | Explain what specific questions your study will address. Be clear by stating each idea as a hypothesis with language like, “I predict” or “My first hypothesis”. |
+
+: {tbl-colwidths="\[20,80\]"}
+:::
+
+### ACTIVITY : identify parts of an introduction. {.smaller}
+
+::: r-fit-text
+-   *“The Opening”, “The Review”, “The Critique”, and “The Current Research”* ![https://scholar.princeton.edu/sites/default/files/pfrymer/files/ajps12537_rev.pdf](images/clipboard-2518781628.png)
+:::
+
+## DEFINITION : patterns in writing
+
+1.  **THE POINT :** What are you trying to say?
+
+2.  **THE EVIDENCE :** What is some evidence that supports this point? This could be empirical (e.g., a summary of past research on the topic), but also logic or real-life experiential examples work here.
+
+3.  **WHO CARES :** Why does this matter? How does this connect to your main thesis?
+
+### THE EVIDENCE : logic vs. empirical evidence.
+
+:::::: r-fit-text
+::::: columns
+::: {.column width="50%"}
+*"Think first of swallowing the saliva in your mouth, or do so. Then imagine expectorating it into a tumbler and drinking it! What seemed natural and "mine" suddenly becomes disgusting and alien. Or picture your self sucking blood from a prick in your finger; then imagine sucking blood from a bandage around your finger! What I perceive as separate from my body becomes, in the twinkling of an eye, cold and foreign."*
+
+-   Gordon Allport (1955). Becoming: basic considerations for a psychology of personality. Yale University Press.
+:::
+
+::: {.column width="50%"}
+In a study of 45 female college students, a sweaty shirt was rated as more disgusting when it was associated with an outgroup than when associated with an ingroup (Reicher et al., 2016).
+
+-   S.D. Reicher, A. Templeton, F. Neville, L. Ferrari, & J. Drury, Core disgust is attenuated by ingroup relations, Proc. Natl. Acad. Sci. U.S.A. 113 (10) 2631-2635, https://doi.org/10.1073/pnas.1517027113 (2016).
+:::
+:::::
+::::::
+
+### EXAMPLE : patterns in writing. {.smaller}
+
+::: r-fit-text
+-   *The Point, The Evidence, The Who Cares*
+
+![https://scholar.princeton.edu/sites/default/files/pfrymer/files/ajps12537_rev.pdf](images/clipboard-2518781628.png)
+:::
+
+## THE END.
+
+![](images/clipboard-1613162713.png)
+
+## 
+
+## [Check-Out](https://docs.google.com/forms/d/e/1FAIpQLSdl3nqWlDUGVV9ytbhhvF2_C5JWTA7r0Rjn31ltquuv5hDAaw/viewform?usp=sf_link)

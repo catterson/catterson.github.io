@@ -18,7 +18,7 @@ format:
 -   **Implicit and Explicit Prejudice in the Mascot Dataset**
 
 |  |  |
-|----|----|
+|------------------------------------|------------------------------------|
 | **Variable** | **Description** |
 | attitude | a scale created based on a 13-item survey about attitudes toward native american mascots at UIUC, measured with items such as “I wish the Chief were still the mascot” and “Chief Illiniwek is a racist symbol (negatively-keyed item)”. Higher numbers = more positive rating of the mascot. |
 | IATscore | a continuous implicit measure of the person’s unconscious prejudice toward / against Native Americans, measured in terms of how fast people are to associate Native American (vs. White) names with Past (vs. Present) terms. Higher scores = more Present-White and Past-Native American bias. |
@@ -90,7 +90,7 @@ format:
     -   **Researcher (& Berkeley alumnus) [Michael Kraus](http://www.michaelwkraus.com/) :** Informed by his experiences as a new faculty member at the University of Illinois at Urbana-Champaign.
 
         |  |  |
-        |----|----|
+        |------------------------------------|------------------------------------|
         | [Chief Illiniwik](https://en.wikipedia.org/wiki/Chief_Illiniwek) at a Basketball Game | Members of one of the over 10 tribes represented by the [Illinois Confederation](https://en.wikipedia.org/wiki/Illinois_Confederation) at a Powwow in 2024 |
         | ![](images/clipboard-3606495715.png){width="265"} | ![](images/clipboard-2483797627.png) |
 
@@ -175,7 +175,7 @@ These data measure Midwestern college students’ implicit and explicit prejudic
 1.  Load the data, check to make sure the data loaded correctly, and graph each variable that will be used in your models.
 
 ```{r}
-mascot <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/mascot_data.csv", stringsAsFactors = T)
+mascot <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/Mascot Data/mascot_data.csv", stringsAsFactors = T)
 head(mascot)
 nrow(mascot)
 
@@ -366,35 +366,3 @@ Some Questions
     -   defining a linear model
 
     -   figuring out how to measure your variables.
-
-### **Introduction Deconstruction :**
-
-The introduction starts broad, but then quickly focuses on the variables in your model so readers can understand a) what your study is about and b) why you’re doing your study. 
-
-|  |  |
-|----|----|
-| **Section** | **Brief Explanation** |
-| **1. The Opening** | Describe the question you have, and explain why this question matters |
-| **2. The Review** | Describe what past research and theory has to say on the question and your theory. Your goal is to give the reader the background they need to understand why you are doing your study; you don’t need to cover EVERY single issue on your topic.. |
-| **3. The Critique** | Explain why the past research is not “the final truth”, and what other new questions might be important to consider (and why these questions matter). Only point out limitations with past research that you will address in your study; other limitations that you think future research will address should go in the discussion section. |
-| **4. The Current Research** | Explain what specific questions your study will address. Be clear by stating each idea as a hypothesis with language like, “I predict” or “My first hypothesis”. |
-
--   **STEP 1 : read an excerpt from the introduction**[^1]**; identify (in the margins) each of part of the introduction (“The Opening”, “The Review”, “The Critique”, and “The Current Research”)**
-
-[^1]: [Full article here](https://scholar.princeton.edu/sites/default/files/pfrymer/files/ajps12537_rev.pdf)
-
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcnv5T-L9K8lZOM0e2wsBu0AxW08Rp9iRpj_jT1lIwePEkHF18N2vz08I8mY_Zf1O4S7wKc0QPEVxb9jPIdHNiPAH-fhWIMiug413IRFr_tAI8ixj6fL2ztXM0a8wv9l52IQD6xtp4PePEi0o1_okaKnFZ8?key=xsrSgQ924CtGseFQqBVMLw)
-
-**ACTIVITY : Doing a Lit Review**
-
--   [Lit Review Template](https://docs.google.com/spreadsheets/d/1CGkY6Ior_Rga1rKsaDMj8zc1ueIB2ZsVvgucS2K9SDA/edit?usp=share_link)
-
-    -   Open document.
-
-    -   Click File –\> Make a copy
-
-    ![](images/clipboard-3633028995.png)
-
-    -   Fill in with your own notes about the research you find!
-
--   [Link to Professor Example](https://docs.google.com/spreadsheets/d/1owKimVnJnimzC6ulCL0QhyQVdUBVbeIe2PQuPsCoPDU/edit?usp=sharing)

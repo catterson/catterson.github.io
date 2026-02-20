@@ -1,0 +1,71 @@
+---
+title: ""
+format: html
+editor: visual
+---
+
+# Week 5 - Friday, February 20th
+
+## Class Slides and Materials
+
+```{=html}
+<iframe class="slide-deck" src="/calstats/Lectures/4L_Methods.html" width="100%" height="500px" title=""></iframe>
+```
+
+-   [Link to Mini Dataset and Codebook](https://www.dropbox.com/scl/fo/1w45rzaqli7msuapkmhs9/AGCJPqypXuOUTSp5v_IQUd4?rlkey=j56w7y2g4ftbkz6bts56ba3k5&dl=0)
+-   [Link to Folder with Professor R Scripts and Notes](https://www.dropbox.com/scl/fo/gl6k038pu9duy75jvq1t0/ALCXZvj5iBfl0uCRfZfZiHM?rlkey=kon74xzou91hkhgx8tfjmdet5&dl=0)
+-   [Link to Final Project Vision Board](https://docs.google.com/spreadsheets/d/1WMn8SH-yQC-5bNcnQR-Jp5RWkxutVlKNmxCgMDgompI/edit?usp=sharing)
+
+::::: columns
+::: {.column width="60%"}
+### Announcements and Agenda
+
+-   **Brain Exam is NEXT week in section.** GSIs all liked it. Yay.
+
+-   **Lab 4.** Analyzing data (in Quarto?) and starting your final project.
+:::
+
+::: {.column width="40%"}
+-   **2:10 - 2:50.** Check-In & Chapter 4 Review
+
+-   **2:50 - 3:20.** Working with Quarto [?]
+
+-   **3:20 - 3:30.** BREAK TIME
+
+-   **3:30 - 4:00.** Reliability and Validity
+
+-   **4:00 - 5:00.** Milestone #2 (Intros) and then go home.
+:::
+:::::
+
+## Due Next Week
+
+1.  In Discussion Section : Brain Exam + Work on Lab 4 (& Milestone 2, Part 1)
+2.  Complete and Submit Lab 4
+3.  No new reading or quiz :)
+
+# Lab 4
+
+Use R to answer the following questions. Make sure that you show your R code and the output (result or graphs.) You can do this by taking a screenshot and pasting into your Google / Word Document, or (for students wanting an extra challenge) working in a Quarto document.
+
+## Problem 1. World Happiness Problems.
+
+**Download the [“Country Happiness” data](https://www.dropbox.com/scl/fo/vlulle1mf2jga7zcn5gzo/AN7rOnjZZwIT9YtZmq9FD0U?rlkey=jaky8yvre5t2etbyyftd2ceq8&dl=0), and import these data into R.** *Note, this is a slightly different dataset than the "World Happiness Data" that were in Chapter 4 and you may have downloaded. Apologies for the confusion! Please trust professor has reasons and is doing his best :) thank you for being on this spinning earth with me.*
+
+Choose one variable from the dataset. Graph the variable (make the graph look nice), report the relevant descriptive statistics, and describe what you learn about this variable below the graph. Then, conclude with some other questions you might have about the variable. Make sure to be transparent about any data cleaning that you did (e.g., removing outliers).
+
+## Problem 2. More Problems.
+
+Repeat the steps above for another variable in the same dataset.
+
+## Problem 3. Quarto Problems.
+
+Try to create a quarto document that contains your analyses from Problems 1 and Problems 2, and organizes your analyses in a nice looking report. We discussed Quarto in class, and there are lots of tutorials on how to use Quarto online that you can draw from. Make sure that you are loading the dataset into the Quarto document before rendering; I also find it easiest to render as an html and then export / print as a PDF. If you get stuck on this for more than 30 minutes, please stop working on the problem, explain what you tried and where you got stuck, and you'll get full credit for this question.
+
+## Problem 4. Get started on Milestone #2 (and writing the final project.)
+
+Look at Milestone #2, and copy / adapt the Introduction Outline template. Share a link to this with your GSI (make sure anyone can VIEW the link, but do not allow others to edit!) and consider posting this on the Final Project Vision Board.
+
+## AI Disclosure.
+
+**Please describe how you used AI tools; make sure you include specific prompts here. Thanks!**

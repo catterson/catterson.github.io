@@ -27,7 +27,7 @@ editor: visual
 
 Use R to answer the following questions. Make sure that you show your R code and the output (result or graphs.) You can do this by taking a screenshot and pasting into your Google / Word Document, or (for students wanting an extra challenge) working in a Quarto document.
 
-## Problem 1. Interrpution Problems.
+## Problem 1. Interruption Problems.
 
 **Download the “interruption” data from bCourses, and import this data into R. This dataset has two variables of the number of interruptions counted before (int1) and after (int2) our operationalization.**
 
@@ -47,7 +47,7 @@ Load the mini dataset (in the class dataset). Check to make sure the data loaded
 
 ## Problem 4 (In Discussion Section). Mode Problems
 
-R does not have a built-in function to calculate the mode. Use your favorite search engine to find a method - make sure to cite your source, and describe what you learned from the code that you found. Then check that your method works by defining two variables in R - one with a set of numbers that has one mode, and one with a set of numbers that has two modes. \[For example : variable1 \<- c(1, 1, 2) has two modes\]. Use the mode function on each variable to confirm that the mode function works. Then, use the mode function on the variable you focused on in Problem 3.
+R does not have a built-in function to calculate the mode. Use your favorite search engine to find a method - make sure to cite your source, and describe what you learned from the code that you found. Then check that your method works by defining two variables in R - one with a set of numbers that has one mode, and one with a set of numbers that has two modes. \[For example : variable1 \<- c(1, 1, 2) has two modes\]. Use the mode function on each variable to confirm that the mode function works. Then, use the mode function on the variable you focused on in Problem 2.
 
 ## AI Disclosure.
 

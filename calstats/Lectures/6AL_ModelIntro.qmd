@@ -62,7 +62,7 @@ $\Large \epsilon$ = residual error = distance between the predicted values of y 
 :::
 
 ```{r}
-d <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets - FA25/mini_cal_data.csv", stringsAsFactors = T)
+d <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets/Mini Data/mini_DATA.csv", stringsAsFactors = T)
 plot(d$insta.follows, main = "Mean as a Model (Red Line)",
      xlab = "Index (Row in Dataset)",
      ylab = "# Of Accounts a Person Follows")
@@ -202,36 +202,4 @@ SST - SSM
 (SST - SSM)/SST
 ```
 
-## 
 
-## Reliability and Validity
-
--   **Relevance to Psychological Science**
-
-    -   **Reliability in Neuroscience**[^1]
-
-        ![](lecture_images/5L_fmrireliabilityscan.png)
-
-    -   **Validity in Neuroscience**[^2]
-
-        ![](lecture_images/5L_fishfmri.png)
-
--   **Relevance to Real-Life.**
-
-[^1]: Brandt, D. J., Sommer, J., Krach, S., Bedenbender, J., Kircher, T., Paulus, F. M., & Jansen, A. (2013). Test-retest reliability of fMRI brain activity during memory encoding. Frontiers in psychiatry, 4, 163. \[[Link to Full Article](https://www.frontiersin.org/articles/10.3389/fpsyt.2013.00163/full)\]
-
-[^2]: Bennett, C. M., Miller, M. B., & Wolford, G. L. (2009). Neural correlates of interspecies perspective taking in the post-mortem Atlantic Salmon: an argument for multiple comparisons correction. Neuroimage, 47(Suppl 1), S125. \[[Link to Full Article](http://prefrontal.org/files/posters/Bennett-Salmon-2009.pdf)\]
-
-How would you evaluate the reliability and validity of the STEP COUNTER on your phone???
-
-|  |  |
-|-------------------------------------|-----------------------------------|
-| **Term** | **Way of Testing** |
-| **face :** does our measure or result look like what it should look like? |  |
-| **convergent :** is our measure similar to related concepts? |  |
-| **discriminant :** is our measure different from unrelated concepts? |  |
-| **test-retest :** do we get the same result if we take multiple measures? |  |
-| **interrater reliability :** would another observer make the same measurements? |  |
-| **inter-item reliability :** would one item in the likert scale be related to others? |  |
-
-## Final Project Workshop (Milestone #3)
