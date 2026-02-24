@@ -1,0 +1,52 @@
+---
+title: "Lab 4"
+author: "Your Name Goes Here"
+navbar: false
+format: html
+toc: false
+---
+
+### Getting Started with Quarto
+
+Do some math in the codeblock below. Run the code. Then, try to "render" the code to create a document. You may need to allow R to install some packages to get this to work; this is okay (and safe) to do!
+
+```{r}
+## type some math below here! Then click the little play button, or use the shorcut to run the code.
+```
+
+### Loading the Mini Class Data
+
+Load the mini class dataset in the chunk below, and make sure to check that your data loaded correctly. Note that the "chunk" below will not show the code when you render the file.
+
+```{r}
+#| include: false
+## paste the R Code needed to load the data into R (read.csv) and check to make sure the data loaded correctly. the include:false command above tells R to RUN this code, but not show it.
+```
+
+### Graphing Two Variables with Professor
+
+1.  Choose two numeric variables from the dataset. Graph each variable variables side-by-side using the par() function. Make sure the variables look nice, and remove any outliers.
+2.  Report the descriptive statistics for each variable. Then, explain what each variable tells you about the individuals in the dataset.
+3.  Describe what additional questions you have about each variable.
+
+```{r}
+#| echo: true
+## paste the R Code needed to graph the two variables. Make sure all the code runs correctly.
+```
+
+### Graphing Two Variables On Your Own
+
+1.  Repeat the steps above for one numeric variable of your choosing from the class dataset.
+2.  Then, graph a categorical variable, report the frequency of each group (you can get this using summary(d\$variable)), and describe what you learn about the variable. As a reminder, to graph a categorical variable, you will need to make sure you clicked "stringsAsFactor = T") when loading the data and are using the plot() function for the graph.
+
+```{r}
+
+```
+
+### Finalize and Export the Document
+
+Render the document. If you are rendering in the "Viewer", then click the "Show in a New Window" button ![](images/clipboard-3864501495.png){width="18" height="16"} to open the document in a webpage. "Print" the document as a PDF, and upload this PDF to Canvas. Below are a few things that would be good to do before your final "Render."
+
+1.  **Clean up your R code :** remove any unnecessary code that is not relevant to the questions. But make sure to include loading the dataset.
+2.  **Clean up the instructions :** Remove any unnecessary words from this document (e.g., does professor need to see these instructions? Probably not!) But make sure to keep some organizing headers.
+3.  **Put your name on the top.** You are the author!

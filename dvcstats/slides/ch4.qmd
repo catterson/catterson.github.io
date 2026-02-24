@@ -1,0 +1,76 @@
+---
+title: ""
+format: 
+  revealjs: 
+    slide-level: 3
+    link-external-newwindow: true
+    chalkboard: true
+    controls: true
+    auto-stretch: false
+    code-overflow: wrap
+tbl-colwidths: [75,25]
+---
+
+## [Check-In : Review Time!](https://docs.google.com/forms/d/e/1FAIpQLSdRQ2xhpR00TLlTpd8F4nt3h0JTqQ2q5RTXn2I2yOTpoTHVcw/viewform?usp=header)
+
+::::: columns
+::: {.column width="50%"}
+-   Use the MINI dataset to answer these questions.
+-   Name it d to follow along with professor code.
+:::
+
+::: {.column width="50%"}
+![](images/clipboard-2084004945.png)
+:::
+:::::
+
+## Check-In Review
+
+```{r}
+#| eval: false
+#| include: false
+d <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/214 - Class Datasets/Mini Data/mini_DATA.csv", stringsAsFactors = T)
+nrow(d)
+hist(d$hrs.sleep)
+sd(d$hrs.sleep)
+mean(d$height)
+hist(d$height)
+mean(d$height[d$height > 20])
+```
+
+::: r-fit-text
+Follow along with professor's R Script for this week.
+
+1.  **The R Stuff :** graphs, descriptive statistics (standard deviation), and outliers?!
+2.  **The Brain Stuff :** "normal" distributions.
+3.  **Questions, Concerns, Comments?** What feels hard or confusing? A moment of pause.
+:::
+
+## Lab 4. Continued Practice
+
+1.  Choose two numeric variables from the dataset. Graph each variable variables side-by-side using the par() function. Make sure the variables look nice, and remove any outliers.
+2.  Report the descriptive statistics for each variable. Then, explain what each variable tells you about the individuals in the dataset.
+3.  Describe what additional questions you have about each variable.
+
+## Quarto : Why are we learning this?
+
+-   **It's a Fancy RScript :**
+
+-   **An authentic skill :** professor (and others) use because it saves trouble of screenshotting by integrating code and text together in one document.
+
+-   **WARNING :** professor still gets frustrated when using quarto. If you are feeling dread / maxxed out, then just use an Rscript + screenshot method. Okay?
+
+## Quarto : From Source –\> Render
+
+![](images/clipboard-3915582603.png)
+
+## Quarto : The Visual Editor
+
+::::: columns
+::: {.column width="50%"}
+![](images/clipboard-817027539.png)
+:::
+
+::: {.column width="50%"}
+:::
+:::::

@@ -1,0 +1,41 @@
+---
+title: "Week 5 - Psych 214"
+format: html
+editor: visual
+---
+
+## Class Slides and Materials
+
+```{=html}
+<iframe class="slide-deck" src="/dvcstats/slides/ch4.html" width="100%" height="500px" title=""></iframe>
+```
+
+-   **CHECK-IN : [Working with the Mini Class Dataset (see below)](https://docs.google.com/forms/d/e/1FAIpQLSdRQ2xhpR00TLlTpd8F4nt3h0JTqQ2q5RTXn2I2yOTpoTHVcw/viewform?usp=header)**
+-   **DATA (AND CODEBOOK) FOR TODAY : [Mini Class](https://www.dropbox.com/scl/fo/5gzf195h8r3n8kh05miym/AKkVJKMDik5gM600FBPk_Yc?rlkey=acd199vikc6um4ufl0g9595od&dl=0)**
+-   **Professor R Scripts \[[Zoom Room](https://www.dropbox.com/scl/fo/ofchakmk3d1ep17u2r5r5/APTz8gRoQo9AHhw2XPY5TZs?rlkey=mdept9ym448grm4vya184bbrd&dl=0) + [Room Crew](https://www.dropbox.com/scl/fo/fa4okobq89jhhj0wthgy5/AHJsWr-fakA7N8JnlLZHKIs?rlkey=hfw992f7lj8nzfbcz6qp7n2og&dl=0)\]**
+
+## Due Next Week
+
+1.  Complete and Submit [Lab 4]
+2.  No New Reading or Reading Quiz :)
+
+# Lab 4
+
+Use R to answer the following questions. Make sure that you show your R code and the output (result or graphs) by taking a screenshot and pasting your code and output into a Google or Word Document. Or, [use this .qmd file](https://www.dropbox.com/scl/fi/li8ec9fty6jycffxoaoxl/Lab4.qmd?rlkey=52vzgcmt3o3njfhtzuv5usv7h&dl=0) to create a Quarto document to embed code and answers together. (*We will do this in lecture together! If it's confusing, just use the screenshot method you have been using before.*)
+
+## Problem 1. Mini Class Data with Professor.
+
+**Use the "Mini" Class Dataset (on Canvas, under Class Datasets) to answer the following questions. Make sure to load the data and a) rename it, b) check the Headers, c) set stringsAsFactor = TRUE, and d) check to make sure the data loaded correctly into R.**
+
+1.  Choose two numeric variables from the dataset. Graph each variable variables side-by-side using the par() function. Make sure the variables look nice, and remove any outliers.
+2.  Report the descriptive statistics for each variable. Then, explain what each variable tells you about the individuals in the dataset.
+3.  Describe what additional questions you have about each variable.
+
+## Problem 2. Mini Class Data by Yourself.
+
+1.  Repeat the steps above for one numeric variable of your choosing.
+2.  Then, graph a categorical variable, report the frequency of each group (you can get this using summary(d\$variable)), and describe what you learn about the variable. As a reminder, to graph a categorical variable, you will need to make sure you clicked "stringsAsFactor = T") when loading the data and are using the plot() function for the graph.
+
+## AI Disclosure.
+
+**Please describe how you used AI tools; make sure you include specific prompts here. Thanks!**

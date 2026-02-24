@@ -2,7 +2,7 @@
 title: "Psych 214 | SP26"
 format: html
 editor: visual
-tbl-colwidths: [15,50,35]
+tbl-colwidths: [10,40,40]
 ---
 
 ## Introduction to Statistics in Psychology
@@ -18,22 +18,22 @@ Hi class! This page will contain deadlines and links to course readings and lect
 ## Course Outline
 
 |  |  |  |
-|-----------------|----------------------------------|----------------------|
+|-------------|---------------------------------|----------------------|
 | **Week** | **Class Topic & Lab Assignment** | **Chapter Reading and Quiz (for Next Week)** |
-| 1/26/2026 | [Welcome!](https://docs.google.com/document/d/1T0CpOwi3XZ6UpurZ7mIaHRot0Lftbm-qisHHFv1r2oo/edit?usp=share_link) | [Chapter 1.1-1.2 : Why Statistics?](https://catterson.github.io/ystats/chapters/1R_WhyStats.html) |
-| 2/2/2026 | [Intro to Science + Lab 1](https://docs.google.com/document/d/1MZ3gdAppdCvUbZ75XJhwoUTTKitb1l7h--L1Z7wvXbM/edit?usp=share_link) | [Chapter 2.1-2.2 : Data Data Data](https://catterson.github.io/ystats/chapters/2R_Data.html) |
-| 2/9/2026 | [Data + Lab 2](https://docs.google.com/document/d/1aasdbFCrry9BDCjNhhyvdvEcLgk5ETLgPLU0ZxgMUoQ/edit?usp=share_link) | [Chapter 3.1-3.2 : Description](https://catterson.github.io/ystats/chapters/3R_Description.html) |
-| 2/16/2026 | [Graphs + Lab 3](W4_CH3.qmd) | [Chapter 4.1-4.2 : “Normality”](https://catterson.github.io/ystats/chapters/4R_NormalPeople.html) |
-| 2/23/2026 | Normality + Lab 4 |  |
-| 3/2/2026 | **Brain Exam 1** + Models | Chapter 6.1-6.2 : Linear Models |
-| 3/9/2026 | The Linear Model + Lab 5 | Chapter 7.1-7.2 : Categorical IVs |
-| 3/16/2026 | More Models + Lab 6 | R Exam Study Guide |
-| 3/23/2026 | **SPRING BREAK** |  |
-| 3/30/2026 | **R Exam** |  |
-| 4/6/2026 | Project Introduction + Lab 7 (Milestone #1) | Chapter 8.1-8.2 : Sampling Error |
-| 4/13/2026 | Sample Error + Lab 8 |  |
-| 4/20/2026 | NHST + Lab 9 (Milestone #2) | Chapter 11.1-11.2 |
-| 4/27/2026 | Multiple Regression + Lab 10 (Milestone #3) |  |
-| 5/4/2026 | **Brain Exam 2** + Interactions + Lab 11 | Chapter 13 |
-| 5/11/2026 | Project Time + Final Project Due |  |
-| 5/18/2026 | Conclusion |  |
+| 1/26/26 | [Welcome!](https://docs.google.com/document/d/1T0CpOwi3XZ6UpurZ7mIaHRot0Lftbm-qisHHFv1r2oo/edit?usp=share_link) | [Chapter 1.1-1.2 : Why Statistics?](https://catterson.github.io/ystats/chapters/1R_WhyStats.html) |
+| 2/2/26 | [Intro to Science + Lab 1](https://docs.google.com/document/d/1MZ3gdAppdCvUbZ75XJhwoUTTKitb1l7h--L1Z7wvXbM/edit?usp=share_link) | [Chapter 2.1-2.2 : Data Data Data](https://catterson.github.io/ystats/chapters/2R_Data.html) |
+| 2/9/26 | [Data + Lab 2](https://docs.google.com/document/d/1aasdbFCrry9BDCjNhhyvdvEcLgk5ETLgPLU0ZxgMUoQ/edit?usp=share_link) | [Chapter 3.1-3.2 : Description](https://catterson.github.io/ystats/chapters/3R_Description.html) |
+| 2/16/26 | [Graphs + Lab 3](W4_CH3.qmd) | [Chapter 4.1-4.2 : “Normality”](https://catterson.github.io/ystats/chapters/4R_NormalPeople.html) |
+| 2/23/26 | [Normality + Lab 4](W5_CH4.qmd) |  |
+| 3/2/26 | **Brain Exam 1** + Models | Chapter 6.1-6.2 : Linear Models |
+| 3/9/26 | The Linear Model + Lab 5 | Chapter 7.1-7.2 : Categorical IVs |
+| 3/16/26 | More Models + Lab 6 | R Exam Study Guide |
+| 3/23/26 | **SPRING BREAK** |  |
+| 3/30/26 | **R Exam** |  |
+| 4/6/26 | Project Introduction + Lab 7 (Milestone #1) | Chapter 8.1-8.2 : Sampling Error |
+| 4/13/26 | Sample Error + Lab 8 |  |
+| 4/20/26 | NHST + Lab 9 (Milestone #2) | Chapter 11.1-11.2 |
+| 4/27/26 | Multiple Regression + Lab 10 (Milestone #3) |  |
+| 5/4/26 | **Brain Exam 2** + Interactions + Lab 11 | Chapter 13 |
+| 5/11/26 | Project Time + Final Project Due |  |
+| 5/18/26 | Conclusion |  |
