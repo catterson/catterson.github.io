@@ -1,0 +1,116 @@
+---
+title: "Research Methods : Statisitcs Review"
+format: html
+---
+
+## Loading (and Learning About) Our Dataset
+
+These data come from a survey of our class; a study of 40ish community college students who are taking a research methods class as part of a degree requirement.
+
+The survey measured students' attitudes about reading through self-report questions.
+
+A list of variables is below.
+
+```{r}
+#| echo: false
+
+## Data Sources
+dataurl <- "https://www.dropbox.com/scl/fi/47gw0h2x6abprskwdqgo7/DATASET_ReadingData.csv?rlkey=4mm3itw9p4fm7ee5qa7z3n82q&dl=1"
+codebookurl <- "https://www.dropbox.com/scl/fi/m4os7p2jualfzzuyqbnqy/CODEBOOK_ReadingData.csv?rlkey=wteyc27f8vgo6ihe05hijnkln&dl=1"
+
+## Defining the Dataset and Codebook
+d <- read.csv(dataurl, stringsAsFactors = T)
+codebook <- read.csv(codebookurl)
+
+## Visualizing the Codebook
+knitr::kable(codebook)
+```
+
+## Graphing Variables.
+
+The hist() function graphs a numeric variable.
+
+The code below asks R to define a histogram, using the dataset d, of the variable like.
+
+```{r}
+hist(d$like)
+```
+
+::: {.callout-tip collapse="true"}
+### Arguing with R
+
+We can change some of the *arguments* of the hist() function by adding these instructions to the code above to make the graph look nicer.
+
+-   `main = "new title go here" # changes the title of the graph`
+
+-   `xlab = "new name go here" # changes the name of the x-axis label`
+
+-   `ylab = "new name go here" # changes the name of the y-axis label`
+
+-   `col = "blue" # changes the color of the graph to blue (or any color)`
+
+-   `xlim = c(1,5) # changes the range of the x-axis to go from 1 to 5 (or any number you want)`
+
+-   `ylim = c(0,20) # changes the range of the y-axis to go from 1 to 20 (or any number you want)`
+:::
+
+### Describing Variables with Human Brains
+
+What do you see about the graph above? No stats language allowed.
+
+#### What the Graph is Showing
+
+-   student
+
+-   ideas
+
+-   go
+
+-   here
+
+#### Things I Learn About the Graph
+
+-   student
+
+-   ideas
+
+-   go
+
+-   here
+
+#### Questions That I Have / Things I Do Not Know
+
+-   student
+
+-   ideas
+
+-   go
+
+-   here
+
+### Statistics as a Language
+
+#### Defining Variables With Numbers
+
+| Statistic | What it Describes | R Code | Result for `d$like` | What we Learn From This Statistic |
+|---------------|---------------|---------------|---------------|---------------|
+| mean | the value that is closest to all the other scores in the dataset; a prediction about the expected value | `mean(d$V1)` | `r round(mean(d$like), 2)` |  |
+| median | the value that is in the middle of all the scores (50% of scores are above the median, 50% of scores are below the median) | `median(d$V1)` | `r round(median(d$like), 2)` |  |
+| range | the minimum and maximum value of the data | `range(d$V1)` | `r round(range(d$like), 2)` |  |
+| standard deviation | how much the average individual differs from the mean (or : the average "error" when we use the mean to make a prediction) | `sd(d$V1)` | `r round(sd(d$like), 2)` |  |
+
+: {tbl-colwidths="\[15,30,15,10,30\]"}
+
+### Discussion : How Can We Connect our "Brain Learnings" To These Numbers?
+
+### ACTIVITY : The Learning Will Continue
+
+1.  Choose a variable from the READING dataset that you are intersted to learn more about.
+2.  Type R commands in the "chunk" below to graph this variable. Try to change the arguments to make the graph look nice.
+3.  Below the graph, type R commands to calculate descriptive statistics for this variable. Connect these to the graph.
+4.  What do you learn about this variable from the graph?
+5.  Share your graph, the statistics, and your learnings in our class vision board.
+
+```{r}
+
+```

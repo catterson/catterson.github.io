@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>statsreview</title>
+<title>LikertScales</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -53,147 +53,58 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body>
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+          <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://catterson.github.io/ystats/"> 
+<span class="menu-text">Why Statistics?</span></a>
+  </li>  
+</ul>
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#week-5-stats-review." id="toc-week-5-stats-review." class="nav-link active" data-scroll-target="#week-5-stats-review.">Week 5 : Stats Review.</a></li>
-  <li><a href="#part-1-check-in-and-reliability-and-validity-review" id="toc-part-1-check-in-and-reliability-and-validity-review" class="nav-link" data-scroll-target="#part-1-check-in-and-reliability-and-validity-review">Part 1 : Check-In and Reliability and Validity Review</a>
-  <ul class="collapse">
-  <li><a href="#reading-an-article" id="toc-reading-an-article" class="nav-link" data-scroll-target="#reading-an-article">Reading an Article</a></li>
-  <li><a href="#validity-and-reliability-in-dead-fish" id="toc-validity-and-reliability-in-dead-fish" class="nav-link" data-scroll-target="#validity-and-reliability-in-dead-fish">Validity and Reliability in Dead Fish</a></li>
-  <li><a href="#validity-and-reliability-in-dead-fish-1" id="toc-validity-and-reliability-in-dead-fish-1" class="nav-link" data-scroll-target="#validity-and-reliability-in-dead-fish-1">Validity and Reliability in Dead Fish</a></li>
-  </ul></li>
-  <li><a href="#part-2-data-analysis-in-r" id="toc-part-2-data-analysis-in-r" class="nav-link" data-scroll-target="#part-2-data-analysis-in-r">Part 2 : Data Analysis in R</a>
-  <ul class="collapse">
-  <li><a href="#loading-the-reading-data" id="toc-loading-the-reading-data" class="nav-link" data-scroll-target="#loading-the-reading-data">Loading the Reading Data</a></li>
-  <li><a href="#graphing-a-variable-in-r" id="toc-graphing-a-variable-in-r" class="nav-link" data-scroll-target="#graphing-a-variable-in-r">Graphing a Variable in R</a></li>
-  <li><a href="#learning-from-a-variable-with-human-brain" id="toc-learning-from-a-variable-with-human-brain" class="nav-link" data-scroll-target="#learning-from-a-variable-with-human-brain">Learning from a Variable with Human Brain</a></li>
-  <li><a href="#activity-learn-about-people-with-r-and-human-brain" id="toc-activity-learn-about-people-with-r-and-human-brain" class="nav-link" data-scroll-target="#activity-learn-about-people-with-r-and-human-brain">ACTIVITY : Learn About People with R and Human Brain</a></li>
-  <li><a href="#presentations" id="toc-presentations" class="nav-link" data-scroll-target="#presentations">PRESENTATIONS :</a></li>
-  </ul></li>
-  <li><a href="#next-week-observations" id="toc-next-week-observations" class="nav-link" data-scroll-target="#next-week-observations">NEXT WEEK : Observations</a>
-  <ul class="collapse">
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
-  <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do">TO DO :</a></li>
-  <li><a href="#bye." id="toc-bye." class="nav-link" data-scroll-target="#bye.">BYE.</a></li>
-  </ul></li>
-  </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="5_statsreview.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">LikertScales</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 
 
-<section id="week-5-stats-review." class="level1">
-<h1>Week 5 : Stats Review.</h1>
-<p>Click arrow to advance slides.</p>
-</section>
-<section id="part-1-check-in-and-reliability-and-validity-review" class="level1 smaller">
-<h1 class="smaller">Part 1 : Check-In and Reliability and Validity Review</h1>
-<section id="reading-an-article" class="level2">
-<h2 class="anchored" data-anchor-id="reading-an-article">Reading an Article</h2>
-<div class="columns">
-<div class="column" style="width:30%;">
-<p><img src="images/clipboard-3978495579.png" class="img-fluid"></p>
-</div><div class="column" style="width:70%;">
-<ul>
-<li>Translate the title?</li>
-<li>Methods of making this make sense?</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="validity-and-reliability-in-dead-fish" class="level2">
-<h2 class="anchored" data-anchor-id="validity-and-reliability-in-dead-fish">Validity and Reliability in Dead Fish</h2>
-<div class="columns">
-<div class="column" style="width:30%;">
-<p><img src="images/clipboard-3978495579.png" class="img-fluid"></p>
-</div><div class="column" style="width:70%;">
-<p><strong>Validity : Are we measuring the TRUTH?</strong></p>
-<ul>
-<li><p><strong>convergent :</strong> our measure should be related to things it should be related to.</p></li>
-<li><p><strong>discriminant :</strong> our measure should be UNrelated to things it should be UNrelated to.</p></li>
-</ul>
-</div>
-</div>
-</section>
-<section id="validity-and-reliability-in-dead-fish-1" class="level2">
-<h2 class="anchored" data-anchor-id="validity-and-reliability-in-dead-fish-1">Validity and Reliability in Dead Fish</h2>
-<div class="columns">
-<div class="column" style="width:30%;">
-<p><img src="images/clipboard-3978495579.png" class="img-fluid"></p>
-</div><div class="column" style="width:70%;">
-<p><strong>Reliability : Are we getting repeatable measures?</strong></p>
-<ul>
-<li><p><strong>test-retest :</strong> multiple tests with the same measure should yield the same result (if the subject did not change.)</p></li>
-<li><p><strong>inter-rater :</strong> multiple measures should yield the same result</p></li>
-</ul>
-</div>
-</div>
-</section>
-</section>
-<section id="part-2-data-analysis-in-r" class="level1 smaller">
-<h1 class="smaller">Part 2 : Data Analysis in R</h1>
-<section id="loading-the-reading-data" class="level2">
-<h2 class="anchored" data-anchor-id="loading-the-reading-data">Loading the Reading Data</h2>
-</section>
-<section id="graphing-a-variable-in-r" class="level2">
-<h2 class="anchored" data-anchor-id="graphing-a-variable-in-r">Graphing a Variable in R</h2>
-</section>
-<section id="learning-from-a-variable-with-human-brain" class="level2">
-<h2 class="anchored" data-anchor-id="learning-from-a-variable-with-human-brain">Learning from a Variable with Human Brain</h2>
-</section>
-<section id="activity-learn-about-people-with-r-and-human-brain" class="level2">
-<h2 class="anchored" data-anchor-id="activity-learn-about-people-with-r-and-human-brain">ACTIVITY : Learn About People with R and Human Brain</h2>
-<ul>
-<li><p>Choose another variable from the dataset.</p></li>
-<li><p>Graph the variable and run some descriptive statistics.</p>
-<ul>
-<li><p>What are the numbers?</p></li>
-<li><p>What do these numbers tell you about the people in the dataset?</p></li>
-<li><p>What other questions do you have?</p></li>
-</ul></li>
-<li><p><strong>Type in the <a href="https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing">RESEARCH METHODS VISION BOARD</a>.</strong></p></li>
-</ul>
-</section>
-<section id="presentations" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="presentations">PRESENTATIONS :</h2>
-</section>
-</section>
-<section id="next-week-observations" class="level1">
-<h1>NEXT WEEK : Observations</h1>
-<ul>
-<li><p><strong>I’m being observed!</strong> Great if we can all show up on time :)</p></li>
-<li></li>
-</ul>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
-</section>
-<section id="to-do" class="level2">
-<h2 class="anchored" data-anchor-id="to-do">TO DO :</h2>
-<ul>
-<li><p>Read about observational data.</p></li>
-<li><p>Read a specific coding scheme researchers use to</p></li>
-</ul>
-</section>
-<section id="bye." class="level2">
-<h2 class="anchored" data-anchor-id="bye.">BYE.</h2>
-<p><img src="https://www.gif-vif.com/trending/frog-dance-frog.gif.pagespeed.ce.P7TEOgyG1P.gif" class="img-fluid"></p>
-
-
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

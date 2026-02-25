@@ -6,40 +6,65 @@ format:
     link-external-newwindow: true
     chalkboard: true
     controls: true
+tbl-colwidths: [70,30]
+navbar: false
 ---
 
 # Week 5 : Stats Review.
 
-## Agenda and Announcements {.smaller}
+Click arrow to advance slides.
+
+# Part 1 : Check-In and Reliability and Validity Review {.smaller}
+
+## Reading an Article
 
 ::::: columns
-::: {.column width="50%"}
-**Agenda :**
-
--   20 Min : Check-In Review : Reliability and Validity in fMRI
--   15 Min : Part 1 : Research in Psychology
--   30 Min : Part 2 : Sources of Knowledge
--   10 Min : Recap & Next Week
+::: {.column width="30%"}
+![](images/clipboard-3978495579.png)
 :::
 
-::: {.column width="50%"}
-**Announcements :**
-
--   *Blah*. Let me know how access goes.
-
--   *Blah!* Talk to me after class.
-
--   *Office Hours in SSSC.* 12:35 - 2:00.
+::: {.column width="70%"}
+-   Translate the title?
+-   Methods of making this make sense?
 :::
 :::::
 
-# Part 1 :  {.smaller}
+## Validity and Reliability in Dead Fish
+
+::::: columns
+::: {.column width="30%"}
+![](images/clipboard-3978495579.png)
+:::
+
+::: {.column width="70%"}
+**Validity : Are we measuring the TRUTH?**
+
+-   **convergent :** our measure should be related to things it should be related to.
+
+-   **discriminant :** our measure should be UNrelated to things it should be UNrelated to.
+:::
+:::::
+
+## Validity and Reliability in Dead Fish
+
+::::: columns
+::: {.column width="30%"}
+![](images/clipboard-3978495579.png)
+:::
+
+::: {.column width="70%"}
+**Reliability : Are we getting repeatable measures?**
+
+-   **test-retest :** multiple tests with the same measure should yield the same result (if the subject did not change.)
+
+-   **inter-rater :** multiple measures should yield the same result
+:::
+:::::
+
 
 # Part 2 : Data Analysis in R {.smaller}
 
 ## Loading the Reading Data
-
--   
 
 ## Graphing a Variable in R
 
@@ -59,7 +84,7 @@ format:
 
 -   **Type in the [RESEARCH METHODS VISION BOARD](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing).**
 
-## PRESENTATIONS :  {.smaller}
+## PRESENTATIONS : {.smaller}
 
 # NEXT WEEK : Observations
 
@@ -69,7 +94,7 @@ format:
 
 ## 
 
-## TO DO : 
+## TO DO :
 
 -   Read about observational data.
 
