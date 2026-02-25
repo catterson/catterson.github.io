@@ -6,7 +6,7 @@ format:
     link-external-newwindow: true
     chalkboard: true
     controls: true
-tbl-colwidths: [70,30]
+tbl-colwidths: [30,70]
 navbar: false
 ---
 
@@ -14,7 +14,7 @@ navbar: false
 
 Click arrow to advance slides.
 
-# Part 1 : Check-In and Reliability and Validity Review {.smaller}
+# Part 1 : Check-In Review {.smaller}
 
 ## Reading an Article
 
@@ -24,7 +24,8 @@ Click arrow to advance slides.
 :::
 
 ::: {.column width="70%"}
--   Translate the title?
+-   Okay, how you feeling about this one.
+-   Ways to translate the title?
 -   Methods of making this make sense?
 :::
 :::::
@@ -33,7 +34,7 @@ Click arrow to advance slides.
 
 ::::: columns
 ::: {.column width="30%"}
-![](images/clipboard-3978495579.png)
+![](images/clipboard-1033975506.png)
 :::
 
 ::: {.column width="70%"}
@@ -49,7 +50,7 @@ Click arrow to advance slides.
 
 ::::: columns
 ::: {.column width="30%"}
-![](images/clipboard-3978495579.png)
+![](images/clipboard-1033975506.png)
 :::
 
 ::: {.column width="70%"}
@@ -61,14 +62,69 @@ Click arrow to advance slides.
 :::
 :::::
 
-
 # Part 2 : Data Analysis in R {.smaller}
 
-## Loading the Reading Data
+## Getting Started in Three Easy Steps.
+
+1.  Take a deep breath.
+2.  Download the DescribingDataTutorial.qmd file to your computer.
+3.  Upload this to posit.cloud.
+4.  Open it in posit.cloud by clicking on the file (it is a fancy R Script).
+5.  Check in on your buddy. How are they doing? How are you doing?
+
+## The Dataset{.smaller}
+
+```{r}
+codebookurl <- "https://www.dropbox.com/scl/fi/m4os7p2jualfzzuyqbnqy/CODEBOOK_ReadingData.csv?rlkey=wteyc27f8vgo6ihe05hijnkln&dl=1"
+dataurl <- "https://www.dropbox.com/scl/fi/47gw0h2x6abprskwdqgo7/DATASET_ReadingData.csv?rlkey=4mm3itw9p4fm7ee5qa7z3n82q&dl=1"
+
+d <- read.csv(dataurl, stringsAsFactors = T)
+codebook <- read.csv(codebookurl)
+knitr::kable(codebook)
+```
 
 ## Graphing a Variable in R
 
-## Learning from a Variable with Human Brain
+What do you observe about the graph below?
+
+```{r}
+#| column: margin
+barplot(table(d$like), 
+        col = "black", bor = "white", 
+        xlab = "I Like Reading for Fun",
+        ylab = "Frequency")
+
+```
+
+
+## Learning from a Variable with Human and Statistics Brain
+
+What do you observe about the graph below, in terms of the following statisitcs???
+
+::::: columns
+::: {.column width="30%"}
+
+```{r}
+#| output-location: column
+statz <- t(psych::describe(d$like)[,c(2:5, 8)])
+colnames(statz) <- ""
+statz
+```
+:::
+
+::: {.column width="70%"}
+
+```{r}
+#| output-location: column
+barplot(table(d$like), 
+        col = "black", bor = "white", 
+        xlab = "I Like Reading for Fun",
+        ylab = "Frequency")
+
+```
+
+:::
+:::::
 
 ## ACTIVITY : Learn About People with R and Human Brain
 
@@ -84,17 +140,11 @@ Click arrow to advance slides.
 
 -   **Type in the [RESEARCH METHODS VISION BOARD](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing).**
 
-## PRESENTATIONS : {.smaller}
+## STUDENT PRESENTATIONS? {.smaller}
 
 # NEXT WEEK : Observations
 
 -   **I'm being observed!** Great if we can all show up on time :)
-
--   
-
-## 
-
-## TO DO :
 
 -   Read about observational data.
 

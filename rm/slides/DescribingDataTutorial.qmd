@@ -1,5 +1,5 @@
 ---
-title: "Research Methods : Statisitcs Review"
+title: "Research Methods : Describing Data Tutorial"
 format: html
 ---
 
@@ -105,7 +105,7 @@ What do you see about the graph above? No stats language allowed.
 
 ### ACTIVITY : The Learning Will Continue
 
-1.  Choose a variable from the READING dataset that you are intersted to learn more about.
+1.  Choose a variable from the READING dataset that you are interested to learn more about.
 2.  Type R commands in the "chunk" below to graph this variable. Try to change the arguments to make the graph look nice.
 3.  Below the graph, type R commands to calculate descriptive statistics for this variable. Connect these to the graph.
 4.  What do you learn about this variable from the graph?
