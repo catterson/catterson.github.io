@@ -6,44 +6,125 @@ format:
     link-external-newwindow: true
     chalkboard: true
     controls: true
+tbl-colwidths: [30,70]
+navbar: false
 ---
 
 # Week 5 : Stats Review.
 
-## Agenda and Announcements {.smaller}
+Click arrow to advance slides.
+
+# Part 1 : Check-In Review {.smaller}
+
+## Reading an Article
 
 ::::: columns
-::: {.column width="50%"}
-**Agenda :**
-
--   20 Min : Check-In Review : Reliability and Validity in fMRI
--   15 Min : Part 1 : Research in Psychology
--   30 Min : Part 2 : Sources of Knowledge
--   10 Min : Recap & Next Week
+::: {.column width="30%"}
+![](images/clipboard-3978495579.png)
 :::
 
-::: {.column width="50%"}
-**Announcements :**
-
--   *Blah*. Let me know how access goes.
-
--   *Blah!* Talk to me after class.
-
--   *Office Hours in SSSC.* 12:35 - 2:00.
+::: {.column width="70%"}
+-   Okay, how you feeling about this one.
+-   Ways to translate the title?
+-   Methods of making this make sense?
 :::
 :::::
 
-# Part 1 :  {.smaller}
+## Validity and Reliability in Dead Fish
+
+::::: columns
+::: {.column width="30%"}
+![](images/clipboard-1033975506.png)
+:::
+
+::: {.column width="70%"}
+**Validity : Are we measuring the TRUTH?**
+
+-   **convergent :** our measure should be related to things it should be related to.
+
+-   **discriminant :** our measure should be UNrelated to things it should be UNrelated to.
+:::
+:::::
+
+## Validity and Reliability in Dead Fish
+
+::::: columns
+::: {.column width="30%"}
+![](images/clipboard-1033975506.png)
+:::
+
+::: {.column width="70%"}
+**Reliability : Are we getting repeatable measures?**
+
+-   **test-retest :** multiple tests with the same measure should yield the same result (if the subject did not change.)
+
+-   **inter-rater :** multiple measures should yield the same result
+:::
+:::::
 
 # Part 2 : Data Analysis in R {.smaller}
 
-## Loading the Reading Data
+## Getting Started in Three Easy Steps.
 
--   
+1.  Take a deep breath.
+2.  Download the DescribingDataTutorial.qmd file to your computer.
+3.  Upload this to posit.cloud.
+4.  Open it in posit.cloud by clicking on the file (it is a fancy R Script).
+5.  Check in on your buddy. How are they doing? How are you doing?
+
+## The Dataset{.smaller}
+
+```{r}
+codebookurl <- "https://www.dropbox.com/scl/fi/m4os7p2jualfzzuyqbnqy/CODEBOOK_ReadingData.csv?rlkey=wteyc27f8vgo6ihe05hijnkln&dl=1"
+dataurl <- "https://www.dropbox.com/scl/fi/47gw0h2x6abprskwdqgo7/DATASET_ReadingData.csv?rlkey=4mm3itw9p4fm7ee5qa7z3n82q&dl=1"
+
+d <- read.csv(dataurl, stringsAsFactors = T)
+codebook <- read.csv(codebookurl)
+knitr::kable(codebook)
+```
 
 ## Graphing a Variable in R
 
-## Learning from a Variable with Human Brain
+What do you observe about the graph below?
+
+```{r}
+#| column: margin
+barplot(table(d$like), 
+        col = "black", bor = "white", 
+        xlab = "I Like Reading for Fun",
+        ylab = "Frequency")
+
+```
+
+
+## Learning from a Variable with Human and Statistics Brain
+
+What do you observe about the graph below, in terms of the following statisitcs???
+
+::::: columns
+::: {.column width="30%"}
+
+```{r}
+#| output-location: column
+statz <- t(psych::describe(d$like)[,c(2:5, 8)])
+colnames(statz) <- ""
+statz
+```
+:::
+
+::: {.column width="70%"}
+
+```{r}
+#| output-location: column
+barplot(table(d$like), 
+        col = "black", bor = "white", 
+        xlab = "I Like Reading for Fun",
+        ylab = "Frequency")
+
+```
+
+:::
+:::::
 
 ## ACTIVITY : Learn About People with R and Human Brain
 
@@ -59,17 +140,11 @@ format:
 
 -   **Type in the [RESEARCH METHODS VISION BOARD](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing).**
 
-## PRESENTATIONS :  {.smaller}
+## STUDENT PRESENTATIONS? {.smaller}
 
 # NEXT WEEK : Observations
 
 -   **I'm being observed!** Great if we can all show up on time :)
-
--   
-
-## 
-
-## TO DO : 
 
 -   Read about observational data.
 

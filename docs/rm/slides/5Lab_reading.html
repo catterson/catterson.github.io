@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>observation</title>
+<title>Research Methods : Statisitcs Review</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -53,11 +87,29 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body>
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+          <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://catterson.github.io/ystats/"> 
+<span class="menu-text">Why Statistics?</span></a>
+  </li>  
+</ul>
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -65,185 +117,242 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#week-4-check-in-here." id="toc-week-4-check-in-here." class="nav-link active" data-scroll-target="#week-4-check-in-here.">Week 4 Check-In Here.</a></li>
-  <li><a href="#agenda-and-announcements" id="toc-agenda-and-announcements" class="nav-link" data-scroll-target="#agenda-and-announcements">Agenda and Announcements</a></li>
-  <li><a href="#part-1-operationalization-is-an-eight-syllable-word" id="toc-part-1-operationalization-is-an-eight-syllable-word" class="nav-link" data-scroll-target="#part-1-operationalization-is-an-eight-syllable-word">Part 1 : Operationalization is an Eight Syllable Word</a>
+  <li><a href="#loading-and-learning-about-our-dataset" id="toc-loading-and-learning-about-our-dataset" class="nav-link active" data-scroll-target="#loading-and-learning-about-our-dataset">Loading (and Learning About) Our Dataset</a></li>
+  <li><a href="#graphing-variables." id="toc-graphing-variables." class="nav-link" data-scroll-target="#graphing-variables.">Graphing Variables.</a>
   <ul class="collapse">
-  <li><a href="#definition-operationalization" id="toc-definition-operationalization" class="nav-link" data-scroll-target="#definition-operationalization">DEFINITION : Operationalization</a>
-  <ul class="collapse">
-  <li><a href="#a-cognitive-examination-in-popular-press" id="toc-a-cognitive-examination-in-popular-press" class="nav-link" data-scroll-target="#a-cognitive-examination-in-popular-press">A “Cognitive Examination” in Popular Press</a></li>
-  <li><a href="#cognitive-examination-operationalized" id="toc-cognitive-examination-operationalized" class="nav-link" data-scroll-target="#cognitive-examination-operationalized">“Cognitive Examination” Operationalized</a></li>
-  </ul></li>
-  <li><a href="#deep-breath.-no-talking." id="toc-deep-breath.-no-talking." class="nav-link" data-scroll-target="#deep-breath.-no-talking.">Deep Breath. No Talking.</a></li>
-  <li><a href="#activity-count-the-interruptions." id="toc-activity-count-the-interruptions." class="nav-link" data-scroll-target="#activity-count-the-interruptions.">ACTIVITY : Count the Interruptions.</a></li>
-  <li><a href="#buddy-discussion" id="toc-buddy-discussion" class="nav-link" data-scroll-target="#buddy-discussion">BUDDY DISCUSSION</a></li>
-  <li><a href="#class-discussion" id="toc-class-discussion" class="nav-link" data-scroll-target="#class-discussion">CLASS DISCUSSION :</a></li>
-  <li><a href="#discuss-the-three-rules-of-people-watching" id="toc-discuss-the-three-rules-of-people-watching" class="nav-link" data-scroll-target="#discuss-the-three-rules-of-people-watching">DISCUSS : the three rules of people watching</a></li>
-  <li><a href="#discuss-the-three-rules-of-people-watching-1" id="toc-discuss-the-three-rules-of-people-watching-1" class="nav-link" data-scroll-target="#discuss-the-three-rules-of-people-watching-1">DISCUSS : the three rules of people watching</a></li>
-  <li><a href="#speaking-of-observations" id="toc-speaking-of-observations" class="nav-link" data-scroll-target="#speaking-of-observations">SPEAKING OF OBSERVATIONS…</a></li>
-  <li><a href="#readings-links" id="toc-readings-links" class="nav-link" data-scroll-target="#readings-links">Readings / Links</a></li>
-  <li><a href="#discussion-questions" id="toc-discussion-questions" class="nav-link" data-scroll-target="#discussion-questions">Discussion Questions</a></li>
-  <li><a href="#bye" id="toc-bye" class="nav-link" data-scroll-target="#bye">Bye</a></li>
+  <li><a href="#describing-variables-with-human-brains" id="toc-describing-variables-with-human-brains" class="nav-link" data-scroll-target="#describing-variables-with-human-brains">Describing Variables with Human Brains</a></li>
+  <li><a href="#statistics-as-a-language" id="toc-statistics-as-a-language" class="nav-link" data-scroll-target="#statistics-as-a-language">Statistics as a Language</a></li>
+  <li><a href="#discussion-how-can-we-connect-our-brain-learnings-to-these-numbers" id="toc-discussion-how-can-we-connect-our-brain-learnings-to-these-numbers" class="nav-link" data-scroll-target="#discussion-how-can-we-connect-our-brain-learnings-to-these-numbers">Discussion : How Can We Connect our “Brain Learnings” To These Numbers?</a></li>
+  <li><a href="#activity-the-learning-will-continue" id="toc-activity-the-learning-will-continue" class="nav-link" data-scroll-target="#activity-the-learning-will-continue">ACTIVITY : The Learning Will Continue</a></li>
   </ul></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="6_observation.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Research Methods : Statisitcs Review</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="week-4-check-in-here." class="level2 r-fit-text">
-<h2 class="anchored" data-anchor-id="week-4-check-in-here."><a href="https://docs.google.com/forms/d/e/1FAIpQLSfZcU6M-4l-IuRSlh6VpHcmgnH1fUjgkOFTCIJmApYCTpPLeA/viewform?usp=header">Week 4 Check-In Here.</a></h2>
-</section>
-<section id="agenda-and-announcements" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="agenda-and-announcements">Agenda and Announcements</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Agenda :</strong></p>
-<ul>
-<li><strong>20 Min :</strong> Welcome and Check-In Review.</li>
-<li><strong>20 Min :</strong> Part 1 : Operationalization is an Eight Syllable Word</li>
-<li><strong>20 Min :</strong> Part 2 : Objectivity in Observations</li>
-<li><strong>15 Min :</strong> Part 3 :</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><strong>Announcements :</strong></p>
-<ul>
-<li><strong>Office Hours On Zoom Today.</strong> 2:00 - 4:00ish. Gotta go pick up my kiddo.</li>
-<li><strong>Professor is Behind on Grading.</strong> Will catch up. Or no new HW.</li>
-<li><strong>NEXT WEEK :</strong> Going to do some data analysis in R. You will be supported!</li>
-</ul>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="loading-and-learning-about-our-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="loading-and-learning-about-our-dataset">Loading (and Learning About) Our Dataset</h2>
+<p>These data come from a survey of our class; a study of 40ish community college students who are taking a research methods class as part of a degree requirement.</p>
+<p>The survey measured students’ attitudes about reading through self-report questions.</p>
+<p>A list of variables is below.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 84%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">like</td>
+<td style="text-align: left;">I like reading for fun</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">school</td>
+<td style="text-align: left;">I like reading for school</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">startend</td>
+<td style="text-align: left;">I always read from the beginning to the end</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">understand</td>
+<td style="text-align: left;">I almost always understand everything that I read</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">feelstupid</td>
+<td style="text-align: left;">I feel bad or stupid if I don t understand everything I read</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">amgood</td>
+<td style="text-align: left;">I think I am a very good reader</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">kid</td>
+<td style="text-align: left;">I read a lot as a kid</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">EXPtextbook</td>
+<td style="text-align: left;">I have a lot of experience reading textbooks</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EXPscience</td>
+<td style="text-align: left;">I have a lot of experience reading scientific articles</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">hardsummary</td>
+<td style="text-align: left;">I have trouble summarizing what I have read when a teacher asks</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">wishbetter</td>
+<td style="text-align: left;">I wish I was a better reader</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </section>
-<section id="part-1-operationalization-is-an-eight-syllable-word" class="level1">
-<h1>Part 1 : Operationalization is an Eight Syllable Word</h1>
-<ul>
-<li><p>What comes to mind when you see this word?</p></li>
-<li><p>Say this word outloud.</p></li>
-</ul>
-<section id="definition-operationalization" class="level2">
-<h2 class="anchored" data-anchor-id="definition-operationalization">DEFINITION : Operationalization</h2>
-<ul>
-<li>A definition.</li>
-</ul>
-<section id="a-cognitive-examination-in-popular-press" class="level3">
-<h3 class="anchored" data-anchor-id="a-cognitive-examination-in-popular-press">A “Cognitive Examination” in Popular Press</h3>
-<div class="quarto-figure quarto-figure-center">
+<section id="graphing-variables." class="level2">
+<h2 class="anchored" data-anchor-id="graphing-variables.">Graphing Variables.</h2>
+<p>The hist() function graphs a numeric variable.</p>
+<p>The code below asks R to define a histogram, using the dataset d, of the variable like.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(d<span class="sc">$</span>like)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
 <figure class="figure">
-<p><img src="images/clipboard-388249856.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+<p><img src="5Lab_reading_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
-</section>
-<section id="cognitive-examination-operationalized" class="level3 smaller">
-<h3 class="smaller anchored" data-anchor-id="cognitive-examination-operationalized">“Cognitive Examination” Operationalized</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/2L_MOCA.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
-</figure>
 </div>
-</section>
-</section>
-<section id="deep-breath.-no-talking." class="level2">
-<h2 class="anchored" data-anchor-id="deep-breath.-no-talking.">Deep Breath. No Talking.</h2>
-</section>
-<section id="activity-count-the-interruptions." class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="activity-count-the-interruptions.">ACTIVITY : Count the Interruptions.</h2>
-<p><strong>Count the Interruptions : <a href="https://docs.google.com/forms/d/e/1FAIpQLSdDt9g2s4rELaKorXyprVgtOa0Smb8ooI_FIWNg2i7iXKpazA/viewform?usp=sf_link">tinyurl.com/researchinterruptions</a></strong></p>
-<ul>
-<li>Count the number of interruptions in the video (which professor will play soon).</li>
-<li>Submit your answer, <strong>then wait for the letter of the day.</strong></li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><video src="images/1_interruption_oreilly&amp;frank_operationalization.m4v" class="img-fluid quarto-figure quarto-figure-center" controls=""><a href="images/1_interruption_oreilly&amp;frank_operationalization.m4v">Video</a></video></p>
-</figure>
 </div>
-</section>
-<section id="buddy-discussion" class="level2">
-<h2 class="anchored" data-anchor-id="buddy-discussion">BUDDY DISCUSSION</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Arguing with R
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We can change some of the <em>arguments</em> of the hist() function by adding these instructions to the code above to make the graph look nicer.</p>
 <ul>
-<li><p>How was watching the video?</p></li>
-<li><p>How many INTERRUPTIONS did you count?</p></li>
-<li><p>How did you OPERATIONALIZE an INTERRUPTION? What are some ways we could strengthen this OPERATIONALIZATION?</p></li>
-<li><p>Can you say OPERATIONALIZATION three times fast?</p></li>
+<li><p><code>main = "new title go here" # changes the title of the graph</code></p></li>
+<li><p><code>xlab = "new name go here" # changes the name of the x-axis label</code></p></li>
+<li><p><code>ylab = "new name go here" # changes the name of the y-axis label</code></p></li>
+<li><p><code>col = "blue" # changes the color of the graph to blue (or any color)</code></p></li>
+<li><p><code>xlim = c(1,5) # changes the range of the x-axis to go from 1 to 5 (or any number you want)</code></p></li>
+<li><p><code>ylim = c(0,20) # changes the range of the y-axis to go from 1 to 20 (or any number you want)</code></p></li>
+</ul>
+</div>
+</div>
+</div>
+<section id="describing-variables-with-human-brains" class="level3">
+<h3 class="anchored" data-anchor-id="describing-variables-with-human-brains">Describing Variables with Human Brains</h3>
+<p>What do you see about the graph above? No stats language allowed.</p>
+<section id="what-the-graph-is-showing" class="level4">
+<h4 class="anchored" data-anchor-id="what-the-graph-is-showing">What the Graph is Showing</h4>
+<ul>
+<li><p>student</p></li>
+<li><p>ideas</p></li>
+<li><p>go</p></li>
+<li><p>here</p></li>
 </ul>
 </section>
-<section id="class-discussion" class="level2">
-<h2 class="anchored" data-anchor-id="class-discussion">CLASS DISCUSSION :</h2>
+<section id="things-i-learn-about-the-graph" class="level4">
+<h4 class="anchored" data-anchor-id="things-i-learn-about-the-graph">Things I Learn About the Graph</h4>
 <ul>
-<li><p>Clap if you and your buddy got the exact same number.</p></li>
-<li><p><strong>This is a problem of…</strong></p>
-<ul>
-<li>inter-rater reliability</li>
-<li>test-retest reliability</li>
-<li>convergent validity</li>
-<li>discriminant validity</li>
-<li>face validity</li>
-</ul></li>
-<li><p>What PREDICTIONS can we make about counting interruptions a second time?</p></li>
+<li><p>student</p></li>
+<li><p>ideas</p></li>
+<li><p>go</p></li>
+<li><p>here</p></li>
 </ul>
 </section>
-<section id="discuss-the-three-rules-of-people-watching" class="level2">
-<h2 class="anchored" data-anchor-id="discuss-the-three-rules-of-people-watching">DISCUSS : the three rules of people watching</h2>
+<section id="questions-that-i-have-things-i-do-not-know" class="level4">
+<h4 class="anchored" data-anchor-id="questions-that-i-have-things-i-do-not-know">Questions That I Have / Things I Do Not Know</h4>
 <ul>
-<li><p><strong>the three rules :</strong> which one is the most important?</p></li>
-<li></li>
+<li><p>student</p></li>
+<li><p>ideas</p></li>
+<li><p>go</p></li>
+<li><p>here</p></li>
 </ul>
 </section>
-<section id="discuss-the-three-rules-of-people-watching-1" class="level2">
-<h2 class="anchored" data-anchor-id="discuss-the-three-rules-of-people-watching-1">DISCUSS : the three rules of people watching</h2>
-<ul>
-<li><p>Review of existing</p></li>
-<li><p>Defining a SPAFF for an interruption.</p></li>
-</ul>
 </section>
-<section id="speaking-of-observations" class="level2">
-<h2 class="anchored" data-anchor-id="speaking-of-observations">SPEAKING OF OBSERVATIONS…</h2>
-<ul>
-<li>Y’all observe me; department wants your feedback.</li>
-<li>Why does college not trust professor’s self-reports of their own teaching (we are great.)</li>
-</ul>
+<section id="statistics-as-a-language" class="level3">
+<h3 class="anchored" data-anchor-id="statistics-as-a-language">Statistics as a Language</h3>
+<section id="defining-variables-with-numbers" class="level4">
+<h4 class="anchored" data-anchor-id="defining-variables-with-numbers">Defining Variables With Numbers</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 10%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Statistic</th>
+<th>What it Describes</th>
+<th>R Code</th>
+<th>Result for <code>d$like</code></th>
+<th>What we Learn From This Statistic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>mean</td>
+<td>the value that is closest to all the other scores in the dataset; a prediction about the expected value</td>
+<td><code>mean(d$V1)</code></td>
+<td>3.86</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>median</td>
+<td>the value that is in the middle of all the scores (50% of scores are above the median, 50% of scores are below the median)</td>
+<td><code>median(d$V1)</code></td>
+<td>4</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>range</td>
+<td>the minimum and maximum value of the data</td>
+<td><code>range(d$V1)</code></td>
+<td>1, 5</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>standard deviation</td>
+<td>how much the average individual differs from the mean (or : the average “error” when we use the mean to make a prediction)</td>
+<td><code>sd(d$V1)</code></td>
+<td>1.16</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="readings-links" class="level2">
-<h2 class="anchored" data-anchor-id="readings-links">Readings / Links</h2>
-<ul>
-<li><p>EAR Study</p>
-<ul>
-<li><p><a href="https://www.science.org/doi/pdf/10.1126/science.1139940?casa_token=o9E7J4V1r-QAAAAA:sCIX0xkcOSYKGCLiaklRf5tABtSy_BdBdGs9y0EXqH_6gFAPq59LNBVhvlHAp5dUUHsIETRMSZyuqw">Original Article</a> (Science, 2007) + <a href="https://www.science.org/doi/suppl/10.1126/science.1139940/suppl_file/mehl.som.pdf">Supplementary Material</a></p></li>
-<li><p><a href="https://psycnet.apa.org/fulltext/2025-66513-001.pdf?auth_token=5d23ff944ca94ce1f3731b99d0610bae1d90679e">Pre-Reg Article</a> + <a href="https://osf.io/wrtcz/files/uwc4x">Pre-Reg : Analysis Plan</a></p>
-<ul>
-<li><p>GOTTMAN :</p>
-<ul>
-<li><p>examples : <a href="https://www.youtube.com/watch?v=tQOgAgfDm_8&amp;t=43s" class="uri">https://www.youtube.com/watch?v=tQOgAgfDm_8&amp;t=43s</a></p></li>
-<li><p>love lab. <a href="https://www.youtube.com/watch?v=QEnVSrCCSw4" class="uri">https://www.youtube.com/watch?v=QEnVSrCCSw4</a></p></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
 </section>
-<section id="discussion-questions" class="level2">
-<h2 class="anchored" data-anchor-id="discussion-questions">Discussion Questions</h2>
+<section id="discussion-how-can-we-connect-our-brain-learnings-to-these-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="discussion-how-can-we-connect-our-brain-learnings-to-these-numbers">Discussion : How Can We Connect our “Brain Learnings” To These Numbers?</h3>
+</section>
+<section id="activity-the-learning-will-continue" class="level3">
+<h3 class="anchored" data-anchor-id="activity-the-learning-will-continue">ACTIVITY : The Learning Will Continue</h3>
 <ol type="1">
-<li><p><strong>ON THE VISION BOARD : Look over the SPAFF DRAFT</strong> that professor got started for the variable of “Interruption.” Contribute at least ONE idea to the list (next to your name) from one of the following categories in the reading.</p>
-<ul>
-<li><p>What is the FUNCTION of the variable you observe?</p></li>
-<li><p>What are the INDICATORS of the variable?</p></li>
-<li><p>What are the PHYSICAL CUES of the variable?</p></li>
-<li><p>What are some COUNTER-INDICATORS for this variable that the person might define to avoid error in your observations?</p></li>
-</ul></li>
-<li><p><strong>REPLY TO ANOTHER STUDENT.</strong> Look over their draft of the SPAFF rating scale. Help them revise at least one part of their behavioral coding guidelines to improve the validity of the observation.</p></li>
+<li>Choose a variable from the READING dataset that you are intersted to learn more about.</li>
+<li>Type R commands in the “chunk” below to graph this variable. Try to change the arguments to make the graph look nice.</li>
+<li>Below the graph, type R commands to calculate descriptive statistics for this variable. Connect these to the graph.</li>
+<li>What do you learn about this variable from the graph?</li>
+<li>Share your graph, the statistics, and your learnings in our class vision board.</li>
 </ol>
-</section>
-<section id="bye" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="bye">Bye</h2>
-<ul>
-<li>Readings : On Surveys and Likert Scales</li>
-<li>Discussion Questions :</li>
-</ul>
-<p><img src="https://www.gif-vif.com/trending/frog-dance-frog.gif.pagespeed.ce.P7TEOgyG1P.gif" class="img-fluid"></p>
 
 
 </section>

@@ -76,12 +76,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#survey-methods" id="toc-survey-methods" class="nav-link" data-scroll-target="#survey-methods">Survey Methods</a></li>
   </ul></li>
   <li><a href="#observations" id="toc-observations" class="nav-link" data-scroll-target="#observations">Observations</a></li>
-  <li><a href="#the-likert-scale" id="toc-the-likert-scale" class="nav-link" data-scroll-target="#the-likert-scale">The Likert Scale</a>
-  <ul class="collapse">
-  <li><a href="#definition-theory" id="toc-definition-theory" class="nav-link" data-scroll-target="#definition-theory">Definition &amp; Theory</a></li>
-  <li><a href="#video-example-the-extraversion-scale" id="toc-video-example-the-extraversion-scale" class="nav-link" data-scroll-target="#video-example-the-extraversion-scale">Video Example : The Extraversion Scale</a></li>
-  <li><a href="#practice-reverse-scoring" id="toc-practice-reverse-scoring" class="nav-link" data-scroll-target="#practice-reverse-scoring">Practice Reverse Scoring</a></li>
-  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -100,14 +94,13 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>In This Chapter
+<span class="screen-reader-only">Important</span>In This Text
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Learn about the different methods and measures that psychologists use to collect data.</p></li>
-<li><p>Learn about how (and why) <strong>likert scales</strong> are used to define continuous variation.</p></li>
-<li><p>Learn how to create a likert scale in R.</p></li>
+<li><p>Learn about the different methods, strengths, and limitations of self-report data</p></li>
+<li><p>Learn about the different methods, strengths, and limitations of observational data.</p></li>
 </ul>
 </div>
 </div>
@@ -115,18 +108,18 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="hard-data-in-a-soft-science" class="level1 page-columns page-full">
 <h1>Hard Data in a Soft Science</h1>
-<p>One of the challenges psychologists face in their attempts to be a REAL SCIENCE ™ is that their data is particularly hard to collect. Unlike physical variables like temperature or mass, psychological variables are often internal to people, and defined by mental states that are difficult to observe. As we saw in lecture, even a “simple” expressed behavior like an interruption can be very difficult to measure with high degrees of reliability and validity that we would hope. For a more complex variable such as depression, the task might seem impossible. Indeed, a large part of psychological research is engaging in debate and scholarship about how to best <strong>operationalize</strong> variables of interest (e.g., how should we define or measure depression?)&nbsp;</p>
+<p>One of the challenges psychologists face in their attempts to be a REAL SCIENCE ™ is that their data is particularly hard to collect. Unlike physical variables like temperature or mass, psychological variables are often internal to people, and defined by mental states that are difficult to observe. As we saw in lecture, even a “simple” expressed behavior like an interruption can be very difficult to measure with high degrees of reliability and validity that we would hope. For a more complex variable such as depression, the task might seem impossible. Indeed, a large part of psychological research is engaging in debate and scholarship about how to best <strong>operationalize</strong> variables of interest (e.g., how should we define or measure depression?)</p>
 <p>A full discussion of the different types of methods psychologists use to collect data is beyond the scope of this author. However, below I’ve tried to outline a few different approaches psychologists take, commenting on their benefits and limitations so you can begin to critically think about whether these methods are, in fact, getting at “THE TRUTH” of what people (or non-human animals) are like.</p>
 <section id="self-reports" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="self-reports">Self-Reports</h2>
 <p>One of the simplest ways to collect data on an individual is just to ask them what they are like, and have the person report on themselves (a self-report). There are two different approaches to getting self-reports - survey methods and qualitative interviews.</p>
 <section id="qualitative-interviews" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="qualitative-interviews">Qualitative Interviews</h3>
-<p>One way to get individuals to tell you what they are like is through a structured interview where researchers ask open-ended questions. One such example of this is the McAdams Life Narrative<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. In this structured interview, a trained research assistant asks a set of broad questions to participants over the course of 1 to 3 hours. The research assistant is advised to “feel free to skip some of these questions if they seem redundant or irrelevant, and should follow up with other questions as needed “ but also to “not adopt an advisory or judgmental role, but should instead serve as an empathic and encouraging guide and an affirming sounding board.”</p>
+<p>One way to get individuals to tell you what they are like is through a structured interview where researchers ask open-ended questions. One such example of this is the McAdams Life Narrative<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. In this structured interview, a trained research assistant asks a set of broad questions to participants over the course of 1 to 3 hours. The research assistant is advised to “feel free to skip some of these questions if they seem redundant or irrelevant, and should follow up with other questions as needed “ but also to “not adopt an advisory or judgmental role, but should instead serve as an empathetic and encouraging guide and an affirming sounding board.”</p>
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;McAdams talks about his work in this <a href="#0">popular press interview</a> and writes about it in this <a href="#0">scientific journal review article</a>.</p></div></div><p>Below is an excerpt from the first part of the interview.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/clipboard-1170508823.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="images/clipboard-1170508823.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="442"></p>
 </figure>
 </div>
 </section>
@@ -171,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="images/clipboard-2606663664.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="338"></p>
 </figure>
 </div>
-<p>Below is one example from some survey when I used to be on Facebook. If they changed their graphic design since I was last on, it’s probably because of some survey feedback they received.</p>
+<p>Below is one example from some survey when I used to be on Facebook. If Facebook changed its graphic design since I took this screenshot, it’s probably because of some survey feedback they received.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/clipboard-2204954683.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
@@ -181,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="observations" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="observations">Observations</h2>
-<p>Observational methods refer to ways in which another individual generates data on the target person of interest. Observational data is important to use when researchers are studying individuals who cannot give reliable and valid self-report data, such as infants, people with disabilities, or non-human animals.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p>Observational methods refer to ways in which another individual generates data about a person of interest (often called “the target”). Observational data is important to use when researchers are studying individuals who cannot give reliable and valid self-report data, such as infants, people with cognitive or motor disabilities, or non-human animals.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
 <div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;If I was a billionaire, I’d fund a team of psychologists to train monkeys to answer surveys. this is maybe why I am not a billionaire. that and the whole “intergenerational wealth” thing / chosen teaching career / lack of a desire to crush others and extract as much wealth from them…hard to know which factor is at play. Life is complex! Let me know if you are a billionaire and want to fund some other ideas / subscribe to my newsletter.</p></div></div><table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -198,7 +191,7 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="images/clipboard-1719058045.png" class="img-fluid"></p>
 <p><strong>Behavioral Data</strong>. When the variables of interest are physical, then researchers can use measurement tools to directly observe the behavior. For example, researchers wanting to measure stress might measure cortisol by taking samples of saliva from the cheek; researchers wanting to understand the brain look to voxel activation with fMRI, or cortical neuron activation with EEG.</p>
 <p><img src="images/clipboard-3305819703.png" class="img-fluid"></p>
-<p><strong>Behavioral Coding.</strong> Sometimes, it’s easier to have research assistants observe the physical behaviors of interest. For example, y’all served as behavioral coders when you counted the number of interruptions (a behavior!) Other times, research assistants will observe real-life interactions and observe variables such as time spent talking, distance between participants, or provide ratings of how much emotion or anxiety the person seemed to be expressing (using a rating scale). The “strange situation” task (where a parent leaves the room and researchers observe what a child does) is another example.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<p><strong>Behavioral Coding.</strong> Sometimes, it’s easier to have research assistants observe the physical behaviors of interest. For example, research assistants will observe real-life interactions and observe variables such as time spent talking, distance between participants, or provide ratings of how much emotion or anxiety the person seemed to be expressing (using a rating scale). The “strange situation” task (where a parent leaves the room and researchers observe what a child does) is another example.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
 <p><img src="images/clipboard-3532273367.png" class="img-fluid"></p></td>
 </tr>
 <tr class="odd">
@@ -212,103 +205,16 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td><strong>Limitations</strong></td>
 <td><ul>
-<li><p><strong>Time-Intensive.</strong> It can be incredibly costly to collect observational data. Yale charges over $600/hour for use of their fMRI machine (Berkeley doesn’t list their prices), and conducting a study to measure a naturally occurring behavior could take years between designing the study, recruiting and training the research assistants to observe the behavior, taking the time to collect the data, and then doing the behavioral coding necessary to convert the observations into numbers. Whew. Much easier to just give someone a survey and have them complete it.</p></li>
+<li><p><strong>Time-Intensive.</strong> It can be incredibly costly to collect observational data. Yale charges over $600/hour for use of their fMRI machine, and conducting a study to measure a naturally occurring behavior could take years between designing the study, recruiting and training the research assistants to observe the behavior, taking the time to collect the data, and then doing the behavioral coding necessary to convert the observations into numbers. Whew.</p></li>
 <li><p><strong>The Hawthorne Effect.</strong> The act of observation can often change behavior. Couples may be less likely to fight if they know they are being monitored by a psychologist, and even <a href="https://en.wikipedia.org/wiki/Wave%E2%80%93particle_duality">light changes its behavior depending on the way it is observed</a>. Researchers can take steps to address this change in behavior - and sometimes the power of the phenomenon is so large that it doesn’t matter if a researcher is there. In couples studies, for example, researchers can get couples to fight by having each person write out a list of things that cause conflict in the relationship, and then having the people trade lists and talk about it. Often however, individuals habituate to the presence of observation - do you think about the fact that your online interactions are being harvested by tech companies every day, or just kinda get used to it?</p></li>
-<li><p><strong>Not all aspects of psychology are observable.</strong> A person’s subjective experience matters, and sometimes a self-report is the only way you can get this data. If you look like you are smiling and have the neurotransmitter levels that suggest you are happy, but feel miserable, are you happy?</p></li>
+<li><p><strong>Not all aspects of psychology are observable.</strong> A person’s subjective experience matters, and sometimes a self-report is the only way you can get this data. If you look like you are smiling and have the neurotransmitter levels that suggest you are happy and our $600/hour test says that your brain is activated in a way consistent with happiness, but you FEEL and SAY you are miserable….are you happy?</p></li>
 </ul></td>
 </tr>
 </tbody>
 </table>
+
+
 <div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp;You can compare <a href="https://www.youtube.com/watch?v=QquZxJhuSg8">this child’s reaction</a> to <a href="https://www.youtube.com/watch?v=AGRT6VjnTm8">this child’s reaction</a>. What do you observe? How would you quantify these observations and turn them into cold, hard data?</p></div></div></section>
-<section id="the-likert-scale" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="the-likert-scale">The Likert Scale</h2>
-<section id="definition-theory" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="definition-theory">Definition &amp; Theory</h3>
-<p>A likert scale is a common survey method psychologists use to measure continuous variation. Likert scales can be used for self-report surveys (where an individual answers questions about themselves), or given to observers (where an individual answers questions about another person - either someone they know, or someone they are actively observing). For example, to the right is an example likert scale - the Rosenberg Self-Esteem Scale<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>. Here’s a link to <a href="https://www.wwnorton.com/college/psych/psychsci/media/rosenberg.htm">take the survey</a> and get feedback.</p>
-<div class="no-row-height column-margin column-container"><div id="fn6"><p><sup>6</sup>&nbsp;Rosenberg, M. (1965). Rosenberg Self-Esteem Scale (RSES) [Database record]. APA PsycTests. Here’s a link to <a href="https://www.wwnorton.com/college/psych/psychsci/media/rosenberg.htm">take the survey</a> and get feedback.</p>
-<p><br>
-</p></div><div class="">
-<p><img src="images/clipboard-2231014130.png" class="img-fluid"></p>
-</div></div>
-<p>Below are some common terms we will use when describing likert scales. (There’s a video that goes over these terms with another example below too.)</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 11%">
-<col style="width: 44%">
-<col style="width: 44%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><strong>Term</strong></td>
-<td><strong>Definition</strong></td>
-<td><strong>Usage / Example</strong></td>
-</tr>
-<tr class="even">
-<td><strong>Scale</strong></td>
-<td>The variable that you want to measure as a continuous variable.</td>
-<td>Self-esteem is often measured with the Rosenberg Self-Esteem Scale (1965)</td>
-</tr>
-<tr class="odd">
-<td><strong>Item(s)</strong></td>
-<td>The specific question(s) in the scale. Each item measures some aspect of the variable the researcher is interested in.</td>
-<td>The Rosenberg Self-Esteem Scale (RSE; 1965) is a ten item scale, which means it has ten questions about self-esteem.</td>
-</tr>
-<tr class="even">
-<td><strong>Response Scale</strong></td>
-<td>How people answer the scale items. People give a number rating on a fixed range of options with labels. Many 5-point scales include the following labels (1 = Strongly Disagree; 2 = Disagree; 3 = Neutral; 4 = Agree; 5 = Strongly Agree.)</td>
-<td>The RSE was originally written to use a 4-point rating scale from 0 (Strongly Disagree) to 3 (Strongly Agree). When Professor includes the RSE in his studies, he might change the response scale to go from 0-4 to so it has an odd-number of answers to allow people to say they are “neutral”.</td>
-</tr>
-<tr class="odd">
-<td><p><strong>Positively-</strong></p>
-<p><strong>Keyed Item</strong></p></td>
-<td>An item that measures the high end of the scale, where answering “yes” to the question means you are high on this variable.</td>
-<td>“On the whole, I am satisfied with my life” is a positively-keyed item, because answering 4 (Strongly Agree) means the person says they are high in self-esteem.</td>
-</tr>
-<tr class="even">
-<td><strong>Negatively-Keyed Item</strong></td>
-<td>An item that measures the low end of the scale, where answering “yes” to the question means you are low on the variable.</td>
-<td>“I certainly feel useless at times” is a negatively-keyed item, because answering 4 (Strongly Agree) means the person says they are low in self-esteem.</td>
-</tr>
-<tr class="odd">
-<td><strong>Reverse Scoring</strong></td>
-<td><p>How researchers “flip” the negatively-keyed items to be positively-keyed. To calculate how to reverse-score an item, you can add the lower and upper limit of the full range. So to reverse-score a response scale that goes from 0 to 4 = 0 + 4 = subtract the negatively keyed items from 4. A response scale that goes from 1 to 15 = 1 + 15 = subtract the negatively keyed items from 16. And so on.</p>
-<p>This is confusing. We will practice in lecture some more, okay?</p></td>
-<td><p>To reverse score the negatively-keyed item, you would subtract the person’s 4 from 4 (since the scale range is 0 to 4, so 0+4 = 4). A response of 4 (Strongly Agree) to the question I certainly feel useless at times means that for this question, the person’s self-esteem would be rated as a 0.</p>
-<p>POP QUIZ : a survey has a response scale that goes from 1-7. What number would you subtract from in order to reverse score a negatively-keyed item?<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p></td>
-</tr>
-</tbody>
-</table>
-<div class="no-row-height column-margin column-container"><div id="fn7"><p><sup>7</sup>&nbsp;You would subtract from 8, since 1+7 = 8. So a 7 for a negatively-keyed item on the 1-7 scale would be turned into a 1, since 8-7 = 1</p></div></div><p><strong>Advantages of Likert Scales</strong></p>
-<ol type="1">
-<li><p>They are easy to administer as a self-report or observational survey, and provide structured data.</p></li>
-<li><p><strong>The principle of aggregation</strong> describes a phenomenon where combining multiple items into one scale will provide a more reliable and continuous measure. Remember, the <strong>normal distribution</strong> is a theoretical distribution that exists when there are multiple explanations for one variable that occur randomly in a population. The multiple items in a scale are one way to try and measure the multiple random explanations for variation. And indeed, as you’ll see in the R demonstration, when you combine multiple categorical items into one variable, the distribution of the variable looks more normal than any individual item.</p></li>
-<li><p>Researchers can assess the reliability of the multiple items that were included in the measure. For example, if we are reliably measuring extraversion, then there should be. <strong>Cronbach’s (alpha)</strong> is a statistic that estimates the internal consistency (reliability) of a scale, and is based on (a) the similarity of people’s responses to the items in a scale (the more similar, the higher the reliability) and (b) the number of items in a scale (sales with many items will tend to have higher cronbach than will likert scales with just a few items.) There’s no official “rule” for what’s considered good or bad alpha, but below are some guidelines:</p>
-<ul>
-<li><p>α &gt; .8 = GREAT! Your scale is reliable</p></li>
-<li><p>α = .5 - .7 = OKAY! Your scale has low reliability, so something may be wrong with your measure.</p></li>
-<li><p>α &lt; .5 = UH OH…your scale has really low reliability. Below are a few possible reasons:</p>
-<ul>
-<li><p>your scale only has a few items: remember, that α is influenced by the number of items in your scale; so scales with a few items will almost certainly have a low alpha reliability.</p></li>
-<li><p>were the items in scale incorrectly coded (reverse scored items)?</p></li>
-<li><p>is the scale measuring different things (no consistency)? It could be that your scale isn’t very precise, and is measuring different variables.</p></li>
-</ul></li>
-</ul></li>
-</ol>
-</section>
-<section id="video-example-the-extraversion-scale" class="level3">
-<h3 class="anchored" data-anchor-id="video-example-the-extraversion-scale">Video Example : The Extraversion Scale</h3>
-<p>Here’s another example of a likert scale - Extraversion items adapted from Big Five Inventory 2 (Soto &amp; John, 2017).</p>
-<div class="{column-margin}">
-<p><img src="images/clipboard-3842133309.png" class="img-fluid"></p>
-</div>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/W32cHuaWwMU" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</section>
-<section id="practice-reverse-scoring" class="level3">
-<h3 class="anchored" data-anchor-id="practice-reverse-scoring"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdR2QnugvaNWZUptvq8HUitM94pICmsR_17Wiy0LKgmORvZIQ/viewform?usp=sf_link">Practice Reverse Scoring</a></h3>
-
-
-</section>
-</section>
 </section>
 
 

@@ -3,25 +3,10 @@ title: "Psych 215 - SP26"
 format: html
 editor: visual
 navbar: false
+tbl-colwidths: [20,30,40,10]
 ---
 
 ## Research Methods in Psychology
-
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-
-library(googlesheets4)
-library(gt)
-library(tidyverse)
-options(knitr.kable.NA = "")
-gs4_deauth()
-d <- read_sheet("https://docs.google.com/spreadsheets/d/1OegmH097biy7yzrxX98NgkXa04WU65EF4e4xwm0rusI/edit?usp=sharing", sheet = "215")
-d$Date <- format(d$Date, "%m/%d")
-```
-
-Hi class! This page will contain deadlines and links to course readings and lecture notes.
 
 **Please use Canvas to :**
 
@@ -39,7 +24,134 @@ Hi class! This page will contain deadlines and links to course readings and lect
 
 Note : Chapters are from the open-source textbook : [Research Methods in Psychology (4th Edition)](https://kpu.pressbooks.pub/psychmethods4e/). Note that each chapter has several sections within it that you'll need to click through. Here's a link to [download a PDF](https://kpu.pressbooks.pub/psychmethods4e/open/download?type=pdf) of the textbook.
 
-```{r}
-#| echo: false
-knitr::kable(d, padding = 5)
-```
+|  |  |  |  |
+|------------------|------------------|-----------------------------------|--|
+| **Date** | **Class Topic** | **Assignments** | **Chapter** |
+| 1/28/26 | [scientific knowledge](/rm/notes/class1RM.qmd) | Reading Quiz & Discussion 1 |  |
+| 2/4/26 | [biased knowledge](/rm/notes/class2RM.qmd) | Reading Quiz & Discussion 2 | CH I |
+| 2/11/26 | [academic knowledge](/rm/notes/class3RM.qmd) | Reading Quiz & Discussion 3 | CH II |
+| 2/18/26 | [good measures](/rm/notes/class4RM.qmd) | Reading Quiz & Discussion 4 | CH IV |
+| 2/25/26 | [thinking about data](/rm/notes/class5RM.html) | Reading Quiz & Discussion 5 | CH XII |
+| 3/4/26 | observation | Reading Quiz & Discussion 6 | CH VI.32 |
+| 3/11/26 | surveys | Dig Deeper Part 1 : Authors and Measures | CH VII |
+| 3/18/26 | patterns in data | Reading Quiz & Discussion 7 | CH VI.29 |
+| 3/25/26 | SPRING BREAK |  |  |
+| 4/1/26 | sampling bias and error | Dig Deeper Part 2 : Patterns and Participants | CH XIII |
+| 4/8/26 | experiments | Reading Quiz & Discussion 8 | CH V |
+| 4/15/26 | experiments (pt 2) | Project Milestone 1 | CH VIII |
+| 4/22/26 | writing research | Project Milestone 2 | Ch XI |
+| 4/29/26 | summary tables | Project Milestone 3 | [supplement](https://svmiller.com/blog/2014/08/reading-a-regression-table-a-guide-for-students/) |
+| 5/6/26 | interaction effects | Project Milestone 4 | CH IX |
+| 5/13/26 | ethics | Project Milestone 5 | CH III |
+| 5/20/26 | the end | Final Project Due \<3 |  |
+
+### **Grade Details**
+
+Your grade in the class will be based on the following components.
+
+|                                   |                           |
+|-----------------------------------|---------------------------|
+| 20% Check-Ins and Attendance      | 20% Dig Deeper Assignment |
+| 30% Reading Discussions & Quizzes | 30% Chill Final Project   |
+
+**Final grades are based on the following formula :** A = 85 - 100%; B = 70 - 84%; C = 50 - 69%; F = 0 - 49%. Students must complete both the Dig Deeper and Final Project in order to receive a grade in the class.
+
+## Course Information
+
+Use the tabs below to learn more about assignments, course policies (is there extra credit?), support services the college provides, and information I am required by the state to provide.
+
+::: panel-tabset
+## Course Components
+
+**Readings and Reading Quizzes  :** Each week before lecture, you will read articles and watch videos designed to teach basic skills and terminology. you will work through a “Reading Notes” document that contains text and videos designed to help you understand key concepts in research methods. We will introduce these texts in lecture, but you should plan to spend 60-90 minutes working through the material at home (this is a Hybrid Course, so half of the instruction takes place outside of the class). At the end of each set of reading, there will be a short quiz (on Canvas) based on the content that is due before lecture. This way, we can use time in lecture to review and discuss course concepts, and practice working on homework assignments together. The quizzes are multiple choice, untimed, open-note, and allow for multiple attempts. 
+
+**Class Attendance and Check-Ins :** Live attendance is required. We will use class time to review the readings, discuss course topics more deeply, and practice the skills required of research in psychology. We will also spend time in class working on your projects. During lecture, I will ask you to complete short assessments in class that consist of multiple choice and/or short-answer questions. These check-ins are graded for completion. It is your responsibility to make sure all check-ins are complete, and that you are logged in with your own Insite ID (e.g., lastname123).Check-ins must be completed by the beginning of the next lecture (e.g., when assignments are due) in order to be guaranteed a grade. I’ll drop a few missed check-ins for each student.
+
+**Discussion Assignments :** These short assignments will be based on Lecture and the Reading Notes, and will help you think more deeply about topics, connect what you read to real-life experiences, and prepare responses to questions that we will discuss in the next week’s lecture. Assignments will be graded for completion, accuracy, and effort. 
+
+**Dig Deeper Project :** For this assignment, you will compare research claims made by a textbook, news article, podcast, influential social media personality, etc. to the actual, scientific research article that claim was based on, and share your results in an engaging and informative way. A more detailed description and rubric will be posted later in the semester.
+
+**Chill Research Proposal Project :** You will propose an independent research project, and write up the proposal as an APA formatted research paper. There will be several milestones for this assignment due throughout the semester. For more details, see the **final project description and rubric.**
+
+**Extra Credit :** There will be no extra credit offered in this course, even for students who ask kindly.
+
+## Course Policies
+
+**Late Work.** Late discussion posts and projects will be penalized 25% for any reason (even if they are 1-minute late). In the past, I’ve tried a variety of more lenient late-work policies, and found that these policies often disincentivized students turning in work on time to their overall detriment in the class.
+
+**Regrades.** Students may ask for a re-grade on exams, assignments, and papers if they believe they lost points for something they should have earned. To request a regrade, attend office hours or set up a meeting. When requesting a regrade, you consent to have your score increased or decreased if I find that you earned points you should not have earned.
+
+**AI Policy**. Generative AI tools like ChatGPT should be used to support - not replace - your learning. All students must disclose how they used generative-AI software for each assignment (writing, coding, troubleshooting, etc.). If you use AI tools in any way (e.g., idea generation, writing, editing, troubleshooting or generating R code, etc.) you must include an appendix at the end of the assignment where you include screenshots of your specific queries and answers. Failure to be transparent about the use of AI tools - or feeding an assignment into an AI tool and using the output to completely replace your own work - will result in a zero of the assignment and a scheduled meeting in office hours. Multiple violations of this policy will result in the professor submitting a report to the Academic Integrity Office and an F in the class. This is a new technology that we are all figuring out, so ask me if you have questions about this policy, or want to chat more about ways to use (or not use) AI in this class. I ultimately want to see that you are learning the material, and that any AI tools that you use are helping YOU learn, and not replacing the learning process. Whew!!
+
+**Life is Complex.** There’s lots going on in the world. Please let me know as soon as anything in your life starts to interfere with your ability to do well in our class (e.g. illness, work/housing/family issues, mental health, etc.), so I can work with you on a plan to succeed.
+
+**Sensitive Subjects.** Our class will touch on important and potentially sensitive topics that are related to psychology and psychological processes, such as racism, depression, sex, and poverty. These topics can “trigger” strong emotional responses in students for a variety of reasons - such as their own past histories with these topics or their reactions to the ways the information is presented or described. I will try to make sure to give you a heads up when we start to discuss these topics, and ask that you pay attention to and acknowledge your emotions, and share this with the class (or me, privately, if you prefer) if you feel it would be helpful. This is how authentic learning happens.
+
+**Student Contact and Canvas.** I will regularly send announcements through Canvas. It is your responsibility to regularly check Canvas and your e-mail for announcements and assignments. The default setting for Canvas sends email to your official DVC account. You can change this in Account -\> Settings ([click here for detailed instructions](https://community.canvaslms.com/docs/DOC-10592-4212710338)). I will respond to e-mail within 36 hours on weekdays, and often sooner!
+
+**Academic Integrity**. I’ve tried to design this course so you feel prepared and interested to complete the work. So if you are feeling stuck, or demotivated, or overwhelmed (and tempted to cheat or plagiarize others’ work) please let me know and I can try to make adjustments to help you (and other students) succeed. To copy text or ideas from another source is plagiarism. Sharing questions from quizzes with other students, or uploading assignments or notes to the internet is considered cheating. Anyone caught cheating or plagiarizing will receive a zero for the assignment, and I will submit a Report of Academic Dishonesty to the college. For more information, read the DVC Procedure 4001.04 Academic Dishonesty policy (on Canvas).
+
+**Respect for Others.** We **all** belong in our classroom, and I hope that everyone feels free and supported to express our identities when relevant. To achieve this goal, make sure that you are treating others with respect in this online course. This means considering others’ opinions and perspectives, making sure not to generalize to groups (or ask students to be representatives of their group), and being mindful of the words that you use. (Also remember that nothing is ever really deleted from the internet, so please be extra mindful of the words you use when online.) While I will be monitoring class posts and communication, feel free to reach out to me if you see another student engaging in disrespectful or threatening behavior. Of course, this extends to me as well - if you feel like there are parts of the course instruction, subject matter, or class environment that create barriers to your success or inclusion, please contact me via e-mail and trust that your voice will be heard and I will not punish you for offering constructive criticisms of my teaching. I’m very open to learning how to be a better teacher, and always learn a lot from my students.
+
+**Strategies for success**. Students who attend and do the work tend to do very well in the class - all of them pass and most of them get As, so hopefully that will be your experience too!
+
+## Community College Support Services
+
+[**Technology Loan Program**](https://dvc.libguides.com/c.php?g=13775&p=6201199) **\|** Need a laptop, wifi access, or some other technology to access your courses and succeed this semester? DVC has a technology loan program (supplies may be limited)
+
+[**Tutoring Services in Student Centers**](http://www.dvc.edu/current/tutoring-services/index.html) **:** DVC offers free tutoring and other academic support for students in newly designed Student Centers.  DVC also offers up to five hours of free online tutoring through NetTutor, which you can access through a link in Canvas, and offers feedback on papers within 48 hours through the Paper Center, as well as course support through the Q&A Center.
+
+**Counseling :** Meet with a counselor by [making an appointment on the DVC Counseling Website](http://dvc.edu/enrollment/counseling/eservices.html).
+
+[**Food Pantry**](https://www.dvc.edu/student-services/student-life/food-pantry.html) **\|** The DVC food pantry provides emergency, supplemental food to DVC students to assist in fighting food insecurities (when an individual is unaware where their next meal will be or has limited access to food).
+
+[**Student Community Groups**](http://www.dvc.edu/current/learning-community/puma/) **:** Many students benefit from being part of an on-campus community outside the classroom. In addition to the many student clubs DVC offers, DVC also offers three college access and success programs - [Puente](https://www.dvc.edu/current/learning-community/puente/index.html), [Umoja](https://www.dvc.edu/current/learning-community/umoja/), and [Mesa](https://www.dvc.edu/current/learning-community/mesa/index.html). Learn more about these groups at the PUMA Center on campus, or online.  
+
+[**Undocumented Students**](http://www.dvc.edu/student-services/dvc-dreamers/) **:** I believe that all people deserve access to education, and serve the college as an ally to undocumented students. The DVC Dreamers Alliance has organized resources to support undocumented students, protect their rights, and offer potential financial aid
+
+[**Students with Disabilities**](http://dvc.edu/dss/) **:** Students who require support or adaptive equipment because of a specific disability -- or would like to be tested to see if they qualify for a learning, auditory, or visual disability -- can request these services through the Disability Support Services (DSS) office. I can only provide accommodations authorized by the DSS office. \| SSC-248 \| (925) 969-2182 \|
+
+[**Students from Low-Income Backgrounds**](http://www.dvc.edu/eops) **:** The Extended Opportunity Programs and Services (EOPS) provides college support services for low-income students. Services include additional counseling, financial assistance (study-time parent grants, work-study assignments, and book vouchers), child-care opportunities, and assistance transferring to four-year colleges. \[SSC-127 \| 925-969-2123
+
+[**Mental Health Wellness**](https://www.dvc.edu/enrollment/counseling/wellness.html) **:** If you feel a mental health issue (e.g., depression, anxiety) is negatively impacting your ability to succeed, I’d highly encourage you to seek out experts who can help. The college is now partnering with clinical interns at the Wright Institute  to offer free, one-to-one short term therapy treatment plans. Students may be referred by an instructor, counselor, or may seek out treatment themselves. \[[WellnessDVC\@email.4cd.edu](mailto:WellnessDVC@email.4cd.edu) \| 925-969-2148
+
+## Required Course Information
+
+**Psychology 215 - Section 1459**
+
+**Course Description**
+
+This course is an introduction to the methods used by psychologists to understand human behavior. The course examines the scientific method, operationalization of variables, inductive and deductive reasoning, experimental and non-experimental designs (including descriptive methods), experimental instrumentation, group and single-subject designs, and research ethics. Research in a variety of subfields within psychology will be utilized to demonstrate research design and the collection, analysis, interpretation, and reporting of research data. Students will perform a literature review, design an original research study, and prepare research reports using American Psychological Association (APA) style report writing. Formerly PSYCH-215 (25-26).
+
+**Course Outline**
+
+By the end of this course, students will be able to…
+
+1.  Describe the basic characteristics of the scientific method.
+
+2.  Explain different research methods used by psychologists.
+
+3.  Describe how various research designs address different types of questions and hypotheses.
+
+4.  Articulate strengths and limitations of experimental and non-experimental research designs.
+
+5.  Summarize a body of research literature.
+
+6.  Select the appropriate research designs to test hypotheses.
+
+7.  Recognize that theoretical and sociocultural contexts as well as personal biases may shape research questions, design, data collection, analysis, and interpretation.
+
+8.  Identify a researchable topic that can be supported by the appropriate literature.
+
+9.  Formulate testable research hypotheses.
+
+10. Assess the generalizability of research results.
+
+11. Apply the American Psychological Association (APA) Code of Ethics in the treatment of human and nonhuman research participants.
+
+12. Apply appropriate analyses in the interpretation of statistical results.
+
+13. Demonstrate APA style effectively for a research report.
+
+14. Critically evaluate research reports.
+:::

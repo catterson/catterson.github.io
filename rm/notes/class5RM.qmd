@@ -9,40 +9,70 @@ navbar: false
 
 ### Class Goals (for Students and Professor)
 
-1.  Practice applying terms of reliability and validity to fMRI research.
-2.  Review
-3.  Analyze data in R.
+1.  Review reading academic research, and applying terms of reliability and validity.
+2.  Use the language of R, statistics, and our human brains to understand data.
+3.  Professor not rushing; students all learning; we all enriched and nourished by knowledge of research methods.
 
 ### Class Slides
 
 ```{=html}
-<iframe class="slide-deck" src="/rm/slides/4_goodmeasure.html" width="100%" height="500px" title="" border="5px"></iframe>
+<iframe class="slide-deck" src="/rm/slides/5_statsreview.html" width="100%" height="500px" title="" border="5px"></iframe>
 ```
 
-### Useful Links; Freed from Canvas
+### Useful Links
 
--   [Class Page](https://catterson.github.io/rm/RMDVC.html) + [Vision Board](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing)
--   [Link to Objectivity Interrogations Article](https://www.nature.com/articles/s41598-024-63236-z)
--   [Link to Sleep Article (from Check-In)](https://pmc.ncbi.nlm.nih.gov/articles/PMC3931554/#S1)
+-   [**Check-In : tinyurl.com/peeppeople**](https://docs.google.com/forms/d/e/1FAIpQLSe5DoHHaE-LL4iZ6hOFU0UQ93pBmB7rISijSPUFylGOwBOm4Q/viewform?usp=sf_link)
+    -   [**Article on fMRI for the check-in**](https://www.psychology.mcmaster.ca/bennett/psy710/readings/BennettDeadSalmon.pdf)
+    -   **REMINDER :** I chose this article in part because I don't understand everything. It is okay for you to not understand everything!
+-   [**R Activity Document.**](https://www.dropbox.com/scl/fi/621rzjwfib5i2rnlpcl3w/RM_Class5_DescribingDataTutorial.qmd?rlkey=y3f6trqdql0q59vtdvmtactrx&dl=0)Wait to download this, please!
+-   [**Class Page**](https://catterson.github.io/rm/RMDVC.html) + [**Vision Board**](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing)
+
+## Agenda and Announcements {.smaller}
+
+::::: columns
+::: {.column width="50%"}
+**Agenda :**
+
+-   **25 Min :** Part 1 : Check-In Review (Reading research and reliability and validity in fMRI)
+-   **50 Min :** Part 2 : Data Analysis in R
+-   **5 Min :** Recap & Next Week (Whew.)
+:::
+
+::: {.column width="50%"}
+**Announcements :**
+
+-   ***Next Week : On Measurement and Observations!***
+
+-   ***Pausing Work on Dig Deeper :*** Will return to this in a few weeks (the compare/contrast essay) as a review. Gave Discussion 2 feedback on topic.
+
+-   ***Office Hours in SSSC from 2:00 - 4:00.*** Supposedly a lot of high-school students coming at 3:00 PM to talk to me as a requirement for their enrollment in Psych C1000 today.
+:::
+:::::
 
 ### Due Next Week before Class
 
-1.  **Read the articles below.** Optional readings are not required; but lemme know if you read and have thoughts!
-2.  **Complete Discussion 4**. Questions below, submit on Canvas and sometimes the Vision Board.
-3.  **Complete Reading Quiz 4**. on Canvas.
+1.  **Read the articles below.** Optional readings are not required; but let me know if you read and have thoughts!
+2.  **Complete Discussion 5**. Questions below, submit on Canvas and sometimes the Vision Board.
+3.  **Complete Reading Quiz 5**. on Canvas.
 
-### Readings for Next Week (and Quiz 4)
+### Readings for Next Week (and Quiz 5)
 
-1.  [**Read through the chapter on Observational Research**](https://kpu.pressbooks.pub/psychmethods4e/chapter/observational-research/)**.** Focus on the different types of observational studies and the hawthorne effect.
+1.  [**Read my brief overview on Measures**](/rm/readings/Measures.qmd)**.** Focus on the different strengths and limitations of self-reports and observational methods. We will focus on observational methods next week, but it might be helpful to have some background on self-report methods to help differentiate the strengths & limitations.
 
-2.  [**Read through the chapter on the Specific Affect Coding System (SPAFF)**](https://www.dropbox.com/scl/fi/4ggh81t64qnvz5kjrqukn/4_SPAFF_CodingScheme_ShortExcerpt.pdf?rlkey=e9er6moatfgk96du9zz3khazs&e=1&dl=0)**.** Focus on the "three rules" of people watching, and the different guidelines for behavioral coding (e.g., function, indicator, cues, counter-indicators). You can skim the stuff on "Action Units" in the face, though note this is an example of how psychologists have tried to quantify (and operationalize) emotion.
+2.  [**Read this chapter on Observational Research**](https://kpu.pressbooks.pub/psychmethods4e/chapter/observational-research/)**.** You can skim much of this, but focus on the different types of observational studies.
 
-### Week 4 Discussion Questions.
+3.  [**Read through the chapter on the Specific Affect Coding System (SPAFF)**](https://www.dropbox.com/scl/fi/4ggh81t64qnvz5kjrqukn/4_SPAFF_CodingScheme_ShortExcerpt.pdf?rlkey=e9er6moatfgk96du9zz3khazs&e=1&dl=0)**.** This is an example of a guide for researchers interested in making observations of emotion. Focus on the "three rules" of people watching, and the different guidelines for behavioral coding (e.g., function, indicator, cues, counter-indicators). You can skim the stuff on "Action Units" in the face, though note this is an example of how psychologists have tried to quantify emotion with numbers like "REAL SCIENTISTS".
+
+### Week 5 Discussion Questions.
 
 **YOUR POST :** Use the readings to answer the following questions. Please submit answers to the graded Canvas discussion post to help me keep track of your work, but when prompted please also copy / paste your work to our [Vision Board](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing) so we can more easily see (and expand upon) this work together in class.
 
-1.  **From the SPAFF Reading.** Which of the "three rules" of people watching do you think is the most important for increasing validity of our measures? Why? Try using these three rules with someone in your real-life. Who did you choose and how did this go?
+1.  **IN CLASS.** Work with your buddy to choose one variable from our reading survey. Graph this variable, make the graph look nice, report the mean, median, standard deviation, and range of this variable, and then explain what these statistics mean (what do we learn about the people in the data?) (*Note : if you missed class, watch the recording and try to follow along. If you get stuck in R, use one of the student-generated examples from the Vision Board as a guide.*)
 
-2.  
+2.  **From the Chapter on Measures.** Answer the final question in the reading (*`"If you look like you are smiling and have the neurotransmitter levels that suggest you are happy and our $600/hour test says that your brain is activated in a way consistent with happiness, but you FEEL and SAY you are miserable....are you happy?"`*) Why did you choose this answer?
+
+3.  **From the SPAFF Reading.** Which of the "three rules" of people watching do you think is the most important for increasing validity of our measures? Why? Try using these three rules with someone in your real-life. Who did you choose? Did this change the way you observed the person? How?
+
+4.  **We Love Bread (REPLY TO ANOTHER STUDENT on the Vision Board).** The "Reading Data" that we analyzed in class this week is an example of self-report data. Choose one of the variables, and give an example of how this variable might be high or low in either a) self-insight OR b) self-diminishment/enhancement. Reply on the vision board, but also paste your response here to help me grade :)
 
 ![](images/clipboard-2944693964.png){fig-align="center" width="364"}
