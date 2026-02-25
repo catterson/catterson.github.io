@@ -64,15 +64,27 @@ Click arrow to advance slides.
 
 # Part 2 : Data Analysis in R {.smaller}
 
-## Getting Started in Three Easy Steps.
+## Getting Started in Six Easy Steps.
 
 1.  Take a deep breath.
-2.  Download the DescribingDataTutorial.qmd file to your computer.
-3.  Upload this to posit.cloud.
-4.  Open it in posit.cloud by clicking on the file (it is a fancy R Script).
-5.  Check in on your buddy. How are they doing? How are you doing?
 
-## The Dataset{.smaller}
+2.  Download the R Activity Document (under Useful Links) to your computer.
+
+3.  Upload this to posit.cloud, and open it in posit.cloud by clicking on the file (it is a fancy R Script).
+
+    ![](images/clipboard-2128805591.png){width="615"}
+
+4.  Click "Install" if you see the message below.
+
+![](images/clipboard-877039722.png){width="709" height="30"}
+
+5.  Click the Gear next to Render, select Preview in Viewer, then click Render.
+
+    ![](images/clipboard-2785519838.png){width="446"}
+
+6.  Check in on your buddy. How are they doing? How are you doing?
+
+## The Dataset {.smaller}
 
 ```{r}
 codebookurl <- "https://www.dropbox.com/scl/fi/m4os7p2jualfzzuyqbnqy/CODEBOOK_ReadingData.csv?rlkey=wteyc27f8vgo6ihe05hijnkln&dl=1"
@@ -96,14 +108,12 @@ barplot(table(d$like),
 
 ```
 
-
 ## Learning from a Variable with Human and Statistics Brain
 
 What do you observe about the graph below, in terms of the following statisitcs???
 
 ::::: columns
 ::: {.column width="30%"}
-
 ```{r}
 #| output-location: column
 statz <- t(psych::describe(d$like)[,c(2:5, 8)])
@@ -113,7 +123,6 @@ statz
 :::
 
 ::: {.column width="70%"}
-
 ```{r}
 #| output-location: column
 barplot(table(d$like), 
@@ -122,7 +131,6 @@ barplot(table(d$like),
         ylab = "Frequency")
 
 ```
-
 :::
 :::::
 
