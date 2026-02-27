@@ -1,0 +1,41 @@
+---
+title: "Linear Models Practice Script"
+format: 
+  html:
+      code-overflow: wrap
+---
+
+## The Linear Model in FOUR EASY STEPS.
+
+The model is a line that updates our predictions of one variable based on knowledge of another.
+
+1.  Load your data and check to make sure your data loaded correctly.
+
+```{r}
+#| include: false
+m <- read.csv("https://www.dropbox.com/scl/fi/wczjc24dxptfcgdgdijaj/mini_DATA.csv?rlkey=83vd2ulnxgbd8brmip0f41txq&dl=1", stringsAsFactors = T)
+head(m)
+nrow(m)
+```
+
+
+2.  Graph your DV and IV(s) : make sure the data look good (remove any outliers) and think about these variables - how do you think they will be related?
+
+```{r}
+
+```
+
+3.  Plot the relationship between the two variables, define the linear model, and add this line to your plot. 
+
+```{r}
+
+```
+
+4.  Then, interpret the intercept, slope, and error ($R^2$) of the model. What do these terms tell you about the relationship between the two variables?
+
+```{r}
+
+```
+
+5.  Finally, use your human brain to think about this relationship. Why does it exist? What do you learn? What do you not know? What other questions do you have?
+

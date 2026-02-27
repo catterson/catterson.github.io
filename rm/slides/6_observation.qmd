@@ -12,38 +12,48 @@ navbar: false
 ---
 
 ::: r-fit-text
-## Week 6 Check-In Here.
+## [Check-In Here : tinyurl.com/EARstudy](https://docs.google.com/forms/d/e/1FAIpQLSc-uDTPiZ47naHpFLkEqz0BCJo71uXkqG_MV7MpXpGNYbM0YA/viewform?usp=publish-editor){.smaller}
 
--   assessing reliability and validity
+**REMINDER : Okay to not understand everything!**
 
--   looking at the distribution
+-   what's the point / takeaway from the article?
+
+-   how do the researchers describe the reliability and validity of the measure?
+
+![](images/clipboard-2423467953.png)
 :::
 
-## Agenda and Announcements {.smaller}
+# Part 1 : Observing Words (Reading Research)
 
-::::: columns
-::: {.column width="50%"}
-**Agenda :**
+### Check-In Review : Reading a Research Article
 
--   **15 Min :** Welcome and Check-In.
--   **30 Min :** Part 1 : Observing Words (Reading Research)
--   **30 Min :** Part 2 : Operationalization is an Eight Syllable Word
-:::
+### Check-In Review : Reliability and Validity in Our Measures
 
-::: {.column width="50%"}
-**Announcements :**
+### Check-In Review : A Wild Graph Appeared
 
--   **Office Hours On Zoom Today.** 2:00 - 4:00ish. Gotta go pick up my kiddo.
--   **Professor is Behind on Grading.** Will catch up. Or no new HW.
--   **NEXT WEEK :** Going to do some data analysis in R. You will be supported!
-:::
-:::::
+-   Table
 
-# Part 1 : Operationalization is an Eight Syllable Word
+-   Histogram
+
+### Reading Review : Observational Methods
+
+-   Which method of assessment do you think would be the best way to answer this question?
+
+-   Problems with self-reports?
+
+-   Self-reports are criticized, but foundational to psychology, definitely have value, and all methods of meaurement have bias anyway (fMRI data). Will learn more next week.
+
+| Trust in Self-Reports | Trust in Observations | Trust in fMRI |
+|------------------------|------------------------|------------------------|
+| ![](images/clipboard-2437286104.png) | ![](images/clipboard-494175654.png) | ![](images/clipboard-2331283925.png) |
+
+# Part 2 : Operationalization is an Eight Syllable Word
+
+-   Say this word outloud.
 
 -   What comes to mind when you see this word?
 
--   Say this word outloud.
+-   
 
 ## DEFINITION : Operationalization
 
@@ -143,3 +153,8 @@ navbar: false
 -   Discussion Questions :
 
 ![](https://www.gif-vif.com/trending/frog-dance-frog.gif.pagespeed.ce.P7TEOgyG1P.gif)
+
+```{r}
+# https://docs.google.com/spreadsheets/d/1Vw8ezL6BeXRronRFLAZUEpUZoETND_hra80u-RQFCGM/edit?usp=sharing
+
+```
