@@ -16,7 +16,7 @@ tbl-colwidths: [50,50]
 -   tinyurl.com/modelpeople
 
 ```{r}
-#| fig-width: 5
+#| fig-width: 7
 #| fig-height: 5
 #| fig-align: center
 d <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/Our World in Happy Data/DATASET_happy_data.csv", stringsAsFactors = T)
