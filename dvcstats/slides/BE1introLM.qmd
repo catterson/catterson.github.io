@@ -1,0 +1,365 @@
+---
+title: "Brain Exam #1 and Introduction to Linear Models"
+format: 
+  revealjs: 
+    slide-level: 3
+    link-external-newwindow: true
+    chalkboard: true
+    controls: true
+    auto-stretch: false
+    code-overflow: wrap
+tbl-colwidths: [50,50]
+---
+
+## [CHECK-IN : Practice Brain Exam](https://docs.google.com/forms/d/e/1FAIpQLSdlow6vZFcpooGbTACiW2HgsEfbVHkSarB2rZwpNvgUF-HyHQ/viewform?usp=header)
+
+-   tinyurl.com/modelpeople
+
+-   Use the graph to answer the questions (no R required)
+
+```{r}
+#| fig-width: 6
+#| fig-height: 6
+#| fig-align: center
+d <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/Our World in Happy Data/DATASET_happy_data.csv", stringsAsFactors = T)
+hist(d$Child.Mortality, breaks = 20, xlim = c(0,13), ylim = c(0,40), main = "",
+     xlab = "Child Mortality Rate (deaths under five per 100 live births)")
+abline(v = mean(d$Child.Mortality, na.rm = T), lwd = 5, col = "green")
+abline(v = median(d$Child.Mortality, na.rm = T), lwd = 5, col = "purple")
+
+```
+
+## The Brain Exam : More Practice?
+
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+#| fig-align: center
+par(mfrow = c(1,2))
+hist(d$Population, col = "black", bor = "White", main = "Population", breaks = 40)
+hist(d$LifeExpectancy, col = "black", bor = "White", main = "Life Expectancy")
+```
+
+## The Brain Exam. 
+
+-   I'll show you a graph and some questions
+
+-   Answer the questions on the quiz that will post to Canvas.
+
+-   NO R / NO INTERNET / AI TOOLS - JUST YOUR OWN BRAIN.
+
+-   Can get 50% of any lost points back when I post the key.
+
+## Ready?
+
+## The Linear Model : Prediction is a Line
+
+### RECAP : The Mean as a Model (with Error) {.smaller}
+
+```{r}
+#| echo: false
+par(mfrow = c(1,2))
+hist(d$SWLS_24, 
+     col = "black", bor = "white", 
+     xlab = "Satisfaction with Life Score (Cantril Ladder Scale)",
+     xlim = c(0,10), breaks = 20,
+     main = "Histogram")
+abline(v = mean(d$SWLS_24, na.rm = T), lwd = 5, col = 'red')
+plot(d$SWLS_24, 
+     main = "Mean as a Model (Red Line)",
+     pch = 19,
+     xlab = "Index (Row in Dataset)",
+     ylab = "Satisfaction with Life Score (Cantril Ladder Scale)")
+abline(h = mean(d$SWLS_24, na.rm = T), lwd = 5, col = 'red')
+```
+
+### RECAP : The Mean as Prediction? {.smaller}
+
+$\huge y_i = \hat{Y} + \epsilon_i$
+
+::::: columns
+::: {.column width="60%"}
+$\Large y_i$ = the DV = the individual’s actual score we are trying to predict.
+
+-   `on the graph: each individual dot`
+
+$\Large \hat{Y}$ = our prediction (the mean).
+
+-   `on the graph: the solid red line`
+
+$\Large \epsilon$ = residual error = difference between predicted and actual values of y
+
+-   `on the graph: the distance between each dot and the line.`
+:::
+
+::: {.column width="40%"}
+```{r}
+#| fig-width: 6
+#| fig-height: 6
+#| fig-align: center
+plot(d$SWLS_24, 
+     main = "Mean as a Model (Red Line)",
+     pch = 19,
+     xlab = "Index (Row in Dataset)",
+     ylab = "Satisfaction with Life Score (Cantril Ladder Scale)")
+abline(h = mean(d$SWLS_24, na.rm = T), lwd = 5, col = 'red')
+```
+:::
+:::::
+
+### RECAP : The Mean as Prediction With Error {.smaller}
+
+$\huge \epsilon_i = y_i - \hat{Y}$
+
+::::: columns
+::: {.column width="60%"}
+Error = actual score - prediction (the mean)
+
+```{r}
+#| echo: true
+residual <- d$SWLS_24 - mean(d$SWLS_24, na.rm = T)
+SST <- sum(residual^2, na.rm = T)
+SST
+```
+
+1.  This number is critical - quantified error in our prediction.
+2.  This number makes no sense (total unsquared error??!?!)
+
+-   sd gives some context (average error)
+-   use number as a starting place to see if we can make *better* predictions
+:::
+
+::: {.column width="40%"}
+```{r}
+#| fig-width: 6
+#| fig-height: 6
+#| fig-align: center
+plot(d$SWLS_24, 
+     main = "Mean as a Model (Red Line)",
+     pch = 19,
+     xlab = "Index (Row in Dataset)",
+     ylab = "Satisfaction with Life Score (Cantril Ladder Scale)")
+abline(h = mean(d$SWLS_24, na.rm = T), lwd = 5, col = 'red')
+```
+:::
+:::::
+
+### KEY IDEA : The mean is an okay starting place for our predictions, but we can try to do better!
+
+|                                      |                          |
+|--------------------------------------|--------------------------|
+| **the mean**                         | **the linear model ™ ©** |
+| ![](images/6L_egg1.gif){width="324"} | ![](images/6L_egg2.gif)  |
+
+### RECAP : Making Predictions with Linear Models {.smaller}
+
+-   DV \~ IV1 + error
+
+    -   We make a prediction about one variable (the DV)...
+
+    -   using information from others (the IVs)...
+
+    -   and accept that our prediction will have error.
+
+-   Length of a Romantic Relationship \~ \_\_\_\_\_\_ + \_\_\_\_\_ + \_\_\_\_\_\_\_ + ..... + \_\_\_\_\_\_ + error
+
+### DISCUSS : Making Predictions {.smaller}
+
+-   **THINK ABOUT A LINEAR MODEL :** how do you think the variables (below) would help (or not help) us predict the happiness of a country in 2024? what other variables might be important to include in the data?
+
+```{r}
+#| fig-width: 6.5
+#| fig-height: 6.5
+#| fig-align: center
+par(mfrow = c(2,2))
+hist(d$SWLS_23, col = "black", bor = "White", main = "Ladder Scale (2023)")
+hist(d$Child.Mortality, col = "black", bor = "White", main = "Child Mortality Rate")
+hist(d$Population, col = "black", bor = "White", main = "Population", breaks = 40)
+hist(d$LifeExpectancy, col = "black", bor = "White", main = "Life Expectancy")
+```
+
+### TIME TO PLAY : WHERE'S THE LINE
+
+::: panel-tabset
+#### Where the Line?
+
+```{r}
+#| fig-width: 5
+#| fig-height: 5
+#| fig-align: center
+plot(SWLS_24 ~ LifeExpectancy, data = d)
+```
+
+#### There the Line!
+
+```{r}
+#| fig-width: 5
+#| fig-height: 5
+#| fig-align: center
+mod <- lm(SWLS_24 ~ LifeExpectancy, data = d) # defines the model; saves as mod
+plot(SWLS_24 ~ LifeExpectancy, data = d) # graphs the relationship.
+abline(mod, lwd = 5, col = 'red') # draws a red line of width five based on mod
+```
+:::
+
+### What's Going On : It's a Line {.smaller}
+
+$\Huge y_i = a + b_1 * X_i + \epsilon_i$
+
+:::::: columns
+::: {.column width="40%"}
+```{r}
+round(coef(mod), 2)
+```
+
+```{r}
+#| fig-width: 5
+#| fig-height: 5
+#| fig-align: center
+mod <- lm(SWLS_24 ~ LifeExpectancy, data = d) 
+plot(SWLS_24 ~ LifeExpectancy, data = d) 
+abline(mod, lwd = 5, col = 'red') 
+```
+:::
+
+:::: {.column width="60%"}
+::: r-fit-text
+$\Large y_i$ = the DV = each actual score on the DV.
+
+-   `on the graph:** each dot on the y-axis`
+
+$\Large a$ = the intercept = starting place for our prediction ("the predicted value of y when all x values are zero”.)
+
+-   `on the graph:** the value of the line at X = 0`
+
+$\Large X_i$ = the IV = the actual score on the IV.
+
+-   `on the graph: the value of each dot on the x-axis`
+
+$\Large b_1$ = the slope = an adjustment to our prediction of y based changes in x
+
+-   `on the graph: how much the line increases in y value when x-values increase by 1 unit.`
+
+$\Large \epsilon_i$ = residual error = the distance between actual y and predicted y
+
+-   `on the graph: the distance between each individual data point and the line.`
+:::
+::::
+::::::
+
+## The Linear Model : Error in Our Predictions
+
+Which model has dots that are closer to the line??? (Mean of Satisfaction or Life Expectancy)
+
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+#| fig-align: center
+par(mfrow = c(1,2))
+plot(d$SWLS_24, 
+     main = "Mean as a Model (Red Line)",
+     pch = 19,
+     xlab = "Index (Row in Dataset)",
+     ylab = "Satisfaction with Life Score (Cantril Ladder Scale)")
+abline(h = mean(d$SWLS_24, na.rm = T), lwd = 5, col = 'red')
+
+plot(SWLS_24 ~ LifeExpectancy, data = d, pch = 19, main = "Life Expectancy as a Model", 
+     ylab = "Satisfaction with Life Score (Cantril Ladder Scale)",
+     xlab = "Life Expectancy") 
+abline(mod, lwd = 5, col = 'red') 
+```
+
+## The Linear Model : Quantifying Error {.smaller}
+
+:::::: panel-tabset
+### Which model has more error?
+
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+#| fig-align: center
+par(mfrow = c(1,2))
+plot(d$SWLS_24, 
+     main = "Mean as a Model (Red Line)",
+     pch = 19,
+     xlab = "Index (Row in Dataset)",
+     ylab = "Satisfaction with Life Score (Cantril Ladder Scale)")
+abline(h = mean(d$SWLS_24, na.rm = T), lwd = 5, col = 'red')
+
+plot(SWLS_24 ~ LifeExpectancy, data = d, pch = 19, main = "Life Expectancy as a Model", 
+     ylab = "Satisfaction with Life Score (Cantril Ladder Scale)",
+     xlab = "Life Expectancy") 
+abline(mod, lwd = 5, col = 'red') 
+```
+
+### How big is the difference in error?
+
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+#| fig-align: center
+par(mfrow = c(1,2))
+plot(d$SWLS_24, 
+     main = "Mean as a Model (Red Line)",
+     pch = 19,
+     xlab = "Index (Row in Dataset)",
+     ylab = "Satisfaction with Life Score (Cantril Ladder Scale)")
+abline(h = mean(d$SWLS_24, na.rm = T), lwd = 5, col = 'red')
+
+plot(SWLS_24 ~ LifeExpectancy, data = d, pch = 19, main = "Life Expectancy as a Model", 
+     ylab = "Satisfaction with Life Score (Cantril Ladder Scale)",
+     xlab = "Life Expectancy") 
+abline(mod, lwd = 5, col = 'red') 
+```
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+SWLS24 <- mod$model$SWLS_24 # using data that also have life expectancy
+residual <- SWLS24 - mean(SWLS24) # error
+SST <- sum(residual^2, na.rm = T) # sum of squared errors
+SST # total sum of squared errors
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+SSM <- sum(mod$residuals^2) # R saves the residuals for you
+SSM # hooray!
+```
+:::
+:::::
+
+### Is this a Big or Small Difference?
+
+```{r}
+#| fig-width: 7
+#| fig-height: 3.5
+#| fig-align: center
+par(mfrow = c(1,2))
+plot(d$SWLS_24, 
+     main = "Mean as a Model (Red Line)",
+     pch = 19,
+     xlab = "Index (Row in Dataset)",
+     ylab = "Satisfaction with Life Score (Cantril Ladder Scale)")
+abline(h = mean(d$SWLS_24, na.rm = T), lwd = 5, col = 'red')
+
+plot(SWLS_24 ~ LifeExpectancy, data = d, pch = 19, main = "Life Expectancy as a Model", 
+     ylab = "Satisfaction with Life Score (Cantril Ladder Scale)",
+     xlab = "Life Expectancy") 
+abline(mod, lwd = 5, col = 'red') 
+
+```
+
+Some math helps us evaluate.
+
+```{r}
+#| echo: true
+SST - SSM # the total difference
+
+(SST - SSM)/SST # the relative difference
+summary(mod)$r.squared # R^2
+```
+::::::
