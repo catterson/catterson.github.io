@@ -11,15 +11,13 @@ format:
 tbl-colwidths: [50,50]
 ---
 
-## [CHECK-IN : Practice Brain Exam](https://docs.google.com/forms/d/e/1FAIpQLSdlow6vZFcpooGbTACiW2HgsEfbVHkSarB2rZwpNvgUF-HyHQ/viewform?usp=header)
+## [CHECK-IN : Practice Brain Exam (no R)](https://docs.google.com/forms/d/e/1FAIpQLSdlow6vZFcpooGbTACiW2HgsEfbVHkSarB2rZwpNvgUF-HyHQ/viewform?usp=header)
 
 -   tinyurl.com/modelpeople
 
--   Use the graph to answer the questions (no R required)
-
 ```{r}
-#| fig-width: 6
-#| fig-height: 6
+#| fig-width: 5
+#| fig-height: 5
 #| fig-align: center
 d <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/Our World in Happy Data/DATASET_happy_data.csv", stringsAsFactors = T)
 hist(d$Child.Mortality, breaks = 20, xlim = c(0,13), ylim = c(0,40), main = "",
@@ -151,7 +149,7 @@ abline(h = mean(d$SWLS_24, na.rm = T), lwd = 5, col = 'red')
 | **the mean**                         | **the linear model ™ ©** |
 | ![](images/6L_egg1.gif){width="324"} | ![](images/6L_egg2.gif)  |
 
-### RECAP : Making Predictions with Linear Models {.smaller}
+### RECAP : Predictions with Linear Models{.smaller}
 
 -   DV \~ IV1 + error
 
@@ -247,9 +245,9 @@ $\Large \epsilon_i$ = residual error = the distance between actual y and predict
 ::::
 ::::::
 
-## The Linear Model : Error in Our Predictions
+## The Linear Model : Error{.smaller}
 
-Which model has dots that are closer to the line??? (Mean of Satisfaction or Life Expectancy)
+Which model has dots that are closer to the line?
 
 ```{r}
 #| fig-width: 10
@@ -269,7 +267,7 @@ plot(SWLS_24 ~ LifeExpectancy, data = d, pch = 19, main = "Life Expectancy as a 
 abline(mod, lwd = 5, col = 'red') 
 ```
 
-## The Linear Model : Quantifying Error {.smaller}
+## The Linear Model : Counting Error{.smaller}
 
 :::::: panel-tabset
 ### Which model has more error?
