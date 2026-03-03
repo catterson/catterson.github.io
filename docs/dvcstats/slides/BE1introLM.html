@@ -358,13 +358,14 @@
 <section id="discuss-making-predictions" class="slide level3 smaller">
 <h3>DISCUSS : Making Predictions</h3>
 <ul>
-<li><strong>THINK ABOUT A LINEAR MODEL :</strong> how do you think the variables (below) would help (or not help) us predict the happiness of a country in 2024? what other variables might be important to include in the data?</li>
+<li>how would the variables (below) help (or not) predict country happiness in 2024?</li>
+<li>what other variables might be important to include in the data?</li>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="BE1introLM_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center" width="624"></p>
+<p><img data-src="BE1introLM_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
 </figure>
 </div>
 </div>
@@ -505,7 +506,6 @@
 </div>
 </div>
 </div>
-<p>Some math helps us evaluate.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>SST <span class="sc">-</span> SSM <span class="co"># the total difference</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -515,7 +515,7 @@
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.5423702</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">summary</span>(mod)<span class="sc">$</span>r.squared <span class="co"># R^2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">summary</span>(mod)<span class="sc">$</span>r.squared <span class="co"># this is called R^2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.5423702</code></pre>
 </div>

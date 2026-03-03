@@ -163,17 +163,18 @@ abline(h = mean(d$SWLS_24, na.rm = T), lwd = 5, col = 'red')
 
 ### DISCUSS : Making Predictions {.smaller}
 
--   **THINK ABOUT A LINEAR MODEL :** how do you think the variables (below) would help (or not help) us predict the happiness of a country in 2024? what other variables might be important to include in the data?
+-   how would the variables (below) help (or not) predict country happiness in 2024? 
+-   what other variables might be important to include in the data?
 
 ```{r}
-#| fig-width: 6.5
-#| fig-height: 6.5
+#| fig-width: 8
+#| fig-height: 5
 #| fig-align: center
-par(mfrow = c(2,2))
-hist(d$SWLS_23, col = "black", bor = "White", main = "Ladder Scale (2023)")
-hist(d$Child.Mortality, col = "black", bor = "White", main = "Child Mortality Rate")
-hist(d$Population, col = "black", bor = "White", main = "Population", breaks = 40)
-hist(d$LifeExpectancy, col = "black", bor = "White", main = "Life Expectancy")
+par(mfrow = c(2,2), cex = 1, mar = c(4,4,1,4))
+hist(d$SWLS_23, col = "black", bor = "White", xlab = "Ladder Scale (2023)", main = "")
+hist(d$Child.Mortality, col = "black", bor = "White", xlab = "Child Mortality Rate", main = "")
+hist(d$Population, col = "black", bor = "White", xlab = "Population", breaks = 40, main = "")
+hist(d$LifeExpectancy, col = "black", bor = "White", xlab = "Life Expectancy", main = "")
 ```
 
 ### TIME TO PLAY : WHERE'S THE LINE
@@ -330,13 +331,10 @@ plot(SWLS_24 ~ LifeExpectancy, data = d, pch = 19, main = "Life Expectancy as a 
 abline(mod, lwd = 5, col = 'red') 
 ```
 
-Some math helps us evaluate.
-
 ```{r}
 #| echo: true
 SST - SSM # the total difference
-
 (SST - SSM)/SST # the relative difference
-summary(mod)$r.squared # R^2
+summary(mod)$r.squared # this is called R^2
 ```
 ::::::
