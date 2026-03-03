@@ -27,22 +27,22 @@ abline(v = median(d$Child.Mortality, na.rm = T), lwd = 5, col = "purple")
 
 ```
 
-## The Brain Exam : More Practice?
+## The Brain Exam : More Practice?{.smaller}
 
 ```{r}
 #| fig-width: 10
 #| fig-height: 5
 #| fig-align: center
-par(mfrow = c(1,2))
-hist(d$Population, col = "black", bor = "White", main = "Population", breaks = 40)
-hist(d$LifeExpectancy, col = "black", bor = "White", main = "Life Expectancy")
+par(mfrow = c(1,2), cex = 1, mar = c(4,3,1,2))
+hist(d$Population, col = "black", bor = "White", main = "Population", breaks = 40, xlab = "Population of Country")
+hist(d$LifeExpectancy, col = "black", bor = "White", main = "Life Expectancy", xlab = "Life Expectancy of Country")
 ```
 
-## The Brain Exam. 
+## The Brain Exam.
 
 -   I'll show you a graph and some questions
 
--   Answer the questions on the quiz that will post to Canvas.
+-   Answer the questions.
 
 -   NO R / NO INTERNET / AI TOOLS - JUST YOUR OWN BRAIN.
 
@@ -149,7 +149,7 @@ abline(h = mean(d$SWLS_24, na.rm = T), lwd = 5, col = 'red')
 | **the mean**                         | **the linear model ™ ©** |
 | ![](images/6L_egg1.gif){width="324"} | ![](images/6L_egg2.gif)  |
 
-### RECAP : Predictions with Linear Models{.smaller}
+### RECAP : Predictions with Linear Models {.smaller}
 
 -   DV \~ IV1 + error
 
@@ -245,7 +245,7 @@ $\Large \epsilon_i$ = residual error = the distance between actual y and predict
 ::::
 ::::::
 
-## The Linear Model : Error{.smaller}
+## The Linear Model : Error {.smaller}
 
 Which model has dots that are closer to the line?
 
@@ -267,45 +267,25 @@ plot(SWLS_24 ~ LifeExpectancy, data = d, pch = 19, main = "Life Expectancy as a 
 abline(mod, lwd = 5, col = 'red') 
 ```
 
-## The Linear Model : Counting Error{.smaller}
+## The Linear Model : Counting Error {.smaller}
 
 :::::: panel-tabset
-### Which model has more error?
+### How big is the difference in error?{.smaller}
 
 ```{r}
-#| fig-width: 10
-#| fig-height: 5
+#| fig-width: 8
+#| fig-height: 4
 #| fig-align: center
-par(mfrow = c(1,2))
+par(mfrow = c(1,2), cex = 1, mar = c(4, 2, 1, 2))
 plot(d$SWLS_24, 
      main = "Mean as a Model (Red Line)",
      pch = 19,
      xlab = "Index (Row in Dataset)",
-     ylab = "Satisfaction with Life Score (Cantril Ladder Scale)")
+     ylab = "Satisfaction with Life Score")
 abline(h = mean(d$SWLS_24, na.rm = T), lwd = 5, col = 'red')
 
 plot(SWLS_24 ~ LifeExpectancy, data = d, pch = 19, main = "Life Expectancy as a Model", 
-     ylab = "Satisfaction with Life Score (Cantril Ladder Scale)",
-     xlab = "Life Expectancy") 
-abline(mod, lwd = 5, col = 'red') 
-```
-
-### How big is the difference in error?
-
-```{r}
-#| fig-width: 10
-#| fig-height: 5
-#| fig-align: center
-par(mfrow = c(1,2))
-plot(d$SWLS_24, 
-     main = "Mean as a Model (Red Line)",
-     pch = 19,
-     xlab = "Index (Row in Dataset)",
-     ylab = "Satisfaction with Life Score (Cantril Ladder Scale)")
-abline(h = mean(d$SWLS_24, na.rm = T), lwd = 5, col = 'red')
-
-plot(SWLS_24 ~ LifeExpectancy, data = d, pch = 19, main = "Life Expectancy as a Model", 
-     ylab = "Satisfaction with Life Score (Cantril Ladder Scale)",
+     ylab = "Satisfaction with Life Score",
      xlab = "Life Expectancy") 
 abline(mod, lwd = 5, col = 'red') 
 ```
@@ -330,25 +310,24 @@ SSM # hooray!
 :::
 :::::
 
-### Is this a Big or Small Difference?
+### Giving Context to the Difference in Error{.smaller}
 
 ```{r}
-#| fig-width: 7
-#| fig-height: 3.5
+#| fig-width: 8
+#| fig-height: 4
 #| fig-align: center
-par(mfrow = c(1,2))
+par(mfrow = c(1,2), cex = 1, mar = c(4, 2, 1, 2))
 plot(d$SWLS_24, 
      main = "Mean as a Model (Red Line)",
      pch = 19,
      xlab = "Index (Row in Dataset)",
-     ylab = "Satisfaction with Life Score (Cantril Ladder Scale)")
+     ylab = "Satisfaction with Life Score")
 abline(h = mean(d$SWLS_24, na.rm = T), lwd = 5, col = 'red')
 
 plot(SWLS_24 ~ LifeExpectancy, data = d, pch = 19, main = "Life Expectancy as a Model", 
-     ylab = "Satisfaction with Life Score (Cantril Ladder Scale)",
+     ylab = "Satisfaction with Life Score",
      xlab = "Life Expectancy") 
 abline(mod, lwd = 5, col = 'red') 
-
 ```
 
 Some math helps us evaluate.
