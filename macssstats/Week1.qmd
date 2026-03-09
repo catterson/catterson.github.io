@@ -6,31 +6,25 @@ editor: visual
 
 # Week 1 - Monday, March 9th
 
-### Announcement and Agenda
+::: {.callout-note collapse="true"}
+### Announcements and Agenda
 
 ::::: columns
-::: {.column width="60%"}
+::: {.column width="50%"}
 **Welcome! We will get started soon. In the meantime, please complete the following :**
 
 -   **Check-In :** this is graded for completion; how we will start class each week.
-
 -   **Access these notes :** on the class page (link on bCourses).
-
--   **Find the Vision Board :** how we will share work in-class and hear from all voices.
 :::
 
-::: {.column width="40%"}
--   **10:10 - 10:45.** Check-In, Welcome, and Why (Advanced Applied) Statistics II?!?
-
--   **10:45 - 11:30.** *Operationalization.*
-
--   **11:30 - 11:40.** Break Time
-
--   **11:40 - 12:20.** Learning from the Onboarding Dataset
-
--   **12:20 - 1:00.** Objectivity Interrogations.
+::: {.column width="50%"}
+-   **10:10 - 11:30.** Check-In, Welcome, and Why (Advanced Applied) Statistics II?!?
+-   **11:30 - 11:45.** Break Time
+-   **11:45 - 1:00.** Objectivity in Science
 :::
 :::::
+
+:::
 
 ### Class Slides and Materials
 
@@ -38,25 +32,29 @@ editor: visual
 <iframe data-external="1" class="slide-deck" src="/macssstats/slides/1_measures.html" width="100%" height="500px" title=""></iframe>
 ```
 
--   **Check-In :** Welcome! Please take this survey as part of your attendance grade and to warm-up.
--   **Datasets for Class Activity.** The Onboarding Dataset.
--   [**Professor R Scripts and Notes**](https://www.dropbox.com/scl/fo/1g76jzayvff4kwaldyn52/AOfNP20yVujSO5akd1U0k98?rlkey=1xs6rqsgdoj8pgls1efbawl7i&dl=0)
+-   [**Check-In**](https://docs.google.com/forms/d/e/1FAIpQLSeeI7c61ROnyvAROV0cf7viiS42Wk2Vc3uDOJrAro6BLMXFEA/viewform?usp=publish-editor) **:** Welcome! Please take this survey (graded for completion) to warm-up.
+-   **Dataset and Codebook.** [The Onboarding Dataset.](https://www.dropbox.com/scl/fo/ln7vo5wta8u06mq0ha719/ADvvtqcFzK0TnvUQTtL-2U4?rlkey=h4johl6nr6ht451ci3ad8yv7v&dl=0)
+-   [**Professor Notes**](https://www.dropbox.com/scl/fo/1g76jzayvff4kwaldyn52/AOfNP20yVujSO5akd1U0k98?rlkey=1xs6rqsgdoj8pgls1efbawl7i&dl=0). My R scripts and other notes, saved in real-time.
 
 ### Additional Reading and Support Materials
+
+-   [on the challenges of humans studying human behavior](https://openpublishing.princeton.edu/read/the-who-of-social-psychology-the-challenges-of-humans-studying-human-behavior/section/032b1ec1-3e25-48bb-b35c-3c5ecf1de1af). an overview of the history of (psychological) social science, and some of the biases that scientists can hold.
+
+-   [more on reliability and validity.](https://catterson.github.io/ystats/chapters/4R_NormalPeople.html#part-3-good-data-validity-and-reliability) some review of the specific terms, as well as an application to the racist science of phrenology.
 
 # For Next Week.
 
 ## Article Discussion.
 
--   **Article.**
+-   **Read This Article.** Torrez, B., Dupree, C.H. & Kraus, M.W. Objectivity interrogation of racial scholarship in psychology and management. Sci Rep 14, 12509 (2024). https://doi.org/10.1038/s41598-024-63236-z
 
--   [**Submit Your Response Here**](https://docs.google.com/forms/d/e/1FAIpQLSdGkCcxV80BCkshlZwLNomMMsZOxmOnvGjrdC1Z6w9YEnLltg/viewform?usp=publish-editor)**.** We'll use these responses to guide our discussion of the article next week. Great to use your own voice; don't worry about sounding smart or having "perfect" english!
+-   [**Submit Your Response Here**](https://docs.google.com/forms/d/e/1FAIpQLSdGkCcxV80BCkshlZwLNomMMsZOxmOnvGjrdC1Z6w9YEnLltg/viewform?usp=publish-editor). We'll use these responses to guide our discussion of the article next week. Great to use your own voice; don't worry about sounding smart or having "perfect" english!
 
 ## Lab 1. Step Problems
 
-*Answer the questions below as a .PDF (you can either render from Quarto as .PDF, or render as .html and then print this html file as a .PDF). Please make sure to adhere to the course AI policy, and please ask for help if you get stuck / are confused / professor made a mistake.*
+*Answer the questions below as a .PDF; make sure your code is visible alongside your output. Please make sure to adhere to the course AI policy, and please ask for help if you get stuck / are confused / professor made a mistake.*
 
-[**Access the two "Steps and BMI" data files**](https://www.dropbox.com/scl/fo/majrp9nuryynmz4zroptr/AM79m581hjyS0ojb0vaTxpc?rlkey=01z6sfobcjv64xcaervfbhzh5&dl=0)**.** There are two data files - data9b_w.txt reports the Body Mass Index (bmi) and the number of steps taken in a day (steps) for a sample of women, and data9b_m.txt reports these same variables for a sample of men.
+[**Access the two "Steps and BMI" data files**](https://www.dropbox.com/scl/fo/majrp9nuryynmz4zroptr/AM79m581hjyS0ojb0vaTxpc?rlkey=01z6sfobcjv64xcaervfbhzh5&dl=0) There are two data files - data9b_w.txt reports the Body Mass Index (bmi) and the number of steps taken in a day (steps) for a sample of women, and data9b_m.txt reports these same variables for a sample of men.
 
 1.  In class, we worked through terms of validity and reliability. Apply these terms to think about how you might evaluate the steps data and BMI data in the dataset. (You don't need to do any stats for this question.)
 
@@ -69,9 +67,3 @@ editor: visual
 | Interjudge Reliability  |            |          |
 
 2.  What is the relationship between the number of steps that people take and their BMI a) for all participants, b) for women, and c) for men? Report the relevant statistics you need to answer these questions. There are different ways to approach this - so just do your best to answer the question and show your work and you'll get full credit.
-
-### Optional Readings
-
--   Go.
-
--   Here.

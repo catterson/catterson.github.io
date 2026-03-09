@@ -32,6 +32,7 @@ Note : Chapters are from our course textbook : [Why Statistics?](http://catterso
 
 ```{r}
 #| echo: false
+
 knitr::kable(d, padding = 5)
 ```
 
