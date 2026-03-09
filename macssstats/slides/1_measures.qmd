@@ -65,19 +65,19 @@ d <- read.csv("~/Dropbox/!GRADSTATS/COMPSS222/Datasets/Class Datasets/MaCSS - On
 ### Statistics as a Language... {.smaller}
 
 | ...to describe | ...to predict | ...to control |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | ![](images/clipboard-2708530925.png) | [![](images/clipboard-2270895805.png)](https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/?des=1P&view=VOP) | ![](images/clipboard-1631372664.png) |
 
 ### KEY IDEA : this is hard and errors happen. {.smaller}
 
 | ...error in description | ...error in prediction | ...error in controlling outcomes |
-|-------------------------|------------------------|------------------------|
+|----|----|----|
 | ![](images/clipboard-1186538045.png){width="190"} | ![](images/clipboard-1884527364.png) | ![](images/clipboard-530143116.png) |
 
 ### SOCIAL SCIENCE : REAL (TM) SCIENCE
 
 | ...to describe | ...to predict | ...to control |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | ![](images/clipboard-2176837284.png) | ![](images/clipboard-2435014019.png) | ![](images/clipboard-1409428686.png) |
 
 ### On the Vision Board : {.smaller}
@@ -208,7 +208,7 @@ knitr::kable(describe(d[,c(2:4)], skew = F), digits = 2, align = "c")
 
 ::: r-fit-text
 |  |  |  |
-|---------------------------|---------------------------|------------------|
+|----|----|----|
 | **Term** | **Example (Bathroom Scale)** | **Example (Interruption? Onboarding?)** |
 | **face validity :** does our measure or result look like what it should look like? | data are numbers; range from 0 to 100s |  |
 | **convergent validity :** is our measure similar to related concepts? | weight should increase with height...pant size. |  |
@@ -221,7 +221,7 @@ knitr::kable(describe(d[,c(2:4)], skew = F), digits = 2, align = "c")
 
 ::: r-fit-text
 |  |  |  |
-|----------------------------|----------------------|----------------------|
+|----|----|----|
 | **Term** | **Example (Social Media "Likes")** | **Example (Your Capstone Project?)** |
 | **face validity :** does our measure or result look like what it should look like? |  |  |
 | **convergent validity :** is our measure similar to related concepts? |  |  |
@@ -234,7 +234,7 @@ knitr::kable(describe(d[,c(2:4)], skew = F), digits = 2, align = "c")
 
 ::: r-fit-text
 |  |  |
-|---------------------------------------|---------------------------------|
+|----|----|
 | **Term** | **Example in Onboarding** |
 | **face validity :** does our measure or result look like what it should look like? |  |
 | **convergent validity :** is our measure similar to related concepts? |  |

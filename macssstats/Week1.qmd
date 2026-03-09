@@ -6,7 +6,7 @@ editor: visual
 
 # Week 1 - Monday, March 9th
 
-::: {.callout-note collapse="true"}
+:::::: {.callout-note collapse="true"}
 ### Announcements and Agenda
 
 ::::: columns
@@ -23,8 +23,7 @@ editor: visual
 -   **11:45 - 1:00.** Objectivity in Science
 :::
 :::::
-
-:::
+::::::
 
 ### Class Slides and Materials
 
@@ -39,9 +38,19 @@ editor: visual
 
 ### Additional Reading and Support Materials
 
--   [on the challenges of humans studying human behavior](https://openpublishing.princeton.edu/read/the-who-of-social-psychology-the-challenges-of-humans-studying-human-behavior/section/032b1ec1-3e25-48bb-b35c-3c5ecf1de1af). an overview of the history of (psychological) social science, and some of the biases that scientists can hold.
+-   [**on the challenges of humans studying human behavior**](https://openpublishing.princeton.edu/read/the-who-of-social-psychology-the-challenges-of-humans-studying-human-behavior/section/032b1ec1-3e25-48bb-b35c-3c5ecf1de1af)**.** an overview of the history of (psychological) social science, and some of the biases that scientists can hold.
 
--   [more on reliability and validity.](https://catterson.github.io/ystats/chapters/4R_NormalPeople.html#part-3-good-data-validity-and-reliability) some review of the specific terms, as well as an application to the racist science of phrenology.
+-   [**more on reliability and validity.**](https://catterson.github.io/ystats/chapters/4R_NormalPeople.html#part-3-good-data-validity-and-reliability) some review of the specific terms, as well as an application to the racist science of phrenology.
+
+-   **need a review of stats and R?** below are some relevant links from the stats textbook I use with my introductory classes. let me know if these are useful / you have ideas to make more useful :)
+
+    -   [chapter 2 :](https://catterson.github.io/ystats/chapters/2R_Data.html) on loading and navigating data into R.
+
+    -   [chapter 3 :](https://catterson.github.io/ystats/chapters/3R_Description.html) on graphing variables
+
+    -   [chapter 4 :](https://catterson.github.io/ystats/chapters/4R_NormalPeople.html) on "the normal" distribution and z-scores
+
+    -   [chapter 6 :](https://catterson.github.io/ystats/chapters/6R_LinearModels.html) on the linear model
 
 # For Next Week.
 
