@@ -41,7 +41,12 @@ knitr::kable(c(round(coef(mod), 2),
 ## Steps for a Linear Model (in R)
 
 -   Choose a dataset
--   Identify the variables (graph and )
+-   Identify the variables (graph and make sure there are no outliers.)
+-   Graph the relationship between the two variables
+-   Define the model
+-   Add the model to the scatterplot
+-   Interpret the statistics : intercept, slope, and $R^2$
+
 
 ## BREAK TIME : MEET BACK AT \_\_\_\_\_\_\_\_\_\_\_\_\_
 
