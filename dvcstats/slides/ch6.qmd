@@ -13,6 +13,8 @@ tbl-colwidths: [50,50]
 
 ## [CHECK-IN : Linear Model Prep](https://docs.google.com/forms/d/e/1FAIpQLSe-830Xaq_jAfRomviIR6CrIaurGYB_hUJcRYbLFXQfeASI4A/viewform?usp=header)
 
+:::{.r-fit-text}
+
 ```{r}
 #| fig-width: 5
 #| fig-height: 5
@@ -23,8 +25,13 @@ abline(mod, lwd = 5, col = 'red')
 knitr::kable(c(round(coef(mod), 2),
                    RSQUARED = summary(mod)$r.squared), col.names = "Linear Model")
 ```
-## BREAK TIME : MEET BACK AT \_\_\_\_\_\_\_\_\_\_\_\_\_
 
+:::
+
+## Steps for a Linear Model (in R)
+
+-   Choose a dataset
+-   Identify the variables (graph and )
 
 ## BREAK TIME : MEET BACK AT \_\_\_\_\_\_\_\_\_\_\_\_\_
 
