@@ -13,8 +13,9 @@ tbl-colwidths: [50,50]
 
 ## [CHECK-IN : Linear Model Prep](https://docs.google.com/forms/d/e/1FAIpQLSe-830Xaq_jAfRomviIR6CrIaurGYB_hUJcRYbLFXQfeASI4A/viewform?usp=header)
 
-:::{.r-fit-text}
+:::: {.columns}
 
+::: {.column width="50%"}
 ```{r}
 #| fig-width: 5
 #| fig-height: 5
@@ -22,11 +23,20 @@ d <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/Our World in Happy Data/DAT
 plot(d$SWLS_24 ~ d$Child.Mortality, xlab = "Child Mortality", ylab = "World Happiness in 2024")
 mod <- lm(d$SWLS_24 ~ d$Child.Mortality)
 abline(mod, lwd = 5, col = 'red')
-knitr::kable(c(round(coef(mod), 2),
-                   RSQUARED = summary(mod)$r.squared), col.names = "Linear Model")
 ```
 
 :::
+
+::: {.column width="50%"}
+```{r}
+#| column: margin
+knitr::kable(c(round(coef(mod), 2),
+                   RSQUARED = round(summary(mod)$r.squared, 2)), col.names = "Linear Model")
+```
+:::
+
+::::
+
 
 ## Steps for a Linear Model (in R)
 
