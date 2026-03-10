@@ -1,0 +1,48 @@
+---
+title: ""
+format: 
+  revealjs: 
+    slide-level: 3
+    link-external-newwindow: true
+    chalkboard: true
+    controls: true
+    auto-stretch: false
+    code-overflow: wrap
+tbl-colwidths: [50,50]
+---
+
+## [CHECK-IN : Linear Model Prep](https://docs.google.com/forms/d/e/1FAIpQLSe-830Xaq_jAfRomviIR6CrIaurGYB_hUJcRYbLFXQfeASI4A/viewform?usp=header)
+
+```{r}
+#| fig-width: 5
+#| fig-height: 5
+d <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/Our World in Happy Data/DATASET_happy_data.csv", stringsAsFactors = T)
+plot(d$SWLS_24 ~ d$Child.Mortality, xlab = "Child Mortality", ylab = "World Happiness in 2024")
+mod <- lm(d$SWLS_24 ~ d$Child.Mortality)
+abline(mod, lwd = 5, col = 'red')
+knitr::kable(c(round(coef(mod), 2),
+                   RSQUARED = summary(mod)$r.squared), col.names = "Linear Model")
+```
+## BREAK TIME : MEET BACK AT \_\_\_\_\_\_\_\_\_\_\_\_\_
+
+
+## BREAK TIME : MEET BACK AT \_\_\_\_\_\_\_\_\_\_\_\_\_
+
+## Quarto : Why are we learning this?
+
+-   An authentic skill (professor uses)
+
+    -   Saves trouble of screenshotting : integrates code and text.
+    -   some GSIs are introducing it :)
+
+-   WARNING : professor still gets frustrated when using quarto. If you are feeling dread / maxxed out, then just use an Rscript + screenshot method. Okay?
+
+## Quarto : From Source –\> Render
+
+::: r-fit-text
+-   What looks different about our R Script? What looks the same (or similar??)
+
+![](images/clipboard-2104163521.png)
+:::
+
+## 
