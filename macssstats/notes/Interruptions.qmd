@@ -2,6 +2,7 @@
 title: "Interruption Data"
 format: html
 ---
+
 In class, we watched an interruption video twice.
 
 ```{r}
@@ -23,6 +24,7 @@ d <- d[d$time > "2026-03-01",]
 ```
 
 Below are the graphs of data from the activity we just did, through the magic of R.
+
 ```{r}
 #| echo: false
 #| message: false
@@ -36,6 +38,7 @@ hist(d$i2, xlab = "Interruptions Counted at Time 2", main = "Time 2", col = "bla
 ```
 
 Below are the descriptive statistics for these data.
+
 ```{r}
 #| echo: false
 tt <- data.frame(c(round(mean(d$i1, na.rm = T), 2), round(sd(d$i1, na.rm = T), 2), round(range(d$i1, na.rm = T), 2)),
@@ -44,4 +47,3 @@ names(tt) <- c("Time 1", "Time 2")
 row.names(tt) <- c("Mean", "Standard Deviation", "Minimum Value", "Maximum Value")
 knitr::kable(tt)
 ```
-
