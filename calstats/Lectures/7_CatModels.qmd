@@ -60,8 +60,8 @@ hist(d$age)
 #| echo: true
 #| fig-width: 8
 #| fig-height: 4
-d$age[d$age > 100] # the outliers
-d$age[d$age > 100] <- NA # outliers removed
+d$age[d$age > 100 | d$age < 14] # outliers
+d$age[d$age > 100 | d$age < 14] <- NA # they gone.
 par(mfrow = c(1,2))
 hist(d$score)
 hist(d$age)
