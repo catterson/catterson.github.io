@@ -1,217 +1,236 @@
 ---
-title: "Lecture 7 - Categorical Models"
+title: ""
 format: 
-  html:
+  revealjs: 
+    slide-level: 3
+    link-external-newwindow: true
+    chalkboard: true
+    controls: true
+    auto-stretch: false
     code-overflow: wrap
+tbl-colwidths: [50,50]
 ---
 
-## [Check-In : A Quick Study](https://docs.google.com/forms/d/e/1FAIpQLSfJC8RLLtQf0Px0yz1nJjx-8CGXFrMcuUg_b3od54kHHPCEHQ/viewform?usp=sf_link)
+## [CHECK-IN : Is there a relationship between narcissism and age?](https://docs.google.com/forms/d/e/1FAIpQLSc7Q4AhxKUG0guX6vp3mqjXjsUdg1jrnMF89tIGTVxvSKdK2g/viewform?usp=dialog) {.smaller}
+
+::::: columns
+::: {.column width="60%"}
+[**Link to Dataset**](https://www.dropbox.com/scl/fi/p1yc5kvkckkwok2v19jl5/narcissism_data.csv?rlkey=y0zwtllmfsie447eybxa4965u&dl=0)
+
+-   **score** = narcissism score (40-item scale)
+-   **age** = Entered as a free response. Ages below 14 have been ommited from the dataset.
+-   **sex** = Chosen from a drop down list (1=male, 2=female, 3=other; 0=none was chosen).
+:::
+
+::: {.column width="40%"}
+![](images/clipboard-3435010172.png)
+:::
+:::::
+
+## Check-In Spoilers. {.smaller}
+
+:::::::::: r-fit-text
+::::::::: panel-tabset
+### variables
+
+-   **score** = narcissism score (40-item scale)
+-   **age** = Entered as a free response. Ages below 14 have been ommited from the dataset.
+-   **sex** = Chosen from a drop down list (1=male, 2=female, 3=other; 0=none was chosen).
+
+### read.csv()
+
+```{r}
+#| echo: true
+d <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/Narcissism Data/narcissism_data.csv", stringsAsFactors = T)
+head(d)
+```
+
+### hist()
+
+```{r}
+#| echo: true
+par(mfrow = c(1,2))
+hist(d$score)
+hist(d$age)
+```
+
+### hist()
+
+```{r}
+#| echo: true
+#| fig-width: 8
+#| fig-height: 4
+d$age[d$age > 100] # the outliers
+d$age[d$age > 100] <- NA # outliers removed
+par(mfrow = c(1,2))
+hist(d$score)
+hist(d$age)
+```
+
+### lm()
+
+::::: columns
+::: {.column width="50%"}
+**Defining the Model**
+
+```{r}
+#| echo: true
+#| fig-width: 5
+#| fig-height: 5
+plot(d$score ~ d$age)
+mod <- lm(d$score ~ d$age)
+abline(mod, lwd = 5)
+```
+:::
+
+::: {.column width="50%"}
+**Interpreting The Model**
+
+```{r}
+#| echo: true
+coef(mod)
+summary(mod)$r.squared
+```
+
+**Professor Notes Go Here.**
+
+```{=html}
+<textarea rows="4" cols="50">
+Type your text here...
+</textarea>
+```
+:::
+:::::
+
+### scale()
+
+::::: columns
+::: {.column width="50%"}
+**Defining the Model**
+
+```{r}
+#| echo: true
+#| fig-width: 5
+#| fig-height: 5
+plot(scale(d$score) ~ scale(d$age))
+modZ <- lm(scale(d$score) ~ scale(d$age))
+abline(modZ, lwd = 5)
+```
+:::
+
+::: {.column width="50%"}
+**Interpreting The Model**
+
+```{r}
+#| echo: true
+
+round(coef(modZ), 2)
+summary(modZ)$r.squared
+```
+
+**Professor Notes Go Here.**
+
+```{=html}
+<textarea rows="4" cols="50">
+Type your text here...
+</textarea>
+```
+:::
+:::::
+:::::::::
+::::::::::
+
+## Question : Is there a relationship between gender and narcissism?
+
+See Prof. R script and demo.
+
+## [BREAK TIME : A Quick Study](https://docs.google.com/forms/d/e/1FAIpQLSfJC8RLLtQf0Px0yz1nJjx-8CGXFrMcuUg_b3od54kHHPCEHQ/viewform?usp=sf_link)
 
 -   No talking, no looking up answers!
 -   Will use data in lecture :)
 
 ![](images/7_cattree.png){fig-align="center" width="485"}
 
-## Announcements & Reminders :
-
--   **THE END IS NEAR.** Five lectures left. Actually this feels like a lot?
--   **Lab 7 : Start Analyzing Your Final Project Data!**
-    -   Export data as a .csv
-    -   Data cleaning :
-        -   get rid of "Extra" columns & rows.
-        -   rename variables –\> codebook
-        -   convert likert scales ("1 - Strongly Disagree") to numbers (1)
-    -   Descriptive Statistics.
-    -   DO THIS IN SECTION WHERE YOU CAN GET HELP!!!
-
 ## RECAP : $R^2$ In Real-Life
 
-::: column-margin
+::::: columns
+::: {.column width="50%"}
 ![](images/clipboard-606508161.png)
 :::
 
+::: {.column width="50%"}
 ![](images/clipboard-1347662291.png)
 
--   **DISCUSS :** **what do these linear models tell us about the relationship between GPA, SAT (IVs) and freshman grades (DV)?**
-    -   freshman grades \~ HS GPA + error
-        -   slope = .39
-        -   R\^2 = .16
-    -   freshman grades \~ SAT + error
-        -   slope = .46
-        -   R\^2 = .21
-    -   these are relatively large effects in psychology. ONE THING predicts ANOTHER 15-20%!!!!
-    -   SAT is a "BETTER" predictor of UC Freshman GPA (higher slope; higher R\^2 value.)
-    -   WHY SHOULD WE NOT TRUST THIS / LET THIS BE THE END????
-        -   Where are the data from??? \[ALL UC students\]
-        -   SAT may not be the best measure of knowledge.
-            -   EXAMPLE : could focus on quality of projects; work experience; life experience (qualitative essay / "are you happy")
-        -   THE POINT : SAT can also be a reflection of how much MONEY you have.
-            -   EXAMPLES : money could help you buy sat tutors, private proctoring to help you cheat, pay to take it more than once, just livin' off that allowance your parents give you and time to study all summer.
-            -   WHO CARES :
-                -   people who may not have the means to pay to do well on the SAT migth be denied entry into an institution that, in theory, is meant to help them increase their ability to succeed.
-                -   if you have money to do well on the SAT, then you also have the same resources to succeed in college (live on campus so not commuting / working multiple jobs; pay for a tutor; see your family when you want to)
+**DISCUSS :** what do these linear models tell us about the relationship between GPA, SAT (IVs) and freshman grades (DV)?
+:::
+:::::
 
-0---------------------.3--------------.5------------------------------------1.00\
-(average!!!)
+## Milestone #3 : Launching Your Study (Google Forms) {.smaller}
 
-## When the IV is Categorical...
+### Your Survey : DV is NUMERIC with MULTIPLE ITEMS {.smaller}
 
-### We Load the Data
+-   variable measured as likert scale = numeric
 
-```{r}
+-   how to get multiple items for...
 
-```
+    -   hours of sleep
 
-### We Graph our Variables.
+    -   do you like me Y/N
 
-```{r}
+    -   other variables in this room?
 
-```
+### Your Survey : Likert Scales {.smaller}
 
-### We Define and Graph Our Linear Model.
+::::: columns
+::: {.column width="50%"}
+![](images/clipboard-2843954023.png)
+:::
 
-The Model Coefficients : An Intercept and Slope
+::: {.column width="50%"}
+**Use a Multiple Choice Grid**
 
-```{r}
+-   **Each row is an item.**
+    -   All the items use the same "stem" ("I am someone who...")
+    -   Do not *require* responses. Okay if folks skip, right?
+        -   Attention Checks (e.g., "Mark Strongly Agree for this question.")
+        -   BETTER : to keep the survey short; give authentic motivation.
+-   **Each column is a response.** Use a 1-5 scale to make it easy / allow for neutral.
+:::
+:::::
 
-```
+### Your Survey : Categorical Variables {.smaller}
 
-The Graph Will Help Our Interpretation.
+::::: columns
+::: {.column width="50%"}
+![](images/clipboard-538131922.png)
+:::
 
-```{r}
+::: {.column width="50%"}
+-   **Include demographic variables like age and sex;** give people options to self-identify as something outside a forced binary!
+-   **Keep categorical variables to just a few levels;** you will need a LOT of data to capture variation if there are too many levels! 3-4 groups per variable.
+:::
+:::::
 
-```
+### Your Survey : The Right Type of Variable! {.smaller}
 
--   DISCUSS : what do we see on this graph? What makes sense / is confusing?????
+::::: columns
+::: {.column width="50%"}
+![](images/clipboard-3774686706.png)
+:::
 
-    -   people who were stoned are higher in happiness (b = .557)
-    -   there are more nos than yesses (n = sample size for each group; and sampling error bars give a hint.)
-    -   the graph magnifies the difference....good to give it some context (if not a z-score, then the full range of the scale!)
-    -   OTHER QUSTIONS WE MIGHT HAVE :
-        -   what are those tie-figher looking bars (b-wing???) \[sampling error\]
-        -   are there differneces in people who were honest about weed usage and those who were not?
+::: {.column width="50%"}
+-   **Make sure categorical variables are not better measured numerically.** set "response validation" for any open-ended numbers you hope to collect to make data cleaning easier.
 
--   OUR EQUATION : happiness = 6.68 + .55 \* stoned72YES
-
-    ```         
-    6.6823529   0.5576471 
-    ```
-
--   The IV has been DUMMY CODED.
-
-    -   when stoned72 = 0 = "No" (Or not "Yes")
-    -   when stoned72 = 1 = "Yes"
-
--   The Intercept is : The Predicted Value of Y when all X-Values are Zero.
-
-    -   this means : happiness for someone who's X value is NOT stoned
-
--   The Slope is : How our Predicted Value of Y changes when X changes by one.
-
-    -   this means : if someone IS stoned, we adjust that prediction by .55 points up.
-
-### We Interpret Our Linear Model.
-
--   **Stat Stuff : What are the important numbers?**
-    -   What is the relationship?
-        -   people who used weed were more happy (b = .55) than those who ddi not.
-    -   How strong is this relationship?
-        -   not very strong! R\^2 = .01 = smoking weed (or not) explains 1% of variation in people's happiness.
--   **Brain Stuff : What's the point?**
-    -   [Why]{.underline} does this relationship in the data exist?
-        -   CAUSAL :
-            -   weed is a drug and that drug, like most drugs, makes people feel good (at least in the short term) / feeling creative, especially when it's not criminalizd so you don't hae to worry about that sound you just heard at the door, omg is someone out there....not gonna look whoa what time is it.....
-        -   REVERSE CAUSATION : people who are higher in happiness are more likely to say they use wed?
-        -   THIRD VARIABLE :
-            -   people are using weed in social situations, and it's the "hanging out with friends while not stressing about class" part of the experience that is relevant to happiness, and not the drug.
-            -   maybe it's about pain management
-            -   when people are thinking about using the drug, it's activating positive memories of relaxing...but not really about the drug itself.
-        -   CHANCE.
-    -   [What other questions]{.underline} might we ask?
-    -   [Who cares]{.underline} about this relationship? (How could we use this knowledge)?
-
-# BREAK TIME : MEET BACK IN THIRTEEN MINUTES!!!!!
-
-### Work Time.
-
-**Define another linear model to predict a numeric DV from a categorical IV (with 2 levels.)**
-
--   Prof Example :
-
-```{r}
-
-```
-
--   Student Example :
-
-```{r}
-
-```
-
-## BREAK TIME.
-
-## When there are 3 (or more levels...)
-
--   Still just a linear model!
-
-**Anchoring Study : Example**
-
-![](images/clipboard-3672991615.png)
-
--   **Question :** Will the number that people see BEFORE making their own rating influence their decision?
-
--   **Theory :**
-
-    -   OPTION A: People who see a HIGHER number before making their own rating will make a HIGHER number than people who see the LOWER number.
-    -   OPTION B : People who see a LOWER number before making their own rating will make a HIGHER number than people who see the HIGHER number.
-    -   OPTION C : There will be NO DIFFERENCES between the groups.
-
--   **Linear Models :** DV \~ IV
-
--   **Data :** the “anchor_SP25.csv" dataset
-
-    -   Load the data and check to make sure the data loaded correctly.
-    -   Graph the variables; remove outliers and / or empty levels.
-
--   **Results :**
-
-    -   Define your Linear Models
-    -   Interpret Your Results
-
--   **Discuss :**
-
-    -   Why do we observe this pattern?
-    -   How could we use this knowledge in real-life?
-    -   What other questions do you have? What else would you want to learn about?
-
-## ALL DONE! YAY.
-
-# Milestone #3 : Launching Your Study (Google Forms)
-
-1.  **Make sure your DV is measured numerically.** A likert scale or number response is fine.
-
-2.  **Use Multiple Choice Grid for likert scales.**
-
-    -   Each row is an item.
-    -   Use a 1-5 scale to make it easy for participants to answer.
-    -   Try to make all the items fit on the same "stem", so it's easier for participants to get in the flow.
-    -   I do not require responses; good to let folks skip questions if they want (and know to exclude their data) rather than force them to give an answer, which might be bad data.
-    -   You could add an "attention check" (e.g., "Mark Strongly Agree for this question.") if you are worried about people not taking your survey seriously. But BETTER to just keep the survey short, and give your participant some motivation ("I can send you the results of my paper if you want!")
-
-    ![](images/clipboard-2843954023.png)
-
-3.  **Include demographic variables like age and sex;** give people options to self-identify as something outside a forced binary!
-
-4.  **Keep categorical variables to just a few levels;** you will need a LOT of data to capture variation if there are too many levels! 3-4 groups per variable.
-
-    ![](images/clipboard-538131922.png)
-
-5.  **Make sure categorical variables are not better measured numerically;** set "response validation" for any open-ended numbers you hope to collect to make data cleaning easier.
-
-    ![](images/clipboard-3774686706.png)
-
-6.  **Make sure each variable is measured independently of the others.** For example, if I want to measure the relationship between happiness and reading, I would want to measure these separately.
+-   **Make sure each variable is measured independently of the others.** For example, if I want to measure the relationship between happiness and reading, I would want to measure these separately.
 
     -   I am happy.
     -   I like to read.
     -   ~~Reading makes me happy.~~ This mixes up the two variables (the DV and IV). It could be a cool measure on its own (love for reading scale?).
+:::
+:::::
+
+### Other Questions?
+
+## THE END.
+
+![](https://www.gif-vif.com/trending/frog-dance-frog.gif.pagespeed.ce.P7TEOgyG1P.gif){fig-align="center"}

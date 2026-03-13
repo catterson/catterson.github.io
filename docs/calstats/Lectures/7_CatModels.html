@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lecture 7 - Categorical Models</title>
+<title>catmodels</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -35,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-69db3bd63637cc18c35980ee5af0b96f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-f93c2b1f3f0577f377aefa4848a86a36.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -118,51 +153,199 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#check-in-a-quick-study" id="toc-check-in-a-quick-study" class="nav-link active" data-scroll-target="#check-in-a-quick-study">Check-In : A Quick Study</a></li>
-  <li><a href="#announcements-reminders" id="toc-announcements-reminders" class="nav-link" data-scroll-target="#announcements-reminders">Announcements &amp; Reminders :</a></li>
+  <li><a href="#check-in-is-there-a-relationship-between-narcissism-and-age" id="toc-check-in-is-there-a-relationship-between-narcissism-and-age" class="nav-link active" data-scroll-target="#check-in-is-there-a-relationship-between-narcissism-and-age">CHECK-IN : Is there a relationship between narcissism and age?</a></li>
+  <li><a href="#check-in-spoilers." id="toc-check-in-spoilers." class="nav-link" data-scroll-target="#check-in-spoilers.">Check-In Spoilers.</a></li>
+  <li><a href="#question-is-there-a-relationship-between-gender-and-narcissism" id="toc-question-is-there-a-relationship-between-gender-and-narcissism" class="nav-link" data-scroll-target="#question-is-there-a-relationship-between-gender-and-narcissism">Question : Is there a relationship between gender and narcissism?</a></li>
+  <li><a href="#break-time-a-quick-study" id="toc-break-time-a-quick-study" class="nav-link" data-scroll-target="#break-time-a-quick-study">BREAK TIME : A Quick Study</a></li>
   <li><a href="#recap-r2-in-real-life" id="toc-recap-r2-in-real-life" class="nav-link" data-scroll-target="#recap-r2-in-real-life">RECAP : <span class="math inline">\(R^2\)</span> In Real-Life</a></li>
-  <li><a href="#when-the-iv-is-categorical" id="toc-when-the-iv-is-categorical" class="nav-link" data-scroll-target="#when-the-iv-is-categorical">When the IV is Categorical…</a>
+  <li><a href="#milestone-3-launching-your-study-google-forms" id="toc-milestone-3-launching-your-study-google-forms" class="nav-link" data-scroll-target="#milestone-3-launching-your-study-google-forms">Milestone #3 : Launching Your Study (Google Forms)</a>
   <ul class="collapse">
-  <li><a href="#we-load-the-data" id="toc-we-load-the-data" class="nav-link" data-scroll-target="#we-load-the-data">We Load the Data</a></li>
-  <li><a href="#we-graph-our-variables." id="toc-we-graph-our-variables." class="nav-link" data-scroll-target="#we-graph-our-variables.">We Graph our Variables.</a></li>
-  <li><a href="#we-define-and-graph-our-linear-model." id="toc-we-define-and-graph-our-linear-model." class="nav-link" data-scroll-target="#we-define-and-graph-our-linear-model.">We Define and Graph Our Linear Model.</a></li>
-  <li><a href="#we-interpret-our-linear-model." id="toc-we-interpret-our-linear-model." class="nav-link" data-scroll-target="#we-interpret-our-linear-model.">We Interpret Our Linear Model.</a></li>
+  <li><a href="#your-survey-dv-is-numeric-with-multiple-items" id="toc-your-survey-dv-is-numeric-with-multiple-items" class="nav-link" data-scroll-target="#your-survey-dv-is-numeric-with-multiple-items">Your Survey : DV is NUMERIC with MULTIPLE ITEMS</a></li>
+  <li><a href="#your-survey-likert-scales" id="toc-your-survey-likert-scales" class="nav-link" data-scroll-target="#your-survey-likert-scales">Your Survey : Likert Scales</a></li>
+  <li><a href="#your-survey-categorical-variables" id="toc-your-survey-categorical-variables" class="nav-link" data-scroll-target="#your-survey-categorical-variables">Your Survey : Categorical Variables</a></li>
+  <li><a href="#your-survey-the-right-type-of-variable" id="toc-your-survey-the-right-type-of-variable" class="nav-link" data-scroll-target="#your-survey-the-right-type-of-variable">Your Survey : The Right Type of Variable!</a></li>
+  <li><a href="#other-questions" id="toc-other-questions" class="nav-link" data-scroll-target="#other-questions">Other Questions?</a></li>
   </ul></li>
-  <li><a href="#break-time-meet-back-in-thirteen-minutes" id="toc-break-time-meet-back-in-thirteen-minutes" class="nav-link" data-scroll-target="#break-time-meet-back-in-thirteen-minutes">BREAK TIME : MEET BACK IN THIRTEEN MINUTES!!!!!</a>
-  <ul class="collapse">
-  <li><a href="#work-time." id="toc-work-time." class="nav-link" data-scroll-target="#work-time.">Work Time.</a></li>
-  <li><a href="#break-time." id="toc-break-time." class="nav-link" data-scroll-target="#break-time.">BREAK TIME.</a></li>
-  <li><a href="#when-there-are-3-or-more-levels" id="toc-when-there-are-3-or-more-levels" class="nav-link" data-scroll-target="#when-there-are-3-or-more-levels">When there are 3 (or more levels…)</a></li>
-  <li><a href="#all-done-yay." id="toc-all-done-yay." class="nav-link" data-scroll-target="#all-done-yay.">ALL DONE! YAY.</a></li>
-  </ul></li>
-  <li><a href="#milestone-3-launching-your-study-google-forms" id="toc-milestone-3-launching-your-study-google-forms" class="nav-link" data-scroll-target="#milestone-3-launching-your-study-google-forms">Milestone #3 : Launching Your Study (Google Forms)</a></li>
+  <li><a href="#the-end." id="toc-the-end." class="nav-link" data-scroll-target="#the-end.">THE END.</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="7_CatModels.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Lecture 7 - Categorical Models</h1>
+
+
+
+<section id="check-in-is-there-a-relationship-between-narcissism-and-age" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="check-in-is-there-a-relationship-between-narcissism-and-age"><a href="https://docs.google.com/forms/d/e/1FAIpQLSc7Q4AhxKUG0guX6vp3mqjXjsUdg1jrnMF89tIGTVxvSKdK2g/viewform?usp=dialog">CHECK-IN : Is there a relationship between narcissism and age?</a></h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><a href="https://www.dropbox.com/scl/fi/p1yc5kvkckkwok2v19jl5/narcissism_data.csv?rlkey=y0zwtllmfsie447eybxa4965u&amp;dl=0"><strong>Link to Dataset</strong></a></p>
+<ul>
+<li><strong>score</strong> = narcissism score (40-item scale)</li>
+<li><strong>age</strong> = Entered as a free response. Ages below 14 have been ommited from the dataset.</li>
+<li><strong>sex</strong> = Chosen from a drop down list (1=male, 2=female, 3=other; 0=none was chosen).</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img src="images/clipboard-3435010172.png" class="img-fluid"></p>
 </div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="check-in-a-quick-study" class="level2">
-<h2 class="anchored" data-anchor-id="check-in-a-quick-study"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfJC8RLLtQf0Px0yz1nJjx-8CGXFrMcuUg_b3od54kHHPCEHQ/viewform?usp=sf_link">Check-In : A Quick Study</a></h2>
+</div>
+</section>
+<section id="check-in-spoilers." class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="check-in-spoilers.">Check-In Spoilers.</h2>
+<div class="r-fit-text">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">variables</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">read.csv()</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">hist()</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">hist()</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false" href="">lm()</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" role="tab" aria-controls="tabset-1-6" aria-selected="false" href="">scale()</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ul>
+<li><strong>score</strong> = narcissism score (40-item scale)</li>
+<li><strong>age</strong> = Entered as a free response. Ages below 14 have been ommited from the dataset.</li>
+<li><strong>sex</strong> = Chosen from a drop down list (1=male, 2=female, 3=other; 0=none was chosen).</li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/Chapter Datasets/Narcissism Data/narcissism_data.csv"</span>, <span class="at">stringsAsFactors =</span> T)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  score Q1 Q2 Q3 Q4 Q5 Q6 Q7 Q8 Q9 Q10 Q11 Q12 Q13 Q14 Q15 Q16 Q17 Q18 Q19 Q20
+1    18  2  2  2  2  1  2  1  2  2   2   1   1   2   1   1   1   2   1   1   1
+2     6  2  2  2  1  2  2  1  2  1   1   2   2   2   1   2   2   1   1   2   1
+3    27  1  2  2  1  2  1  2  1  2   2   2   1   1   1   1   1   2   2   1   1
+4    29  1  1  2  2  2  1  2  1  1   2   1   1   1   1   1   1   2   2   1   2
+5     6  1  2  1  1  1  2  1  2  1   2   2   2   2   2   1   1   1   1   1   1
+6    19  1  2  2  1  2  1  1  1  2   2   1   1   1   2   1   1   1   1   1   1
+  Q21 Q22 Q23 Q24 Q25 Q26 Q27 Q28 Q29 Q30 Q31 Q32 Q33 Q34 Q35 Q36 Q37 Q38 Q39
+1   1   1   1   2   2   2   1   2   2   2   1   2   1   1   1   2   2   2   1
+2   2   2   1   2   2   2   2   1   2   2   2   1   2   2   1   2   2   2   2
+3   2   2   2   2   1   2   1   1   2   1   2   2   1   1   2   1   1   2   1
+4   1   1   1   2   1   2   1   2   2   1   1   2   1   1   2   1   2   2   1
+5   1   2   1   2   2   1   2   1   2   2   2   1   2   2   1   2   2   2   0
+6   1   1   1   1   2   1   1   1   2   1   1   2   1   2   1   1   2   2   2
+  Q40 elapse gender age
+1   2    211      1  50
+2   1    149      1  40
+3   2    168      1  28
+4   1    230      1  37
+5   1    389      1  50
+6   2    361      1  27</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(d<span class="sc">$</span>score)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(d<span class="sc">$</span>age)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="7_CatModels_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>age[d<span class="sc">$</span>age <span class="sc">&gt;</span> <span class="dv">100</span>] <span class="co"># the outliers</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 366 148 117 509 190</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>age[d<span class="sc">$</span>age <span class="sc">&gt;</span> <span class="dv">100</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span> <span class="co"># outliers removed</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(d<span class="sc">$</span>score)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(d<span class="sc">$</span>age)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="7_CatModels_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Defining the Model</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d<span class="sc">$</span>score <span class="sc">~</span> d<span class="sc">$</span>age)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(d<span class="sc">$</span>score <span class="sc">~</span> d<span class="sc">$</span>age)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(mod, <span class="at">lwd =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="7_CatModels_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>Interpreting The Model</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(mod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)       d$age 
+ 18.1829645  -0.1440181 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)<span class="sc">$</span>r.squared</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.05491842</code></pre>
+</div>
+</div>
+<p><strong>Professor Notes Go Here.</strong></p>
+<textarea rows="4" cols="50">Type your text here...
+</textarea>
+</div>
+</div>
+</div>
+<div id="tabset-1-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-6-tab">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Defining the Model</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">scale</span>(d<span class="sc">$</span>score) <span class="sc">~</span> <span class="fu">scale</span>(d<span class="sc">$</span>age))</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>modZ <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">scale</span>(d<span class="sc">$</span>score) <span class="sc">~</span> <span class="fu">scale</span>(d<span class="sc">$</span>age))</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(modZ, <span class="at">lwd =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="7_CatModels_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>Interpreting The Model</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">coef</span>(modZ), <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> (Intercept) scale(d$age) 
+        0.00        -0.23 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modZ)<span class="sc">$</span>r.squared</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.05491842</code></pre>
+</div>
+</div>
+<p><strong>Professor Notes Go Here.</strong></p>
+<textarea rows="4" cols="50">Type your text here...
+</textarea>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-is-there-a-relationship-between-gender-and-narcissism" class="level2">
+<h2 class="anchored" data-anchor-id="question-is-there-a-relationship-between-gender-and-narcissism">Question : Is there a relationship between gender and narcissism?</h2>
+<p>See Prof.&nbsp;R script and demo.</p>
+</section>
+<section id="break-time-a-quick-study" class="level2">
+<h2 class="anchored" data-anchor-id="break-time-a-quick-study"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfJC8RLLtQf0Px0yz1nJjx-8CGXFrMcuUg_b3od54kHHPCEHQ/viewform?usp=sf_link">BREAK TIME : A Quick Study</a></h2>
 <ul>
 <li>No talking, no looking up answers!</li>
 <li>Will use data in lecture :)</li>
@@ -173,223 +356,95 @@ window.Quarto = {
 </figure>
 </div>
 </section>
-<section id="announcements-reminders" class="level2">
-<h2 class="anchored" data-anchor-id="announcements-reminders">Announcements &amp; Reminders :</h2>
-<ul>
-<li><strong>THE END IS NEAR.</strong> Five lectures left. Actually this feels like a lot?</li>
-<li><strong>Lab 7 : Start Analyzing Your Final Project Data!</strong>
-<ul>
-<li>Export data as a .csv</li>
-<li>Data cleaning :
-<ul>
-<li>get rid of “Extra” columns &amp; rows.</li>
-<li>rename variables –&gt; codebook</li>
-<li>convert likert scales (“1 - Strongly Disagree”) to numbers (1)</li>
-</ul></li>
-<li>Descriptive Statistics.</li>
-<li>DO THIS IN SECTION WHERE YOU CAN GET HELP!!!</li>
-</ul></li>
-</ul>
-</section>
-<section id="recap-r2-in-real-life" class="level2 page-columns page-full">
+<section id="recap-r2-in-real-life" class="level2">
 <h2 class="anchored" data-anchor-id="recap-r2-in-real-life">RECAP : <span class="math inline">\(R^2\)</span> In Real-Life</h2>
-
-<div class="no-row-height column-margin column-container"><div class="">
+<div class="columns">
+<div class="column" style="width:50%;">
 <p><img src="images/clipboard-606508161.png" class="img-fluid"></p>
-</div></div><p><img src="images/clipboard-1347662291.png" class="img-fluid"></p>
-<ul>
-<li><strong>DISCUSS :</strong> <strong>what do these linear models tell us about the relationship between GPA, SAT (IVs) and freshman grades (DV)?</strong>
-<ul>
-<li>freshman grades ~ HS GPA + error
-<ul>
-<li>slope = .39</li>
-<li>R^2 = .16</li>
-</ul></li>
-<li>freshman grades ~ SAT + error
-<ul>
-<li>slope = .46</li>
-<li>R^2 = .21</li>
-</ul></li>
-<li>these are relatively large effects in psychology. ONE THING predicts ANOTHER 15-20%!!!!</li>
-<li>SAT is a “BETTER” predictor of UC Freshman GPA (higher slope; higher R^2 value.)</li>
-<li>WHY SHOULD WE NOT TRUST THIS / LET THIS BE THE END????
-<ul>
-<li>Where are the data from??? [ALL UC students]</li>
-<li>SAT may not be the best measure of knowledge.
-<ul>
-<li>EXAMPLE : could focus on quality of projects; work experience; life experience (qualitative essay / “are you happy”)</li>
-</ul></li>
-<li>THE POINT : SAT can also be a reflection of how much MONEY you have.
-<ul>
-<li>EXAMPLES : money could help you buy sat tutors, private proctoring to help you cheat, pay to take it more than once, just livin’ off that allowance your parents give you and time to study all summer.</li>
-<li>WHO CARES :
-<ul>
-<li>people who may not have the means to pay to do well on the SAT migth be denied entry into an institution that, in theory, is meant to help them increase their ability to succeed.</li>
-<li>if you have money to do well on the SAT, then you also have the same resources to succeed in college (live on campus so not commuting / working multiple jobs; pay for a tutor; see your family when you want to)</li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-<p>0———————.3————–.5————————————1.00<br>
-(average!!!)</p>
+</div><div class="column" style="width:50%;">
+<p><img src="images/clipboard-1347662291.png" class="img-fluid"></p>
+<p><strong>DISCUSS :</strong> what do these linear models tell us about the relationship between GPA, SAT (IVs) and freshman grades (DV)?</p>
+</div>
+</div>
 </section>
-<section id="when-the-iv-is-categorical" class="level2">
-<h2 class="anchored" data-anchor-id="when-the-iv-is-categorical">When the IV is Categorical…</h2>
-<section id="we-load-the-data" class="level3">
-<h3 class="anchored" data-anchor-id="we-load-the-data">We Load the Data</h3>
-</section>
-<section id="we-graph-our-variables." class="level3">
-<h3 class="anchored" data-anchor-id="we-graph-our-variables.">We Graph our Variables.</h3>
-</section>
-<section id="we-define-and-graph-our-linear-model." class="level3">
-<h3 class="anchored" data-anchor-id="we-define-and-graph-our-linear-model.">We Define and Graph Our Linear Model.</h3>
-<p>The Model Coefficients : An Intercept and Slope</p>
-<p>The Graph Will Help Our Interpretation.</p>
+<section id="milestone-3-launching-your-study-google-forms" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="milestone-3-launching-your-study-google-forms">Milestone #3 : Launching Your Study (Google Forms)</h2>
+<section id="your-survey-dv-is-numeric-with-multiple-items" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="your-survey-dv-is-numeric-with-multiple-items">Your Survey : DV is NUMERIC with MULTIPLE ITEMS</h3>
 <ul>
-<li><p>DISCUSS : what do we see on this graph? What makes sense / is confusing?????</p>
+<li><p>variable measured as likert scale = numeric</p></li>
+<li><p>how to get multiple items for…</p>
 <ul>
-<li>people who were stoned are higher in happiness (b = .557)</li>
-<li>there are more nos than yesses (n = sample size for each group; and sampling error bars give a hint.)</li>
-<li>the graph magnifies the difference….good to give it some context (if not a z-score, then the full range of the scale!)</li>
-<li>OTHER QUSTIONS WE MIGHT HAVE :
-<ul>
-<li>what are those tie-figher looking bars (b-wing???) [sampling error]</li>
-<li>are there differneces in people who were honest about weed usage and those who were not?</li>
-</ul></li>
-</ul></li>
-<li><p>OUR EQUATION : happiness = 6.68 + .55 * stoned72YES</p>
-<pre><code>6.6823529   0.5576471 </code></pre></li>
-<li><p>The IV has been DUMMY CODED.</p>
-<ul>
-<li>when stoned72 = 0 = “No” (Or not “Yes”)</li>
-<li>when stoned72 = 1 = “Yes”</li>
-</ul></li>
-<li><p>The Intercept is : The Predicted Value of Y when all X-Values are Zero.</p>
-<ul>
-<li>this means : happiness for someone who’s X value is NOT stoned</li>
-</ul></li>
-<li><p>The Slope is : How our Predicted Value of Y changes when X changes by one.</p>
-<ul>
-<li>this means : if someone IS stoned, we adjust that prediction by .55 points up.</li>
+<li><p>hours of sleep</p></li>
+<li><p>do you like me Y/N</p></li>
+<li><p>other variables in this room?</p></li>
 </ul></li>
 </ul>
 </section>
-<section id="we-interpret-our-linear-model." class="level3">
-<h3 class="anchored" data-anchor-id="we-interpret-our-linear-model.">We Interpret Our Linear Model.</h3>
+<section id="your-survey-likert-scales" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="your-survey-likert-scales">Your Survey : Likert Scales</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="images/clipboard-2843954023.png" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
+<p><strong>Use a Multiple Choice Grid</strong></p>
 <ul>
-<li><strong>Stat Stuff : What are the important numbers?</strong>
+<li><strong>Each row is an item.</strong>
 <ul>
-<li>What is the relationship?
+<li>All the items use the same “stem” (“I am someone who…”)</li>
+<li>Do not <em>require</em> responses. Okay if folks skip, right?
 <ul>
-<li>people who used weed were more happy (b = .55) than those who ddi not.</li>
+<li>Attention Checks (e.g., “Mark Strongly Agree for this question.”)</li>
+<li>BETTER : to keep the survey short; give authentic motivation.</li>
 </ul></li>
-<li>How strong is this relationship?
-<ul>
-<li>not very strong! R^2 = .01 = smoking weed (or not) explains 1% of variation in people’s happiness.</li>
 </ul></li>
-</ul></li>
-<li><strong>Brain Stuff : What’s the point?</strong>
-<ul>
-<li><u>Why</u> does this relationship in the data exist?
-<ul>
-<li>CAUSAL :
-<ul>
-<li>weed is a drug and that drug, like most drugs, makes people feel good (at least in the short term) / feeling creative, especially when it’s not criminalizd so you don’t hae to worry about that sound you just heard at the door, omg is someone out there….not gonna look whoa what time is it…..</li>
-</ul></li>
-<li>REVERSE CAUSATION : people who are higher in happiness are more likely to say they use wed?</li>
-<li>THIRD VARIABLE :
-<ul>
-<li>people are using weed in social situations, and it’s the “hanging out with friends while not stressing about class” part of the experience that is relevant to happiness, and not the drug.</li>
-<li>maybe it’s about pain management</li>
-<li>when people are thinking about using the drug, it’s activating positive memories of relaxing…but not really about the drug itself.</li>
-</ul></li>
-<li>CHANCE.</li>
-</ul></li>
-<li><u>What other questions</u> might we ask?</li>
-<li><u>Who cares</u> about this relationship? (How could we use this knowledge)?</li>
-</ul></li>
+<li><strong>Each column is a response.</strong> Use a 1-5 scale to make it easy / allow for neutral.</li>
 </ul>
+</div>
+</div>
 </section>
-</section>
-<section id="break-time-meet-back-in-thirteen-minutes" class="level1">
-<h1>BREAK TIME : MEET BACK IN THIRTEEN MINUTES!!!!!</h1>
-<section id="work-time." class="level3">
-<h3 class="anchored" data-anchor-id="work-time.">Work Time.</h3>
-<p><strong>Define another linear model to predict a numeric DV from a categorical IV (with 2 levels.)</strong></p>
+<section id="your-survey-categorical-variables" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="your-survey-categorical-variables">Your Survey : Categorical Variables</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="images/clipboard-538131922.png" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
 <ul>
-<li>Prof Example :</li>
+<li><strong>Include demographic variables like age and sex;</strong> give people options to self-identify as something outside a forced binary!</li>
+<li><strong>Keep categorical variables to just a few levels;</strong> you will need a LOT of data to capture variation if there are too many levels! 3-4 groups per variable.</li>
 </ul>
-<ul>
-<li>Student Example :</li>
-</ul>
+</div>
+</div>
 </section>
-<section id="break-time." class="level2">
-<h2 class="anchored" data-anchor-id="break-time.">BREAK TIME.</h2>
-</section>
-<section id="when-there-are-3-or-more-levels" class="level2">
-<h2 class="anchored" data-anchor-id="when-there-are-3-or-more-levels">When there are 3 (or more levels…)</h2>
+<section id="your-survey-the-right-type-of-variable" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="your-survey-the-right-type-of-variable">Your Survey : The Right Type of Variable!</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="images/clipboard-3774686706.png" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
 <ul>
-<li>Still just a linear model!</li>
-</ul>
-<p><strong>Anchoring Study : Example</strong></p>
-<p><img src="images/clipboard-3672991615.png" class="img-fluid"></p>
-<ul>
-<li><p><strong>Question :</strong> Will the number that people see BEFORE making their own rating influence their decision?</p></li>
-<li><p><strong>Theory :</strong></p>
-<ul>
-<li>OPTION A: People who see a HIGHER number before making their own rating will make a HIGHER number than people who see the LOWER number.</li>
-<li>OPTION B : People who see a LOWER number before making their own rating will make a HIGHER number than people who see the HIGHER number.</li>
-<li>OPTION C : There will be NO DIFFERENCES between the groups.</li>
-</ul></li>
-<li><p><strong>Linear Models :</strong> DV ~ IV</p></li>
-<li><p><strong>Data :</strong> the “anchor_SP25.csv” dataset</p>
-<ul>
-<li>Load the data and check to make sure the data loaded correctly.</li>
-<li>Graph the variables; remove outliers and / or empty levels.</li>
-</ul></li>
-<li><p><strong>Results :</strong></p>
-<ul>
-<li>Define your Linear Models</li>
-<li>Interpret Your Results</li>
-</ul></li>
-<li><p><strong>Discuss :</strong></p>
-<ul>
-<li>Why do we observe this pattern?</li>
-<li>How could we use this knowledge in real-life?</li>
-<li>What other questions do you have? What else would you want to learn about?</li>
-</ul></li>
-</ul>
-</section>
-<section id="all-done-yay." class="level2">
-<h2 class="anchored" data-anchor-id="all-done-yay.">ALL DONE! YAY.</h2>
-</section>
-</section>
-<section id="milestone-3-launching-your-study-google-forms" class="level1">
-<h1>Milestone #3 : Launching Your Study (Google Forms)</h1>
-<ol type="1">
-<li><p><strong>Make sure your DV is measured numerically.</strong> A likert scale or number response is fine.</p></li>
-<li><p><strong>Use Multiple Choice Grid for likert scales.</strong></p>
-<ul>
-<li>Each row is an item.</li>
-<li>Use a 1-5 scale to make it easy for participants to answer.</li>
-<li>Try to make all the items fit on the same “stem”, so it’s easier for participants to get in the flow.</li>
-<li>I do not require responses; good to let folks skip questions if they want (and know to exclude their data) rather than force them to give an answer, which might be bad data.</li>
-<li>You could add an “attention check” (e.g., “Mark Strongly Agree for this question.”) if you are worried about people not taking your survey seriously. But BETTER to just keep the survey short, and give your participant some motivation (“I can send you the results of my paper if you want!”)</li>
-</ul>
-<p><img src="images/clipboard-2843954023.png" class="img-fluid"></p></li>
-<li><p><strong>Include demographic variables like age and sex;</strong> give people options to self-identify as something outside a forced binary!</p></li>
-<li><p><strong>Keep categorical variables to just a few levels;</strong> you will need a LOT of data to capture variation if there are too many levels! 3-4 groups per variable.</p>
-<p><img src="images/clipboard-538131922.png" class="img-fluid"></p></li>
-<li><p><strong>Make sure categorical variables are not better measured numerically;</strong> set “response validation” for any open-ended numbers you hope to collect to make data cleaning easier.</p>
-<p><img src="images/clipboard-3774686706.png" class="img-fluid"></p></li>
+<li><p><strong>Make sure categorical variables are not better measured numerically.</strong> set “response validation” for any open-ended numbers you hope to collect to make data cleaning easier.</p></li>
 <li><p><strong>Make sure each variable is measured independently of the others.</strong> For example, if I want to measure the relationship between happiness and reading, I would want to measure these separately.</p>
 <ul>
 <li>I am happy.</li>
 <li>I like to read.</li>
 <li><del>Reading makes me happy.</del> This mixes up the two variables (the DV and IV). It could be a cool measure on its own (love for reading scale?).</li>
 </ul></li>
-</ol>
+</ul>
+</div>
+</div>
+</section>
+<section id="other-questions" class="level3">
+<h3 class="anchored" data-anchor-id="other-questions">Other Questions?</h3>
+</section>
+</section>
+<section id="the-end." class="level2">
+<h2 class="anchored" data-anchor-id="the-end.">THE END.</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.gif-vif.com/trending/frog-dance-frog.gif.pagespeed.ce.P7TEOgyG1P.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 
 
 </section>
