@@ -2,6 +2,7 @@
 title: ""
 format: 
   revealjs: 
+    height: 900
     slide-level: 3
     link-external-newwindow: true
     chalkboard: true
@@ -27,9 +28,10 @@ tbl-colwidths: [50,50]
 :::
 :::::
 
-## Check-In Spoilers. {.smaller}
+### Check-In Spoilers
 
-:::::::::: r-fit-text
+:::{.r-fit-text}
+
 ::::::::: panel-tabset
 ### variables
 
@@ -138,7 +140,8 @@ Type your text here...
 :::
 :::::
 :::::::::
-::::::::::
+
+:::
 
 ## Question : Is there a relationship between gender and narcissism?
 
