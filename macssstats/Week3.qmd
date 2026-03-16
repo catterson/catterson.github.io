@@ -1,0 +1,66 @@
+---
+title: ""
+format: html
+editor: visual
+---
+
+# Week 2 - Monday, March 16th
+
+:::::: {.callout-note collapse="true"}
+### Announcements and Agenda
+
+::::: columns
+::: {.column width="50%"}
+**Welcome! We will get started soon. In the meantime, please complete the following :**
+
+-   **Check-In :** still graded for completion; a warmup.
+-   **Lab 1 Key Posted :** will discuss!
+:::
+
+::: {.column width="50%"}
+-   **10:10 - 11:30.** Check-In and Review (Linear Models)
+-   **11:30 - 11:45.** Break Time
+-   **11:45 - 1:00.** Objectivity Armoring and Likert Scales
+:::
+:::::
+::::::
+
+### Class Slides and Materials
+
+```{=html}
+<iframe data-external="1" class="slide-deck" src="/macssstats/slides/2_modelscales.html" width="100%" height="500px" title=""></iframe>
+```
+
+-   [**Check-In**](https://docs.google.com/forms/d/e/1FAIpQLSdUuPUWN5_lkHw8DkudwT0--qu8eEFurLSYeJ227V37LC3g1A/viewform?usp=header) **:** Use R to DESCRIBE, PREDICT, evaluate ERROR, and think about how you might use the knowledge to CONTROL OUTCOMES!
+    -   [**the hormone dataset and codebook**](https://www.dropbox.com/scl/fo/2f7kaifml4sq8mq1c7dfi/ALPLJarvk4vomfrddx2Buyg?rlkey=i62g4s3nzeldyvvffgviolobi&dl=0)**.** from a study of business students at Berkeley.
+-   [**Professor Notes**](https://www.dropbox.com/scl/fo/1g76jzayvff4kwaldyn52/AOfNP20yVujSO5akd1U0k98?rlkey=1xs6rqsgdoj8pgls1efbawl7i&dl=0). My R scripts and other notes, saved in real-time.
+-   [**VISION BOARD**](https://docs.google.com/spreadsheets/d/11FZJ76JMBUkKYZRoWASrHhPIldmP7Pziz-WGnlIZuC4/edit?usp=sharing). Where we will share work we do in class.
+
+### Additional Reading and Support Materials
+
+-   **need a review of stats and R?** below are some relevant links from the stats textbook I use with my introductory classes. let me know if these are useful / you have ideas to make more useful :)
+
+    -   [**chapter 5 : the likert scale.**](https://catterson.github.io/ystats/chapters/5R_GoodMeasures.html#the-likert-scale) reviews the theory and calculation of a likert scale in R.
+
+    -   [**chapter 10 : multiple regression.**](https://catterson.github.io/ystats/chapters/10R_MultipleRegression.html) when you have more than one IV in your model.
+
+-   [**on measuring constructs**](https://openpublishing.princeton.edu/read/measuring-constructs/section/ac12c4e3-9b41-4dab-a61d-0c6615869b75)**.** a much more in-depth review of measurement, sources of error, and considerations when working with likert scales.
+
+# For Next Week.
+
+## Article Discussion.
+
+-   **Read This Article.** Chung, J. M., Meijer, L., Zonneveld, R., Al Sawaf, Z., Alajak, K., Moopen, N., ... & Laceulle, O. M. (2022). Lessons learned from conducting a study of emotions and positive personality change in Syrian origin young adults who have recently resettled in the Netherlands. European Journal of Personality, 36(4), 665-682.
+
+-   [**Submit Your Response Here**](https://docs.google.com/forms/d/e/1FAIpQLSdGkCcxV80BCkshlZwLNomMMsZOxmOnvGjrdC1Z6w9YEnLltg/viewform?usp=publish-editor). We'll use these responses to guide our discussion of the article next week. Great to use your own voice; don't worry about sounding smart or having "perfect" english!
+
+## Lab 2. Self-Esteem Problems
+
+*Answer the questions below as a .PDF; make sure your code is visible alongside your output. Please make sure to adhere to the course AI policy, and please ask for help if you get stuck / are confused / professor made a mistake.*
+
+Psychologists often want to combine information from multiple questions (that measure the same construct) into one variable. For example, the Rosenberg (1965) self-esteem scale has 10 questions all related to self-esteem. Rather than work with 10 different variables, it might be nice to just average these 10 and report one average number (the likert scale).
+
+[**Access the self-esteem dataset.**](https://www.dropbox.com/scl/fo/p86q8aurtt58xriyc1ysz/ADdtNQZS78PFCiwTsmAOiLM?rlkey=79hnqwhudgczv9m44z37re2r8&dl=0)Look over the codebook to learn about the variables and how they were measured.
+
+1.  **Create a self-esteem scale from the 10-items.** Make sure to reverse-score the negatively-keyed items so that for every question, higher numbers measure higher self-esteem. Graph this variable as a histogram, and make the graph look nice (ready for publication). Report the alpha reliability, mean, and standard deviation of this variable. Below your graph, describe what these statistics tell you about the self-esteem of the participants. Finally, evaluate the items in the likert scale - does this seem like a valid and reliable way to measure self-esteem? Do you think these questions would *generalize* to people across the world (why / why not?) What other questions do you have about this variable?
+2.  **Define a series of linear models** to determine a) whether there is a relationship between self-esteem and age, b) whether men and women differ in terms of their self-esteem, and c) which variable (age or gender) is a better predictor of self-esteem. For each linear model, make sure to report the relationship (slope), $R^2$ value. Conclude by explaining why you might find these patterns in the data, and how you might use this knowledge.

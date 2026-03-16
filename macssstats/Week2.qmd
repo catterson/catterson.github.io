@@ -40,27 +40,26 @@ editor: visual
 
 -   **need a review of stats and R?** below are some relevant links from the stats textbook I use with my introductory classes. let me know if these are useful / you have ideas to make more useful :)
 
-    -   [**chapter 5 : the likert scale.**](https://catterson.github.io/ystats/chapters/5R_GoodMeasures.html#the-likert-scale) reviews the theory and calculation of a likert scale in R.
+    -   [**chapter 6 :**](https://catterson.github.io/ystats/chapters/6R_LinearModels.html) on the linear model with a numeric IV and numeric DV
 
-    -   [**chapter 10 : multiple regression.**](https://catterson.github.io/ystats/chapters/10R_MultipleRegression.html) when you have more than one IV in your model.
+    -   [**chapter 7 :**](https://catterson.github.io/ystats/chapters/7R_CategoricalIV.html) on the linear model with a categorical IV and numeric DV
 
--   [**on measuring constructs**](https://openpublishing.princeton.edu/read/measuring-constructs/section/ac12c4e3-9b41-4dab-a61d-0c6615869b75)**.** a much more in-depth review of measurement, sources of error, and considerations when working with likert scales.
+    -   [**chapter 9 :**](https://catterson.github.io/ystats/chapters/9R_ModelExtensions.html) on the linear model when your categorical IV has more than two levels
 
-# For Next Week.
+# For Next Class.
 
-## Article Discussion.
+## No Article Discussion. Will discuss objectivity interrogations next class :) 
 
--   **Read This Article.** Chung, J. M., Meijer, L., Zonneveld, R., Al Sawaf, Z., Alajak, K., Moopen, N., ... & Laceulle, O. M. (2022). Lessons learned from conducting a study of emotions and positive personality change in Syrian origin young adults who have recently resettled in the Netherlands. European Journal of Personality, 36(4), 665-682.
+-   ~~**Read This Article.** Chung, J. M., Meijer, L., Zonneveld, R., Al Sawaf, Z., Alajak, K., Moopen, N., ... & Laceulle, O. M. (2022). Lessons learned from conducting a study of emotions and positive personality change in Syrian origin young adults who have recently resettled in the Netherlands. European Journal of Personality, 36(4), 665-682.~~
 
--   [**Submit Your Response Here**](https://docs.google.com/forms/d/e/1FAIpQLSdGkCcxV80BCkshlZwLNomMMsZOxmOnvGjrdC1Z6w9YEnLltg/viewform?usp=publish-editor). We'll use these responses to guide our discussion of the article next week. Great to use your own voice; don't worry about sounding smart or having "perfect" english!
+-   [~~**Submit Your Response Here**~~](https://docs.google.com/forms/d/e/1FAIpQLSdGkCcxV80BCkshlZwLNomMMsZOxmOnvGjrdC1Z6w9YEnLltg/viewform?usp=publish-editor)~~. We'll use these responses to guide our discussion of the article next week. Great to use your own voice; don't worry about sounding smart or having "perfect" english!~~
 
-## Lab 2. Self-Esteem Problems
+## 
 
-*Answer the questions below as a .PDF; make sure your code is visible alongside your output. Please make sure to adhere to the course AI policy, and please ask for help if you get stuck / are confused / professor made a mistake.*
+## Lab 2. Onboarding Problems
 
-Psychologists often want to combine information from multiple questions (that measure the same construct) into one variable. For example, the Rosenberg (1965) self-esteem scale has 10 questions all related to self-esteem. Rather than work with 10 different variables, it might be nice to just average these 10 and report one average number (the likert scale).
+**Use [the Onboarding Dataset](https://www.dropbox.com/scl/fo/ln7vo5wta8u06mq0ha719/ADvvtqcFzK0TnvUQTtL-2U4?rlkey=h4johl6nr6ht451ci3ad8yv7v&dl=0) (from Week 1) to prepare a report that uses the data to a) practice working with linear models, b) learn something about our class, and c) practice thinking about how we might use this knowledge.**
 
-[**Access the self-esteem dataset.**](https://www.dropbox.com/scl/fo/p86q8aurtt58xriyc1ysz/ADdtNQZS78PFCiwTsmAOiLM?rlkey=79hnqwhudgczv9m44z37re2r8&dl=0)Look over the codebook to learn about the variables and how they were measured.
-
-1.  **Create a self-esteem scale from the 10-items.** Make sure to reverse-score the negatively-keyed items so that for every question, higher numbers measure higher self-esteem. Graph this variable as a histogram, and make the graph look nice (ready for publication). Report the alpha reliability, mean, and standard deviation of this variable. Below your graph, describe what these statistics tell you about the self-esteem of the participants. Finally, evaluate the items in the likert scale - does this seem like a valid and reliable way to measure self-esteem? Do you think these questions would *generalize* to people across the world (why / why not?) What other questions do you have about this variable?
-2.  **Define a series of linear models** to determine a) whether there is a relationship between self-esteem and age, b) whether men and women differ in terms of their self-esteem, and c) which variable (age or gender) is a better predictor of self-esteem. For each linear model, make sure to report the relationship (slope), $R^2$ value. Conclude by explaining why you might find these patterns in the data, and how you might use this knowledge.
+1.  Define three separate linear models to predict [one numeric variable]{.underline} from the dataset (a "dependent variable" or DV) from (A) a numeric variable (Independent Variable 1 = IV1), (B) a different numeric variable (IV2) and (C) a categorical variable (IV3). For each model, make sure to include a graph, and report the slope, intercept, and $R^2$ term. *Note : each linear model should use the same DV, and this DV should be numeric.* *There's no need to report the p-values yet :) but you can include these if you want.*
+2.  Below your graphs and statistics, explain (A) what you learn from each model, (B) why you might find this pattern in the data, (C) what other questions you might have about these data / ideas you have to improve predictions, and (D) how we might use this knowledge. No R is required for this - just your human brain.
+3.  Organize this report as a 1-2 page document. Think about what information your audience might need to understand your data and interpretation. We will look at some of these in-class together, so be prepared to share your work with the class!
