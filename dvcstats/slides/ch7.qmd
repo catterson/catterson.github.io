@@ -12,10 +12,11 @@ format:
 tbl-colwidths: [50,50]
 ---
 
-## [CHECK-IN : Is there a relationship between narcissism and age?](https://forms.gle/ukg3b16VfzdiRiJF6) {.smaller}
+### [CHECK-IN : Is there a relationship between narcissism and age?](https://forms.gle/ukg3b16VfzdiRiJF6) {.smaller}
+**Go into a breakout room and share your screen as you work on the check-in.**
 
 ::::: columns
-::: {.column width="60%"}
+::: {.column width="40%"}
 [**Link to Dataset**](https://www.dropbox.com/scl/fi/p1yc5kvkckkwok2v19jl5/narcissism_data.csv?rlkey=y0zwtllmfsie447eybxa4965u&dl=0)
 
 -   **score** = narcissism score (40-item scale)
@@ -23,15 +24,25 @@ tbl-colwidths: [50,50]
 -   **sex** = Chosen from a drop down list (1=male, 2=female, 3=other; 0=none was chosen).
 :::
 
-::: {.column width="40%"}
-![](images/clipboard-3435010172.png)
+::: {.column width="60%"}
+**code you may need :**
+
+``` R
+head(d) # check the data
+hist(d$variable) # graph a numeric variable
+plot(d$variable) # graph a categorical variable
+plot(d$dv ~ d$iv) # draw a scatterplot
+mod <- lm(d$dv ~ d$iv) # define a linear model
+abline(mod) # draw the model on the scatterplot
+coef(mod) # find the slope and intercept
+summary(mod)$r.squared # report R^2
+```
 :::
 :::::
 
 ### Check-In Spoilers
 
-:::{.r-fit-text}
-
+:::::::::: r-fit-text
 ::::::::: panel-tabset
 ### variables
 
@@ -140,8 +151,7 @@ Type your text here...
 :::
 :::::
 :::::::::
-
-:::
+::::::::::
 
 ## Question : Is there a relationship between gender and narcissism?
 
