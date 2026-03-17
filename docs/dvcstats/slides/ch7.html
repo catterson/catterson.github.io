@@ -9,7 +9,7 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.42">
 
-  <title>ch6</title>
+  <title>ch7</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -193,100 +193,182 @@
     <div class="slides">
 
 
-<section id="check-in-linear-model-prep" class="title-slide slide level2 center">
-<h2><a href="https://docs.google.com/forms/d/e/1FAIpQLSe-830Xaq_jAfRomviIR6CrIaurGYB_hUJcRYbLFXQfeASI4A/viewform?usp=header">CHECK-IN : Linear Model Prep</a></h2>
+<section>
+<section id="check-in-is-there-a-relationship-between-narcissism-and-age" class="title-slide slide level2 smaller center">
+<h2><a href="https://forms.gle/ukg3b16VfzdiRiJF6">CHECK-IN : Is there a relationship between narcissism and age?</a></h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:60%;">
+<p><a href="https://www.dropbox.com/scl/fi/p1yc5kvkckkwok2v19jl5/narcissism_data.csv?rlkey=y0zwtllmfsie447eybxa4965u&amp;dl=0"><strong>Link to Dataset</strong></a></p>
+<ul>
+<li><strong>score</strong> = narcissism score (40-item scale)</li>
+<li><strong>age</strong> = Entered as a free response. Ages below 14 have been ommited from the dataset.</li>
+<li><strong>sex</strong> = Chosen from a drop down list (1=male, 2=female, 3=other; 0=none was chosen).</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="images/clipboard-3435010172.png"></p>
+</div></div>
+</section>
+<section id="check-in-spoilers" class="slide level3">
+<h3>Check-In Spoilers</h3>
+<div class="r-fit-text">
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">variables</a></li><li><a href="#tabset-1-2">read.csv()</a></li><li><a href="#tabset-1-3">hist()</a></li><li><a href="#tabset-1-4">hist()</a></li><li><a href="#tabset-1-5">lm()</a></li><li><a href="#tabset-1-6">scale()</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<ul>
+<li><strong>score</strong> = narcissism score (40-item scale)</li>
+<li><strong>age</strong> = Entered as a free response. Ages below 14 have been ommited from the dataset.</li>
+<li><strong>sex</strong> = Chosen from a drop down list (1=male, 2=female, 3=other; 0=none was chosen).</li>
+</ul>
+</div>
+<div id="tabset-1-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/Chapter Datasets/Our World in Happy Data/DATASET_happy_data.csv"</span>, <span class="at">stringsAsFactors =</span> T)</span>
-<span id="cb1-2"><a></a><span class="fu">plot</span>(d<span class="sc">$</span>SWLS_24 <span class="sc">~</span> d<span class="sc">$</span>Child.Mortality, <span class="at">xlab =</span> <span class="st">"Child Mortality"</span>, <span class="at">ylab =</span> <span class="st">"World Happiness in 2024"</span>)</span>
-<span id="cb1-3"><a></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(d<span class="sc">$</span>SWLS_24 <span class="sc">~</span> d<span class="sc">$</span>Child.Mortality)</span>
-<span id="cb1-4"><a></a><span class="fu">abline</span>(mod, <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">'red'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/Chapter Datasets/Narcissism Data/narcissism_data.csv"</span>, <span class="at">stringsAsFactors =</span> T)</span>
+<span id="cb1-2"><a></a><span class="fu">head</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  score Q1 Q2 Q3 Q4 Q5 Q6 Q7 Q8 Q9 Q10 Q11 Q12 Q13 Q14 Q15 Q16 Q17 Q18 Q19 Q20
+1    18  2  2  2  2  1  2  1  2  2   2   1   1   2   1   1   1   2   1   1   1
+2     6  2  2  2  1  2  2  1  2  1   1   2   2   2   1   2   2   1   1   2   1
+3    27  1  2  2  1  2  1  2  1  2   2   2   1   1   1   1   1   2   2   1   1
+4    29  1  1  2  2  2  1  2  1  1   2   1   1   1   1   1   1   2   2   1   2
+5     6  1  2  1  1  1  2  1  2  1   2   2   2   2   2   1   1   1   1   1   1
+6    19  1  2  2  1  2  1  1  1  2   2   1   1   1   2   1   1   1   1   1   1
+  Q21 Q22 Q23 Q24 Q25 Q26 Q27 Q28 Q29 Q30 Q31 Q32 Q33 Q34 Q35 Q36 Q37 Q38 Q39
+1   1   1   1   2   2   2   1   2   2   2   1   2   1   1   1   2   2   2   1
+2   2   2   1   2   2   2   2   1   2   2   2   1   2   2   1   2   2   2   2
+3   2   2   2   2   1   2   1   1   2   1   2   2   1   1   2   1   1   2   1
+4   1   1   1   2   1   2   1   2   2   1   1   2   1   1   2   1   2   2   1
+5   1   2   1   2   2   1   2   1   2   2   2   1   2   2   1   2   2   2   0
+6   1   1   1   1   2   1   1   1   2   1   1   2   1   2   1   1   2   2   2
+  Q40 elapse gender age
+1   2    211      1  50
+2   1    149      1  40
+3   2    168      1  28
+4   1    230      1  37
+5   1    389      1  50
+6   2    361      1  27</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-3">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb3-2"><a></a><span class="fu">hist</span>(d<span class="sc">$</span>score)</span>
+<span id="cb3-3"><a></a><span class="fu">hist</span>(d<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="ch6_files/figure-html/unnamed-chunk-1-1.png" width="480"></p>
+<p><img data-src="ch7_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-4">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>d<span class="sc">$</span>age[d<span class="sc">$</span>age <span class="sc">&gt;</span> <span class="dv">100</span> <span class="sc">|</span> d<span class="sc">$</span>age <span class="sc">&lt;</span> <span class="dv">14</span>] <span class="co"># outliers</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 366  13 148  13  12 117  13 509  13  13  13  12  13  13 190  13  13  13  11
+[20]  13  13  13  13   0  13   0   0  13  13   0  13  13   0   6   0  13   0  13
+[39]   0   0  13   0  13  10  13   0   0  13  13   2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>d<span class="sc">$</span>age[d<span class="sc">$</span>age <span class="sc">&gt;</span> <span class="dv">100</span> <span class="sc">|</span> d<span class="sc">$</span>age <span class="sc">&lt;</span> <span class="dv">14</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span> <span class="co"># they gone.</span></span>
+<span id="cb6-2"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb6-3"><a></a><span class="fu">hist</span>(d<span class="sc">$</span>score)</span>
+<span id="cb6-4"><a></a><span class="fu">hist</span>(d<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="ch7_files/figure-revealjs/unnamed-chunk-3-1.png" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-5">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Defining the Model</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">plot</span>(d<span class="sc">$</span>score <span class="sc">~</span> d<span class="sc">$</span>age)</span>
+<span id="cb7-2"><a></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(d<span class="sc">$</span>score <span class="sc">~</span> d<span class="sc">$</span>age)</span>
+<span id="cb7-3"><a></a><span class="fu">abline</span>(mod, <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="ch7_files/figure-revealjs/unnamed-chunk-4-1.png" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
+<p><strong>Interpreting The Model</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">c</span>(<span class="fu">round</span>(<span class="fu">coef</span>(mod), <span class="dv">2</span>),</span>
-<span id="cb2-2"><a></a>                   <span class="at">RSQUARED =</span> <span class="fu">round</span>(<span class="fu">summary</span>(mod)<span class="sc">$</span>r.squared, <span class="dv">2</span>)), <span class="at">col.names =</span> <span class="st">"Linear Model"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display column-margin">
-<table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: right;">Linear Model</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">6.29</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">d$Child.Mortality</td>
-<td style="text-align: right;">-0.30</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">RSQUARED</td>
-<td style="text-align: right;">0.45</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">coef</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)       d$age 
+ 18.2149771  -0.1448936 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">summary</span>(mod)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.05512482</code></pre>
 </div>
 </div>
+<p><strong>Professor Notes Go Here.</strong></p>
+<textarea rows="4" cols="50">Type your text here...
+</textarea>
 </div></div>
-</section>
-
-<section id="steps-for-a-linear-model-in-r" class="title-slide slide level2 center">
-<h2>Steps for a Linear Model (in R)</h2>
-<ul>
-<li>Choose a dataset</li>
-<li>Identify the variables (graph and make sure there are no outliers.)</li>
-<li>Graph the relationship between the two variables</li>
-<li>Define the model</li>
-<li>Add the model to the scatterplot</li>
-<li>Interpret the statistics : intercept, slope, and <span class="math inline">\(R^2\)</span></li>
-</ul>
-</section>
-
-<section id="break-time-meet-back-at-_____________" class="title-slide slide level2 center">
-<h2>BREAK TIME : MEET BACK AT _____________</h2>
-
-</section>
-
-<section id="quarto-why-are-we-learning-this" class="title-slide slide level2 center">
-<h2>Quarto : Why are we learning this?</h2>
-<ul>
-<li><p>An authentic skill (professor uses)</p>
-<ul>
-<li>Saves trouble of screenshotting : integrates code and text.</li>
-<li>some GSIs are introducing it :)</li>
-</ul></li>
-<li><p>WARNING : professor still gets frustrated when using quarto. If you are feeling dread / maxxed out, then just use an Rscript + screenshot method. Okay?</p></li>
-</ul>
-</section>
-
-<section id="quarto-from-source-render" class="title-slide slide level2 center">
-<h2>Quarto : From Source –&gt; Render</h2>
-<div class="r-fit-text">
-<ul>
-<li>What looks different about our R Script? What looks the same (or similar??)</li>
-</ul>
-<p><img data-src="images/clipboard-2104163521.png"></p>
 </div>
+<div id="tabset-1-6">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Defining the Model</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">plot</span>(<span class="fu">scale</span>(d<span class="sc">$</span>score) <span class="sc">~</span> <span class="fu">scale</span>(d<span class="sc">$</span>age))</span>
+<span id="cb12-2"><a></a>modZ <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">scale</span>(d<span class="sc">$</span>score) <span class="sc">~</span> <span class="fu">scale</span>(d<span class="sc">$</span>age))</span>
+<span id="cb12-3"><a></a><span class="fu">abline</span>(modZ, <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="ch7_files/figure-revealjs/unnamed-chunk-6-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>Interpreting The Model</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">round</span>(<span class="fu">coef</span>(modZ), <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> (Intercept) scale(d$age) 
+        0.00        -0.23 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">summary</span>(modZ)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.05512482</code></pre>
+</div>
+</div>
+<p><strong>Professor Notes Go Here.</strong></p>
+<textarea rows="4" cols="50">Type your text here...
+</textarea>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section id="question-is-there-a-relationship-between-gender-and-narcissism" class="title-slide slide level2 center">
+<h2>Question : Is there a relationship between gender and narcissism?</h2>
+<p>See Prof.&nbsp;R script and demo.</p>
 </section>
 
-<section id="section" class="title-slide slide level2 center">
-<h2></h2>
+<section id="the-end." class="title-slide slide level2 center">
+<h2>THE END.</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://www.gif-vif.com/trending/frog-dance-frog.gif.pagespeed.ce.P7TEOgyG1P.gif" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 
 
 </section>
@@ -475,7 +557,7 @@
         // specified using percentage units.
         width: 1050,
 
-        height: 700,
+        height: 900,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
@@ -507,6 +589,44 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

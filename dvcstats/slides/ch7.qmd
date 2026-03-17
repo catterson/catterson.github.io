@@ -1,0 +1,152 @@
+---
+title: ""
+format: 
+  revealjs: 
+    height: 900
+    slide-level: 3
+    link-external-newwindow: true
+    chalkboard: true
+    controls: true
+    auto-stretch: false
+    code-overflow: wrap
+tbl-colwidths: [50,50]
+---
+
+## [CHECK-IN : Is there a relationship between narcissism and age?](https://forms.gle/ukg3b16VfzdiRiJF6) {.smaller}
+
+::::: columns
+::: {.column width="60%"}
+[**Link to Dataset**](https://www.dropbox.com/scl/fi/p1yc5kvkckkwok2v19jl5/narcissism_data.csv?rlkey=y0zwtllmfsie447eybxa4965u&dl=0)
+
+-   **score** = narcissism score (40-item scale)
+-   **age** = Entered as a free response. Ages below 14 have been ommited from the dataset.
+-   **sex** = Chosen from a drop down list (1=male, 2=female, 3=other; 0=none was chosen).
+:::
+
+::: {.column width="40%"}
+![](images/clipboard-3435010172.png)
+:::
+:::::
+
+### Check-In Spoilers
+
+:::{.r-fit-text}
+
+::::::::: panel-tabset
+### variables
+
+-   **score** = narcissism score (40-item scale)
+-   **age** = Entered as a free response. Ages below 14 have been ommited from the dataset.
+-   **sex** = Chosen from a drop down list (1=male, 2=female, 3=other; 0=none was chosen).
+
+### read.csv()
+
+```{r}
+#| echo: true
+d <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/Narcissism Data/narcissism_data.csv", stringsAsFactors = T)
+head(d)
+```
+
+### hist()
+
+```{r}
+#| echo: true
+par(mfrow = c(1,2))
+hist(d$score)
+hist(d$age)
+```
+
+### hist()
+
+```{r}
+#| echo: true
+#| fig-width: 8
+#| fig-height: 4
+d$age[d$age > 100 | d$age < 14] # outliers
+d$age[d$age > 100 | d$age < 14] <- NA # they gone.
+par(mfrow = c(1,2))
+hist(d$score)
+hist(d$age)
+```
+
+### lm()
+
+::::: columns
+::: {.column width="50%"}
+**Defining the Model**
+
+```{r}
+#| echo: true
+#| fig-width: 5
+#| fig-height: 5
+plot(d$score ~ d$age)
+mod <- lm(d$score ~ d$age)
+abline(mod, lwd = 5)
+```
+:::
+
+::: {.column width="50%"}
+**Interpreting The Model**
+
+```{r}
+#| echo: true
+coef(mod)
+summary(mod)$r.squared
+```
+
+**Professor Notes Go Here.**
+
+```{=html}
+<textarea rows="4" cols="50">
+Type your text here...
+</textarea>
+```
+:::
+:::::
+
+### scale()
+
+::::: columns
+::: {.column width="50%"}
+**Defining the Model**
+
+```{r}
+#| echo: true
+#| fig-width: 5
+#| fig-height: 5
+plot(scale(d$score) ~ scale(d$age))
+modZ <- lm(scale(d$score) ~ scale(d$age))
+abline(modZ, lwd = 5)
+```
+:::
+
+::: {.column width="50%"}
+**Interpreting The Model**
+
+```{r}
+#| echo: true
+
+round(coef(modZ), 2)
+summary(modZ)$r.squared
+```
+
+**Professor Notes Go Here.**
+
+```{=html}
+<textarea rows="4" cols="50">
+Type your text here...
+</textarea>
+```
+:::
+:::::
+:::::::::
+
+:::
+
+## Question : Is there a relationship between gender and narcissism?
+
+See Prof. R script and demo.
+
+## THE END.
+
+![](https://www.gif-vif.com/trending/frog-dance-frog.gif.pagespeed.ce.P7TEOgyG1P.gif){fig-align="center"}
