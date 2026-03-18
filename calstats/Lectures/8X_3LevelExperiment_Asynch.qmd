@@ -36,7 +36,9 @@ I'm looking forward to seeing everyone again on Friday, April 11th. Let me know 
 
 ## [Check-In.](https://docs.google.com/forms/d/e/1FAIpQLScvaoHqhyguIXKfj9m7q5ykKMryRI9exKUdRU_7l98xAjU4dw/viewform?usp=sf_link)
 
-```{r include=FALSE}
+```{r}
+#| eval: false
+#| include: false
 library(psych)
 m <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/cal_mega_SP25.csv", stringsAsFactors = T)
 names(m)
@@ -51,6 +53,8 @@ plot(m$call.folks)
 Professor wanted to see if calling your parents / guardians was related to having a more satisfied life. He analyzed data from the mega dataset, and defined the linear model below (satisfaction with life \~ call.folks (yes / no) + error. Use the following output to answer the check-in questions (submit answers to the link above).
 
 ```{r}
+#| eval: false
+#| include: false
 mod <- lm(SWLS ~ call.folks, data = m)
 round(coef(mod), 2)
 ```
@@ -136,9 +140,11 @@ Early memories and gratitude are both about writing some kind of self-reflection
 
 Below are the three versions of the study that students saw in Week 7. Do you remember which condition you were in? Could you tell that you were in an experiment??
 
++--------------------------------------+--------------------------------------+--------------------------------------+
 | High Condition                       | Low Condition                        | Control Condition                    |
-|--------------------------------------|--------------------------------------|--------------------------------------|
++======================================+======================================+======================================+
 | ![](images/clipboard-3273817600.png) | ![](images/clipboard-1517485462.png) | ![](images/clipboard-3157047965.png) |
++--------------------------------------+--------------------------------------+--------------------------------------+
 
 Below are examples of how the anchoring study was an example of an experiment.
 
@@ -199,6 +205,9 @@ Watch the video tutorial below, where I walk through how to test the researchers
 -   [Link to R Script](https://www.dropbox.com/scl/fi/shcumov49pylefrieqb3f/8T_AnchorAsynch.R?rlkey=d7e4toy55v66bjkramp0oqatt&dl=0)
 
 ```{r}
+#| eval: false
+#| include: false
+
 ## Loading Data and Data Cleaning
 library(gplots)
 anchor <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/anchorSP25.csv", stringsAsFactors = T)

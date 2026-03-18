@@ -1,0 +1,241 @@
+---
+title: ""
+format: 
+  revealjs: 
+    slide-level: 3
+    link-external-newwindow: true
+    chalkboard: true
+    controls: true
+navbar: false
+---
+
+### [CHECK-IN : valid, reliable, and biased personality](https://forms.gle/g2Mfxiobu7qW1BgW9)
+
+1.  [source 1](https://www.myersbriggs.org/research-and-library/validity-reliability/)
+2.  [source 2](https://www.themyersbriggs.com/en-US/Support/MBTI-Facts#test-retest)
+
+:::::: r-fit-text
+::::: columns
+::: {.column width="60%"}
+![an answer sheet card used in Myers' early stages of developing the MBTIto find the right jobs for women who had no work experience outside the home.](images/clipboard-662971673.png){fig-align="center"}
+:::
+
+::: {.column width="40%"}
+![](images/clipboard-2546893275.png){fig-alt="A photo of Katharine Briggs on the left and her daughter Isabel Myers from 1923." fig-align="center" width="60%"}
+:::
+:::::
+::::::
+
+### MTBI and Big Five Personality Items{.smaller}
+
+::::: columns
+::: {.column width="50%"}
+Myers-Briggs Items
+
+```         
+1. You regularly make new friends.
+2. Complex and novel ideas excite you more than simple and straightforward ones.
+3. You usually feel more persuaded by what resonates emotionally with you than by factual arguments.
+4. Your living and working spaces are clean and organized.
+5. You usually stay calm, even under a lot of pressure.
+6. You find the idea of networking or promoting yourself to strangers very daunting.
+7. You prioritize and plan tasks effectively, often completing them well before the deadline.
+8. People’s stories and emotions speak louder to you than numbers or data.
+9. You like to use organizing tools like schedules and lists.
+10. Even a small mistake can cause you to doubt your overall abilities and knowledge.
+11. You feel comfortable just walking up to someone you find interesting and striking up a conversation.
+12. You are not too interested in discussions about various interpretations of creative works.
+13. You prioritize facts over people’s feelings when determining a course of action.
+14. You often allow the day to unfold without any schedule at all.
+15. You rarely worry about whether you make a good impression on people you meet.
+16. You enjoy participating in team-based activities.
+17. You enjoy experimenting with new and untested approaches.
+18. You prioritize being sensitive over being completely honest.
+19. You actively seek out new experiences and knowledge areas to explore.
+20. You are prone to worrying that things will take a turn for the worse.
+21. You enjoy solitary hobbies or activities more than group ones.
+22. You cannot imagine yourself writing fictional stories for a living.
+23. You favor efficiency in decisions, even if it means disregarding some emotional aspects.
+24. You prefer to do your chores before allowing yourself to relax.
+25. In disagreements, you prioritize proving your point over preserving the feelings of others.
+26. You usually wait for others to introduce themselves first at social gatherings.
+27. Your mood can change very quickly.
+28. You are not easily swayed by emotional arguments.
+29. You often end up doing things at the last possible moment.
+30. You enjoy debating ethical dilemmas.
+31. You usually prefer to be around others rather than on your own.
+32. You become bored or lose interest when the discussion gets highly theoretical.
+33. When facts and feelings conflict, you usually find yourself following your heart.
+34. You find it challenging to maintain a consistent work or study schedule.
+35. You rarely second-guess the choices that you have made.
+36. Your friends would describe you as lively and outgoing.
+37. You are drawn to various forms of creative expression, such as writing.
+38. You usually base your choices on objective facts rather than emotional impressions.
+39. You like to have a to-do list for each day.
+40. You rarely feel insecure.
+41. You avoid making phone calls.
+42. You enjoy exploring unfamiliar ideas and viewpoints.
+43. You can easily connect with people you have just met.
+44. If your plans are interrupted, your top priority is to get back on track as soon as possible.
+45. You are still bothered by mistakes that you made a long time ago.
+46. You are not too interested in discussing theories on what the world could look like in the future.
+47. Your emotions control you more than you control them.
+48. When making decisions, you focus more on how the affected people might feel than on what is most logical or efficient.
+49. Your personal work style is closer to spontaneous bursts of energy than organized and consistent efforts.
+50. When someone thinks highly of you, you wonder how long it will take them to feel disappointed in you.
+51. You would love a job that requires you to work alone most of the time.
+52. You believe that pondering abstract philosophical questions is a waste of time.
+53. You feel more drawn to busy, bustling atmospheres than to quiet, intimate places.
+54. If a decision feels right to you, you often act on it without needing further proof.
+55. You often feel overwhelmed.
+56. You complete things methodically without skipping over any steps.
+57. You prefer tasks that require you to come up with creative solutions rather than follow concrete steps.
+58. You are more likely to rely on emotional intuition than logical reasoning when making a choice.
+59. You struggle with deadlines.
+60. You feel confident that things will work out for you.
+```
+:::
+
+::: {.column width="50%"}
+Big Five Items
+
+```         
+1. Is outgoing, sociable.
+2. Is compassionate, has a soft heart.
+3. Tends to be disorganized.
+4. Is relaxed, handles stress well.
+5. Has few artistic interests.
+6. Has an assertive personality.
+7. Is respectful, treats others with respect.
+8. Tends to be lazy.
+9. Stays optimistic after experiencing a setback.
+10. Is curious about many different things.
+11. Rarely feels excited or eager.
+12. Tends to find fault with others.
+13. Is dependable, steady.
+14. Is moody, has up and down mood swings.
+15. Is inventive, finds clever ways to do things.
+16. Tends to be quiet.
+17. Feels little sympathy for others.
+18. Is systematic, likes to keep things in order.
+19. Can be tense.
+20. Is fascinated by art, music, or literature.
+21. Is dominant, acts as a leader.
+22. Starts arguments with others.
+23. Has difficulty getting started on tasks.
+24. Feels secure, comfortable with self.
+25. Avoids intellectual, philosophical discussions.
+26. Is less active than other people.
+27. Has a forgiving nature.
+28. Can be somewhat careless.
+29. Is emotionally stable, not easily upset.
+30. Has little creativity.
+31. Is sometimes shy, introverted.
+32. Is helpful and unselfish with others.
+33. Keeps things neat and tidy.
+34. Worries a lot.
+35. Values art and beauty.
+36. Finds it hard to influence people.
+37. Is sometimes rude to others.
+38. Is efficient, gets things done.
+39. Often feels sad.
+40. Is complex, a deep thinker.
+41. Is full of energy.
+42. Is suspicious of others’ intentions.
+43. Is reliable, can always be counted on.
+44. Keeps their emotions under control.
+45. Has difficulty imagining things.
+46. Is talkative.
+47. Can be cold and uncaring.
+48. Leaves a mess, doesn’t clean up.
+49. Rarely feels anxious or afraid.
+50. Thinks poetry and plays are boring.
+51. Prefers to have others take charge.
+52. Is polite, courteous to others.
+53. Is persistent, works until the task is finished.
+54. Tends to feel depressed, blue.
+55. Has little interest in abstract ideas.
+56. Shows a lot of enthusiasm.
+57. Assumes the best about people.
+58. Sometimes behaves irresponsibly.
+59. Is temperamental, gets emotional easily.
+60. Is original, comes up with new ideas.
+```
+:::
+:::::
+
+## CLAP : which one (big five or myers briggs)... {.smaller}
+
+...was the most interesting to take?
+
+...gave you the most valid feedback?
+
+...seemed the most scientific?
+
+### [The Big Five and Myers-Briggs in our Class](/rm/readings/Personality.qmd)
+
+# Part 2 : Patterns in the Data {.smaller}
+
+![John Snow's cholera data](images/clipboard-1988441143.png){fig-align="center" width="80%"}
+
+### KEY IDEA : statistics describes patterns in the data {.smaller}
+
+::::: columns
+::: {.column width="40%"}
+In the linear regression analysis, lead authors of color again wrote abstracts with significantly fewer power words *B* = − 0.102, *t*(1191) = − 3.497, *p* \< 0.001. (From the [Objectivity Interrogations](https://www.nature.com/articles/s41598-024-63236-z#Sec18) article.)
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 5
+
+d <- read.csv("~/Dropbox/!GRADSTATS/gradlab/Exams/objectivityposted.csv", stringsAsFactors = T)
+library(gplots)
+d$POC <- as.factor(d$pocu)
+levels(d$POC) <- c("White Scholar", "Scholar of Color")
+plotmeans(power ~ POC, data = d)
+```
+:::
+:::::
+
+### KEY IDEA : pictures can lie {.smaller}
+
+::::: columns
+::: {.column width="40%"}
+In the linear regression analysis, lead authors of color again wrote abstracts with significantly fewer power words *B* = − 0.102, *t*(1191) = − 3.497, *p* \< 0.001. (From the [Objectivity Interrogations](https://www.nature.com/articles/s41598-024-63236-z#Sec18) article.)
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 5
+
+plotmeans(power ~ POC, data = d, ylim = c(0,12))
+```
+:::
+:::::
+
+### KEY IDEA : good to get a sense of how large patterns are.
+
+-   [Meyer et al. (2001) article on effect sizes](https://www.dropbox.com/s/r0uwvdqezzvlvdb/2001_Meyer_EffectSizes.pdf?dl=0).
+
+-   [Correlation Visualizer](https://rpsychologist.com/correlation/)
+
+-   [Guess the Correlation](https://www.guessthecorrelation.com)
+
+![](images/clipboard-1495463599.png)
+
+# Part 3 : [Digging Deeper](https://catterson.github.io/rm/notes/digdeeper.html) {.smaller}
+
+## ACTIVITY : evaluate the measure ([vision board review](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing)) {.smaller}
+
+![](images/clipboard-2150884350.png)
+
+# NEXT WEEK : Experiments & Patterns in Data
+
+BYE.
+
+![](https://www.gif-vif.com/trending/frog-dance-frog.gif.pagespeed.ce.P7TEOgyG1P.gif){fig-align="center"}

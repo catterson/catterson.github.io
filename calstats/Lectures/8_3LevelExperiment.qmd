@@ -8,17 +8,16 @@ format:
 ## [Check-In : A Quick Study](https://docs.google.com/forms/d/e/1FAIpQLScvaoHqhyguIXKfj9m7q5ykKMryRI9exKUdRU_7l98xAjU4dw/viewform?usp=sf_link)
 
 ```{r include=FALSE}
-d <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets - FA25/mini_cal_data.csv", stringsAsFactors = T)
-names(d)
-levels(d$stoned72)[1] <- NA
-hist(d$satlife)
+#| eval: false
+
 ```
 
 Professor wanted to see if students marijuana use was related to being happier. He analyzed data from the mini dataset, and defined the linear model below (is.happy \~ was stoned in last 72 hours (yes / no) + error. Use the following output to answer the check-in questions.
 
 ```{r}
-mod <- lm(is.happy ~ stoned72, data = d)
-round(coef(mod), 2)
+#| eval: false
+#| include: false
+
 ```
 
 -   What is the predicted value of satisfaction with life for someone who WAS stoned in the last 72 hours?
@@ -70,20 +69,22 @@ round(coef(mod), 2)
 
 ### Real-Life Examples of Difficult Control Conditions
 
-#### Power Posing Study**[^1] Is this a fair comparison / manipulation? Why / why not?
+#### Power Posing Study\*\*[^1] Is this a fair comparison / manipulation? Why / why not?
+
+[^1]: Carney, D. R., Cuddy, A. J., & Yap, A. J. (2010). Power posing: Brief nonverbal displays affect neuroendocrine levels and risk tolerance. Psychological science, 21(10), 1363-1368. [link to article](https://faculty.haas.berkeley.edu/dana_carney/power.poses.PS.2010.pdf) + [link to summary of non-replication](https://www.sciencedaily.com/releases/2017/09/170911095932.htm)
+
 ![](images/clipboard-2384287427.png)
 
 #### Gratitude Study:
+
 Read the prompt below. Answer the following questions in your breakout room discussion.
 
-1. ICE-BREAKER : What's something that you are grateful for?
-2. What did the experimenters manipulate? Which of these were experimental and control conditions?
-3. What are some other things that differ between the experimental and control conditions (potential confounds)?
-4. What are some other (better) control conditions that you might include in this study?
+1.  ICE-BREAKER : What's something that you are grateful for?
+2.  What did the experimenters manipulate? Which of these were experimental and control conditions?
+3.  What are some other things that differ between the experimental and control conditions (potential confounds)?
+4.  What are some other (better) control conditions that you might include in this study?
 
-[](images/clipboard-2207627893.png)
-
-[^1]: Carney, D. R., Cuddy, A. J., & Yap, A. J. (2010). Power posing: Brief nonverbal displays affect neuroendocrine levels and risk tolerance. Psychological science, 21(10), 1363-1368. [link to article](https://faculty.haas.berkeley.edu/dana_carney/power.poses.PS.2010.pdf) + [link to summary of non-replication](https://www.sciencedaily.com/releases/2017/09/170911095932.htm)
+[ ](images/clipboard-2207627893.png)
 
 ## Anchoring as an Experiment
 
@@ -93,14 +94,14 @@ Read the prompt below. Answer the following questions in your breakout room disc
 |----------------|---------------|-------------------|
 |                |               |                   |
 
-| Key Term and Definition                                                                                                                                                                                                                                             | Example in the Anchoring Study |
-|---------------------------------------------------|---------------------|
-| **outcome =** THE DV = what was being measured *after* the manipulation?                                                                                                                                                                                            |                                |
-| **manipulation** = THE IV = what were ALL the things that the researcher changed about a person's experience (across experimental conditions)?                                                                                                                      |                                |
-| **random assignment** = were all possible confound variables balanced across conditions?                                                                                                                                                                            |                                |
-| **double-blind** = did the study avoid demand characteristics (where experimenter might have influenced behavior when giving the study) & placebo effects (where participants might have acted in a certain way because they knew they were being experimented on)? |                                |
-| **generalizability =** did the study have external validity? what was the effect size (R2)?                                                                                                                                                                         |                                |
-| **ethics =** should researchers do this type of study? (Predict & Control)                                                                                                                                                                                          |                                |
+| Key Term and Definition | Example in the Anchoring Study |
+|--------------------------------------------------|----------------------|
+| **outcome =** THE DV = what was being measured *after* the manipulation? |  |
+| **manipulation** = THE IV = what were ALL the things that the researcher changed about a person's experience (across experimental conditions)? |  |
+| **random assignment** = were all possible confound variables balanced across conditions? |  |
+| **double-blind** = did the study avoid demand characteristics (where experimenter might have influenced behavior when giving the study) & placebo effects (where participants might have acted in a certain way because they knew they were being experimented on)? |  |
+| **generalizability =** did the study have external validity? what was the effect size (R2)? |  |
+| **ethics =** should researchers do this type of study? (Predict & Control) |  |
 
 ### Anchoring : Data to Test the Theory
 

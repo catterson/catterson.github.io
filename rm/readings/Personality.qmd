@@ -285,11 +285,11 @@ abline(lm(y), lwd = 5)
 
 ## But You Don't Have To Take My Word For It....
 
-### The Big Five Are Reliable
+### The Big Five Are Reliable?
 
 ![Soto, C. J., & John, O. P. (2017). The next Big Five Inventory (BFI-2): Developing and assessing a hierarchical model with 15 facets to enhance bandwidth, fidelity, and predictive power. Journal of Personality and Social Psychology, 113(1), 117.](images/clipboard-812066414.png)
 
-### The Big Five are Valid
+### The Big Five are Valid?!
 
 ::::: columns
 ::: {.column width="50%"}
@@ -332,3 +332,5 @@ ggplot(DAT, aes(x = var, y = est)) +
 ```
 :::
 :::::
+
+# [The Big Five are Free.](https://www.colby.edu/academics/departments-and-programs/psychology/research-opportunities/personality-lab/the-bfi-2/)
