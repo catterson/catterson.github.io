@@ -1,111 +1,146 @@
 ---
-title: "Lecture 8 - Experiments and Models"
+title: ""
 format: 
-  html:
+  revealjs: 
+    height: 900
+    slide-level: 3
+    link-external-newwindow: true
+    chalkboard: true
+    controls: true
+    auto-stretch: false
     code-overflow: wrap
+tbl-colwidths: [50,50]
 ---
 
-## [Check-In : A Quick Study](https://docs.google.com/forms/d/e/1FAIpQLScvaoHqhyguIXKfj9m7q5ykKMryRI9exKUdRU_7l98xAjU4dw/viewform?usp=sf_link)
-
-```{r include=FALSE}
-#| eval: false
-
-```
-
-Professor wanted to see if students marijuana use was related to being happier. He analyzed data from the mini dataset, and defined the linear model below (is.happy \~ was stoned in last 72 hours (yes / no) + error. Use the following output to answer the check-in questions.
+## [Check-In : Anchoring Data](https://forms.gle/mhvkqU1aRN89GAr18)
 
 ```{r}
-#| eval: false
 #| include: false
+#| eval: false
+
+d <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets/Cat Data/anchor.csv", stringsAsFactors = T)
+
+par(mfrow = c(1,2))
+plot(d$howclass ~ d$howgo)
+mod <- lm(d$howclass ~ d$howgo)
+abline(mod)
+summary(mod)$r.squared
+
+plot(d$howclass ~ d$howproject)
+mod2 <- lm(d$howclass ~ d$howproject)
+abline(mod2)
+summary(mod2)$r.squared
+
+hist(d$catspeed)
 
 ```
 
--   What is the predicted value of satisfaction with life for someone who WAS stoned in the last 72 hours?
--   What is the predicted value of satisfaction with life for someone who WAS NOT stoned in the last 72 hours?
--   What is the difference in satisfaction with life between someone who WAS and WAS NOT stoned in the last 72 hours?
--   Can professor say that calling parents CAUSES people to have a different satisfaction with life? Why / why not?
+:::::: r-fit-text
+::::: columns
+::: {.column width="60%"}
+**Load the Anchoring Dataset;** use R to define two (separate) linear models to determine whether people's experience in the class (DV = howclass) is better predicted by:
 
-## Announcements & Agenda.
+1.  how students are doing in life (IV1 = howgo)
+2.  how students are doing on the final project (IV2 = howproject).
+:::
 
--   Announcements
-    -   **Milestone #3 \|** Methods Section & Descriptive Statistics.
-    -   We On Zoom!
-        -   Default mute.
-        -   Webcam on in breakout rooms "required"; nice during lecture.
-        -   Chat: keep it focused to questions during lecture; will build in time for social connection, etc. (feel free to spam discord w/ multitasking livestreamofconsciousness)
-    -   Questions, Comments, Concerns?
--   Agenda
-    -   2:10 - 2:30 \| Check-In and Announcements
-    -   2:30 - 2:45 \| Experimental Methods Review
-    -   2:45 - 3:15 \| Anchoring Study (Part 1)
-    -   3:15 - 3:30 \| Mega Break Time
-    -   3:30 - 3:55 \| Anchoring Study (Part 2)
-    -   3:55 - 4:00 \| Mini Break Time
-    -   4:00 - 4:30 \| Introduction to Sampling Error and Bias
-    -   4:30 - 5:00 \| Conclusion
+::: {.column width="40%"}
+![](images/clipboard-3930160087.png)
+:::
+:::::
+::::::
+
+## Check-In Review (see Prof. R Script)
 
 ## Experimental Methods
 
-### The Definition of Causality
+### The Definition of Causality {.smaller}
 
 1.  The cause and effect are contiguous in space and time.
 2.  The cause must be prior to the effect. (no reverse causation)
 3.  There must be a constant union betwixt the cause and effect. (“Tis chiefly this quality, that constitutes the relation.”) (no random chance)
-4.  The same cause always produces the same effect, and the same effect never arises but from the same cause. (not "just" some third variable)\[\^1\]
+4.  The same cause always produces the same effect, and the same effect never arises but from the same cause. (not "just" some third variable)
 
-\[\^1\]but remember, life is complex and there are often multiple causes of human behavior!
+### Manipulation : Watch out for Misleading Control Variables {.smaller}
 
-### Manipulation : Watch out for Misleading Control Variables
+**RECAP : the manipulation (A/B Testing) :**
 
--   RECAP : the manipulation (A/B Testing) : researchers create multiple groups (conditions) and change ONE THING (the IV) about a person’s experience in each group & observe the result (the DV).
-    -   treatment / experimental condition : the IV is present (the change happens)
-    -   control / comparison condition : the IV is absent (the default experience / no change)
-    -   KEY IDEA : the comparison group matters!
--   Example : sitting in a 3 statistics and research methods class…
-    -   DECREASES boredom compared to…
-        -   example go here
-    -   INCREASES boredom compared to…
-        -   example go here
+-   researchers create multiple groups (conditions) and change ONE THING (the IV) about a person’s experience in each group & observe the result (the DV).
+
+    -   **treatment / experimental condition :** the IV is present (the change happens)
+
+    -   **control / comparison condition :** the IV is absent (the default experience / no change)
+
+-   KEY IDEA : the comparison group matters!
+
+    -   a 3 hour stats class DECREASES boredom compared to…
+
+    -   a 3 hour stats class INCREASES boredom compared to…
 
 ### Real-Life Examples of Difficult Control Conditions
 
-#### Power Posing Study\*\*[^1] Is this a fair comparison / manipulation? Why / why not?
+**Power Posing Study.** Is this a fair comparison / manipulation? Why / why not?
 
-[^1]: Carney, D. R., Cuddy, A. J., & Yap, A. J. (2010). Power posing: Brief nonverbal displays affect neuroendocrine levels and risk tolerance. Psychological science, 21(10), 1363-1368. [link to article](https://faculty.haas.berkeley.edu/dana_carney/power.poses.PS.2010.pdf) + [link to summary of non-replication](https://www.sciencedaily.com/releases/2017/09/170911095932.htm)
+::::: columns
+::: {.column width="50%"}
+[![Carney, D. R., Cuddy, A. J., & Yap, A. J. (2010). Power posing: Brief nonverbal displays affect neuroendocrine levels and risk tolerance. Psychological science, 21(10), 1363-1368.](images/clipboard-2384287427.png)](https://faculty.haas.berkeley.edu/dana_carney/power.poses.PS.2010.pdf)
+:::
 
-![](images/clipboard-2384287427.png)
+::: {.column width="50%"}
+![](images/clipboard-84627212.png)
+:::
+:::::
 
-#### Gratitude Study:
+### Gratitude Study {.smaller}
 
-Read the prompt below. Answer the following questions in your breakout room discussion.
+::::: columns
+::: {.column width="40%"}
+Read the prompt below. Answer the following questions.
 
 1.  ICE-BREAKER : What's something that you are grateful for?
 2.  What did the experimenters manipulate? Which of these were experimental and control conditions?
 3.  What are some other things that differ between the experimental and control conditions (potential confounds)?
 4.  What are some other (better) control conditions that you might include in this study?
+:::
 
-[ ](images/clipboard-2207627893.png)
+::: {.column width="60%"}
+![](images/clipboard-2207627893-01.png){fig-align="center"}
+:::
+:::::
 
 ## Anchoring as an Experiment
 
-### The Theory and Experimental Design
+### Experimental Design : The Manipulation
 
 | High Condition | Low Condition | Control Condition |
-|----------------|---------------|-------------------|
-|                |               |                   |
+|------------------------|------------------------|------------------------|
+| ![](images/clipboard-3273817600.png) | ![](images/clipboard-1517485462.png) | ![](images/clipboard-3157047965.png) |
 
-| Key Term and Definition | Example in the Anchoring Study |
-|--------------------------------------------------|----------------------|
-| **outcome =** THE DV = what was being measured *after* the manipulation? |  |
-| **manipulation** = THE IV = what were ALL the things that the researcher changed about a person's experience (across experimental conditions)? |  |
-| **random assignment** = were all possible confound variables balanced across conditions? |  |
-| **double-blind** = did the study avoid demand characteristics (where experimenter might have influenced behavior when giving the study) & placebo effects (where participants might have acted in a certain way because they knew they were being experimented on)? |  |
-| **generalizability =** did the study have external validity? what was the effect size (R2)? |  |
-| **ethics =** should researchers do this type of study? (Predict & Control) |  |
+### Experimental Design (Other Terms){.smaller}
 
-### Anchoring : Data to Test the Theory
+::::: columns
+::: {.column width="50%"}
+| High Condition | Low Condition | Control Condition |
+|------------------------|------------------------|------------------------|
+| ![](images/clipboard-3273817600.png) | ![](images/clipboard-1517485462.png) | ![](images/clipboard-3157047965.png) |
+:::
 
-IN BREAKOUT ROOMS!!!
+::: {.column width="50%"}
+-   **outcome =** THE DV = what was being measured after the manipulation?
+
+-   **manipulation =** THE IV = what were ALL the things that the researcher changed about a person's experience (across experimental conditions)?
+
+-   **random assignment =** were all possible confound variables balanced across conditions?
+
+-   **double-blind =** did the study avoid demand characteristics (where experimenter might have influenced behavior when giving the study) & placebo effects (where participants might have acted in a certain way because they knew they were being experimented on)?
+
+-   **generalizability =** did the study have external validity? what was the effect size ($R^2$)?
+
+-   **ethics =** should researchers do this type of study? (Predict & Control)
+:::
+:::::
+
+### Anchoring : Question --\> Theory --\> Data {.smaller}
 
 -   **Question :** Will the number that people see BEFORE making their own rating influence their decision?
 
@@ -115,37 +150,34 @@ IN BREAKOUT ROOMS!!!
     -   OPTION B : People who see a LOWER number before making their own rating will make a HIGHER number than people who see the HIGHER number.
     -   OPTION C : There will be NO DIFFERENCES between the groups.
 
--   **Linear Models :** DV \~ IV
+### Linear Models {.smaller}
 
--   **Data :** the “anchor_SP25.csv" dataset
+See Prof. R Code :)
 
-    -   Load the data and check to make sure the data loaded correctly.
-    -   Graph the variables; remove outliers and / or empty levels.
+# Milestone 3 : Launch Your Study & Draft Your Measures
 
--   **Results :**
+### Milestone 3 : Launch Your Study
 
-    -   Define your Linear Models
-    -   Interpret Your Results
+![](images/clipboard-1056383052.png){fig-align="center" width="80%"}
 
--   **Discuss :**
+### Milestone 3 : Draft Your Measures
 
-    -   Why do we observe this pattern?
-    -   How could we use this knowledge in real-life?
-    -   What other questions do you have? What else would you want to learn about?
+::::: columns
+::: {.column width="50%"}
+Guidelines
 
-## BREAK TIME :
+![](images/clipboard-3724117068.png){fig-align="center" width="80%"}
+:::
 
-## FOCUS YOUR POWER
+::: {.column width="50%"}
+Use Related Research as Examples
 
-## Is this the real life? Is this just fantasy? (Sampling Error and Bias)
+![](images/clipboard-141387043.png){fig-align="center" width="80%"}
+:::
+:::::
 
--   **KEY IDEA :** A good sample is a random sample: each individual in the population has an equal chance of being selected in your sample. your sample will never equal the population.
--   **Sampling bias :** the sample is different from the population because of some error in our method of sampling that influences the dependent variable in a predictable way.
-    -   **Examples :**
-        -   **Self-Selection Bias :** People CHOOSE to be in the study.
-        -   **Survivor Bias :** Participants may drop out, and you are only collecting data from a specific group of people who “lasted”.
-        -   **Many Other Types Exist :** Wikipedia has a very long list of types of sampling biases.
-    -   **GOAL :** identify sources of bias and minimize / test to see their influence.
--   **Sampling error :** the sample is different from the population because of random reasons.
-    -   **Example :** even if your sample has zero bias, there will always be some amount of sampling error unless you survey the ENTIRE population.
-    -   **Goal :** Model the role of CHANCE in influencing the relationship between two variables.
+::::::
+
+## THE END.
+
+![](https://www.gif-vif.com/trending/frog-dance-frog.gif.pagespeed.ce.P7TEOgyG1P.gif){fig-align="center"}
