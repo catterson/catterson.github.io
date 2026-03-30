@@ -4,23 +4,22 @@ format: html
 editor: visual
 ---
 
-# Week 3 - Monday, March 16th
+# Week 3 - Monday, March 30th
 
 :::::: {.callout-note collapse="true"}
 ### Announcements and Agenda
 
 ::::: columns
 ::: {.column width="50%"}
-**Welcome! We will get started soon. In the meantime, please complete the following :**
-
--   **Check-In :** still graded for completion; a warmup.
--   **Lab 1 Key Posted :** will discuss!
+-   **Welcome back!** Please complete the check-in.
+-   **Next Week :** Professor on Zoom; You (and GSI Max!) in Class.
 :::
 
 ::: {.column width="50%"}
--   **10:10 - 11:30.** Check-In and Review (Linear Models)
--   **11:30 - 11:45.** Break Time
--   **11:45 - 1:00.** Objectivity Armoring and Likert Scales
+-   **10:10 - 10:40.** Check-In and Linear Model Review
+-   **10:40 - 11:20.** Introduction to Sampling Error
+-   **11:20 - 11:30.** Break Time
+-   **11:30 - 1:00.** NHST and Objectivity Armoring
 :::
 :::::
 ::::::
@@ -28,23 +27,71 @@ editor: visual
 ### Class Slides and Materials
 
 ```{=html}
-<iframe data-external="1" class="slide-deck" src="/macssstats/slides/2_modelscales.html" width="100%" height="500px" title=""></iframe>
+<iframe data-external="1" class="slide-deck" src="/macssstats/slides/3_assumeboot.html" width="100%" height="500px" title=""></iframe>
 ```
 
--   [**Check-In**](https://docs.google.com/forms/d/e/1FAIpQLSdUuPUWN5_lkHw8DkudwT0--qu8eEFurLSYeJ227V37LC3g1A/viewform?usp=header) **:** Use R to DESCRIBE, PREDICT, evaluate ERROR, and think about how you might use the knowledge to CONTROL OUTCOMES!
-    -   [**the hormone dataset and codebook**](https://www.dropbox.com/scl/fo/2f7kaifml4sq8mq1c7dfi/ALPLJarvk4vomfrddx2Buyg?rlkey=i62g4s3nzeldyvvffgviolobi&dl=0)**.** from a study of business students at Berkeley.
+-   [**Check-In:**](https://forms.gle/5ssbRwitkAYyefxY6) practice working with linear models.
+-   **Dataset for Check-in :** [**the world happiness dataset and codebook.**](https://www.dropbox.com/scl/fo/ewbhqb3xk9g08g0wn6uar/ALtuaq6zRNh7r8w5dSR_8rY?rlkey=bwdg5faxf43rny9h3ucf0w2q8&dl=0)
 -   [**Professor Notes**](https://www.dropbox.com/scl/fo/1g76jzayvff4kwaldyn52/AOfNP20yVujSO5akd1U0k98?rlkey=1xs6rqsgdoj8pgls1efbawl7i&dl=0). My R scripts and other notes, saved in real-time.
 -   [**VISION BOARD**](https://docs.google.com/spreadsheets/d/11FZJ76JMBUkKYZRoWASrHhPIldmP7Pziz-WGnlIZuC4/edit?usp=sharing). Where we will share work we do in class.
 
 ### Additional Reading and Support Materials
 
--   **need a review of stats and R?** below are some relevant links from the stats textbook I use with my introductory classes. let me know if these are useful / you have ideas to make more useful :)
+::: {.callout-note collapse="true"}
+#### 1. READ THIS : Regression Assumptions
 
-    -   [**chapter 5 : the likert scale.**](https://catterson.github.io/ystats/chapters/5R_GoodMeasures.html#the-likert-scale) reviews the theory and calculation of a likert scale in R.
+The interpretation of our linear model depends on a variety of different assumptions being met. You can read more about these from the great [Gelman & Hill's textbook : Data Analysis Using Regression](https://www.dropbox.com/scl/fi/iuhs0x2un3d4ivhcc3rug/Gelman_Hill_RegressionAssumptions.pdf?rlkey=blhc8bcxypu0ar5wvzpruslqk&dl=0). But below is a TLDR, with a few ideas of my own thrown in :)
 
-    -   [**chapter 10 : multiple regression.**](https://catterson.github.io/ystats/chapters/10R_MultipleRegression.html) when you have more than one IV in your model.
+1.  **Validity.** Is your linear model the right model to answer the research question that you have? This is the big question, and often goes beyond the specific statistics that we are focusing on. Did you include the right variables in your model, or are you leaving something out? Are you studying the right sample of people, drawn from the right population? Are your measures valid? This is hard to do, and good to remember that it is hard so you ask yourself "am I doing a good job"?
 
--   [**on measuring constructs**](https://openpublishing.princeton.edu/read/measuring-constructs/section/ac12c4e3-9b41-4dab-a61d-0c6615869b75)**.** a much more in-depth review of measurement, sources of error, and considerations when working with likert scales.
+2.  **Reliability of Measures.** The variables in your linear model should be measured with low error (“garbage in, garbage out”). There are different ways to assess reliability.
+
+    -   **Cronbach's alpha** (`psych::alpha()`) is good for assessing the inter-item reliability of a likert scale.
+
+    -   **The Intraclass Correlation Coefficient (ICC)** is often used for observational ratings where multiple judges form impressions of the same target.
+
+    -   **Test-retest reliability** is a great way to ensure that physiological or single-item measures will yield repeatable measures over time (assuming the target of measurement has not changed between time points). One way to test this is to define a linear model to predict the measure at one time point from the measure at another; you'd expect to see a strong relationship.
+
+3.  **Independence.** This is a big one - the residuals in your model need to be unrelated to each other. That is, I should not be able to predict the value of one error from another error. When the data in a linear model come from distinct individuals who are unrelated to each other, this assumption is usually considered to be met. However, there are often types of studies where the data are not independent.
+
+    -   **Nested Data :** Often times, individuals in a dataset belong to a group where there's a clear dependence. For example, the happiness of individual members of a family is probably dependent on one another (since they share the same environment, stressors, etc.); the test-scores of children in a school are probably all related to each other (since they share the same teachers, administrators, funding, lead exposure in the drinking water, etc.)
+
+    -   **Repeated Measures :** If a person is measured multiple times, then their data at one time point will be related to their data at the second time point, since they are coming from the same person, with the same past experiences and beliefs and genetics and all that other good stuff.
+
+    If the data are not independent, then we will need to account for the dependence in the data. We will learn to do this when we review Multilevel Linear Models. (Spoiler : it's more lines.)
+
+4.  **Linearity.** The dependent (outcome) variable should be the result of one or more linear functions (slopes). In other words, the outcome is the result of a bunch of straight lines. If the straight lines don't properly "fit" or "explain" your data, then maybe you need some non-straight lines...you could bend the line (add a quadratic term), look for an interaction term (that tests whether there's a multiplicative relationship between the variables), or apply a non-linear transformation to the data (i.e., often times income is log transformed, since a 9,000 point difference between 1000 and 10,000 dollars/month is not the same as a 9,000 point difference between 1,000,000 and 1,009,000 dollars/month).
+
+5.  **Equal Variance of Errors (Homoscedasticity).** The errors associated with the predicted values of the DV (the residuals) should be similar for all different values of the IV. Homoscedasticity means that the residual errors in our outcome variable are distributed the same across the different values of the IV. Heteroscedasticity means there is some non-constant variability in errors, which means that your model may not be an appropriate explanation of the data.
+
+6.  **Normality of Errors (Residuals and Sampling).** This assumption is less emphasized as our datasets have gotten larger, and methods for estimating sampling error have improved. But the basic idea is that statistics like confidence intervals and estimates of slopes assume that the errors in our model are normally distributed. If they are not, it's likely that your model is not appropriately fitting the data (i.e., maybe some outliers are influencing the results.)
+
+### Testing Assumptions in R
+
+Assumptions 1-3 require critical thinking about your methods and measures.
+
+Assumptions 4 and 5 can be examined using the plot() function in base R - you may have accidentally come across these when trying to graph your linear model.
+
+We talked about how to interpret these plots a little in lecture; here's [another tutorial](https://library.virginia.edu/data/articles/diagnostic-plots) that walks through the interpretation. Let us know (on Discord!) if you find another good example / explanation.
+
+```{r}
+#par(mfrow = c(2,2))
+#plot(mod)
+```
+
+Assumption 6 can be examined by graphing the residuals of your model object with a histogram.
+
+```{r}
+#par(mfrow = c(1,1))
+#hist(mod$residuals)
+```
+:::
+
+-   [**Bootstrapping Videos**](https://www.stat.auckland.ac.nz/~wild/BootAnim/) **:** A collection of videos that illustrate the principles of bootstrapping.
+
+-   [**Why Stats : Sampling Error and Bias.**](https://catterson.github.io/ystats/chapters/8R_SamplingError.html)A review of what we discussed in class today (focusing on NHST).
+
+-   [**On Interpreting Log-Transformed Slopes**](https://stats.oarc.ucla.edu/sas/faq/how-can-i-interpret-log-transformed-variables-in-terms-of-percent-change-in-linear-regression/)
 
 # For Next Week.
 
@@ -54,13 +101,34 @@ editor: visual
 
 -   [**Submit Your Response Here**](https://docs.google.com/forms/d/e/1FAIpQLSdGkCcxV80BCkshlZwLNomMMsZOxmOnvGjrdC1Z6w9YEnLltg/viewform?usp=publish-editor). We'll use these responses to guide our discussion of the article next week. Great to use your own voice; don't worry about sounding smart or having "perfect" english!
 
-## Lab 2. Self-Esteem Problems
+## Lab 3. Abstract Problems
 
 *Answer the questions below as a .PDF; make sure your code is visible alongside your output. Please make sure to adhere to the course AI policy, and please ask for help if you get stuck / are confused / professor made a mistake.*
 
-Psychologists often want to combine information from multiple questions (that measure the same construct) into one variable. For example, the Rosenberg (1965) self-esteem scale has 10 questions all related to self-esteem. Rather than work with 10 different variables, it might be nice to just average these 10 and report one average number (the likert scale).
+This lab has you analyze the quantitative data that were collected for the article on Objectivity Interrogations that we (hopefully!) discussed in class, and you (hopefully!!) read :)
 
-[**Access the self-esteem dataset.**](https://www.dropbox.com/scl/fo/p86q8aurtt58xriyc1ysz/ADdtNQZS78PFCiwTsmAOiLM?rlkey=79hnqwhudgczv9m44z37re2r8&dl=0)Look over the codebook to learn about the variables and how they were measured.
+-   [**Link to Dataset**](https://www.dropbox.com/scl/fo/0tjwkix4nf3as6epwwegl/AOjKKfcQO94h8D35WwbLriM?rlkey=5k6tccfxhhclskzmwicaek0b8&dl=0). The original dataset was in a .sav format (SPSS). It would be a good challenge to try and figure out how to load this into R. But if you get stuck / it's not working, I've also uploaded the same data as a .csv file.
 
-1.  **Create a self-esteem scale from the 10-items.** Make sure to reverse-score the negatively-keyed items so that for every question, higher numbers measure higher self-esteem. Graph this variable as a histogram, and make the graph look nice (ready for publication). Report the alpha reliability, mean, and standard deviation of this variable. Below your graph, describe what these statistics tell you about the self-esteem of the participants. Finally, evaluate the items in the likert scale - does this seem like a valid and reliable way to measure self-esteem? Do you think these questions would *generalize* to people across the world (why / why not?) What other questions do you have about this variable?
-2.  **Define a series of linear models** to determine a) whether there is a relationship between self-esteem and age, b) whether men and women differ in terms of their self-esteem, and c) which variable (age or gender) is a better predictor of self-esteem. For each linear model, make sure to report the relationship (slope), $R^2$ value. Conclude by explaining why you might find these patterns in the data, and how you might use this knowledge.
+### Problem 1. Abstract Problems, Linear Model Style.
+
+In the paper, the researchers predicted that scholars of color would be less likely to use power words (variable = `power`) in their abstracts than White scholars. Test this theory using a linear model.
+
+1.  Load the data and make sure the data loaded correctly.
+2.  Graph the variables that will go into your linear model, and do any data cleaning that's necessary. Make sure your IV is saved as a categorical variable.
+3.  Define the linear model. Graph the relationship between the two variables, report the slope, intercept, and R\^2 value, and explain what these terms mean.
+4.  Evaluate the assumptions of regression for this linear model. Does the model seem properly defined?
+5.  That's right; it's time to estimate sampling error of the slope. Use bootstrapping to estimate the 95% Confidence Interval for the slope, and explain what this statistics tells you about the relationship between the DV and the IV.
+6.  Now use NHST to estimate the sampling error. Did you get similar results to the bootstrapping approach?
+7.  Finally, conclude - was the researcher's theory supported?
+
+### Problem 2. Abstract Problems, No Linear Models Allowed
+
+In the paper, the researchers predicted that scholars of color would be less likely to use power words (variable = `power`) in their abstracts than White scholars. Test this theory without using a linear model.
+
+1.  Split the dataset into two new dataframes based on the variable `pocu`; confirm that this worked.
+
+2.  Graph the number of power words used for each group. Then, report the mean number of `power` words used for each group. Finally, report the difference in these means.
+
+3.  Use a for-loop to estimate the sampling error we might expect for a) the mean power for scholars of color, b) the mean power words for white scholars, and c) the difference between these means (you should be able to do this in one for-loop, but may need three separate "buckets" to save each of the three statistics.) Report these three average sampling errors. Then, calculate the 95% Confidence Interval for the difference in means. How does this statistic influence your understanding of the difference in power words between scholars of color and White scholars?
+
+4.  Reflect on the difference in power words between scholars of color and White scholars; how large does this difference seem? Note : there are lots of different ways to think about differences....less important to get the "stats" right here, and more important to just demonstrate you are thinking about ways you might contextualize this difference between one mean and another.

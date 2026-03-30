@@ -429,7 +429,7 @@ hist(h$TESTAVG, breaks = 20)
 ## Lab 2 : Working With the Self-Esteem Dataset {.smaller}
 
 | Likert Scale Item | Positive or Negative Key Item*"Yes" = High in Self-Esteem = Positive Key.* | Any Issues of Face Validity? |
-|----------------------------------|-------------------|--------------------|
+|----|----|----|
 | Q1. I feel that I am a person of worth, at least on an equal plane with others. |  |  |
 | Q2. I feel that I have a number of good qualities. |  |  |
 | Q3. All in all, I am inclined to feel that I am a failure. |  |  |

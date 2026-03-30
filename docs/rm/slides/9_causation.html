@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>causation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-f93c2b1f3f0577f377aefa4848a86a36.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#outline" id="toc-outline" class="nav-link active" data-scroll-target="#outline">Outline</a></li>
+  <li><a href="#check-in-valid-reliable-and-biased-personality" id="toc-check-in-valid-reliable-and-biased-personality" class="nav-link" data-scroll-target="#check-in-valid-reliable-and-biased-personality">CHECK-IN : valid, reliable, and biased personality</a></li>
+  <li><a href="#mtbi-and-big-five-personality-items" id="toc-mtbi-and-big-five-personality-items" class="nav-link" data-scroll-target="#mtbi-and-big-five-personality-items">MTBI and Big Five Personality Items</a></li>
+  <li><a href="#clap-which-one-big-five-or-myers-briggs" id="toc-clap-which-one-big-five-or-myers-briggs" class="nav-link" data-scroll-target="#clap-which-one-big-five-or-myers-briggs">CLAP : which one (big five or myers briggs)…</a>
+  <ul class="collapse">
+  <li><a href="#the-big-five-and-myers-briggs-in-our-class" id="toc-the-big-five-and-myers-briggs-in-our-class" class="nav-link" data-scroll-target="#the-big-five-and-myers-briggs-in-our-class">The Big Five and Myers-Briggs in our Class</a></li>
+  </ul></li>
+  <li><a href="#part-2-patterns-in-the-data" id="toc-part-2-patterns-in-the-data" class="nav-link" data-scroll-target="#part-2-patterns-in-the-data">Part 2 : Patterns in the Data</a>
+  <ul class="collapse">
+  <li><a href="#key-idea-statistics-describes-patterns-in-the-data" id="toc-key-idea-statistics-describes-patterns-in-the-data" class="nav-link" data-scroll-target="#key-idea-statistics-describes-patterns-in-the-data">KEY IDEA : statistics describes patterns in the data</a></li>
+  <li><a href="#key-idea-pictures-can-lie" id="toc-key-idea-pictures-can-lie" class="nav-link" data-scroll-target="#key-idea-pictures-can-lie">KEY IDEA : pictures can lie</a></li>
+  <li><a href="#key-idea-good-to-get-a-sense-of-how-large-patterns-are." id="toc-key-idea-good-to-get-a-sense-of-how-large-patterns-are." class="nav-link" data-scroll-target="#key-idea-good-to-get-a-sense-of-how-large-patterns-are.">KEY IDEA : good to get a sense of how large patterns are.</a></li>
+  </ul></li>
+  <li><a href="#part-3-digging-deeper" id="toc-part-3-digging-deeper" class="nav-link" data-scroll-target="#part-3-digging-deeper">Part 3 : Digging Deeper</a>
+  <ul class="collapse">
+  <li><a href="#activity-evaluate-the-measure-vision-board-review" id="toc-activity-evaluate-the-measure-vision-board-review" class="nav-link" data-scroll-target="#activity-evaluate-the-measure-vision-board-review">ACTIVITY : evaluate the measure (vision board review)</a></li>
+  </ul></li>
+  <li><a href="#next-week-experiments-patterns-in-data" id="toc-next-week-experiments-patterns-in-data" class="nav-link" data-scroll-target="#next-week-experiments-patterns-in-data">NEXT WEEK : Experiments &amp; Patterns in Data</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="9_causation.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="outline" class="level3">
+<h3 class="anchored" data-anchor-id="outline">Outline</h3>
+<ol type="1">
+<li>Check-in. Interpreting patterns [20 min.]</li>
+<li>Review. Dig Deeper (finding right results…table..other questions.) [20 min.]</li>
+<li>Lecture &amp; Activity. Experiments</li>
+</ol>
+<ol type="a">
+<li>basics : google shade of blue</li>
+<li>advanced : comparisons matter; evaluating effect size (cohen’s d)</li>
+<li>activity : design an experiment</li>
+</ol>
+<ol start="4" type="1">
+<li>next class : sampling bias, sampling error [woof]</li>
+</ol>
+<ol type="a">
+<li>read : sampling error v. bias; evaluating sampling bias; thinking about sampling error.</li>
+<li>do : think about how bias might effect the results</li>
+</ol>
+</section>
+<section id="check-in-valid-reliable-and-biased-personality" class="level3">
+<h3 class="anchored" data-anchor-id="check-in-valid-reliable-and-biased-personality"><a href="https://forms.gle/g2Mfxiobu7qW1BgW9">CHECK-IN : valid, reliable, and biased personality</a></h3>
+<ol type="1">
+<li><a href="https://www.myersbriggs.org/research-and-library/validity-reliability/">source 1</a></li>
+<li><a href="https://www.themyersbriggs.com/en-US/Support/MBTI-Facts#test-retest">source 2</a></li>
+</ol>
+<div class="r-fit-text">
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-662971673.png" class="img-fluid figure-img"></p>
+<figcaption>an answer sheet card used in Myers’ early stages of developing the MBTIto find the right jobs for women who had no work experience outside the home.</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2546893275.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="A photo of Katharine Briggs on the left and her daughter Isabel Myers from 1923."></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="mtbi-and-big-five-personality-items" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="mtbi-and-big-five-personality-items">MTBI and Big Five Personality Items</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Myers-Briggs Items</p>
+<pre><code>1. You regularly make new friends.
+2. Complex and novel ideas excite you more than simple and straightforward ones.
+3. You usually feel more persuaded by what resonates emotionally with you than by factual arguments.
+4. Your living and working spaces are clean and organized.
+5. You usually stay calm, even under a lot of pressure.
+6. You find the idea of networking or promoting yourself to strangers very daunting.
+7. You prioritize and plan tasks effectively, often completing them well before the deadline.
+8. People’s stories and emotions speak louder to you than numbers or data.
+9. You like to use organizing tools like schedules and lists.
+10. Even a small mistake can cause you to doubt your overall abilities and knowledge.
+11. You feel comfortable just walking up to someone you find interesting and striking up a conversation.
+12. You are not too interested in discussions about various interpretations of creative works.
+13. You prioritize facts over people’s feelings when determining a course of action.
+14. You often allow the day to unfold without any schedule at all.
+15. You rarely worry about whether you make a good impression on people you meet.
+16. You enjoy participating in team-based activities.
+17. You enjoy experimenting with new and untested approaches.
+18. You prioritize being sensitive over being completely honest.
+19. You actively seek out new experiences and knowledge areas to explore.
+20. You are prone to worrying that things will take a turn for the worse.
+21. You enjoy solitary hobbies or activities more than group ones.
+22. You cannot imagine yourself writing fictional stories for a living.
+23. You favor efficiency in decisions, even if it means disregarding some emotional aspects.
+24. You prefer to do your chores before allowing yourself to relax.
+25. In disagreements, you prioritize proving your point over preserving the feelings of others.
+26. You usually wait for others to introduce themselves first at social gatherings.
+27. Your mood can change very quickly.
+28. You are not easily swayed by emotional arguments.
+29. You often end up doing things at the last possible moment.
+30. You enjoy debating ethical dilemmas.
+31. You usually prefer to be around others rather than on your own.
+32. You become bored or lose interest when the discussion gets highly theoretical.
+33. When facts and feelings conflict, you usually find yourself following your heart.
+34. You find it challenging to maintain a consistent work or study schedule.
+35. You rarely second-guess the choices that you have made.
+36. Your friends would describe you as lively and outgoing.
+37. You are drawn to various forms of creative expression, such as writing.
+38. You usually base your choices on objective facts rather than emotional impressions.
+39. You like to have a to-do list for each day.
+40. You rarely feel insecure.
+41. You avoid making phone calls.
+42. You enjoy exploring unfamiliar ideas and viewpoints.
+43. You can easily connect with people you have just met.
+44. If your plans are interrupted, your top priority is to get back on track as soon as possible.
+45. You are still bothered by mistakes that you made a long time ago.
+46. You are not too interested in discussing theories on what the world could look like in the future.
+47. Your emotions control you more than you control them.
+48. When making decisions, you focus more on how the affected people might feel than on what is most logical or efficient.
+49. Your personal work style is closer to spontaneous bursts of energy than organized and consistent efforts.
+50. When someone thinks highly of you, you wonder how long it will take them to feel disappointed in you.
+51. You would love a job that requires you to work alone most of the time.
+52. You believe that pondering abstract philosophical questions is a waste of time.
+53. You feel more drawn to busy, bustling atmospheres than to quiet, intimate places.
+54. If a decision feels right to you, you often act on it without needing further proof.
+55. You often feel overwhelmed.
+56. You complete things methodically without skipping over any steps.
+57. You prefer tasks that require you to come up with creative solutions rather than follow concrete steps.
+58. You are more likely to rely on emotional intuition than logical reasoning when making a choice.
+59. You struggle with deadlines.
+60. You feel confident that things will work out for you.</code></pre>
+</div><div class="column" style="width:50%;">
+<p>Big Five Items</p>
+<pre><code>1. Is outgoing, sociable.
+2. Is compassionate, has a soft heart.
+3. Tends to be disorganized.
+4. Is relaxed, handles stress well.
+5. Has few artistic interests.
+6. Has an assertive personality.
+7. Is respectful, treats others with respect.
+8. Tends to be lazy.
+9. Stays optimistic after experiencing a setback.
+10. Is curious about many different things.
+11. Rarely feels excited or eager.
+12. Tends to find fault with others.
+13. Is dependable, steady.
+14. Is moody, has up and down mood swings.
+15. Is inventive, finds clever ways to do things.
+16. Tends to be quiet.
+17. Feels little sympathy for others.
+18. Is systematic, likes to keep things in order.
+19. Can be tense.
+20. Is fascinated by art, music, or literature.
+21. Is dominant, acts as a leader.
+22. Starts arguments with others.
+23. Has difficulty getting started on tasks.
+24. Feels secure, comfortable with self.
+25. Avoids intellectual, philosophical discussions.
+26. Is less active than other people.
+27. Has a forgiving nature.
+28. Can be somewhat careless.
+29. Is emotionally stable, not easily upset.
+30. Has little creativity.
+31. Is sometimes shy, introverted.
+32. Is helpful and unselfish with others.
+33. Keeps things neat and tidy.
+34. Worries a lot.
+35. Values art and beauty.
+36. Finds it hard to influence people.
+37. Is sometimes rude to others.
+38. Is efficient, gets things done.
+39. Often feels sad.
+40. Is complex, a deep thinker.
+41. Is full of energy.
+42. Is suspicious of others’ intentions.
+43. Is reliable, can always be counted on.
+44. Keeps their emotions under control.
+45. Has difficulty imagining things.
+46. Is talkative.
+47. Can be cold and uncaring.
+48. Leaves a mess, doesn’t clean up.
+49. Rarely feels anxious or afraid.
+50. Thinks poetry and plays are boring.
+51. Prefers to have others take charge.
+52. Is polite, courteous to others.
+53. Is persistent, works until the task is finished.
+54. Tends to feel depressed, blue.
+55. Has little interest in abstract ideas.
+56. Shows a lot of enthusiasm.
+57. Assumes the best about people.
+58. Sometimes behaves irresponsibly.
+59. Is temperamental, gets emotional easily.
+60. Is original, comes up with new ideas.</code></pre>
+</div>
+</div>
+</section>
+<section id="clap-which-one-big-five-or-myers-briggs" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="clap-which-one-big-five-or-myers-briggs">CLAP : which one (big five or myers briggs)…</h2>
+<p>…was the most interesting to take?</p>
+<p>…gave you the most valid feedback?</p>
+<p>…seemed the most scientific?</p>
+<section id="the-big-five-and-myers-briggs-in-our-class" class="level3">
+<h3 class="anchored" data-anchor-id="the-big-five-and-myers-briggs-in-our-class"><a href="../../rm/readings/Personality.html">The Big Five and Myers-Briggs in our Class</a></h3>
+</section>
+</section>
+<section id="part-2-patterns-in-the-data" class="level1 smaller">
+<h1 class="smaller">Part 2 : Patterns in the Data</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1988441143.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>John Snow’s cholera data</figcaption>
+</figure>
+</div>
+<section id="key-idea-statistics-describes-patterns-in-the-data" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="key-idea-statistics-describes-patterns-in-the-data">KEY IDEA : statistics describes patterns in the data</h3>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>In the linear regression analysis, lead authors of color again wrote abstracts with significantly fewer power words&nbsp;<em>B</em> = − 0.102, <em>t</em>(1191) = − 3.497, <em>p</em> &lt; 0.001. (From the <a href="https://www.nature.com/articles/s41598-024-63236-z#Sec18">Objectivity Interrogations</a> article.)</p>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'gplots'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:stats':
+
+    lowess</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="9_causation_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="key-idea-pictures-can-lie" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="key-idea-pictures-can-lie">KEY IDEA : pictures can lie</h3>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>In the linear regression analysis, lead authors of color again wrote abstracts with significantly fewer power words&nbsp;<em>B</em> = − 0.102, <em>t</em>(1191) = − 3.497, <em>p</em> &lt; 0.001. (From the <a href="https://www.nature.com/articles/s41598-024-63236-z#Sec18">Objectivity Interrogations</a> article.)</p>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in arrows(x, li, x, pmax(y - gap, li), col = barcol, lwd = lwd, :
+zero-length arrow is of indeterminate angle and so skipped
+Warning in arrows(x, li, x, pmax(y - gap, li), col = barcol, lwd = lwd, :
+zero-length arrow is of indeterminate angle and so skipped</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in arrows(x, ui, x, pmin(y + gap, ui), col = barcol, lwd = lwd, :
+zero-length arrow is of indeterminate angle and so skipped
+Warning in arrows(x, ui, x, pmin(y + gap, ui), col = barcol, lwd = lwd, :
+zero-length arrow is of indeterminate angle and so skipped</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="9_causation_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="key-idea-good-to-get-a-sense-of-how-large-patterns-are." class="level3">
+<h3 class="anchored" data-anchor-id="key-idea-good-to-get-a-sense-of-how-large-patterns-are.">KEY IDEA : good to get a sense of how large patterns are.</h3>
+<ul>
+<li><p><a href="https://www.dropbox.com/s/r0uwvdqezzvlvdb/2001_Meyer_EffectSizes.pdf?dl=0">Meyer et al.&nbsp;(2001) article on effect sizes</a>.</p></li>
+<li><p><a href="https://rpsychologist.com/correlation/">Correlation Visualizer</a></p></li>
+<li><p><a href="https://www.guessthecorrelation.com">Guess the Correlation</a></p></li>
+</ul>
+<p><img src="images/clipboard-1495463599.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="part-3-digging-deeper" class="level1 smaller">
+<h1 class="smaller">Part 3 : <a href="https://catterson.github.io/rm/notes/digdeeper.html">Digging Deeper</a></h1>
+<section id="activity-evaluate-the-measure-vision-board-review" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="activity-evaluate-the-measure-vision-board-review">ACTIVITY : evaluate the measure (<a href="https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing">vision board review</a>)</h2>
+<p><img src="images/clipboard-2150884350.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="next-week-experiments-patterns-in-data" class="level1">
+<h1>NEXT WEEK : Experiments &amp; Patterns in Data</h1>
+<p>BYE.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.gif-vif.com/trending/frog-dance-frog.gif.pagespeed.ce.P7TEOgyG1P.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
