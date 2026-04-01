@@ -14,11 +14,11 @@ tbl-colwidths: [50,50]
 
 # "Statistical Significance"
 
-### The Linear Model : Prediction (& Error) in Our Dataset {.smaller}
+### So Far : Prediction (& Error) in Our Dataset {.smaller}
 
-:::: {.columns}
-    
-::: {.column width="40%"}
+::::: columns
+::: {.column width="60%"}
+There is a relationship between age and narcissism (b = -.06). Older people (IN OUR DATASET) report being lower in narcissism than younger people (IN OUR DATASET).
 
 ```{r}
 #| echo: false
@@ -30,24 +30,18 @@ age.mod <- lm(NPI ~ age, data = mba)
 par(mfrow = c(1,1))
 plot(NPI ~ age, data = mba, pch = 19, xlab = "Age", ylab = "Narcissism (NPI)")
 abline(age.mod, lwd = 5, col = 'red')
-coef(age.mod)
+round(coef(age.mod), 2)
 ```
-
 :::
-    
-::: {.column width="60%"}
 
-There is a relationship between age and narcissism (b = -.06). Older people (IN OUR DATASET) report being lower in narcissism than younger people (IN OUR DATASET).
-
+::: {.column width="40%"}
 **Question : can we use the information IN OUR DATASET to make a claim about PEOPLE IN GENERAL????**
-
 :::
-    
-::::
+:::::
 
 ### Inferential Statistics : Population and Sample {.smaller}
 
-**Goal : use our data to learn something about *people in general*?**
+**Goal : use some data to learn about *a larger population*?**
 
 ::::: columns
 ::: {.column width="50%"}
@@ -67,7 +61,6 @@ There is a relationship between age and narcissism (b = -.06). Older people (IN 
 
 ::::: columns
 ::: {.column width="50%"}
-
 **sampling bias** = predictable mistakes in sampling.
 
 -   critical thinking skills
@@ -85,6 +78,10 @@ There is a relationship between age and narcissism (b = -.06). Older people (IN 
 [![Lima-Oliveira, G., Guidi, G. C., Salvagno, G. L., Danese, E., Montagnana, M., & Lippi, G. (2017). Patient posture for blood collection by venipuncture: recall for standardization after 28 years. Revista brasileira de hematologia e hemoterapia, 39(2), 127–132. https://doi.org/10.1016/j.bjhh.2017.01.004](images/clipboard-3239626908.png){fig-align="center"}](https://pmc.ncbi.nlm.nih.gov/articles/PMC5457469/)
 :::
 :::::
+
+### Sample Bias and Scientific Lying
+
+![](images/clipboard-864377562.png){fig-align="center" width="60%"}
 
 ## Inferential Statistics : standard error, t-value, and the p-value. {.smaller}
 
@@ -117,9 +114,6 @@ summary(age.mod)
 
 ::::: columns
 ::: {.column width="40%"}
-$$
-\text{standard error (SE)} = \frac{\sigma}{\sqrt{n}}
-$$
 
 ```{r}
 #| echo: false
@@ -137,6 +131,12 @@ plot(x, y, type="l", lwd=2, col="blue",
      ylab="Density (Total Probability)", xlab="Distribution of Sample Estimates (T-Distribution)")
 abline(v = c(-.022,.022), lty = "dashed")
 ```
+
+$$
+\text{standard error (SE)} = \frac{\sigma}{\sqrt{n}}
+$$
+
+
 :::
 
 ::: {.column width="60%"}
@@ -150,9 +150,6 @@ summary(age.mod)
 
 ::::: columns
 ::: {.column width="40%"}
-$$
-t = \frac{b}{SE}
-$$
 
 ```{r}
 #| echo: false
@@ -175,6 +172,12 @@ plot(x, y, type="l", lwd=2, col="blue",
      ylab="Density (Total Probability)", xlab="T-Distribution")
 abline(v=-t_crit, col="darkred", lwd=2, lty=2)
 ```
+
+$$
+t = \frac{b}{SE}
+$$
+
+
 :::
 
 ::: {.column width="60%"}
@@ -188,7 +191,6 @@ summary(age.mod)
 
 ::::: columns
 ::: {.column width="40%"}
-$p = Pr(Ts \geq |t_{\text{obs}}| \mid H_0)$
 
 ```{r}
 #| echo: false
@@ -225,6 +227,10 @@ polygon(c(-4, x_left, -t_crit), c(0, y_left, 0), col="red", border=NA)
 abline(v=c(-t_crit, t_crit), col="darkred", lwd=2, lty=2)
 axis(1, at=c(-t_crit, t_crit), labels=c(round(-t_crit, 2), round(t_crit, 2)))
 ```
+
+$p = Pr(Ts \geq |t_{\text{obs}}| \mid H_0)$
+
+
 :::
 
 ::: {.column width="60%"}
@@ -237,9 +243,9 @@ summary(age.mod)
 
 ### TLDR. {.smaller}
 
-1.  We estimate how much sampling error there might be.
-2.  We compare the slope we found to this guess about sampling error.
-3.  If t-value is high (and p-value is low) then our slope is VERY DIFFERENT from sampling error and we can reject the null hypothesis.
+1.  We estimate how much sampling error there might be (if the null hypothesis were "true").
+2.  We compare the slope we found in our one study to this guess about sampling error.
+3.  If t-value is high (and p-value is low) then our slope is VERY DIFFERENT from sampling error we would expect if the null were true and we can reject the null hypothesis.
 4.  This is all made up : we might be making a mistake AND a "significant effect" doesn't mean large or important.
 
 ## Read More : Chapter on Inferential Statistics in *Why Statistics?*
