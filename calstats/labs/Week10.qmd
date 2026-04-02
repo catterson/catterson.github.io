@@ -6,23 +6,30 @@ editor: visual
 
 # Week 10 - Friday, April 10th
 
-### Announcements.
+## Announcements.
 
-Hi class. You are reading the words that I wrote; amazing! I can almost imagine speaking these words in our classroom; every seat full and the wifi is fast and our broken VGA and HDMI cables have been replaced by Chancellor Rich Lyons himself (smiling; a public servant).
+Hi class. Thank you for reading these words that I wrote. Does it sound like me? Can you make the voice sound like someone else? Amazing. I can almost imagine speaking these words in our classroom; every seat full and the wifi is fast and our broken VGA and HDMI cables have been replaced by Chancellor Rich Lyons himself (smiling; a public servant).
 
-Anyway, for this please complete the following :
+Anyway, hope y'all are enjoying the week off. For this week, please complete the following :
 
-1.  Watch these videos
-    1.  <https://youtu.be/HDWYz5ror4o>
-2.  Blah.
+1.  Complete this Check-In (thoughts on the R Exam.)
+2.  Watch the three videos below. 
+3.  Read Chapter 9.
+4.  Complete Quiz
 
-### Class Slides and Materials
+## Class Videos and Materials
+In the next part of our class, we'll discuss how scientists use information from the individuals they studied to make a prediction about what EVERYONE is like. This can be confusing, because scientists are just making up data to guess about what people they did not study are like, and often do so in confusing and misleading ways. But the good news is doing this in R is very easy, and you will learn, and we will review in class.
 
-```{=html}
-<iframe data-external="1" class="slide-deck" src="/calstats/Lectures/8_3LevelExperiment.html" width="800" height="500" title=""></iframe>
-```
+#### The Problem of Sampling and NHST [20 min]
+Focus on the difference between making predictions from our sample and the population, the difference between sampling error and bias, and get a quick(ish) overview of one (confusing) way we try to estimate sampling error called Null Hypothesis Significance Testing (NHST). The p-value and "significance" stuff you may remember from another stats class.
 
-# For Next Class.
+{{< video https://youtu.be/HDWYz5ror4o >}}
 
-1.  Watch these videos introducing NHST
-2.  Read Chapter 9 and take the Chapter Quiz
+#### More on Sampling Bias
+Professor discusses critical questions to consider when evaluating whether a sample is biased.
+
+{{< video https://youtu.be/-KE3pTzYljs >}}
+
+#### More on Sampling Error
+A 12-minute video focusing on “sampling error”, why researchers should care about it, and how it can be reduced. 
+{{< video https://youtu.be/fp1xsBMSBg0 >}}
