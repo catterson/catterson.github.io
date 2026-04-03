@@ -12,25 +12,27 @@ Hi class. Thank you for reading these words that I wrote. Does it sound like me?
 
 Anyway, hope y'all are enjoying the week off. For this week, please complete the following :
 
-1.  Complete this Check-In (thoughts on the R Exam.)
-2.  Watch the three videos below. 
-3.  Read Chapter 9.
-4.  Complete Quiz
-5.  Submit [Milestone #4](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0#bookmark=kix.f8xqppo2xcej). You will be exporting your Final Project data from Google Forms, getting it into a nice & clean format that R can read, and then showing that this worked. You'll work on this in discussion section the week of April 13th. 
+1.  **Complete this Check-In**. Your thoughts on the R Exam.
+2.  **Watch the three videos below.** (Or just the first video would probably be fine.)
+3.  **Read Chapter 8 and take the Reading Quiz.** We back.
+4.  **Submit [Milestone #4.](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0#bookmark=kix.f8xqppo2xcej)** You will be exporting your Final Project data from Google Forms, getting it into a nice & clean format that R can read, and then showing that this worked. You'll work on this in discussion section the week of April 13th.
 
-## Class Videos and Materials
+## Class Videos
+
 In the next part of our class, we'll discuss how scientists use information from the individuals they studied to make a prediction about what EVERYONE is like. This can be confusing, because scientists are just making up data to guess about what people they did not study are like, and often do so in confusing and misleading ways. But the good news is doing this in R is very easy, and you will learn, and we will review in class.
 
-#### The Problem of Sampling and NHST [20 min]
+#### The Problem of Sampling and NHST \[20 min\]
+
 Focus on the difference between making predictions from our sample and the population, the difference between sampling error and bias, and get a quick(ish) overview of one (confusing) way we try to estimate sampling error called Null Hypothesis Significance Testing (NHST). The p-value and "significance" stuff you may remember from another stats class.
 
 {{< video https://youtu.be/HDWYz5ror4o >}}
 
 #### More on Sampling Bias
+
 Professor discusses critical questions to consider when evaluating whether a sample is biased for those who want to learn more.
 
 {{< video https://youtu.be/-KE3pTzYljs >}}
 
 #### More on Sampling Error
-A 12-minute video focusing more on “sampling error” if you are interested, why researchers should care about it, and how it can be reduced. 
-{{< video https://youtu.be/fp1xsBMSBg0 >}}
+
+A 12-minute video focusing more on “sampling error” if you are interested, why researchers should care about it, and how it can be reduced. {{< video https://youtu.be/fp1xsBMSBg0 >}}
