@@ -29,10 +29,10 @@ plot(h$sexF)
 summary(h$sexF)
 ```
 
-### [Check-In (No R Needed)](){.smaller}
+### [Check-In (No R Needed)](https://forms.gle/TY8u4FYy3trcxWoq5){.smaller}
 
 ::::::::: panel-tabset
-#### Model 1. {.smaller}
+#### M1. {.smaller}
 
 ::::: columns
 ::: {.column width="50%"}
@@ -53,7 +53,7 @@ export_summs(mod1, error_pos = "right",
 :::
 :::::
 
-#### Model 1 (diagnostic).{.smaller}
+#### M1 (b).{.smaller}
 
 ```{r}
 #| fig-height: 5
@@ -62,7 +62,7 @@ par(mfrow = c(2,2))
 plot(mod1)
 ```
 
-#### Model 2.{.smaller}
+#### M2.{.smaller}
 
 ::::: columns
 ::: {.column width="50%"}
@@ -84,7 +84,7 @@ export_summs(mod2, error_pos = "right",
 :::::
 
 
-#### Model 2 (diagnostics){.smaller}
+#### M2 (b){.smaller}
 ```{r}
 #| fig-height: 5
 #| fig-width: 5
