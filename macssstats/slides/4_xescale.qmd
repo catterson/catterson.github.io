@@ -47,13 +47,22 @@ plotmeans(narc_scale ~ sexF, data = h, connect = F, xlab = "Sex", ylab = "Narcis
 
 ::: {.column width="50%"}
 ```{r}
-export_summs(mod1, error_format = "", error_pos = "right",
+export_summs(mod1, error_pos = "right",
              coefs = c("Sex (Male)" = "sexFMale"), digits = 3)
 ```
 :::
 :::::
 
-#### Model 2.
+#### Model 1 (diagnostic).{.smaller}
+
+```{r}
+#| fig-height: 5
+#| fig-width: 5
+par(mfrow = c(2,2))
+plot(mod1)
+```
+
+#### Model 2.{.smaller}
 
 ::::: columns
 ::: {.column width="50%"}
@@ -68,11 +77,22 @@ abline(mod2, lwd = 5, col = 'red')
 
 ::: {.column width="50%"}
 ```{r}
-export_summs(mod2, error_format = "", error_pos = "right",
+export_summs(mod2, error_pos = "right",
              coefs = c("Testosterone" = "test1"), digits = 3)
 ```
 :::
 :::::
+
+
+#### Model 2 (diagnostics){.smaller}
+```{r}
+#| fig-height: 5
+#| fig-width: 5
+par(mfrow = c(2,2))
+plot(mod2)
+```
+
+
 :::::::::
 
 # PART 1 : When Models Get Complicated
