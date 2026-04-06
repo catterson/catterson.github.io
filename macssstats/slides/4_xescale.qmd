@@ -8,7 +8,7 @@ format:
     controls: true
     auto-stretch: false
     code-overflow: wrap
-tbl-colwidths: [50,25,25]
+tbl-colwidths: [70,25]
 ---
 
 ```{r}
@@ -17,56 +17,11 @@ tbl-colwidths: [50,25,25]
 ## Hormone Dataset
 library(jtools)
 library(psych)
+library(gplots)
 library(ggplot2)
 h <- read.csv("~/Dropbox/!GRADSTATS/COMPSS222/Datasets/Class Datasets/Hormone Data/haas_hormone_dataset.csv", stringsAsFactors = T)
-nrow(h)
 
-
-```
-
-# Hello Again! {.smaller}
-
-[**Please complete this check-in as a warm-up!**](https://docs.google.com/forms/d/e/1FAIpQLSdUuPUWN5_lkHw8DkudwT0--qu8eEFurLSYeJ227V37LC3g1A/viewform?usp=header)
-
-::::: columns
-::: {.column width="60%"}
-**Use the [hormone dataset](https://www.dropbox.com/scl/fo/2f7kaifml4sq8mq1c7dfi/ALPLJarvk4vomfrddx2Buyg?rlkey=i62g4s3nzeldyvvffgviolobi&dl=0) to...**
-
--   DESCRIBE : what is the mean of narc_score & age? the % of male and female participants?
--   PREDICT : are there differences in the level of narcissism for males and females? why?
--   ERROR : how good is this prediction? do you believe in this pattern? why?
--   CONTROL : how might we use this knowledge? what other questions do you have?
-:::
-
-::: {.column width="40%"}
-**Description of Variables**
-
--   age = age of the participant (in years)
--   narc_score = a measure of narcissism (how much the person thinks they are better than others)
--   sex = biological sex (1 = male, 2 = female)
-:::
-:::::
-
-# PART 1 : The Linear Model (It's All Lines)
-
-### Check-In (And Linear Model) Review {.smaller}
-
-::::::::: panel-tabset
-#### Description (Number)
-
-```{r}
-par(mfrow = c(1,2))
-wrongage <- h$age
-hist(wrongage)
 h$age[h$age < 0] <- NA
-hist(h$age)
-knitr::kable(cbind(mean = mean(wrongage, na.rm = T),
-            mean = mean(h$age, na.rm = T)))
-```
-
-#### Description (Category)
-
-```{r}
 h$sexF <- as.factor(h$sex)
 levels(h$sexF) <- c("Male", "Female")
 h$sexF <- relevel(h$sexF, ref = "Female")
@@ -74,178 +29,106 @@ plot(h$sexF)
 summary(h$sexF)
 ```
 
-#### Predict : A Model
+### [Check-In (No R Needed)](){.smaller}
+
+::::::::: panel-tabset
+#### Model 1. {.smaller}
 
 ::::: columns
-::: {.column width="40%"}
+::: {.column width="50%"}
 ```{r}
-#| warning: false
-#| fig-height: 4
-#| fig-width: 4
-#| fig-align: center
+#| fig-height: 5
+#| fig-width: 5
 
-ggplot(h, aes(x = sexF, y = narc_scale)) + 
-  stat_summary(fun = mean, geom = "bar", width = .2) + 
-  geom_smooth(method = "lm", aes(group = 1), se = FALSE) + 
-  coord_cartesian(ylim = c(1, 5)) + 
-  xlab("Sex of Participant") + ylab("Narcissism Score (1-5 Scale)") + 
-  ggthemes::theme_base()
-
-```
-:::
-
-::: {.column width="60%"}
-```{r}
-library(jtools)
 mod1 <- lm(narc_scale ~ sexF, data = h)
-export_summs(mod1)
-```
-:::
-:::::
-
-#### Predict : The "Four Reasons"
-
-Which of these came to mind? Which are relevant?
-
-1.  Causation
-2.  Reverse Causation
-3.  Confound Variables
-4.  Chance (next class!)
-
-*Note : Correlation is not causation but causation will be correlated :)*
-
-#### To Define Error.
-
-::::: columns
-::: {.column width="50%"}
-```{r}
-#| fig-height: 7
-#| fig-width: 8
-
-par(mfrow = c(1,2))
-plot(h$narc_scale, pch = 19, main = "Black = The Mean")
-abline(h = mean(h$narc_scale, na.rm = T), lwd = 5)
-plot(h$narc_scale, col = h$sexF, pch = 19, main = "Black = Female; Red = Male")
-abline(h = coef(mod1)[1], col = 'black', lwd = 5)
-abline(h = coef(mod1)[1] + coef(mod1)[2], col = 'red', lwd = 5)
+plotmeans(narc_scale ~ sexF, data = h, connect = F, xlab = "Sex", ylab = "Narcissism (Scale)")
 ```
 :::
 
 ::: {.column width="50%"}
-$$
-\hat{Y} = a + b_1 * X_1 + {\epsilon}_i 
-$$
-
-$$
-{\epsilon}_i = \hat{Y} - (a + b_1 * X_1)
-$$ Error = Actual Scores - Predicted Values
-
 ```{r}
-#| echo: true
-
-SST <- sum((mod1$model$narc_scale - mean(mod1$model$narc_scale))^2) 
-SSM <- sum(mod1$residuals^2)
-SST
-SSM
-SST - SSM
-(SST - SSM)/SST
-summary(mod1)$r.squared # relative difference
+export_summs(mod1, error_format = "", error_pos = "right",
+             coefs = c("Sex (Male)" = "sexFMale"), digits = 3)
 ```
 :::
 :::::
 
-#### To Control
-
-How do we use this knowledge??
-:::::::::
-
-## ACTIVITY : In the Vision Board.
-
-**Predict narc_score from another variable in the hormone dataset (or the** [onboarding dataset (from last week)](https://www.dropbox.com/scl/fo/ln7vo5wta8u06mq0ha719/ADvvtqcFzK0TnvUQTtL-2U4?rlkey=h4johl6nr6ht451ci3ad8yv7v&dl=0)**?)**
-
--   DESCRIBE : your variables. What do you learn?
--   PREDICT : define the model. Why does it exist?
--   ERROR : evaluate the error ($R^2$; methods & measures too!) and compare this to the model from the check-in.
--   CONTROL : how might you use this knowledge?
-
-# When Models Get Complicated
-
-## Standardizing Variables {.smaller}
-
-```{r}
-#| echo: true
-#| fig-height: 5
-#| fig-width: 5
-
-plot(h$narc_scale ~ scale(h$narc_scale), 
-     xlab = "Narcissism Scale (Z-Scored)",
-     ylab = "Narcissism Scale (Raw Units)")
-```
-
-## Standardizing Terms in a Model (Z-Score) {.smaller}
-
-```{r}
-library(arm)
-mod1z <- standardize(mod1, NULL, TRUE)
-export_summs(mod1, mod1z)
-```
-
-## Multiple Regression {.smaller}
-
-:::::::::::: panel-tabset
-#### narcissism \~ sex
-
-Sex is related to narcissism...
+#### Model 2.
 
 ::::: columns
-::: {.column width="60%"}
+::: {.column width="50%"}
 ```{r}
-#| echo: true
-#| message: false
-#| warning: false
 #| fig-height: 5
 #| fig-width: 5
-library(gplots)
-plotmeans(narc_scale ~ sexF, data = h, connect = F)
-```
-:::
-
-::: {.column width="40%"}
-```{r}
-export_summs(mod1, error_format = "", scale = T, transform.response = TRUE)
-```
-:::
-:::::
-
-#### narcissism \~ test1
-
-Narcissism is also related to testosterone (a hormone).
-
-::::: columns
-::: {.column width="60%"}
-```{r}
-#| echo: true
-#| message: false
-#| warning: false
-#| fig-height: 5
-#| fig-width: 5
-
 mod2 <- lm(narc_scale ~ test1, data = h)
-plot(narc_scale ~ test1, data = h)
+plot(narc_scale ~ test1, data = h, xlab = "Testosterone", ylab = "Narcissism (Scale)")
 abline(mod2, lwd = 5, col = 'red')
 ```
 :::
 
-::: {.column width="40%"}
+::: {.column width="50%"}
 ```{r}
-export_summs(mod2, error_format = "", scale = T, transform.response = TRUE)
+export_summs(mod2, error_format = "", error_pos = "right",
+             coefs = c("Testosterone" = "test1"), digits = 3)
+```
+:::
+:::::
+:::::::::
+
+# PART 1 : When Models Get Complicated
+
+### Multiple Regression {.smaller}
+
+:::::::::::: panel-tabset
+#### Model 1. {.smaller}
+
+Sex is related to narcissism.
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-height: 5
+#| fig-width: 5
+
+mod1 <- lm(narc_scale ~ sexF, data = h)
+plotmeans(narc_scale ~ sexF, data = h, connect = F, xlab = "Sex", ylab = "Narcissism (Scale)")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+export_summs(mod1, error_format = "", error_pos = "right",
+             coefs = c("Sex (Male)" = "sexFMale"), digits = 3)
 ```
 :::
 :::::
 
-#### test1 \~ sexF
+#### Model 2.
 
-But if testosterone is related to sex...
+Testosterone is related to narcissism...
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-height: 5
+#| fig-width: 5
+mod2 <- lm(narc_scale ~ test1, data = h)
+plot(narc_scale ~ test1, data = h, xlab = "Testosterone", ylab = "Narcissism (Scale)")
+abline(mod2, lwd = 5, col = 'red')
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+export_summs(mod2, error_format = "", error_pos = "right",
+             coefs = c("Testosterone" = "test1"), digits = 3)
+```
+:::
+:::::
+
+#### IV1 \~ IV2
+
+but if testosterone is related to sex...
 
 ::::: columns
 ::: {.column width="60%"}
@@ -264,123 +147,53 @@ plotmeans(test1 ~ sexF, data = h, connect = F)
 
 ::: {.column width="40%"}
 ```{r}
-export_summs(modx, error_format = "", scale = T, transform.response = TRUE)
+export_summs(modx, error_format = "", error_pos = "right")
 ```
 :::
 :::::
 
-#### narcissism \~ sexF + test1
+#### Model 3.
 
 **How are they uniquely related?**
 
 ```{r}
 mod3 <- lm(narc_scale ~ sexF + test1, data = h)
-export_summs(mod1, mod2, mod3, error_format = "", scale = T, transform.response = TRUE)
+export_summs(mod1, mod2, mod3, error_format = "",  error_pos = "right", digits = 3,
+             coefs = c("Testosterone" = "test1",
+                       "Sex (Male)" = "sexFMale"))
 ```
+
+
+#### Labeling Changes{.smaller}
+
+1.  "Independent" Effect. The slope of the IV does not change when other variables are added to the model.
+2.  "Suppression" Effect. The slope of the IV gets stronger (in either direction) when other variables are added to the model.
+3.  "Mediation" Effect. The slope of the IV gets closer to zero when other variables are added to the model. *Careful : "mediation" often implies some causal relationship, and it is very hard (/impossible?) to estimate causal relationships without experimental methods. Some links below that go deeper into this.*
+
 ::::::::::::
 
-## ACTIVITY : In the Vision Board.
+## ACTIVITY : Professor Demo. {.smaller}
 
-**Predict narc_score from two variables in the hormone dataset (or the** [onboarding dataset (from last week)](https://www.dropbox.com/scl/fo/ln7vo5wta8u06mq0ha719/ADvvtqcFzK0TnvUQTtL-2U4?rlkey=h4johl6nr6ht451ci3ad8yv7v&dl=0)**?)**
+1.  Choose a DV from the conspiracy theory dataset.
+2.  Identify two IVs that you think might predict or explain this variable.
+3.  Do the data cleaning and statistics (linear models) needed to answer this question.
 
--   PREDICT : define the multivariate model. Why does it exist?
+-   PREDICT : define the multivariate model. What do you see, and why do this pattern exist?
 -   ERROR : evaluate the slopes ($r$ or $\beta$) and the change in error ($R^2$) across models.
 -   CONTROL : how might you use this knowledge?
 
-# IF TIME : When Models Get Complicated
+## ACTIVITY : In the Vision Board. {.smaller}
 
-## Multiple Regression {.smaller}
-
-:::::::::::: panel-tabset
-#### narcissism \~ sex
-
-Sex is related to narcissism...
-
-::::: columns
-::: {.column width="60%"}
-```{r}
-#| echo: true
-#| message: false
-#| warning: false
-#| fig-height: 5
-#| fig-width: 5
-library(gplots)
-plotmeans(narc_scale ~ sexF, data = h, connect = F)
-```
-:::
-
-::: {.column width="40%"}
-```{r}
-export_summs(mod1, error_format = "", scale = T, transform.response = TRUE)
-```
-:::
-:::::
-
-#### narcissism \~ test1
-
-Narcissism is also related to testosterone (a hormone).
-
-::::: columns
-::: {.column width="60%"}
-```{r}
-#| echo: true
-#| message: false
-#| warning: false
-#| fig-height: 5
-#| fig-width: 5
-
-mod2 <- lm(narc_scale ~ test1, data = h)
-plot(narc_scale ~ test1, data = h)
-abline(mod2, lwd = 5, col = 'red')
-```
-:::
-
-::: {.column width="40%"}
-```{r}
-export_summs(mod2, error_format = "", scale = T, transform.response = TRUE)
-```
-:::
-:::::
-
-#### test1 \~ sexF
-
-But if testosterone is related to sex...
-
-::::: columns
-::: {.column width="60%"}
-```{r}
-#| echo: true
-#| message: false
-#| warning: false
-#| fig-height: 5
-#| fig-width: 5
-
-modx <- lm(test1 ~ sexF, data = h)
-plotmeans(test1 ~ sexF, data = h, connect = F)
-
-```
-:::
-
-::: {.column width="40%"}
-```{r}
-export_summs(modx, error_format = "", scale = T, transform.response = TRUE)
-```
-:::
-:::::
-
-#### narcissism \~ sexF + test1
-
-**How are they uniquely related?**
-
-```{r}
-mod3 <- lm(narc_scale ~ sexF + test1, data = h)
-export_summs(mod1, mod2, mod3, error_format = "", scale = T, transform.response = TRUE)
-```
-::::::::::::
+1.  Choose a DV from the conspiracy theory dataset.
+2.  Identify two IVs that you think might predict or explain this variable.
+3.  Do the data cleaning and statistics (linear models) needed to answer this question.
+    -   PREDICT : define the multivariate model. What do you see, and why do this pattern exist?
+    -   ERROR : evaluate the slopes ($r$ or $\beta$) and the change in error ($R^2$) across models.
+    -   CONTROL : how might you use this knowledge?
 
 ## Interaction Effects {.smaller}
 
-### What's Going On In This Graph?
+### What's Going On In This Graph? {.smaller}
 
 ```{r}
 #| echo: true
@@ -395,10 +208,10 @@ ggplot(data = h, aes(x = test1, y = narc_scale, color = sexF)) +
   geom_smooth(method = lm) + theme_apa()
 ```
 
-### Interaction Effect, Explained?
+### Interaction Effect, Explained? {.smaller}
 
 ::::: columns
-::: {.column width="40%"}
+::: {.column width="30%"}
 ```{r}
 #| echo: false
 
@@ -410,37 +223,35 @@ ggplot(data = h, aes(x = test1, y = narc_scale, color = sexF)) +
 ```
 :::
 
-::: {.column width="60%"}
+::: {.column width="70%"}
 ```{r}
 #| echo: true
+
 library(arm)
 mod4 <- lm(narc_scale ~ sexF * test1, data = h)
-mod1z <- standardize(mod1, NULL, TRUE)
-mod2z <- standardize(mod2, NULL, TRUE)
-mod3z <- standardize(mod3, NULL, TRUE)
-mod4z <- standardize(mod4, NULL, TRUE)
-export_summs(mod1z, mod2z, mod3z, mod4z, error_format = "", scale = T, transform.response = TRUE)
+mod1z <- arm::standardize(mod1, NULL, TRUE)
+mod2z <- arm::standardize(mod2, NULL, TRUE)
+mod3z <- arm::standardize(mod3, NULL, TRUE)
+mod4z <- arm::standardize(mod4, NULL, TRUE)
+export_summs(mod1z, mod2z, mod3z, mod4z,
+             error_format = "",  error_pos = "right")
 ```
 :::
 :::::
 
-### More Examples
+### More Examples {.smaller}
 
 ::: panel-tabset
-#### resume data
+#### resume data {.smaller}
 
-Bertrand, M., & Mullainathan, S. (2004). Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. American economic review, 94(4), 991-1013. \[[Link](https://www.aeaweb.org/articles?id=10.1257/0002828042002561)\]
+[![Bertrand, M., & Mullainathan, S. (2004). Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. American economic review, 94(4), 991-1013](images/clipboard-1943000841.png){fig-align="center" width="60%"}](https://www.aeaweb.org/articles?id=10.1257/0002828042002561)
 
-![](images/clipboard-1943000841.png)
+#### puzzle data {.smaller}
 
-#### puzzle data
-
-Hoffman, M., Gneezy, U., & List, J. A. (2011). Nurture affects gender differences in spatial abilities. Proceedings of the National Academy of Sciences, 108(36), 14786-14788. \[[Link](https://www.pnas.org/doi/10.1073/pnas.1015182108)\]
-
-![](images/clipboard-4218932613.png)
+[![Hoffman, M., Gneezy, U., & List, J. A. (2011). Nurture affects gender differences in spatial abilities. Proceedings of the National Academy of Sciences, 108(36), 14786-14788.](images/clipboard-4218932613.png){fig-align="center" width="60%"}](https://www.pnas.org/doi/10.1073/pnas.1015182108)
 :::
 
-## ACTIVITY : In the Vision Board
+## ACTIVITY : In the Vision Board {.smaller}
 
 **Think about an [*interaction effect*]{.underline} that might be relevant to your Capstone Project \<3**
 
@@ -448,67 +259,68 @@ Hoffman, M., Gneezy, U., & List, J. A. (2011). Nurture affects gender difference
 
 -   How might some OTHER variable influence this pattern?
 
-# PART 2 : Objectivity Interrogations
+# PART 2 : Likert Scales
 
-## RECAP : we (mostly) think it's possible to work toward validity
+## The Theory {.smaller}
 
--   Anti-Positivism : Attempts to predict people with numbers is bad.
+::::: columns
+::: {.column width="50%"}
+-   **scale :** The variable that you want to measure as a continuous variable.
 
--   Positivism : We will someday make perfect predictions about people.
+-   **items :** The specific question(s) in the scale. Each item measures some aspect of the variable the researcher is interested in.
 
--   Post-Positivism : We will continually improve our predictions, but never get perfect.
+    -   **positively keyed items :** An item that measures the high end of the scale, where answering “yes” to the question means you are high on this variable.
 
--   Social Constructivism : There is no "truth" about people; we make it up.
+    -   **negatively keyed items :** An item that measures the low end of the scale, where answering “yes” to the question means you are low on the variable.
 
-```{r}
-#| fig-width: 5
-#| fig-height: 5
-o <- read.csv("~/Dropbox/!GRADSTATS/COMPSS222/Datasets/Class Datasets/MaCSS - Onboarding Data/DATASET_MACSS_onboard_SP26.csv", stringsAsFactors = T)
-plot(o$epistemology, col = "black", bor = "white", main = "Epistemologies")
-```
+-   **response scale :** How people answer the scale items.
+:::
 
-## DISCUSS : Questions Y'all Had :)
+::: {.column width="50%"}
+![](images/clipboard-1931389991.png){fig-align="center" width="80%"}
+:::
+:::::
 
--   how to tell the difference between normal academic criticism of a study and criticism that comes from bias against the researcher?
+## Example : Conspiracy Beliefs
 
--   I'd love to see some interview snippts of white interviewees' answers. \[PROF AGREES : the fact they did not include is an example of low DISCRIMINANT VALIDITY, since would want to see evidence that white people are not talking about these things too.\]
-
--   Objectivity armoring...feels like it has a cultural dimension that we can explore in class as well. **\[PROF SAYS : YES!\]**
-
-## DISCUSS : examples from your experiences? anticipation in the future?
-
-![](images/clipboard-2200114898.png)
-
-## NEXT WEEK : Non-Empirical Paper
-
-![](images/clipboard-2030583995.png){fig-align="center" width="80%"}
-
-# PART 4 : Likert Scales
-
-## Theory
-
-## Examples in Hormone Dataset
+::: panel-tabset
+#### load the data
 
 ```{r}
-plot(test1 ~ test2, data = h)
-test.df <- cbind(h$test1, h$test2)
-h$TESTAVG <- rowMeans(test.df, na.rm = T)
-hist(h$TESTAVG, breaks = 20)
+d <- read.csv("~/Dropbox/!GRADSTATS/COMPSS222/Datasets/Class Datasets/Conspiracy Data/data.csv", stringsAsFactors = T)
+summary(d[,1:3])
+d[d == 0] <- NA
+summary(d[,1:3])
+
 ```
 
-## Lab 2 : Working With the Self-Esteem Dataset {.smaller}
+#### assess the items
 
-| Likert Scale Item | Positive or Negative Key Item*"Yes" = High in Self-Esteem = Positive Key.* | Any Issues of Face Validity? |
-|----------------------------------|------------------|--------------------|
-| Q1. I feel that I am a person of worth, at least on an equal plane with others. |  |  |
-| Q2. I feel that I have a number of good qualities. |  |  |
-| Q3. All in all, I am inclined to feel that I am a failure. |  |  |
-| Q4. I am able to do things as well as most other people. |  |  |
-| Q5. I feel I do not have much to be proud of. |  |  |
-| Q6. I take a positive attitude toward myself. |  |  |
-| Q7. On the whole, I am satisfied with myself. |  |  |
-| Q8. I wish I could have more respect for myself. |  |  |
-| Q9. I certainly feel useless at times. |  |  |
-| Q10. At times I think I am no good at all. |  |  |
+```{r}
+CONSP.df <- d[,1:15]
+library(psych)
+psych::alpha(CONSP.df)
+```
 
-# [THE END : CHECK-OUT!](https://docs.google.com/forms/d/e/1FAIpQLSd142WkIOaFZHO2nS4L5uOBqH-13h206qHgcfn6qgVCoXeLOg/viewform?usp=publish-editor)
+#### define the scale
+
+```{r}
+d$CONSPIRACY <- rowMeans(CONSP.df, na.rm = T)
+hist(d$CONSPIRACY)
+```
+:::
+
+## Lab 4 : Self-Esteem Data (& Scale) {.smaller}
+
+| Likert Scale Item | Item Evaluation |
+|---------------------------------|--------------------|
+| Q1. I feel that I am a person of worth, at least on an equal plane with others. |  |
+| Q2. I feel that I have a number of good qualities. |  |
+| Q3. All in all, I am inclined to feel that I am a failure. |  |
+| Q4. I am able to do things as well as most other people. |  |
+| Q5. I feel I do not have much to be proud of. |  |
+| Q6. I take a positive attitude toward myself. |  |
+| Q7. On the whole, I am satisfied with myself. |  |
+| Q8. I wish I could have more respect for myself. |  |
+| Q9. I certainly feel useless at times. |  |
+| Q10. At times I think I am no good at all. |  |

@@ -1,0 +1,73 @@
+---
+title: ""
+format: html
+editor: visual
+---
+
+# Week 4 - Monday, April 6th
+
+:::::: {.callout-note collapse="true"}
+### Announcements and Agenda
+
+::::: columns
+::: {.column width="50%"}
+**Professor on Zoom :** You (and GSI Max!) in the class. Hello!
+
+**Today's Objectives :**
+
+1.  **Complications in the Linear Model :** Multiple Regression and Interaction Effects
+
+2.  **Define a Likert Scale :** A Conceptual and Computational Understanding
+:::
+
+::: {.column width="50%"}
+**Agenda**
+
+-   **10:30 - 10:45.** Check-In and Assumptions / Sampling Error Review
+-   **10:45 - 11:20.** Fun and Understanding in Multiple Regression
+-   **11:30 - 11:40.** Break Time
+-   **11:30 - 12:00.**
+-   **12:00 - 1:00.** Likert Scales
+:::
+:::::
+::::::
+
+### Class Slides and Materials
+
+```{=html}
+<iframe data-external="1" class="slide-deck" src="/macssstats/slides/4_xescale.html" width="100%" height="500px" title=""></iframe>
+```
+
+-   **Check-In :** practice interpreting linear models and NHST.
+-   [**Professor Notes**](https://www.dropbox.com/scl/fo/1g76jzayvff4kwaldyn52/AOfNP20yVujSO5akd1U0k98?rlkey=1xs6rqsgdoj8pgls1efbawl7i&dl=0). My R scripts and other notes, saved in real-time.
+-   [**VISION BOARD**](https://docs.google.com/spreadsheets/d/11FZJ76JMBUkKYZRoWASrHhPIldmP7Pziz-WGnlIZuC4/edit?usp=sharing). Where we will share work we do in class.
+    -   **Dataset for Vision Board Activity :** Conspiracy Beliefs
+
+### Additional Reading and Support Materials
+
+1.  **More on Interpreting Multiple Regression.**
+    -   [The Difference Between “Significant” and “Not Significant” is not Itself Statistically Significant](https://sites.stat.columbia.edu/gelman/research/published/signif4.pdf)
+    -   [A conceptual review of mediation, and tour through the 'mediation' package.](https://library.virginia.edu/data/articles/introduction-to-mediation-analysis)
+    -   Preacher KJ, Hayes AF. Asymptotic and resampling strategies for assessing and comparing indirect effects in multiple mediator models. Behav Res Methods. 2008;40(3):879-891. doi:10.3758/BRM.40.3.879
+    -   [A nice and recent summary of why caution is needed for mediation analysis.](https://www.the100.ci/2025/03/20/reviewer-notes-thats-a-very-nice-mediation-analysis-you-have-there-it-would-be-a-shame-if-something-happened-to-it/)
+2.  [**On Interaction Effects**](https://catterson.github.io/ystats/chapters/11R_InteractionFX.html). More detail on interaction effects, how to interpret and calculate (from the linear model) and how to graph them using base R.
+    -   [The Interactions Package](https://interactions.jacob-long.com). The author of jtools has made what looks like a super clean way to graph interaction effects in R, using ggplot2.
+    -   [Visualization Tutorials](https://sebastiansauer.github.io/vis_interaction_effects/). Other, more cumbersome methods of plotting interaction effects exist!
+3.  [**On Likert Scales**](https://catterson.github.io/ystats/chapters/5R_GoodMeasures.html#the-likert-scale)**.** some more on the theory of likert scales, and some videos on how to define (when there are negatively-keyed items).
+
+# For Next Week.
+
+## Article Discussion.
+
+-   **Read This Article.** Chung, J. M., Meijer, L., Zonneveld, R., Al Sawaf, Z., Alajak, K., Moopen, N., ... & Laceulle, O. M. (2022). Lessons learned from conducting a study of emotions and positive personality change in Syrian origin young adults who have recently resettled in the Netherlands. European Journal of Personality, 36(4), 665-682.
+
+-   [**Submit Your Response Here**](https://docs.google.com/forms/d/e/1FAIpQLSdGkCcxV80BCkshlZwLNomMMsZOxmOnvGjrdC1Z6w9YEnLltg/viewform?usp=publish-editor). We'll use these responses to guide our discussion of the article next week. Great to use your own voice; don't worry about sounding smart or having "perfect" english!
+
+## Lab 4. Self-Esteem Problems
+
+Psychologists often want to combine information from multiple questions (that measure the same construct) into one variable. For example, the Rosenberg (1965) self-esteem scale has 10 questions all related to self-esteem. Rather than work with 10 different variables, it might be nice to just average these 10 and report one average number (the likert scale).
+
+[**Access the self-esteem dataset.**](https://www.dropbox.com/scl/fo/p86q8aurtt58xriyc1ysz/ADdtNQZS78PFCiwTsmAOiLM?rlkey=79hnqwhudgczv9m44z37re2r8&dl=0)Look over the codebook to learn about the variables and how they were measured.
+
+1.  **Create a self-esteem scale from the 10-items.** Make sure to reverse-score the negatively-keyed items so that for every question, higher numbers measure higher self-esteem. Graph this variable as a histogram, and make the graph look nice (ready for publication). Report the alpha reliability, mean, and standard deviation of this variable. Below your graph, describe what these statistics tell you about the self-esteem of the participants. Finally, evaluate the items in the likert scale - does this seem like a valid and reliable way to measure self-esteem? Do you think these questions would *generalize* to people across the world (why / why not?) What other questions do you have about this variable?
+2.  **Define a series of linear models** to determine a) whether there is a relationship between self-esteem and age, b) whether men and women differ in terms of their self-esteem, c) which variable (age or gender) is a better predictor of self-esteem, and d) whether the relationship between age and self-esteem depends on the gender of the participant (an interaction effect!). For each linear model, make sure to report the relationship (slope) and $R^2$ value, and graph your interaction effect. Conclude by explaining *why* you might find these patterns in the data, and how you might use this knowledge.
