@@ -60,7 +60,12 @@ editor: visual
 
 ## Article Discussion.
 
-Instead of an article discussion, let's try this : think about how either a LIKERT SCALE or an INTERACTION EFFECT might be relevant to your Capstone Project (or some other project that is relevant to you / example from real-life). No R or stats needed; just describe how you might use these tools. Feel free to apply both, or just pick one. And we will discuss next week in class :)
+Instead of an article discussion, let's try this : think about how either a LIKERT SCALE or an INTERACTION EFFECT might be relevant to your Capstone Project (or some other project that is relevant to you / example from real-life).
+
+1.  **Likert scale.** write a positive or negatively keyed item that might measure some variable you are interested in.
+2.  **Interaction effect.** describe how some relationship between two variables might depend on another variable.
+
+No R or stats needed; just describe how you might use these tools. We will discuss next week in class :)
 
 ## Lab 4. Self-Esteem Problems
 
@@ -92,4 +97,4 @@ I also [recorded a video key](https://www.loom.com/share/bb32ea5fb472441099ef417
 
     -   Report the relationship (slopes) and \$R\^2\$ values from your model in a summary table and graph your interaction effect (you do not need to graph the other models).
 
-3.  **Using the key as a guide,** try to define another series of linear models to predict SELF-ESTEEM (or the CONSPIRACY BELIEF) scale that professor demonstrated in class from some other variables. Post your work to the VISION BOARD.
+3.  **Using the key as a guide,** try to define a different series of linear models to predict SELF-ESTEEM (or the CONSPIRACY BELIEF) scale that professor demonstrated in class from some other variables. Post your work to the VISION BOARD.
