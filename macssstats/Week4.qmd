@@ -66,9 +66,32 @@ editor: visual
 
 ## Lab 4. Self-Esteem Problems
 
-Psychologists often want to combine information from multiple questions (that measure the same construct) into one variable. For example, the Rosenberg (1965) self-esteem scale has 10 questions all related to self-esteem. Rather than work with 10 different variables, it might be nice to just average these 10 and report one average number (the likert scale).
+*Hi Class! Thanks for your patience with this process today.* *Apologies it was a bit messier than I had planned; I hope this lab assigment feels useful and not too hard.*
 
-[**Access the self-esteem dataset.**](https://www.dropbox.com/scl/fo/p86q8aurtt58xriyc1ysz/ADdtNQZS78PFCiwTsmAOiLM?rlkey=79hnqwhudgczv9m44z37re2r8&dl=0)Look over the codebook to learn about the variables and how they were measured.
+Here's [a key for the first two questions](https://www.dropbox.com/scl/fi/fdqyhxg5ry2b0wlgo16n7/Lab-4_KEY.pdf?rlkey=lr3el9ktli1hpc1qah3bi11x7&dl=0) in the Lab assignment to guide your work and learning.
 
-1.  **Create a self-esteem scale from the 10-items.** Make sure to reverse-score the negatively-keyed items so that for every question, higher numbers measure higher self-esteem. Graph this variable as a histogram, and make the graph look nice (ready for publication). Report the alpha reliability, mean, and standard deviation of this variable. Below your graph, describe what these statistics tell you about the self-esteem of the participants. Finally, evaluate the items in the likert scale - does this seem like a valid and reliable way to measure self-esteem? Do you think these questions would *generalize* to people across the world (why / why not?) What other questions do you have about this variable?
-2.  **Define a series of linear models** to determine a) whether there is a relationship between self-esteem and age, b) whether men and women differ in terms of their self-esteem, c) which variable (age or gender) is a better predictor of self-esteem, and d) whether the relationship between age and self-esteem depends on the gender of the participant (an interaction effect!). For each linear model, make sure to report the relationship (slope) and $R^2$ value, and graph your interaction effect. Conclude by explaining *why* you might find these patterns in the data, and how you might use this knowledge.
+I also [recorded a video key](https://www.loom.com/share/bb32ea5fb472441099ef417be0c5c290) walking over the interpretation of the interaction effect (summary table and graph). I hope you find these useful in supporting your learning!
+
+[**Access the self-esteem dataset.**](https://www.dropbox.com/scl/fo/p86q8aurtt58xriyc1ysz/ADdtNQZS78PFCiwTsmAOiLM?rlkey=79hnqwhudgczv9m44z37re2r8&dl=0) Look over the codebook to learn about the variables and how they were measured.
+
+1.  **Create a self-esteem scale from the 10-items.** Make sure to reverse-score the negatively-keyed items so that for every question, higher numbers measure higher self-esteem.
+
+    -   a\) Graph this variable as a histogram, and make the graph look nice (ready for publication).
+
+    -   b\) Report the alpha reliability, mean, and standard deviation of this variable. Below your graph and these statistics, describe what these statistics tell you about the self-esteem of the participants.
+
+    -   d\) Finally, evaluate the items in the likert scale - does this seem like a valid and reliable way to measure self-esteem? Do you think these questions would *generalize* to people across the world (why / why not?) What other questions might you have about this variable?
+
+2.  **Define a series of linear models to determine :**
+
+    -   a\) whether there is a relationship between self-esteem and age
+
+    -   b\) whether men and women differ in terms of their self-esteem
+
+    -   c\) which variable (age or gender) is a better predictor of self-esteem.
+
+    -   d\) whether the relationship between age and self-esteem depends on the gender of the participant (an interaction effect!).
+
+    -   Report the relationship (slopes) and \$R\^2\$ values from your model in a summary table and graph your interaction effect (you do not need to graph the other models).
+
+3.  **Using the key as a guide,** try to define another series of linear models to predict SELF-ESTEEM (or the CONSPIRACY BELIEF) scale that professor demonstrated in class from some other variables. Post your work to the VISION BOARD.
