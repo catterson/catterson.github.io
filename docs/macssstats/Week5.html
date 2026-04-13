@@ -91,7 +91,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#for-next-week." id="toc-for-next-week." class="nav-link" data-scroll-target="#for-next-week.">For Next Week.</a>
   <ul class="collapse">
   <li><a href="#lab-5.-political-problems." id="toc-lab-5.-political-problems." class="nav-link" data-scroll-target="#lab-5.-political-problems.">Lab 5. Political Problems.</a></li>
-  <li><a href="#article-dicsussion" id="toc-article-dicsussion" class="nav-link" data-scroll-target="#article-dicsussion">Article Dicsussion</a></li>
+  <li><a href="#article-discussion" id="toc-article-discussion" class="nav-link" data-scroll-target="#article-discussion">Article Discussion</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -122,15 +122,15 @@ Announcements and Agenda
 <ol type="1">
 <li><p><strong>Practice with Interaction Effects and Likert Scales.</strong> Good to review!</p></li>
 <li><p><strong>Comparing and Evaluating Models.</strong> Which is better? And why?</p></li>
-<li><p><strong>A/B Testing (as a Linear Model)</strong></p></li>
+<li><p><strong>Power Analyses.</strong> What? / Who Cares??! / And How!?!!</p></li>
 </ol>
 </div><div class="column" style="width:50%;">
 <p><strong>Agenda</strong></p>
 <ul>
-<li><strong>10:10 - 10:30.</strong> Check-In (Multiple Regression Review)</li>
-<li><strong>10:30 - 11:20.</strong> Likert Scale and Interaction Effect Review</li>
+<li><strong>10:10 - 10:45.</strong> Check-In (Multiple Regression Review)</li>
+<li><strong>10:45 - 11:20.</strong> Likert Scale and Interaction Effect Review</li>
 <li><strong>11:20 - 11:30.</strong> BREAK TIME</li>
-<li><strong>11:30 - 1:00.</strong> Comparing models and A/B testing.</li>
+<li><strong>11:30 - 1:00.</strong> Power</li>
 </ul>
 </div>
 </div>
@@ -141,34 +141,37 @@ Announcements and Agenda
 <h3 class="anchored" data-anchor-id="class-slides-and-materials">Class Slides and Materials</h3>
 <iframe data-external="1" class="slide-deck" src="../macssstats/slides/5_MRPower.html" width="100%" height="500px" title=""></iframe>
 <ul>
-<li><strong>Check-In :</strong> practice interpreting linear models and NHST.</li>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfzCFALIvkPydP2cDaWKQNOz6SIuMsiFp6cbCeunvAk0gL1Nw/viewform?usp=header"><strong>Check-In :</strong></a> practice interpreting linear models and NHST.</li>
 <li><a href="https://www.dropbox.com/scl/fo/1g76jzayvff4kwaldyn52/AOfNP20yVujSO5akd1U0k98?rlkey=1xs6rqsgdoj8pgls1efbawl7i&amp;dl=0"><strong>Professor Notes</strong></a>. My R scripts and other notes, saved in real-time.</li>
 <li><a href="https://docs.google.com/spreadsheets/d/11FZJ76JMBUkKYZRoWASrHhPIldmP7Pziz-WGnlIZuC4/edit?usp=sharing"><strong>VISION BOARD</strong></a>. Where we will share work we do in class.</li>
 </ul>
 </section>
 <section id="additional-reading-and-support-materials" class="level3">
 <h3 class="anchored" data-anchor-id="additional-reading-and-support-materials">Additional Reading and Support Materials</h3>
-<section id="professor-power-slides" class="level4">
-<h4 class="anchored" data-anchor-id="professor-power-slides">Professor Power Slides</h4>
-<p>Watch the lecture recording for a tour through these slides.</p>
+<section id="professor-power-demo" class="level4">
+<h4 class="anchored" data-anchor-id="professor-power-demo">Professor Power Demo</h4>
+<ul>
+<li>I’ll go through the slides below in class.</li>
+</ul>
 
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQMiQVIgG2WPl7t45rAYtUhrU1wnPNOxxeKX3zIj1eiMmN8M6nkEotx6sjDTECvRFwF4IzV5C30w-N5/embed?" frameborder="0" width="960" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-
+<ul>
+<li><a href="https://rpsychologist.com/d3/nhst/">Conceptualizing Power</a>. a d3 visualization to illustrate power that we will explore together and hopefully will help.</li>
+</ul>
 </section>
-<section id="power-illustrated." class="level4">
-<h4 class="anchored" data-anchor-id="power-illustrated.">Power Illustrated.</h4>
-<p>In lecture, professor likely did some scribbles on the whiteboard to illustrate power. Below are some videos professor recorded to help explain power. Hopefully they are helpful!?</p>
+<section id="professor-previously-recorded-power-demo" class="level4">
+<h4 class="anchored" data-anchor-id="professor-previously-recorded-power-demo">Professor Previously Recorded Power Demo</h4>
 <ul>
 <li><p><a href="https://www.loom.com/share/f393327465f54f3cbf5bbe8c349e3a2e?sid=45f72b59-894e-4d8d-a977-254d6e52f5c4">Recording #1 : Conceptual Example of Power</a></p></li>
 <li><p><a href="https://www.loom.com/share/62440c2754cd4874a22ef2f00618eaff">Recording #2 : Another Example</a>. These data come from a paper I had rejected in part because reviewers complained that I only replicated the main result in 4 out of 5 studies. (The paper was also a hot mess.) Bummer! But it was a cool phenomenon; I sadly never published on it for a variety of REASONS, but the truth got out eventually someone published a very clearly written, much better, and perfectly replicating paper (across six studies!) on it 8 years later. Ahhh, one thing off the to-do list.</p></li>
 </ul>
 </section>
-<section id="power-for-non-normal-distributions" class="level4">
-<h4 class="anchored" data-anchor-id="power-for-non-normal-distributions">Power For Non-Normal Distributions</h4>
-<p>The approach to power described this week assumes a normally distribution of sampling error. This is a good starting place, but not all distributions are gaussian! Below are a few different methods to help you estimate power across a wide variety of types of data.</p>
+<section id="other-power-readings" class="level4">
+<h4 class="anchored" data-anchor-id="other-power-readings">Other Power Readings</h4>
+<p>Below are a few different methods to help you estimate power across a wide variety of types of data.</p>
 <ul>
-<li><a href="https://rpubs.com/mbounthavong/sample_size_power_analysis_R">Here’s a nice overview of how to conduct sample size power analysis in R; it works through a few examples and discusses how to</a></li>
-<li><a href="https://aaroncaldwell.us/SuperpowerBook/introduction-to-power-analysis.html">This is a modern, thorough, and good overview of power, that also discusses ways to generate simulated data to estimate power.</a>.</li>
+<li><a href="https://rpubs.com/mbounthavong/sample_size_power_analysis_R">Here’s a nice overview of how to conduct sample size power analysis in R</a></li>
+<li><a href="https://aaroncaldwell.us/SuperpowerBook/introduction-to-power-analysis.html">This is a modern, thorough, and good overview of power, that also discusses ways to generate simulated data (like we did with bootstrapping) to estimate power.</a></li>
 <li><a href="https://cran.r-project.org/web/packages/pwrss/vignettes/examples.html">Here’s another tutorial of an R package that works for a wide variety of different tests; many of which can be used when yout think the assumptions of linear regression are violated.</a></li>
 </ul>
 </section>
@@ -178,15 +181,18 @@ Announcements and Agenda
 <h1>For Next Week.</h1>
 <section id="lab-5.-political-problems." class="level2">
 <h2 class="anchored" data-anchor-id="lab-5.-political-problems.">Lab 5. Political Problems.</h2>
-<p><strong><a href="">Link to Dataset.</a></strong> These data come from a published study on how dehumanizing language influences political beliefs. The author wanted to test “how the dehumanization of immigrants influences immigration policy attitudes”. To do this, they conducted an experiment, in which participants read either a dehumanizing or non-dehumanizing political speech about immigrants (<strong>variable = dh_treat</strong>) and then measured participants attitudes about three separate immigration questions (<strong>variables = imm1, imm2, imm3</strong>).</p>
+<p><a href="https://www.dropbox.com/scl/fo/iatpjur9ruom49vdnwnvs/AFDq1HY3nt9Z-JnkmLN-avw?rlkey=g3jxp7bmtul2crxtm4ausq5du&amp;dl=0"><strong>Link to Dataset and Research Article.</strong></a> These data come from a published study on how dehumanizing language influences political beliefs. The author wanted to test “how the dehumanization of immigrants influences immigration policy attitudes”. To do this, they conducted an experiment, in which participants read either a dehumanizing or non-dehumanizing political speech about immigrants (<strong>variable = dh_treat</strong>) and then measured participants attitudes about three separate immigration questions (<strong>variables = imm1, imm2, imm3</strong>).</p>
 <ol type="1">
-<li><p>Without looking at the results of the original paper, think about what linear model(s) you would define (based on the variables measured) to test the author’s research question (above). Make sure you consider relevant control and / or confound variables to include, and explain why these are needed. Then, define and interpret this linear model. Was dehumanizing political speech related to immigration policy attitudes? Report your results as you might in a paper or conference talk.</p></li>
+<li><p>Without looking at the results of the original paper, think about what linear model(s) you would define (based on the variables measured) to test the author’s research question (above). Make sure you consider relevant control and / or confound variables to include, and explain why these are needed. Then, define and interpret this linear model. Was dehumanizing political speech related to immigration policy attitudes? Report your results with a graph and summary regression table.</p></li>
 <li><p><a href="https://www.dropbox.com/scl/fi/c26fhjow3h2a7a8lxncfc/utych-2017-how-dehumanization-influences-attitudes-toward-immigrants.pdf?rlkey=6g0t7f3whpnpc0n4oqd9s7k4o&amp;dl=0"><strong>After you complete question 1, look at Table 1 from the original paper.</strong></a> How did the researcher’s linear models differ from your own? See if you can recreate the author’s results using the variables in the dataset (feel free to just focus on one model).</p></li>
 </ol>
 </section>
-<section id="article-dicsussion" class="level2">
-<h2 class="anchored" data-anchor-id="article-dicsussion">Article Dicsussion</h2>
-<p><strong>Skim the method section of the research paper for this week’s lab assignment.</strong> Do you feel like this was a valid way to answer the question? Why / why not? What other questions do you have? <em>(Note : I think there’s a lot to unpack about this paper! We will do so next week.)</em></p>
+<section id="article-discussion" class="level2">
+<h2 class="anchored" data-anchor-id="article-discussion">Article Discussion</h2>
+<ul>
+<li><p><strong>Skim the method section of the research paper for this week’s lab assignment (in the dataset folder).</strong> Do you feel like this was a valid way to answer the question? Why / why not? What other questions do you have? <em>(Note : I think there’s a lot to unpack about this paper! We will do so next week.)</em></p></li>
+<li><p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdGkCcxV80BCkshlZwLNomMMsZOxmOnvGjrdC1Z6w9YEnLltg/viewform?usp=publish-editor"><strong>Submit Your Response Here</strong></a>. We’ll use these responses to guide our discussion of the article next week. Great to use your own voice; don’t worry about sounding smart or having “perfect” english!</p></li>
+</ul>
 
 
 </section>
