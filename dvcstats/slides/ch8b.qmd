@@ -1,0 +1,245 @@
+---
+title: ""
+format: 
+  revealjs: 
+    slide-level: 3
+    link-external-newwindow: true
+    chalkboard: true
+    controls: true
+    auto-stretch: false
+    code-overflow: wrap
+tbl-colwidths: [70,25]
+---
+
+## [Check-In : Testing Theories](https://docs.google.com/forms/d/e/1FAIpQLSeQNQq1O8s_f0tx3l2FxIJo9Rt6zgmZA40T2AqLFdwjFtFtpA/viewform?usp=sf_link)
+
+```{r}
+#| include: false
+library(gplots)
+d <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/Covid Behavior Data/covid_behavior_data.csv", stringsAsFactors = T)
+```
+
+::::: columns
+::: {.column width="70%"}
+```{r}
+mod1 <- lm(Handwash ~ gender, data = d)
+summary(mod1)
+```
+:::
+
+::: {.column width="30%"}
+```{r}
+#| message: false
+#| warning: false
+#| fig-width: 5
+#| fig-height: 5
+plotmeans(Handwash ~ gender, data = d,
+          col = "white", barcol = "white", ylim = c(1,5))
+```
+:::
+:::::
+
+## NHST Review. {.smaller}
+
+::: panel-tabset
+### Slope
+
+-   Direction & Strength of a Relationship
+-   Hard to evaluate strength across models if the units differ too.
+
+![](images/clipboard-3256555507.png)
+
+### Standard Error
+
+-   The amount of variation in an effect you might expect to find due to chance if the null hypothesis were "true".
+
+![](images/clipboard-3219785521.png)
+
+### Significance is Not...
+
+-   ...about slope! Large slope & sampling error = NOT SIGNIFICANT
+
+![](images/clipboard-422304565.png)
+
+### Significance is Not
+
+-   **...about size :** you can be VERY confident that a small effect is not due to sampling error.
+-   **...about importance :** why does the effect matter?\
+-   **...about truth :** our estimates of sampling error are all made up.
+
+![](images/clipboard-3243820561.png)
+
+### Significance Is...
+
+**A p-value of .03 means...there is a 3% chance that this slope (or a stronger slope) would be found due to chance if the true correlation was zero.**
+
+![](images/clipboard-2167468538.png)
+
+### ...Confusing.
+
+Haller, H., & Krauss, S. (2002). [Misinterpretations of significance: A problem students share with their teachers](https://www.metheval.uni-jena.de/lehre/0405-ws/evaluationuebung/haller.pdf). Methods of Psychological Research, 7(1), 1-20.
+
+![](images/clipboard-6955515.png){fig-align="center" width="80%"}
+
+### Other Questions?
+
+![](images/clipboard-148237661.png){fig-align="center"}
+:::
+
+## More Practice{.smaller}
+
+Evaluate the relationships between the variables (slope, significance, importance)
+
+::: panel-tabset
+### Model 1.
+
+Is there a relationship between narcissism (DV = NPI) and testosterone?
+
+:::: {.columns}
+    
+::: {.column width="50%"}
+```{r}
+h <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/Hormone Data/hormone_dataset.csv", stringsAsFactors = T)
+mod1 <- lm(NPI ~ test, data = h)
+summary(mod1)
+```
+:::
+    
+::: {.column width="50%"}
+```{r}
+#| fig-width: 5
+#| fig-height: 5
+
+plot(NPI ~ test, data = h)
+abline(mod1, lwd = 5)
+```
+
+:::
+    
+::::
+
+
+### Model 2.
+
+Is there a relationship between narcissism (DV = NPI) and sex?
+
+:::: {.columns}
+    
+::: {.column width="50%"}
+
+```{r}
+library(gplots)
+mod2 <- lm(NPI ~ sex, data = h)
+summary(mod2)
+```
+
+
+:::
+    
+::: {.column width="50%"}
+```{r}
+#| fig-width: 5
+#| fig-height: 5
+plotmeans(NPI ~ sex, data = h, connect = F)
+```
+
+:::
+    
+::::
+
+
+### Model 3.
+
+Is there a relationship between testosterone (DV = test) and sex?
+
+:::: {.columns}
+    
+::: {.column width="50%"}
+```{r}
+#| fig-width: 5
+#| fig-height: 5
+mod3 <- lm(test ~ sex, data = h)
+summary(mod3)
+```
+:::
+    
+::: {.column width="50%"}
+```{r}
+plotmeans(test ~ sex, data = h, connect = F)
+```
+
+:::
+    
+::::
+
+### RECAP.
+
+**In models 1-3, we wee**
+
+:::: {.columns}
+    
+::: {.column width="50%"}
+1.  Testosterone is related to narcissism.
+2.  Sex is related to testosterone.
+3.  Sex and testosterone are related to each other......
+
+:::
+    
+::: {.column width="50%"}
+
+:::
+    
+::::
+
+### NEXT TIME
+
+**In models 1-3, we wee**
+
+:::: {.columns}
+    
+::: {.column width="50%"}
+1.  Testosterone is related to narcissism.
+2.  Sex is related to testosterone.
+3.  Sex and testosterone are related to each other......
+
+:::
+    
+::: {.column width="50%"}
+
+```{r}
+mod4 <- lm(NPI ~ sex + test, data = h)
+summary(mod4)
+```
+:::
+    
+::::
+
+:::
+
+
+## BREAK TIME : MEET BACK AT 3:45
+
+![](images/clipboard-3386439454.png)
+
+## [Milestone #5 : Final Project Analyses](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0)
+
+### Goal : Create a summary table.{.smaller}
+
+```{r}
+#| echo: true
+library(jtools)
+export_summs(mod1, mod2, mod4, error_pos = "right",
+             coefs = c("Testosterone" = "test",
+                       "Sex (0 = M; 1 = F)" = "sex"), digits = 3)
+```
+
+### Steps.
+
+1.  Start with your linear model.
+2.  Define and graph your variables.
+    -   do the data look good?
+    -   how do your participants vary?
+3.  Define your bivariate linear models.
+    -   what's the pattern look like
+    -   what's the slope and $R^2$ value?
+4.  Then, think about how to graph and create the summary table if you have time :)

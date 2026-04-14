@@ -1,0 +1,175 @@
+---
+title: ""
+format: 
+  revealjs: 
+    slide-level: 3
+    link-external-newwindow: true
+    chalkboard: true
+    controls: true
+    auto-stretch: false
+    code-overflow: wrap
+tbl-colwidths: [70,25]
+---
+
+## Welcome Back {.smaller}
+
+[Check-In Here](https://docs.google.com/forms/d/e/1FAIpQLSdyVnc80GrkTtGyaESOJJjjlAUHAUfpgMeiVkpZRo2JhKEbgQ/viewform)
+
+::::: columns
+::: {.column width="60%"}
+```{r}
+library(car)
+library(gplots)
+mod <- lm(salary ~ rank, data = Salaries)
+summary(mod)
+```
+:::
+
+::: {.column width="40%"}
+```{r}
+#| message: false
+#| warning: false
+#| fig-width: 5
+#| fig-height: 5
+plotmeans(salary ~ rank, data = Salaries, connect = F)
+```
+:::
+:::::
+
+## More Examples {.smaller}
+
+-   **ice-breaker :** dream life (utopia)?
+-   **the stats :** what's the slope, significance, R\^2?
+-   **who cares :** how would you use this knowledge?
+
+:::::::::::: panel-tabset
+#### model 1
+
+::::: columns
+::: {.column width="60%"}
+```{r}
+mod1 <- lm(salary ~ yrs.service, data = Salaries)
+summary(mod1)
+```
+:::
+
+::: {.column width="40%"}
+```{r}
+#| message: false
+#| warning: false
+#| fig-width: 5
+#| fig-height: 5
+plot(salary ~ yrs.service, data = Salaries)
+abline(mod1, lwd = 5)
+```
+:::
+:::::
+
+#### model 2
+
+::::: columns
+::: {.column width="60%"}
+```{r}
+mod2 <- lm(salary ~ sex, data = Salaries)
+summary(mod2)
+```
+:::
+
+::: {.column width="40%"}
+```{r}
+#| message: false
+#| warning: false
+#| fig-width: 5
+#| fig-height: 5
+plotmeans(salary ~ sex, data = Salaries, connect = F)
+```
+:::
+:::::
+
+#### model 3
+
+::::: columns
+::: {.column width="60%"}
+```{r}
+mod3 <- lm(yrs.service ~ sex, data = Salaries)
+summary(mod3)
+```
+:::
+
+::: {.column width="40%"}
+```{r}
+#| message: false
+#| warning: false
+#| fig-width: 5
+#| fig-height: 5
+plotmeans(yrs.service ~ sex, data = Salaries, connect = F)
+```
+:::
+:::::
+::::::::::::
+
+## NHST Review. {.smaller}
+
+::: panel-tabset
+### Slope
+
+-   Direction & Strength of a Relationship
+-   Hard to evaluate strength across models if the units differ too.
+
+![](images/clipboard-3256555507.png)
+
+### Standard Error
+
+-   The amount of variation in an effect you might expect to find due to chance if the null hypothesis were "true".
+
+![](images/clipboard-3219785521.png)
+
+### Significance is Not...
+
+-   ...about slope! Large slope & sampling error = NOT SIGNIFICANT
+
+![](images/clipboard-422304565.png)
+
+### Significance is Not
+
+-   **...about size :** you can be VERY confident that a small effect is not due to sampling error.
+-   **...about importance :** why does the effect matter?\
+-   **...about truth :** our estimates of sampling error are all made up.
+
+![](images/clipboard-3243820561.png)
+
+### Significance Is...
+
+**A p-value of .03 means...there is a 3% chance that this slope (or a stronger slope) would be found due to chance if the true correlation was zero.**
+
+![](images/clipboard-2167468538.png)
+
+### ...Confusing.
+
+Haller, H., & Krauss, S. (2002). [Misinterpretations of significance: A problem students share with their teachers](https://www.metheval.uni-jena.de/lehre/0405-ws/evaluationuebung/haller.pdf). Methods of Psychological Research, 7(1), 1-20.
+
+![](images/clipboard-6955515.png){fig-align="center" width="80%"}
+
+### Other Questions?
+
+![](images/clipboard-148237661.png){fig-align="center"}
+:::
+
+### NEXT TIME
+
+::::: columns
+::: {.column width="50%"}
+1.  sex is related to salary
+2.  years of service is related to salary.
+3.  sex and years of service are related to each other......
+:::
+
+::: {.column width="50%"}
+```{r}
+mod4 <- lm(salary ~ sex + yrs.service, data = Salaries)
+summary(mod4)
+```
+:::
+:::::
+
+:::
