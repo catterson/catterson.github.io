@@ -1,5 +1,5 @@
 ---
-title: "Week 8 - Chapter 7"
+title: "Week 11 - Chapter 8"
 format: html
 editor: visual
 ---
@@ -25,26 +25,32 @@ editor: visual
 ### Class Slides and Materials
 
 ```{=html}
-<iframe data-external="1" class="slide-deck" src="/dvcstats/slides/ch9.html" width="100%" height="900px" title=""></iframe>
+<iframe data-external="1" class="slide-deck" src="/dvcstats/slides/ch8.html" width="100%" height="900px" title=""></iframe>
 ```
 
--   [**Check-In. Linear Model Review**](https://forms.gle/JwNfsjJubhzzZJJX8). Purposefully vague!
-    -   [**Narcissism Data**](https://www.dropbox.com/scl/fi/p1yc5kvkckkwok2v19jl5/narcissism_data.csv?rlkey=y0zwtllmfsie447eybxa4965u&dl=0). For the check-in.
--   [**R EXAM STUDY GUIDE**](https://docs.google.com/document/d/1wxGpG6tgWBtf7e74zRbrOZAWFu8E7XXdyBu1qEi6BM4/edit?usp=sharing)**.** It will be chill.
+-   [**Check-In. NHST Review**](https://docs.google.com/forms/d/e/1FAIpQLSdyVnc80GrkTtGyaESOJJjjlAUHAUfpgMeiVkpZRo2JhKEbgQ/viewform). No R needed!
 -   **Professor R Scripts \[[Zoom Room](https://www.dropbox.com/scl/fo/ofchakmk3d1ep17u2r5r5/APTz8gRoQo9AHhw2XPY5TZs?rlkey=mdept9ym448grm4vya184bbrd&dl=0) + [Room Crew](https://www.dropbox.com/scl/fo/fa4okobq89jhhj0wthgy5/AHJsWr-fakA7N8JnlLZHKIs?rlkey=hfw992f7lj8nzfbcz6qp7n2og&dl=0)\]**
 
 # For Next Week.
 
-### Lab 6. Complete a Practice Exam from the Study Guide
+### Learning From the R Exam Revisions
 
--   submit what you did + a brief paragraph (at the top) about how things went.
+-   Professor posted the R Exam Key.
 
--   set a timer for two hours.
+-   Go through the assignment and learn from your mistakes.
 
-    -   see how far you can get
+### Watch some more pre-recorded NHST Review Videos
 
-    -   open-note; open-internet; adhere to course AI policy.
+**Note : I recorded these videos in a previous semester (with different class data).** You will likely get different results if you try and replicate these results in this semester's class (though we likely had a different class dataset). a good example of how NHST doesn't really tell us whether the results are "truth" or not, or whether they will replicate.
 
--   Use the key AFTER you get stuck for at least 10 minutes. Ask questions on Discord if you have them (explain which practice exam you are taking.)
+#### Example 1 : Weather and Love for Water
 
--   Any submission gets 4/4. Your responsibility to practice!
+{{< video https://www.loom.com/share/67776eb1a41f4b5eaa0ca5312d0663ad?sid=534835dc-c163-4604-b985-137b2bede4ac >}}
+
+![](images/clipboard-1391681033.png)
+
+#### Example 2 : Love of Water and Age
+
+{{< video https://www.loom.com/share/8b755a32fe094e9eb1fc0bd7f16991bd?sid=b0c120f4-4190-4115-9722-da0a19856006 >}}
+
+# ![](images/clipboard-3921533040.png)
