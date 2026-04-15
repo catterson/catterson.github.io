@@ -18,6 +18,8 @@ tbl-colwidths: [70,25]
 ::::: columns
 ::: {.column width="60%"}
 ```{r}
+#| message: false
+#| warning: false
 library(car)
 library(gplots)
 mod <- lm(salary ~ rank, data = Salaries)
