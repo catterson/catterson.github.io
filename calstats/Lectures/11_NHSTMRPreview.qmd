@@ -11,7 +11,7 @@ format:
 tbl-colwidths: [70,25]
 ---
 
-## [Check-In : Testing Theories](https://docs.google.com/forms/d/e/1FAIpQLSeQNQq1O8s_f0tx3l2FxIJo9Rt6zgmZA40T2AqLFdwjFtFtpA/viewform?usp=sf_link)
+## Welcome Back :) {.smaller}
 
 ```{r}
 #| include: false
@@ -19,15 +19,17 @@ library(gplots)
 d <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/Covid Behavior Data/covid_behavior_data.csv", stringsAsFactors = T)
 ```
 
+[Check-In : Testing Theories](https://docs.google.com/forms/d/e/1FAIpQLSeQNQq1O8s_f0tx3l2FxIJo9Rt6zgmZA40T2AqLFdwjFtFtpA/viewform?usp=sf_link)
+
 ::::: columns
-::: {.column width="70%"}
+::: {.column width="60%"}
 ```{r}
 mod1 <- lm(Handwash ~ gender, data = d)
 summary(mod1)
 ```
 :::
 
-::: {.column width="30%"}
+::: {.column width="40%"}
 ```{r}
 #| message: false
 #| warning: false
@@ -83,29 +85,28 @@ Haller, H., & Krauss, S. (2002). [Misinterpretations of significance: A problem 
 
 ### Other Questions?
 
-![](images/clipboard-148237661.png){fig-align="center"}
+![](images/clipboard-148237661.png){fig-align="center" width="80%"}
 :::
 
-## More Practice{.smaller}
+## More Practice {.smaller}
 
 Evaluate the relationships between the variables (slope, significance, importance)
 
-::: panel-tabset
+:::::::::::::::::: panel-tabset
 ### Model 1.
 
 Is there a relationship between narcissism (DV = NPI) and testosterone?
 
-:::: {.columns}
-    
-::: {.column width="50%"}
+::::: columns
+::: {.column width="60%"}
 ```{r}
 h <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/Hormone Data/hormone_dataset.csv", stringsAsFactors = T)
 mod1 <- lm(NPI ~ test, data = h)
 summary(mod1)
 ```
 :::
-    
-::: {.column width="50%"}
+
+::: {.column width="40%"}
 ```{r}
 #| fig-width: 5
 #| fig-height: 5
@@ -113,117 +114,154 @@ summary(mod1)
 plot(NPI ~ test, data = h)
 abline(mod1, lwd = 5)
 ```
-
 :::
-    
-::::
-
+:::::
 
 ### Model 2.
 
 Is there a relationship between narcissism (DV = NPI) and sex?
 
-:::: {.columns}
-    
-::: {.column width="50%"}
-
+::::: columns
+::: {.column width="60%"}
 ```{r}
 library(gplots)
 mod2 <- lm(NPI ~ sex, data = h)
 summary(mod2)
 ```
-
-
 :::
-    
-::: {.column width="50%"}
+
+::: {.column width="40%"}
 ```{r}
 #| fig-width: 5
 #| fig-height: 5
 plotmeans(NPI ~ sex, data = h, connect = F)
 ```
-
 :::
-    
-::::
-
+:::::
 
 ### Model 3.
 
 Is there a relationship between testosterone (DV = test) and sex?
 
-:::: {.columns}
-    
-::: {.column width="50%"}
+::::: columns
+::: {.column width="60%"}
 ```{r}
-#| fig-width: 5
-#| fig-height: 5
 mod3 <- lm(test ~ sex, data = h)
 summary(mod3)
 ```
 :::
-    
-::: {.column width="50%"}
+
+::: {.column width="40%"}
 ```{r}
+#| fig-width: 5
+#| fig-height: 5
 plotmeans(test ~ sex, data = h, connect = F)
 ```
-
 :::
-    
-::::
+:::::
 
 ### RECAP.
 
 **In models 1-3, we wee**
 
-:::: {.columns}
-    
-::: {.column width="50%"}
+::::: columns
+::: {.column width="30%"}
 1.  Testosterone is related to narcissism.
 2.  Sex is related to testosterone.
 3.  Sex and testosterone are related to each other......
-
 :::
-    
-::: {.column width="50%"}
 
+::: {.column width="70%"}
 :::
-    
-::::
+:::::
 
 ### NEXT TIME
 
 **In models 1-3, we wee**
 
-:::: {.columns}
-    
-::: {.column width="50%"}
+::::: columns
+::: {.column width="30%"}
 1.  Testosterone is related to narcissism.
 2.  Sex is related to testosterone.
 3.  Sex and testosterone are related to each other......
-
 :::
-    
-::: {.column width="50%"}
 
+::: {.column width="70%"}
 ```{r}
 mod4 <- lm(NPI ~ sex + test, data = h)
 summary(mod4)
 ```
 :::
-    
-::::
-
-:::
-
+:::::
+::::::::::::::::::
 
 ## BREAK TIME : MEET BACK AT 3:45
 
 ![](images/clipboard-3386439454.png)
 
-## [Milestone #5 : Final Project Analyses](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0)
+# [Milestone #5 : Final Project Analyses](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0)
 
-### Goal : Create a summary table.{.smaller}
+## GOAL : Define a Likert Scale
+
+### RECAP : Likert Scale (Self-Esteem)
+
+### IN R : Three Steps {.smaller}
+
+::: panel-tabset
+#### 0. Load Data, Etc.
+
+```{r}
+#| echo: true
+d <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/Self-Esteem Dataset/data.csv",
+              stringsAsFactors = T,
+              na.strings = "0", sep = "\t") # 0 = missing data!
+head(d) # checking to make sure it loaded okay
+summary(as.factor(d$Q1)) # making sure zeros got turned into NAs
+nrow(d) # sample size
+```
+
+#### 1. Organize Items
+
+```{r}
+#| echo: true
+poskey.df <- d[,c(1:2,4,6,7)] # pos-keyed items (from the codebook)
+negkey.df <- d[,c(3,5,8:10)] # neg-keyed items (from the codebook)
+negkeyR.df <- 5-negkey.df # reverse scoring the neg-keyed items
+SELFES.DF <- data.frame(poskey.df, negkeyR.df) # bringing it all 2gether.
+
+head(SELFES.DF)
+
+```
+
+#### 2. Check alpha
+
+```{r}
+#| echo: true
+library(psych) # loading the library
+psych::alpha(SELFES.DF) # alpha reliability.
+```
+
+#### 3. Average items
+
+```{r}
+#| echo: true
+#| fig-width: 5
+#| fig-height: 5
+#| fig-align: center
+d$SELFES <- rowMeans(SELFES.DF, na.rm = T) # creating the scale
+hist(d$SELFES, col = 'black', bor = 'white', # the graph
+     main = "Histogram of Self-Esteem", 
+     xlab = "Self-Esteem Score", breaks = 15)
+```
+:::
+
+### PLAN : Defining a Likert Scale {.smaller}
+
+1.  What variables are measured with multiple items?
+2.  Are any reverse scored? (subtract from sum of low + high range of response scale to negatively key)
+3.  GOAL : one variable that combines (average or sums) the multiple items together.
+
+### GOAL : Create a summary table. {.smaller}
 
 ```{r}
 #| echo: true
@@ -233,13 +271,20 @@ export_summs(mod1, mod2, mod4, error_pos = "right",
                        "Sex (0 = M; 1 = F)" = "sex"), digits = 3)
 ```
 
-### Steps.
+### PLAN : Defining Your Models. {.smaller}
 
-1.  Start with your linear model.
+1.  Write out your linear model.
 2.  Define and graph your variables.
     -   do the data look good?
     -   how do your participants vary?
 3.  Define your bivariate linear models.
     -   what's the pattern look like
     -   what's the slope and $R^2$ value?
-4.  Then, think about how to graph and create the summary table if you have time :)
+4.  Define the multivariate model
+    -   `mod3 <- lm(DV ~ IV1 + IV2, data = d)`
+    -   NO GRAPH FOR THIS!
+    -   can play around with jtools to create a summary table if time :)
+
+## THE END.
+
+![](images/clipboard-719467543.png){width="80%"}
