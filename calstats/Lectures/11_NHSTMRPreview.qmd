@@ -19,7 +19,7 @@ library(gplots)
 d <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/Covid Behavior Data/covid_behavior_data.csv", stringsAsFactors = T)
 ```
 
-[Check-In : Testing Theories](https://docs.google.com/forms/d/e/1FAIpQLSeQNQq1O8s_f0tx3l2FxIJo9Rt6zgmZA40T2AqLFdwjFtFtpA/viewform?usp=sf_link)
+[Check-In (No R Needed): Testing Theories](https://docs.google.com/forms/d/e/1FAIpQLSeQNQq1O8s_f0tx3l2FxIJo9Rt6zgmZA40T2AqLFdwjFtFtpA/viewform?usp=sf_link)
 
 ::::: columns
 ::: {.column width="60%"}
@@ -40,6 +40,16 @@ plotmeans(Handwash ~ gender, data = d,
 ```
 :::
 :::::
+
+## The Vibe {.smaller}
+
+![](images/clipboard-148237661.png){fig-align="center" width="80%"}
+
+## Need This Energy{.center}
+
+
+{{< video https://www.youtube.com/watch?v=9S1EzkRpelY >}}
+
 
 ## NHST Review. {.smaller}
 
