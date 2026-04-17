@@ -45,9 +45,11 @@ plotmeans(Handwash ~ gender, data = d,
 
 ![](images/clipboard-148237661.png){fig-align="center" width="80%"}
 
-## Need This Energy{.center}
+## Need This Energy {.center}
 
-<iframe width="560" height="315" align="center"  src="https://www.youtube.com/embed/9S1EzkRpelY?si=7HI96raRSyJb5x5A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" align="center" src="https://www.youtube.com/embed/9S1EzkRpelY?si=7HI96raRSyJb5x5A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
 
 ## NHST Review. {.smaller}
 
@@ -211,7 +213,29 @@ summary(mod4)
 
 ## GOAL : Define a Likert Scale
 
-### RECAP : Likert Scale (Self-Esteem)
+
+### RECAP : Likert Scale (Self-Esteem){.smaller}
+
+:::: {.columns}
+    
+::: {.column width="40%"}
+![](images/clipboard-4072663128.png)
+
+:::
+    
+::: {.column width="60%"}
+
+-   **items :** The specific question(s) in the scale. Each item measures some aspect of the variable the researcher is interested in.
+
+    -   **positively keyed items :** An item that measures the high end of the scale, where answering “yes” to the question means you are high on this variable.
+
+    -   **negatively keyed items :** An item that measures the low end of the scale, where answering “yes” to the question means you are low on the variable.
+
+-   **response scale :** How people answer the scale items.
+:::
+    
+::::
+
 
 ### IN R : Three Steps {.smaller}
 
