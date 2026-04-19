@@ -75,16 +75,18 @@ library(ggplot2)
 library(jtools)
 
 ## Some data cleaning.
-h$GDPcat <- ifelse(scale(h$Log.GDP.per.capita) > sd(h$Log.GDP.per.capita, na.rm = T), "High GDP", "Low GDP")
+h$GDPcat <- ifelse(scale(h$Log.GDP.per.capita) > sd(h$Log.GDP.per.capita, na.rm = T), "High GDP (+1 SD)", "Low GDP (-1 SD)")
 h$GDPcat <- as.factor(h$GDPcat)
 plot(h$GDPcat)
+h$happiness <- h$Ladder.score
+h$GDP <- h$Log.GDP.per.capita
 ```
 :::
 
 ```{r}
-ggplot(data = subset(h, !is.na(h$GDPcat)), aes(x = scale(Ladder.score), y = scale(Social.support), color = GDPcat)) + 
+ggplot(data = subset(h, !is.na(h$GDPcat)), aes(x = scale(happiness), y = scale(Social.support), color = GDPcat)) + 
   geom_point(alpha = .5, position = "jitter") +
-  geom_smooth(method = "lm") + labs(title = "Check-In Graph") + ylab("Social Support") + xlab("Happiness (Ladder Score)") +
+  geom_smooth(method = "lm") + labs(title = "Check-In Graph") + ylab("Social Support") + xlab("Happiness") +
   theme_apa()
 ```
 
@@ -94,10 +96,10 @@ Interaction Effect : social support = .08 + .25*GDP + .60* Ladder - .10 \* (GDP 
 ### R Code for the models
 
 ```{r}
-mod1 <- lm(scale(Social.support) ~ scale(Log.GDP.per.capita), data = h)
-mod2 <- lm(scale(Social.support) ~ scale(Ladder.score), data = h)
-mod3 <- lm(scale(Social.support) ~ scale(Log.GDP.per.capita) + scale(Ladder.score), data = h)
-mod4 <- lm(scale(Social.support) ~ scale(Ladder.score) * scale(Log.GDP.per.capita), data = h)
+mod1 <- lm(scale(Social.support) ~ scale(GDP), data = h)
+mod2 <- lm(scale(Social.support) ~ scale(happiness), data = h)
+mod3 <- lm(scale(Social.support) ~ scale(GDP) + scale(happiness), data = h)
+mod4 <- lm(scale(Social.support) ~ scale(happiness) * scale(GDP), data = h)
 export_summs(mod1, mod2, mod3, mod4)
 ```
 :::

@@ -1,0 +1,85 @@
+---
+title: ""
+format: html
+editor: visual
+---
+
+# Week 5 - Monday, April 13th
+
+:::::: {.callout-note collapse="true"}
+### Announcements and Agenda
+
+::::: columns
+::: {.column width="50%"}
+**Today's Objectives :**
+
+1.  **Practice with Interaction Effects and Likert Scales.** Good to review!
+
+2.  **Comparing and Evaluating Models.** Which is better? And why?
+
+3.  **Power Analyses.** What? / Who Cares??! / And How!?!!
+:::
+
+::: {.column width="50%"}
+**Agenda**
+
+-   **10:10 - 10:45.** Check-In (Multiple Regression Review)
+-   **10:45 - 11:20.** Likert Scale and Interaction Effect Review
+-   **11:20 - 11:30.** BREAK TIME
+-   **11:30 - 1:00.** Power
+:::
+:::::
+::::::
+
+### Class Slides and Material
+
+```{=html}
+<iframe data-external="1" class="slide-deck" src="/macssstats/slides/6_PowerHLM.html" width="100%" height="500px" title=""></iframe>
+```
+
+-   [**Check-In**](https://forms.gle/bUsdze7nvSskbmNT8) **:** practice interpreting linear models and NHST.
+-   [**Professor Notes**](https://www.dropbox.com/scl/fo/1g76jzayvff4kwaldyn52/AOfNP20yVujSO5akd1U0k98?rlkey=1xs6rqsgdoj8pgls1efbawl7i&dl=0). My R scripts and other notes, saved in real-time.
+-   [**VISION BOARD**](https://docs.google.com/spreadsheets/d/11FZJ76JMBUkKYZRoWASrHhPIldmP7Pziz-WGnlIZuC4/edit?usp=sharing). Where we will share work we do in class.
+
+### Additional Reading and Support Materials
+
+#### Professor Power Demo
+
+-   I'll go through the slides below in class.
+
+```{=html}
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQMiQVIgG2WPl7t45rAYtUhrU1wnPNOxxeKX3zIj1eiMmN8M6nkEotx6sjDTECvRFwF4IzV5C30w-N5/embed?" frameborder="0" width="960" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+```
+
+-   [Conceptualizing Power](https://rpsychologist.com/d3/nhst/). a d3 visualization to illustrate power that we will explore together and hopefully will help.
+
+#### Professor Previously Recorded Power Demo
+
+-   [Recording #1 : Conceptual Example of Power](https://www.loom.com/share/f393327465f54f3cbf5bbe8c349e3a2e?sid=45f72b59-894e-4d8d-a977-254d6e52f5c4)
+
+-   [Recording #2 : Another Example](https://www.loom.com/share/62440c2754cd4874a22ef2f00618eaff). These data come from a paper I had rejected in part because reviewers complained that I only replicated the main result in 4 out of 5 studies. (The paper was also a hot mess.) Bummer! But it was a cool phenomenon; I sadly never published on it for a variety of REASONS, but the truth got out eventually someone published a very clearly written, much better, and perfectly replicating paper (across six studies!) on it 8 years later. Ahhh, one thing off the to-do list.
+
+#### Other Power Readings
+
+Below are a few different methods to help you estimate power across a wide variety of types of data.
+
+-   [Here's a nice overview of how to conduct sample size power analysis in R](https://rpubs.com/mbounthavong/sample_size_power_analysis_R)
+-   [This is a modern, thorough, and good overview of power, that also discusses ways to generate simulated data (like we did with bootstrapping) to estimate power.](https://aaroncaldwell.us/SuperpowerBook/introduction-to-power-analysis.html)
+-   [Here's another tutorial of an R package that works for a wide variety of different tests; many of which can be used when yout think the assumptions of linear regression are violated.](https://cran.r-project.org/web/packages/pwrss/vignettes/examples.html)
+
+# For Next Week.
+
+## Lab 5. Political Problems.
+
+[**Link to Dataset and Research Article.**](https://www.dropbox.com/scl/fo/iatpjur9ruom49vdnwnvs/AFDq1HY3nt9Z-JnkmLN-avw?rlkey=g3jxp7bmtul2crxtm4ausq5du&dl=0) These data come from a published study on how dehumanizing language influences political beliefs. The author wanted to test "how the dehumanization of immigrants influences immigration policy attitudes". To do this, they conducted an experiment, in which participants read either a dehumanizing or non-dehumanizing political speech about immigrants (**variable = dh_treat**) and then measured participants attitudes about three separate immigration questions (**variables = imm1, imm2, imm3**).
+
+1.  Without looking at the results of the original paper, think about what linear model(s) you would define (based on the variables measured) to test the author's research question (above). Make sure you consider relevant control and / or confound variables to include, and explain why these are needed. Then, define and interpret this linear model. Was dehumanizing political speech related to immigration policy attitudes? Report your results with a graph and summary regression table.
+
+2.  [**After you complete question 1, look at Table 1 from the original paper.**](https://www.dropbox.com/scl/fi/c26fhjow3h2a7a8lxncfc/utych-2017-how-dehumanization-influences-attitudes-toward-immigrants.pdf?rlkey=6g0t7f3whpnpc0n4oqd9s7k4o&dl=0) How did the researcher's linear models differ from your own? See if you can recreate the author's results using the variables in the dataset (feel free to just focus on one model).
+
+## Article Discussion
+
+-   **Skim the method section of the research paper for this week's lab assignment (in the dataset folder).** Do you feel like this was a valid way to answer the question? Why / why not? What other questions do you have? *(Note : I think there's a lot to unpack about this paper! We will do so next week.)*
+
+-   [**Submit Your Response Here**](https://docs.google.com/forms/d/e/1FAIpQLSdGkCcxV80BCkshlZwLNomMMsZOxmOnvGjrdC1Z6w9YEnLltg/viewform?usp=publish-editor). We'll use these responses to guide our discussion of the article next week. Great to use your own voice; don't worry about sounding smart or having "perfect" english!
