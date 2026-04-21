@@ -1,0 +1,95 @@
+---
+title: ""
+format: html
+editor: visual
+---
+
+# Week 6 - Monday, April 20th
+
+:::::: {.callout-note collapse="true"}
+### Announcements and Agenda
+
+::::: columns
+::: {.column width="50%"}
+**Today's Objectives :**
+
+1.  **Practice with Interaction Effects and Power.** Still good to review!
+
+2.  **Discussing the Research on Dehumanization.** Replication and need for transparent science.
+
+3.  **The Learning Has Not Stopped.** On extensions of the linear model (GLM –\> HLM).
+:::
+
+::: {.column width="50%"}
+**Agenda**
+
+-   **10:10 - 11:00.** Check-In (Interaction Effect and Power)
+-   **11:00 - 11:30.** ACTIVITY : Experiments are Models.
+-   **11:30 - 11:40.** BREAK TIME
+-   **11:40 - 1:00.** More Linear Models
+:::
+:::::
+::::::
+
+### Class Slides and Material
+
+```{=html}
+<iframe data-external="1" class="slide-deck" src="/macssstats/slides/6_PowerHLM.html" width="100%" height="500px" title=""></iframe>
+```
+
+-   [**Check-In**](https://forms.gle/bUsdze7nvSskbmNT8) **:** practice interpreting linear models and NHST.
+-   [**Professor Notes**](https://www.dropbox.com/scl/fo/1g76jzayvff4kwaldyn52/AOfNP20yVujSO5akd1U0k98?rlkey=1xs6rqsgdoj8pgls1efbawl7i&dl=0). My R scripts and other notes, saved in real-time.
+-   [**VISION BOARD**](https://docs.google.com/spreadsheets/d/11FZJ76JMBUkKYZRoWASrHhPIldmP7Pziz-WGnlIZuC4/edit?usp=sharing). Where we will share work we do in class.
+
+### Additional Reading and Support Materials
+
+#### Optional Readings on Cross Validation
+
+-   [An overview of ML methods (including the partitioning approach) for evaluating models](https://m-clark.github.io/book-of-models/machine_learning.html#sec-ml-generalization)
+-   [Another overview of cross-validation methods.](https://www.sthda.com/english/articles/38-regression-model-validation/157-cross-validation-essentials-in-r/)
+-   [Some more notes on multicollinearity and VIFs.](https://online.stat.psu.edu/stat462/node/180/)
+
+#### Optional Readings on Errors in Our Predictions of People.
+
+-   **ARTICLE :** [Meyer, G. J., Finn, S. E., Eyde, L. D., Kay, G. G., Moreland, K. L., Dies, R. R., Eisman, E.J., Kubiszyn, & Reed, G. M. (2001). Psychological testing and psychological assessment: A review of evidence and issues. American psychologist, 56(2), 128.](https://www.researchgate.net/profile/Stephen-Finn-4/publication/289963910_Psychological_testing_and_psychological_assessment_A_review_of_evidence_and_issues/links/5a7f3f2baca272a73768210d/Psychological-testing-and-psychological-assessment-A-review-of-evidence-and-issues.pdf)
+
+-   Funder DC, Ozer DJ. Evaluating Effect Size in Psychological Research: Sense and Nonsense. Advances in Methods and Practices in Psychological Science. 2019;2(2):156-168. [doi:10.1177/2515245919847202](https://journals.sagepub.com/doi/full/10.1177/2515245919847202#bibr28-2515245919847202)
+
+-   Allen C, Mehler DMA (2019) Correction: Open science challenges, benefits and tips in early career and beyond. PLOS Biology 17(12): e3000587. [https://doi.org/10.1371/journal.pbio.3000587](https://doi.org/10.1371/journal.pbio.3000587Allen%20C,%20Mehler%20DMA%20(2019)%20Correction:%20Open%20science%20challenges,%20benefits%20and%20tips%20in%20early%20career%20and%20beyond.%20PLOS%20Biology%2017(12):%20e3000587.%20https://doi.org/10.1371/journal.pbio.3000587)
+
+# For Next Week.
+
+## Lab 6. Teaching Problems
+
+The goal of this final lab assignment is to write a tutorial that walks a hypothetical student through interpreting the results of regression.
+
+What this lab looks like is open-ended, but it should be **(a) engaging** (e.g., is written with the goal of *teaching someone* in mind) and **(b) transparent** (e.g., includes the dataset so a student can follow along).
+
+**More specifically, your tutorial should include the following.**
+
+1.  **Definig the problem and dataset.** A clearly stated research question and theory you can test with the variables in the dataset.
+
+2.  **Data cleaning and descrption.** Explain how to graph the variables needed to for your model, and doing any data cleaning or transformations needed.
+
+3.  **The basics of regression.** Defining the needed linear model(s) to test your theory, and interpreting the slope(s), intercept, and $R^2$ for your model. Include a graph for at least one model, and connect the statistics to your graph. Then, diagnose those assumptions of regression.
+
+4.  **The basics of inferential statistics.** estimate and interpreting sampling error of the linear models (using either bootstrapping or NHST.)
+
+5.  **Interaction Effects.** Define, testing, and interpreting an interaction effect (along with a graph!) and interpreting the slope(s) and $R^2$ value from this model.
+
+6.  **Choose one of the following : something more advanced (or new)!**
+
+    1.  Explain how a linear model changes after some transformation (e.g., z-scoring, log the DV, adding a quadratic term to the model.)
+    2.  Teach us some new method, and explain why this is helpful or important in terms of your research question!
+
+Feel free to keep this as short and streamlined as possible, but the idea is that someone could read through this and learn a little bit about the theory and practice of linear regression.
+
+When you are done, please submit this tutorial to the bCourses assignment, and then upload a link to the dataset and your tutorial as a .PDF to the Vision Board.
+
+## Article Discussion
+
+**Scan the article below; we will briefly discuss next week!**
+
+-   Makin, T. R., & Orban de Xivry, J. J. (2019). Ten common statistical mistakes to watch out for when writing or reviewing a manuscript. *Elife*, *8*, e48175. \[[PDF](https://elifesciences.org/articles/48175.pdf)\]
+
+-   [**Submit Your Response Here**](https://docs.google.com/forms/d/e/1FAIpQLSdGkCcxV80BCkshlZwLNomMMsZOxmOnvGjrdC1Z6w9YEnLltg/viewform?usp=publish-editor). We'll use these responses to guide our discussion of the article next week. Great to use your own voice; don't worry about sounding smart or having "perfect" english!

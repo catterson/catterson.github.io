@@ -1,0 +1,267 @@
+---
+title: ""
+format: 
+  revealjs: 
+    slide-level: 3
+    link-external-newwindow: true
+    chalkboard: true
+    controls: true
+    auto-stretch: false
+    code-overflow: wrap
+tbl-colwidths: [70,25]
+---
+
+### Interaction Effect Review {.smaller}
+
+-   [Check-In : Interpreting Interaction Effects](https://forms.gle/bUsdze7nvSskbmNT8)
+
+::: panel-tabset
+### The Graph
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 5
+#| fig-align: "center"
+
+
+h <- read.csv("~/Dropbox/!GRADSTATS/Datasets/World Happiness Report - 2024/World-happiness-report-2024.csv", stringsAsFactors = T)
+library(ggplot2)
+library(huxtable)
+library(jtools)
+
+## Some data cleaning.
+h$GDPcat <- ifelse(scale(h$Log.GDP.per.capita) > sd(h$Log.GDP.per.capita, na.rm = T), "High GDP (+1 SD)", "Low GDP (-1 SD)")
+h$GDPcat <- as.factor(h$GDPcat)
+h$happiness <- h$Ladder.score
+h$GDP <- h$Log.GDP.per.capita
+
+mod1 <- lm(Social.support ~ GDP, data = h)
+mod2 <- lm(Social.support ~ happiness, data = h)
+mod3 <- lm(Social.support ~ GDP + happiness, data = h)
+mod4 <- lm(Social.support ~ happiness * GDP, data = h)
+
+ggplot(data = subset(h, !is.na(h$GDPcat)), aes(x = scale(happiness), y = scale(Social.support), color = GDPcat)) + 
+  geom_point(alpha = .5, position = "jitter") +
+  geom_smooth(method = "lm") + labs(title = "Check-In Graph") + ylab("Social Support") + xlab("Happiness") +
+  theme_apa()
+```
+
+### The Models
+
+Table 1. Predicting Social Support from GDP, Happiness, and their Interaction
+
+```{r}
+#| echo: false
+export_summs(mod1, mod2, mod3, mod4, error_pos = "right", digits = 2, scale = T, transform.response = T)
+```
+
+### The R Code
+
+Not required, but in case you wanted to see :)
+
+```         
+h <- read.csv("~/Dropbox/!GRADSTATS/Datasets/World Happiness Report - 2024/World-happiness-report-2024.csv", stringsAsFactors = T)
+library(ggplot2)
+library(jtools)
+
+## Some data cleaning.
+h$GDPcat <- ifelse(scale(h$Log.GDP.per.capita) > sd(h$Log.GDP.per.capita, na.rm = T), "High GDP (+1 SD)", "Low GDP (-1 SD)")
+h$GDPcat <- as.factor(h$GDPcat)
+plot(h$GDPcat)
+h$happiness <- h$Ladder.score
+h$GDP <- h$Log.GDP.per.capita
+
+ggplot(data = subset(h, !is.na(h$GDPcat)), aes(x = scale(happiness), y = scale(Social.support), color = GDPcat)) + 
+  geom_point(alpha = .5, position = "jitter") +
+  geom_smooth(method = "lm") + labs(title = "Check-In Graph") + ylab("Social Support") + xlab("Happiness") +
+  theme_apa()
+
+mod1 <- lm(Social.support ~ GDP, data = h)
+mod2 <- lm(Social.support ~ happiness, data = h)
+mod3 <- lm(Social.support ~ GDP + happiness, data = h)
+mod4 <- lm(Social.support ~ happiness * GDP, data = h)
+
+export_summs(mod1, mod2, mod3, mod4, error_pos = "right", digits = 2, scale = T, transform.response = T)
+```
+:::
+
+## Review : Evaluating Slopes & Models {.smaller}
+
+::: panel-tabset
+#### models
+
+```{r}
+export_summs(mod1, mod2, mod3, mod4, error_pos = "right", digits = 2, scale = T, transform.response = T)
+```
+
+#### ANOVA
+
+```{r}
+anova(mod1, mod4)
+anova(mod3, mod4)
+```
+
+#### differences
+
+```{r}
+coef(arm::standardize(mod2, NULL, T))[2] - coef(arm::standardize(mod3, NULL, T))[3]
+summary(mod3)$r.squared - summary(mod2)$r.squared
+```
+
+#### bootstrapping
+
+```{r}
+#|echo: true
+slopes <- array()
+r2s <- array()
+for(i in c(1:1000)){
+  h2 <- h[sample(1:nrow(h), nrow(h), replace = T), ]
+  mod1x <- lm(Social.support ~ GDP, data = h2)
+  mod2x <- lm(Social.support ~ happiness, data = h2)
+  mod3x <- lm(Social.support ~ GDP + happiness, data = h2)
+  mod4x <- lm(Social.support ~ happiness * GDP, data = h2)
+  slopes[i] <- coef(arm::standardize(mod2x, NULL, T))[2] - coef(arm::standardize(mod3x, NULL, T))[3]
+  r2s[i] <- summary(mod3x)$r.squared - summary(mod2x)$r.squared
+}
+```
+
+#### se for slope change
+
+```{r}
+mean(slopes)
+sd(slopes)
+c(mean(slopes) + sd(slopes),
+  mean(slopes) - sd(slopes))
+hist(slopes, main = "1000 Resampled Estimates (Bootstrapping)",
+     xlab = "Difference in Slope for Happiness (Model 3 - Model 2)")
+```
+
+#### se for R2 change
+
+```{r}
+mean(r2s)
+sd(r2s)
+c(mean(r2s) + sd(r2s),
+  mean(r2s) - sd(r2s))
+hist(r2s, main = "1000 Resampled Estimates (Bootstrapping)",
+     xlab = "Difference in R2 between Model 4 and Model 3")
+
+```
+:::
+
+## RECAP : evaluating power
+
+### calculating in R (by hand) {.smaller}
+
+::: panel-tabset
+#### the model
+
+```{r}
+#|echo: true
+m4z <- arm::standardize(mod4, NULL, TRUE)
+summary(m4z) # 
+```
+
+#### saving the metrics
+
+```{r}
+#|echo: true
+sm <- summary(m4z) # saving this as an object
+sm$coefficients # tadaa
+mtval <- sm$coefficients[4,3]
+```
+
+#### distributions
+
+-   the t-distribution approaches the normal distribution (with a 95% Interval cutoff of 1.96....)
+-   but we are not quite there so good to look up what the t-value actually is.
+
+```{r}
+#|echo: true
+
+qt(.025, df = 140) # 
+mcut <- qt(.025, 140) # saving this value
+pt(mtval - mcut, df = 136, lower.tail = F) # our power.
+```
+:::
+
+### Using Power to Estimate Sample Size.
+
+-   Power is a function of : effect size, sample size, and the alpha level (alpha = the Type I error that the researcher sets).
+-   You can use these terms to estimate the sample size needed for a given power (the convention is often 80%).
+
+### Example : Estimating Sample Size {.smaller}
+
+What sample size is needed for a slope of r = .23?
+
+::: panel-tabset
+#### usingt `pwr` package {.smaller}
+
+```{r}
+#| echo: true
+library(pwr)
+pwr::pwr.r.test(r = .23, power = .80, alternative = "two.sided")
+```
+
+#### visual from `pwr` package {.smaller}
+
+```{r}
+#| echo: true
+p.ex <- pwr.r.test(r = .23, power = .80, alternative = "two.sided")
+plot(p.ex)
+```
+:::
+
+# BREAK TIME
+
+# ACTIVITY : Experiments as Linear Model
+
+### **The Definition of Causality**
+
+1.  The cause and effect are contiguous in space and time.
+
+2.  The cause must be prior to the effect. (no reverse causation)
+
+3.  There must be a constant union betwixt the cause and effect. (“Tis chiefly this quality, that constitutes the relation.”) (no random chance)
+
+4.  The same cause always produces the same effect, and the same effect never arises but from the same cause. (not “just” some third variable)
+
+### **Manipulation : Watch out for Misleading Control Variables**
+
+**RECAP : the manipulation (A/B Testing) :**
+
+-   researchers create multiple groups (conditions) and change ONE THING (the IV) about a person’s experience in each group & observe the result (the DV).
+
+    -   **treatment / experimental condition :** the IV is present (the change happens)
+
+    -   **control / comparison condition :** the IV is absent (the default experience / no change)
+
+-   KEY IDEA : the comparison group matters!
+
+    -   a 3 hour stats class DECREASES boredom compared to…
+
+    -   a 3 hour stats class INCREASES boredom compared to…
+
+### Making Comparisons
+
+![](images/clipboard-926892078.png)
+
+### The Manipulation
+
+![](images/clipboard-2209546809.png)
+
+## Anchoring : Question --\> Theory --\> Data {.smaller}
+
+-   **Question :** Will the number that people see BEFORE making their own rating influence their decision?
+
+-   **Theory :**
+
+    -   OPTION A: People who see a HIGHER number before making their own rating will make a HIGHER number than people who see the LOWER number.
+    -   OPTION B : People who see a LOWER number before making their own rating will make a HIGHER number than people who see the HIGHER number.
+    -   OPTION C : There will be NO DIFFERENCES between the groups.
+
+# NEXT TIME.
+
+-   **Lab 6.** Teaching about regression
+-   Article : 10 Common Statistical Mistakes
