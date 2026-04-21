@@ -22,7 +22,7 @@ Let's look at the hormone dataset again. Previously, we saw that sex was related
 ```{r}
 library(gplots)
 
-h <- read.csv("~/Dropbox/!GRADSTATS/Datasets/Hormone Data/hormone_dataset.csv")
+h <- read.csv("~/Dropbox/!GRADSTATS/gradlab/Datasets/hormone_dataset.csv")
 h$sexF <- as.factor(h$sex)
 levels(h$sexF) <- c("Male", "Female")
 h$sexF <- relevel(h$sexF, ref = "Female")
@@ -219,3 +219,4 @@ You don't have to take my word for it. Below are a few readings that will help s
 For Lab 9, you'll work with a new dataset to define a model that you think would best test a researcher's theory, then compare your model to the model the researcher defined in the original paper. You'll also practice working with an interaction effect (what we talked about in Week 8) and logistic regression.
 
 Okay, that's all. Hope this made sense, and feel free to reach out on Discord / e-mail as needed. Yeah!
+
