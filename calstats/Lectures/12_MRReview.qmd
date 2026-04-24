@@ -1,80 +1,80 @@
 ---
-title: "Class 10 : Multiple Regression Review and Some Project Funtimes"
-format: html
+title: ""
+format: 
+  revealjs: 
+    slide-level: 3
+    link-external-newwindow: true
+    chalkboard: true
+    controls: true
 ---
 
-## [Check-In : Interpreting A Multivariate Regression Table](https://docs.google.com/forms/d/e/1FAIpQLSe4ksB7pNrEpdQcwRG-fOn5Ti5Q85a5ZFJwyC4EckVVhZkA6g/viewform?usp=header)
+## More Regression{.smaller}
 
-The data below are from a REAL-LIFE study, where researchers studied the relationship between Life Satisfaction, demographic variables, the number of facebook friends that a person had, and other personality variables.
+[Check-In : Interpreting A Multivariate Regression Table](https://docs.google.com/forms/d/e/1FAIpQLSe4ksB7pNrEpdQcwRG-fOn5Ti5Q85a5ZFJwyC4EckVVhZkA6g/viewform?usp=header)
 
-These relationships were reported in the table below.
+*Note : number of friends = facebook friends*
 
 ![](images/clipboard-3796023116.png)
 
+
 ### Interpreting the Regression Table
 
--   Model 1 :
+::::: columns
+::: {.column width="60%"}
+![](images/clipboard-3796023116.png)
+:::
 
--   Model 2 :
+::: {.column width="40%"}
+- Model 1 :
 
--   Model 3 :
+- Model 2 :
 
--   Model 4 :
+- Model 3 :
+
+- Model 4 :
+:::
+:::::
 
 ### From Regression Table to Results Section
 
+::::: columns
+::: {.column width="40%"}
+![](images/clipboard-3796023116.png)
+:::
+
+::: {.column width="60%"}
 ![](images/clipboard-904341219.png)
+:::
+:::::
 
-## A Big Regression Table
+### Multiple Regression Recap : Hair Length Predicts Height?!?!? {.smaller}
 
-The study below predicted circadian typology (time a person went to bed) from a variety of other variables.
+::::::::: panel-tabset
+#### QUESTIONS
 
--   **ICE BREAKER :** If you could learn one skill all at once (like Neo in the Matrix; have y'all seen that movie???), what would it be??
+1.  **ICE-BREAKER :**
 
--   **Evaluate the table above and think about multiple regression.**
+    - *let's keep it light mode :* if you HAD to get a tattoo, what would you get? where would you get it? would it face toward you or other people?
 
-    -   What are some patterns in the data below that seem important?
+    - *bring on the heavy mode :* if you could change one thing about your childhood, what would you change?
 
-    -   How would you write about these results in a final paper result section?
+2.  **MODELS :** What Do You Observe in Model 1? Model 2? Model 3?
 
-    -   What is the multivariate regression you will include in your final project? why might this be interesting to test?
+3.  **Other Questions That You, the Students, Have?**
 
-![](images/clipboard-1373172591.png)
-
-[Full Source](https://personal.lse.ac.uk/kanazawa/pdfs/paid2009.pdf)
-
-## Optional : Chapter 12 (on Interaction Effects)
-
--   **Key Idea :** the effect of the IV on the DV *depends on* another IV.
-
--   **Example :** Average Time to Solve Puzzle \~ Sex \* Culture + Error
-
-
-## Final Project Workshop
-
-![](images/clipboard-834632379.png)
-
--   Reviewing Regression Tables —\> Writing Your Results
-
--   Reviewing Introduction Outlines
-
--   Reviewing Methods
-
-
-
-
-## Chapter 10 Recap : Multiple Regression (Hair Length Predicts Height?!?!?????)
-
-### Data Cleaning and Descriptive Statistics
+#### Data Cleaning
 
 ```{r}
+#| echo: true
+#| fig-width: 12
+#| fig-height: 4
 ## Data Cleaning
 library(gplots)
 d <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets/Mini Data/mini_DATA.csv", stringsAsFactors = T)
 
 d$height[d$height < 10 | d$height > 100] <- NA
 levels(d$is.female)[1] <- NA
-#levels(d$long.hair)[1] <- NA
+levels(d$long.hair)[1] <- NA
 
 par(mfrow = c(1,3))
 hist(d$height)
@@ -82,66 +82,117 @@ plot(d$is.female, xlab = "Is Female?")
 plot(d$long.hair, xlab = "Has Long Hair?")
 ```
 
-### Activity and Discussion : Comparing Models
+#### Model 1
 
-1.  **ICE-BREAKER :**
-
-    1.  *let's keep it light mode :* if you HAD to get a tattoo, what would you get? where would you get it? would it face toward you or other people?
-
-    2.  *bring on the heavy mode :* if you could change one thing about your childhood, what would you change?
-
-2.  **MODEL INTERPRETATION :** What Do You Observe in Model 1? Model 2?
-
-3.  **MODEL 3 :** What Do You Observe Changing About the Slopes from the Bivariate Model (Models 1 and Model 2) to the Multivariate Model (Model 3)?
-
-4.  **Other Questions That You, the Students, Have?**
-
-::: panel-tabset
-#### Height \~ long.hair
-
+::::: columns
+::: {.column width="60%"}
 ```{r}
 moda <- lm(height ~ long.hair, data = d)
 summary(moda)
+```
+:::
+
+::: {.column width="40%"}
+```{r}
+#| fig-width: 5
+#| fig-height: 5
+
+
 plotmeans(height ~ long.hair, data = d, connect = F)
 ```
+:::
+:::::
 
-#### Height \~ is.female
+#### Model 2
 
+::::: columns
+::: {.column width="60%"}
 ```{r}
 modb <- lm(height ~ is.female, data = d)
 summary(modb)
+```
+:::
+
+::: {.column width="40%"}
+```{r}
+#| fig-width: 5
+#| fig-height: 5
 plotmeans(height ~ is.female, data = d, connect = F)
 ```
+:::
+:::::
 
-#### height \~ long.hair + is.female
+#### Model 3
 
 ```{r}
 modc <- lm(height ~ long.hair + is.female, data = d)
 ## NO GRAPH FOR THE MULTIPLE REGRESSION
 summary(modc)
 ```
-:::
 
-### IV1 and IV2 are related to each other, and each related to the DV)
+#### IV1 \~ IV2
 
 ```{r}
+
 plot(d$long.hair ~ d$is.female)
 ```
+:::::::::
 
 ### Multiple Regression : Visualized in Multi-Dimensional Space!
 
 The code below may not work on your computer; see lecture recording for an interpretation / explanation!
 
+**NOTE : I used AI (Gemini) to generate the code for this graph! Here was my prompt :** "make an interactive 3d plot in R from the dataset d using the numeric outcome variable named height and two categorical predictor variables named long.hair and is.female. Generate a plane from the linear model to fill this 3D plot."
+
 ``` r
 
-#install.packages('rgl')
-#install.packages('car')
-library(car)
-library(rgl)
+d <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets/Mini Data/mini_DATA.csv", stringsAsFactors = T)
+library(plotly) # you will need to install this.
+d$height[d$height < 10 | d$height > 100] <- NA
+levels(d$is.female)[1] <- NA
+levels(d$long.hair)[1] <- NA
 
-scatter3d(as.numeric(d$is.female), # IV1 - must be numeric (if not already)
-          d$height, # DV
-          as.numeric(d$long.hair)) # IV2 - must be numeric (if not already)
+# PROF used AI (gemini) to generate this code.
+##### I used to use the function scatter3d from the "car" library 
+##### ....but it stopped working.
+
+# Create the interactive 3D scatter plot
+model <- lm(height ~ long.hair + is.female, data = d)
+plot_ly(data = d, 
+        x = ~long.hair, 
+        y = ~is.female, 
+        z = ~height, 
+        type = "scatter3d", 
+        mode = "markers",
+        marker = list(size = 5, opacity = 0.8)) %>%
+  layout(scene = list(xaxis = list(title = 'Hair Length'),
+                      yaxis = list(title = 'Is Female'),
+                      zaxis = list(title = 'Height')))
+
+hair_levels <- levels(d$long.hair)
+levels(hair_levels)
+gender_levels <- levels(d$is.female)
+
+# Create a grid for all combinations
+grid <- expand.grid(long.hair = hair_levels, 
+                    is.female = gender_levels)
+
+# 3. Predict height across the grid and format as a matrix
+z_matrix <- matrix(predict(model, newdata = grid), 
+                   nrow = length(hair_levels), 
+                   ncol = length(gender_levels))
+
+# 4. Create the plot
+plot_ly(d, x = ~long.hair, y = ~is.female, z = ~height) %>%
+  add_markers(marker = list(size = 3, opacity = 0.6)) %>%
+  add_surface(x = hair_levels, 
+              y = gender_levels, 
+              z = t(z_matrix), # Transpose to align with axes
+              opacity = 0.7, 
+              showscale = FALSE) %>%
+  layout(scene = list(xaxis = list(title = 'Hair Length'),
+                      yaxis = list(title = 'Is Female'),
+                      zaxis = list(title = 'Height')))
 ```
 
 ### Reporting Effects in a Regression Table.
@@ -155,7 +206,12 @@ scatter3d(as.numeric(d$is.female), # IV1 - must be numeric (if not already)
 | Is.Female (0 = No; 1 = Yes) |         |         |         |
 | $R^2$                       |         |         |         |
 
-**There's a Package in R For This!**
+### There's a Package in R For This! {.smaller}
+
+::: panel-tabset
+#### the result
+
+**Table 1.** Unstandardized Regression Coefficients; Predicting Height from Long.Hair and Is.Female.
 
 ```{r}
 # install.packages("jtools") # a new package!!!
@@ -164,3 +220,30 @@ export_summs(moda, modb, modc,
              coefs = c("Long Hair (0 = No, 1 = Yes)" = "long.hairYes",
                        "Is Female (0 = No, 1 = Yes)" = "is.femaleYes"))
 ```
+
+#### the code
+
+``` r
+install.packages("jtools") # a new package!!!
+library(jtools) # make sure you installed the new package first.
+export_summs(moda, modb, modc,
+             coefs = c("Long Hair (0 = No, 1 = Yes)" = "long.hairYes",
+                       "Is Female (0 = No, 1 = Yes)" = "is.femaleYes"))
+```
+:::
+
+### Optional : Chapter 12 (on Interaction Effects)
+
+- **Key Idea :** the effect of the IV on the DV *depends on* another IV.
+
+- **Example :** Average Time to Solve Puzzle \~ Sex \* Culture + Error
+
+### Final Project Workshop
+
+![](images/clipboard-834632379.png)
+
+- Reviewing Regression Tables —\> Writing Your Results
+
+- Reviewing Introduction Outlines
+
+- Reviewing Methods
