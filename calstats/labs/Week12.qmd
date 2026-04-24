@@ -37,39 +37,12 @@ editor: visual
 - [**Professor Notes**](https://www.dropbox.com/scl/fo/gl6k038pu9duy75jvq1t0/ALCXZvj5iBfl0uCRfZfZiHM?rlkey=kon74xzou91hkhgx8tfjmdet5&dl=0)**.** My R scripts and other notes, saved in real-time.
 - [**Final Project Description & Rubric**](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?usp=sharing)**.**
 
-### Some Pre-Recorded NHST Review Videos
-
-**Note : I recorded these videos in a previous semester (with different class data).** You will likely get different results if you try and replicate these results in this semester's class (though we likely had a different class dataset). a good example of how NHST doesn't really tell us whether the results are "truth" or not, or whether they will replicate.
-
-::::: panel-tabset
-#### Example 1
-
-::: {style="position: relative; padding-bottom: 56.25%; height: 0;"}
-<iframe src="https://www.loom.com/embed/67776eb1a41f4b5eaa0ca5312d0663ad" frameborder="1" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-
-</iframe>
-:::
-
-![](images/clipboard-422460195.png){fig-align="left" width="80%"}
-
-#### Example 2
-
-::: {style="position: relative; padding-bottom: 56.25%; height: 0;"}
-<iframe src="https://www.loom.com/embed/8b755a32fe094e9eb1fc0bd7f16991bd" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-
-</iframe>
-:::
-
-![](images/clipboard-927357432.png){fig-align="left" width="80%"}
-:::::
-
 # For Next Class.
 
-## [Milestone #5](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0). Final Project Regression Tables
+## [Milestone #6](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0). A Draft
 
-1.  **Describe Your Variables.** Do the data look good?
-2.  **Define Your Models.** What's the relationship? What does this look like? What do you see??
+**Bring it all together.**
 
-## [Chapter 10.](https://catterson.github.io/ystats/chapters/10R_MultipleRegression.html) On Multiple Regression.
+## [Chapter 11.](https://catterson.github.io/ystats/chapters/11R_InteractionFX.html) Optional (Interaction Effects)
 
-And the reading quiz. No R required.
+No Quiz.
