@@ -33,24 +33,100 @@ summary(mod)
 :::
 :::::
 
-## NHST Review. {.smaller}
-
-![](images/clipboard-3096593119.png)
-
-## Another Example
+## Check-In Review{.smaller}
 
 ::: panel-tabset
-### Slope
 
-### Standard Error
+### Q1
 
-### Significance is Not...
-
-### Significance is Not
-
-### Significance Is...
-
-### ...Confusing.
-
-### Other Questions?
+::::: columns
+::: {.column width="55%"}
+```{r}
+d <- read.csv("~/Dropbox/!WHY STATS/Professor Datasets/Culture and Awe (2024)/culture_awe_fear.csv", stringsAsFactors = T)
+mod <- lm(Fear ~ Anger, data = d)
+summary(mod)
+```
 :::
+
+::: {.column width="45%"}
+1.  Describe the relationship between these two variables.
+
+:::
+:::::
+
+### Q2
+
+::::: columns
+::: {.column width="55%"}
+```{r}
+d <- read.csv("~/Dropbox/!WHY STATS/Professor Datasets/Culture and Awe (2024)/culture_awe_fear.csv", stringsAsFactors = T)
+mod <- lm(Fear ~ Anger, data = d)
+summary(mod)
+```
+:::
+
+::: {.column width="45%"}
+2.  What is the standard error of the slope, and what does this statistic describe?
+
+:::
+:::::
+
+### Q3
+
+::::: columns
+::: {.column width="55%"}
+```{r}
+d <- read.csv("~/Dropbox/!WHY STATS/Professor Datasets/Culture and Awe (2024)/culture_awe_fear.csv", stringsAsFactors = T)
+mod <- lm(Fear ~ Anger, data = d)
+summary(mod)
+```
+:::
+
+::: {.column width="45%"}
+3.  What is the t-value for the slope, and what does this statistic describe?
+
+:::
+:::::
+
+### Q4
+
+::::: columns
+::: {.column width="55%"}
+```{r}
+d <- read.csv("~/Dropbox/!WHY STATS/Professor Datasets/Culture and Awe (2024)/culture_awe_fear.csv", stringsAsFactors = T)
+mod <- lm(Fear ~ Anger, data = d)
+summary(mod)
+```
+:::
+
+::: {.column width="45%"}
+4.  What is the p-value for the slope, and what does this statistic describe?
+
+:::
+:::::
+
+### Q5
+
+::::: columns
+::: {.column width="55%"}
+```{r}
+d <- read.csv("~/Dropbox/!WHY STATS/Professor Datasets/Culture and Awe (2024)/culture_awe_fear.csv", stringsAsFactors = T)
+mod <- lm(Fear ~ Anger, data = d)
+summary(mod)
+```
+:::
+
+::: {.column width="45%"}
+
+5.  Is the slope considered large? How do you know??
+:::
+:::::
+
+
+:::
+
+## Project Time {.smaller}
+
+![](images/clipboard-3096593119.png){fig-align="center" width="80%"}
+
+## [Milestone 3](https://docs.google.com/document/d/1ScvG86PiyyqHO7Ob5bki04XGzCwLodQ4h57n9Jq5DYI/edit?tab=t.0#bookmark=kix.tscgdcazxbbz)
