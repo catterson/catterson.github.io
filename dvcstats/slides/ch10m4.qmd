@@ -136,7 +136,7 @@ plot(d$long.hair ~ d$is.female)
 ```
 :::::::::
 
-### Multiple Regression : Visualized in Multi-Dimensional Space!
+### Multiple Regression : Visualized in Multi-Dimensional Space!{.smaller}
 
 The code below may not work on your computer; see lecture recording for an interpretation / explanation!
 
@@ -193,7 +193,7 @@ plot_ly(d, x = ~long.hair, y = ~is.female, z = ~height) %>%
                       zaxis = list(title = 'Height')))
 ```
 
-### Reporting Effects in a Regression Table.
+### Reporting Effects in a Regression Table.{.smaller}
 
 **Table 1.** Unstandardized Regression Coefficients; Predicting Height from Long.Hair and Is.Female.
 
@@ -238,8 +238,7 @@ export_summs(moda, modb, modc,
 
 ![](images/clipboard-752157706.png)
 
+- Reviewing the Template
+
 - Reviewing Regression Tables —\> Writing Your Results
 
-- Reviewing Introduction Outlines
-
-- Reviewing Methods
