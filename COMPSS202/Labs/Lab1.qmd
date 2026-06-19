@@ -1,0 +1,14 @@
+---
+title: "Lab 1"
+format: html
+---
+
+*This first lab assignment is based on the readings and videos from Why Statistics Introduction and Chapter 1, and asks you to define and graph two variables using R. Please organize your graphs, code, and screenshots into a single document using **Google Docs** or **Microsoft Word**. Once everything looks good, go to **File \> Download** (or Save As) and select **PDF Document (.pdf)** to export your file. Finally, head over to the lab assignment page on **bCourses**, click submit, and upload your PDF.*
+
+1.  Define a numeric variable in R with at least 10 numbers. Graph the variable using the hist() function. Include a screenshot of the graph as part of your lab assignment document.
+
+2.  Define a categorical variable in R with at least 10 entries. Convert this variable into a categorical factor so R knows how to work with the data. Graph the variable using the plot() function. Include a screenshot of the graph as part of your lab assignment document.
+
+3.  Create an R script to record the code you used for the questions above. Add comments to the code to describe what you are doing in R. Copy this code from your script and paste it into your assignment document below your two graphs.
+
+4.  Join the class discord server (the link to join is on our bCourses page, under Course Materials.)  We'll use Discord as a place for students to ask (and answer) questions, share resources, and build community this summer. For now, post a brief introduction about yourself in one of the channels. If you prefer not to share personal details, it’s totally fine to just type “I’m just here for the Lab assignment”). Take a screenshot of your Discord post and paste it at the very end of the lab assignment document.
