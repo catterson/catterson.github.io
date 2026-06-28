@@ -1,0 +1,28 @@
+---
+title: "Lab 2"
+format: html
+---
+
+## Problem 1. Health Problems.
+
+**Load the “covid_behavior_dataset.csv” (in the Chapter Dataset folder on bCourses). Remember to check the "three things" when you load the data (rename the dataset; check the headers, and set stringsAsFactors = TRUE.** 
+
+A.  Check to make sure the dataset loaded correctly, and report the sample size and the names of the variables from this dataset. You can copy/paste your R output, or take a screenshot of your R output to show you did this.
+
+B.  Look over the codebook. Choose two variables from the dataset - one numeric and one categorical - that you would be interested to learn more about. How do you think people in the dataset will differ on these variables? 
+
+C.  Graph each variable side by side (try to use the par() function to do this), make the graphs "look nice".
+
+D.  Below the graphs describe what you learn about the individuals in the dataset for each variable (no stats terms yet) and conclude with additional questions you have about each variable.
+
+## Problem 2. Choice Problems.
+
+**Load one dataset posted to our "Datasets" folder; make sure to give the dataset a name; check the headers, and set stringsAsFactors = T. For each dataset, use R to report the following statistics. **
+
+A.  Use R to report the number of individuals (rows) in the dataset, the number of variables (columns) in the dataset, and the names of the variables in the dataset.
+
+B.  Graph one variable from the dataset. Underneath the graph, describe what you see from this graph. What seems important or confusing? No need for statistics yet - just use your brain to observe something in the data!
+
+C.  Share a screenshot of your graph and interpretation to the Week 2 Community Discussion Post.
+
+D.  Reply to another student in the community discussion post : say hi, and see if you can observe anything else important about this variable. Then, think about a follow-up question you might ask as a researcher about this variable in terms of *prediction.* (What might predict this variable? What might this variable predict?)
