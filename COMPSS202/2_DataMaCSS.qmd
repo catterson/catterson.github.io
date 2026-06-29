@@ -24,10 +24,10 @@ In this video, I recap some of the themes I observed from the work y'all submitt
 
 ## To-Do
 
-### Read the Chapters Below!
+### Read the Chapter Below!
 
-1.  [**Why Statistics Chapter 2 (Parts 1 and 2).**](https://catterson.github.io/ystats/chapters/2R_Data.html) In this chapter, you'll learn how to work with collections of variables organized into datasets, and practice thinking about what you observe from a graph. *Note : you can skip Part 3 of Chapter 2, though feel free to read!*
-2.  **Read the article “[Data Organization in Spreadsheets](https://www.dropbox.com/scl/fi/4ucbwkxc8890n83n5noe7/1_DataOrganization.pdf?rlkey=h4jxxg7hjxv0h4asghdv9hr7b&dl=0)”**. Choose one of the datasets uploaded to the Datasets folder on bCourses, and look over the dataset (and corresponding Codebook). What are some ways that this dataset adhered to these “best practices”? What are some ways that the dataset did not? What is something from this article that you learned? What did you have a question about?
+1.  [**Why Statistics Chapter 2 (Parts 1 and 2).**](https://catterson.github.io/ystats/chapters/2R_Data.html) In this chapter, you'll learn how to work with collections of variables organized into datasets, and practice thinking about what you observe from a graph.
+2.  *Note : Just one chapter this week. You can skip Part 3 of Chapter 2, though feel free to read!*
 
 ### Complete These Assignments
 
@@ -43,11 +43,21 @@ In this video, I recap some of the themes I observed from the work y'all submitt
 
 ## Common Questions and/or Additional Resources
 
-**Week 2 :**
+**Week 2**
 
 - **There are no errors in the qiuz!** Make sure you are following the "3 steps" for loading data (changing the name, checking headers, and setting stringAsFactor = TRUE)
 
 - **Loading datasets can be one of the trickier things to figure out in R.** So be patient with yourself, and reach out for help on Discord if you are feeling stuck!!
+
+- **Videos from Chapter 2 :**
+
+  - [navigating a dataset in R](https://www.youtube.com/watch?v=TaonMS3b0pU)
+
+  - [navigating data with indexing](https://www.youtube.com/watch?v=js2vV5P4DSQ)
+
+  - [loading a dataset into R](https://www.youtube.com/watch?v=XLew6OeYAm0) + [loading data into posit.cloud](https://www.youtube.com/watch?v=HOhINtpyjT4)
+
+  - [practice quiz key](https://www.youtube.com/watch?v=cfeogtcAhNM) (make sure to try the practice quiz before watching the video)
 
 **Questions and Resources from Week 1**
 
