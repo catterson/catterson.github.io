@@ -39,29 +39,51 @@ VIDEO WILL BE UPLOADED LATER TODAY! Thanks for your patience; feel free to start
 1.  **Complete the Chapter 3 and Chapter 4 Quizzes (on bCourses).** There are two quizzes this week! One for each chapter. In each quiz, you'll continue practicing load a dataset into R and use it to calculate some descriptive statistics like the mean, median, and standard deviation. Each quiz has a practice quiz with a video key in the chapter you can use to prepare (like the Chapter 2 Quiz).
 2.  **Complete Lab 3 (submit on bCourses).** This week's lab assignment asks you to graph a variable from the "World Happiness" dataset, conduct descriptive statistics, explain what these statistics "teach" you about the distribution, and then feed the graph into some AI tool and see what AI says. Fun!
 3.  **Community Discussion Post on the [Vision Board](https://docs.google.com/spreadsheets/d/1ekZrJ7PubP1h9zkEKDiOF1Q7eVWwd70ksuk2Wrd8pmk/edit?usp=sharing) (Make Sure to Click the Week 3 Tab).** Post your responses to the community discussion prompts below on this week's vision board tab.
-    - **YOUR POST :** Download the "MaCSS Mini Class Dataset" (posted to bCourses under "Course Materials"). Load the dataset into R, and name the dataset `d` when importing it into R. You have been assigned a variable to graph and summarize in the Vision Board. For this variable, please complete the following : a) graph the variable (and make the graph look nice!); b) report the mean and standard deviation for the variable; c) explain what you learn about the students in the class from the distribution; d) explain how you might use this knowledge (e.g., who cares about this variation?)
+    - **YOUR POST :** Download the "MaCSS Mini Class Dataset" (posted to bCourses under "Course Materials"). Load the dataset into R, and name the dataset `d` when importing it into R. Choose a [numeric]{.underline} variable to graph from the dataset and summarize in the Vision Board. For this variable, please complete the following : a) graph the variable (and make the graph look nice!); b) report the mean and standard deviation for the variable; c) explain what you learn about the students in the class from the distribution; d) explain how you might use this knowledge (e.g., who cares about this variation?)
 
     - **YOUR REPLY :** In Chapter 4, we reviewed "Random" and "Non-Random" reasons for variation. Reply to another student in the class, and come up with some examples of each type of reason why this variable might have this pattern of variation.
 
-    - **PROFESSOR EXAMPLE VIDEO :** I'll do this assignment for one of the variables, record a video, and post it as a guide :)
+    - **PROFESSOR EXAMPLE VIDEO (Will Post Later Today!) :** I'll do this assignment for one of the variables, record a video, and post it as a guide :)
 4.  [**Check-In : Exit Survey and Reflecting on AI for Lab 3**](https://forms.gle/FgaL1NdygSKN59hK9). I've decided I like and need the weekly feedback about how the class is going, so kept the same questions from last week. I'd also love to hear how Lab 3, Question 5 went for you :). Will report back in next week's "Professor Says" video.
 
 ## Common Questions and/or Additional Resources
 
-**Week 3 Stuff**
+**Questions and Resources from Week 2.** A few things students asked for in the Check-Ins.
 
-- **List of Videos from Chapter 3 :**
+- **A video on the par() function.** Professor will post later today!
 
-  - 
+- **Submitting lab work and code.** Professor will post later today!
 
-- **List of Videos from Chapter 4 :**
+**Chapter 3 Videos**
 
-**Questions and Resources from Week 2**
+- Conceptual Understanding
 
-- **No one came to office hours!** I assume everyone is feeling good, nodding along to the readings and videos. Let me know if this is not the case, however! Happy to chat more about stats
+  - [The mean as prediction](https://youtu.be/sK6_vcs23I0)
 
-- **Reports from the Week 2 Check-In :** A few things students asked for
+  - [Residuals as error](https://youtu.be/AGl7jo3WRJY)
 
-  - A video on
+  - [Sum of Squared Residual Errors](https://youtu.be/hN5opflzXIA)
 
-  - 
+  - [Standard Deviation is the Average of the Un-Squared Sum of Residual Errors](https://youtu.be/4SQUK8GXwrI)
+
+- Practice
+
+  - [Describing World Happiness](https://youtu.be/Te1ChWgiATU)
+
+  - [Variation in World Happiness](https://youtu.be/Pm8Z2z6QWMs)
+
+  - [Practice Quiz Video Key](https://youtu.be/L3kQXfp2jNg)
+
+**Chapter 4 Videos**
+
+- Conceptual
+
+  - [Z-Scores](https://www.youtube.com/watch?v=wPX4tlDLXjE)
+
+  - [Removing Outliers](https://youtu.be/Hi0C8M5398Q)
+
+- Practice
+
+  - [Describing the "War" Dataset](https://youtu.be/nEdJvrwV0GQ)
+
+  - [Variation and Outliers in the "War" Dataset](https://youtu.be/Y20eLKQmnew)
