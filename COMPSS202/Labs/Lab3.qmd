@@ -1,0 +1,25 @@
+---
+title: "Lab 3"
+format: html
+---
+
+**Note : This lab reviews content from Chapters 3 and 4.**
+
+## World Happiness Problems.
+
+1.  **Download the “World Happiness” dataset from our "Chapter Datasets" folder.** Import these data into R, and check to make sure the data loaded correctly. Report the number of individuals in the dataset, and the names of the variables.
+
+2.  **Focus on the variable SWLS_24 from the dataset.** Look to the codebook for a review of what this variable measures. Graph the variable (make the graph look nice), and describe the shape of the distribution in terms of skewness.
+
+3.  **Report the mean, median, range, standard deviation, and skew (no calculation needed for this).** Describe what each statistic tells you about the variable (e.g., the mean tells me....) and how you "see" this statistic on the graph.
+
+| Statistic | What It Means | How I Could Visualize This Statistic on the Graph |
+|-----------------|---------------------------------|-----------------------|
+| Mean |  |  |
+| Median |  |  |
+| Range |  |  |
+| Standard Deviation |  |  |
+| Skew (no calculation) |  |  |
+
+4.  **Then, conclude with some other questions you might have about the variable.** Make sure to be transparent about any data cleaning that you did (e.g., removing outliers).
+5.  **Finally, submit just the graph you created in R to some AI tool**. In other words, upload a screenshot of the graph. Do not upload the dataset - just the image of the graph from Question 2. Ask this tool to a) calculate the mean, median, range, and standard deviation based on the graph. Then ask the tool to explain what it learns about the variable. Report back what it says here, along with any other ways that you used AI for the lab. Let us know how this went in the "Check-In" for the week.

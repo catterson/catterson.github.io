@@ -1,0 +1,67 @@
+---
+title: "3 | We are Describing Data"
+format: html
+editor: visual
+---
+
+::: callout-tip
+## Objectives This Week
+
+- Continue practice loading datasets and graphing variables from datasets.
+- Using your human brain to think about what you observe in the graph, and connecting fancy statistics to those observations)
+- Critically evaluating when, why, and how "normal" distributions occur in the social sciences, and when and why they do not occur.
+:::
+
+## Professor Says Hi
+
+In this video, I recap some of the themes I observed from the work y'all submitted in Week 3, and introduce what we will learn this week!
+
+VIDEO WILL BE UPLOADED LATER TODAY! Thanks for your patience; feel free to start reading Chapters 3 and 4 below :)
+
+::: {style="position: relative; padding-bottom: 62.5%; height: 0;"}
+<iframe src="" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+
+</iframe>
+:::
+
+## To-Do
+
+### Read the Chapters Below!
+
+**Note : this is the only week we will have two chapters to read!** They are each shorter than the previous chapters, so hopefully don't take you too long. Let me know how it goes.
+
+1.  [**Why Statistics Chapter 3**](https://catterson.github.io/ystats/chapters/3R_Description.html)**.** In this chapter, we'll review descriptive statistics, and connect them to our graphs and observations of data.
+
+2.  [**Why Statistics Chapter 4 (Parts 1 and 2).**](https://catterson.github.io/ystats/chapters/4R_NormalPeople.html) In this chapter, we'll discuss what it means for a distribution to be "normal", and how / why / when that normal distributions occur.
+
+### Complete These Assignments
+
+1.  **Complete the Chapter 3 and Chapter 4 Quizzes (on bCourses).** There are two quizzes this week! One for each chapter. In each quiz, you'll continue practicing load a dataset into R and use it to calculate some descriptive statistics like the mean, median, and standard deviation. Each quiz has a practice quiz with a video key in the chapter you can use to prepare (like the Chapter 2 Quiz).
+2.  **Complete Lab 3 (submit on bCourses).** This week's lab assignment asks you to graph a variable from the "World Happiness" dataset, conduct descriptive statistics, explain what these statistics "teach" you about the distribution, and then feed the graph into some AI tool and see what AI says. Fun!
+3.  **Community Discussion Post on the [Vision Board](https://docs.google.com/spreadsheets/d/1ekZrJ7PubP1h9zkEKDiOF1Q7eVWwd70ksuk2Wrd8pmk/edit?usp=sharing) (Make Sure to Click the Week 3 Tab).** Post your responses to the community discussion prompts below on this week's vision board tab.
+    - **YOUR POST :** Download the "MaCSS Mini Class Dataset" (posted to bCourses under "Course Materials"). Load the dataset into R, and name the dataset `d` when importing it into R. You have been assigned a variable to graph and summarize in the Vision Board. For this variable, please complete the following : a) graph the variable (and make the graph look nice!); b) report the mean and standard deviation for the variable; c) explain what you learn about the students in the class from the distribution; d) explain how you might use this knowledge (e.g., who cares about this variation?)
+
+    - **YOUR REPLY :** In Chapter 4, we reviewed "Random" and "Non-Random" reasons for variation. Reply to another student in the class, and come up with some examples of each type of reason why this variable might have this pattern of variation.
+
+    - **PROFESSOR EXAMPLE VIDEO :** I'll do this assignment for one of the variables, record a video, and post it as a guide :)
+4.  [**Check-In : Exit Survey and Reflecting on AI for Lab 3**](https://forms.gle/FgaL1NdygSKN59hK9). I've decided I like and need the weekly feedback about how the class is going, so kept the same questions from last week. I'd also love to hear how Lab 3, Question 5 went for you :). Will report back in next week's "Professor Says" video.
+
+## Common Questions and/or Additional Resources
+
+**Week 3 Stuff**
+
+- **List of Videos from Chapter 3 :**
+
+  - 
+
+- **List of Videos from Chapter 4 :**
+
+**Questions and Resources from Week 2**
+
+- **No one came to office hours!** I assume everyone is feeling good, nodding along to the readings and videos. Let me know if this is not the case, however! Happy to chat more about stats
+
+- **Reports from the Week 2 Check-In :** A few things students asked for
+
+  - A video on
+
+  - 
