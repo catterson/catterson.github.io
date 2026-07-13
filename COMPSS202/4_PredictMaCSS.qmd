@@ -17,7 +17,7 @@ editor: visual
 On Monday afternoon (Pacific Time), I'll record and post a video based on the themes I observed from the previous week. Thanks!
 
 ::: {style="position: relative; padding-bottom: 62.5%; height: 0;"}
-<iframe src="" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+<iframe src frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
 
 </iframe>
 :::
@@ -26,28 +26,14 @@ On Monday afternoon (Pacific Time), I'll record and post a video based on the th
 
 ### Read the Chapter Below!
 
-1.  **Why Statistics Chapter 6.** In this chapter, you'll learn how to define a linear model to make predictions, and evaluate the amount of error in these predictions. (You can skip the part on z-scoring for now; we will review and extend this concept in the Fall.)
+1.  [Why Statistics Chapter 6.](https://catterson.github.io/ystats/chapters/6R_LinearModels.html)In this chapter, you'll learn how to define a linear model to make predictions, and evaluate the amount of error in these predictions.
 
 ### Complete These Assignments
 
-1.  **Complete the Chapter 6 Quiz (on bCourses).** This quiz asks you to load a dataset, define a linear model, and interpret the results of that linear model. See the practice quiz in the chapter as a guide!
+1.  **Complete the Chapter 6 Quiz (on bCourses).** This quiz asks you to load a dataset, define a linear model, and interpret the results of that linear model. See the practice quiz at the end of the chapter as a guide!
 2.  **Complete Lab 4 (submit on bCourses).** This week's lab assignment asks you to...that's right...define a linear model and interpret the results of that linear model. Are you noticing a theme here?
 3.  **Community Discussion Post on the [Vision Board](https://docs.google.com/spreadsheets/d/1ekZrJ7PubP1h9zkEKDiOF1Q7eVWwd70ksuk2Wrd8pmk/edit?usp=sharing) (Make Sure to Click the Week 4 Tab).** Post your responses to the community discussion prompts below on this week's vision board tab.
     - **YOUR POST :** Last week, you looked at one variable from the MaCSS Mini Dataset. This week, I'd like you to choose a **new** numeric variable from the MaCSS dataset to include in a linear model as an IV that predicts the variable you analyzed last week (which should be the DV in your linear model). Define the linear model, and include a graph of the linear model (with the regression line!), and report the slope and $R^2$ value. Then, describe why you think this pattern might occur.
 
     - **YOUR REPLY :** Find the exact same classmate you replied to last week to test out your theory (from Week 3). Define a linear model to predict the variable they wrote about in week 3 (the DV in your model) from the variable you thought would help make predictions (the IV in your model). Define this linear model, include a graph of the linear model (with the regression line!), and report the slope and $R^2$ value. Then, describe why you think this pattern might occur, and evaluate whose model was "better" and why.
-4.  **Check-In : Exit Survey**. Just a few short exit survey questions this week.
-
-## Common Questions and/or Additional Resources
-
-**Questions and Resources from Week 3.**
-
-- go
-
-- here
-
-**Chapter 6 Videos**
-
-- Conceptual Understanding
-
-- Practice
+4.  [**Check-In : Exit Survey**](https://forms.gle/ZszYk2iEwYNxAhdSA). Just a few short exit survey questions this week. Thanks!
