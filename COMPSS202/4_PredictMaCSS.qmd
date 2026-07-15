@@ -7,9 +7,9 @@ editor: visual
 ::: callout-tip
 ## Objectives This Week
 
-- Define and interpret linear models using R to
+- Define and interpret linear models using R to make better predictions than the mean alone.
 - Define and interpret $R^2$ to evaluate the amount of error in our predictions.
-- Transform the slope from a linear model into a correlation coefficient.
+- ~~Transform the slope from a linear model into a correlation coefficient.~~
 :::
 
 ## Professor Says Hi
@@ -37,3 +37,29 @@ Hello! Below is a video covering some of the themes (AI & variation) that I obse
 
     - **YOUR REPLY :** Find the exact same classmate you replied to last week to test out your theory (from Week 3). Define a linear model to predict the variable they wrote about in week 3 (the DV in your model) from the variable you thought would help make predictions (the IV in your model). Define this linear model, include a graph of the linear model (with the regression line!), and report the slope and $R^2$ value. Then, describe why you think this pattern might occur, and evaluate whose model was "better" and why.
 4.  [**Check-In : Exit Survey**](https://forms.gle/ZszYk2iEwYNxAhdSA). Just a few short exit survey questions this week. Thanks!
+
+### Helpful Resources
+
+- [**Professor Does the Vision Board**](https://www.loom.com/share/993ed2cadcde492798f828bed01f6b4d)**.** A 30-minute (!!!) video, where I cover the following topics :
+
+  - goals for the week 4 vision board
+
+  - defining a model in R
+
+  - graphing a model in R
+
+  - using the jitter() function to improve the graph in R
+
+  - comparing models
+
+  - the confusing thing that happens when you use plot(mod)
+
+  - and more!!!
+
+  - [here's my R Script in case it helps.](https://www.dropbox.com/scl/fi/rtddyhx79qzywwkfbzxfl/W4_VB.R?rlkey=djabigpw3r3ki9x9ixvxxyjbu&dl=0)
+
+- **Chapter 6 Videos.** But make sure to do the readings too!
+
+  - [Defining a Linear Model in R with Two Numeric Variables](https://youtu.be/vkSxsIfyHk4)
+
+  - [Linear Models with Numeric Variables in R - Are Age and Narcissism Related?](https://youtu.be/mfR5JNwCrYs)
