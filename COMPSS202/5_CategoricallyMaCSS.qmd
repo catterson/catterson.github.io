@@ -1,0 +1,53 @@
+---
+title: "5 | We are Predicting Data (with a Categorical IV)"
+format: html
+editor: visual
+---
+
+::: callout-tip
+## Objectives This Week
+
+- Define and interpret linear models using R to make better predictions than the mean alone...when the IV is a categorical variable.
+- Define and interpret $R^2$ to evaluate the amount of error in our predictions...when the IV is a categorical variable.
+- Learn to re-level the categorical variable to (potentially) aid in the interpretation of the slope(s).
+:::
+
+## Professor Says Hi
+
+Hello! You have arrived before Professor had a chance to record a video on Monday that will appear below and will review some of the themes from Week 4 and will introduces Chapter 7.
+
+::: {style="position: relative; padding-bottom: 62.5%; height: 0;"}
+<iframe src="" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+
+</iframe>
+:::
+
+## To-Do
+
+### Read the Chapter Below!
+
+1.  [**Why Statistics Chapter 7.**](https://catterson.github.io/ystats/chapters/7R_CategoricalIV.html) In this chapter, you'll learn how to define a linear model to make predictions, and evaluate the amount of error in these predictions.
+
+### Complete These Assignments
+
+1.  **Complete the Chapter 7 Quiz (on bCourses).** This quiz asks you to load a dataset, define a linear model, and interpret the results of that linear model [when the IV is categorical]{.underline}. See the practice quiz at the end of the chapter as a guide!
+2.  [**Complete Lab 5 (submit on bCourses)**](/COMPSS202/Labs/Lab5.qmd)**.** This week's lab assignment asks you to...that's right...define a linear model and interpret the results of that linear model *when the IV is categorical*. (Yep.) I've tried to keep this lab short because last week's lab felt a little long :) but let me know if you want more questions or work!
+3.  **Community Discussion Post on the [Vision Board](https://docs.google.com/spreadsheets/d/1ekZrJ7PubP1h9zkEKDiOF1Q7eVWwd70ksuk2Wrd8pmk/edit?usp=sharing) (Make Sure to Click the Week 5 Tab).** Post your responses to the community discussion prompts below on this week's vision board tab.
+    - **YOUR POST :** Load the "MaCSS Mini Dataset" (and check to make sure the data loaded correctly). Identify a [numeric variable]{.underline} to use as a DV and a [categorical variable with two levels]{.underline} to use as an IV *(Note : we'll learn how to interpret a linear model with an IV that has more than 3 levels later in the summer)*. Graph each variable on its own (check to make sure there are no outliers or "empty" levels), and describe what you see about each variable. Then define a linear model to predict the DV from the IV; report the intercept, slope, $R^2$ value, and describe what these statistics tell you about the difference between the two groups, and any other questions you might have about the pattern in the data.
+
+    - **YOUR REPLY :** Choose another student in the class - ideally someone who you haven't chatted with yet (say hi across time and space!) - and apply the "FOUR REASONS" to this pattern. Which of the four reasons seems the most likely to you (and why)?
+4.  [**Check-In : Exit Survey**](https://forms.gle/aWHXjLF6z8PUyttXA). A few short exit survey questions. Thanks!
+
+### Helpful Resources
+
+- **Chapter 7 Videos.** Make sure to also do the readings!
+
+  - **Practice Quiz Key.** These videos serve as an answer key for the practice quiz, but also a video review of the reading material on linear models with a categorical IV.
+
+    - [Defining a Linear Model with a Categorical IV and using the plotmeans() function to graph](https://www.loom.com/embed/909ad220c4d44d39886cd805eccbcb3f)
+
+    - [A Conceptual Example of the Linear Model](https://www.loom.com/embed/3e1e386827354ab2a5ac5a0731f46b66)
+
+    - [R-Squared in a Linear Model with a Categorical IV](https://www.loom.com/embed/d68a666340504fee871228d4d188ce54)
+
+  - **"The Four Reasons for a Pattern in the Data" :** [Example : Native American Mascots and Prejudice](https://youtu.be/2plZk2tQIQ8)

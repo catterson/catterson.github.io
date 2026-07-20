@@ -1,0 +1,33 @@
+---
+title: "Lab 5"
+format: html
+---
+
+**Note : This lab reviews content from Chapter 7.**
+
+- Submit a PDF that answers the questions below. Please number your responses to help the reader grade.
+
+- Copy and paste your R code as a comment when submitting your assignment.
+
+- Reach out if you have any questions, or something is unclear. Thanks!
+
+## Handwashing Problems.
+
+These questions use the "Covid Behaviors" dataset from Lab 2. Look to the codebook for a review of what these variables measures. Feel free to re-use any previous code you (or Professor) used in that lab, and as always, make sure to check and make sure the data loaded correctly :)
+
+**Define a linear model to answer the following questions :** 
+
+1.  Do men or women report washing their hands more?
+2.  Do liberals or conservatives report washing their hands more?
+
+Note that for each linear model, you will need to define the relationship between the two variables using the lm() function and saving this as a separate model object. Ask for help on Discord if you are stuck or confused (e.g., "Wait, which variable is the DV?? What model do I do to answer these two questions??").
+
+**Make sure to do the following for each linear model :**
+
+1.  Graph your DV and IVs as separate variables using the hist() function. Make sure there are no errors in the data, and you understand the graphs you are looking at.
+
+2.  Graph the relationship between the two variables using the plotmeans() function (make sure to input the full equation, not the model object, to plot). See if you can use the par() function to print your graphs side-by-side.
+
+3.  Underneath the graph, report the intercept, slope, and $R^2$ value from each model. Describe what each of these statistics tells you about the relationship between these two variables (making sure to reference the relevant statistics reported above.)
+
+4.  Finally, use your human brain to make some conclusions. What seems important about these relationships? Why do you think these relationships occur (apply the "Four Reasons" framework we reviewed in Chapter 7!)? How might we use this knowledge? What other questions do you have?
