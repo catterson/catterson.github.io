@@ -26,7 +26,7 @@ Note that for each linear model, you will need to define the relationship betwee
 
 1.  Graph your DV and IVs as separate variables using the hist() function. Make sure there are no errors in the data, and you understand the graphs you are looking at.
 
-2.  Graph the relationship between the two variables using the plotmeans() function (make sure to input the full equation, not the model object, to plot). See if you can use the par() function to print your graphs side-by-side.
+2.  Graph the relationship between the two variables using the plotmeans() function (make sure to input the full equation, not the model object, to plot). See if you can use the par() function to print your graphs side-by-side. *Note : the "independent" level from the variable political_party does not appear in the model. This is not an error in the way you are doing things...the key will explain what's going on with this, but spend a few minutes (no more than 15 minutes!) trying to figure it out.*
 
 3.  Underneath the graph, report the intercept, slope, and $R^2$ value from each model. Describe what each of these statistics tells you about the relationship between these two variables (making sure to reference the relevant statistics reported above.)
 

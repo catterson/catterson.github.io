@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab 3</title>
+<title>6 | Estimating Sampling Errors in Our Data</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,18 +26,18 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6033a600180109c3731f6a886c29932c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6033a600180109c3731f6a886c29932c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -65,7 +65,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
           <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -87,8 +87,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#note-this-lab-reviews-content-from-chapters-3-and-4." id="toc-note-this-lab-reviews-content-from-chapters-3-and-4." class="nav-link active" data-scroll-target="#note-this-lab-reviews-content-from-chapters-3-and-4."><strong>Note : This lab reviews content from Chapters 3 and 4.</strong></a></li>
-  <li><a href="#world-happiness-problems." id="toc-world-happiness-problems." class="nav-link" data-scroll-target="#world-happiness-problems.">World Happiness Problems.</a></li>
+  <li><a href="#professor-says-hi" id="toc-professor-says-hi" class="nav-link active" data-scroll-target="#professor-says-hi">Professor Says Hi</a></li>
+  <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do">To-Do</a>
+  <ul class="collapse">
+  <li><a href="#complete-these-assignments" id="toc-complete-these-assignments" class="nav-link" data-scroll-target="#complete-these-assignments">Complete These Assignments</a></li>
+  <li><a href="#helpful-resources" id="toc-helpful-resources" class="nav-link" data-scroll-target="#helpful-resources">Helpful Resources</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -97,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lab 3</h1>
+<h1 class="title">6 | Estimating Sampling Errors in Our Data</h1>
 </div>
 
 
@@ -114,68 +118,81 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="note-this-lab-reviews-content-from-chapters-3-and-4." class="level2">
-<h2 class="anchored" data-anchor-id="note-this-lab-reviews-content-from-chapters-3-and-4."><strong>Note : This lab reviews content from Chapters 3 and 4.</strong></h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Objectives This Week
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li><p>Submit a PDF that answers the questions below. Please number your responses to help the reader grade.</p></li>
-<li><p>Copy and paste your R code as a comment when submitting your assignment.</p></li>
-<li><p>Reach out if you have any questions, or something is unclear. Thanks!</p></li>
+<li>Learn how sampling error and sampling bias can each influence our results and interpretation of the data.</li>
+<li>Learn how to estimate sampling error using Null Hypothesis Significance Testing (NHST) approach, and generate 95% Confidence Intervals to build in sampling error to our estimates.</li>
+<li>Practice interpreting the output from a null-hypothesis significance test (NHST).</li>
 </ul>
+</div>
+</div>
+<section id="professor-says-hi" class="level2">
+<h2 class="anchored" data-anchor-id="professor-says-hi">Professor Says Hi</h2>
+<p>Hello! Professor recorded a video that reviews some of the themes from Week 5 and introduces Chapter 8.</p>
+<div style="position: relative; padding-bottom: 62.5%; height: 0;">
+<iframe src="https://www.loom.com/embed/a6b0565b39b641e1b8c51b800fa8ce3e" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+</iframe>
+</div>
 </section>
-<section id="world-happiness-problems." class="level2">
-<h2 class="anchored" data-anchor-id="world-happiness-problems.">World Happiness Problems.</h2>
+<section id="to-do" class="level2">
+<h2 class="anchored" data-anchor-id="to-do">To-Do</h2>
 <ol type="1">
-<li><p><strong>Download the “World Happiness” dataset from our “Chapter Datasets” folder.</strong> Import these data into R, and check to make sure the data loaded correctly. Report the number of individuals in the dataset, and the names of the variables.</p></li>
-<li><p><strong>Focus on the variable SWLS_24 from the dataset.</strong> Look to the codebook for a review of what this variable measures. Graph the variable (make the graph look nice), and describe the shape of the distribution in terms of skewness.</p></li>
-<li><p><strong>Report the mean, median, range, standard deviation, and skew (no calculation needed for this).</strong> Describe what each statistic tells you about the variable (e.g., the mean tells me….) and how you “see” this statistic on the graph.</p></li>
+<li><strong>Watch the Preview to Chapter 8 [20 min Video].</strong> The ideas behind sampling error can be overly confusing, so I recorded a video to try and give a helpful overview of the content. Focus on the difference between making predictions from our sample and the population, the difference between sampling error and bias, and get a quick(ish) overview of one (confusing) way we try to estimate sampling error called Null Hypothesis Significance Testing (NHST) - the p-value and “significance” stuff you may remember from another stats class.</li>
 </ol>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Statistic</th>
-<th>What It Means</th>
-<th>How I Could Visualize This Statistic on the Graph</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Mean</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Median</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Range</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Standard Deviation</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Skew (no calculation)</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<ol start="4" type="1">
-<li><strong>Then, conclude with some other questions you might have about the variable.</strong> Make sure to be transparent about any data cleaning that you did (e.g., removing outliers).</li>
-<li><strong>Finally, submit just the graph you created in R to some AI tool</strong>. In other words, upload a screenshot of the graph. Do not upload the dataset - just the image of the graph from Question 2. Ask this tool to a) calculate the mean, median, range, and standard deviation based on the graph. Then ask the tool to explain what it learns about the variable. Report back what it says here, along with any other ways that you used AI for the lab. Let us know how this went in the “Check-In” for the week.</li>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/HDWYz5ror4o" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<ol start="2" type="1">
+<li><a href="https://catterson.github.io/ystats/chapters/8R_SamplingError.html#check-out-statistical-significance"><strong>Read Why Statistics Chapter 8.</strong></a> The full chapter focuses on sampling bias, sampling error, and using NHST to understand sampling error.</li>
 </ol>
+<section id="complete-these-assignments" class="level3">
+<h3 class="anchored" data-anchor-id="complete-these-assignments">Complete These Assignments</h3>
+<ol type="1">
+<li><strong>Complete the Chapter 8 Quiz (on bCourses).</strong> No R is required for this Quiz; instead you will interpret NHST output from some screenshots of R.</li>
+<li><a href="../COMPSS202/Labs/Lab6.html"><strong>Complete Lab 6 (submit on bCourses)</strong></a><strong>.</strong> This lab focuses on the “Culture &amp; Awe (2024)” Dataset. The data come from Study 2 of the research article included in the folder. (You don’t need to read the article, but do let us know on Discord if you have any reactions / comments / questions!)</li>
+<li><strong>Community Discussion Post on the <a href="https://docs.google.com/spreadsheets/d/1ekZrJ7PubP1h9zkEKDiOF1Q7eVWwd70ksuk2Wrd8pmk/edit?usp=sharing">Vision Board</a> (Make Sure to Click the Week 6 Tab).</strong> Post your responses to the community discussion prompts below on this week’s vision board tab.
+<ul>
+<li><p><strong>YOUR POST :</strong> Find a linear model that you had previously defined from a lab or vision board. Reprint the graph from that linear model, then run the <code>summary()</code> function to estimate the sampling error statistics (standard error, t-value, and p-value) and then do your best to interpret these statistics. Whew!!</p></li>
+<li><p><strong>YOUR REPLY :</strong> Say hello, and double check your buddy’s work, with your own brain and / or the help of an AI tool?!</p></li>
+</ul></li>
+<li><a href="https://forms.gle/jDt1F4x9ojk2uBNR6"><strong>Check-In : Exit Survey</strong></a>. A few short exit survey questions. Thanks!</li>
+</ol>
+</section>
+<section id="helpful-resources" class="level3">
+<h3 class="anchored" data-anchor-id="helpful-resources">Helpful Resources</h3>
+<ul>
+<li><strong>Chapter 8 Videos.</strong> Make sure to also do the readings!</li>
+<li><strong>More NHST Examples.</strong> This stuff can be very confusing! I recorded the videos below in a previous class (with a different class data). You will likely get different results if you try and replicate these results with our class dataset; a good example of how NHST doesn’t really tell us whether the results are “truth” or not, or whether they will replicate.</li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Example 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Example 2</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div style="position: relative; padding-bottom: 56.25%; height: 0;">
+<iframe src="https://www.loom.com/embed/67776eb1a41f4b5eaa0ca5312d0663ad" frameborder="1" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+</iframe>
+</div>
+<p><img src="images/clipboard-2866849840.png" class="img-fluid"></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div style="position: relative; padding-bottom: 56.25%; height: 0;">
+<iframe src="https://www.loom.com/embed/8b755a32fe094e9eb1fc0bd7f16991bd" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+</iframe>
+</div>
+<p><img src="images/clipboard-1250598105.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

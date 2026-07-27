@@ -1,0 +1,37 @@
+---
+title: "Lab 6"
+format: html
+---
+
+**Note : This lab reviews content from Chapter 8.**
+
+- Submit a PDF that answers the questions below. Please number your responses to help the reader grade.
+
+- Copy and paste your R code as a comment when submitting your assignment.
+
+- Reach out if you have any questions, or something is unclear. Thanks!
+
+## Awe Problems.
+
+These questions focus on the "Culture and Awe (2024)" dataset (on bCourses). These data come from Study 2 of the research article included in the folder. (You don't need to read the article, but let us know on Discord if you have any reactions / comments / questions.)
+
+In this article, the authors conclude, "Across two studies, participants from China reported greater fear during daily experiences (Study 1) and a standardized laboratory induction (Study 2) of awe compared to American participants."
+
+Replicate and extend these analyses by answering the questions below.
+
+1.  Load the data and check to make sure the data loaded correctly.
+2.  Report descriptive statistics for the variables you will need to include in your model : Fear and Sample.
+3.  Define a linear model to test the relationship between Fear (DV) and Sample (IV). Graph the linear model, and interpret the intercept, slope, and $R^2$ value. Then, use these statistics to estimate the predicted Fear for Chinese and US participants. (These should match the values reported in Table 2.)
+4.  Use the `summary()` function to estimate sampling error for the slope and report the t-value, p-value, and 95% Confidence Interval for the slope. Do your best to describe what each of these statistics tells you about the sampling error.
+5.  Finally, conclude. Do you agree with the authors about their conclusion? Why / why not? What other questions might you have about the relationship between Fear and Culture?
+
+## More Patterns, More Problems.
+
+Look over the codebook, and identify another DV (must be a numeric variable!) and IV (can be numeric or categorical - would focus on one with two levels) that you think might be related or unrelated. You can also try to replicate one of the other analyses that the authors of the research article report in Study 2.
+
+1.  Describe the pattern you expect between the two variables, and why it might be interesting to look at the relationship between these two variables.
+2.  Report descriptive statistics for the variables you will need to include in your model.
+3.  Define a linear model to test the relationship between the DV and IV. Graph the linear model, and interpret the intercept, slope, and $R^2$ value.
+4.  Use the `summary()` function to estimate sampling error for the slope and report the t-value, p-value, and 95% Confidence Interval for the slope. Do your best to describe what each of these statistics tells you about the sampling error.
+5.  Conclude - was your theory supported? How might we use this knowledge?
+6.  Share a screenshot of your linear model graph on the Discord, and write out 1-2 sentences summarizing the pattern that you found. (I'll post an example to guide this!)
