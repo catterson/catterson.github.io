@@ -54,35 +54,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -146,7 +117,7 @@ window.Quarto = {
 
 <p><strong>Note : This lab assignment serves as a practice exam.</strong></p>
 <ul>
-<li><p>A key has been posted - you can use the key as a guide if you get stuck, and a review of what we have covered this summer!</p></li>
+<li><p>A key has been posted - you can use the key as a guide if you get stuck, and hopefully a useful review of what we have covered this summer.</p></li>
 <li><p>All students will get 4/4 for anything you submit for this practice exam (the actual exam will be graded for correctness.)</p></li>
 <li><p>Feel free to reach out if you have any questions, or something is unclear. Thanks!</p></li>
 </ul>
@@ -165,17 +136,17 @@ window.Quarto = {
 <li><p>is there a significant positive relationship between GRIT (DV) and age (IV2 = AGE)?</p></li>
 <li><p>are people who are ambidextrous (they can use both hands) significantly higher in GRIT than people who are right handed and left-handed?</p></li>
 </ol>
-<p>Define linear models to answer the questions above. Make sure to include - and organize your document using - the criteria below.</p>
+<p>Define linear models to answer the questions above. Make sure to include (and organize your document using) the criteria below.</p>
 </section>
 <section id="grading-criteria-20-points-total" class="level2">
 <h2 class="anchored" data-anchor-id="grading-criteria-20-points-total">Grading Criteria [20 Points Total]</h2>
 <p>This exam is worth 20 points of your total grade. The grading criteria are below.</p>
 <ul>
-<li><p><strong>Data Cleaning and Descriptive Statistics [4 Points].</strong> Student loaded the data, did any necessary data cleaning, and reported relevant descriptive statistics (graphs and mean, median, range, and SD).</p></li>
-<li><p><strong>Linear Models - Reporting Statistics [4 Points].</strong> Student appropriately defined linear models to answer the relevant question(s), and reported the intercept, slope, <span class="math inline">\(R^2\)</span> value, and inferential statistics (p-values and standard errors or confidence intervals.)</p></li>
-<li><p><strong>Linear Models - Graphs [4 Points].</strong> Student appropriately graphed linear models to test the relevant theory.</p></li>
-<li><p><strong>Linear Models - Interpreting Statistics [4 Points]</strong> Student appropriately interpreted the linear models to answer the relevant questions.</p></li>
-<li><p><strong>Presentation - Organization and Clarity [4 Points]</strong> Submitted exam looks clear, organized, has “presentation worthy graphs”, and is easy to read.</p></li>
+<li><p><strong>Graphs of Variables [4 Points].</strong> Graph each variable that will be included in your linear model. Make sure to do any necessary data cleaning, and make the graphs look “nice”.</p></li>
+<li><p><strong>Descriptive Statistics [4 Points]</strong> What’s something important that you notice about each variable? Make sure to reference at least one statistic to support your idea.</p></li>
+<li><p><strong>Linear Models - Graphs [4 Points].</strong> Include a graph of the linear model(s) necessary to test the relevant theory. Make sure the graphs look “nice” and include the regression line (for numeric IVs).</p></li>
+<li><p><strong>Linear Models - Reporting Statistics [4 Points]</strong> Report the relevant predictive and inferential statistics from the linear models in a summary table.</p></li>
+<li><p><strong>Linear Models - Interpretation [4 Points].</strong> Summarize what you observed from the linear models in relationship to the questions, making sure to comment on the slope and significance of the results.</p></li>
 </ul>
 
 

@@ -17,7 +17,7 @@ editor: visual
 Hello! In this video, I say hi and introduce Chapter 9 (and talk about your exam next week.) A Week 6 recap video will be posted later in the week.
 
 ::: {style="position: relative; padding-bottom: 62.5%; height: 0;"}
-<iframe src="" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+<iframe src frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
 
 </iframe>
 :::
@@ -28,8 +28,8 @@ Hello! In this video, I say hi and introduce Chapter 9 (and talk about your exam
 
 ### Complete These Assignments
 
-1.  **Complete the Chapter 9 Quiz (on bCourses).** You'll use R to define and interpret linear models with more than 3-levels, and interpret slopes as a correlation coefficient.
-2.  [**Complete Lab 7 (a Practice Exam)**](/COMPSS202/Labs/Lab7.qmd)**.** This lab will serve as a practice exam. There is a link to a video key at the bottom of this page.
+1.  **Complete the Chapter 9 Quiz (on bCourses).** You'll use R to define and interpret linear models with more than 3-levels, interpret slopes as a correlation coefficient, and learn how to export the results of your regression in a summary table.
+2.  [**Complete Lab 7 (a Practice Exam)**](/COMPSS202/Labs/Lab7.qmd)**.** This lab will serve as a practice exam. There is a link to a key (and a video key) at the bottom of this page. The actual exam will be similar in many ways!
 3.  **Community Discussion Post on the [Vision Board](https://docs.google.com/spreadsheets/d/1ekZrJ7PubP1h9zkEKDiOF1Q7eVWwd70ksuk2Wrd8pmk/edit?usp=sharing) (Make Sure to Click the Week 7 Tab).** Post your responses to the community discussion prompts below on this week's vision board tab.
     - **YOUR POST :** Share a photo that describes something about yourself - this could be a hobby you enjoy, a photo from a trip that you took, your favorite corner of your home, etc. Then, describe something that you are excited about in moving to Berkeley and starting the program, and something that you are anxious about.
 
@@ -38,4 +38,8 @@ Hello! In this video, I say hi and introduce Chapter 9 (and talk about your exam
 
 ### Helpful Resources
 
-- Video Key for Lab 7.
+- [**Professor Key for Lab 7 (Practice Exam).**](https://docs.google.com/document/d/1A5aamSxxeKncA3HZsdU2DrUoxAeCVQEwHV0N3hTCPsc/edit?usp=sharing) Make sure you try to complete the exam on your own first! But okay to look at this if you are stuck; the point is to learn!
+  - [**PDF version of the Key.**](https://www.dropbox.com/scl/fi/6k14wecl9bwryzu9kpkgu/Professor-Exam-Key.pdf?rlkey=ypchmq9gfxktsijkz0ie122ud&dl=0)
+  - [**Video Key for Lab 7 Part 1**](https://www.loom.com/share/1d9af18b0ded4b3382c64fa2c99711fe)**.** Professor loads the data and does some descriptive statistics, and talks about organizing and cleaning his code.
+  - [**Video Key for Lab 7 Part 2**](https://www.loom.com/share/d8f367beeffd4c87820ec18c8a72a5a9)**.** Professor defines and interprets and graphs linear models.
+  - [**Professor R Script**](https://www.dropbox.com/scl/fi/m24y1ihz6mxxxrk6nn1mw/Lab7-KEY.R?rlkey=j73x5bg2in6k4iwctjnjwcwi0&dl=0)**.** What I wrote in the video.

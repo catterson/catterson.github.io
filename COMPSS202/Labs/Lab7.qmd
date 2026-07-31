@@ -5,7 +5,7 @@ format: html
 
 **Note : This lab assignment serves as a practice exam.**
 
-- A key has been posted - you can use the key as a guide if you get stuck, and a review of what we have covered this summer!
+- A key has been posted - you can use the key as a guide if you get stuck, and hopefully a useful review of what we have covered this summer.
 
 - All students will get 4/4 for anything you submit for this practice exam (the actual exam will be graded for correctness.)
 
@@ -13,32 +13,32 @@ format: html
 
 ## Dataset and Codebook
 
--   [Dataset : GRIT Personality Data](https://www.dropbox.com/scl/fi/zwm81w94mm65xeiwthxo4/data_cleaned.csv?rlkey=vi2l9m4qz4iib5cgirdt0kub5&dl=0). These data were collected as part of an online study.
+- [Dataset : GRIT Personality Data](https://www.dropbox.com/scl/fi/zwm81w94mm65xeiwthxo4/data_cleaned.csv?rlkey=vi2l9m4qz4iib5cgirdt0kub5&dl=0). These data were collected as part of an online study.
 
--   [Codebook : GRIT Personality Study](https://docs.google.com/document/d/1CUV-jeWKGiGqktfvvKCjy7XM8-OSDCJ58daOfOY_v70/edit?usp=sharing) A description of the variables in the dataset.
+- [Codebook : GRIT Personality Study](https://docs.google.com/document/d/1CUV-jeWKGiGqktfvvKCjy7XM8-OSDCJ58daOfOY_v70/edit?usp=sharing) A description of the variables in the dataset.
 
 ## Exam Questions.
 
-Imagine you are working for a research team that is interested in the variable of GRIT - a personality dimension that measure's a person's persistence during challenging tasks. This research team wants to answer the following THREE questions : 
+Imagine you are working for a research team that is interested in the variable of GRIT - a personality dimension that measure's a person's persistence during challenging tasks. This research team wants to answer the following THREE questions :
 
-a.    is there a significant positive relationship between GRIT (DV) and the personality trait of conscientiousness (IV1 = CONSC; a variable that measures how organized and persistent a person can be)?
+a.  is there a significant positive relationship between GRIT (DV) and the personality trait of conscientiousness (IV1 = CONSC; a variable that measures how organized and persistent a person can be)?
 
-b.    is there a significant positive relationship between GRIT (DV) and age (IV2 = AGE)?
+b.  is there a significant positive relationship between GRIT (DV) and age (IV2 = AGE)?
 
-c.    are people who are ambidextrous (they can use both hands) significantly higher in GRIT than people who are right handed and left-handed?
+c.  are people who are ambidextrous (they can use both hands) significantly higher in GRIT than people who are right handed and left-handed?
 
-Define linear models to answer the questions above. Make sure to include - and organize your document using - the criteria below.
+Define linear models to answer the questions above. Make sure to include (and organize your document using) the criteria below.
 
 ## Grading Criteria \[20 Points Total\]
 
 This exam is worth 20 points of your total grade. The grading criteria are below.
 
-- **Data Cleaning and Descriptive Statistics \[4 Points\].** Student loaded the data, did any necessary data cleaning, and reported relevant descriptive statistics (graphs and mean, median, range, and SD).
+- **Graphs of Variables \[4 Points\].** Graph each variable that will be included in your linear model. Make sure to do any necessary data cleaning, and make the graphs look "nice".
 
-- **Linear Models - Reporting Statistics \[4 Points\].** Student appropriately defined linear models to answer the relevant question(s), and reported the intercept, slope, $R^2$ value, and inferential statistics (p-values and standard errors or confidence intervals.)
+- **Descriptive Statistics \[4 Points\]** What’s something important that you notice about each variable? Make sure to reference at least one statistic to support your idea.
 
-- **Linear Models - Graphs \[4 Points\].** Student appropriately graphed linear models to test the relevant theory.
+- **Linear Models - Graphs \[4 Points\].** Include a graph of the linear model(s) necessary to test the relevant theory. Make sure the graphs look "nice" and include the regression line (for numeric IVs).
 
-- **Linear Models - Interpreting Statistics \[4 Points\]** Student appropriately interpreted the linear models to answer the relevant questions. 
+- **Linear Models - Reporting Statistics \[4 Points\]** Report the relevant predictive and inferential statistics from the linear models in a summary table.
 
-- **Presentation - Organization and Clarity \[4 Points\]** Submitted exam looks clear, organized, has "presentation worthy graphs", and is easy to read.
+- **Linear Models - Interpretation \[4 Points\].** Summarize what you observed from the linear models in relationship to the questions, making sure to comment on the slope and significance of the results.
