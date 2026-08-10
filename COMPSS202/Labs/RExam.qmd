@@ -1,0 +1,59 @@
+---
+title: "R Exam - Perceptions of the Wealthy"
+format: html
+---
+
+## Description of Dataset and Questions
+
+**Description of Dataset.** These data come from a study on Perceptions of Inequality and Income in American Households. US participants were recruited online using a survey platform and asked to answer a variety of questions about their personal demographics (e.g., age, gender, Household Income) and attitudes about income inequality in the United States (e.g., how fair or unfair they think household incomes are distributed across the US.)
+
+**Links to Download (Below).** These files have also been uploaded to bCourses under the Week 8 Module. Let me know on Discord if you have any questions about the dataset / are confused about what any of the variables are measuring!
+
+- [**Link to Dataset \[.csv file\]**](https://www.dropbox.com/scl/fi/mlexhzpzfp9lihm5upwjm/Dawtry-2015-Study-1a.csv?rlkey=i3nwbqcxoju5et2d64m25asif&dl=0)
+
+- [**Link to Codebook \[PDF\]**](https://www.dropbox.com/scl/fi/izz9ic6u6lgy8vhaq8t5d/Codebook-R-Exam-Perceptions-of-the-Wealthy.pdf?rlkey=hahh35xhvqyned57csd955quz&dl=0)
+
+**Questions :** You are on a team who wants to make predictions about how much people believe household incomes are fairly distributed in the US (**DV = fairness**). Define a series of linear models to answer the following questions.
+
+1.  Do people with higher personal incomes (**IV = Household_Income**) believe that household incomes in are fairly distributed (**DV = fairness)**?
+
+2.  Are there gender differences (**IV = gender**) in people's beliefs about how much household incomes are fairly distributed (**DV = fairness**)?
+
+3.  What is the [*correlation*]{.underline} between how satisfied a person is about the distribution of household incomes in the US (**IV = satisfaction**) and how much they believe household incomes are fairly distributed (**DV = fairness**)?
+
+4.  What is one way you might use these results to try and change people's attitudes about fairness (e.g., how could you use these results to inform future work that tries to make people believe the US is more fair or less fair?) Make sure to reference the relevant statistics as needed. *Note : there are lots of different ways you might answer this question, and there is not necessarily a "right" or "wrong" answer here; we just want to see that you are thinking about the results and how to apply them in the real-world!*
+
+5.  **AI Disclosure :** Please include all prompts that you used for any AI tools. As a reminder, it's fine to use AI as long as a) you are transparent about doing so and b) you are demonstrating that you are using and applying the skills that we learned this summer (e.g., you are not just feeding the questions into AI and pasting the results.) Reach out in advance if you have questions about this policy!
+
+## R Exam Template
+
+*Below is a template to use for the R Exam - you can copy and paste this into a text editor to complete ([or here's a Google Doc version](https://docs.google.com/document/d/1XRCVsLouAjw9s0r8EZHRnTAv87uwoQUYn9dL1YkzGMk/edit?usp=share_link)). Make sure to complete each part below for full credit. There's partial credit, so if you get stuck on something (e.g., removing outliers) feel free to use any resource or tool, set up an appointment in office hours, or just move on and trust you can figure it out later. (As a reminder, you can "fix" your mistakes for 50% of the points back after your exam is graded, using the key as a guide.)*
+
+*Good luck!*
+
+### Data Cleaning and Descriptive Statistics
+
+**Graphs of the Variables \[4 Points\].** Print the necessary graphs of each variable below. Make sure to do any necessary data cleaning (e.g., remove obvious outliers or errors in the data), give the graphs appropriate (and professional looking) labels, and ensure that the graphs are easy to read.
+
+**Descriptive Statistics \[4 Points\].** Below, write a short sentence describing something important about each variable. Make sure to reference and report  at least one descriptive statistic that supports your observation.
+
+|              |                      |            |                  |
+|--------------|----------------------|------------|------------------|
+| **fairness** | **Household_Income** | **gender** | **satisfaction** |
+|              |                      |            |                  |
+
+### Linear Models and Interpretation
+
+**Graphs of the Linear Models \[4 Points\].** Include graphs for the three linear models needed to answer the questions for this exam. Make sure your graphs have clear labels for the variables, are appropriate for the type of data, and are relevant to the research question you are trying to answer.
+
+\
+
+**Summary Regression Table \[4 Points\].** Include a summary of the regression output below. Make sure to organize the regression table into an easy-to-read format that includes labels for the variables, the slopes, 95% Confidence Intervals, Inferential Statistics (p-values), and R2 values.
+
+\
+
+**Interpretation and Analysis \[4 Points\].** Interpret your regression output to answer each question on the exam. Make sure to reference relevant statistics as needed to answer the questions (e.g., the slope, R2, p-values, etc.)
+
+\
+
+##  
