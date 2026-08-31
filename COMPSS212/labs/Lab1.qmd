@@ -1,0 +1,27 @@
+---
+title: "Lab 1: Step Problems"
+format: 
+  html:
+    code-overflow: 'wrap'
+    code-fold: show
+---
+
+## Lab Instructions.
+
+Using Quarto, prepare a report to answer the questions below. Submit this completed assignment as a .PDF (you can either render from Quarto as .PDF, or render as .html and then print this html file as a .PDF). Please make sure to adhere to the course AI policy, and please feel free to ask for help if you get stuck / are confused / professor made a mistake. Thanks!
+
+### Dataset.
+
+[Access the two "Steps and BMI" data files](https://www.dropbox.com/scl/fo/majrp9nuryynmz4zroptr/AM79m581hjyS0ojb0vaTxpc?rlkey=01z6sfobcjv64xcaervfbhzh5&dl=0). There are two data files - data9b_w.txt reports the Body Mass Index (bmi) and the number of steps taken in a day (steps) for a sample of women, and data9b_m.txt reports these same variables for a sample of men.
+
+### Questions.
+
+**I'd like everyone to work on Question 3 on your own so we can get a baseline of where students are at - you'll get full credit as long as you submit a "good-faith" effort, so feel free to explain where (and how) you are confused.**
+
+1. IN SECTION : Import the two datasets and merge them into one file. Create graphs of the three varibles in the dataset : steps, BMI, and gender. Make these graphs "look nice" and make sure they can render in Quarto. Below the graphs, describe what you learn about the variables.
+
+2. IN SECTION : In class, we reviewed through terms of validity and reliability. Apply these terms to think about how you might evaluate the steps data and BMI data in the dataset. (You don't need to do any stats for this question.)
+
+3.  ON YOUR OWN : The researchers wanted to know whether there is a statistically significant positive relationship between the number of steps that people take and their BMI. Report the relevant statistics you'll need to answer this question a) for all participants, b) for women, and c) for men? There are different ways to approach this - so just do your best to answer the question and show your work and you'll get full credit.
+
+4.  Please describe whether you used AI to complete this assignment. If you used AI, please include the specific prompts that you used. See the course AI policy for more information. 

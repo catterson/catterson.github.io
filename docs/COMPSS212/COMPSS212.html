@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>COMPSS 212 - Applied Statistics I</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6033a600180109c3731f6a886c29932c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+          <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://catterson.github.io/ystats/"> 
+<span class="menu-text">Why Statistics?</span></a>
+  </li>  
+</ul>
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#course-outline" id="toc-course-outline" class="nav-link active" data-scroll-target="#course-outline">Course Outline</a></li>
+  <li><a href="#grade-details" id="toc-grade-details" class="nav-link" data-scroll-target="#grade-details"><strong>Grade Details</strong></a></li>
+  <li><a href="#about-this-class" id="toc-about-this-class" class="nav-link" data-scroll-target="#about-this-class">About This Class</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">COMPSS 212 - Applied Statistics I</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>Lecture (3 Units) |</strong> Mondays, 10:00 AM - 12:00 PM, in the MaCSS Classroom (2121 Allston Way).</p>
+<p><strong>Prof.&nbsp;|</strong> Arman Catterson, PhD [he / his / او ] 🐱(<a href="mailto:catterson@berkeley.edu">catterson@berkeley.edu</a>). Office hours are Mondays, 12:00 - 1:00 PM in the MaCSS Classroom. If this time doesn’t work, e-mail or talk to me after class to find a time that does!</p>
+<p><strong>GSI |</strong> Yi-Ke Peng []. Office hours are TBD.</p>
+<p><strong>Textbooks |</strong> We’ll be drawing from two open-sourced textbooks. <a href="https://avehtari.github.io/ROS-Examples/index.html">Regression and Other Stories (ROS; note there is a free PDF of the textbook on the website)</a> will go deeper into the statistics material, whereas The Handbook of Social Psychology (HSP) will go deeper into research-methods content required for this course. <a href="https://docs.google.com/document/d/1dpODY7iojvMeQMS9xiAo9cThAL7Zz1iLFMXimb-0gbk/edit?usp=sharing">Why Statistics (WS)</a> and <a href="https://learningstatisticswithr.com/book/">Learning Statistics With R (LSR)</a> will serve as an optional review of statistical content in R that students may need for this course depending on their past experience.&nbsp;</p>
+<p><strong>Prerequisites |</strong> Students are expected to have working knowledge of both R and statistics basics (e.g., descriptive statistics, linear models). Review material will be provided for students who need additional support.</p>
+<p><strong>Course Descriptions |</strong> The goal of this course is to teach students the statistics and research methods required to analyze diverse datasets to answer (and generate new) questions, help design and critique methods of measurement and research, and create clear and reproducible reports to share their knowledge and insights.</p>
+<section id="course-outline" class="level2">
+<h2 class="anchored" data-anchor-id="course-outline">Course Outline</h2>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td><strong>Date</strong></td>
+<td><strong>Class Topic</strong></td>
+<td><strong>Support Readings</strong></td>
+<td><strong>Lab Assignment</strong></td>
+</tr>
+<tr class="even">
+<td>8/31</td>
+<td><strong>Objective Science :</strong> Quarto, Reliability &amp; Validity</td>
+<td>ROS 2 &amp; 6; WS 6 &amp; 7; LSR 15.1 - 15.2; <a href="https://openpublishing.princeton.edu/read/the-who-of-social-psychology-the-challenges-of-humans-studying-human-behavior/section/032b1ec1-3e25-48bb-b35c-3c5ecf1de1af">HSP : The Who of Psychology</a></td>
+<td>Lab 1 : BMI and Steps (Health Data)</td>
+</tr>
+<tr class="odd">
+<td>9/7</td>
+<td><strong>No Class :</strong> Labor Day</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>9/14</td>
+<td><strong>Constructing Reality :</strong> Operationalization and Likert Scales</td>
+<td>WS 5; <a href="https://openpublishing.princeton.edu/read/measuring-constructs/section/ac12c4e3-9b41-4dab-a61d-0c6615869b75">HSP : Measuring Constructs</a></td>
+<td>Lab 2 : Love in R (Survey Data)</td>
+</tr>
+<tr class="odd">
+<td>9/21</td>
+<td><strong>Faking Data is Good, Actually :</strong> Simulating Data; Bootstrapping</td>
+<td>ROS 5; WS 8; LSR 9-10</td>
+<td>Lab 6 : More Doors, More Problems (Simulated Data)</td>
+</tr>
+<tr class="even">
+<td>9/28</td>
+<td><strong>Lines Can Have Errors :</strong> Linear Model Review and Assumptions</td>
+<td>ROS 7 &amp; 11</td>
+<td>Lab 3 : Objective Lines (Author Data)</td>
+</tr>
+<tr class="odd">
+<td>10/5</td>
+<td><strong>Experiments for Fun (and Profit) :</strong> Treatment Effects</td>
+<td>ROS 18; <a href="https://openpublishing.princeton.edu/read/the-art-of-experimentation-in-the-laboratory-and-online/section/095ef473-ba57-4b6a-ad21-77c6882ee48c">HSP : Art of Experimentation</a></td>
+<td>Lab 4 : Replicating Experiments (Dehumanization Data)</td>
+</tr>
+<tr class="even">
+<td>10/12</td>
+<td><strong>We Could Always Be Wrong :</strong> Power and P-Hacking</td>
+<td><a href="https://openpublishing.princeton.edu/read/changing-practices-and-priorities-in-social-psychological-research-methods-and-reporting/section/cacd7484-717d-4bfa-9d30-45ed53db53d0">HSP : Changing Practices</a></td>
+<td>Lab 5 : More Power, More Practice</td>
+</tr>
+<tr class="odd">
+<td>10/19</td>
+<td><strong>Life is Complex :</strong> Multiple Regression (Still a Line)</td>
+<td>ROS 10.1-10.2; WS 10; <a href="https://openpublishing.princeton.edu/read/field-research-five-approaches-to-theoretical-development-in-the-field/section/3ec25c7a-19b2-4a0b-8176-813d5091d66d">HSP : Field Research</a></td>
+<td>Lab 7 : Nudging R (Field Data)</td>
+</tr>
+<tr class="even">
+<td>10/26</td>
+<td><strong>Life Depends :</strong> Interaction Effects (Also Lines)</td>
+<td>ROS 10.3; WS 11</td>
+<td>Lab 8 : Feels Good to Be Here (Self-Esteem Data)</td>
+</tr>
+<tr class="odd">
+<td>11/2</td>
+<td><strong>Review and Catch-Up :</strong></td>
+<td></td>
+<td>Lab 9 : Practice Exam</td>
+</tr>
+<tr class="even">
+<td>11/9</td>
+<td><strong>BRAIN EXAM + R EXAM</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>11/16</td>
+<td><strong>Never Tell Me The Odds :</strong> Generalized Linear Models (Bendy Lines)</td>
+<td>ROS 15; WS 12</td>
+<td>Lab 10 : Project Milestone 1</td>
+</tr>
+<tr class="even">
+<td>11/23</td>
+<td><strong>Multilevel Models.</strong> Random Slopes, Random Intercepts, Still Lines.</td>
+<td>ROS 22.5</td>
+<td>Lab 11 : It Depends (Football Data)</td>
+</tr>
+<tr class="odd">
+<td>11/30</td>
+<td><strong>Multilevel Models, Part 2 :</strong> Time-Series Data.</td>
+<td>ROS B</td>
+<td>Lab 12 : Project Milestone 2</td>
+</tr>
+<tr class="even">
+<td>12/7</td>
+<td><strong>Presentations.</strong> We learn from each other.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="grade-details" class="level2">
+<h2 class="anchored" data-anchor-id="grade-details"><strong>Grade Details</strong></h2>
+<p>Your grade in the class will be based on the following components.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 26%">
+<col style="width: 25%">
+<col style="width: 22%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>30% Participation</td>
+<td>30% Lab Assignments</td>
+<td>20% Brain &amp; R Exam</td>
+<td>20% Presentation</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Letter grades will be based on the following cutoffs :</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 21%">
+<col style="width: 34%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><p>A+ is &gt; 96.5</p>
+<p>A is &gt; 92.5</p>
+<p>A- is &gt; 89.5</p></td>
+<td style="text-align: center;"><p>B+ is &gt; 86.5</p>
+<p>B is &gt; 82.5</p>
+<p>B- is &gt; 79.5</p></td>
+<td style="text-align: center;"><p>C + is &gt; 76.5</p>
+<p>C is &gt; 72.5</p>
+<p>C- is &gt; 69.5</p></td>
+<td style="text-align: center;"><p>D is &gt; 59.5</p>
+<p>F is &lt; 59.5</p>
+<p>note : an 89.499 is a B+</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="about-this-class" class="level2">
+<h2 class="anchored" data-anchor-id="about-this-class">About This Class</h2>
+<p>Read the tabs below for more information about our class. Let me know if you have any questions or spot errors.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Course Components.</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Course Policies.</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Student Support Services.</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><strong>Participation (Lecture and Discussion Section Attendance, Vision Board &amp; Check-In Completion):</strong> Because we all learn from each other; in-person attendance is required. You may miss up to two lectures and discussion sections with no penalty. Lectures will be recorded for students who want to review the material they missed (however watching the recording does not count toward your attendance.) Lectures will be recorded for those who need to miss, and students have 1-week after the lecture to complete the check-Ins and vision board assignment (with no penalty).</p>
+<p><strong>Lab Assignments :</strong> Each week, you will work through a “lab” assignment that is designed to help practice the skills we review in lecture and readings. You can expect to work on these in lecture, in discussion sections, and at home as needed. Each lab document will have a set of questions to answer - you should submit answers to these questions as a separate document to bCourses. Lab assignments are due the week after they are assigned. You can drop your lowest submitted lab assignment.</p>
+<p><strong>Final Project (Research Presentation) :</strong> You’ll apply the skills you have learned in the class to prepare a report and / or presentation that includes both survey and experimental methods that addresses a research question relevant to your interests. See the Final Project Description &amp; Rubric for more information.</p>
+<p><strong>Brain &amp; R Exams :</strong> During the exam week, you will take an in-class, paper based exam that assesses your ability to interpret statistical results. You will then be assigned an open-note and take-home exam that asks you to answer a series of research questions based on the data. Accommodations can be made for students who need extra time or translation services.</p>
+<p><strong>Extra Credit :</strong> There will be no extra credit offered in this course, even for students who ask kindly.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><strong>Late Work Policy.</strong> Labs assignments are due before lecture, the week after they are assigned. Late assignments will be penalized 25% for any reason (even if they are 1-minute late), and 50% if turned in more than a week late (after the key has been posted). Students with extra time DSP accommodations should work out a plan to submit work within a week of the original deadline. Students may drop their lowest submitted lab assignments. Note : in the past, I’ve tried a variety of more lenient late-work policies, and found that these policies often disincentivized students turning in work on time to their overall detriment in the class; so let’s try this and see how it goes.</p>
+<p><strong>Computer Access.</strong> Access to a personal computer is required We will spend time each lecture working in R - a free and powerful statistics program that works with all operating systems and computers. Laptops are available for rent from the library (see <a href="https://studenttech.berkeley.edu/devicelending">Berkeley’s Technology Loan Program</a>), or you can purchase one that will work for this class for as little as $150 (less than the price of most textbooks, which is not required for this class). Talk to me or a GSI if access to a laptop or computer is interfering with your ability to do well in the course.</p>
+<p><strong>Regrades.</strong> Students may ask for a re-grade on exams and papers if they believe they lost points for something they should have earned. To request a regrade, talk to your GSI in office hours or set up a meeting. In the case that you and your GSI cannot resolve the regrade issue, the professor will step in and regrade the exam. For final project regrades, just e-mail the professor. When requesting a regrade, you consent to have your score increased or decreased if we find that you earned points you should not have earned.</p>
+<p><strong>Student Contact.</strong> It is your responsibility to regularly check e-mail for announcements. Please post questions about the class or R to our class discord page, so other students can see the question (and answer) and benefit from your question! If you have specific questions to e-mail me, please make sure to (a) search the syllabus and / or Google for the answer to your question and (b) contact your GSI about your question. I am always happy to answer any questions in office hours (either during the scheduled time or online by appointment), or before, during, or after lecture. I should respond to e-mail within 24 hours on weekdays (I do not check e-mail on weekends); please send a gentle reminder if I do not respond in this timeframe. Thanks!</p>
+<p><strong>Incomplete Policy.</strong> I will only grant an incomplete to students who (1) have a significant life event that prevents them from completing the final project at the end of the semester and (2) are passing the class at the point they request the incomplete.</p>
+<p><strong>Academic Integrity</strong>. Do NOT cheat. Do NOT plagiarize. To copy text or ideas from another source (including your own submitted coursework) without appropriate reference is plagiarism. You may work on lab assignments with other students, but should be able to understand what you are doing. You may not work with other students on the R exam. Anyone caught cheating or plagiarizing will receive a zero on the assignment or test, and <strong>will</strong> be reported to the Office of Student Conduct. It is your responsibility to read the official Student Conduct Policy for more information about campus standards and policies regarding Academic Integrity.</p>
+<p><strong>AI Policy.</strong> Generative AI tools should be used to support - not replace - your learning. All students must disclose how they used generative-AI software for each assignment (writing, coding, troubleshooting, etc.). If you used AI tools in any way (e.g., idea generation, writing, editing, troubleshooting or generating R code, etc.) you must include an appendix at the end of the assignment where you include screenshots of your specific queries and answers. Failure to be transparent about the use of AI tools - or feeding an assignment into an AI tool and using the output to completely replace your own work - will result in a zero of the assignment and a scheduled meeting in office hours. Multiple violations of this policy will result in the professor submitting a report to the Academic Integrity office and an F in the class. This is a new technology that we are all figuring out, so ask me if you have questions about this policy, or want to chat more about ways to use (or not use) AI in this class. I ultimately want to see that you are learning the material, and that any AI tools that you use are helping YOU learn, and not replacing the learning process. Whew!!</p>
+<p><strong>Respect for Others.</strong> We <strong>all</strong> belong in our classroom, and I hope that everyone feels free and supported to express our identities when relevant. To achieve this goal, make sure that you are treating others with respect in this course. This means considering others’ opinions and perspectives, making sure not to generalize to groups (or ask students to be representatives of their group), and being mindful of the words that you use. (Also remember that nothing is ever really deleted from the internet, so please be extra mindful of the words you use.) While I will be monitoring class posts and communication, feel free to reach out to me if you see another student engaging in disrespectful or threatening behavior. Of course, this extends to me as well - if you feel like there are parts of the course instruction, subject matter, or class environment that create barriers to your success or inclusion, please contact me via e-mail and trust that your voice will be heard and I will not punish you for offering constructive criticisms of my teaching. I’m very open to learning how to be a better teacher, and always learn a lot from my students.&nbsp;</p>
+<p><strong>Sensitive Subjects.</strong> Our class will touch on important and potentially sensitive topics that are related to social science and data, such as racism, depression, sex, and poverty. These topics can generate strong emotional responses in students for a variety of reasons - such as their own past histories with these topics or their reactions to the ways the information is presented or described. I will try to make sure to give you a heads up when we start to discuss these topics so you can be mindful of your reactions.</p>
+<p><strong>Strategies for success</strong>. Do your readings, complete assignments on time, understand how the topics and information relate to what you’ve learned (and are learning), and if you don’t understand something, please ask the question!</p>
+<p><strong>Most important.</strong> Please let me know as soon as there is anything going on in your life that you think may affect your ability to do as well as you would like in this class (e.g.&nbsp;sickness, work, small children at home, threats to immigration status, etc.), and I will do my best to work with you on a plan to succeed in the class. If you’re not comfortable talking to me directly, you can talk to your TA who can talk to me about your issue.</p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>UC Berkeley offers a variety of services to help support students facing difficulties in these historic times.</p>
+<p><strong>Students with Disabilities :</strong> Students who require support or adaptive equipment because of a specific disability – or would like to be tested to see if they qualify for a learning, auditory, or visual disability – can request these services through the Disabled Students Program (DSP) office. Please note that I can only provide accommodations authorized by the DSP office. If you have DSP status, make sure you submit your letter and feel free to talk to me or a GSI about any specific accommodations you need, or other ways we might be able to make the class more accessible. [260 César E. Chávez Student Center| 510-642-0518 | <a href="https://dsp.berkeley.edu/" class="uri">https://dsp.berkeley.edu/</a>]</p>
+<p><strong>Students with Mental Health Issues :</strong> If you feel a mental health issue (e.g., depression, anxiety) is negatively impacting your ability to succeed, I’d highly encourage you to seek out experts who can help. Berkeley has several free, confidential, and science-based programs designed to help students. [<a href="https://uhs.berkeley.edu/caps" class="uri">https://uhs.berkeley.edu/caps</a> | Tang Center 3rd Floor | 510-642-9494 | After hours support line : 855-817-5667]</p>
+<p><strong>Undocumented Students :</strong> I believe that all people deserve equal access to education. The UC Berkeley Undocumented Student Program has organized resources to support undocumented students, protect their rights, and offer potential financial aid | <a href="https://undocu.berkeley.edu/" class="uri">https://undocu.berkeley.edu/</a></p>
+<p><strong>Students from Low-Income Backgrounds :</strong> The Extended Opportunity Program (EOP) provides college support services for low-income students. Services include additional counseling, financial assistance (study-time parent grants, work-study assignments, and book vouchers), child-care opportunities, and assistance transferring to four-year colleges. [119 César E. Chavez Student Center | 510-642-7224 | <a href="https://eop.berkeley.edu/" class="uri">https://eop.berkeley.edu/</a>]</p>
+<p><strong>Free On-Campus Tutoring :</strong></p>
+<ul>
+<li><p><strong>The<a href="http://bit.ly/data-peer-consulting">Data Peer Consulting program</a> in the Division of Computing, Data Science, and Society.</strong> This program strives to help make data science accessible across the broader campus community, by aiming to help undergraduate students, graduate students, staff, and faculty with research project infrastructure or other projects and modules that incorporate data.&nbsp;</p></li>
+<li><p><strong>The UC Berkeley <a href="http://dlab.berkeley.edu/services">D-Lab</a></strong>. Drop-in consulting where people may be able to help you with R specific problems.</p></li>
+<li><p><a href="http://www.lib.berkeley.edu/help/research-help"><strong>Librarians are great</strong></a>. They can help you find research articles for your final project, think about how to organize or structure your literature review, and probably have other powers from a life of being surrounded by books.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
