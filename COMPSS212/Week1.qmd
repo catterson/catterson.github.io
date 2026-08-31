@@ -6,8 +6,8 @@ editor: visual
 
 # Week 1 - Monday, August 31st
 
-:::::: {.callout-note collapse="true"}
-### Announcements and Agenda
+:::::: {.callout-note}
+### Announcements
 
 ::::: columns
 ::: {.column width="50%"}
@@ -15,9 +15,12 @@ editor: visual
 
 - **Do the check-in :** this is graded for completion, and will serve as a warm-up.
 - **Access these notes :** on the class page (link on bCourses).
+- **No class next week.** But some readings and a small assignment to keep the learning going??
 :::
 
 ::: {.column width="50%"}
+**AGENDA**
+
 - **10:10 - 10:30.** Check-In and Welcome to this Class!
 - **10:40 - 11:30 :** Objectivity in Science (and in R)
 - **11:30 - 12:00 :** Introduction to Quarto
@@ -34,6 +37,7 @@ editor: visual
 - [**Check-In**](https://forms.gle/yrD2N7umWrmHh9vu6) **:** Welcome! Please take this survey (graded for completion) to warm-up.
 - [**VISION BOARD**](https://docs.google.com/spreadsheets/d/14y4W9LJk1I9M3HFIOp3_94tdM0qUSYfkGdZnKK6L23c/edit?usp=sharing). Where we will share the work we do in this class.
 - [**Professor Notes**](https://www.dropbox.com/scl/fo/7yhs2afoyisskz3eynnh8/ABO5kzYAdp8Y9cDBsqFU_TI?rlkey=hx72km35b6n02ep59vywdy7o4&dl=0). My R scripts and other notes, saved in real-time.
+- [**Dataset of the Week.**](https://www.dropbox.com/scl/fo/errgvyjoqxgi2ygj3y2md/AAF3SnLIvNHHw6lUKyvCFnI?rlkey=qseuyz6jz08qce6w3b5kt2kh0&dl=0) Interruption data; will update midway through class...hopefully :)
 
 # For Next Week.
 
@@ -41,7 +45,7 @@ editor: visual
 
 1.  [**Complete the Onboarding Survey**](https://docs.google.com/forms/d/e/1FAIpQLSfAVwGcSR9islSc37hU7B7GlddT-MTyOzvk5yOvbLVtnTYjeA/viewform?usp=header)**.** A few additional questions to help me learn more about who you are, and your goals for the class. After completing the survey, you'll receive a code to submit to a quiz on bCourses.
 2.  **Attend Discussion Section.** You'll meet your GSI (the fantastic Yi-Ke Peng!), review material from the lecture, and work on Lab 1. Make sure to attend the discussion section for which you are officially enrolled.
-3.  [**Complete Lab 1**](/labs/Lab1.qmd)**.** On analyzing and interpreting some behavioral health data. A good review of the basic stats you hopefully feel comfortable with. This lab will be graded based on completion; just do your best to answer the question (and please work on Question 3 alone).
+3.  [**Complete Lab 1**](/COMPSS212/labs/Lab1.qmd)**.** On analyzing and interpreting some behavioral health data. A good review of the basic stats you hopefully feel comfortable with (and if not, there is time to get caught up!) This lab will be graded based on completion; just do your best to answer the question (and please work on Question 3 alone). Thanks!
 
 ### Additional Reading and Support Materials
 
@@ -60,6 +64,12 @@ editor: visual
   - [**on the challenges of humans studying human behavior**](https://openpublishing.princeton.edu/read/the-who-of-social-psychology-the-challenges-of-humans-studying-human-behavior/section/032b1ec1-3e25-48bb-b35c-3c5ecf1de1af)**.** an overview of the history of (psychological) social science, and some of the biases that scientists can hold.
 
   - [**more on reliability and validity**](https://catterson.github.io/ystats/chapters/5R_GoodMeasures.html#part-1-good-data-validity-and-reliability)**.** some review of the specific terms, as well as an application to the racist science of phrenology.
+
+  - **more on the replication crisis in the sciences.**
+
+    - [a recent summary](https://www.nature.com/articles/s41586-025-10078-y?fromPaywallRec=false) of replication in the social sciences
+
+    - [a nature article](https://www.nature.com/articles/533452a) on replication across other scientific disciplines.
 
 - **Professor, I am realizing I need a review of stats and R.** Below are some relevant links from the stats textbook I use with my introductory classes. let me know if these are useful / you have ideas to make more useful :)
 

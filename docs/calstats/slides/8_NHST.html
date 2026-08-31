@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Lecture 8 - Null Hypothesis Significance Testing (NHST)</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-b0e73cb451bbb7631af6acf6dae58723.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+          <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://catterson.github.io/ystats/"> 
+<span class="menu-text">Why Statistics?</span></a>
+  </li>  
+</ul>
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#check-in-linear-model" id="toc-check-in-linear-model" class="nav-link active" data-scroll-target="#check-in-linear-model">Check-In : Linear Model</a></li>
+  <li><a href="#agenda-announcements" id="toc-agenda-announcements" class="nav-link" data-scroll-target="#agenda-announcements">Agenda &amp; Announcements</a></li>
+  <li><a href="#we-are-having-fun-spoiler-alert" id="toc-we-are-having-fun-spoiler-alert" class="nav-link" data-scroll-target="#we-are-having-fun-spoiler-alert">We Are Having Fun [SPOILER ALERT]</a></li>
+  <li><a href="#chapter-8-recap-nhst-is-confusing" id="toc-chapter-8-recap-nhst-is-confusing" class="nav-link" data-scroll-target="#chapter-8-recap-nhst-is-confusing">Chapter 8 Recap : NHST is Confusing!</a></li>
+  <li><a href="#some-more-nhst-interpretation-examples" id="toc-some-more-nhst-interpretation-examples" class="nav-link" data-scroll-target="#some-more-nhst-interpretation-examples">Some More NHST Interpretation Examples</a>
+  <ul class="collapse">
+  <li><a href="#some-pre-recorded-nhst-review-videos" id="toc-some-pre-recorded-nhst-review-videos" class="nav-link" data-scroll-target="#some-pre-recorded-nhst-review-videos">Some Pre-Recorded NHST Review Videos</a></li>
+  </ul></li>
+  <li><a href="#next-time-chapter-10-multiple-regression" id="toc-next-time-chapter-10-multiple-regression" class="nav-link" data-scroll-target="#next-time-chapter-10-multiple-regression">NEXT TIME : Chapter 10 : Multiple Regression</a></li>
+  <li><a href="#milestone-4-introduction-outline" id="toc-milestone-4-introduction-outline" class="nav-link" data-scroll-target="#milestone-4-introduction-outline">Milestone #4 : Introduction Outline</a>
+  <ul class="collapse">
+  <li><a href="#introduction-deconstruction." id="toc-introduction-deconstruction." class="nav-link" data-scroll-target="#introduction-deconstruction."><strong>Introduction Deconstruction.</strong></a></li>
+  <li><a href="#introduction-construction" id="toc-introduction-construction" class="nav-link" data-scroll-target="#introduction-construction">Introduction Construction</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lecture 8 - Null Hypothesis Significance Testing (NHST)</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="check-in-linear-model" class="level2">
+<h2 class="anchored" data-anchor-id="check-in-linear-model"><a href="https://docs.google.com/forms/d/e/1FAIpQLScmbsOlKn8jMCuGK1VtdvToa4dLVLkxyM56BKyFYlU78Ydd8w/viewform?usp=sf_link">Check-In : Linear Model</a></h2>
+<p><strong>Use the “cal_mini” dataset to test ONE of the following hypotheses.</strong></p>
+<ol type="1">
+<li>People with larger shoe sizes (IV = shoesize) are more likely to love oski (DV = oskilove).</li>
+<li>People who love cal sports are more likely to love oski</li>
+<li>People who love butterflies are more likely to love oski.</li>
+</ol>
+<p><strong>Make sure to do the following :</strong></p>
+<ol type="1">
+<li>Load the dataset and check to make sure it loaded correctly.</li>
+<li>Graph your variables, and make sure the variables look good.</li>
+<li>Define, graph, and interpret your linear model.</li>
+<li>Report inferential statistics (with the summary() function).</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lecture_images/9L_tsunami.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="516"></p>
+</figure>
+</div>
+</section>
+<section id="agenda-announcements" class="level2">
+<h2 class="anchored" data-anchor-id="agenda-announcements">Agenda &amp; Announcements</h2>
+<ol type="1">
+<li><strong>R Exam : Grading In Progress!</strong></li>
+<li><strong>The Final Project</strong>
+<ol type="1">
+<li><strong>Milestone #4 Due Next Week.</strong> Outline your introduction, and draft your method section.</li>
+<li><strong>Data Exported?</strong> Can keep collecting, but need to STOP collecting once we start analyzing data / doing linear models (next week!)</li>
+</ol></li>
+<li><strong>Brain Exam 2 is Next Week in Section</strong>
+<ol type="1">
+<li><strong>Same format as Brain Exam #1.</strong></li>
+<li><strong>Skill :</strong> interpreting regression output.
+<ol type="1">
+<li>intercept &amp; slope</li>
+<li>NHST</li>
+</ol></li>
+</ol></li>
+<li><strong>Chapter 10.</strong> On Multiple Regression. More regression! It is chill.</li>
+<li><strong>THE END IS NEAR.</strong>
+<ol type="1">
+<li>TODAY : Inferential Stats</li>
+<li>NEXT WEEK : Multiple Regression + Review</li>
+<li>THEN : Project Workshop (and Holiday?!)</li>
+<li>FINALLY : Conclusion to Introduction &lt;3</li>
+<li>BUT WAIT, THERE’S MORE : RRR Week Final Project Workshop</li>
+</ol></li>
+</ol>
+</section>
+<section id="we-are-having-fun-spoiler-alert" class="level2">
+<h2 class="anchored" data-anchor-id="we-are-having-fun-spoiler-alert">We Are Having Fun [SPOILER ALERT]</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Model 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Model 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Model 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">A Picture’s Worth…</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(d<span class="sc">$</span>oski.love <span class="sc">~</span> d<span class="sc">$</span>shoe.size))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = d$oski.love ~ d$shoe.size)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-6.3290 -1.6571 -0.0009  2.8350  4.4912 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   8.9537     1.5851   5.649 1.44e-07 ***
+d$shoe.size  -0.3281     0.1893  -1.733   0.0861 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3.099 on 103 degrees of freedom
+  (3 observations deleted due to missingness)
+Multiple R-squared:  0.02833,   Adjusted R-squared:  0.0189 
+F-statistic: 3.003 on 1 and 103 DF,  p-value: 0.08609</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(d<span class="sc">$</span>oski.love <span class="sc">~</span> d<span class="sc">$</span>cal.sports))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = d$oski.love ~ d$cal.sports)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-6.5763 -1.5763  0.1042  3.4237  4.1042 
+
+Coefficients:
+                Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)       5.8958     0.4474  13.178   &lt;2e-16 ***
+d$cal.sportsYes   0.6804     0.6025   1.129    0.261    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3.1 on 105 degrees of freedom
+  (1 observation deleted due to missingness)
+Multiple R-squared:  0.012, Adjusted R-squared:  0.002591 
+F-statistic: 1.275 on 1 and 105 DF,  p-value: 0.2613</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(d<span class="sc">$</span>oski.love <span class="sc">~</span> d<span class="sc">$</span>tuhobura))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = d$oski.love ~ d$tuhobura)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-6.972 -1.639  0.250  3.028  4.636 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)         6.5278     0.4962  13.155  &lt; 2e-16 ***
+d$tuhoburahorses    0.4444     0.7018   0.633  0.52792    
+d$tuhoburarats     -3.1641     1.0257  -3.085  0.00261 ** 
+d$tuhoburaturtles  -0.2078     0.7751  -0.268  0.78919    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.977 on 104 degrees of freedom
+Multiple R-squared:  0.1092,    Adjusted R-squared:  0.08348 
+F-statistic: 4.249 on 3 and 104 DF,  p-value: 0.007114</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d<span class="sc">$</span>oski.love <span class="sc">~</span> d<span class="sc">$</span>shoe.size)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(d<span class="sc">$</span>oski.love <span class="sc">~</span> d<span class="sc">$</span>shoe.size), <span class="at">col =</span> <span class="st">'blue'</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(d<span class="sc">$</span>oski.love <span class="sc">~</span> d<span class="sc">$</span>cal.sports, <span class="at">connect =</span> F, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(d<span class="sc">$</span>oski.love <span class="sc">~</span> d<span class="sc">$</span>tuhobura, <span class="at">connect =</span> F, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_NHST_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="1440"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="chapter-8-recap-nhst-is-confusing" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-8-recap-nhst-is-confusing">Chapter 8 Recap : NHST is Confusing!</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 79%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Chapter 8 Check-In Results</strong></td>
+<td><strong>Correct Answer (&amp; Prof.&nbsp;Comments)</strong></td>
+</tr>
+<tr class="even">
+<td><img src="images/clipboard-3256555507.png" class="img-fluid"></td>
+<td><p><strong>A Slope is the Direction &amp; Strength of Relationship</strong></p>
+<ul>
+<li><p>hard to evaluate strength across models if the units differ too.</p></li>
+<li><p>steeper slope (compared to another slope with similar units) = stronger relationship</p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><img src="images/clipboard-3219785521.png" class="img-fluid"></td>
+<td><strong>The amount of variation in an effect you might expect to find due to chance if the null hypothesis were “true”.</strong></td>
+</tr>
+<tr class="even">
+<td><img src="images/clipboard-422304565.png" class="img-fluid"></td>
+<td><p><strong>Impossible to Tell Significance from the Slope Alone</strong></p>
+<ul>
+<li>Large slope &amp; sampling error = NOT SIGNIFICANT</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><img src="images/clipboard-3243820561.png" class="img-fluid"></td>
+<td><p><strong>A Significant Effect is NOT necessarily….</strong></p>
+<ul>
+<li><p><strong>large :</strong> you can be VERY confident that a small effect is not due to sampling error.</p></li>
+<li><p><strong>important :</strong> why does the effect matter?</p></li>
+<li><p><strong>fool-proof :</strong> our estimates of sampling error are all made up.</p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><img src="images/clipboard-2167468538.png" class="img-fluid"></td>
+<td><strong>A p-value of .03 means…there is a 3% chance that this slope (or a stronger slope) would be found due to chance if the true correlation was zero.</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Haller, H., &amp; Krauss, S. (2002). <a href="https://www.metheval.uni-jena.de/lehre/0405-ws/evaluationuebung/haller.pdf">Misinterpretations of significance: A problem students share with their teachers</a>. Methods of Psychological Research, 7(1), 1-20.</p>
+</section>
+<section id="some-more-nhst-interpretation-examples" class="level2">
+<h2 class="anchored" data-anchor-id="some-more-nhst-interpretation-examples">Some More NHST Interpretation Examples</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Model 1: Is there a relationship between narcissism (DV = NPI) and testosterone?</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Model 2 : Is there a relationship between narcissism (DV = NPI) and sex?</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Model 3 : Is there a relationship between testosterone (DV = test) and sex?</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/Chapter Datasets/Hormone Data/hormone_dataset.csv"</span>, <span class="at">stringsAsFactors =</span> T)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(NPI <span class="sc">~</span> test, <span class="at">data =</span> h)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(NPI <span class="sc">~</span> test, <span class="at">data =</span> h)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(mod1, <span class="at">lwd =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_NHST_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = NPI ~ test, data = h)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.29549 -0.36339 -0.02748  0.27697  1.36124 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 2.882071   0.126950  22.702   &lt;2e-16 ***
+test        0.003894   0.001502   2.593   0.0112 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.5375 on 84 degrees of freedom
+  (36 observations deleted due to missingness)
+Multiple R-squared:  0.07414,   Adjusted R-squared:  0.06311 
+F-statistic: 6.726 on 1 and 84 DF,  p-value: 0.01121</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gplots)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(NPI <span class="sc">~</span> sex, <span class="at">data =</span> h)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(NPI <span class="sc">~</span> sex, <span class="at">data =</span> h, <span class="at">connect =</span> F)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_NHST_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = NPI ~ sex, data = h)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.47375 -0.34557 -0.02989  0.36079  1.36397 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   3.5365     0.1478  23.925   &lt;2e-16 ***
+sex          -0.2627     0.1074  -2.446    0.016 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.5245 on 112 degrees of freedom
+  (8 observations deleted due to missingness)
+Multiple R-squared:  0.05073,   Adjusted R-squared:  0.04225 
+F-statistic: 5.985 on 1 and 112 DF,  p-value: 0.01598</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(test <span class="sc">~</span> sex, <span class="at">data =</span> h)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(test <span class="sc">~</span> sex, <span class="at">data =</span> h, <span class="at">connect =</span> F)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_NHST_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = test ~ sex, data = h)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-60.144 -17.211  -3.365  12.111 137.486 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  139.972      9.935  14.088  &lt; 2e-16 ***
+sex          -49.288      7.208  -6.838 1.01e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 31.34 on 88 degrees of freedom
+  (32 observations deleted due to missingness)
+Multiple R-squared:  0.347, Adjusted R-squared:  0.3396 
+F-statistic: 46.76 on 1 and 88 DF,  p-value: 1.014e-09</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="some-pre-recorded-nhst-review-videos" class="level3">
+<h3 class="anchored" data-anchor-id="some-pre-recorded-nhst-review-videos">Some Pre-Recorded NHST Review Videos</h3>
+<ul>
+<li><p><strong>Note : I used last semester’s dataset for these examples, so you will likely get different results if you try and replicate in this semester’s class; a good example of how NHST doesn’t really tell us whether the results are “truth” or not, or whether they will replicate, etc.</strong></p></li>
+<li><p><a href="https://www.loom.com/share/67776eb1a41f4b5eaa0ca5312d0663ad?sid=534835dc-c163-4604-b985-137b2bede4ac"><strong>Example 1 : LOVEWATER ~ smoke.pot</strong></a></p></li>
+<li><p><a href="https://www.loom.com/share/8b755a32fe094e9eb1fc0bd7f16991bd?sid=b0c120f4-4190-4115-9722-da0a19856006"><strong>Examples 2 - 4 : faster explanations!</strong></a></p></li>
+</ul>
+<p><img src="images/clipboard-422460195.png" class="img-fluid"></p>
+<p><img src="images/clipboard-927357432.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="next-time-chapter-10-multiple-regression" class="level2">
+<h2 class="anchored" data-anchor-id="next-time-chapter-10-multiple-regression">NEXT TIME : Chapter 10 : Multiple Regression</h2>
+<p><strong>In the models above, we see….</strong></p>
+<ol type="1">
+<li>Testosterone is related to narcissism.</li>
+<li>Sex is related to testosterone.</li>
+<li>Sex and testosterone are related to each other……</li>
+<li>so…….</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(NPI <span class="sc">~</span> sex <span class="sc">+</span> test, <span class="at">data =</span> h)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = NPI ~ sex + test, data = h)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.31150 -0.36048 -0.02691  0.27507  1.35277 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  2.946551   0.315506   9.339 1.37e-14 ***
+sex         -0.034852   0.155946  -0.223   0.8237    
+test         0.003646   0.001875   1.944   0.0552 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.5405 on 83 degrees of freedom
+  (36 observations deleted due to missingness)
+Multiple R-squared:  0.07469,   Adjusted R-squared:  0.0524 
+F-statistic:  3.35 on 2 and 83 DF,  p-value: 0.03989</code></pre>
+</div>
+</div>
+</section>
+<section id="milestone-4-introduction-outline" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="milestone-4-introduction-outline"><a href="https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0#bookmark=id.ebdtyorckpzc">Milestone #4</a> : Introduction Outline</h2>
+<section id="introduction-deconstruction." class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="introduction-deconstruction."><strong>Introduction Deconstruction.</strong></h3>
+<section id="components-of-an-introduction" class="level4">
+<h4 class="anchored" data-anchor-id="components-of-an-introduction">Components of an Introduction</h4>
+<p>The introduction starts broad, but then quickly focuses on the variables in your model so readers can understand a) what your study is about and b) why you’re doing your study.&nbsp;</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Section</strong></td>
+<td><strong>Brief Explanation</strong></td>
+</tr>
+<tr class="even">
+<td><strong>1. The Opening</strong></td>
+<td>Describe the question you have, and explain why this question matters</td>
+</tr>
+<tr class="odd">
+<td><strong>2. The Review</strong></td>
+<td>Describe what past research and theory has to say on the question and your theory. Your goal is to give the reader the background they need to understand why you are doing your study; you don’t need to cover EVERY single issue on your topic..</td>
+</tr>
+<tr class="even">
+<td><strong>3. The Critique</strong></td>
+<td>Explain why the past research is not “the final truth”, and what other new questions might be important to consider (and why these questions matter). Only point out limitations with past research that you will address in your study; other limitations that you think future research will address should go in the discussion section.</td>
+</tr>
+<tr class="odd">
+<td><strong>4. The Current Research</strong></td>
+<td>Explain what specific questions your study will address. Be clear by stating each idea as a hypothesis with language like, “I predict” or “My first hypothesis”.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="activity-deconstruct-an-introductin" class="level4 page-columns page-full">
+<h4 class="anchored" data-anchor-id="activity-deconstruct-an-introductin">Activity : Deconstruct an Introductin</h4>
+<p>Read an excerpt from the introduction<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>; identify (in the margins) each of part of the introduction (“The Opening”, “The Review”, “The Critique”, and “The Current Research”)</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;<a href="https://scholar.princeton.edu/sites/default/files/pfrymer/files/ajps12537_rev.pdf">Full article here</a></p></div></div><p><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcnv5T-L9K8lZOM0e2wsBu0AxW08Rp9iRpj_jT1lIwePEkHF18N2vz08I8mY_Zf1O4S7wKc0QPEVxb9jPIdHNiPAH-fhWIMiug413IRFr_tAI8ixj6fL2ztXM0a8wv9l52IQD6xtp4PePEi0o1_okaKnFZ8?key=xsrSgQ924CtGseFQqBVMLw.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="introduction-construction" class="level3">
+<h3 class="anchored" data-anchor-id="introduction-construction">Introduction Construction</h3>
+<section id="parts-of-an-outline" class="level4">
+<h4 class="anchored" data-anchor-id="parts-of-an-outline">Parts of an Outline</h4>
+<ul>
+<li><p><strong>The DV (the Opening / Past Research) :</strong></p>
+<ul>
+<li><p><strong>THE POINT :</strong> What is your DV? [Citation]</p>
+<ul>
+<li><p><strong>THE EVIDENCE :</strong> How have psychologists operationalized or studied this variable in the past? [Citation]</p></li>
+<li><p><strong>WHO CARES :</strong> Why should we care about this topic?</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>IV1 (Past Research) :</strong></p>
+<ul>
+<li><p><strong>THE POINT :</strong> What is your independent variable?</p>
+<ul>
+<li><p><strong>THE EVIDENCE :</strong></p>
+<ul>
+<li><p>How do psychologists operationalize this variable?</p></li>
+<li><p>Summarize at least one past research study on this independent variable, and how this IV is (or might be) related to your DV. [Citation]</p></li>
+</ul></li>
+<li><p><strong>WHO CARES :</strong> Why does this research matter to your topic?</p></li>
+</ul></li>
+<li><p><strong>ANOTHER POINT YOU COULD MAKE :</strong> Are there any limitations with this past research that you will address in your study (this could set up IV2)?</p>
+<ul>
+<li><p><strong>THE EVIDENCE :</strong> why (research or common sense) might these limitations interfere with our VALID KNOWLEDGE about the DV?</p></li>
+<li><p><strong>WHO CARES :</strong> why should we care about these limitations?</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>IV2 (The Critique / Past Research) :</strong></p>
+<ul>
+<li><p><strong>THE POINT :</strong> What is another independent variable that might be related to your dependent variable?</p></li>
+<li><p><strong>THE EVIDENCE :</strong> How has this variable been defined / studied in the past? [Citation]</p></li>
+<li><p><strong>WHO CARES :</strong> Why might this variable be important to look at / change the relationship between IV1 and the DV? [Citation or Logic Goes Here]</p></li>
+</ul></li>
+<li><p><strong>The Present Research (The Current Study) :</strong></p>
+<ul>
+<li><p>THE POINT : What is the goal of your research? Include your specific predictions in a summary table.</p></li>
+<li><p>THE EVIDENCE : What will your research do? You don’t need to fully explain the methods for your study, but instead should set up the broad ideas of what you hope to do.</p></li>
+<li><p>WHO CARES : How does your study advance past research?</p></li>
+</ul></li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 45%">
+<col style="width: 30%">
+<col style="width: 24%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Hypothesis</strong></td>
+<td><strong>Null Hypothesis</strong></td>
+<td><strong>Alternative</strong></td>
+</tr>
+<tr class="even">
+<td>Hypothesis 1 (DV ~ IV1)</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Hypothesis 2 (DV ~ IV2)</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Hypothesis 3 (DV ~ IV1 + IV2)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><img src="images/clipboard-113704504.png" class="img-fluid"></p>
+<p><a href="https://magazine.scu.edu/magazines/summer-2017/tsunami-and-rebirth/">tsunami and rebirth</a></p>
+
+
+</section>
+</section>
+</section>
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

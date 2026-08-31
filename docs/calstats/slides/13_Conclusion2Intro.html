@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>conclusion2intro</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-6033a600180109c3731f6a886c29932c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+          <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://catterson.github.io/ystats/"> 
+<span class="menu-text">Why Statistics?</span></a>
+  </li>  
+</ul>
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#check-in-the-end-is-near" id="toc-check-in-the-end-is-near" class="nav-link active" data-scroll-target="#check-in-the-end-is-near">Check-In : The End is Near!</a></li>
+  <li><a href="#the-rich-lyons-is-our-chancellor-and-the-professor-of-this-class-has-invited-me-to-give-a-distinguished-gobears-guest-lecture" id="toc-the-rich-lyons-is-our-chancellor-and-the-professor-of-this-class-has-invited-me-to-give-a-distinguished-gobears-guest-lecture" class="nav-link" data-scroll-target="#the-rich-lyons-is-our-chancellor-and-the-professor-of-this-class-has-invited-me-to-give-a-distinguished-gobears-guest-lecture">The Rich Lyons <sub><em>is&nbsp;our&nbsp;chancellor&nbsp;and&nbsp;the&nbsp;professor&nbsp;of&nbsp;this&nbsp;class&nbsp;has</em></sub> Invited <sub><em>me&nbsp;to&nbsp;give&nbsp;a</em></sub> Distinguished GoBears Guest Lecture</a></li>
+  <li><a href="#final-final-project-stuff" id="toc-final-final-project-stuff" class="nav-link" data-scroll-target="#final-final-project-stuff">Final Final Project Stuff</a>
+  <ul class="collapse">
+  <li><a href="#professor-advice" id="toc-professor-advice" class="nav-link" data-scroll-target="#professor-advice">Professor Advice</a></li>
+  <li><a href="#professor-advice-1" id="toc-professor-advice-1" class="nav-link" data-scroll-target="#professor-advice-1">Professor Advice</a></li>
+  <li><a href="#professor-advice-2" id="toc-professor-advice-2" class="nav-link" data-scroll-target="#professor-advice-2">Professor Advice</a></li>
+  <li><a href="#writing-paper-structure" id="toc-writing-paper-structure" class="nav-link" data-scroll-target="#writing-paper-structure">Writing : Paper Structure</a></li>
+  <li><a href="#writing-the-abstract-tldr-of-your-paper" id="toc-writing-the-abstract-tldr-of-your-paper" class="nav-link" data-scroll-target="#writing-the-abstract-tldr-of-your-paper">Writing : The Abstract (TLDR of your paper)</a></li>
+  <li><a href="#writing-the-discussion-section" id="toc-writing-the-discussion-section" class="nav-link" data-scroll-target="#writing-the-discussion-section">Writing : The Discussion Section</a></li>
+  </ul></li>
+  <li><a href="#four-validities-this-semester" id="toc-four-validities-this-semester" class="nav-link" data-scroll-target="#four-validities-this-semester">Four Validities This Semester</a>
+  <ul class="collapse">
+  <li><a href="#construct-validity" id="toc-construct-validity" class="nav-link" data-scroll-target="#construct-validity">1. Construct Validity</a></li>
+  <li><a href="#external-validity" id="toc-external-validity" class="nav-link" data-scroll-target="#external-validity">2. External Validity</a></li>
+  <li><a href="#internal-validity." id="toc-internal-validity." class="nav-link" data-scroll-target="#internal-validity.">3. Internal Validity.</a></li>
+  </ul></li>
+  <li><a href="#statistical-conclusion-validity" id="toc-statistical-conclusion-validity" class="nav-link" data-scroll-target="#statistical-conclusion-validity">4. Statistical Conclusion Validity</a>
+  <ul class="collapse">
+  <li><a href="#statistical-conclusion-validity-1" id="toc-statistical-conclusion-validity-1" class="nav-link" data-scroll-target="#statistical-conclusion-validity-1">4. Statistical Conclusion Validity</a></li>
+  <li><a href="#statistical-conclusion-validity-2" id="toc-statistical-conclusion-validity-2" class="nav-link" data-scroll-target="#statistical-conclusion-validity-2">4. Statistical Conclusion Validity</a></li>
+  <li><a href="#x.-is-validity-possible" id="toc-x.-is-validity-possible" class="nav-link" data-scroll-target="#x.-is-validity-possible">X. IS Validity Possible?</a></li>
+  </ul></li>
+  <li><a href="#break-time-meet-back-at" id="toc-break-time-meet-back-at" class="nav-link" data-scroll-target="#break-time-meet-back-at">BREAK TIME : MEET BACK AT</a></li>
+  <li><a href="#the-learning-is-over-would-you-like-to-learn-more" id="toc-the-learning-is-over-would-you-like-to-learn-more" class="nav-link" data-scroll-target="#the-learning-is-over-would-you-like-to-learn-more">The Learning is Over; Would You Like to Learn More?</a></li>
+  <li><a href="#models-are-complicated" id="toc-models-are-complicated" class="nav-link" data-scroll-target="#models-are-complicated">Models Are Complicated</a>
+  <ul class="collapse">
+  <li><a href="#quadratic-effects-a-regression-line-can-bend" id="toc-quadratic-effects-a-regression-line-can-bend" class="nav-link" data-scroll-target="#quadratic-effects-a-regression-line-can-bend">1. Quadratic Effects : A Regression Line Can Bend</a></li>
+  <li><a href="#interaction-effects" id="toc-interaction-effects" class="nav-link" data-scroll-target="#interaction-effects">2. Interaction Effects</a></li>
+  <li><a href="#overfitting-when-you-get-too-complicated" id="toc-overfitting-when-you-get-too-complicated" class="nav-link" data-scroll-target="#overfitting-when-you-get-too-complicated">3. Overfitting : When You Get Too Complicated</a></li>
+  <li><a href="#generalized-linear-models-e.g.-logistic-regression" id="toc-generalized-linear-models-e.g.-logistic-regression" class="nav-link" data-scroll-target="#generalized-linear-models-e.g.-logistic-regression">4. <em>Generalized</em> Linear Models (e.g., “Logistic Regression”)</a></li>
+  <li><a href="#whats-wrong" id="toc-whats-wrong" class="nav-link" data-scroll-target="#whats-wrong">what’s wrong?</a></li>
+  <li><a href="#whats-better" id="toc-whats-better" class="nav-link" data-scroll-target="#whats-better">what’s better?</a></li>
+  </ul></li>
+  <li><a href="#multilevel-models-mlm.-conceptual-understanding" id="toc-multilevel-models-mlm.-conceptual-understanding" class="nav-link" data-scroll-target="#multilevel-models-mlm.-conceptual-understanding">5. Multilevel Models (MLM). Conceptual Understanding</a>
+  <ul class="collapse">
+  <li><a href="#definition-multilevel-models-mlm" id="toc-definition-multilevel-models-mlm" class="nav-link" data-scroll-target="#definition-multilevel-models-mlm">Definition : Multilevel Models (MLM)</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples :</a></li>
+  <li><a href="#the-formulas" id="toc-the-formulas" class="nav-link" data-scroll-target="#the-formulas">The Formulas</a></li>
+  <li><a href="#why-are-we-doing-this" id="toc-why-are-we-doing-this" class="nav-link" data-scroll-target="#why-are-we-doing-this">Why Are We Doing This?</a></li>
+  </ul></li>
+  <li><a href="#how-do-we-do-this-in-r" id="toc-how-do-we-do-this-in-r" class="nav-link" data-scroll-target="#how-do-we-do-this-in-r">How Do We Do This in R?</a>
+  <ul class="collapse">
+  <li><a href="#example-the-sleep-dataset" id="toc-example-the-sleep-dataset" class="nav-link" data-scroll-target="#example-the-sleep-dataset">Example : The Sleep Dataset</a></li>
+  <li><a href="#statistics-exists-outside-of-psych-101" id="toc-statistics-exists-outside-of-psych-101" class="nav-link" data-scroll-target="#statistics-exists-outside-of-psych-101">Statistics Exists Outside of Psych 101</a></li>
+  <li><a href="#practice-the-thing-you-want-to-do" id="toc-practice-the-thing-you-want-to-do" class="nav-link" data-scroll-target="#practice-the-thing-you-want-to-do">Practice The Thing You Want to Do!</a></li>
+  <li><a href="#farewell" id="toc-farewell" class="nav-link" data-scroll-target="#farewell">FAREWELL!!</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="13_Conclusion2Intro.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="check-in-the-end-is-near" class="level2">
+<h2 class="anchored" data-anchor-id="check-in-the-end-is-near"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfU8f7uodD82JI3QIvpMgKwWDafG5zrtjQ2ZMXX4H0_BqwJYw/viewform?usp=header">Check-In : The End is Near!</a></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lecture_images/11_schoolout.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</section>
+<section id="the-rich-lyons-is-our-chancellor-and-the-professor-of-this-class-has-invited-me-to-give-a-distinguished-gobears-guest-lecture" class="level2">
+<h2 class="anchored" data-anchor-id="the-rich-lyons-is-our-chancellor-and-the-professor-of-this-class-has-invited-me-to-give-a-distinguished-gobears-guest-lecture">The Rich Lyons <sub><em>is&nbsp;our&nbsp;chancellor&nbsp;and&nbsp;the&nbsp;professor&nbsp;of&nbsp;this&nbsp;class&nbsp;has</em></sub> Invited <sub><em>me&nbsp;to&nbsp;give&nbsp;a</em></sub> Distinguished GoBears Guest Lecture</h2>
+<ul>
+<li>Student Example Goes Here</li>
+</ul>
+</section>
+<section id="final-final-project-stuff" class="level2">
+<h2 class="anchored" data-anchor-id="final-final-project-stuff">Final Final Project Stuff</h2>
+<section id="professor-advice" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="professor-advice">Professor Advice</h3>
+<section id="use-the-rubric-as-a-guide." class="level5">
+<h5 class="anchored" data-anchor-id="use-the-rubric-as-a-guide.">1. <a href="https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0#bookmark=kix.b5sonortvquz"><strong>Use the rubric as a guide</strong></a><strong>.</strong></h5>
+<ul>
+<li><p><strong>Use paragraphs and headers to guide the reader.</strong></p>
+<ul>
+<li>Each new idea is a new paragraph. No solid wall of text please!</li>
+<li>Headers help orient your reader to the different contents.</li>
+</ul></li>
+<li><p><strong>“Done is better than perfect”.</strong> Prioritize the most important things; set reasonable expectations for yourself and boundaries for the time that you have (e.g., lit review can be superficial; okay if you can’t figure out how to create a scale, just</p>
+<ul>
+<li><strong>Make it clear how and where you are doing the work.</strong> Label your sections with headers; make sure your tables and graphs are visible.</li>
+<li><strong>There is no “right” way to do the study.</strong> We want to see evidence that you tried and are learning. (But see the rubric.)</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="professor-advice-1" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="professor-advice-1">Professor Advice</h3>
+<section id="keep-it-simple." class="level4">
+<h4 class="anchored" data-anchor-id="keep-it-simple.">2. <strong>Keep it simple.</strong></h4>
+<ul>
+<li><p><strong>Simple measures :</strong></p>
+<ul>
+<li>okay to use one measure of your DV even thought you had two.</li>
+<li>okay to simplify your categorical variable (e.g., “which of these 15 music types do you love the most” –&gt; “do you like experimental jazz (0 = no; 1 = yes)”)</li>
+</ul></li>
+<li><p><strong>Simple models :</strong> DV ~ IV1 + IV2.</p></li>
+<li><p><strong>Done is Better Than Perfect.</strong></p>
+<ul>
+<li><strong>Discussion Section :</strong> summary of ways that you could have (or should have) been more complicated in the Discussion Section</li>
+<li><strong>Appendix :</strong> List of <u>all</u> your measures. Good practice to be fully transparent about what you measured in the study.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="professor-advice-2" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="professor-advice-2">Professor Advice</h3>
+<ol start="3" type="1">
+<li><p><strong>STUDENTS WANT TO KEEP THINGS COMPLEX???!</strong></p>
+<ul>
+<li><strong>OKAY!</strong> All variables included in your models must…
+<ul>
+<li>be supported in your introduction (why are you focusing on this variable, and why might / what past research suggests it be related to the DV?)</li>
+<li>be described in your measure section.</li>
+<li>be supported with enough data (each IV adds a dimension to a graph….need a lot of data for complex models.)</li>
+</ul></li>
+</ul></li>
+</ol>
+</section>
+<section id="writing-paper-structure" class="level3">
+<h3 class="anchored" data-anchor-id="writing-paper-structure">Writing : Paper Structure</h3>
+<ul>
+<li><p>Title Page</p></li>
+<li><p>Abstract</p></li>
+<li><p>Introduction</p></li>
+<li><p>Methods (Participants, Measures) –&gt; Results (Tables, Figures, Written)</p></li>
+<li><p>Discussion Section</p></li>
+</ul>
+</section>
+<section id="writing-the-abstract-tldr-of-your-paper" class="level3">
+<h3 class="anchored" data-anchor-id="writing-the-abstract-tldr-of-your-paper">Writing : The Abstract (TLDR of your paper)</h3>
+<p><strong>Components of an Abstract :</strong></p>
+<ul>
+<li><p>1-2 sentences : what is your topic and why should we care?</p></li>
+<li><p>1-2 sentences : what did you measure / do in your study?</p></li>
+<li><p>1-2 sentences : what did you find?</p></li>
+<li><p>1-2 sentences : why does this matter?</p></li>
+</ul>
+<p><strong>Activity : Write an Abstract for Each Other</strong></p>
+<ul>
+<li><p>Professor and Student Example Goes Here :</p></li>
+<li><p>YOUR TURN!</p></li>
+</ul>
+</section>
+<section id="writing-the-discussion-section" class="level3">
+<h3 class="anchored" data-anchor-id="writing-the-discussion-section">Writing : The Discussion Section</h3>
+<ul>
+<li><p><strong>Summary of Results (and Future Studies) :</strong></p>
+<ul>
+<li><p>What you found (NO STATS)</p></li>
+<li><p>Why this matters / how this knowledge could be used / what other questions you might ask in the future?</p></li>
+</ul></li>
+<li><p><strong>Limitations and Future Directions</strong></p>
+<ul>
+<li><p>What would you do differently in your study?</p></li>
+<li><p>How could (or should) future research address these limitations, and why would that be important to do?</p></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="four-validities-this-semester" class="level2">
+<h2 class="anchored" data-anchor-id="four-validities-this-semester"><a href="https://journals.sagepub.com/doi/pdf/10.1177/09637214211067779?casa_token=J2fnwbroJB0AAAAA:rTHf9SZpJvyTDvvajR8Fb9PmHCDqZicCgxrAfhLI7Nl-OnGfLZjrbe_oNobr-KZKSFMCQE--2e-A">Four Validities This Semester</a></h2>
+<ol type="1">
+<li>Construct Validity</li>
+<li>External Validity</li>
+<li>Internal Validity</li>
+<li>Statistical Conclusion Validity</li>
+</ol>
+<section id="construct-validity" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="construct-validity">1. Construct Validity</h3>
+<ul>
+<li>Did we measure what we want to measure?</li>
+<li>(If not, how might this influence the results?)</li>
+<li>Discuss : how did your measures get at “the truth”? have “error”?</li>
+</ul>
+</section>
+<section id="external-validity" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="external-validity">2. External Validity</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Do our results generalize to other samples?</p>
+<ul>
+<li>sampling error : do we trust the statistical testing?</li>
+<li>sampling bias : who are the people who we studied? what differences might influence the results (and how)?</li>
+</ul>
+</div><div class="column" style="width:50%;">
+
+</div>
+</div>
+</section>
+<section id="internal-validity." class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="internal-validity.">3. Internal Validity.</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Is the relationship between the variables causal? reverse causal? 3rd variable?</li>
+<li>(Is an experiment possible? What confounds would be most important to control??)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+
+</div>
+</div>
+</section>
+</section>
+<section id="statistical-conclusion-validity" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="statistical-conclusion-validity">4. Statistical Conclusion Validity</h2>
+<ul>
+<li>Was your hypothesis supported by the data?</li>
+<li>Was the relationship between two variables strong?</li>
+<li>Was the relationship between two variables strong?</li>
+</ul>
+<section id="statistical-conclusion-validity-1" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="statistical-conclusion-validity-1">4. Statistical Conclusion Validity</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Prediction (and Error)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">r = .3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">r = .3??</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">r = .3??!?</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Best estimates that the average correlation between two variables is <em>r &lt; .30</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://journals.sagepub.com/doi/pdf/10.1037/1089-2680.7.4.331?casa_token=sPnTYYnQZGkAAAAA:_3gOMjwp8AeQzdcBG2yd3_2FQ3Yuh9Cie_f8GxIPN1n4p9fcjrniLIHbQtUTJZI20WaFNdmUgyPD"><img src="images/clipboard-1535959675.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></a></p>
+</figure>
+</div>
+<figcaption>Richard, F. D., Bond Jr, C. F., &amp; Stokes-Zoota, J. J. (2003). One hundred years of social psychology quantitatively described. Review of general psychology, 7(4), 331-363.</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>What a r = .3 looks like. [<a href="https://rpsychologist.com/correlation/">Source</a>]</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3374702110.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>A “correlation” / slope could look like any of the following graphs [<a href="https://en.wikipedia.org/wiki/Anscombe%27s_quartet">Anscombe’s Quartet</a>]</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Anscombe%27s_quartet_3.svg/960px-Anscombe%27s_quartet_3.svg.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p><strong>The Replication Crisis = Hard to Trust Any One Study.</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.science.org/doi/10.1126/science.aac4716"><img src="images/clipboard-2290097992.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="Diagonal line represents replication effect size equal to original effect size. Dotted line represents replication effect size of 0. Points below the dotted line were effects in the opposite direction of the original. Density plots are separated by significant (blue) and nonsignificant (red) effects."></a></p>
+</figure>
+</div>
+<figcaption>Original study effect size versus replication effect size (correlation coefficients).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="statistical-conclusion-validity-2" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="statistical-conclusion-validity-2">4. Statistical Conclusion Validity</h3>
+<p>Are we adhering to “best practices” and doing the analyses correctly?</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">p-hacking</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">bad methods</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">open science</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false" href="">pre-registration works</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false" href="">“Many Labs”</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<ul>
+<li><p><strong>p-hacking :</strong> making changes to your model or data in order to “get” your p-values.</p>
+<ul>
+<li><p><strong>visit :</strong> <a href="https://stats.andrewheiss.com/hack-your-way/" class="uri">https://stats.andrewheiss.com/hack-your-way/</a></p></li>
+<li><p><strong>model : economic performance ~ political power + error</strong></p>
+<ul>
+<li><p>decide how to operationalize political power</p></li>
+<li><p>decide how to operationalize economic performance</p></li>
+<li><p>decide how to adjust your model</p></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p><img src="images/clipboard-2957243318.png" class="img-fluid"></p>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<ul>
+<li><p><strong>Open-Science :</strong> be transparent. share code and data; science is a process.</p>
+<ul>
+<li><p><a href="https://www.cos.io/open-science">Center for Open Science</a></p></li>
+<li><p><a href="https://osf.io">Open Science Foundation (OSF)</a>. Hosting data.</p></li>
+</ul></li>
+<li><p><a href="https://www.cos.io/initiatives/prereg">link to pre-registration guides</a></p></li>
+</ul>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1668702103.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Allen C, Mehler DMA (2019) Correction: Open science challenges, benefits and tips in early career and beyond. PLOS Biology 17(12): e3000587. https://doi.org/10.1371/journal.pbio.3000587</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-2-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-5-tab">
+<p><a href="https://journals.sagepub.com/doi/10.1177/2515245917747646">be transparent &amp; collaborative; science is a process.</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-805008292.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:71.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="x.-is-validity-possible" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="x.-is-validity-possible">X. IS Validity Possible?</h3>
+<ol type="1">
+<li><p><strong>is there a “truth” to people?</strong> maybe there is no truth? maybe the endeavor is impossible (post-positivism), defined entirely by our processes (social constructivism), or bad (anti-positivism).</p></li>
+<li><p><strong>should there be a truth to people?</strong> why does this matter? who will use this knowledge in practice (to help? to hurt?)</p></li>
+</ol>
+<pre><code>“If you want knowledge, you must take part in the practice of changing reality. If you want to know the taste of a pear, you must change the pear by eating it yourself. If you want to know the structure and properties of the atom, you must make physical and chemical experiments to change the state of the atom. If you want to know the theory and methods of revolution, you must take part in revolution. All genuine knowledge originates in direct experience.” - Mao</code></pre>
+</section>
+</section>
+<section id="break-time-meet-back-at" class="level2">
+<h2 class="anchored" data-anchor-id="break-time-meet-back-at">BREAK TIME : MEET BACK AT</h2>
+<p><img src="images/clipboard-3924345851.png" class="img-fluid"></p>
+</section>
+<section id="the-learning-is-over-would-you-like-to-learn-more" class="level2">
+<h2 class="anchored" data-anchor-id="the-learning-is-over-would-you-like-to-learn-more">The Learning is Over; Would You Like to Learn More?</h2>
+</section>
+<section id="models-are-complicated" class="level2">
+<h2 class="anchored" data-anchor-id="models-are-complicated">Models Are Complicated</h2>
+<section id="quadratic-effects-a-regression-line-can-bend" class="level3">
+<h3 class="anchored" data-anchor-id="quadratic-effects-a-regression-line-can-bend">1. Quadratic Effects : A Regression Line Can Bend</h3>
+<p><img src="images/clipboard-2558630596.png" class="img-fluid"></p>
+</section>
+<section id="interaction-effects" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="interaction-effects">2. Interaction Effects</h3>
+<p><a href="https://catterson.github.io/ystats/chapters/11R_InteractionFX.html">Chapter on Interaction Effects</a> The Regression Line Changes Depending on Some Other Variable</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">The Effect(s) Depend.</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Fanon</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.aeaweb.org/articles?id=10.1257/0002828042002561"><img src="images/clipboard-798188945.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></a></p>
+</figure>
+</div>
+<figcaption>Bertrand, M., &amp; Mullainathan, S. (2004). Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. American economic review, 94(4), 991-1013</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<ul>
+<li><strong>Frantz Fanon, Black Skin White Masks (1967) :</strong> “To speak means to be in a position to use a certain syntax, to grasp the morphology of this or that language, but it means above all to assume a culture, to support the weight of civilization…Every colonized people–in other words, every people in whose soul an inferiority complex has been created by the death and burial of its local cultural originality–finds itself face to face with the language of the civilizing nation; that is, with the culture of the mother country. The colonized is elevated above his jungle status in proportion to his adoption of the mother country’s cultural standards.”</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="overfitting-when-you-get-too-complicated" class="level3">
+<h3 class="anchored" data-anchor-id="overfitting-when-you-get-too-complicated">3. Overfitting : When You Get Too Complicated</h3>
+<p><img src="images/clipboard-792611093.png" class="img-fluid"></p>
+</section>
+<section id="generalized-linear-models-e.g.-logistic-regression" class="level3">
+<h3 class="anchored" data-anchor-id="generalized-linear-models-e.g.-logistic-regression">4. <em>Generalized</em> Linear Models (e.g., “Logistic Regression”)</h3>
+</section>
+<section id="whats-wrong" class="level3">
+<h3 class="anchored" data-anchor-id="whats-wrong">what’s wrong?</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">the graph</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">the model</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!GRADSTATS/Datasets/Hormone Data/hormone_dataset.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>h<span class="sc">$</span>sexF <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(h<span class="sc">$</span>sex)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(h<span class="sc">$</span>sexF) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Male"</span>, <span class="st">"Female"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>h<span class="sc">$</span>sexF <span class="ot">&lt;-</span> <span class="fu">relevel</span>(h<span class="sc">$</span>sexF, <span class="at">ref =</span> <span class="st">"Female"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sex <span class="sc">~</span> test_mean, <span class="at">data =</span> h, <span class="at">xlab =</span> <span class="st">"Testosterone"</span>, <span class="at">ylab =</span> <span class="st">"Sex (1 = Male, 2 = Female)"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(sex <span class="sc">~</span> test_mean, <span class="at">data =</span> h)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(mod2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="13_Conclusion2Intro_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = sex ~ test_mean, data = h)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.6341 -0.2735 -0.1131  0.3306  0.9166 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  1.862302   0.087390  21.310  &lt; 2e-16 ***
+test_mean   -0.007303   0.001017  -7.181 2.11e-10 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.368 on 88 degrees of freedom
+  (32 observations deleted due to missingness)
+Multiple R-squared:  0.3695,    Adjusted R-squared:  0.3623 
+F-statistic: 51.56 on 1 and 88 DF,  p-value: 2.111e-10</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="whats-better" class="level3">
+<h3 class="anchored" data-anchor-id="whats-better">what’s better?</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href="">the graph</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false" href="">the model</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>h<span class="sc">$</span>sexR <span class="ot">&lt;-</span> h<span class="sc">$</span>sex <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>glmod <span class="ot">&lt;-</span> <span class="fu">glm</span>(sexR <span class="sc">~</span> test_mean, <span class="at">data =</span> h, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sexR <span class="sc">~</span> test_mean, <span class="at">data =</span> h,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Testosterone"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Probability of Being Female"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">predict</span>(glmod, <span class="fu">data.frame</span>(<span class="at">test_mean=</span>x), <span class="at">type =</span> <span class="st">"resp"</span>), <span class="at">add =</span> T, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="13_Conclusion2Intro_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glmod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = sexR ~ test_mean, family = "binomial", data = h)
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  4.81974    1.19821   4.022 5.76e-05 ***
+test_mean   -0.09200    0.02081  -4.420 9.86e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 109.96  on 89  degrees of freedom
+Residual deviance:  56.09  on 88  degrees of freedom
+  (32 observations deleted due to missingness)
+AIC: 60.09
+
+Number of Fisher Scoring iterations: 7</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="multilevel-models-mlm.-conceptual-understanding" class="level2">
+<h2 class="anchored" data-anchor-id="multilevel-models-mlm.-conceptual-understanding">5. Multilevel Models (MLM). Conceptual Understanding</h2>
+<section id="definition-multilevel-models-mlm" class="level3">
+<h3 class="anchored" data-anchor-id="definition-multilevel-models-mlm">Definition : Multilevel Models (MLM)</h3>
+<ul>
+<li><p>Hierarchical linear models, mixed effects models, random effects models, others?</p>
+<ul>
+<li><p><strong>Level 1 :</strong> the smallest unit of analysis (where the DV is measured)</p></li>
+<li><p><strong>Level 2 :</strong> organize non-independent responses at Level 1.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="examples" class="level3">
+<h3 class="anchored" data-anchor-id="examples">Examples :</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true" href="">Students in School</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false" href="">Repeated Measure Studies</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<p><strong>non-independence :</strong> students in a school are similar to each other</p>
+<p><a href="https://www.analyticsvidhya.com/blog/2022/01/a-brief-introduction-to-multilevel-modelling/"><img src="images/clipboard-2317369415.png" class="img-fluid" style="width:80.0%"></a></p>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<p><strong>non-independence :</strong> person at time 1 is still the same person at time 2</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.youtube.com/watch?v=itxBT5rnxJ0"><img src="images/clipboard-1043666253.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-formulas" class="level3">
+<h3 class="anchored" data-anchor-id="the-formulas">The Formulas</h3>
+<p><strong><em>The Linear Model</em></strong></p>
+<p><span class="math display">\[\huge y = \beta_0 + \beta_1x_1 + ... + \beta_kx_k + \epsilon\]</span></p>
+<p><img src="images/clipboard-1496409426.png" class="img-fluid" style="width:74.0%"></p>
+</section>
+<section id="why-are-we-doing-this" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="why-are-we-doing-this">Why Are We Doing This?</h3>
+<ol type="1">
+<li><strong>The Assumption of Independence Has Been Violated! (MLM increases our power and reliability as scientists.)</strong>
+<ul>
+<li>Multiple measures of an individual gives you a more reliable estimate of what and who they are.</li>
+<li>A person serves as their own control, so can more precisely examinine how a person changes over time.</li>
+</ul></li>
+<li><strong>Model more complex phenomenon.</strong>
+<ul>
+<li>How people change over time (within-person variation).</li>
+<li>Simpson’s Paradox</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="how-do-we-do-this-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="how-do-we-do-this-in-r">How Do We Do This in R?</h2>
+<section id="example-the-sleep-dataset" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="example-the-sleep-dataset">Example : The Sleep Dataset</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true" href="">Details</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false" href="">“Between Person”</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-3" role="tab" aria-controls="tabset-7-3" aria-selected="false" href="">“Within-Person”</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-4" role="tab" aria-controls="tabset-7-4" aria-selected="false" href="">Random Effects</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<p>From the <code>?sleep</code> dataset: “Data which show the effect of two soporific drugs (increase in hours of sleep compared to control).”</p>
+<ul>
+<li>Extra : increase in hours of sleep</li>
+<li>Group : drug given (1 = control; 2 = drug)</li>
+<li>ID : patient ID</li>
+</ul>
+</div>
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sleep, <span class="fu">aes</span>(<span class="at">y =</span> extra, <span class="at">x =</span> group)) <span class="sc">+</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data=</span>mean_se, <span class="at">color =</span> <span class="st">'red'</span>, <span class="at">size =</span> <span class="fl">1.25</span>, <span class="at">linewidth =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="13_Conclusion2Intro_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>lmod <span class="ot">&lt;-</span> <span class="fu">lm</span>(extra <span class="sc">~</span> <span class="fu">as.factor</span>(group), <span class="at">data =</span> sleep)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lmod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = extra ~ as.factor(group), data = sleep)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-2.430 -1.305 -0.580  1.455  3.170 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)         0.7500     0.6004   1.249   0.2276  
+as.factor(group)2   1.5800     0.8491   1.861   0.0792 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.899 on 18 degrees of freedom
+Multiple R-squared:  0.1613,    Adjusted R-squared:  0.1147 
+F-statistic: 3.463 on 1 and 18 DF,  p-value: 0.07919</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-7-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-3-tab">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sleep, <span class="fu">aes</span>(<span class="at">y =</span> extra, <span class="at">x =</span> group, <span class="at">color =</span> ID)) <span class="sc">+</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> ID), <span class="at">linewidth =</span> <span class="fl">0.75</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="13_Conclusion2Intro_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>Fixed Effects :</strong> The “Average” across all the grouping variables.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("lme4")</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Matrix</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmerTest)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'lmerTest'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:lme4':
+
+    lmer</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:stats':
+
+    step</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Matrix)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>mlmod <span class="ot">&lt;-</span> <span class="fu">lmer</span>(extra <span class="sc">~</span> <span class="fu">as.factor</span>(group) <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> ID), <span class="at">data =</span> sleep)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mlmod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: extra ~ as.factor(group) + (1 | ID)
+   Data: sleep
+
+REML criterion at convergence: 70
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-1.63372 -0.34157  0.03346  0.31511  1.83859 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ ID       (Intercept) 2.8483   1.6877  
+ Residual             0.7564   0.8697  
+Number of obs: 20, groups:  ID, 10
+
+Fixed effects:
+                  Estimate Std. Error      df t value Pr(&gt;|t|)   
+(Intercept)         0.7500     0.6004 11.0814   1.249  0.23735   
+as.factor(group)2   1.5800     0.3890  9.0000   4.062  0.00283 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            (Intr)
+as.fctr(g)2 -0.324</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-7-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-4-tab">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sleep, <span class="fu">aes</span>(<span class="at">y =</span> extra, <span class="at">x =</span> group, <span class="at">color =</span> ID)) <span class="sc">+</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> ID), <span class="at">linewidth =</span> <span class="fl">0.75</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="13_Conclusion2Intro_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><p>ICC = Intraclass Correlation Coefficient = how much the variation in our grouping variable (here : subject) explains total variation.</p></li>
+<li><p>To calculate : take variance of intercept / total variance</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fl">2.8483</span> <span class="sc">/</span> (<span class="fl">2.8483</span> <span class="sc">+</span> <span class="fl">0.7564</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7901628</code></pre>
+</div>
+</div></li>
+<li><p>OR :</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(performance)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">icc</span>(mlmod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Intraclass Correlation Coefficient
+
+    Adjusted ICC: 0.790
+  Unadjusted ICC: 0.668</code></pre>
+</div>
+</div></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="statistics-exists-outside-of-psych-101" class="level3">
+<h3 class="anchored" data-anchor-id="statistics-exists-outside-of-psych-101">Statistics Exists Outside of Psych 101</h3>
+<section id="books-and-blogs-and-youtube" class="level4">
+<h4 class="anchored" data-anchor-id="books-and-blogs-and-youtube">Books and Blogs and YouTube!</h4>
+<ul>
+<li><p><strong>Books :</strong></p>
+<ul>
+<li><p>R for Data Science (Hadley Wickham) : <a href="http://r4ds.had.co.nz/" class="uri">http://r4ds.had.co.nz/</a></p></li>
+<li><p>Models Demystified : <a href="https://m-clark.github.io/book.html" class="uri">https://m-clark.github.io/book.html</a></p></li>
+</ul></li>
+<li><p><strong>Blogs :</strong></p>
+<ul>
+<li><p>Andrew Gelman blog : <a href="http://andrewgelman.com/" class="uri">http://andrewgelman.com/</a>&nbsp;</p></li>
+<li><p>Nelson, Simons, Simonsohn : <a href="http://datacolada.org/">datacolada.org/</a></p></li>
+</ul></li>
+<li><p><strong>Twitter / BlueSky Follows :</strong></p>
+<ul>
+<li><p><a href="https://twitter.com/siminevazire">@siminevazire</a> (personality &amp; open science)</p></li>
+<li><p><a href="https://mobile.twitter.com/djnavarro">@djnavarro</a> (cognitive sci and r art)</p></li>
+<li><p><a href="https://twitter.com/NeilLewisJr">@NeilLewisJr</a> (psych and education)</p></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="practice-the-thing-you-want-to-do" class="level3">
+<h3 class="anchored" data-anchor-id="practice-the-thing-you-want-to-do">Practice The Thing You Want to Do!</h3>
+<ul>
+<li><p><strong>RA —&gt; Honors Thesis Pipeline.</strong> Psych 199 positions are <a href="https://psychology.berkeley.edu/students/undergraduate-program/independent-study">posted on the psych website</a>, but also do direct reach out to grad students who are involved in research that interests you.</p></li>
+<li><p><a href="https://research.berkeley.edu"><strong>Other Supported Research Opportunities at Cal</strong></a><strong>.</strong> Go bears.</p></li>
+<li><p><a href="https://buj.studentorg.berkeley.edu"><strong>Berkeley Undergraduate Research Journal.</strong></a>Maybe your final project goes here?</p></li>
+</ul>
+</section>
+<section id="farewell" class="level3">
+<h3 class="anchored" data-anchor-id="farewell">FAREWELL!!</h3>
+<p><img src="lecture_images/11_ponyobye.png" class="img-fluid">{fig-align=“center” fig-width = 60%}</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

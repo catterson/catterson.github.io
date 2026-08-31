@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Chapter 2 | Working with Data</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-6033a600180109c3731f6a886c29932c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+          <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://catterson.github.io/ystats/"> 
+<span class="menu-text">Why Statistics?</span></a>
+  </li>  
+</ul>
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#check-in-agenda-and-announcements" id="toc-check-in-agenda-and-announcements" class="nav-link active" data-scroll-target="#check-in-agenda-and-announcements">Check-In, Agenda, and Announcements</a>
+  <ul class="collapse">
+  <li><a href="#agenda" id="toc-agenda" class="nav-link" data-scroll-target="#agenda">Agenda</a></li>
+  <li><a href="#announcements" id="toc-announcements" class="nav-link" data-scroll-target="#announcements">Announcements</a></li>
+  <li><a href="#check-in-review" id="toc-check-in-review" class="nav-link" data-scroll-target="#check-in-review">Check-In Review</a></li>
+  </ul></li>
+  <li><a href="#part-1-data-with-human-brain-and-r" id="toc-part-1-data-with-human-brain-and-r" class="nav-link" data-scroll-target="#part-1-data-with-human-brain-and-r">PART 1 : Data With Human Brain and R</a>
+  <ul class="collapse">
+  <li><a href="#florence-nightingale" id="toc-florence-nightingale" class="nav-link" data-scroll-target="#florence-nightingale">Florence Nightingale</a>
+  <ul class="collapse">
+  <li><a href="#class-discussion." id="toc-class-discussion." class="nav-link" data-scroll-target="#class-discussion.">Class Discussion.</a></li>
+  </ul></li>
+  <li><a href="#lab-2" id="toc-lab-2" class="nav-link" data-scroll-target="#lab-2">Lab 2</a>
+  <ul class="collapse">
+  <li><a href="#the-codebook-onboarding-survey" id="toc-the-codebook-onboarding-survey" class="nav-link" data-scroll-target="#the-codebook-onboarding-survey">THE CODEBOOK : Onboarding Survey</a></li>
+  <li><a href="#dataset-the-onboarding-survey" id="toc-dataset-the-onboarding-survey" class="nav-link" data-scroll-target="#dataset-the-onboarding-survey">DATASET : the Onboarding Survey</a></li>
+  <li><a href="#work-on-the-lab" id="toc-work-on-the-lab" class="nav-link" data-scroll-target="#work-on-the-lab">Work on the Lab :</a></li>
+  <li><a href="#student-show-and-tell" id="toc-student-show-and-tell" class="nav-link" data-scroll-target="#student-show-and-tell">Student Show and Tell?</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#break-time-meet-back-at-______" id="toc-break-time-meet-back-at-______" class="nav-link" data-scroll-target="#break-time-meet-back-at-______">BREAK TIME : MEET BACK AT ______ !!!!</a></li>
+  <li><a href="#part-2-defining-data" id="toc-part-2-defining-data" class="nav-link" data-scroll-target="#part-2-defining-data">PART 2 : Defining Data</a>
+  <ul class="collapse">
+  <li><a href="#operationalization-construct-and-measurement-error" id="toc-operationalization-construct-and-measurement-error" class="nav-link" data-scroll-target="#operationalization-construct-and-measurement-error">Operationalization, Construct, and Measurement Error</a></li>
+  <li><a href="#key-idea-the-way-a-variable-is-measured-is-critical." id="toc-key-idea-the-way-a-variable-is-measured-is-critical." class="nav-link" data-scroll-target="#key-idea-the-way-a-variable-is-measured-is-critical."><strong>KEY IDEA :</strong> the way a variable is measured is CRITICAL.</a>
+  <ul class="collapse">
+  <li><a href="#aced-the-cognitive-examination" id="toc-aced-the-cognitive-examination" class="nav-link" data-scroll-target="#aced-the-cognitive-examination"><strong>ACED the “Cognitive Examination”</strong></a></li>
+  <li><a href="#the-scientific-operationalization-of-the-cognitive-examination" id="toc-the-scientific-operationalization-of-the-cognitive-examination" class="nav-link" data-scroll-target="#the-scientific-operationalization-of-the-cognitive-examination"><strong>The Scientific Operationalization of the Cognitive Examination</strong></a></li>
+  </ul></li>
+  <li><a href="#activity-no-talking-please" id="toc-activity-no-talking-please" class="nav-link" data-scroll-target="#activity-no-talking-please">ACTIVITY : No talking please!</a>
+  <ul class="collapse">
+  <li><a href="#counting-interruptions" id="toc-counting-interruptions" class="nav-link" data-scroll-target="#counting-interruptions">Counting Interruptions</a></li>
+  <li><a href="#discussion-topics" id="toc-discussion-topics" class="nav-link" data-scroll-target="#discussion-topics"><strong>DISCUSSION TOPICS :</strong></a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#part-3-getting-started-on-literature-reviews." id="toc-part-3-getting-started-on-literature-reviews." class="nav-link" data-scroll-target="#part-3-getting-started-on-literature-reviews.">PART 3 : GETTING STARTED ON LITERATURE REVIEWS.</a>
+  <ul class="collapse">
+  <li><a href="#academic-business-questions-about-these-terms" id="toc-academic-business-questions-about-these-terms" class="nav-link" data-scroll-target="#academic-business-questions-about-these-terms">Academic Business : Questions About These Terms?</a></li>
+  <li><a href="#literature-review" id="toc-literature-review" class="nav-link" data-scroll-target="#literature-review">Literature Review</a></li>
+  </ul></li>
+  <li><a href="#bye-bye-for-next-week" id="toc-bye-bye-for-next-week" class="nav-link" data-scroll-target="#bye-bye-for-next-week">BYE BYE : FOR NEXT WEEK</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="2L_WorkingWithData.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Chapter 2 | Working with Data</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="check-in-agenda-and-announcements" class="level1">
+<h1>Check-In, Agenda, and Announcements</h1>
+<p>Welcome Back!</p>
+<ul>
+<li><p>Access this Document Here : catterson.github.io/calstats/calstatsSP26.html</p></li>
+<li><p><a href="https://docs.google.com/forms/d/e/1FAIpQLSeRxOyLnGN7GO7ZQYziTuElo8k39b1feE915glmQMqI-1JBTA/viewform?usp=sf_link"><strong>PLEASE COMPLETE THIS CHECK-IN : tinyurl.com/againmodels</strong></a></p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lecture_images/2L_KermitCouch.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="401"></p>
+</figure>
+</div>
+<section id="agenda" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="agenda">Agenda</h2>
+<ul>
+<li><p><strong>2:10 - 2:20.</strong> Check-In &amp; Review</p></li>
+<li><p><strong>2:20 - 3:20.</strong> Working with Data Using Computer Tool (R)</p></li>
+<li><p><strong>3:30 - 3:40. BREAK TIME #1.</strong> Long break.</p></li>
+<li><p><strong>3:40 - 4:00.</strong> Operationalization, Construct, and Measurement, Oh My!</p></li>
+<li><p><strong>4:00 - 4:25.</strong> Getting started on literature reviews.</p></li>
+<li><p><strong>4:35 - 5:00.</strong> Farewell &amp; Questions About Grad School.</p></li>
+</ul>
+</section>
+<section id="announcements" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="announcements">Announcements</h2>
+<ul>
+<li><p><strong>DISCORD IS BUMPIN :</strong></p>
+<ul>
+<li><p><strong>students (<em>and sometimes professor</em>) helping students :</strong> with the R stuff; the real stuff; the gobears stuff.</p></li>
+<li><p><strong>students helping professor :</strong> “notes for next time” and clarifications for this time.</p></li>
+</ul></li>
+<li><p><strong>Lab 2 is Posted.</strong> We are going to work on this today. Yay.</p></li>
+<li><p><strong>Brain Exam in Three Weeks (in section after the Chapter 4 lecture.)</strong></p>
+<ul>
+<li><p>We will practice in class and in section. Gonna be chill.</p></li>
+<li><p>If can’t attend section; talk to your GSI (best : take in another one of their sections.)</p></li>
+<li><p><strong>DSP :</strong> you’ll have extra time (and quiet space) as needed. Went well last semester.</p></li>
+</ul></li>
+<li><p><strong>“I want to learn more than is provided!”, said the student(s).</strong></p>
+<ul>
+<li><p><strong>ggplot2 :</strong> for fancy graphs.</p></li>
+<li><p><strong>Quarto / RMarkdown :</strong> for more authentic ways of embedding code, output, and words together. (what I’m writing the textbook and class notes in.)</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="check-in-review" class="level2">
+<h2 class="anchored" data-anchor-id="check-in-review">Check-In Review</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2218300954.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="part-1-data-with-human-brain-and-r" class="level1">
+<h1>PART 1 : Data With Human Brain and R</h1>
+<p><em>A Picture Is Worth 1000 Words.</em></p>
+<section id="florence-nightingale" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="florence-nightingale">Florence Nightingale</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ol type="1">
+<li>Did you learn about Florence Nightingale in other classes? [Clap : Yes / No]</li>
+<li>What did you remember learning about Florence Nightingale in other classes?</li>
+</ol>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-right">
+<figure class="figure">
+<p><img src="lecture_images/2L_Florence.png" class="img-fluid quarto-figure quarto-figure-right figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="class-discussion." class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="class-discussion.">Class Discussion.</h3>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ol type="1">
+<li><strong>Ice Breaker :</strong> What’s your favorite way to feel better when sick?</li>
+<li>What’s going on in this graph / who cares / how can we use this knowledge??</li>
+<li>What variables are in the graph? How would you organize them as a linear model?</li>
+</ol>
+</div><div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lecture_images/2L_FlorenceGraph.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="lab-2" class="level2">
+<h2 class="anchored" data-anchor-id="lab-2">Lab 2</h2>
+<ul>
+<li><p>Paste Lab 2 questions into a Google Document you can edit.</p></li>
+<li><p>Create a new R Script; save it as Lab 2.</p></li>
+<li><p><strong>Access the <a href="https://www.dropbox.com/scl/fo/u8zr1swbl700sml2f1acp/AN0R4J7tyLqrIaUvDCAxDZs?rlkey=yhbjcobmlm8he9eu3i19mdiv7&amp;dl=0">Onboarding Survey Data and Codebook</a></strong></p></li>
+</ul>
+<section id="the-codebook-onboarding-survey" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="the-codebook-onboarding-survey">THE CODEBOOK : Onboarding Survey</h3>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li><p><strong>Look over the codebook –&gt;</strong></p>
+<ul>
+<li>What is one variable from the dataset that is interesting to you (if any)?</li>
+<li>Is this categorical or numeric data?</li>
+<li>What predictions do you have about what this variable will look like?</li>
+<li>How might we use knowledge of this variable?</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:60%;">
+<p><img src="images/clipboard-3167511214.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="dataset-the-onboarding-survey" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="dataset-the-onboarding-survey">DATASET : the Onboarding Survey</h3>
+<ul>
+<li><p><strong>Load the Data into R :</strong></p>
+<ul>
+<li><p>make sure you are working with stats_onboard.csv</p></li>
+<li><p><strong>posit.cloud :</strong> clicking on the name to load (vs.&nbsp;the “Import Dataset”)</p></li>
+</ul></li>
+<li><p><strong>The Three Things to Remember When Loading Data:</strong></p>
+<ul>
+<li><p>rename the long file name to something short!</p></li>
+<li><p>check the headers</p></li>
+<li><p>set stringAsFactor = TRUE</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="work-on-the-lab" class="level3">
+<h3 class="anchored" data-anchor-id="work-on-the-lab">Work on the Lab :</h3>
+<ul>
+<li><p>Graph two variables, make the graphs look nice, and learn about the individuals in the data from the graph.</p>
+<ul>
+<li><p>two numeric variables</p></li>
+<li><p>one categorical variable?</p></li>
+<li><p>no stats terms!</p></li>
+</ul></li>
+<li><p>Save your work for Lab 2, Question 1. Yeah!</p></li>
+</ul>
+</section>
+<section id="student-show-and-tell" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="student-show-and-tell">Student Show and Tell?</h3>
+<p>the Chancellor Rich Lyons <sub><em>is&nbsp;our&nbsp;Chancellor.&nbsp;Professor&nbsp;asked&nbsp;for&nbsp;a</em></sub> Guest Lecture</p>
+</section>
+</section>
+</section>
+<section id="break-time-meet-back-at-______" class="level1">
+<h1>BREAK TIME : MEET BACK AT ______ !!!!</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lecture_images/2L_Matrix.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="an image from the movie THE MATRIX, where we see a man sitting at a variety of computer terminals with many wires."></p>
+</figure>
+</div>
+</section>
+<section id="part-2-defining-data" class="level1">
+<h1>PART 2 : Defining Data</h1>
+<section id="operationalization-construct-and-measurement-error" class="level2">
+<h2 class="anchored" data-anchor-id="operationalization-construct-and-measurement-error">Operationalization, Construct, and Measurement Error</h2>
+<ul>
+<li><strong>operationalization</strong> : how researchers define the variable(s) they will study; this is a process; often the focus of a researcher’s question in the scientific method.</li>
+<li><strong>construct</strong> : some operationalized psychological phenomenon of interest. some examples below :
+<ul>
+<li><strong>voxel :</strong> three dimensional area of brain activation</li>
+<li><strong>self-esteem :</strong> how a person feels about themselves</li>
+<li><strong>secure attachment style :</strong> how much a person seeks out and trusts a relationship partner.</li>
+</ul></li>
+<li><strong>measurement error :</strong> when there is a lack of validity in our measures. The more error in our measures, the more error there will be in our predictions (“garbage in → garbage out”).</li>
+</ul>
+</section>
+<section id="key-idea-the-way-a-variable-is-measured-is-critical." class="level2">
+<h2 class="anchored" data-anchor-id="key-idea-the-way-a-variable-is-measured-is-critical."><strong>KEY IDEA :</strong> the way a variable is measured is CRITICAL.</h2>
+<p>What comes to mind when you think of a “Cognitive Examination”?</p>
+<section id="aced-the-cognitive-examination" class="level3">
+<h3 class="anchored" data-anchor-id="aced-the-cognitive-examination"><strong>ACED the “Cognitive Examination”</strong></h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-388249856.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="the-scientific-operationalization-of-the-cognitive-examination" class="level3">
+<h3 class="anchored" data-anchor-id="the-scientific-operationalization-of-the-cognitive-examination"><strong>The Scientific Operationalization of the Cognitive Examination</strong></h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lecture_images/2L_MOCA.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="activity-no-talking-please" class="level2">
+<h2 class="anchored" data-anchor-id="activity-no-talking-please">ACTIVITY : No talking please!</h2>
+<ul>
+<li><p><a href="https://docs.google.com/forms/d/e/1FAIpQLSd4GahfYtKFiSEFL5blw0lAG6jZepRzmnAewfUI9_iUf3dv9w/viewform?usp=sf_link"><strong>Check-in :</strong></a> <a href="http://tinyurl.com/dudesinterrupting"><strong>tinyurl.com/dudesinterrupting</strong></a></p></li>
+<li><p>Want to create consistent conditions for all to watch and hear. Thank you.</p></li>
+</ul>
+<section id="counting-interruptions" class="level3">
+<h3 class="anchored" data-anchor-id="counting-interruptions">Counting Interruptions</h3>
+<ol type="1">
+<li><p>Count the number of interruptions in the video (which professor will play below).&nbsp;</p></li>
+<li><p>Submit your answer, <strong>then wait for the letter of the day.</strong></p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><video src="lecture_images/1_interruption_oreilly&amp;frank_operationalization.m4v" class="img-fluid quarto-figure quarto-figure-center" controls=""><a href="lecture_images/1_interruption_oreilly&amp;frank_operationalization.m4v">Video</a></video></p>
+</figure>
+</div>
+</section>
+<section id="discussion-topics" class="level3">
+<h3 class="anchored" data-anchor-id="discussion-topics"><strong>DISCUSSION TOPICS :</strong></h3>
+<ul>
+<li><p>Why is this a problem for science???</p></li>
+<li><p>How do we OPERATIONALIZE an INTERRUPTION?</p></li>
+<li><p>What PREDICTIONS can we make about counting interruptions a second time?</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="part-3-getting-started-on-literature-reviews." class="level1">
+<h1>PART 3 : GETTING STARTED ON LITERATURE REVIEWS.</h1>
+<section id="academic-business-questions-about-these-terms" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="academic-business-questions-about-these-terms">Academic Business : Questions About These Terms?</h2>
+<p><strong>The People Involved:</strong></p>
+<ul>
+<li><p><strong>author : the person(s) who writes the article</strong></p></li>
+<li><p><strong>affiliations :</strong> where the authors come from</p></li>
+<li><p><strong>editor :</strong> a person who sends the article to review, and ultimately decides whether to accept / reject an article for publication.</p></li>
+<li><p><strong>peer reviewers :</strong> other scientists who comment on the article and give feedback before it is published (unpaid, anonymous, and uncredited on the paper.</p></li>
+</ul>
+<p><strong>Types of Scientific Articles</strong></p>
+<ul>
+<li><p><strong>original report :</strong> one or more studies where researchers collect original data to answer a specific question(s)</p></li>
+<li><p><strong>replication :</strong> a copy of a previous original report (with new people)</p></li>
+<li><p><strong>literature review :</strong> summarizes main ideas from past research to find common themes</p></li>
+<li><p><strong>meta-analysis :</strong> summarizes data from past studies to find common themes.</p></li>
+</ul>
+<p><strong>The Ways To Evaluate :</strong></p>
+<ul>
+<li><p><strong>citation count : the number of times that other people reference a specific article.</strong></p></li>
+<li><p><strong>impact factor :</strong> the average number of times the average article in a journal has been cited in an average year</p></li>
+<li><p><strong>jargon :</strong> the specific words psychologists use to define variables.</p></li>
+<li><p><strong>APA Citation (or “Citation in APA Format”) :</strong> a super specific way of referencing an article that you do NOT need to memorize because computers do this for us.</p></li>
+</ul>
+</section>
+<section id="literature-review" class="level2">
+<h2 class="anchored" data-anchor-id="literature-review">Literature Review</h2>
+<ul>
+<li><p><a href="https://docs.google.com/spreadsheets/d/1Z6bwMrtC6glf2X2A55-cq0pI-smUV5LyLy9eyDiM5nA/edit?usp=sharing">Link to Annotated Bibliography Template</a></p></li>
+<li><p><strong>Goals :</strong></p>
+<ul>
+<li><p>Learn more about the topic than you did before.</p></li>
+<li><p>See what past research has been done on your topic.</p></li>
+<li><p>Keep an organized record of what you find so you can access it later.</p></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="bye-bye-for-next-week" class="level1 smaller">
+<h1 class="smaller">BYE BYE : FOR NEXT WEEK</h1>
+<p><img src="images/clipboard-3262071838.png" class="img-fluid"></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
