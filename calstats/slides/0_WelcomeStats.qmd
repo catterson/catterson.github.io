@@ -27,7 +27,7 @@ format:
 
   ![](lecture_images/0L_KermitBike.png){fig-alt="an image of kermit the frog on a bicycle" fig-align="center" width="423"}
 
-### Students : THIS CLASS IS FOR Y’ALL!!!
+### Students : THIS CLASS IS FOR Y’ALL!!! {.smaller}
 
 ::::: columns
 ::: {.column width="60%"}
@@ -51,7 +51,7 @@ format:
 :::
 :::::
 
-### Buddy System
+### Buddy System {.smaller}
 
 - everyone has a buddy
 
@@ -61,13 +61,13 @@ format:
 
   - **Why Psych 101?** Why are psych majors are REQUIRED to take a stats class??
 
-## Why Statistics?
+## Why Statistics? {.smaller}
 
 ### **Statistics as a language.**
 
 - **What happens in a good language class?**
 
-### **Variables and Variation.**
+### **Variables and Variation.** {.smaller}
 
 ::::: columns
 ::: {.column width="60%"}
@@ -85,7 +85,7 @@ format:
 :::
 :::::
 
-### **the ABCs of Psychology**
+### **the ABCs of Psychology** {.smaller}
 
 - **Affect :** the emotions you feel
 
@@ -117,15 +117,11 @@ Knowledge of Neurons
 ::: {.column width="50%"}
 Knowledge of Addiction
 
-![](lecture_images/1L_fb.png){width="581"}
+![](lecture_images/1L_fb.png){fig-alt="These data (from a NYT article) are a little dated; couldn't find more recent data on this, but in reports to investors reports consistent growth in metrics like \"ad impressions\" and \"daily active users\"." width="581"}
 :::
 :::::
 
-
-[NYT article](https://www.nytimes.com/2016/05/06/business/facebook-bends-the-rules-of-audience-engagement-to-its-advantage.html). These data are a little dated; couldn't find more recent data on this, but in [reports to investors](https://s21.q4cdn.com/399680738/files/doc_financials/2024/q2/Earnings-Presentation-Q2-2024.pdf) reports consistent growth in metrics like "ad impressions" and "daily active users".
-
-
-## The Linear Model
+## Chapter 1 Preview : The Linear Model
 
 ![](images/clipboard-606362939.png){fig-align="center" width="739"}
 
@@ -137,11 +133,11 @@ Knowledge of Addiction
 
   - **list the variables that you think will help predict the DV (the IVs)**
 
-- ACTIVITY : Define a linear model to predict differences in (choose one) : 
+- ACTIVITY : Define a linear model to predict differences in (choose one) :
 
-  -   screen time
-  -   having a good class
-  -   sleep quality
+  - screen time
+  - having a good class
+  - sleep quality
 
 ### KEY IDEA : Linear Models Help Organize and Quantify Prediction {.smaller}
 
@@ -161,10 +157,9 @@ Knowledge of Addiction
 
 ![](images/clipboard-1655892865.png)
 
-
 ## What Statistics?
 
-### This Semester{.smaller}
+### This Semester {.smaller}
 
 ::::: columns
 ::: {.column width="60%"}
@@ -173,7 +168,6 @@ Knowledge of Addiction
   - **flipped classroom.** Readings before class; class time to practice and discuss.
 
   - **We have a syllabus.** Any questions so far?
-
 :::
 
 ::: {.column width="40%"}
@@ -181,14 +175,14 @@ Knowledge of Addiction
 :::
 :::::
 
-### Authentic Assessments{.smaller}
+### Authentic Assessments {.smaller}
 
 1.  **Brain Exams :** You look at some statistical results (graphs, tables) and interpret what you see with only your human brain to help you.
 2.  **R Exam :** You are given a dataset and a research question and asked to prepare a report with access to every possible tool you could want to use (see course AI policy).
 3.  **Final Project :** You learn more about a [psychological variable]{.underline} you care about, design a study to answer a question about this variable, collect the data from friends and family (n = 10), analyze the data using R, and write everything up as a research report.
     - **Milestone #1 (in Section) :** What's a question you are interested in?
 
-### AI Policy{.smaller}
+### AI Policy {.smaller}
 
 ::::: columns
 ::: {.column width="50%"}
@@ -264,50 +258,50 @@ Knowledge of Addiction
 
 ### **RA = Research Assistant**
 
--   Mostly Unpaid Experiences
+- Mostly Unpaid Experiences
 
-    -   From the berkeley website…
+  - From the berkeley website…
 
-    -   “Cold calling” labs who are doing work you think is cool.
+  - “Cold calling” labs who are doing work you think is cool.
 
-    -   Chat with your TAs / Professors
+  - Chat with your TAs / Professors
 
--   Some paid experiences exist!
+- Some paid experiences exist!
 
-    -   [Busine\$\$ \$chool](https://haas.berkeley.edu/mors/faculty/)
+  - [Busine\$\$ \$chool](https://haas.berkeley.edu/mors/faculty/)
 
-    -   [A list a student sent me that they found](https://docs.google.com/spreadsheets/d/1IX7f1N_VXUkSnnJPTpLg-pUto0427XBK_jxRxNFhmps/edit?gid=1345132026#gid=1345132026).
+  - [A list a student sent me that they found](https://docs.google.com/spreadsheets/d/1IX7f1N_VXUkSnnJPTpLg-pUto0427XBK_jxRxNFhmps/edit?gid=1345132026#gid=1345132026).
 
 ### Work You Do as an RA {.smaller}
 
--   **work with data :** transcribing data; behavioral coding data; recruiting and participants to collect data; setting up psychophysiological recordings; cleaning data; etc.
+- **work with data :** transcribing data; behavioral coding data; recruiting and participants to collect data; setting up psychophysiological recordings; cleaning data; etc.
 
--   **other opportunities to gain skills you can demonstrate :**
+- **other opportunities to gain skills you can demonstrate :**
 
-    -   reading & discussing papers
+  - reading & discussing papers
 
-    -   working with IRB (institutional review board - an ethics thing)
+  - working with IRB (institutional review board - an ethics thing)
 
-    -   analyzing data → presenting research at a conference (poster) or submitting a paper for publication \[your golden ticket\]
+  - analyzing data → presenting research at a conference (poster) or submitting a paper for publication \[your golden ticket\]
 
-    -   general mentorship (how to apply to grad school; where to apply; who to talk to & e-mail; etc.)
+  - general mentorship (how to apply to grad school; where to apply; who to talk to & e-mail; etc.)
 
-    -   NOTE : this work and these skills apply to other work outside of research applications \[time management; coordinating schedules; juggling responsibilities; etc.\]
+  - NOTE : this work and these skills apply to other work outside of research applications \[time management; coordinating schedules; juggling responsibilities; etc.\]
 
 ### What You Get Out of This {.smaller}
 
--   **Course credit (hah), a letter of recommendation, ability to write about experiences that you have had (see above).**
+- **Course credit (hah), a letter of recommendation, ability to write about experiences that you have had (see above).**
 
--   **Vibes : is this \[work or lab\] for you?**
+- **Vibes : is this \[work or lab\] for you?**
 
-    -   do you enjoy the work? are you going to look forward to showing up and doing the work / fulfilling the commitment? 
+  - do you enjoy the work? are you going to look forward to showing up and doing the work / fulfilling the commitment? 
 
-    -   are you working with a horrible monster?
+  - are you working with a horrible monster?
 
-        -   not responsive
+    - not responsive
 
-        -   inconsistent work / no plan for your work
+    - inconsistent work / no plan for your work
 
-        -   kind of a bully (emotionally abusive → stealing your work) 
+    - kind of a bully (emotionally abusive → stealing your work) 
 
-    -   or are you working with someone who is super cool and a positive influence on mentoring young minds!?!?! \[YES!!!!\]
+  - or are you working with someone who is super cool and a positive influence on mentoring young minds!?!?! \[YES!!!!\]
