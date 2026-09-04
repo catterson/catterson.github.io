@@ -4,38 +4,71 @@ format: html
 editor: visual
 ---
 
-**Lectures (1.5 Units) \|** Mondays, 10:10 AM - 1:00 PM, in the MaCSS Classroom (2121 Allston Way).
+### Summer 2026
 
-**Professor \| Arman Catterson, PhD \[he / his / او \]** 🐱. Office hours are Mondays, 1:00 - 2:00 PM. If this time doesn’t work, please e-mail (my lowercase last name at berkeley.edu) or talk to me after class to find a time that does!
+**Lectures (3 Units) \|** Asyncrhonous weekly; posted Mondays at 12:00 AM Pacific Time.
 
-**GSI \| Max Dunsker (mdunsker at berkeley.edu).** Office hours will be held Tuesdays, 4:00 - 5:00 PM \[[sign up here](https://calendar.app.google/TkPBqr7dnSAxnpWS8)\].
+**Professor \| Arman Catterson, PhD \[he / his / او \]** 🐱. Drop-in office hours are held on Zoom Mondays, 1:00 PM - 2:00 PM Pacific Time and Thursdays 9:00 PM - 10:00 PM Pacific Time. You can also schedule individual meetings in office hours here (see bCourses for links to zoom room and scheduling). If these times don’t work, reach out via e-mail and let me know your availability (and the question you have) and we can find a time!
 
-**Textbooks \|** We’ll be drawing from two open-sourced textbooks. The Handbook of Social Psychology (HSP) will cover the research-methods content required for this course, whereas Why Statistics (WS) will serve as an optional review of statistical content in R that students may need for this course depending on their past experience. Supplemental articles will be assigned for weekly online and in-class discussion. 
+**Reader \|** Nathalie Fernandez (nfe\@berkeley.edu). Drop-in office hours are Mondays, 9:00 PM - 10:00 PM Pacific Time and Thursdays 1:30 PM -  2:30 PM Pacific Time (on Zoom). Sign-up here for individual appointments. \[See bCourses for link\]
 
-**Prerequisites \|** Students are expected to have working knowledge of both R and statistics basics (e.g., descriptive statistics, linear models). Review material will be provided for students who need additional support.
+**Course Description \|** Statistical analysis is the backbone of applied scientific thought, and it also features prominently in business and policy, both historically and today. This course aims to help bring all entering MaCSS students up to the required level of proficiency in applied statistics to be successful in their coursework and future careers. Students will develop the statistical intuition and analytical techniques to achieve proficiency in programming in R with Jupyter notebooks and with RStudio, univariate statistics, measurement reliability and validity, sampling and inference, hypothesis testing, and linear regression.
 
-**Course Descriptions \|** The goal of this class is to teach students how to create, conduct, and critique the kinds of statistics and methods they can expect to use in applied research.
+**Textbooks \|** We’ll be drawing from [Why Statistics (WS)](https://catterson.github.io/ystats/) - an open-source textbook that is integrated with this course to provide an overview of the statistics and R programming needed for this course, with optional reading from [Learning Statistics With R (LSR)](https://learningstatisticswithr.com/) and other supplemental sources. If you come across a reading or website that you find helpful, please share it with me and others!
 
-## Course Outline
+##  Course Outline
 
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-
-library(googlesheets4)
-library(gt)
-library(tidyverse)
-options(knitr.kable.NA = "")
-gs4_deauth()
-d <- read_sheet("https://docs.google.com/spreadsheets/d/1tYNqdCuwdP-77bybSH0AgFOfaxE0JyJSBgAE_DVL68o/edit?usp=sharing", sheet = "syllabus")
-d$Date <- format(d$Date, "%m/%d")
-```
-
-```{r}
-#| echo: false
-knitr::kable(d, padding = 5)
-```
++----------+-------------------------------------------------------------------+--------------------+-------------------------------------------------------------------------------------------+
+|          |                                                                   |                    |                                                                                           |
++==========+===================================================================+====================+===========================================================================================+
+| **Date** | **Topic**                                                         | **Readings**       | **Assessments (due Sunday 11:59 PM PT)**                                                  |
++----------+-------------------------------------------------------------------+--------------------+-------------------------------------------------------------------------------------------+
+| 6/22     | [**1 \| Variables**](/COMPSS202/1_WelcomeMaCSS.qmd)               | WS : Intro         | [Lab 1 (Defining Variables)](/COMPSS202/Labs/Lab1.qmd) & Quiz 1 (Vocabulary (on bCourses) |
+|          |                                                                   |                    |                                                                                           |
+|          | in R : load R; define a variable in R; write a script.            | WS : Ch 1          |                                                                                           |
+|          |                                                                   |                    |                                                                                           |
+|          | with brain : evaluate variation and purpose of stats              |                    |                                                                                           |
++----------+-------------------------------------------------------------------+--------------------+-------------------------------------------------------------------------------------------+
+| 6/29     | [**2 \| Data**](/COMPSS202/2_DataMaCSS.qmd)                       | WS : Ch 2          | [Lab 2 (Onboarding Data)](/COMPSS202/Labs/Lab2.qmd)& Quiz 2 (Loading Data)                |
+|          |                                                                   |                    |                                                                                           |
+|          | in R : load & navigate data; work with Quarto.                    |                    |                                                                                           |
+|          |                                                                   |                    |                                                                                           |
+|          | with brain : learn from a graph without statistics                |                    |                                                                                           |
++----------+-------------------------------------------------------------------+--------------------+-------------------------------------------------------------------------------------------+
+| 7/6      | [**3 \| Description**](/COMPSS202/3_DescribeMaCSS.qmd)            | WS : Ch 3          | [Lab 3 (Happiness Data)](/COMPSS202/Labs/Lab3.qmd)& Quiz 3 (Descriptive Stats)            |
+|          |                                                                   |                    |                                                                                           |
+|          | in R : summarize data & remove outliers.                          | WS : Ch 4          |                                                                                           |
+|          |                                                                   |                    |                                                                                           |
+|          | with brain : apply statistics to distributions                    |                    |                                                                                           |
++----------+-------------------------------------------------------------------+--------------------+-------------------------------------------------------------------------------------------+
+| 7/13     | [**4 \| Models, Part 1**](/COMPSS202/4_PredictMaCSS.qmd)          | WS : Ch 6          | [Lab 4 (Twitter Emotion Data)](/COMPSS202/Labs/Lab4.qmd) + Quiz 4 (Models)                |
+|          |                                                                   |                    |                                                                                           |
+|          | in R : define and interpret a linear model                        |                    |                                                                                           |
+|          |                                                                   |                    |                                                                                           |
+|          | with brain : apply a model to your life                           |                    |                                                                                           |
++----------+-------------------------------------------------------------------+--------------------+-------------------------------------------------------------------------------------------+
+| 7/20     | [**5 \| Models, Part 2**](/COMPSS202/5_CategoricallyMaCSS.qmd)    | WS : Ch 7          | [Lab 5 (COVID Health Data)](/COMPSS202/Labs/Lab5.qmd)+ Quiz 5 (Models Again)              |
+|          |                                                                   |                    |                                                                                           |
+|          | in R : define a model when the IV is categorical                  |                    |                                                                                           |
+|          |                                                                   |                    |                                                                                           |
+|          | with brain : interpret the model; releveling.                     |                    |                                                                                           |
++----------+-------------------------------------------------------------------+--------------------+-------------------------------------------------------------------------------------------+
+| 7/27     | [**6 \| Sampling Error**](/COMPSS202/6_MaCSSErrors.qmd)           | WS : Ch 8          | [Lab 6 (Narcissism Data)](/COMPSS202/Labs/Lab6.qmd) + Quiz 6 (NHST Analysis)              |
+|          |                                                                   |                    |                                                                                           |
+|          | in R : estimate sampling error                                    | LSR : Ch15.5       |                                                                                           |
+|          |                                                                   |                    |                                                                                           |
+|          | with brain : interpret NHST output 🙂                             |                    |                                                                                           |
++----------+-------------------------------------------------------------------+--------------------+-------------------------------------------------------------------------------------------+
+| 8/3      | [**7 \| Model Evaluation and Recap**](/COMPSS202/7_MaCSSEval.qmd) | WS : Ch 9          | [Lab 7 (Practice Exam)](/COMPSS202/Labs/Lab7.qmd)                                         |
+|          |                                                                   |                    |                                                                                           |
+|          | in R : compare and evaluate model quality                         |                    |                                                                                           |
+|          |                                                                   |                    |                                                                                           |
+|          | with brain : recap                                                |                    |                                                                                           |
++----------+-------------------------------------------------------------------+--------------------+-------------------------------------------------------------------------------------------+
+| 8/10     | [**8 \| Conclusion**](/COMPSS202/8_AssessMaCSS.qmd)               | Quarto Tutorial    | Exam                                                                                      |
+|          |                                                                   |                    |                                                                                           |
+|          |                                                                   |                    | Exam Revisions due 8/18 by 11:59 PM PT                                                    |
++----------+-------------------------------------------------------------------+--------------------+-------------------------------------------------------------------------------------------+
 
 ## **Grade Details**
 
