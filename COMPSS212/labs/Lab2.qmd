@@ -1,0 +1,30 @@
+---
+title: "Lab2"
+format: html
+---
+
+[Link to this page as a .qmd file.]()
+
+### Problem 1. Self-Esteem Problems
+
+Psychologists often want to combine information from multiple questions (that measure the same construct) into one variable. For example, the Rosenberg (1965) self-esteem scale has 10 questions all related to self-esteem; rather than work with 10 different variables, it might be nice to just average these 10 and report one average number.
+
+**Use the self-esteem dataset (from the class datasets folder). You should find a codebook that describes these data in the same folder.**
+
+1. Check to make sure the data loaded correctly. Report the sample size of the dataset.
+
+2.  Create a self-esteem scale from the 10-items. Make sure to reverse-score the negatively-keyed items so that for every question, higher numbers measure higher self-esteem. Graph this variable as a histogram, and make the graph look nice (ready for publication).
+
+3.  Report the alpha reliability, mean, and standard deviation of this variable. Below your graph, describe what these statistics tell you about the self-esteem of the participants. What other questions do you have about this variable, or the output?
+
+
+### Problem 2 - Practicing Linear Models Increases Self-Esteem
+
+Using the self-esteem variable you created, determine whether there is a relationship between self-esteem and age. Include a graph of your linear model, and report the intercept, slope, and $R^2$ from the model. Below these statistics, explain what they tell you about the relationship between these two variables, and how you can see them on the graph.
+
+
+### Problem 3. Self-Esteem Differences
+
+1.  Define a linear model to predict self-esteem from gender. Use these terms (the intercept and slopes) to report the mean of self-esteem for people who are identified as female, male, and "other" in the dataset.  
+
+2.  Then, use at least ONE other methods (not linear models) to report the mean of self-esteem for people who are identified as female, male, and "other" in the dataset.  Note : there are MANY ways to do this in R; you can use the subset function or indexing to divide the dataset into three groups - "females", "males", and people who reported "other", and there are other approaches you can take. 

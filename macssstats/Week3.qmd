@@ -11,15 +11,15 @@ editor: visual
 
 ::::: columns
 ::: {.column width="50%"}
--   **Welcome back!** Please complete the check-in.
--   **Next Week :** Professor on Zoom; You (and GSI Max!) in Class.
+- **Welcome back!** Please complete the check-in.
+- **Next Week :** Professor on Zoom; You (and GSI Max!) in Class.
 :::
 
 ::: {.column width="50%"}
--   **10:10 - 10:40.** Check-In and Linear Model Review
--   **10:40 - 11:20.** Introduction to Sampling Error
--   **11:20 - 11:30.** Break Time
--   **11:30 - 1:00.** NHST and Objectivity Armoring
+- **10:10 - 10:40.** Check-In and Linear Model Review
+- **10:40 - 11:20.** Introduction to Sampling Error
+- **11:20 - 11:30.** Break Time
+- **11:30 - 1:00.** NHST and Objectivity Armoring
 :::
 :::::
 ::::::
@@ -30,10 +30,10 @@ editor: visual
 <iframe data-external="1" class="slide-deck" src="/macssstats/slides/3_assumeboot.html" width="100%" height="500px" title=""></iframe>
 ```
 
--   [**Check-In:**](https://forms.gle/5ssbRwitkAYyefxY6) practice working with linear models.
--   **Dataset for Check-in :** [**the world happiness dataset and codebook.**](https://www.dropbox.com/scl/fo/ewbhqb3xk9g08g0wn6uar/ALtuaq6zRNh7r8w5dSR_8rY?rlkey=bwdg5faxf43rny9h3ucf0w2q8&dl=0)
--   [**Professor Notes**](https://www.dropbox.com/scl/fo/1g76jzayvff4kwaldyn52/AOfNP20yVujSO5akd1U0k98?rlkey=1xs6rqsgdoj8pgls1efbawl7i&dl=0). My R scripts and other notes, saved in real-time.
--   [**VISION BOARD**](https://docs.google.com/spreadsheets/d/11FZJ76JMBUkKYZRoWASrHhPIldmP7Pziz-WGnlIZuC4/edit?usp=sharing). Where we will share work we do in class.
+- [**Check-In:**](https://forms.gle/5ssbRwitkAYyefxY6) practice working with linear models.
+- **Dataset for Check-in :** [**the world happiness dataset and codebook.**](https://www.dropbox.com/scl/fo/ewbhqb3xk9g08g0wn6uar/ALtuaq6zRNh7r8w5dSR_8rY?rlkey=bwdg5faxf43rny9h3ucf0w2q8&dl=0)
+- [**Professor Notes**](https://www.dropbox.com/scl/fo/1g76jzayvff4kwaldyn52/AOfNP20yVujSO5akd1U0k98?rlkey=1xs6rqsgdoj8pgls1efbawl7i&dl=0). My R scripts and other notes, saved in real-time.
+- [**VISION BOARD**](https://docs.google.com/spreadsheets/d/11FZJ76JMBUkKYZRoWASrHhPIldmP7Pziz-WGnlIZuC4/edit?usp=sharing). Where we will share work we do in class.
 
 ### Additional Reading and Support Materials
 
@@ -46,17 +46,17 @@ The interpretation of our linear model depends on a variety of different assumpt
 
 2.  **Reliability of Measures.** The variables in your linear model should be measured with low error (“garbage in, garbage out”). There are different ways to assess reliability.
 
-    -   **Cronbach's alpha** (`psych::alpha()`) is good for assessing the inter-item reliability of a likert scale.
+    - **Cronbach's alpha** (`psych::alpha()`) is good for assessing the inter-item reliability of a likert scale.
 
-    -   **The Intraclass Correlation Coefficient (ICC)** is often used for observational ratings where multiple judges form impressions of the same target.
+    - **The Intraclass Correlation Coefficient (ICC)** is often used for observational ratings where multiple judges form impressions of the same target.
 
-    -   **Test-retest reliability** is a great way to ensure that physiological or single-item measures will yield repeatable measures over time (assuming the target of measurement has not changed between time points). One way to test this is to define a linear model to predict the measure at one time point from the measure at another; you'd expect to see a strong relationship.
+    - **Test-retest reliability** is a great way to ensure that physiological or single-item measures will yield repeatable measures over time (assuming the target of measurement has not changed between time points). One way to test this is to define a linear model to predict the measure at one time point from the measure at another; you'd expect to see a strong relationship.
 
 3.  **Independence.** This is a big one - the residuals in your model need to be unrelated to each other. That is, I should not be able to predict the value of one error from another error. When the data in a linear model come from distinct individuals who are unrelated to each other, this assumption is usually considered to be met. However, there are often types of studies where the data are not independent.
 
-    -   **Nested Data :** Often times, individuals in a dataset belong to a group where there's a clear dependence. For example, the happiness of individual members of a family is probably dependent on one another (since they share the same environment, stressors, etc.); the test-scores of children in a school are probably all related to each other (since they share the same teachers, administrators, funding, lead exposure in the drinking water, etc.)
+    - **Nested Data :** Often times, individuals in a dataset belong to a group where there's a clear dependence. For example, the happiness of individual members of a family is probably dependent on one another (since they share the same environment, stressors, etc.); the test-scores of children in a school are probably all related to each other (since they share the same teachers, administrators, funding, lead exposure in the drinking water, etc.)
 
-    -   **Repeated Measures :** If a person is measured multiple times, then their data at one time point will be related to their data at the second time point, since they are coming from the same person, with the same past experiences and beliefs and genetics and all that other good stuff.
+    - **Repeated Measures :** If a person is measured multiple times, then their data at one time point will be related to their data at the second time point, since they are coming from the same person, with the same past experiences and beliefs and genetics and all that other good stuff.
 
     If the data are not independent, then we will need to account for the dependence in the data. We will learn to do this when we review Multilevel Linear Models. (Spoiler : it's more lines.)
 
@@ -87,19 +87,19 @@ Assumption 6 can be examined by graphing the residuals of your model object with
 ```
 :::
 
--   [**Bootstrapping Videos**](https://www.stat.auckland.ac.nz/~wild/BootAnim/) **:** A collection of videos that illustrate the principles of bootstrapping.
+- [**Bootstrapping Videos**](https://www.stat.auckland.ac.nz/~wild/BootAnim/) **:** A collection of videos that illustrate the principles of bootstrapping.
 
--   [**Why Stats : Sampling Error and Bias.**](https://catterson.github.io/ystats/chapters/8R_SamplingError.html)A review of what we discussed in class today (focusing on NHST).
+- [**Why Stats : Sampling Error and Bias.**](https://catterson.github.io/ystats/chapters/8R_SamplingError.html)A review of what we discussed in class today (focusing on NHST).
 
--   [**On Interpreting Log-Transformed Slopes**](https://stats.oarc.ucla.edu/sas/faq/how-can-i-interpret-log-transformed-variables-in-terms-of-percent-change-in-linear-regression/)
+- [**On Interpreting Log-Transformed Slopes**](https://stats.oarc.ucla.edu/sas/faq/how-can-i-interpret-log-transformed-variables-in-terms-of-percent-change-in-linear-regression/)
 
 # For Next Week.
 
 ## Article Discussion.
 
--   **Read This Article.** Chung, J. M., Meijer, L., Zonneveld, R., Al Sawaf, Z., Alajak, K., Moopen, N., ... & Laceulle, O. M. (2022). Lessons learned from conducting a study of emotions and positive personality change in Syrian origin young adults who have recently resettled in the Netherlands. European Journal of Personality, 36(4), 665-682.
+- **Read This Article.** Chung, J. M., Meijer, L., Zonneveld, R., Al Sawaf, Z., Alajak, K., Moopen, N., ... & Laceulle, O. M. (2022). Lessons learned from conducting a study of emotions and positive personality change in Syrian origin young adults who have recently resettled in the Netherlands. European Journal of Personality, 36(4), 665-682.
 
--   [**Submit Your Response Here**](https://docs.google.com/forms/d/e/1FAIpQLSdGkCcxV80BCkshlZwLNomMMsZOxmOnvGjrdC1Z6w9YEnLltg/viewform?usp=publish-editor). We'll use these responses to guide our discussion of the article next week. Great to use your own voice; don't worry about sounding smart or having "perfect" english!
+- [**Submit Your Response Here**](https://docs.google.com/forms/d/e/1FAIpQLSdGkCcxV80BCkshlZwLNomMMsZOxmOnvGjrdC1Z6w9YEnLltg/viewform?usp=publish-editor). We'll use these responses to guide our discussion of the article next week. Great to use your own voice; don't worry about sounding smart or having "perfect" english!
 
 ## Lab 3. Abstract Problems
 

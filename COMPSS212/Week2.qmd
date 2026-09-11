@@ -1,0 +1,54 @@
+---
+title: ""
+format: html
+editor: visual
+---
+
+# Week 2 - Monday, September 14th
+
+:::::: callout-note
+### Announcements and Agenda
+
+::::: columns
+::: {.column width="50%"}
+**Welcome back! It feels like forever...**
+
+- **Do the check-in (in R!) :** graded for completion; a warm-up.
+- **Access these notes :** on the class page (link on bCourses).
+:::
+
+::: {.column width="50%"}
+
+- **10:10 - 11:00.** Check-In and Lab 1 Review
+- **11:10 - 11:05 :** BREAK TIME
+- **11:05 - 12:00 :** Likert Scales
+:::
+:::::
+::::::
+
+### Class Slides and Materials
+
+```{=html}
+<iframe data-external="1" class="slide-deck" src="/COMPSS212/slides/2_scales.html" width="100%" height="500px" title=""></iframe>
+```
+
+- [**Check-In**](https://forms.gle/fU9ZZYDGZcaPE7Qs8) **:** Welcome back!! Please work in R to answer these questions. Ask for help if you are stuck!
+- **Dataset of the Week ([The Onboarding Dataset](https://www.dropbox.com/scl/fo/ebofnujdp464qt2ep9xi1/AFIF4vyvxWOtQb31TBJvFnw?rlkey=cg88yqjcxjliip6fl7qdwtuts&dl=0))**. It's you, in data form!!
+- [**VISION BOARD**](https://docs.google.com/spreadsheets/d/14y4W9LJk1I9M3HFIOp3_94tdM0qUSYfkGdZnKK6L23c/edit?usp=sharing). Where we will share the work we do in this class.
+- [**Professor Notes**](https://www.dropbox.com/scl/fo/7yhs2afoyisskz3eynnh8/ABO5kzYAdp8Y9cDBsqFU_TI?rlkey=hx72km35b6n02ep59vywdy7o4&dl=0). My R scripts and other notes, saved in real-time.
+
+# For Next Week.
+
+### [**Complete Lab 2**](/COMPSS212/labs/Lab2.qmd)**.** 
+
+### Additional Reading and Support Materials
+
+- **More on [Likert Scales](https://catterson.github.io/ystats/chapters/5R_GoodMeasures.html#the-likert-scale).** On the theory of likert scales, and some text and videos on how to define a likert scale in R (when there are negatively-keyed items).
+
+- **Professor, I am realizing I need a review of stats and R.** Below are some relevant links from the stats textbook I use with my introductory classes. let me know if these are useful / you have ideas to make more useful :)
+
+  - [chapter 6](https://catterson.github.io/ystats/chapters/6R_LinearModels.html) : on the "linear model"
+
+  - [chapter 7](https://catterson.github.io/ystats/chapters/7R_CategoricalIV.html) : on the "linear model" when the IV is categorical
+
+# 
