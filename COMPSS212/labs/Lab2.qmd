@@ -23,8 +23,6 @@ Psychologists often want to combine information from multiple questions (that me
 Using the self-esteem variable you created, determine whether there is a relationship between self-esteem and age. Include a graph of your linear model, and report the intercept, slope, and $R^2$ from the model. Below these statistics, explain what they tell you about the relationship between these two variables, and how you can see them on the graph.
 
 
-### Problem 3. Self-Esteem Differences
+### Problem 3. My Own Measure
 
-1.  Define a linear model to predict self-esteem from gender. Use these terms (the intercept and slopes) to report the mean of self-esteem for people who are identified as female, male, and "other" in the dataset.  
-
-2.  Then, use at least ONE other methods (not linear models) to report the mean of self-esteem for people who are identified as female, male, and "other" in the dataset.  Note : there are MANY ways to do this in R; you can use the subset function or indexing to divide the dataset into three groups - "females", "males", and people who reported "other", and there are other approaches you can take. 
+In the Week 2 Vision Board, write some items (positive and negatively keyed) that would measure a variable you are interested in studying. I've pasted the variables from Week 1, but feel free to change as your interests update :). I've posted an example to help get y'all started. You can also see if there's an "official" or previously published scale to use or draw on - if so, just link to that source, and paste a few example positive and negatively keyed items.
