@@ -11,31 +11,10 @@ format:
 tbl-colwidths: [50,50]
 ---
 
-```{r}
-#| eval: false
-#| include: false
-```
-
-# Welcome Back
+# Welcome Back{.smaller}
 
 [Check-In Here : **tinyurl.com/dvcminidata**](https://docs.google.com/forms/d/e/1FAIpQLSdQJEpElxkP24rGAwMSnx8XebvXC1md7u-5i5HkBUMjwZJkQg/viewform?usp=header)
 
-::::: columns
-::: {.column width="60%"}
-**Agenda**
-
--   **8:55 - 9:10.** Check-In.
-
--   **9:10 - 9:40.** Describing Data with Brain.
-
--   **9:40 - 10:10.** Describing Data with R.
-
--   **10:10 - 10:20.** Break Time
-
--   **10:20 - 11:00.** Work on Lab 3.
-:::
-
-::: {.column width="40%"}
 ![](images/clipboard-1056536258.png)
 :::
 :::::
