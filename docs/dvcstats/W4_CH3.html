@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -34,7 +34,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-6033a600180109c3731f6a886c29932c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -89,13 +89,6 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#class-slides-and-materials" id="toc-class-slides-and-materials" class="nav-link active" data-scroll-target="#class-slides-and-materials">Class Slides and Materials</a></li>
   <li><a href="#due-next-week" id="toc-due-next-week" class="nav-link" data-scroll-target="#due-next-week">Due Next Week</a></li>
-  <li><a href="#lab-3" id="toc-lab-3" class="nav-link" data-scroll-target="#lab-3">Lab 3</a>
-  <ul class="collapse">
-  <li><a href="#problem-1.-world-happiness-problems." id="toc-problem-1.-world-happiness-problems." class="nav-link" data-scroll-target="#problem-1.-world-happiness-problems.">Problem 1. World Happiness Problems.</a></li>
-  <li><a href="#problem-2.-more-world-problems." id="toc-problem-2.-more-world-problems." class="nav-link" data-scroll-target="#problem-2.-more-world-problems.">Problem 2. More World Problems.</a></li>
-  <li><a href="#problem-3.-more-brain-exam-practice." id="toc-problem-3.-more-brain-exam-practice." class="nav-link" data-scroll-target="#problem-3.-more-brain-exam-practice.">Problem 3. More Brain Exam Practice.</a></li>
-  <li><a href="#ai-disclosure." id="toc-ai-disclosure." class="nav-link" data-scroll-target="#ai-disclosure.">AI Disclosure.</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -123,48 +116,30 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="class-slides-and-materials" class="level2">
 <h2 class="anchored" data-anchor-id="class-slides-and-materials">Class Slides and Materials</h2>
-<iframe class="slide-deck" src="../dvcstats/slides/ch3.html" width="100%" height="500px" title=""></iframe>
+<iframe data-external="1" class="slide-deck" src="../dvcstats/slides/ch3.html" width="100%" height="500px" title=""></iframe>
 <ul>
 <li><strong>CHECK-IN : Mini Survey :</strong> <a href="https://docs.google.com/forms/d/e/1FAIpQLSdQJEpElxkP24rGAwMSnx8XebvXC1md7u-5i5HkBUMjwZJkQg/viewform?usp=header"><strong>tinyurl.com/dvcminidata</strong></a></li>
 <li><strong>DATA FOR TODAY : <a href="https://www.dropbox.com/scl/fo/vlulle1mf2jga7zcn5gzo/AN7rOnjZZwIT9YtZmq9FD0U?rlkey=jaky8yvre5t2etbyyftd2ceq8&amp;dl=0">World Happiness Data and Codebook</a></strong></li>
+<li><strong>Agenda :</strong>
+<ul>
+<li><p><strong>8:55 - 9:10.</strong> Check-In.</p></li>
+<li><p><strong>9:10 - 9:40.</strong> Describing Data with Brain.</p></li>
+<li><p><strong>9:40 - 10:10.</strong> Describing Data with R.</p></li>
+<li><p><strong>10:10 - 10:20.</strong> Break Time</p></li>
+<li><p><strong>10:20 - 11:00.</strong> Work on Lab 3.</p></li>
+</ul></li>
 </ul>
 </section>
 <section id="due-next-week" class="level2">
 <h2 class="anchored" data-anchor-id="due-next-week">Due Next Week</h2>
 <ol type="1">
-<li>Complete and Submit <a href="#lab-3">Lab 3</a></li>
+<li>Complete and Submit <a href="../dvcstats/labs/Lab3.html">Lab 3</a></li>
 <li>Read <a href="https://catterson.github.io/ystats/chapters/4R_NormalPeople.html">Chapter 4 of <em>Why Statistics?</em> (on “Normal People”)</a></li>
 <li><strong>Complete Chapter 4 Quiz on Canvas.</strong></li>
+<li>NOTE : we will take a break from reading for a week. Hooray!</li>
 </ol>
-</section>
-<section id="lab-3" class="level1">
-<h1>Lab 3</h1>
-<p>Use R to answer the following questions. Make sure that you show your R code and the output (result or graphs.) You can do this by taking a screenshot and pasting into your Google / Word Document, or (for students wanting an extra challenge) working in a Quarto document.</p>
-<section id="problem-1.-world-happiness-problems." class="level2">
-<h2 class="anchored" data-anchor-id="problem-1.-world-happiness-problems.">Problem 1. World Happiness Problems.</h2>
-<p><strong>Download the “World Happiness” data, and import this data into R. We’ll be focusing on .</strong></p>
-<ol type="1">
-<li>Load the data (I’ll call it d if you want to follow along with my code), check to make sure it loaded correctly, and report the sample size and names of the variables.</li>
-<li>Graph the variable “SWLS_24” as a histogram. This variable describes the average happiness of each country (as measured with the “Cantril Ladder Scale of Well-Being”. See the codebook for more information on this variable. Change the arguments to make the graph “look nice”.</li>
-<li>Report the mean, median, range, and standard deviation for this variables. Add vertical lines to your graphs above that illustrate the mean (in red), the median (in blue), and the standard deviation (in dashed red).</li>
-<li>Describe what each of these statistics tells you about the happiness of countries in the dataset. (Human brain stuff; no R needed! Goal is to connect the stats to knowledge and understanding of the variable.)</li>
-<li>Describe what additional questions you have about this variable (what do you NOT learn about happiness levels of countries from this variable, and what might you want to know?)</li>
-</ol>
-</section>
-<section id="problem-2.-more-world-problems." class="level2">
-<h2 class="anchored" data-anchor-id="problem-2.-more-world-problems.">Problem 2. More World Problems.</h2>
-<p><strong>Graph a numeric variable from the World Happiness Dataset, run descriptive statistics (mean, median, range, standard deviation), and describe what these statistics tell you about the data in the graph. What do you learn about this variable? What other questions about this variable do you have?</strong></p>
-</section>
-<section id="problem-3.-more-brain-exam-practice." class="level2">
-<h2 class="anchored" data-anchor-id="problem-3.-more-brain-exam-practice.">Problem 3. More Brain Exam Practice.</h2>
-<p><a href="https://docs.google.com/document/d/1U6hmo9fdHqn8UEXsueaR7HUPYQoaZbcKVP8pP9eS1IE/edit?usp=sharing">Here’s a link to a previous semester’s BRAIN EXAM</a>. Answer the questions, and use <a href="https://docs.google.com/document/d/1ime3PbtEBHVQIDtPEONa4VbRiv1oYHe-8y1mu1rJyME/edit?usp=sharing">the key</a> (no peeking; try to do the brain exam on your own first!!!) to review your answers. For this problem, just explain how the practice exam went for you. Note that each semester’s exam will be a little different.</p>
-</section>
-<section id="ai-disclosure." class="level2">
-<h2 class="anchored" data-anchor-id="ai-disclosure.">AI Disclosure.</h2>
-<p><strong>Please describe how you used AI tools; make sure you include specific prompts here. Thanks!</strong></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

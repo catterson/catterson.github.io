@@ -1,46 +1,30 @@
 ---
 title: "Week 4 - Psych 214"
 format: html
-editor: visual
 ---
 
 ## Class Slides and Materials
 
 ```{=html}
-<iframe class="slide-deck" src="/dvcstats/slides/ch3.html" width="100%" height="500px" title=""></iframe>
+<iframe data-external="1" class="slide-deck" src="/dvcstats/slides/ch3.html" width="100%" height="500px" title=""></iframe>
 ```
 
--   **CHECK-IN : Mini Survey :** [**tinyurl.com/dvcminidata**](https://docs.google.com/forms/d/e/1FAIpQLSdQJEpElxkP24rGAwMSnx8XebvXC1md7u-5i5HkBUMjwZJkQg/viewform?usp=header)
--   **DATA FOR TODAY : [World Happiness Data and Codebook](https://www.dropbox.com/scl/fo/vlulle1mf2jga7zcn5gzo/AN7rOnjZZwIT9YtZmq9FD0U?rlkey=jaky8yvre5t2etbyyftd2ceq8&dl=0)**
+- **CHECK-IN : Mini Survey :** [**tinyurl.com/dvcminidata**](https://docs.google.com/forms/d/e/1FAIpQLSdQJEpElxkP24rGAwMSnx8XebvXC1md7u-5i5HkBUMjwZJkQg/viewform?usp=header)
+- **DATA FOR TODAY : [World Happiness Data and Codebook](https://www.dropbox.com/scl/fo/vlulle1mf2jga7zcn5gzo/AN7rOnjZZwIT9YtZmq9FD0U?rlkey=jaky8yvre5t2etbyyftd2ceq8&dl=0)**
+- **Agenda :**
+  - **8:55 - 9:10.** Check-In.
+
+  - **9:10 - 9:40.** Describing Data with Brain.
+
+  - **9:40 - 10:10.** Describing Data with R.
+
+  - **10:10 - 10:20.** Break Time
+
+  - **10:20 - 11:00.** Work on Lab 3.
 
 ## Due Next Week
 
-1.  Complete and Submit [Lab 3]
+1.  Complete and Submit [Lab 3](/dvcstats/labs/Lab3.html)
 2.  Read [Chapter 4 of *Why Statistics?* (on "Normal People")](https://catterson.github.io/ystats/chapters/4R_NormalPeople.html)
 3.  **Complete Chapter 4 Quiz on Canvas.**
-
-# Lab 3
-
-Use R to answer the following questions. Make sure that you show your R code and the output (result or graphs.) You can do this by taking a screenshot and pasting into your Google / Word Document, or (for students wanting an extra challenge) working in a Quarto document.
-
-## Problem 1. World Happiness Problems.
-
-**Download the “World Happiness” data, and import this data into R. We'll be focusing on .**
-
-1.  Load the data (I'll call it d if you want to follow along with my code), check to make sure it loaded correctly, and report the sample size and names of the variables.
-2.  Graph the variable "SWLS_24" as a histogram. This variable describes the average happiness of each country (as measured with the "Cantril Ladder Scale of Well-Being". See the codebook for more information on this variable. Change the arguments to make the graph "look nice".
-3.  Report the mean, median, range, and standard deviation for this variables. Add vertical lines to your graphs above that illustrate the mean (in red), the median (in blue), and the standard deviation (in dashed red).
-4.  Describe what each of these statistics tells you about the happiness of countries in the dataset. (Human brain stuff; no R needed! Goal is to connect the stats to knowledge and understanding of the variable.)
-5.  Describe what additional questions you have about this variable (what do you NOT learn about happiness levels of countries from this variable, and what might you want to know?)
-
-## Problem 2. More World Problems.
-
-**Graph a numeric variable from the World Happiness Dataset, run descriptive statistics (mean, median, range, standard deviation), and describe what these statistics tell you about the data in the graph. What do you learn about this variable? What other questions about this variable do you have?**
-
-## Problem 3. More Brain Exam Practice.
-
-[Here's a link to a previous semester's BRAIN EXAM](https://docs.google.com/document/d/1U6hmo9fdHqn8UEXsueaR7HUPYQoaZbcKVP8pP9eS1IE/edit?usp=sharing). Answer the questions, and use [the key](https://docs.google.com/document/d/1ime3PbtEBHVQIDtPEONa4VbRiv1oYHe-8y1mu1rJyME/edit?usp=sharing) (no peeking; try to do the brain exam on your own first!!!) to review your answers. For this problem, just explain how the practice exam went for you. Note that each semester's exam will be a little different.
-
-## AI Disclosure.
-
-**Please describe how you used AI tools; make sure you include specific prompts here. Thanks!**
+4.  NOTE : we will take a break from reading for a week. Hooray!

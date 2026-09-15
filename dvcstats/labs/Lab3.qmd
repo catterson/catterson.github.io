@@ -8,14 +8,19 @@ Use R to answer the following questions. Make sure that you show your R code and
 
 ## Problem 1. World Happiness Problems.
 
-**Download the “World Happiness” data, and import this data into R.**
+**Download the “World Happiness” data, and import this data into R. We'll be focusing on the variable SWLS_24.**
 
 1.  Load the data (I'll call it d if you want to follow along with my code), check to make sure it loaded correctly, and report the sample size and names of the variables.
-2.  Choose [two]{.underline} variables from the dataset - look to the codebook for more information on what this variable measures. Graph each variable, and change the arguments to make the graph "look nice".
-3.  Use R to report the mean, median, range, and standard deviation for each variable (remember to use na.rm = T as an argument if there is missing data). Describe what each of these statistics tells you about the happiness of countries in the dataset. (Human brain stuff; no R needed! Goal is to connect the stats to knowledge and understanding of the variable.)
-4.  Describe what additional questions you have about this variable (what do you NOT learn about happiness levels of countries from this variable, and what might you want to know?)
+2.  Graph the variable "SWLS_24" as a histogram. This variable describes the average happiness of each country (as measured with the "Cantril Ladder Scale of Well-Being". See the codebook for more information on this variable. Change the arguments to make the graph "look nice".
+3.  Report the mean, median, range, and standard deviation for this variables. Add vertical lines to your graphs above that illustrate the mean (in red), the median (in blue), and the standard deviation (in dashed red).
+4.  Describe what each of these statistics tells you about the happiness of countries in the dataset. (Human brain stuff; no R needed! Goal is to connect the stats to knowledge and understanding of the variable.)
+5.  Describe what additional questions you have about this variable (what do you NOT learn about happiness levels of countries from this variable, and what might you want to know?)
 
-## Problem 2. Brain Exam Practice.
+## Problem 2. More World Problems.
+
+Graph a numeric variable from the World Happiness Dataset, run descriptive statistics (mean, median, range, standard deviation), and describe what these statistics tell you about the data in the graph. What do you learn about this variable? What other questions about this variable do you have?
+
+## Problem 3. Brain Exam Practice.
 
 [Here's a link to a previous semester's BRAIN EXAM](https://docs.google.com/document/d/1U6hmo9fdHqn8UEXsueaR7HUPYQoaZbcKVP8pP9eS1IE/edit?usp=sharing). Answer the questions, and then use [the key](https://docs.google.com/document/d/1ime3PbtEBHVQIDtPEONa4VbRiv1oYHe-8y1mu1rJyME/edit?usp=sharing) (no peeking; try to do the brain exam on your own first!!!) to review your answers. For this problem, just explain how the practice exam went for you. Note that each semester's exam will be a little different.
 
