@@ -5,64 +5,57 @@ editor: visual
 navbar: false
 ---
 
-## Week 4 - Wednesday, February 18th
+## Week 4 - Thursday, September 17th
 
-### Class Goals (for Students and Professor)
+:::::: {.callout-tip collapse="true"}
+### Agenda and Announcements {.smaller}
 
-1.  Review and discuss the research article on objectivity interrogations.
-2.  Review and apply terms of reliability and validity.
-3.  Introduce readings on observations.
+::::: columns
+::: {.column width="50%"}
+**Agenda :**
+
+- **15 Min :** Welcome and Check-In Review.
+- **30 Min :** Part 1 : Good Measures (Reliability and Validity).
+- **30 Min :** Part 2 : Review Objectivity Interrogations Article
+:::
+
+::: {.column width="50%"}
+**Announcements :**
+
+- **Office Hours Today.** After class in LC-105.
+:::
+:::::
+::::::
 
 ### Class Slides
 
 ```{=html}
-<iframe class="slide-deck" src="/rm/slides/4_goodmeasure.html" width="100%" height="500px" title="" border="5px"></iframe>
+<iframe data-external="1" class="slide-deck" src="/rm/slides/4_goodmeasure.html" width="100%" height="500px" title="" border="5px"></iframe>
 ```
 
 ### Useful Links; Freed from Canvas
 
--   [Class Page](https://catterson.github.io/rm/RMDVC.html) + [Vision Board](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing)
--   [Link to Objectivity Interrogations Article](https://www.nature.com/articles/s41598-024-63236-z)
--   [Link to Sleep Article (from Check-In)](https://pmc.ncbi.nlm.nih.gov/articles/PMC3931554/#S1)
-
-### Due Next Week before Class
-
-1.  **Read the articles below.** Optional readings are not required; but lemme know if you read and have thoughts!
-2.  **Complete Discussion 4**. Questions below, submit on Canvas and sometimes the Vision Board.
-3.  **Complete Reading Quiz 4**. on Canvas.
+- [Week 4 Check-In Here.](https://docs.google.com/forms/d/e/1FAIpQLSfZcU6M-4l-IuRSlh6VpHcmgnH1fUjgkOFTCIJmApYCTpPLeA/viewform?usp=header)
+  - [Link to Sleep Article (from Check-In)](https://pmc.ncbi.nlm.nih.gov/articles/PMC3931554/#S1)
+  - [Link to Objectivity Interrogations Article](https://www.nature.com/articles/s41598-024-63236-z)
+- [Class Page](https://catterson.github.io/rm/RMDVC.html) + [Vision Board](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing)
 
 ### Readings for Next Week (and Quiz 4)
 
-**NOTE :** **Do not spend more than 60 minutes (total) working on the R Stuff (and hopefully much less time!) As long as you can create a free account with posit.cloud, you'll be fine next week in class. Reach out if you are feeling overwhelmed tho!**
+1.  [**Read my brief overview on Measures**](/rm/readings/Measures.qmd)**.** Focus on the different strengths and limitations of self-reports and observational methods. We will focus on observational methods next week, but it might be helpful to have some background on self-report methods to help differentiate the strengths & limitations.
 
-1.  [**Sign up for a FREE account with posit.cloud**](https://posit.cloud/plans/free)**.** We will use this program to analyze some data in class next week. NO PRIOR KNOWLEDGE OF R OR STATISTICS IS ASSUMED. We will learn and practice together :)
+2.  [**Read this chapter on Observational Research**](https://kpu.pressbooks.pub/psychmethods4e/chapter/observational-research/)**.** You can skim much of this, but focus on the different types of observational studies.
 
-2.  **WATCH THESE THREE VIDEOS.** I try to help walk you through how to use these programs. Don't worry if you get stuck or confused...totally fine to have questions / be confused - you won't be expected to work with this program on your own for this class, and hopefully you will find it to be a positive experience.
+3.  [**Read through the chapter on the Specific Affect Coding System (SPAFF)**](https://www.dropbox.com/scl/fi/4ggh81t64qnvz5kjrqukn/4_SPAFF_CodingScheme_ShortExcerpt.pdf?rlkey=e9er6moatfgk96du9zz3khazs&e=1&dl=0)**.** This is an example of a guide for researchers interested in making observations of emotion. Focus on the "three rules" of people watching, and the different guidelines for behavioral coding (e.g., function, indicator, cues, counter-indicators). You can skim the stuff on "Action Units" in the face, though note this is an example of how psychologists have tried to quantify emotion with numbers like "REAL SCIENTISTS".
 
-    1.  [**Setting up your account and doing some basic math**](https://www.loom.com/share/3d342fc70e724ab4bab8cd7765d3d94d).
+### Week 4 Discussion Questions.
 
-    2.  [**Downloading and loading an RScript into R.**](https://www.loom.com/share/66867ee8cf404b239df61e7921673586) To answer the quiz questions for this week.
+**YOUR POST :** Submit answers to the [Vision Board](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing) so we can more easily see this work together in class. You do not need to submit anything to the Canvas assignment; I'll use this to keep track of grading. Thanks!
 
-    3.  [**Creating (and graphing) a variable in R**.](https://www.loom.com/share/4d22e48cc28b438295e41c38933d9ac2) Just some more practice working with R.
+1.  **From the Chapter on Measures.** Answer the final question in the reading (*`"If you look like you are smiling and have the neurotransmitter levels that suggest you are happy and our $600/hour test says that your brain is activated in a way consistent with happiness, but you FEEL and SAY you are miserable....are you happy?"`*) Why did you choose this answer?
 
-3.  **OPTIONAL READINGS.** We will review some statistics terms in class next week - I won't really expect y'all to remember much - but might be good to do a quick conceptual refresh if it's been a while since you took a stats class.
+2.  **From the SPAFF Reading.** Try using the "three rules" of people watching to observe someone. Describe who you chose to observe. Then, describe a specific way that each of the three rules informed your observations of the person (what insights did you learn or gain)? I've posted an example of this in the Vision Board (and the required reply below.)
 
-    1.  [**From the Textbook**](https://kpu.pressbooks.pub/psychmethods4e/chapter/analyzing-the-data/)**.** A quick overview of some of the descriptive and inferential statistics.
+3.  **We Love Bread (REPLY TO ANOTHER STUDENT).** Look over another student's post on the Vision Board for Question 2. What is one variable that you would label for their observation? Then, think about how this variable might be measured with a self-report. Give an example of how this variable might be high or low in either a) self-insight OR b) self-diminishment/enhancement.
 
-    2.  [**A longer overview of descriptive statistics.**](https://catterson.github.io/ystats/chapters/3R_Description.html#centrality) A chapter from my stats class on measures of centrality and complexity. I would skip the videos on "the mean" and "standard deviation" unless you really want to do a deep dive.
-
-### Week 4 Discussion Questions!
-
-**YOUR POST :** Use the readings to answer the following questions. Please submit answers to the graded Canvas discussion post to help me keep track of your work, but when prompted please also copy / paste your work to our [Vision Board](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing) so we can more easily see (and expand upon) this work together in class.
-
-1.  **Thoughts on with Computers.** We are going to use the posit.cloud program to analyze some data in this class and do real statistics. How are you feeling about working with a computer and doing some statistics? Good to be mindful of the feelings (positive and negative) we are experiencing!
-
-2.  **Learning Computers.** Watch the three videos on how to get setup with posit.cloud. Use R to answer a math equation that used to give you trouble as a child (or adult). Did R get the answer right? If you got stuck, that's fine - just let us know.
-
-3.  **Creating Variables.** In the last video, I show how to create a variable in R. Adapt my code to try and create your own variable in R. Take a screenshot of your graph (or copy the graph) and include it with your response. (If you can't get this to work with 15 minutes of trying, just explain how / where you got stuck.)
-
-4.  **Sharing Code.** Include the code you needed to define your variable and graph the variable as a histogram. You don't need to upload a script for this, just share the code as text.
-
-5.  **I love bread too (Mandatory Student Interaction).** Reply to another student (ideally someone without a reply). What do you see or learn about the student's variable? Can you reproduce their graph by copying, pasting, and running their code into your own R script? How is the R stuff feeling for you?
-
-![](images/clipboard-2944693964.png){fig-align="center" width="364"}
+    ![](images/clipboard-2944693964.png){fig-align="center" width="364"}

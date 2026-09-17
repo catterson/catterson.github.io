@@ -3,25 +3,59 @@ title: "XX_StuffCut"
 format: html
 ---
 
+# Lecture 4.
+
+1.  **BONUS VIDEO :** Gottman (author of the SPAFF Coding Guide) ran a series of very influential couple studies; here's a [behind the scenes video](https://www.youtube.com/watch?v=QEnVSrCCSw4) of some of the methods they use to measure how couples fight.
+
+**NOTE :** **Do not spend more than 60 minutes (total) working on the R Stuff (and hopefully much less time!) As long as you can create a free account with posit.cloud, you'll be fine next week in class. Reach out if you are feeling overwhelmed tho!**
+
+1.  [**Sign up for a FREE account with posit.cloud**](https://posit.cloud/plans/free)**.** We will use this program to analyze some data in class next week. NO PRIOR KNOWLEDGE OF R OR STATISTICS IS ASSUMED. We will learn and practice together :)
+
+2.  **WATCH THESE THREE VIDEOS.** I try to help walk you through how to use these programs. Don't worry if you get stuck or confused...totally fine to have questions / be confused - you won't be expected to work with this program on your own for this class, and hopefully you will find it to be a positive experience.
+
+    1.  [**Setting up your account and doing some basic math**](https://www.loom.com/share/3d342fc70e724ab4bab8cd7765d3d94d).
+
+    2.  [**Downloading and loading an RScript into R.**](https://www.loom.com/share/66867ee8cf404b239df61e7921673586) To answer the quiz questions for this week.
+
+    3.  [**Creating (and graphing) a variable in R**.](https://www.loom.com/share/4d22e48cc28b438295e41c38933d9ac2) Just some more practice working with R.
+
+3.  **OPTIONAL READINGS.** We will review some statistics terms in class next week - I won't really expect y'all to remember much - but might be good to do a quick conceptual refresh if it's been a while since you took a stats class.
+
+    1.  [**From the Textbook**](https://kpu.pressbooks.pub/psychmethods4e/chapter/analyzing-the-data/)**.** A quick overview of some of the descriptive and inferential statistics.
+
+    2.  [**A longer overview of descriptive statistics.**](https://catterson.github.io/ystats/chapters/3R_Description.html#centrality) A chapter from my stats class on measures of centrality and complexity. I would skip the videos on "the mean" and "standard deviation" unless you really want to do a deep dive.
+
+### readings
+
+**YOUR POST :** Use the readings to answer the following questions. Please submit answers to the graded Canvas discussion post to help me keep track of your work, but when prompted please also copy / paste your work to our [Vision Board](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing) so we can more easily see (and expand upon) this work together in class.
+
+1.  **Thoughts on with Computers.** We are going to use the posit.cloud program to analyze some data in this class and do real statistics. How are you feeling about working with a computer and doing some statistics? Good to be mindful of the feelings (positive and negative) we are experiencing!
+
+2.  **Learning Computers.** Watch the three videos on how to get setup with posit.cloud. Use R to answer a math equation that used to give you trouble as a child (or adult). Did R get the answer right? If you got stuck, that's fine - just let us know.
+
+3.  **Creating Variables.** In the last video, I show how to create a variable in R. Adapt my code to try and create your own variable in R. Take a screenshot of your graph (or copy the graph) and include it with your response. (If you can't get this to work with 15 minutes of trying, just explain how / where you got stuck.)
+
+4.  **Sharing Code.** Include the code you needed to define your variable and graph the variable as a histogram. You don't need to upload a script for this, just share the code as text.
+
 # Lecture 3.
 
 1.  **IN CLASS :** Start a literature review for a topic you would be interested in researching as a psychologist. Find at least three articles related to your topic, fill in the annotated bibliography (see class for a template), and [add a link to your annotated bibliography to the VISION BOARD (FINAL PROJECT tab)]{.underline}. Make sure anyone with the link can view, but you don't need to give folks edit permission, unless you want to.
-4.  **Write about reading.** What is the experience of reading like for you(as a kid, in school, outside of school, etc.)? What do you like to read (for fun or school)? Have you ever read an academic article for psychology? Where / why? What was that experience like?
+2.  **Write about reading.** What is the experience of reading like for you(as a kid, in school, outside of school, etc.)? What do you like to read (for fun or school)? Have you ever read an academic article for psychology? Where / why? What was that experience like?
 
 ## [ACTIVITY : VISION BOARD](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing). {.smaller}
 
 **INSTRUCTIONS**
 
--   Open the Vision Board.
--   Find the final project tab; copy your model from Week 2.
--   Copy my annotated bibliography template.
--   Find some articles
+- Open the Vision Board.
+- Find the final project tab; copy your model from Week 2.
+- Copy my annotated bibliography template.
+- Find some articles
 
 **GOAL : Learn more about the topic than you did before**
 
--   look to the present : what do you learn from this article?
--   look to the past : what reserach was cited by this article?
--   look to the future : what articles have cited this article?
+- look to the present : what do you learn from this article?
+- look to the past : what reserach was cited by this article?
+- look to the future : what articles have cited this article?
 
 # Lecture 2.
 
