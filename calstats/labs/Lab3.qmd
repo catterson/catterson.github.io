@@ -5,32 +5,28 @@ format: html
 
 Use R to answer the following questions. Make sure that you show your R code and the output (result or graphs.) You can do this by taking a screenshot and pasting into your Google / Word Document, or (for students wanting an extra challenge) working in a Quarto document.
 
-## Problem 1. Interrpution Problems.
+## World Happiness Problems.
 
-**Download the “interruption” data from bCourses, and import this data into R. This dataset has two variables of the number of interruptions counted before (int1) and after (int2) our operationalization.**
+1.  **Download the “World Happiness” dataset from our "Chapter Datasets" folder.** Import these data into R, and check to make sure the data loaded correctly. Report the number of individuals in the dataset, and the names of the variables.
 
-1. Load the data (I'll call it d if you want to follow along with my code), check to make sure it loaded correctly, and report the sample size and names of the variables.
+2.  **Focus on the variable SWLS_24.** Look to the codebook for a review of what this variable measures. Graph the variable (make the graph look nice), and describe the shape of the distribution in terms of skewness.
 
-2. Graph these variables as a histogram (use the par() function to graph them side by side). Change the arguments so the graphs have the same x-axis and y-axis ranges, and nice labels.
+3.  **Report the mean, median, range, standard deviation, and skew (no calculation needed for this).** Describe what each statistic tells you about the variable (e.g., the mean tells me....) and how you "see" this statistic on the graph.
 
-3. Report the mean, median, range, and standard deviation for both variables. Then, calculate the standard deviation “by hand” for int1 (you should get a similar, but not exact, number, as what R gives you.) 
+| Statistic | What It Means | How I Could Visualize This Statistic on the Graph |
+|------------------------|------------------------|------------------------|
+| Mean |  |  |
+| Median |  |  |
+| Range |  |  |
+| Standard Deviation |  |  |
+| Skew (no calculation) |  |  |
 
-4. Describe how these statistics changed after operationalizing an interruption, and why these changes make sense given the nature of our operationalizations. Then, decide whether our operationalization would be good enough if we were researchers trying to scientifically study interruptions.
+4.  **Mode.** R does not have a built-in function to calculate the mode (highest frequency response). Use your favorite search engine to find a method - make sure to cite your source, and describe what you learned from the code that you found. Then check that your method works by defining two variables in R - one with a set of numbers that has one mode, and one with a set of numbers that has two modes. \[For example : variable1 \<- c(1, 1, 2) has two modes\]. Use the mode function on each variable to confirm that the mode function works. Then, use the mode function to calculate the mode for SWLS_24.
 
-5. Graph a categorical variable from the dataset and report the frequency of each group.
+5.  **Think about some other questions you might have about the variable.** Make sure to be transparent about any data cleaning that you did (e.g., removing outliers).
 
-## Problem 2. Mini Problems
+6.  **Finally, submit just the graph you created in R to some AI tool**. In other words, upload a screenshot of the graph. Do not upload the dataset - just the image of the graph from Question 2. Ask this tool to a) calculate the mean, median, range, and standard deviation based on the graph. Then ask the tool to explain what it learns about the variable. Report back what it says here, along with any other ways that you used AI for the lab. Let us know how this went in the "Check-In" for the week.
 
-**Load the mini dataset (that you used in Lab 2), check to make sure the data loaded correctly and use this dataset to answer the questions below.**
+## Brain Exam Problems
 
-1. Focus on the variable insta.followers - this measures the number of followers a person says they have on instagram (a social networking website owned by Mark Zuckerberg). Graph this variable as a histogram, and report the mean, median, standard deviation, and range. Make sure to do any necessary data cleaning (e.g., outlier removal), make the graph look nice, and draw vertical lines to illustrate the mean, median, and standard deviation (above and below the mean). Below the graph, describe what each statistic teaches you about the people in the dataset.
-
-2. Choose another numeric variable from the dataset (see the codebook for a guide). Graph this variable as a histogram, and report the mean, median, standard deviation, and range. Make sure to do any necessary data cleaning (e.g., outlier removal), make the graph look nice, and describe what each descriptive statistic teaches you about the people in the dataset (you do not need to draw them again on the graph, unless you want to / find this helpful!)
-
-## Problem 3 (In Discussion Section). More Description Problems.
-
-**Repeat the steps for Problem 2, with another dataset (and variable) from the mini class datasets.**
-
-## Problem 4 (In Discussion Section / On Your Own / In Lecture). Get started on your [literature review for the final project.](https://docs.google.com/spreadsheets/d/1CGkY6Ior_Rga1rKsaDMj8zc1ueIB2ZsVvgucS2K9SDA/edit?usp=sharing) 
-
-This doesn't have to be perfect; just good to get started!
+[Here's a link to a previous semester's BRAIN EXAM](https://docs.google.com/document/d/1U6hmo9fdHqn8UEXsueaR7HUPYQoaZbcKVP8pP9eS1IE/edit?usp=sharing). Answer the questions, and use the key (posted to the partial key) to review your answers. For this problem, just explain how the practice exam went for you. Note that each semester's exam will be a little different.

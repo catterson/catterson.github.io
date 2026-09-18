@@ -16,38 +16,53 @@ tbl-colwidths: [50,50]
 #| include: false
 ```
 
-# Welcome Back
-
-CHECK-IN : [tinyurl.com/miniclassexit](https://docs.google.com/forms/d/e/1FAIpQLScvBoQcnSzw_vi5cS5GazYaAAuH0HPcDIi2uCnZuhVWBSTVfg/viewform?usp=sf_link){.smaller}
+## [Check-In. tinyurl.com/interruptlifewithR](https://docs.google.com/forms/d/e/1FAIpQLSeHOpY9ubskHAQmCAVLRCD0tAy6Hd_feajTSHn9ilutA_S3qQ/viewform?usp=sf_link)
 
 ::::: columns
-::: {.column width="60%"}
-**Agenda**
-
--   **2:10 - 2:20.** Check-In & Announcements.
-
--   **2:20 - 3:40.** Describing Data with Brain and R.
-
--   **3:40 - 3:50.** BREAK TIME
-
--   **3:40 - 4:00.** Milestone #2 (Intros)
-
--   **4:00 - 5:00.** Okay.
-:::
-
 ::: {.column width="40%"}
+
 ![](images/clipboard-1056536258.png)
 :::
+
+:::{.column width="60%"}
+![](images/clipboard-3432465072.png){fig-align="center"}
+:::
+
 :::::
 
-## Part 1 : Describing Data with Brain.
+## PART 1 : Interruption Problems {.smaller}
 
-### KEY IDEA : The Mean as Prediction {.smaller}
+
+::::: columns
+::: {.column width="40%"}
+
+**What analyses do we need to test the following predictions?**
+
+1.  There would be fewer interruptions counted in time 2 (after operationalization) vs time 1 (before operationalization).
+2.  There would be less variation in interruptions counted in time 2 vs time 1.
+
+:::
+
+:::{.column width="60%"}
+
+![](images/clipboard-3432465072.png){fig-align="center"}
+:::
+
+:::::
+
+
+## BREAK TIME : MEET BACK AT (........){.smaller}
+
+[CHECK-IN : tinyurl.com/miniclassexit](https://docs.google.com/forms/d/e/1FAIpQLScvBoQcnSzw_vi5cS5GazYaAAuH0HPcDIi2uCnZuhVWBSTVfg/viewform?usp=sf_link){.smaller}
+
+![](lecture_images/3L_KikiArt.png)
+
+
+## PART 2 : The Mean as Prediction {.smaller}
 
 ::::: columns
 ::: {.column width="60%"}
 -   **How would you feel... GOOD / BAD / INDIFFERENT**
-    -   ...if I told you that the average on the R Exam last semester was a 50%?
     -   ...if I told you that the average on the R Exam last semester was a 90%?
     -   ...if everyone you knew and loved called you "average"?
 -   **Why would you feel this way?**
@@ -63,49 +78,44 @@ CHECK-IN : [tinyurl.com/miniclassexit](https://docs.google.com/forms/d/e/1FAIpQL
 Where would a vertical line best fit through these data?
 
 ::: panel-tabset
-#### Where the Line?
+#### Where the Line?{.smaller}
 
 ```{r}
 #| fig-width: 7
 #| fig-height: 7
 #| fig-align: center
-m <- read.csv("~/Dropbox/!WHY STATS/Professor Datasets/Conspiracy Beliefs/data.csv", stringsAsFactors = T)
-plot(m$familysize[m$familysize < 24], ylab = "Family Size (# of Persons)")
+m <- read.csv("~/Dropbox/!WHY STATS/0_Shared Folders/101 - Class Datasets/Interruption Data/interruption_DATASET.csv", stringsAsFactors = T)
+plot(m$pace, ylab = "Pace of Class (1 = Too Slow; 5 = Too Fast)")
 ```
 
-#### There the Line!
+#### There the Line!{.smaller}
 
 ```{r}
 #| fig-width: 7
 #| fig-height: 7
 #| fig-align: center
-plot(m$familysize[m$familysize < 24], ylab = "Family Size (# of Persons)")
-abline(h = mean(m$familysize[m$familysize < 24], na.rm = T), col = 'red', lwd = 5)
+plot(m$pace, ylab = "Pace of Class (1 = Too Slow; 5 = Too Fast)")
+abline(h = mean(m$pace, na.rm = T), col = 'red', lwd = 5)
 ```
 
-#### What's Going On?
+#### What's Going On?{.smaller}
 
-The histogram organizes the data, but you can see the same patterns in both graphs.
+The histogram organizes the data, but you can see the same patterns in both graphs, where the mean of pace is `{r} mean(m$pace, na.rm = T)`
 
 ```{r}
 #| fig-width: 14
 #| fig-height: 7
 #| fig-align: center
 par(mfrow = c(1,2))
-plot(m$familysize[m$familysize < 24], ylab = "Family Size (# of Persons)")
-abline(h = mean(m$familysize[m$familysize < 24], na.rm = T), col = 'red', lwd = 5)
-hist(m$familysize[m$familysize < 24], ylab = "Family Size (# of Persons)", main = "")
-abline(v = mean(m$familysize[m$familysize < 24], na.rm = T), col = 'red', lwd = 5)
+plot(m$pace, ylab = "Pace of Class (1 = Too Slow; 5 = Too Fast)")
+abline(h = mean(m$pace, na.rm = T), col = 'red', lwd = 5)
+hist(m$pace, xlab = "Pace of Class (1 = Too Slow; 5 = Too Fast)")
+abline(v = mean(m$pace, na.rm = T), col = 'red', lwd = 5)
 ```
 
-The mean family size in this dataset is :
-
-```{r}
-mean(m$familysize[m$familysize < 24], na.rm = T)
-```
 :::
 
-### The Mean As Prediction (and Error) {.smaller}
+### The Mean : Prediction and Error {.smaller}
 
 -   How can you visualize each of these components?
 -   How might you translate this equation into a simpler language?
@@ -116,8 +126,8 @@ mean(m$familysize[m$familysize < 24], na.rm = T)
 #| fig-width: 7
 #| fig-height: 7
 #| fig-align: center
-plot(m$familysize[m$familysize < 24], ylab = "Family Size (# of Persons)")
-abline(h = mean(m$familysize[m$familysize < 24], na.rm = T), col = 'red', lwd = 5)
+plot(m$pace, ylab = "Pace of Class (1 = Too Slow; 5 = Too Fast)")
+abline(h = mean(m$pace, na.rm = T), col = 'red', lwd = 5)
 ```
 :::
 
@@ -132,29 +142,52 @@ $$
 :::
 :::::
 
-## Part 2 : Describing Data in R.
+### The Standard Deviation As Error {.smaller}
 
-[hey, another check-in. tinyurl.com/interruptlifewithR](https://docs.google.com/forms/d/e/1FAIpQLSeHOpY9ubskHAQmCAVLRCD0tAy6Hd_feajTSHn9ilutA_S3qQ/viewform?usp=sf_link)
+::::: columns
+::: {.column width="40%"}
+```{r}
+#| fig-width: 7
+#| fig-height: 7
+#| fig-align: center
+plot(m$pace, ylab = "Pace of Class (1 = Too Slow; 5 = Too Fast)")
+abline(h = mean(m$pace, na.rm = T), col = 'red', lwd = 5)
+```
+:::
 
--   load the interruption data
+::: {.column width="60%"}
 
--   name the dataset d to follow along with professor.
+```{r}
+#| echo: true
 
-![](images/clipboard-3432465072.png){fig-align="center"}
+# defining residuals
+residuals <- m$pace - mean(m$pace, na.rm = T)
 
-### Lab 3, Problem 1. Interruption Problems {.smaller}
+# the first three residuals
+head(residuals, 3) 
 
-**Download the “interruption” data from bCourses, and import this data into R. This dataset has two variables of the number of interruptions counted before (int1) and after (int2) our operationalization.**
+# the residuals add up to ZERO...
+round(sum(residuals, na.rm = T), 2) 
 
-1.  Load the data (I'll call it d if you want to follow along with my code), check to make sure it loaded correctly, and report the sample size and names of the variables.
-2.  Graph these variables as a histogram (use the par() function to graph them side by side). Change the arguments so the graphs have the same x-axis and y-axis ranges, and nice labels.
-3.  Report the mean, median, range, and standard deviation for each variables. Add vertical lines to your graphs above that illustrate the mean (in red), the median (in blue), and the standard deviation (in dashed red).
-4.  Describe how these statistics changed after operationalizing an interruption, and why these changes make sense given the nature of our operationalizations. Then, explain why the median is closer to the mean for Time 2.
-5.  Just to make sure we can still do this, graph a categorical variable from the dataset, report the frequency of each group, and describe what you learn from the distribution.
+# so we square them.
+sum(residuals^2, na.rm = T) # sum of squared residuals
 
-## BREAK TIME : MEET BACK AT 4:45
+# and take the average to help make sense of this number
+sqrt(sum(residuals^2, na.rm = T)/length(residuals)) 
+sd(m$pace, na.rm = T) # average of residual
+```
 
-![](lecture_images/3L_KikiArt.png)
+
+:::
+:::::
+
+### DISCUSSION : Standard Deviation
+
+Why should we care about this statistics?
+
+How does this help us as scientists??
+
+How does this help us in real-life???
 
 ## Part 3 : Final Project Workshop
 
