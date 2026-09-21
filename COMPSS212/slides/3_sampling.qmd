@@ -52,10 +52,11 @@ hist(d$SWLS_AVG, xlim = c(0,10), main = "Average Country-Level Happiness (2023-2
 describe(d$SWLS_AVG)
 ```
 
-### Questions about likert scales?
+:::
+
+## Questions about likert scales?
 
 - Examples from last week's [vision board](https://docs.google.com/spreadsheets/d/14y4W9LJk1I9M3HFIOp3_94tdM0qUSYfkGdZnKK6L23c/edit?usp=sharing)
-:::
 
 ## Check-In : Defining the Model {.smaller}
 
