@@ -145,9 +145,6 @@ ggplot(d, aes(y = SWLS_24, x = Child.Mortality)) +
 2.  See bootstrapping videos (in notes below).
 3.  Ask questions!!
 
-## ACTIVITY : in the Vision Board {.smaller}
+## [THE END : Exit Survey](https://docs.google.com/forms/d/e/1FAIpQLSclAFyjgSKViZfHk9HB1cMeXZXAUlASu8TH1AOrl9IrVNCjaA/viewform?usp=header) {.smaller}
 
-1.  Take a statistic that you calculated in Lab 2.
-2.  Use bootstrapping to estimate sampling error for this statistic.
-3.  Evaluate sampling error.
-4.  Think about sampling bias - who is the population? who is in our sample? might the sample bias the results in some way?
+Thanks!
