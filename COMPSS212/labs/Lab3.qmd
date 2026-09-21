@@ -13,7 +13,7 @@ These data come from a study on measuring people's attitudes about conspiracy be
 
 1.  **How do people differ in terms of their general beliefs about conspiracy theories?** Create a likert scale for the 15 conspiracy belief items, and report descriptive statistics for this variable.
 2.  **Are men different from women in their conspiracy beliefs?** Define a linear model to predict your conspiracy beliefs scale from the variable gender. Note that gender was measured as a categorical variable, so will need to be converted from numeric.
-3.  **Consider the four possible reasons why this pattern occurred and estimate the probability of *statistical significance***. Use both bootstrapping and NHST methods to answer this question.
-4.  **Were all the assumptions of linear regression met for this linear model?** Evaluate this model in terms of the assumptions of linear regression, which you should read about!
+3.  **Estimate the probability that the pattern you observed above is due to chance**. Use NHST methods to answer this question, but also try to use bootstrapping. Okay if you get stuck! We will continue to practice - just try and explain why / how you got stuck.
+4.  **Were all the assumptions of linear regression met for this linear model?** Evaluate this model in terms of the assumptions of linear regression (which you can read about in our weekly notes.)
 5.  **Repeat the steps above to predict the conspiracy beliefs scale from another independent variable from the dataset.** Make sure to a) do any data cleaning necessary to define this other independent variable, b) describe the relationship between this new predictor and conspiracy beliefs, c) determine whether the relationship is statistically significant or not, and d) evaluate the assumptions of the model.
 6.  **Conclude :** which model do you think is a better predictor of conspiracy beliefs? Why?
