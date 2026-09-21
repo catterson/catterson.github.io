@@ -24,10 +24,11 @@ Use the world happiness dataset (and codebook) to determine whether child mortal
 
 # PART 1 : Scales and Linear Models
 
-## Check-In : Creating the Scale{.smaller}
+## Check-In : Creating the Scale {.smaller}
 
-:::{.panel-tabset}
+::: panel-tabset
 ### The Alpha Reliability
+
 ```{r}
 #| echo: true
 library(psych)
@@ -36,12 +37,14 @@ alpha(SWLS.df)
 ```
 
 ### Alpha at its core...
+
 ```{r}
 #| echo: true
 plot(d$SWLS_24 ~ d$SWLS_23) # a very strong connection
 ```
 
 ### Defining the variable.
+
 ```{r}
 #| echo: true
 d$SWLS_AVG <- rowMeans(SWLS.df, na.rm = T)
@@ -49,9 +52,12 @@ hist(d$SWLS_AVG, xlim = c(0,10), main = "Average Country-Level Happiness (2023-2
 describe(d$SWLS_AVG)
 ```
 
+### Questions about likert scales?
+
+- Examples from last week's [vision board](https://docs.google.com/spreadsheets/d/14y4W9LJk1I9M3HFIOp3_94tdM0qUSYfkGdZnKK6L23c/edit?usp=sharing)
 :::
 
-## Check-In : Defining the Model{.smaller}
+## Check-In : Defining the Model {.smaller}
 
 ```{r}
 #| echo: true
@@ -73,7 +79,7 @@ ggplot(d, aes(y = SWLS_24, x = Child.Mortality)) +
   geom_smooth(method = "lm", formula = y ~ poly(x, 2))
 ```
 
-## Reasons for the Pattern{.smaller}
+## Reasons for the Pattern {.smaller}
 
 ::::: columns
 ::: {.column width="30%"}
@@ -96,6 +102,14 @@ ggplot(d, aes(y = SWLS_24, x = Child.Mortality)) +
 :::
 :::::
 
+## RECAP : Quarto.
+
+- What code is necessary to share?
+- How do you write about the results?
+
+# BREAK TIME : MEET BACK IN 10 MINUTES.{.smaller}
+
+{{< video https://www.youtube.com/watch?v=eQ_foBERmzA >}}
 
 # Part 2 : Estimating Chance
 

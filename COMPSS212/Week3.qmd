@@ -6,7 +6,7 @@ editor: visual
 
 # Week 3 - Monday, September 21st
 
-:::::: callout-note
+::: callout-note
 ### Announcements and Agenda
 
 **Announcements**
@@ -19,7 +19,7 @@ editor: visual
 - **10:10 - 11:00.** Check-In and Likert Scale / Model / Quarto Review
 - **11:00 - 11:10 :** BREAK TIME
 - **11:10 - 12:00 :** Sampling Error with Bootstrapping (Whew)
-::::::
+:::
 
 ### Class Slides and Materials
 
@@ -27,11 +27,11 @@ editor: visual
 <iframe data-external="1" class="slide-deck" src="/COMPSS212/slides/3_sampling.html" width="100%" height="500px" title=""></iframe>
 ```
 
-- [**Check-In : Happy World**](https://forms.gle/Kou9Dq2Jdh8p8Kzv6) **:** Welcome back!! Please work in R to answer these questions. Ask for help if you are stuck!
-- [**Dataset of the Week**](https://www.dropbox.com/scl/fo/lstohddps2zs5t13oojgp/AFBNROMfMubWCdC814jOafk?rlkey=s18yi5jx4uizwl2w09zzeljwa&dl=0) **:** The "World Happiness" Dataset (from summer!)
-- [**VISION BOARD**](https://docs.google.com/spreadsheets/d/14y4W9LJk1I9M3HFIOp3_94tdM0qUSYfkGdZnKK6L23c/edit?usp=sharing).
+- [**Check-In : Happy World**](https://forms.gle/Kou9Dq2Jdh8p8Kzv6) **:** Please work in R to answer these questions. Ask for help if you are stuck!
+  - [**Dataset of the Week**](https://www.dropbox.com/scl/fo/lstohddps2zs5t13oojgp/AFBNROMfMubWCdC814jOafk?rlkey=s18yi5jx4uizwl2w09zzeljwa&dl=0) **:** The "World Happiness" Dataset (from summer!)
+  - [**VISION BOARD**](https://docs.google.com/spreadsheets/d/14y4W9LJk1I9M3HFIOp3_94tdM0qUSYfkGdZnKK6L23c/edit?usp=sharing).
 - [**Professor Notes**](https://www.dropbox.com/scl/fo/7yhs2afoyisskz3eynnh8/ABO5kzYAdp8Y9cDBsqFU_TI?rlkey=hx72km35b6n02ep59vywdy7o4&dl=0). My R scripts and other notes, saved in real-time.
-- [**Bonus Notes.**](/COMPSS212/workbooks/3_BootstrapWork.html) A workbook we will go through together. 
+- [**Bonus Notes.**](/COMPSS212/workbooks/3_BootstrapWork.html) A workbook we will go through together on sampling error.
 
 # For Next Week.
 
@@ -89,7 +89,6 @@ Assumption 6 can be examined by graphing the residuals of your model object with
 #par(mfrow = c(1,1))
 #hist(mod$residuals)
 ```
-
 :::
 
 2.  [**Gelman & Hill - Assumptions and Diagnostics.**](https://www.dropbox.com/scl/fi/iuhs0x2un3d4ivhcc3rug/Gelman_Hill_RegressionAssumptions.pdf?rlkey=blhc8bcxypu0ar5wvzpruslqk&dl=0) Another review of the assumptions of linear regression.
