@@ -1,0 +1,113 @@
+---
+title: ""
+format: html
+editor: visual
+---
+
+# Week 3 - Monday, September 21st
+
+:::::: callout-note
+### Announcements and Agenda
+
+::::: columns
+::: {.column width="50%"}
+**Goals this Week**
+- **Check-In and Review :** Extend our understanding of likert scales and interpreting linear models.
+- **New Stuff :** Making up data to estimate sampling error (bootstrapping)
+:::
+
+::: {.column width="50%"}
+**Agenda**
+- **10:10 - 11:00.** Check-In and Week 2 Review
+- **11:00 - 11:10 :** BREAK TIME
+- **11:10 - 12:00 :** Sampling Error with Bootstrapping
+:::
+:::::
+::::::
+
+### Class Slides and Materials
+
+```{=html}
+<iframe data-external="1" class="slide-deck" src="/COMPSS212/slides/3_sampling.html" width="100%" height="500px" title=""></iframe>
+```
+
+- [**Check-In : Happy World**](https://forms.gle/Kou9Dq2Jdh8p8Kzv6) **:** Welcome back!! Please work in R to answer these questions. Ask for help if you are stuck!
+- [**Dataset of the Week**](https://www.dropbox.com/scl/fo/lstohddps2zs5t13oojgp/AFBNROMfMubWCdC814jOafk?rlkey=s18yi5jx4uizwl2w09zzeljwa&dl=0) **:** The "World Happiness" Dataset (from summer!)
+- [**VISION BOARD**](https://docs.google.com/spreadsheets/d/14y4W9LJk1I9M3HFIOp3_94tdM0qUSYfkGdZnKK6L23c/edit?usp=sharing).
+- [**Professor Notes**](https://www.dropbox.com/scl/fo/7yhs2afoyisskz3eynnh8/ABO5kzYAdp8Y9cDBsqFU_TI?rlkey=hx72km35b6n02ep59vywdy7o4&dl=0). My R scripts and other notes, saved in real-time.
+- [**Bonus Notes.**](/COMPSS212/workbooks/3_BootstrapWork.html) A workbook we will go through together. 
+
+# For Next Week.
+
+### [Complete Lab 3](/COMPSS212/labs/Lab3.qmd)**.**
+
+### Additional Reading and Support Materials
+
+**Assumptions of Linear Regression.**
+
+::: {.callout-note collapse="true"}
+#### 1. READ THIS : Regression Assumptions
+
+The interpretation of our linear model depends on a variety of different assumptions being met. You can read more about these from the great [Gelman & Hill's textbook : Data Analysis Using Regression](https://www.dropbox.com/scl/fi/iuhs0x2un3d4ivhcc3rug/Gelman_Hill_RegressionAssumptions.pdf?rlkey=blhc8bcxypu0ar5wvzpruslqk&dl=0). But below is a TLDR, with a few ideas of my own thrown in :)
+
+1.  **Validity.** Is your linear model the right model to answer the research question that you have? This is the big question, and often goes beyond the specific statistics that we are focusing on. Did you include the right variables in your model, or are you leaving something out? Are you studying the right sample of people, drawn from the right population? Are your measures valid? This is hard to do, and good to remember that it is hard so you ask yourself "am I doing a good job"?
+
+2.  **Reliability of Measures.** The variables in your linear model should be measured with low error (“garbage in, garbage out”). There are different ways to assess reliability.
+
+    - **Cronbach's alpha** (`psych::alpha()`) is good for assessing the inter-item reliability of a likert scale.
+
+    - **The Intraclass Correlation Coefficient (ICC)** is often used for observational ratings where multiple judges form impressions of the same target.
+
+    - **Test-retest reliability** is a great way to ensure that physiological or single-item measures will yield repeatable measures over time (assuming the target of measurement has not changed between time points). One way to test this is to define a linear model to predict the measure at one time point from the measure at another; you'd expect to see a strong relationship.
+
+3.  **Independence.** This is a big one - the residuals in your model need to be unrelated to each other. That is, I should not be able to predict the value of one error from another error. When the data in a linear model come from distinct individuals who are unrelated to each other, this assumption is usually considered to be met. However, there are often types of studies where the data are not independent.
+
+    - **Nested Data :** Often times, individuals in a dataset belong to a group where there's a clear dependence. For example, the happiness of individual members of a family is probably dependent on one another (since they share the same environment, stressors, etc.); the test-scores of children in a school are probably all related to each other (since they share the same teachers, administrators, funding, lead exposure in the drinking water, etc.)
+
+    - **Repeated Measures :** If a person is measured multiple times, then their data at one time point will be related to their data at the second time point, since they are coming from the same person, with the same past experiences and beliefs and genetics and all that other good stuff.
+
+    If the data are not independent, then we will need to account for the dependence in the data. We will learn to do this when we review Multilevel Linear Models. (Spoiler : it's more lines.)
+
+4.  **Linearity.** The dependent (outcome) variable should be the result of one or more linear functions (slopes). In other words, the outcome is the result of a bunch of straight lines. If the straight lines don't properly "fit" or "explain" your data, then maybe you need some non-straight lines...you could bend the line (add a quadratic term), look for an interaction term (that tests whether there's a multiplicative relationship between the variables), or apply a non-linear transformation to the data (i.e., often times income is log transformed, since a 9,000 point difference between 1000 and 10,000 dollars/month is not the same as a 9,000 point difference between 1,000,000 and 1,009,000 dollars/month).
+
+5.  **Equal Variance of Errors (Homoscedasticity).** The errors associated with the predicted values of the DV (the residuals) should be similar for all different values of the IV. Homoscedasticity means that the residual errors in our outcome variable are distributed the same across the different values of the IV. Heteroscedasticity means there is some non-constant variability in errors, which means that your model may not be an appropriate explanation of the data.
+
+6.  **Normality of Errors (Residuals and Sampling).** This assumption is less emphasized as our datasets have gotten larger, and methods for estimating sampling error have improved. But the basic idea is that statistics like confidence intervals and estimates of slopes assume that the errors in our model are normally distributed. If they are not, it's likely that your model is not appropriately fitting the data (i.e., maybe some outliers are influencing the results.)
+
+### Testing Assumptions in R
+
+Assumptions 1-3 require critical thinking about your methods and measures.
+
+Assumptions 4 and 5 can be examined using the plot() function in base R - you may have accidentally come across these when trying to graph your linear model.
+
+We talked about how to interpret these plots a little in lecture; here's [another tutorial](https://library.virginia.edu/data/articles/diagnostic-plots) that walks through the interpretation. Let us know (on Discord!) if you find another good example / explanation.
+
+```{r}
+#par(mfrow = c(2,2))
+#plot(mod)
+```
+
+Assumption 6 can be examined by graphing the residuals of your model object with a histogram.
+
+```{r}
+#par(mfrow = c(1,1))
+#hist(mod$residuals)
+```
+
+:::
+
+2.  [**Gelman & Hill - Assumptions and Diagnostics.**](https://www.dropbox.com/scl/fi/iuhs0x2un3d4ivhcc3rug/Gelman_Hill_RegressionAssumptions.pdf?rlkey=blhc8bcxypu0ar5wvzpruslqk&dl=0) Another review of the assumptions of linear regression.
+
+3.  [**Another Tutorial on Diagnostic Plots**](https://library.virginia.edu/data/articles/diagnostic-plots)
+
+**Bootstrapping (we will review this next week; okay to have questions!)**
+
+- [**Bootstrapping Videos**](https://www.stat.auckland.ac.nz/~wild/BootAnim/) **:** A collection of videos that illustrate the principles of bootstrapping.
+
+- [**Bootstrapping Overview**](https://bookdown.org/jgscott/DSGI/the-bootstrap.html) The methods this author uses to generate the resampled distribution differs from the for-loop we reviewed in class (they use a package) but the logic is the same.
+
+**Professor, I would like a review of stats and R.**
+
+- [chapter 7](https://catterson.github.io/ystats/chapters/7R_CategoricalIV.html) : on the "linear model" when the IV is categorical.
+
+- [chapter 8](https://catterson.github.io/ystats/chapters/8R_SamplingError.html) : on null hypothesis significance testing and sampling error.

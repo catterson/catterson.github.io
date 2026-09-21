@@ -1,0 +1,153 @@
+---
+title: ""
+format: 
+  revealjs: 
+    slide-level: 3
+    link-external-newwindow: true
+    chalkboard: true
+    controls: true
+    auto-stretch: false
+    code-overflow: wrap
+tbl-colwidths: [25,75]
+---
+
+# [Check-In : Happy World](https://forms.gle/E8jqZQPTH6nh49hC6)
+
+```{r}
+#| include: false
+d <- read.csv("~/Dropbox/!GRADSTATS/COMPSS212/Datasets/Our World in Happy Data/DATASET_happy_data.csv", stringsAsFactors = T)
+```
+
+Use the world happiness dataset (and codebook) to determine whether child mortality predicts happiness in 2024.
+
+[![](images/clipboard-2442146847.png){fig-align="center" width="80%"}](https://magazine.scu.edu/magazines/summer-2017/tsunami-and-rebirth/)
+
+# PART 1 : Scales and Linear Models
+
+## Check-In : Creating the Scale{.smaller}
+
+:::{.panel-tabset}
+### The Alpha Reliability
+```{r}
+#| echo: true
+library(psych)
+SWLS.df <- data.frame(d$SWLS_24, d$SWLS_23)
+alpha(SWLS.df)
+```
+
+### Alpha at its core...
+```{r}
+#| echo: true
+plot(d$SWLS_24 ~ d$SWLS_23) # a very strong connection
+```
+
+### Defining the variable.
+```{r}
+#| echo: true
+d$SWLS_AVG <- rowMeans(SWLS.df, na.rm = T)
+hist(d$SWLS_AVG, xlim = c(0,10), main = "Average Country-Level Happiness (2023-2024)")
+describe(d$SWLS_AVG)
+```
+
+:::
+
+## Check-In : Defining the Model{.smaller}
+
+```{r}
+#| echo: true
+mod <- lm(d$SWLS_AVG ~ d$Child.Mortality)
+plot(d$SWLS_AVG ~ d$Child.Mortality, 
+     xlab = "Child Mortality", 
+     ylab = "World Happiness in 2024")
+abline(mod, lwd = 5, col = 'red')
+```
+
+## Adding a Quadratic Term {.smaller}
+
+```{r}
+#| echo: true
+mod1b <- lm(d$SWLS_24 ~ d$Child.Mortality + I(d$Child.Mortality^2))
+library(ggplot2)
+ggplot(d, aes(y = SWLS_24, x = Child.Mortality)) + 
+  geom_point() + 
+  geom_smooth(method = "lm", formula = y ~ poly(x, 2))
+```
+
+## Reasons for the Pattern{.smaller}
+
+::::: columns
+::: {.column width="30%"}
+```{r}
+#| fig-height: 4
+#| fig-width: 4
+mod1b <- lm(d$SWLS_24 ~ d$Child.Mortality + I(d$Child.Mortality^2))
+library(ggplot2)
+ggplot(d, aes(y = SWLS_24, x = Child.Mortality)) + 
+  geom_point() + 
+  geom_smooth(method = "lm", formula = y ~ poly(x, 2))
+```
+:::
+
+::: {.column width="70%"}
+1.  **Causation.** The IV caused the DV.
+2.  **Reverse Causation.** The pattern was due to the DV causing the IV.
+3.  **Third Variable.** The pattern was due to some other variable that's related to the outcome and predictor.
+4.  **Chance.** The pattern was observed due to random chance.
+:::
+:::::
+
+
+# Part 2 : Estimating Chance
+
+## RECAP : Inferential Statistics (Population and Samples) {.smaller}
+
+**Goal : use our data to learn something about *people in general*?**
+
+::::: columns
+::: {.column width="50%"}
+**the population :** all the individuals who might be relevant to your research question. ![](images/clipboard-1823214230.png)
+:::
+
+::: {.column width="50%"}
+**the sample :** the individuals who the researcher actually studies.
+
+![](images/clipboard-4127019705.png)
+:::
+:::::
+
+### Sample Bias and Error {.smaller}
+
+**Problem : our data are unlikely to perfectly represent the general population (so need to estimate influence of each.)**
+
+::::: columns
+::: {.column width="50%"}
+**sampling bias** = predictable mistakes in sampling.
+
+- critical thinking skills
+
+- see if slope *depends on* another variable.
+
+**sampling error** = random mistakes in sampling.
+
+- ~~run the study many many times~~
+
+- make up some numbers using statistics to estimate sampling error
+:::
+
+::: {.column width="50%"}
+[![Lima-Oliveira, G., Guidi, G. C., Salvagno, G. L., Danese, E., Montagnana, M., & Lippi, G. (2017). Patient posture for blood collection by venipuncture: recall for standardization after 28 years. Revista brasileira de hematologia e hemoterapia, 39(2), 127–132. https://doi.org/10.1016/j.bjhh.2017.01.004](images/clipboard-3239626908.png){fig-align="center"}](https://pmc.ncbi.nlm.nih.gov/articles/PMC5457469/)
+:::
+:::::
+
+## Estimating Sampling Error in R (Bootstrapping)
+
+1.  See professor notes and demo in the R-Script.
+2.  See bootstrapping videos (in notes below).
+3.  Ask questions!!
+
+## ACTIVITY : in the Vision Board {.smaller}
+
+1.  Take a statistic that you calculated in Lab 2.
+2.  Use bootstrapping to estimate sampling error for this statistic.
+3.  Evaluate sampling error.
+4.  Think about sampling bias - who is the population? who is in our sample? might the sample bias the results in some way?
