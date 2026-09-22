@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Your Name Goes Here">
+<meta name="author" content="">
 
 <title>Lab 4</title>
 <style>
@@ -24,41 +24,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -70,7 +35,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-6033a600180109c3731f6a886c29932c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -113,12 +78,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Your Name Goes Here </p>
-          </div>
-  </div>
     
   
     
@@ -129,42 +88,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="getting-started-with-quarto" class="level3">
-<h3 class="anchored" data-anchor-id="getting-started-with-quarto">Getting Started with Quarto</h3>
-<p>Do some math in the codeblock below. Run the code. Then, try to “render” the code to create a document. You may need to allow R to install some packages to get this to work; this is okay (and safe) to do!</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## type some math below here! Then click the little play button, or use the shorcut to run the code.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="loading-the-mini-class-data" class="level3">
-<h3 class="anchored" data-anchor-id="loading-the-mini-class-data">Loading the Mini Class Data</h3>
-<p>Load the mini class dataset in the chunk below, and make sure to check that your data loaded correctly. Note that the “chunk” below will not show the code when you render the file.</p>
-</section>
-<section id="graphing-two-variables-with-professor" class="level3">
-<h3 class="anchored" data-anchor-id="graphing-two-variables-with-professor">Graphing Two Variables with Professor</h3>
+<section id="problem.-graphing-numeric-variables-without-professor-help" class="level3">
+<h3 class="anchored" data-anchor-id="problem.-graphing-numeric-variables-without-professor-help">Problem. Graphing Numeric Variables Without Professor Help</h3>
+<p>Make sure to choose different variables from the one(s) that we did together in class.</p>
 <ol type="1">
-<li>Choose two numeric variables from the dataset. Graph each variable variables side-by-side using the par() function. Make sure the variables look nice, and remove any outliers.</li>
+<li>Choose two numeric variables from the dataset. Graph each variable side-by-side using the par() function. Change the arguments to make the graphs look nice, and remove any outliers.</li>
 <li>Report the descriptive statistics for each variable. Then, explain what each variable tells you about the individuals in the dataset.</li>
+<li>Report the minimum and maximum value in the dataset as a z-score.</li>
 <li>Describe what additional questions you have about each variable.</li>
-</ol>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## paste the R Code needed to graph the two variables. Make sure all the code runs correctly.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="graphing-two-variables-on-your-own" class="level3">
-<h3 class="anchored" data-anchor-id="graphing-two-variables-on-your-own">Graphing Two Variables On Your Own</h3>
-<ol type="1">
-<li>Repeat the steps above for one numeric variable of your choosing from the class dataset.</li>
-<li>Then, graph a categorical variable, report the frequency of each group (you can get this using summary(d$variable)), and describe what you learn about the variable. As a reminder, to graph a categorical variable, you will need to make sure you clicked “stringsAsFactor = T”) when loading the data and are using the plot() function for the graph.</li>
-</ol>
-</section>
-<section id="finalize-and-export-the-document" class="level3">
-<h3 class="anchored" data-anchor-id="finalize-and-export-the-document">Finalize and Export the Document</h3>
-<p>Render the document. If you are rendering in the “Viewer”, then click the “Show in a New Window” button <img src="images/clipboard-3864501495.png" width="18" height="16"> to open the document in a webpage. “Print” the document as a PDF, and upload this PDF to Canvas. Below are a few things that would be good to do before your final “Render.”</p>
-<ol type="1">
-<li><strong>Clean up your R code :</strong> remove any unnecessary code that is not relevant to the questions. But make sure to include loading the dataset.</li>
-<li><strong>Clean up the instructions :</strong> Remove any unnecessary words from this document (e.g., does professor need to see these instructions? Probably not!) But make sure to keep some organizing headers.</li>
-<li><strong>Put your name on the top.</strong> You are the author!</li>
 </ol>
 
 
