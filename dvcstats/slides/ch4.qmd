@@ -30,12 +30,12 @@ mean(d$hrs.sleep, na.rm = T)
 sd(d$hrs.sleep, na.rm = T)
 ```
 
-
 :::
 
-::: {.column width="50%"}
+::: {.column width="30%"}
 
-
+-   What is the shape, mean, and sd of this distribution?
+-   What do these statistics tell you about the people in our class?
 
 :::
 :::::
