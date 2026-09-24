@@ -10,9 +10,19 @@ tbl-colwidths: [30,70]
 navbar: false
 ---
 
-# Week 5 : Stats Review.
+# [Check-In : Dead Fish Science](https://docs.google.com/forms/d/e/1FAIpQLSe5DoHHaE-LL4iZ6hOFU0UQ93pBmB7rISijSPUFylGOwBOm4Q/viewform?usp=sf_link){.smaller}
 
-Click arrow to advance slides.
+::::: columns
+::: {.column width="60%"}
+![](images/clipboard-1033975506.png)
+:::
+
+::: {.column width="40%"}
+- Lots of jargon! Work to translate into simple language where possible.
+- Focus on "THE POINT". Okay to lose some of the details.
+- Ask for help / highlight points of confuson.
+:::
+:::::
 
 # Part 1 : Check-In Review {.smaller}
 
@@ -24,9 +34,9 @@ Click arrow to advance slides.
 :::
 
 ::: {.column width="70%"}
--   Okay, how you feeling about this one.
--   Ways to translate the title?
--   Methods of making this make sense?
+- Okay, how you feeling about this one.
+- Ways to translate the title?
+- Methods of making this make sense?
 :::
 :::::
 
@@ -40,9 +50,9 @@ Click arrow to advance slides.
 ::: {.column width="70%"}
 **Validity : Are we measuring the TRUTH?**
 
--   **convergent :** our measure should be related to things it should be related to.
+- **convergent :** our measure should be related to things it should be related to.
 
--   **discriminant :** our measure should be UNrelated to things it should be UNrelated to.
+- **discriminant :** our measure should be UNrelated to things it should be UNrelated to.
 :::
 :::::
 
@@ -56,107 +66,107 @@ Click arrow to advance slides.
 ::: {.column width="70%"}
 **Reliability : Are we getting repeatable measures?**
 
--   **test-retest :** multiple tests with the same measure should yield the same result (if the subject did not change.)
+- **test-retest :** multiple tests with the same measure should yield the same result (if the subject did not change.)
 
--   **inter-rater :** multiple measures should yield the same result
+- **inter-rater :** multiple measures should yield the same result
 :::
 :::::
 
-# Part 2 : Data Analysis in R {.smaller}
+## KEY IDEA : NEUROSCIENCE CAN BE BIASED {.smaller}
 
-## Getting Started in Six Easy Steps.
+![](images/clipboard-1894428113.png)
 
-1.  Take a deep breath.
+## KEY IDEA : NEUROSCIENCE CAN BE BIASED {.smaller}
 
-2.  Download the R Activity Document (under Useful Links) to your computer.
+| Trust in Self-Reports | Trust in Behavioral Data | Trust in fMRI |
+|------------------------|------------------------|------------------------|
+| ![](images/clipboard-2437286104.png) | ![](images/clipboard-2331283925.png) | ![](images/clipboard-1975395084.png) |
 
-3.  Upload this to posit.cloud, and open it in posit.cloud by clicking on the file (it is a fancy R Script).
 
-    ![](images/clipboard-2128805591.png){width="615"}
+## Reading : Observations (vs. Self-Reports)
 
-4.  Click "Install" if you see the message below.
+If you look like you are smiling & brain activation says you are happy, but you feel miserable....
 
-![](images/clipboard-877039722.png){width="709" height="30"}
+- you are happy
 
-5.  Click the Gear next to Render, select Preview in Viewer, then click Render.
+- you are not happy
 
-    ![](images/clipboard-2785519838.png){width="446"}
+# Commercial Break.
 
-6.  Check in on your buddy. How are they doing? How are you doing?
+What comes to mind when you think of the phrase "Cognitive Examination"?
 
-## The Dataset {.smaller}
+# Part 2 : [Operationalization]{.underline} is an Eight Syllable Word
 
-```{r}
-codebookurl <- "https://www.dropbox.com/scl/fi/m4os7p2jualfzzuyqbnqy/CODEBOOK_ReadingData.csv?rlkey=wteyc27f8vgo6ihe05hijnkln&dl=1"
-dataurl <- "https://www.dropbox.com/scl/fi/47gw0h2x6abprskwdqgo7/DATASET_ReadingData.csv?rlkey=4mm3itw9p4fm7ee5qa7z3n82q&dl=1"
+- Say this word outloud.
 
-d <- read.csv(dataurl, stringsAsFactors = T)
-codebook <- read.csv(codebookurl)
-knitr::kable(codebook)
-```
+- What comes to mind when you see or hear this word?
 
-## Graphing a Variable in R
+## DEFINITION : Operationalization
 
-What do you observe about the graph below?
+- A fancy definition (like a rich doctor).
+- Technical and precise (like a doctor who operates).
+- A *process* (an operation).
 
-```{r}
-#| column: margin
-barplot(table(d$like), 
-        col = "black", bor = "white", 
-        xlab = "I Like Reading for Fun",
-        ylab = "Frequency")
+![](images/clipboard-1395225604.png){fig-align="center" width="162"}
 
-```
+### A "Cognitive Examination" in Popular Press.
 
-## Learning from a Variable with Human and Statistics Brain
+![](images/clipboard-388249856.png){fig-align="center" width="60%"}
 
-What do you observe about the graph below, in terms of the following statisitcs???
+### "Cognitive Examination" Operationalized {.smaller}
 
-::::: columns
-::: {.column width="30%"}
-```{r}
-#| output-location: column
-statz <- t(psych::describe(d$like)[,c(2:5, 8)])
-colnames(statz) <- ""
-statz
-```
-:::
+![](images/2L_MOCA.png){fig-align="center" width="60%"}
 
-::: {.column width="70%"}
-```{r}
-#| output-location: column
-barplot(table(d$like), 
-        col = "black", bor = "white", 
-        xlab = "I Like Reading for Fun",
-        ylab = "Frequency")
+## Deep Breath. No Talking.
 
-```
-:::
-:::::
+## ACTIVITY : Count the Interruptions. {.smaller}
 
-## ACTIVITY : Learn About People with R and Human Brain
+**Count the Interruptions : [tinyurl.com/researchinterruptions](https://docs.google.com/forms/d/e/1FAIpQLSdDt9g2s4rELaKorXyprVgtOa0Smb8ooI_FIWNg2i7iXKpazA/viewform?usp=sf_link)**
 
--   Choose another variable from the dataset.
+- Count the number of interruptions in the video (which professor will play soon).
+- Submit your answer, **then wait for the letter of the day.**
 
--   Graph the variable and run some descriptive statistics.
+## ACTIVITY : Count the Interruptions. {.smaller}
 
-    -   What are the numbers?
+![](images/1_interruption_oreilly&frank_operationalization.m4v){fig-align="center"}
 
-    -   What do these numbers tell you about the people in the dataset?
+## BUDDY DISCUSSION
 
-    -   What other questions do you have?
+- How was watching the video?
 
--   **Type in the [RESEARCH METHODS VISION BOARD](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing).**
+- How many INTERRUPTIONS did you count?
 
-## STUDENT PRESENTATIONS? {.smaller}
+- How did you OPERATIONALIZE an INTERRUPTION? What are some ways we could strengthen this OPERATIONALIZATION?
 
-# NEXT WEEK : Observations
+- Can you say OPERATIONALIZATION three times fast?
 
--   **I'm being observed!** Great if we can all show up on time :)
+## CLASS & DISCUSSION. {.smaller}
 
--   Read about observational data.
+- **Clap if you and your buddy got the exact same number.**
 
--   Read a specific coding scheme researchers use to
+- **This is an issue of...**
+
+  - *inter-rater reliability*
+  - *test-retest reliability*
+  - *convergent validity*
+  - *discriminant validity*
+  - *face validity*
+
+## DISCUSS : Behavioral Coding
+
+- SPAFF on the VISION BOARD
+
+  - Function of an Interruption
+
+  - Indicators of an Interruption
+
+  - Physical Cues of an Interruption
+
+  - Counter-Indicators of an Interruption
+
+## ACTIVITY : Consequences of Operationalization
+
+**SUBMIT AS PART OF DISCUSSION 6.** We counted the number of interruptions in a video before and after *operationalizing* an interruption. Look over the data from the class activity (see the lecture recording if you missed!) Explain how our operationalization task influenced the responses in terms of the *mean* and *standard deviation*, and how this relates to the concepts of reliability and validity.
 
 ## BYE.
 

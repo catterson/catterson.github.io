@@ -7,16 +7,31 @@ navbar: false
 
 ## Week 5 - Wednesday, February 25th
 
-### Class Goals (for Students and Professor)
+:::::: {.callout-tip collapse="true"}
+### Agenda and Announcements {.smaller}
+
+::::: columns
+::: {.column width="50%"}
+**Agenda :**
 
 1.  Review reading academic research, and applying terms of reliability and validity.
 2.  Use the language of R, statistics, and our human brains to understand data.
 3.  Professor not rushing; students all learning; we all enriched and nourished by knowledge of research methods.
+:::
+
+::: {.column width="50%"}
+**Announcements :**
+
+- **Office Hours Today.** After class in LC-105.
+- **Late Work on the Vision Board?** Talk to me after class.
+:::
+:::::
+::::::
 
 ### Class Slides
 
 ```{=html}
-<iframe class="slide-deck" src="/rm/slides/5_statsreview.html" width="100%" height="500px" title="" border="5px"></iframe>
+<iframe data-external="1" class="slide-deck" src="/rm/slides/5_statsreview.html" width="100%" height="500px" title="" border="5px"></iframe>
 ```
 
 ### Useful Links
@@ -24,30 +39,7 @@ navbar: false
 - [**Check-In : tinyurl.com/peeppeople**](https://docs.google.com/forms/d/e/1FAIpQLSe5DoHHaE-LL4iZ6hOFU0UQ93pBmB7rISijSPUFylGOwBOm4Q/viewform?usp=sf_link)
   - [**Article on fMRI for the check-in**](https://www.psychology.mcmaster.ca/bennett/psy710/readings/BennettDeadSalmon.pdf)
   - **REMINDER :** I chose this article in part because I don't understand everything. It is okay for you to not understand everything!
-- [**R Activity Document.**](https://www.dropbox.com/scl/fi/621rzjwfib5i2rnlpcl3w/RM_Class5_DescribingDataTutorial.qmd?rlkey=y3f6trqdql0q59vtdvmtactrx&dl=1)Wait to download this, please! Clicking the link will automatically download a file to your computer.
 - [**Class Page**](https://catterson.github.io/rm/RMDVC.html) + [**Vision Board**](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing)
-
-## Agenda and Announcements {.smaller}
-
-::::: columns
-::: {.column width="50%"}
-**Agenda :**
-
-- **25 Min :** Part 1 : Check-In Review (Reading research and reliability and validity in fMRI)
-- **50 Min :** Part 2 : Data Analysis in R
-- **5 Min :** Recap & Next Week (Whew.)
-:::
-
-::: {.column width="50%"}
-**Announcements :**
-
-- ***Next Week : On Measurement and Observations!***
-
-- ***Pausing Work on Dig Deeper :*** Will return to this in a few weeks (the compare/contrast essay) as a review. Gave Discussion 2 feedback on topic.
-
-- ***Office Hours in SSSC from 2:00 - 4:00.*** Supposedly a lot of high-school students coming at 3:00 PM to talk to me as a requirement for their enrollment in Psych C1000 today.
-:::
-:::::
 
 ### Due Next Week before Class
 
@@ -57,6 +49,26 @@ navbar: false
 
 ### Readings for Next Week (and Quiz 5)
 
-1.  
+1.  [**The McAdams Life Narrative Interview**](https://www.dropbox.com/s/n7s7jk3wutdeflx/McAdams_Narrative_Instructions.pdf?dl=0)**.** One of my favorite methods of assessment. It's rarely used in psychology, but I think demonstrates a very rich way of thinking about persons. The whole interview takes a few hours to conduct, and leaves you with zero numbers to analyze. You don't need to do the entire interview, but let us know if you do and how it goes \<3
+
+2.  **Quiz 5.** This quiz will be a little different, and has you complete two different personality surveys (on external websites) and save your feedback. Make sure to save your results (you do not need to submit any identifying information, and I would not give either website my e-mail or pay money.)
+
+3.  **OPTIONAL READINGS.** We will review some statistics terms in class next week - I won't really expect y'all to remember much - but might be good to do a quick conceptual refresh if it's been a while since you took a stats class.
+
+    1.  [**From the Textbook**](https://kpu.pressbooks.pub/psychmethods4e/chapter/analyzing-the-data/)**.** A quick overview of some of the descriptive and inferential statistics.
+
+    2.  [**A longer overview of descriptive statistics.**](https://catterson.github.io/ystats/chapters/3R_Description.html#centrality) A chapter from my stats class on measures of centrality and complexity. I would skip the videos on "the mean" and "standard deviation" unless you really want to do a deep dive.
+
+### Week 5 Discussion Questions.
+
+**YOUR POST :** Submit answers to the [Vision Board](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing) so we can more easily see this work together in class. You do not need to submit anything to the Canvas assignment; I'll use this to keep track of grading. Thanks!
+
+1.  **Submit your results to the two personality surveys for Quiz 5.** Then, reflect on your experience taking the surveys. Which personality survey do you think described you best (and why)? Which personality survey do you think is the most scientific (and why)? What questions (if any) do you have about these surveys?
+
+2.  **Reflect on the McAdams Life Narrative Task.** Who did you do the interview with (and why did you choose this person?) What was the experience like? Do you feel like a survey or observation or other method of measurement would be more valid? Why / why not?
+
+3.  **Share Your Chapters.** If you were to organize your life into chapters, what would those chapters be? (If you don't feel comfortable sharing your own life narrative, then think about the chapters for a character from a TV show or literature.)
+
+4.  **We Love Bread (REPLY TO ANOTHER STUDENT'S POST ON THE VISION BOARD FOR QUESTION 3).** Choose someone who you don't know at all. Like, you look at the name and are like "wut". Based on their life narrative, how would you rate their personality in terms of Extraversion (on a scale from 0 to 100)?
 
 ![](images/clipboard-2944693964.png){fig-align="center" width="364"}
