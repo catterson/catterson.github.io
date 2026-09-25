@@ -9,7 +9,7 @@ These data come from a study on measuring people's attitudes about conspiracy be
 
 *NOTE : the value 0 in the dataset was used to indicate that data were missing. You will need to convert 0s in the entire dataset to NA values.*
 
-### **Prepare a short (1-2 page!) report in Quarto that answers the following questions:** 
+### **Prepare a short (1-2 page!) report in Quarto that answers the following questions:**
 
 1.  **How do people differ in terms of their general beliefs about conspiracy theories?** Create a likert scale for the 15 conspiracy belief items, and report descriptive statistics for this variable.
 2.  **Are men different from women in their conspiracy beliefs?** Define a linear model to predict your conspiracy beliefs scale from the variable gender. Note that gender was measured as a categorical variable, so will need to be converted from numeric.

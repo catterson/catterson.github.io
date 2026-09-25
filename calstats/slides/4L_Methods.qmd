@@ -11,30 +11,55 @@ format:
 tbl-colwidths: [75,25]
 ---
 
-## [Check-In : Review Time!](https://forms.gle/a4c5quZMgwwyY8Bc8)
+## [Check-In : Review Time!](https://forms.gle/a4c5quZMgwwyY8Bc8){.smaller}
+
+```{r}
+#| include: false
+d <- read.csv("~/Dropbox/!WHY STATS/0_Shared Folders/101 - Class Datasets/Mini Data/mini_cal_data.csv", stringsAsFactors = T)
+d$hrs.sleep[d$hrs.sleep > 24 | d$hrs.sleep < 0] <- NA
+nrow(d)
+```
 
 ::::: columns
-::: {.column width="50%"}
--   Use the MINI dataset.
--   Name it d to follow along with professor code.
+::: {.column width="70%"}
+
+```{r}
+#| echo: true
+hist(d$hrs.sleep, xlab = "Hours of Sleep", main = "")
+round(mean(d$hrs.sleep, na.rm = T), 0)
+round(sd(d$hrs.sleep, na.rm = T), 1)
+min(d$hrs.sleep,na.rm = T)
+```
+
 :::
 
-::: {.column width="50%"}
-![](images/clipboard-310752360.png){fig-align="center"}
+::: {.column width="30%"}
+
+-   What is the shape, mean, and sd of this distribution?
+-   What do these statistics tell you about the people in our class?
+-   Is the minimum value an outlier? Why / why not?
+
 :::
 :::::
 
-## Check-In Review
+## Lab 4. Graphing Sleep and Height With Professor{.smaller}
 
-::: r-fit-text
-Follow along with professor's R Script for this week.
+1.  Choose two numeric variables from the dataset. Graph each variable side-by-side using the par() function. Change the arguments to make the graphs look nice, and remove any outliers.
+2.  Report the descriptive statistics for each variable. Then, explain what each variable tells you about the individuals in the dataset.
+3.  Report the minimum and maximum value in the dataset as a z-score.
+4.  Describe what additional questions you have about each variable.
 
-1.  **The R Stuff :** graphs, descriptive statistics (standard deviation), and outliers.
-2.  **The Brain Stuff :** "normal" distributions.
-3.  **Questions, Concerns, Comments?** What feels hard or confusing? A moment of pause.
-:::
+## Lab 4. Graphing Numeric Variables Without Professor{.smaller}
 
-## Quarto : Why are we learning this?
+Work with a buddy.
+
+1.  Choose two numeric variables from the dataset. Graph each variable side-by-side using the par() function. Change the arguments to make the graphs look nice, and remove any outliers.
+2.  Report the descriptive statistics for each variable. Then, explain what each variable tells you about the individuals in the dataset.
+3.  Report the minimum and maximum value in the dataset as a z-score.
+4.  Describe what additional questions you have about each variable.
+
+
+## IF TIME : Quarto : Why are we learning this?
 
 -   An authentic skill (professor uses)
 
@@ -51,39 +76,10 @@ Follow along with professor's R Script for this week.
 ![](images/clipboard-2196759662.png)
 :::
 
-## BREAK TIME.
 
-## RECAP : Reliability and Validity
+## [BREAK TIME Check-In](https://docs.google.com/forms/d/e/1FAIpQLSdl3nqWlDUGVV9ytbhhvF2_C5JWTA7r0Rjn31ltquuv5hDAaw/viewform?usp=sf_link)
 
-### **Relevance to Real-Life.**
-
-::: r-fit-text
-How would you evaluate the reliability and validity of the STEP COUNTER on your phone???
-
-|  |  |
-|----|----|
-| **Term** | **Way of Testing** |
-| **face :** does our measure or result look like what it should look like? |  |
-| **convergent :** is our measure similar to related concepts? |  |
-| **discriminant :** is our measure different from unrelated concepts? |  |
-| **test-retest :** do we get the same result if we take multiple measures? |  |
-| **interrater reliability :** would another observer make the same measurements? |  |
-| **inter-item reliability :** would one item in the likert scale be related to others? |  |
-:::
-
-### Relevance to Psychological Science
-
-#### Reliability in Neuroscience {.smaller}
-
-![Brandt, D. J., Sommer, J., Krach, S., Bedenbender, J., Kircher, T., Paulus, F. M., & Jansen, A. (2013). Test-retest reliability of fMRI brain activity during memory encoding. Frontiers in psychiatry, 4, 163. [Link to Full Article](https://www.frontiersin.org/articles/10.3389/fpsyt.2013.00163/full)](lecture_images/5L_fmrireliabilityscan.png)
-
-### Relevance to Psychological Science
-
-#### Validity in Neuroscience {.smaller}
-
-![Bennett, C. M., Miller, M. B., & Wolford, G. L. (2009). Neural correlates of interspecies perspective taking in the post-mortem Atlantic Salmon: an argument for multiple comparisons correction. Neuroimage, 47(Suppl 1), S125. [Link to Full Article](http://prefrontal.org/files/posters/Bennett-Salmon-2009.pdf)](lecture_images/5L_fishfmri.png)
-
-## Final Project Time.
+# Final Project Time.
 
 ### Find a sheet of paper and pencil; draw this cube as precisely as possible.
 
@@ -160,7 +156,3 @@ In a study of 45 female college students, a sweaty shirt was rated as more disgu
 ## THE END.
 
 ![](images/clipboard-1613162713.png)
-
-## 
-
-## [Check-Out](https://docs.google.com/forms/d/e/1FAIpQLSdl3nqWlDUGVV9ytbhhvF2_C5JWTA7r0Rjn31ltquuv5hDAaw/viewform?usp=sf_link)
