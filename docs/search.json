@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "COMPSS212/slides/4_MRBoot.html#activity-professor-and-student-practice.",
+    "href": "COMPSS212/slides/4_MRBoot.html#activity-professor-and-student-practice.",
+    "title": "",
+    "section": "ACTIVITY : Professor (and Student) Practice.",
+    "text": "ACTIVITY : Professor (and Student) Practice.\n\nChoose a DV from the hormone dataset.\nIdentify two IVs that you think might predict or explain this variable. Which one do you think will be a better predictor of the DV?\nDo the data cleaning and statistics (linear models) needed to answer this question.\n\n\nPREDICT : define the multivariate model. What do you see, and why do this pattern exist?\nERROR : evaluate the slopes (\\(r\\) or \\(\\beta\\)) and the change in error (\\(R^2\\)) across models.\nCONTROL : how might you use this knowledge?"
+  },
+  {
+    "objectID": "COMPSS212/slides/4_MRBoot.html#lab-4-preview",
+    "href": "COMPSS212/slides/4_MRBoot.html#lab-4-preview",
+    "title": "",
+    "section": "Lab 4 Preview :",
+    "text": "Lab 4 Preview :\nWhat is the DV? What is the IV? What are some other variables you might want to include as control variables?"
+  },
+  {
+    "objectID": "COMPSS212/slides/4_MRBoot.html#part-2-bootstrap-review",
+    "href": "COMPSS212/slides/4_MRBoot.html#part-2-bootstrap-review",
+    "title": "",
+    "section": "PART 2 : Bootstrap Review",
+    "text": "PART 2 : Bootstrap Review"
+  },
+  {
+    "objectID": "COMPSS212/Week4.html",
+    "href": "COMPSS212/Week4.html",
+    "title": "Week 4 - Monday, September 28th",
+    "section": "",
+    "text": "Week 4 - Monday, September 28th\n\n\n\n\n\n\nNoteAnnouncements and Agenda\n\n\n\n\n\nAnnouncements\n\nLab 2 Key Posted.\nSome changes to this course (based on your exit survey feedback; thanks!!!)\n\nno coding for check-ins : professor code will save in real-time.\nreadings : will introduce topics; offer for students wanting to go deeper.\nwe wanna learn a ton : review of “basics” –&gt; new material.\nthe program is a lot : we have this 1 year…can continue to voice some of the ideas and comments you have; please continue let me know what feels helpful (or not) in this class.\n\n\nAgenda\n\n10:10 - 11:00. Check-In (no R) & Multivariate Models\n11:00 - 11:10 : BREAK TIME\n11:10 - 12:00 : Sampling Error with Bootstrapping (Whew)\n\n\n\n\n\nClass Slides and Materials\n\n\nCheck-In (no R!) : 2 Models : Please use the regression output to answer these questions. No R required; just interpretation.\n\nDataset of the Week : The “Hormone” Dataset\nVISION BOARD.\n\nProfessor Notes. My R scripts and other notes, saved in real-time.\n\n\n\n\nFor Next Week.\n\nComplete Lab 4.\n\n\nSupport Materials\n\nMore on Multiple Regression\n\nWhy Statistics? Chapter 10 - Multiple Regression.A chapter that goes into how to interpret and conduct multiple regression, with some additional examples and videos.\n\n\n\nAdditional Readings : For students who want to learn more!\n\nThe Difference Between “Significant” and “Not Significant” is not Itself Statistically Significant\nA conceptual review of mediation, and tour through the ‘mediation’ package.\nPreacher KJ, Hayes AF. Asymptotic and resampling strategies for assessing and comparing indirect effects in multiple mediator models. Behav Res Methods. 2008;40(3):879-891. doi:10.3758/BRM.40.3.879\nA nice and recent summary of why caution is needed for mediation analysis."
+  }
+]
