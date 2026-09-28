@@ -199,9 +199,9 @@ export_summs(mod1, mod2, mod3, error_format = "",  error_pos = "right", digits =
 
 #### Labeling Changes {.smaller}
 
-1.  "Independent" Effect. The slope of the IV does not change when other variables are added to the model.
-2.  "Suppression" Effect. The slope of the IV gets stronger (in either direction) when other variables are added to the model.
-3.  "Mediation" Effect. The slope of the IV gets closer to zero when other variables are added to the model. *Careful : "mediation" often implies some causal relationship, and it is very hard (/impossible?) to estimate causal relationships without experimental methods. Some links below that go deeper into this.*
+1.  **"Independent" Effect.** The slope of the IV does not change when other variables are added to the model.
+2.  **"Suppression" Effect.** The slope of the IV gets stronger (in either direction) when other variables are added to the model.
+3.  "**Mediation" Effect.** The slope of the IV gets closer to zero when other variables are added to the model. *Careful : "mediation" often implies some causal relationship, and it is very hard (/impossible?) to estimate causal relationships without experimental methods. Some links in the weekly readings that go deeper into this.*
 ::::::::::::
 
 ## ACTIVITY : Professor (and Student) Practice. {.smaller}
@@ -210,9 +210,9 @@ export_summs(mod1, mod2, mod3, error_format = "",  error_pos = "right", digits =
 2.  Identify two IVs that you think might predict or explain this variable. Which one do you think will be a better predictor of the DV?
 3.  Do the data cleaning and statistics (linear models) needed to answer this question.
 
-- PREDICT : define the multivariate model. What do you see, and why do this pattern exist?
-- ERROR : evaluate the slopes ($r$ or $\beta$) and the change in error ($R^2$) across models.
-- CONTROL : how might you use this knowledge?
+  - PREDICT : define the multivariate model. What do you see, and why do this pattern exist?
+  - ERROR : evaluate the slopes ($r$ or $\beta$) and the change in error ($R^2$) across models.
+  - CONTROL : how might you use this knowledge?
 
 ## Lab 4 Preview :
 
@@ -223,6 +223,10 @@ What is the DV? What is the IV? What are some other variables you might want to 
 ## PART 2 : Bootstrap Review
 
 ### The Code : a for-loop
+
+1.  Questions about the code?
+2.  What part of this code would you want to adapt to : estimate sampling error of the mean? estimate sampling error in $R^2$
+3.  What are some other ways you could use a for-loop?
 
 ```{r}
 #| eval: false
@@ -235,3 +239,4 @@ for(i in c(1:1000)){ # repeating steps 1000 times & keeping track with i
   extrabucket[i] <- modX[2] # saving the slope (second term of the model)
 }
 ```
+
