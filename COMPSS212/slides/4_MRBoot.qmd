@@ -1,10 +1,11 @@
 ---
 title: ""
-format: 
-  revealjs: 
+format:
+  html: default
+  revealjs:
+    output-file: "4_MRBoot_slides.html"
     slide-level: 3
-    link-external-newwindow: true
-    chalkboard: true
+    embed-resources: true
     controls: true
     auto-stretch: false
     code-overflow: wrap
