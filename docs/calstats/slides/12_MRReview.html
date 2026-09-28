@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <title>mrreview</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,10 +19,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -245,18 +248,18 @@
 </div>
 <div id="tabset-1-2">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="do">## Data Cleaning</span></span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(gplots)</span>
-<span id="cb1-3"><a></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/PREVIOUSLY/101 - class data - FA26/mini_DATA.csv"</span>, <span class="at">stringsAsFactors =</span> T)</span>
-<span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a>d<span class="sc">$</span>height[d<span class="sc">$</span>height <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">|</span> d<span class="sc">$</span>height <span class="sc">&gt;</span> <span class="dv">100</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb1-6"><a></a><span class="fu">levels</span>(d<span class="sc">$</span>is.female)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb1-7"><a></a><span class="fu">levels</span>(d<span class="sc">$</span>long.hair)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb1-8"><a></a></span>
-<span id="cb1-9"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
-<span id="cb1-10"><a></a><span class="fu">hist</span>(d<span class="sc">$</span>height)</span>
-<span id="cb1-11"><a></a><span class="fu">plot</span>(d<span class="sc">$</span>is.female, <span class="at">xlab =</span> <span class="st">"Is Female?"</span>)</span>
-<span id="cb1-12"><a></a><span class="fu">plot</span>(d<span class="sc">$</span>long.hair, <span class="at">xlab =</span> <span class="st">"Has Long Hair?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="do">## Data Cleaning</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="fu">library</span>(gplots)</span>
+<span id="cb1-3"><a aria-label="3"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/PREVIOUSLY/101 - class data - FA26/mini_DATA.csv"</span>, <span class="at">stringsAsFactors =</span> T)</span>
+<span id="cb1-4"><a aria-label="4"></a></span>
+<span id="cb1-5"><a aria-label="5"></a>d<span class="sc">$</span>height[d<span class="sc">$</span>height <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">|</span> d<span class="sc">$</span>height <span class="sc">&gt;</span> <span class="dv">100</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb1-6"><a aria-label="6"></a><span class="fu">levels</span>(d<span class="sc">$</span>is.female)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb1-7"><a aria-label="7"></a><span class="fu">levels</span>(d<span class="sc">$</span>long.hair)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb1-8"><a aria-label="8"></a></span>
+<span id="cb1-9"><a aria-label="9"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
+<span id="cb1-10"><a aria-label="10"></a><span class="fu">hist</span>(d<span class="sc">$</span>height)</span>
+<span id="cb1-11"><a aria-label="11"></a><span class="fu">plot</span>(d<span class="sc">$</span>is.female, <span class="at">xlab =</span> <span class="st">"Is Female?"</span>)</span>
+<span id="cb1-12"><a aria-label="12"></a><span class="fu">plot</span>(d<span class="sc">$</span>long.hair, <span class="at">xlab =</span> <span class="st">"Has Long Hair?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -386,54 +389,54 @@ F-statistic: 20.06 on 2 and 100 DF,  p-value: 4.725e-08</code></pre>
 <h3>Multiple Regression : Visualized in Multi-Dimensional Space!</h3>
 <p>The code below may not work on your computer; see lecture recording for an interpretation / explanation!</p>
 <p><strong>NOTE : I used AI (Gemini) to generate the code for this graph! Here was my prompt :</strong> “make an interactive 3d plot in R from the dataset d using the numeric outcome variable named height and two categorical predictor variables named long.hair and is.female. Generate a plane from the linear model to fill this 3D plot.”</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a></span>
-<span id="cb5-2"><a></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets/Mini Data/mini_DATA.csv"</span>, <span class="at">stringsAsFactors =</span> T)</span>
-<span id="cb5-3"><a></a><span class="fu">library</span>(plotly) <span class="co"># you will need to install this.</span></span>
-<span id="cb5-4"><a></a>d<span class="sc">$</span>height[d<span class="sc">$</span>height <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">|</span> d<span class="sc">$</span>height <span class="sc">&gt;</span> <span class="dv">100</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb5-5"><a></a><span class="fu">levels</span>(d<span class="sc">$</span>is.female)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb5-6"><a></a><span class="fu">levels</span>(d<span class="sc">$</span>long.hair)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb5-7"><a></a></span>
-<span id="cb5-8"><a></a><span class="co"># PROF used AI (gemini) to generate this code.</span></span>
-<span id="cb5-9"><a></a><span class="do">##### I used to use the function scatter3d from the "car" library </span></span>
-<span id="cb5-10"><a></a><span class="do">##### ....but it stopped working.</span></span>
-<span id="cb5-11"><a></a></span>
-<span id="cb5-12"><a></a><span class="co"># Create the interactive 3D scatter plot</span></span>
-<span id="cb5-13"><a></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(height <span class="sc">~</span> long.hair <span class="sc">+</span> is.female, <span class="at">data =</span> d)</span>
-<span id="cb5-14"><a></a><span class="fu">plot_ly</span>(<span class="at">data =</span> d, </span>
-<span id="cb5-15"><a></a>        <span class="at">x =</span> <span class="sc">~</span>long.hair, </span>
-<span id="cb5-16"><a></a>        <span class="at">y =</span> <span class="sc">~</span>is.female, </span>
-<span id="cb5-17"><a></a>        <span class="at">z =</span> <span class="sc">~</span>height, </span>
-<span id="cb5-18"><a></a>        <span class="at">type =</span> <span class="st">"scatter3d"</span>, </span>
-<span id="cb5-19"><a></a>        <span class="at">mode =</span> <span class="st">"markers"</span>,</span>
-<span id="cb5-20"><a></a>        <span class="at">marker =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">5</span>, <span class="at">opacity =</span> <span class="fl">0.8</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb5-21"><a></a>  <span class="fu">layout</span>(<span class="at">scene =</span> <span class="fu">list</span>(<span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Hair Length'</span>),</span>
-<span id="cb5-22"><a></a>                      <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Is Female'</span>),</span>
-<span id="cb5-23"><a></a>                      <span class="at">zaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Height'</span>)))</span>
-<span id="cb5-24"><a></a></span>
-<span id="cb5-25"><a></a>hair_levels <span class="ot">&lt;-</span> <span class="fu">levels</span>(d<span class="sc">$</span>long.hair)</span>
-<span id="cb5-26"><a></a><span class="fu">levels</span>(hair_levels)</span>
-<span id="cb5-27"><a></a>gender_levels <span class="ot">&lt;-</span> <span class="fu">levels</span>(d<span class="sc">$</span>is.female)</span>
-<span id="cb5-28"><a></a></span>
-<span id="cb5-29"><a></a><span class="co"># Create a grid for all combinations</span></span>
-<span id="cb5-30"><a></a>grid <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">long.hair =</span> hair_levels, </span>
-<span id="cb5-31"><a></a>                    <span class="at">is.female =</span> gender_levels)</span>
-<span id="cb5-32"><a></a></span>
-<span id="cb5-33"><a></a><span class="co"># 3. Predict height across the grid and format as a matrix</span></span>
-<span id="cb5-34"><a></a>z_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">predict</span>(model, <span class="at">newdata =</span> grid), </span>
-<span id="cb5-35"><a></a>                   <span class="at">nrow =</span> <span class="fu">length</span>(hair_levels), </span>
-<span id="cb5-36"><a></a>                   <span class="at">ncol =</span> <span class="fu">length</span>(gender_levels))</span>
-<span id="cb5-37"><a></a></span>
-<span id="cb5-38"><a></a><span class="co"># 4. Create the plot</span></span>
-<span id="cb5-39"><a></a><span class="fu">plot_ly</span>(d, <span class="at">x =</span> <span class="sc">~</span>long.hair, <span class="at">y =</span> <span class="sc">~</span>is.female, <span class="at">z =</span> <span class="sc">~</span>height) <span class="sc">%&gt;%</span></span>
-<span id="cb5-40"><a></a>  <span class="fu">add_markers</span>(<span class="at">marker =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">opacity =</span> <span class="fl">0.6</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb5-41"><a></a>  <span class="fu">add_surface</span>(<span class="at">x =</span> hair_levels, </span>
-<span id="cb5-42"><a></a>              <span class="at">y =</span> gender_levels, </span>
-<span id="cb5-43"><a></a>              <span class="at">z =</span> <span class="fu">t</span>(z_matrix), <span class="co"># Transpose to align with axes</span></span>
-<span id="cb5-44"><a></a>              <span class="at">opacity =</span> <span class="fl">0.7</span>, </span>
-<span id="cb5-45"><a></a>              <span class="at">showscale =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb5-46"><a></a>  <span class="fu">layout</span>(<span class="at">scene =</span> <span class="fu">list</span>(<span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Hair Length'</span>),</span>
-<span id="cb5-47"><a></a>                      <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Is Female'</span>),</span>
-<span id="cb5-48"><a></a>                      <span class="at">zaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Height'</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a></span>
+<span id="cb5-2"><a aria-label="2"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets/Mini Data/mini_DATA.csv"</span>, <span class="at">stringsAsFactors =</span> T)</span>
+<span id="cb5-3"><a aria-label="3"></a><span class="fu">library</span>(plotly) <span class="co"># you will need to install this.</span></span>
+<span id="cb5-4"><a aria-label="4"></a>d<span class="sc">$</span>height[d<span class="sc">$</span>height <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">|</span> d<span class="sc">$</span>height <span class="sc">&gt;</span> <span class="dv">100</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb5-5"><a aria-label="5"></a><span class="fu">levels</span>(d<span class="sc">$</span>is.female)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb5-6"><a aria-label="6"></a><span class="fu">levels</span>(d<span class="sc">$</span>long.hair)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb5-7"><a aria-label="7"></a></span>
+<span id="cb5-8"><a aria-label="8"></a><span class="co"># PROF used AI (gemini) to generate this code.</span></span>
+<span id="cb5-9"><a aria-label="9"></a><span class="do">##### I used to use the function scatter3d from the "car" library </span></span>
+<span id="cb5-10"><a aria-label="10"></a><span class="do">##### ....but it stopped working.</span></span>
+<span id="cb5-11"><a aria-label="11"></a></span>
+<span id="cb5-12"><a aria-label="12"></a><span class="co"># Create the interactive 3D scatter plot</span></span>
+<span id="cb5-13"><a aria-label="13"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(height <span class="sc">~</span> long.hair <span class="sc">+</span> is.female, <span class="at">data =</span> d)</span>
+<span id="cb5-14"><a aria-label="14"></a><span class="fu">plot_ly</span>(<span class="at">data =</span> d, </span>
+<span id="cb5-15"><a aria-label="15"></a>        <span class="at">x =</span> <span class="sc">~</span>long.hair, </span>
+<span id="cb5-16"><a aria-label="16"></a>        <span class="at">y =</span> <span class="sc">~</span>is.female, </span>
+<span id="cb5-17"><a aria-label="17"></a>        <span class="at">z =</span> <span class="sc">~</span>height, </span>
+<span id="cb5-18"><a aria-label="18"></a>        <span class="at">type =</span> <span class="st">"scatter3d"</span>, </span>
+<span id="cb5-19"><a aria-label="19"></a>        <span class="at">mode =</span> <span class="st">"markers"</span>,</span>
+<span id="cb5-20"><a aria-label="20"></a>        <span class="at">marker =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">5</span>, <span class="at">opacity =</span> <span class="fl">0.8</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-21"><a aria-label="21"></a>  <span class="fu">layout</span>(<span class="at">scene =</span> <span class="fu">list</span>(<span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Hair Length'</span>),</span>
+<span id="cb5-22"><a aria-label="22"></a>                      <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Is Female'</span>),</span>
+<span id="cb5-23"><a aria-label="23"></a>                      <span class="at">zaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Height'</span>)))</span>
+<span id="cb5-24"><a aria-label="24"></a></span>
+<span id="cb5-25"><a aria-label="25"></a>hair_levels <span class="ot">&lt;-</span> <span class="fu">levels</span>(d<span class="sc">$</span>long.hair)</span>
+<span id="cb5-26"><a aria-label="26"></a><span class="fu">levels</span>(hair_levels)</span>
+<span id="cb5-27"><a aria-label="27"></a>gender_levels <span class="ot">&lt;-</span> <span class="fu">levels</span>(d<span class="sc">$</span>is.female)</span>
+<span id="cb5-28"><a aria-label="28"></a></span>
+<span id="cb5-29"><a aria-label="29"></a><span class="co"># Create a grid for all combinations</span></span>
+<span id="cb5-30"><a aria-label="30"></a>grid <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">long.hair =</span> hair_levels, </span>
+<span id="cb5-31"><a aria-label="31"></a>                    <span class="at">is.female =</span> gender_levels)</span>
+<span id="cb5-32"><a aria-label="32"></a></span>
+<span id="cb5-33"><a aria-label="33"></a><span class="co"># 3. Predict height across the grid and format as a matrix</span></span>
+<span id="cb5-34"><a aria-label="34"></a>z_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">predict</span>(model, <span class="at">newdata =</span> grid), </span>
+<span id="cb5-35"><a aria-label="35"></a>                   <span class="at">nrow =</span> <span class="fu">length</span>(hair_levels), </span>
+<span id="cb5-36"><a aria-label="36"></a>                   <span class="at">ncol =</span> <span class="fu">length</span>(gender_levels))</span>
+<span id="cb5-37"><a aria-label="37"></a></span>
+<span id="cb5-38"><a aria-label="38"></a><span class="co"># 4. Create the plot</span></span>
+<span id="cb5-39"><a aria-label="39"></a><span class="fu">plot_ly</span>(d, <span class="at">x =</span> <span class="sc">~</span>long.hair, <span class="at">y =</span> <span class="sc">~</span>is.female, <span class="at">z =</span> <span class="sc">~</span>height) <span class="sc">%&gt;%</span></span>
+<span id="cb5-40"><a aria-label="40"></a>  <span class="fu">add_markers</span>(<span class="at">marker =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">opacity =</span> <span class="fl">0.6</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-41"><a aria-label="41"></a>  <span class="fu">add_surface</span>(<span class="at">x =</span> hair_levels, </span>
+<span id="cb5-42"><a aria-label="42"></a>              <span class="at">y =</span> gender_levels, </span>
+<span id="cb5-43"><a aria-label="43"></a>              <span class="at">z =</span> <span class="fu">t</span>(z_matrix), <span class="co"># Transpose to align with axes</span></span>
+<span id="cb5-44"><a aria-label="44"></a>              <span class="at">opacity =</span> <span class="fl">0.7</span>, </span>
+<span id="cb5-45"><a aria-label="45"></a>              <span class="at">showscale =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-46"><a aria-label="46"></a>  <span class="fu">layout</span>(<span class="at">scene =</span> <span class="fu">list</span>(<span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Hair Length'</span>),</span>
+<span id="cb5-47"><a aria-label="47"></a>                      <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Is Female'</span>),</span>
+<span id="cb5-48"><a aria-label="48"></a>                      <span class="at">zaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Height'</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="reporting-effects-in-a-regression-table." class="slide level3">
 <h3>Reporting Effects in a Regression Table.</h3>
@@ -506,11 +509,11 @@ F-statistic: 20.06 on 2 and 100 DF,  p-value: 4.725e-08</code></pre>
 </div>
 </div>
 <div id="tabset-2-2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">install.packages</span>(<span class="st">"jtools"</span>) <span class="co"># a new package!!!</span></span>
-<span id="cb6-2"><a></a><span class="fu">library</span>(jtools) <span class="co"># make sure you installed the new package first.</span></span>
-<span id="cb6-3"><a></a><span class="fu">export_summs</span>(moda, modb, modc,</span>
-<span id="cb6-4"><a></a>             <span class="at">coefs =</span> <span class="fu">c</span>(<span class="st">"Long Hair (0 = No, 1 = Yes)"</span> <span class="ot">=</span> <span class="st">"long.hairYes"</span>,</span>
-<span id="cb6-5"><a></a>                       <span class="st">"Is Female (0 = No, 1 = Yes)"</span> <span class="ot">=</span> <span class="st">"is.femaleYes"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">install.packages</span>(<span class="st">"jtools"</span>) <span class="co"># a new package!!!</span></span>
+<span id="cb6-2"><a aria-label="2"></a><span class="fu">library</span>(jtools) <span class="co"># make sure you installed the new package first.</span></span>
+<span id="cb6-3"><a aria-label="3"></a><span class="fu">export_summs</span>(moda, modb, modc,</span>
+<span id="cb6-4"><a aria-label="4"></a>             <span class="at">coefs =</span> <span class="fu">c</span>(<span class="st">"Long Hair (0 = No, 1 = Yes)"</span> <span class="ot">=</span> <span class="st">"long.hairYes"</span>,</span>
+<span id="cb6-5"><a aria-label="5"></a>                       <span class="st">"Is Female (0 = No, 1 = Yes)"</span> <span class="ot">=</span> <span class="st">"is.femaleYes"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>

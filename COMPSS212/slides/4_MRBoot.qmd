@@ -19,7 +19,7 @@ library(jtools)
 library(psych)
 library(gplots)
 library(ggplot2)
-d <- read.csv("~/Dropbox/!GRADSTATS/COMPSS212/Datasets/Hormone Data/haas_hormone_dataset.csv", stringsAsFactors = T)
+d <- read.csv("https://www.dropbox.com/scl/fi/97h771dt55vum5lhpf9ng/haas_hormone_dataset.csv?rlkey=sc5rvwdmtjn5inuqm1xok5bwd&dl=1", stringsAsFactors = T)
 
 d$age[d$age < 0] <- NA
 d$sexF <- as.factor(d$sex)
