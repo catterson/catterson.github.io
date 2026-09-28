@@ -1,0 +1,14 @@
+---
+title: "Lab 4"
+format: html
+---
+
+[**Link to Dataset, Codebook and Research Article.**](https://www.dropbox.com/scl/fo/ow5smdip9vcixduovvex8/AK6_G0bs7_nLzIYKSeaVg4s?rlkey=ez1ar41ioh54j0crbsfgtjhpb&dl=0) These data come from a published study on how dehumanizing language influences political beliefs. The author wanted to test "how the dehumanization of immigrants influences immigration policy attitudes".
+
+To do this, they conducted an experiment, in which participants read either a dehumanizing or non-dehumanizing political speech about immigrants (**variable = dh_treat**) and then measured participants attitudes about three separate immigration questions (**variables = imm1, imm2, imm3**).
+
+1.  **Without looking at the results of the original paper, define a linear model (based on the variables measured) to test the author's research question.** Make sure you consider relevant control and / or confound variables to include, and explain why these are needed. Then, define and interpret this linear model. Was dehumanizing political speech related to immigration policy attitudes? Report your results with a summary regression table. Please share a screenshot of your summary regression table to the Vision Board; no peeking - it's okay if this is not "perfect", we just want to see what you come up with on your own!
+
+2.  **IN THE VISION BOARD : skim the method section of the research paper for this week's lab assignment (in the dataset folder).** Do you feel like this was a valid way to answer the question? Why / why not? What other questions do you have? *(Note : I think there's a lot to unpack about this paper! We will do so next week.)*
+
+3.  [**After you complete question 1, look at Table 1 from the original paper.**](https://www.dropbox.com/scl/fi/c26fhjow3h2a7a8lxncfc/utych-2017-how-dehumanization-influences-attitudes-toward-immigrants.pdf?rlkey=6g0t7f3whpnpc0n4oqd9s7k4o&dl=0) How did the researcher's linear models differ from your own? See if you can recreate the author's results using the variables in the dataset (feel free to just focus on one model). *Don't spend more than 20-30 minutes on this; you likely will not be able to recreate what the author did. We will discuss this next week.*

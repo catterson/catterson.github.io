@@ -1,0 +1,238 @@
+---
+title: ""
+format: 
+#  html:
+  revealjs: 
+    slide-level: 3
+    link-external-newwindow: true
+    chalkboard: true
+    controls: true
+    auto-stretch: false
+    code-overflow: wrap
+tbl-colwidths: [70,25]
+---
+
+```{r}
+#| include: false
+
+## Hormone Dataset
+library(jtools)
+library(psych)
+library(gplots)
+library(ggplot2)
+d <- read.csv("~/Dropbox/!GRADSTATS/COMPSS212/Datasets/Hormone Data/haas_hormone_dataset.csv", stringsAsFactors = T)
+
+d$age[d$age < 0] <- NA
+d$sexF <- as.factor(d$sex)
+levels(d$sexF) <- c("Male", "Female")
+d$sexF <- relevel(d$sexF, ref = "Female")
+plot(d$sexF)
+summary(d$sexF)
+```
+
+### [Check-In (No R Needed)](https://forms.gle/gaKpikRoyqANKQDr9){.smaller}
+
+**(Click through the tabs to see the linear models.)**
+
+::::::::: panel-tabset
+#### Dataset
+
+These data come from a study of Haas business students; we'll focus on the following variables.
+
+- **narc_scale :** a likert scale measure of narcissism - how self-interested the person is (higher scores = the person was higher in narcissism)
+- **sex :** the person's biological sex, measured as a categorical variable with two levels (M = Male; F = Female)
+- **test_mean :** the person's average of two separate testosterone samples.
+
+#### M1. {.smaller}
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-height: 5
+#| fig-width: 5
+
+mod1 <- lm(narc_scale ~ sexF, data = d)
+plotmeans(narc_scale ~ sexF, data = d, connect = F, xlab = "Sex", ylab = "Narcissism (Scale)")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+export_summs(mod1, error_pos = "right",
+             coefs = c("Intercept" = "(Intercept)",
+                       "Sex (Male)" = "sexFMale"), digits = 3)
+```
+:::
+:::::
+
+#### M1 (b). {.smaller}
+
+```{r}
+#| fig-height: 5
+#| fig-width: 5
+par(mfrow = c(2,2))
+plot(mod1)
+```
+
+#### M2. {.smaller}
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-height: 5
+#| fig-width: 5
+
+
+mod2 <- lm(narc_scale ~ test_mean, data = d)
+plot(narc_scale ~ test_mean, data = d, xlab = "Testosterone", ylab = "Narcissism (Scale)")
+abline(mod2, lwd = 5, col = 'red')
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+export_summs(mod2, error_pos = "right",
+             coefs = c("Intercept" = "(Intercept)",
+                       "Testosterone" = "test_mean"), digits = 3)
+```
+:::
+:::::
+
+#### M2 (b) {.smaller}
+
+```{r}
+#| fig-height: 5
+#| fig-width: 5
+par(mfrow = c(2,2))
+plot(mod2)
+```
+:::::::::
+
+# PART 1 : When Models Get Complicated
+
+### Multiple Regression {.smaller}
+
+:::::::::::: panel-tabset
+#### Model 1. {.smaller}
+
+Sex is related to narcissism.
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-height: 5
+#| fig-width: 5
+
+mod1 <- lm(narc_scale ~ sexF, data = d)
+plotmeans(narc_scale ~ sexF, data = d, connect = F, xlab = "Sex", ylab = "Narcissism (Scale)")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+export_summs(mod1, error_format = "", error_pos = "right",
+             coefs = c("Intercept" = "(Intercept)",
+                       "Sex (Male)" = "sexFMale"), digits = 3)
+```
+:::
+:::::
+
+#### Model 2.
+
+Testosterone is related to narcissism...
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-height: 5
+#| fig-width: 5
+mod2 <- lm(narc_scale ~ test_mean, data = d)
+plot(narc_scale ~ test1, data = d, xlab = "Testosterone", ylab = "Narcissism (Scale)")
+abline(mod2, lwd = 5, col = 'red')
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+export_summs(mod2, error_format = "", error_pos = "right",
+             coefs = c("Intercept" = "(Intercept)",
+                       "Testosterone" = "test_mean"), digits = 3)
+```
+:::
+:::::
+
+#### IV1 \~ IV2
+
+but if testosterone is related to sex...
+
+::::: columns
+::: {.column width="60%"}
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+#| fig-height: 5
+#| fig-width: 5
+
+modx <- lm(test_mean ~ sexF, data = d)
+plotmeans(test_mean ~ sexF, data = d, connect = F)
+
+```
+:::
+
+::: {.column width="40%"}
+```{r}
+export_summs(modx, error_format = "", error_pos = "right")
+```
+:::
+:::::
+
+#### Model 3.
+
+**How are they uniquely related?**
+
+```{r}
+mod3 <- lm(narc_scale ~ sexF + test_mean, data = d)
+export_summs(mod1, mod2, mod3, error_format = "",  error_pos = "right", digits = 3,
+             coefs = c("Testosterone" = "test_mean",
+                       "Sex (Male)" = "sexFMale"))
+```
+
+#### Labeling Changes {.smaller}
+
+1.  "Independent" Effect. The slope of the IV does not change when other variables are added to the model.
+2.  "Suppression" Effect. The slope of the IV gets stronger (in either direction) when other variables are added to the model.
+3.  "Mediation" Effect. The slope of the IV gets closer to zero when other variables are added to the model. *Careful : "mediation" often implies some causal relationship, and it is very hard (/impossible?) to estimate causal relationships without experimental methods. Some links below that go deeper into this.*
+::::::::::::
+
+## ACTIVITY : Professor (and Student) Practice. {.smaller}
+
+1.  Choose a DV from the hormone dataset.
+2.  Identify two IVs that you think might predict or explain this variable. Which one do you think will be a better predictor of the DV?
+3.  Do the data cleaning and statistics (linear models) needed to answer this question.
+
+- PREDICT : define the multivariate model. What do you see, and why do this pattern exist?
+- ERROR : evaluate the slopes ($r$ or $\beta$) and the change in error ($R^2$) across models.
+- CONTROL : how might you use this knowledge?
+
+## Lab 4 Preview :
+
+What is the DV? What is the IV? What are some other variables you might want to include as control variables?
+
+![](images/clipboard-694304986.png)
+
+## PART 2 : Bootstrap Review
+
+### The Code : a for-loop
+
+```{r}
+#| eval: false
+
+bucket <- array() # defines a space to save my work
+for(i in c(1:1000)){ # repeating steps 1000 times & keeping track with i
+  newfolk <- sample(1:nrow(d), nrow(d), replace = T) # new index of individuals; same sample size as original data, but wiht replacement
+  newdata <- d[newfolk,] # new data, based on the new index
+  modX <- lm(DV ~ IV, data = newdata) # new model, based on new data
+  extrabucket[i] <- modX[2] # saving the slope (second term of the model)
+}
+```

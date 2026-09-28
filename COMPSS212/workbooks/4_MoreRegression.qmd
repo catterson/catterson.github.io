@@ -1,0 +1,57 @@
+---
+title: "4_MoreRegression"
+format: html
+---
+
+## The Hormone Dataset (Data Cleaning)
+
+Note : I'm running the code below, but not showing the output.
+```{r}
+#| echo: true
+#| include: false
+
+## Loading Packages and Libraries
+library(jtools)
+library(psych)
+library(gplots)
+library(ggplot2)
+h <- read.csv("https://www.dropbox.com/scl/fi/97h771dt55vum5lhpf9ng/haas_hormone_dataset.csv?rlkey=sc5rvwdmtjn5inuqm1xok5bwd&dl=1", stringsAsFactors = T) # note the link ends with dl=1, which allows R to read this file directly into your script.
+
+
+## Data Cleaning
+h$age[h$age < 0] <- NA
+h$sexF <- as.factor(h$sex)
+levels(h$sexF) <- c("Male", "Female")
+h$sexF <- relevel(h$sexF, ref = "Female")
+plot(h$sexF)
+summary(h$sexF)
+```
+
+## Bivariate Models
+
+```{r}
+mod1 <- lm(narc_scale ~ sexF, data = h)
+mod2 <- lm(narc_scale ~ test_mean, data = h)
+
+par(mfrow = c(1,2))
+plotmeans(narc_scale ~ sexF, data = h, connect = F, xlab = "Sex", ylab = "Narcissism (Scale)")
+plot(narc_scale ~ test_mean, data = h, xlab = "Testosterone", ylab = "Narcissism (Scale)")
+abline(mod2, lwd = 5, col = 'red')
+```
+
+## Model Assumptions
+```{r}
+par(mfrow = c(2,2))
+plot(mod2)
+```
+
+
+## The Multivariate Model
+
+```{r}
+mod3 <- lm(narc_scale ~ sexF + test_mean, data = h)
+export_summs(mod1, mod2, mod3, error_format = "",  error_pos = "right", digits = 3,
+             coefs = c("Testosterone" = "test_mean",
+                       "Sex (Male)" = "sexFMale"))
+```
+
