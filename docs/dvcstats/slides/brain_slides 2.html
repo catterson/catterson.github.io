@@ -1258,6 +1258,7 @@ margin-right: 0; }
 <div class="tab-content">
 <div id="tabset-1-1">
 <div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">plot</span>(SWLS_24 <span class="sc">~</span> LifeExpectancy, <span class="at">data =</span> d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1269,6 +1270,9 @@ margin-right: 0; }
 </div>
 <div id="tabset-1-2">
 <div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(SWLS_24 <span class="sc">~</span> LifeExpectancy, <span class="at">data =</span> d) <span class="co"># defines the model; saves as mod</span></span>
+<span id="cb9-2"><a></a><span class="fu">plot</span>(SWLS_24 <span class="sc">~</span> LifeExpectancy, <span class="at">data =</span> d) <span class="co"># graphs the relationship.</span></span>
+<span id="cb9-3"><a></a><span class="fu">abline</span>(mod, <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>) <span class="co"># draws a red line of width five based on mod</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1287,16 +1291,16 @@ margin-right: 0; }
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">round</span>(<span class="fu">coef</span>(mod), <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">round</span>(<span class="fu">coef</span>(mod), <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   (Intercept) LifeExpectancy 
          -3.14           0.12 </code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(SWLS_24 <span class="sc">~</span> LifeExpectancy, <span class="at">data =</span> d) </span>
-<span id="cb10-2"><a></a><span class="fu">plot</span>(SWLS_24 <span class="sc">~</span> LifeExpectancy, <span class="at">data =</span> d) </span>
-<span id="cb10-3"><a></a><span class="fu">abline</span>(mod, <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(SWLS_24 <span class="sc">~</span> LifeExpectancy, <span class="at">data =</span> d) </span>
+<span id="cb12-2"><a></a><span class="fu">plot</span>(SWLS_24 <span class="sc">~</span> LifeExpectancy, <span class="at">data =</span> d) </span>
+<span id="cb12-3"><a></a><span class="fu">abline</span>(mod, <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1334,18 +1338,18 @@ margin-right: 0; }
 <h2>The Linear Model : Error</h2>
 <p>Which model has dots that are closer to the line?</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb11-2"><a></a><span class="fu">plot</span>(d<span class="sc">$</span>SWLS_24, </span>
-<span id="cb11-3"><a></a>     <span class="at">main =</span> <span class="st">&quot;Mean as a Model (Red Line)&quot;</span>,</span>
-<span id="cb11-4"><a></a>     <span class="at">pch =</span> <span class="dv">19</span>,</span>
-<span id="cb11-5"><a></a>     <span class="at">xlab =</span> <span class="st">&quot;Index (Row in Dataset)&quot;</span>,</span>
-<span id="cb11-6"><a></a>     <span class="at">ylab =</span> <span class="st">&quot;Satisfaction with Life Score (Cantril Ladder Scale)&quot;</span>)</span>
-<span id="cb11-7"><a></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">mean</span>(d<span class="sc">$</span>SWLS_24, <span class="at">na.rm =</span> T), <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)</span>
-<span id="cb11-8"><a></a></span>
-<span id="cb11-9"><a></a><span class="fu">plot</span>(SWLS_24 <span class="sc">~</span> LifeExpectancy, <span class="at">data =</span> d, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">main =</span> <span class="st">&quot;Life Expectancy as a Model&quot;</span>, </span>
-<span id="cb11-10"><a></a>     <span class="at">ylab =</span> <span class="st">&quot;Satisfaction with Life Score (Cantril Ladder Scale)&quot;</span>,</span>
-<span id="cb11-11"><a></a>     <span class="at">xlab =</span> <span class="st">&quot;Life Expectancy&quot;</span>) </span>
-<span id="cb11-12"><a></a><span class="fu">abline</span>(mod, <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb13-2"><a></a><span class="fu">plot</span>(d<span class="sc">$</span>SWLS_24, </span>
+<span id="cb13-3"><a></a>     <span class="at">main =</span> <span class="st">&quot;Mean as a Model (Red Line)&quot;</span>,</span>
+<span id="cb13-4"><a></a>     <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb13-5"><a></a>     <span class="at">xlab =</span> <span class="st">&quot;Index (Row in Dataset)&quot;</span>,</span>
+<span id="cb13-6"><a></a>     <span class="at">ylab =</span> <span class="st">&quot;Satisfaction with Life Score (Cantril Ladder Scale)&quot;</span>)</span>
+<span id="cb13-7"><a></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">mean</span>(d<span class="sc">$</span>SWLS_24, <span class="at">na.rm =</span> T), <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)</span>
+<span id="cb13-8"><a></a></span>
+<span id="cb13-9"><a></a><span class="fu">plot</span>(SWLS_24 <span class="sc">~</span> LifeExpectancy, <span class="at">data =</span> d, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">main =</span> <span class="st">&quot;Life Expectancy as a Model&quot;</span>, </span>
+<span id="cb13-10"><a></a>     <span class="at">ylab =</span> <span class="st">&quot;Satisfaction with Life Score (Cantril Ladder Scale)&quot;</span>,</span>
+<span id="cb13-11"><a></a>     <span class="at">xlab =</span> <span class="st">&quot;Life Expectancy&quot;</span>) </span>
+<span id="cb13-12"><a></a><span class="fu">abline</span>(mod, <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1363,18 +1367,18 @@ margin-right: 0; }
 <div class="tab-content">
 <div id="tabset-2-1">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">cex =</span> <span class="dv">1</span>, <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb12-2"><a></a><span class="fu">plot</span>(d<span class="sc">$</span>SWLS_24, </span>
-<span id="cb12-3"><a></a>     <span class="at">main =</span> <span class="st">&quot;Mean as a Model (Red Line)&quot;</span>,</span>
-<span id="cb12-4"><a></a>     <span class="at">pch =</span> <span class="dv">19</span>,</span>
-<span id="cb12-5"><a></a>     <span class="at">xlab =</span> <span class="st">&quot;Index (Row in Dataset)&quot;</span>,</span>
-<span id="cb12-6"><a></a>     <span class="at">ylab =</span> <span class="st">&quot;Satisfaction with Life Score&quot;</span>)</span>
-<span id="cb12-7"><a></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">mean</span>(d<span class="sc">$</span>SWLS_24, <span class="at">na.rm =</span> T), <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)</span>
-<span id="cb12-8"><a></a></span>
-<span id="cb12-9"><a></a><span class="fu">plot</span>(SWLS_24 <span class="sc">~</span> LifeExpectancy, <span class="at">data =</span> d, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">main =</span> <span class="st">&quot;Life Expectancy as a Model&quot;</span>, </span>
-<span id="cb12-10"><a></a>     <span class="at">ylab =</span> <span class="st">&quot;Satisfaction with Life Score&quot;</span>,</span>
-<span id="cb12-11"><a></a>     <span class="at">xlab =</span> <span class="st">&quot;Life Expectancy&quot;</span>) </span>
-<span id="cb12-12"><a></a><span class="fu">abline</span>(mod, <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">cex =</span> <span class="dv">1</span>, <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb14-2"><a></a><span class="fu">plot</span>(d<span class="sc">$</span>SWLS_24, </span>
+<span id="cb14-3"><a></a>     <span class="at">main =</span> <span class="st">&quot;Mean as a Model (Red Line)&quot;</span>,</span>
+<span id="cb14-4"><a></a>     <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb14-5"><a></a>     <span class="at">xlab =</span> <span class="st">&quot;Index (Row in Dataset)&quot;</span>,</span>
+<span id="cb14-6"><a></a>     <span class="at">ylab =</span> <span class="st">&quot;Satisfaction with Life Score&quot;</span>)</span>
+<span id="cb14-7"><a></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">mean</span>(d<span class="sc">$</span>SWLS_24, <span class="at">na.rm =</span> T), <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)</span>
+<span id="cb14-8"><a></a></span>
+<span id="cb14-9"><a></a><span class="fu">plot</span>(SWLS_24 <span class="sc">~</span> LifeExpectancy, <span class="at">data =</span> d, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">main =</span> <span class="st">&quot;Life Expectancy as a Model&quot;</span>, </span>
+<span id="cb14-10"><a></a>     <span class="at">ylab =</span> <span class="st">&quot;Satisfaction with Life Score&quot;</span>,</span>
+<span id="cb14-11"><a></a>     <span class="at">xlab =</span> <span class="st">&quot;Life Expectancy&quot;</span>) </span>
+<span id="cb14-12"><a></a><span class="fu">abline</span>(mod, <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1386,18 +1390,18 @@ margin-right: 0; }
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>SWLS24 <span class="ot">&lt;-</span> mod<span class="sc">$</span>model<span class="sc">$</span>SWLS_24 <span class="co"># using data that also have life expectancy</span></span>
-<span id="cb13-2"><a></a>residual <span class="ot">&lt;-</span> SWLS24 <span class="sc">-</span> <span class="fu">mean</span>(SWLS24) <span class="co"># error</span></span>
-<span id="cb13-3"><a></a>SST <span class="ot">&lt;-</span> <span class="fu">sum</span>(residual<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> T) <span class="co"># sum of squared errors</span></span>
-<span id="cb13-4"><a></a>SST <span class="co"># total sum of squared errors</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>SWLS24 <span class="ot">&lt;-</span> mod<span class="sc">$</span>model<span class="sc">$</span>SWLS_24 <span class="co"># using data that also have life expectancy</span></span>
+<span id="cb15-2"><a></a>residual <span class="ot">&lt;-</span> SWLS24 <span class="sc">-</span> <span class="fu">mean</span>(SWLS24) <span class="co"># error</span></span>
+<span id="cb15-3"><a></a>SST <span class="ot">&lt;-</span> <span class="fu">sum</span>(residual<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> T) <span class="co"># sum of squared errors</span></span>
+<span id="cb15-4"><a></a>SST <span class="co"># total sum of squared errors</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 195.867</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>SSM <span class="ot">&lt;-</span> <span class="fu">sum</span>(mod<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span>) <span class="co"># R saves the residuals for you</span></span>
-<span id="cb15-2"><a></a>SSM <span class="co"># hooray!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>SSM <span class="ot">&lt;-</span> <span class="fu">sum</span>(mod<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span>) <span class="co"># R saves the residuals for you</span></span>
+<span id="cb17-2"><a></a>SSM <span class="co"># hooray!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 89.63457</code></pre>
 </div>
@@ -1406,18 +1410,18 @@ margin-right: 0; }
 </div>
 <div id="tabset-2-2">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">cex =</span> <span class="dv">1</span>, <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb17-2"><a></a><span class="fu">plot</span>(d<span class="sc">$</span>SWLS_24, </span>
-<span id="cb17-3"><a></a>     <span class="at">main =</span> <span class="st">&quot;Mean as a Model (Red Line)&quot;</span>,</span>
-<span id="cb17-4"><a></a>     <span class="at">pch =</span> <span class="dv">19</span>,</span>
-<span id="cb17-5"><a></a>     <span class="at">xlab =</span> <span class="st">&quot;Index (Row in Dataset)&quot;</span>,</span>
-<span id="cb17-6"><a></a>     <span class="at">ylab =</span> <span class="st">&quot;Satisfaction with Life Score&quot;</span>)</span>
-<span id="cb17-7"><a></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">mean</span>(d<span class="sc">$</span>SWLS_24, <span class="at">na.rm =</span> T), <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)</span>
-<span id="cb17-8"><a></a></span>
-<span id="cb17-9"><a></a><span class="fu">plot</span>(SWLS_24 <span class="sc">~</span> LifeExpectancy, <span class="at">data =</span> d, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">main =</span> <span class="st">&quot;Life Expectancy as a Model&quot;</span>, </span>
-<span id="cb17-10"><a></a>     <span class="at">ylab =</span> <span class="st">&quot;Satisfaction with Life Score&quot;</span>,</span>
-<span id="cb17-11"><a></a>     <span class="at">xlab =</span> <span class="st">&quot;Life Expectancy&quot;</span>) </span>
-<span id="cb17-12"><a></a><span class="fu">abline</span>(mod, <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">cex =</span> <span class="dv">1</span>, <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb19-2"><a></a><span class="fu">plot</span>(d<span class="sc">$</span>SWLS_24, </span>
+<span id="cb19-3"><a></a>     <span class="at">main =</span> <span class="st">&quot;Mean as a Model (Red Line)&quot;</span>,</span>
+<span id="cb19-4"><a></a>     <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb19-5"><a></a>     <span class="at">xlab =</span> <span class="st">&quot;Index (Row in Dataset)&quot;</span>,</span>
+<span id="cb19-6"><a></a>     <span class="at">ylab =</span> <span class="st">&quot;Satisfaction with Life Score&quot;</span>)</span>
+<span id="cb19-7"><a></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">mean</span>(d<span class="sc">$</span>SWLS_24, <span class="at">na.rm =</span> T), <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)</span>
+<span id="cb19-8"><a></a></span>
+<span id="cb19-9"><a></a><span class="fu">plot</span>(SWLS_24 <span class="sc">~</span> LifeExpectancy, <span class="at">data =</span> d, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">main =</span> <span class="st">&quot;Life Expectancy as a Model&quot;</span>, </span>
+<span id="cb19-10"><a></a>     <span class="at">ylab =</span> <span class="st">&quot;Satisfaction with Life Score&quot;</span>,</span>
+<span id="cb19-11"><a></a>     <span class="at">xlab =</span> <span class="st">&quot;Life Expectancy&quot;</span>) </span>
+<span id="cb19-12"><a></a><span class="fu">abline</span>(mod, <span class="at">lwd =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1427,15 +1431,15 @@ margin-right: 0; }
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>SST <span class="sc">-</span> SSM <span class="co"># the total difference</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>SST <span class="sc">-</span> SSM <span class="co"># the total difference</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 106.2324</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>(SST <span class="sc">-</span> SSM)<span class="sc">/</span>SST <span class="co"># the relative difference</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>(SST <span class="sc">-</span> SSM)<span class="sc">/</span>SST <span class="co"># the relative difference</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.5423702</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">summary</span>(mod)<span class="sc">$</span>r.squared <span class="co"># this is called R^2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">summary</span>(mod)<span class="sc">$</span>r.squared <span class="co"># this is called R^2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.5423702</code></pre>
 </div>
