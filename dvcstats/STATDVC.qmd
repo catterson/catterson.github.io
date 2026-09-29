@@ -2,7 +2,7 @@
 title: "Psych 214 | FA26"
 format: html
 editor: visual
-tbl-colwidths: [10,10, 40,40]
+tbl-colwidths: [15,30, 30,25]
 ---
 
 ## Introduction to Statistics in Psychology
@@ -18,22 +18,21 @@ Hi class! This page will contain deadlines and links to course readings and lect
 ## Course Outline
 
 |  |  |  |  |
-|-----------|--------------|------------------------|------------------------|
-| **Tuesday (Zoom Crew)** | **Wednesday  (Room Crew)** | **Class Topic & Lab Assignment** | **Chapter Reading and Quiz (for Next Week)** |
-| 1/26/26 |  | [Welcome!](https://docs.google.com/document/d/1T0CpOwi3XZ6UpurZ7mIaHRot0Lftbm-qisHHFv1r2oo/edit?usp=share_link) | [Chapter 1.1-1.2 : Why Statistics?](https://catterson.github.io/ystats/chapters/1R_WhyStats.html) |
-| 2/2/26 |  | [Intro to Science + Lab 1](https://docs.google.com/document/d/1MZ3gdAppdCvUbZ75XJhwoUTTKitb1l7h--L1Z7wvXbM/edit?usp=share_link) | [Chapter 2.1-2.2 : Data Data Data](https://catterson.github.io/ystats/chapters/2R_Data.html) |
-| 2/9/26 |  | [Data + Lab 2](https://docs.google.com/document/d/1aasdbFCrry9BDCjNhhyvdvEcLgk5ETLgPLU0ZxgMUoQ/edit?usp=share_link) | [Chapter 3.1-3.2 : Description](https://catterson.github.io/ystats/chapters/3R_Description.html) |
-| 2/16/26 |  | [Graphs + Lab 3](W4_CH3.qmd) | [Chapter 4.1-4.2 : “Normality”](https://catterson.github.io/ystats/chapters/4R_NormalPeople.html) |
-| 2/23/26 |  | [Normality + Lab 4](W5_CH4.qmd) |  |
-| 3/2/26 |  | [**Brain Exam 1** + Models](W6_BE1LMI.qmd) | Chapter 6.1-6.2 : Linear Models |
-| 3/9/26 |  | [The Linear Model + Lab 5](W7_CH6.qmd) | Chapter 7.1-7.2 : Categorical IVs |
-| 3/16/26 |  | [Model Review + Lab 6](W8_CH7.qmd) | R Exam Study Guide |
-| 3/23/26 |  | **SPRING BREAK** |  |
-| 3/30/26 |  | **R Exam** |  |
-| 4/6/26 |  | [NHST Introduction](W10_NHSTPreview.qmd) | Chapter 8.1-8.2 : Sampling Error |
-| 4/13/26 |  | Sample Error + Lab 8 |  |
-| 4/20/26 |  | NHST + Lab 9 (Milestone #2) | Chapter 11.1-11.2 |
-| 4/27/26 |  | Multiple Regression + Lab 10 (Milestone #3) |  |
-| 5/4/26 |  | **Brain Exam 2** + Interactions + Lab 11 | Chapter 13 |
-| 5/11/26 |  | Project Time + Final Project Due |  |
-| 5/18/26 |  | Conclusion |  |
+|-----------|----------------|---------------------|---------------------|
+| **Week** | **Chapter Reading and Quiz** | **Class Topics** | **Lab Assignment** |
+| 1 \| 8/24 | Introduction + Onboarding Survey | Welcome to Psych Stats! |  |
+| 2 \| 8/31 | Chapter 1 : Why Statistics? | Defining variables | Lab 1 : R Problems |
+| 3 \| 9/7 | Chapter 2 : Data Data Data | Loading datasets | Lab 2 : Health Problems |
+| 4 \| 9/14 | Chapter 3 : Description | Summarizing data | Lab 3 : Happy Problems |
+| 5 \| 9/21 | Chapter 4 : “Normality” | Defining distributions | Lab 4 : Class Problems |
+| 6 \| 9/28 | --- no new readings | **Brain Exam +** Intro to Lines |  |
+| 7 \| 10/5 | Chapter 6 : Linear Models | The Linear Model is Just a Line | Lab 5 : World Problems |
+| 8 \| 10/12 | Chapter 7 : Categorical IVs | A Difference is Also a Line | Lab 6 : Political Problems |
+| 9 \| 10/19 | Chapter 8 : Sampling Error | Imagining Random Lines | Lab 7 : Awe Problems |
+| 10 \| 10/26 | --- no new readings | NHST Review | Lab 8 : Practice Exam |
+| 11 \| 11/2 | **!! R EXAM !!** | **!! R EXAM !!** | **!! R EXAM !!** |
+| 12 \| 11/9 | Final Project Description & Rubric | Final Project Workshop | Lab 9 : Project Milestone #1 |
+| 13 \| 11/16 | Chapter 5 : Likert Scales | Defining a Scale | Lab 10 : Project Milestone #2 |
+| 14 \| 11/23 | Chapter 10 : Multiple Regression | Life is Complicated | Lab 11 : Project Milestone #3 |
+| 15 \| 11/30 | Chapter 11 : Interaction Effects | When Life Depends | Lab 12 : Project Milestone #4 |
+| 16 \| 12/7 | Chapter 13 : The End | Conclusion | Final Project Due |

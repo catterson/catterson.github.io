@@ -1,9 +1,9 @@
 ---
-title: "Brain Exam #1 and Some Linear Models"
+title: ""
 format: 
   html: default
   revealjs:
-    output-file: "brain_slides.html"
+    output-file: "brainexam_slides.html"
     slide-level: 3
     embed-resources: true
     controls: true
@@ -13,18 +13,18 @@ tbl-colwidths: [50,50]
 ---
 
 ## [CHECK-IN : Practice Brain Exam (no R)](https://docs.google.com/forms/d/e/1FAIpQLSdlow6vZFcpooGbTACiW2HgsEfbVHkSarB2rZwpNvgUF-HyHQ/viewform?usp=header)
-
 ```{r}
-#| fig-width: 7
-#| fig-height: 5
+#| echo: false
 #| fig-align: center
+#| fig-height: 5
+#| fig-width: 7
 d <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/Our World in Happy Data/DATASET_happy_data.csv", stringsAsFactors = T)
 hist(d$Child.Mortality, breaks = 20, xlim = c(0,13), ylim = c(0,40), main = "",
      xlab = "Child Mortality Rate (deaths under five per 100 live births)")
 abline(v = mean(d$Child.Mortality, na.rm = T), lwd = 5, col = "green")
 abline(v = median(d$Child.Mortality, na.rm = T), lwd = 5, col = "purple")
-
 ```
+
 
 ## The Brain Exam : More Practice? {.smaller}
 
