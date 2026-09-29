@@ -375,7 +375,9 @@
     "5_ModelScript.html": "b2165a20"
   },
   "dvcstats/slides/BE1introLM.qmd": {
-    "BE1introLM.html": "682656a6"
+    "BE1introLM.html": "682656a6",
+    "BE_slides.html": "440ffd77",
+    "brain_slides.html": "9f95efc7"
   },
   "dvcstats/W6_BE1LMI.qmd": {
     "W6_BE1LMI.html": "52b0c2db"
@@ -895,5 +897,14 @@
     "4_mrbootstrap.html": "5305ffd0",
     "slides.html": "fd2e7d0f",
     "slides2.html": "afc4905c"
+  },
+  "Week5.qmd": {
+    "Week5.html": "01f0049e"
+  },
+  "W6_BE1LMI.qmd": {
+    "W6_BE1LMI.html": "0966daa7"
+  },
+  "calstats/slides/4_Outliers.qmd": {
+    "4_Outliers.html": "e5db36d4"
   }
 }

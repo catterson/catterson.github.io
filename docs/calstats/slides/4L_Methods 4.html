@@ -9,7 +9,7 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
-  <title>ch4</title>
+  <title>l_methods</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -198,7 +198,7 @@
 
 
 <section id="check-in-review-time" class="title-slide slide level2 center">
-<h2><a href="https://forms.gle/si2Ezk6xt1T2TBWo9" class="smaller">Check-In : Review Time!</a></h2>
+<h2><a href="https://forms.gle/a4c5quZMgwwyY8Bc8" class="smaller">Check-In : Review Time!</a></h2>
 <div class="columns">
 <div class="column" style="width:70%;">
 <div class="cell">
@@ -206,45 +206,36 @@
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="ch4_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
+<p><img data-src="4L_Methods_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
 </figure>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">mean</span>(d<span class="sc">$</span>hrs.sleep, <span class="at">na.rm =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">round</span>(<span class="fu">mean</span>(d<span class="sc">$</span>hrs.sleep, <span class="at">na.rm =</span> T), <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 6.288462</code></pre>
+<pre><code>[1] 7</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">sd</span>(d<span class="sc">$</span>hrs.sleep, <span class="at">na.rm =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">round</span>(<span class="fu">sd</span>(d<span class="sc">$</span>hrs.sleep, <span class="at">na.rm =</span> T), <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.359528</code></pre>
+<pre><code>[1] 1.7</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">min</span>(d<span class="sc">$</span>hrs.sleep,<span class="at">na.rm =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:30%;">
 <ul>
 <li>What is the shape, mean, and sd of this distribution?</li>
 <li>What do these statistics tell you about the people in our class?</li>
+<li>Is the minimum value an outlier? Why / why not?</li>
 </ul>
 </div></div>
 </section>
 
-<section id="lab-4.-graphing-numeric-variables-with-professor" class="title-slide slide level2 smaller center">
-<h2>Lab 4. Graphing Numeric Variables With Professor</h2>
+<section id="lab-4.-graphing-sleep-and-height-with-professor" class="title-slide slide level2 smaller center">
+<h2>Lab 4. Graphing Sleep and Height With Professor</h2>
 <ol type="1">
 <li>Choose two numeric variables from the dataset. Graph each variable side-by-side using the par() function. Change the arguments to make the graphs look nice, and remove any outliers.</li>
-</ol>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "Time"            "fb.friends"      "insta.followers" "insta.follows"  
- [5] "bored"           "thirsty"         "tired"           "satlife"        
- [9] "viking.love"     "r.love"          "socmeduse"       "attention"      
-[13] "hrs.sleep"       "selfes1"         "data.power"      "corp.power"     
-[17] "success.work"    "success.priv"    "selfes2"         "lovetapwater"   
-[21] "catdog"          "tuhobura"        "dvc.sports"      "caffeine"       
-[25] "had.breakfast"   "is.female"       "long.hair"       "has.water"      
-[29] "stoned72"        "shoe.size"       "height"          "semester"       </code></pre>
-</div>
-</div>
-<ol start="2" type="1">
 <li>Report the descriptive statistics for each variable. Then, explain what each variable tells you about the individuals in the dataset.</li>
 <li>Report the minimum and maximum value in the dataset as a z-score.</li>
 <li>Describe what additional questions you have about each variable.</li>
@@ -253,7 +244,7 @@
 
 <section id="lab-4.-graphing-numeric-variables-without-professor" class="title-slide slide level2 smaller center">
 <h2>Lab 4. Graphing Numeric Variables Without Professor</h2>
-<p>Work with a buddy on the Vision Board…</p>
+<p>Work with a buddy.</p>
 <ol type="1">
 <li>Choose two numeric variables from the dataset. Graph each variable side-by-side using the par() function. Change the arguments to make the graphs look nice, and remove any outliers.</li>
 <li>Report the descriptive statistics for each variable. Then, explain what each variable tells you about the individuals in the dataset.</li>
@@ -262,30 +253,152 @@
 </ol>
 </section>
 
-<section id="quarto-why-are-we-learning-this" class="title-slide slide level2 center">
-<h2>Quarto : Why are we learning this?</h2>
+<section id="if-time-quarto-why-are-we-learning-this" class="title-slide slide level2 center">
+<h2>IF TIME : Quarto : Why are we learning this?</h2>
 <ul>
-<li><p><strong>It’s a Fancy RScript :</strong></p></li>
-<li><p><strong>An authentic skill :</strong> professor (and others) use because it saves trouble of screenshotting by integrating code and text together in one document.</p></li>
-<li><p><strong>WARNING :</strong> professor still gets frustrated when using quarto. If you are feeling dread / maxxed out, then just use an Rscript + screenshot method. Okay?</p></li>
+<li><p>An authentic skill (professor uses)</p>
+<ul>
+<li>Saves trouble of screenshotting : integrates code and text.</li>
+<li>some GSIs are introducing it :)</li>
+</ul></li>
+<li><p>WARNING : professor still gets frustrated when using quarto. If you are feeling dread / maxxed out, then just use an Rscript + screenshot method. Okay?</p></li>
 </ul>
 </section>
 
 <section id="quarto-from-source-render" class="title-slide slide level2 center">
 <h2>Quarto : From Source –&gt; Render</h2>
-<p><img data-src="images/clipboard-3915582603.png"></p>
+<div class="r-fit-text">
+<ul>
+<li>What looks different about our R Script? What looks the same (or similar??)</li>
+</ul>
+<p><img data-src="images/clipboard-2196759662.png"></p>
+</div>
 </section>
 
-<section id="quarto-the-visual-editor" class="title-slide slide level2 center">
-<h2>Quarto : The Visual Editor</h2>
+<section id="break-time-check-in" class="title-slide slide level2 center">
+<h2><a href="https://docs.google.com/forms/d/e/1FAIpQLSdl3nqWlDUGVV9ytbhhvF2_C5JWTA7r0Rjn31ltquuv5hDAaw/viewform?usp=sf_link">BREAK TIME Check-In</a></h2>
+
+</section>
+
+<section>
+<section id="final-project-time." class="title-slide slide level1 center">
+<h1>Final Project Time.</h1>
+
+</section>
+<section id="find-a-sheet-of-paper-and-pencil-draw-this-cube-as-precisely-as-possible." class="slide level3">
+<h3>Find a sheet of paper and pencil; draw this cube as precisely as possible.</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/clipboard-2877891595.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</section>
+<section id="milestone-2" class="slide level3">
+<h3><a href="https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0#bookmark=id.8eg84yu09e7c">Milestone #2</a></h3>
+<ul>
+<li><strong>Part 1 :</strong> Outlining Your Introduction (and thinking about IV2)</li>
+<li><strong>Part 2 (NEXT WEEK) :</strong> Defining your measures.</li>
+</ul>
+</section>
+<section id="keep-it-simple-but-life-is-complex" class="slide level3 smaller">
+<h3>KEEP IT SIMPLE : but life is complex</h3>
+<ol type="1">
+<li>Start with your linear model; just focus on one DV and two IVs.</li>
+<li>Ways to think about IV2.
+<ul>
+<li><strong>As a “Mediator”, “Confound”, or “Control” Variable.</strong> Where the relationship between IV1 and the DV might be smaller, larger, or no different than IV2.&nbsp; <em><strong>EXAMPLE :</strong> I’d expect a stronger relationship between a person’s health (DV) and whether they&nbsp; have running shoes or not (IV1) than whether they have a raincoat or not (IV2). I’d also expect the relationship between health and running shoes to go away when you also account for whether the person goes running (IV2).</em></li>
+<li><strong>As a “Moderator” or “Interaction Effect”.</strong> When the relationship between IV1 and the DV depends on the level of IV2. <em><strong>EXAMPLE :</strong> the relationship between going for a run (IV1) and health (DV) depends on whether the person is running in a place with high or low air quality (IV2). If the air quality is bad, then running is negatively related to health. If the air quality is good, then running is positively related to health.</em>&nbsp;</li>
+</ul></li>
+</ol>
+</section>
+<section id="introduction-deconstruction." class="slide level3 smaller">
+<h3>Introduction Deconstruction.</h3>
+<div class="r-fit-text">
+<p>Start broad, but focus to your specific question!</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 80%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Section</strong></td>
+<td><strong>Brief Explanation</strong></td>
+</tr>
+<tr class="even">
+<td><strong>1. The Opening</strong></td>
+<td>Describe the question you have, and explain why this question matters</td>
+</tr>
+<tr class="odd">
+<td><strong>2. The Review</strong></td>
+<td>Describe what past research and theory has to say on the question and your theory. Your goal is to give the reader the background they need to understand why you are doing your study; you don’t need to cover EVERY single issue on your topic..</td>
+</tr>
+<tr class="even">
+<td><strong>3. The Critique</strong></td>
+<td>Explain why the past research is not “the final truth”, and what other new questions might be important to consider (and why these questions matter). Only point out limitations with past research that you will address in your study; other limitations that you think future research will address should go in the discussion section.</td>
+</tr>
+<tr class="odd">
+<td><strong>4. The Current Research</strong></td>
+<td>Explain what specific questions your study will address. Be clear by stating each idea as a hypothesis with language like, “I predict” or “My first hypothesis”.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="activity-identify-parts-of-an-introduction." class="slide level3 smaller">
+<h3>ACTIVITY : identify parts of an introduction.</h3>
+<div class="r-fit-text">
+<ul>
+<li><em>“The Opening”, “The Review”, “The Critique”, and “The Current Research”</em> <img data-src="images/clipboard-2518781628.png" alt="https://scholar.princeton.edu/sites/default/files/pfrymer/files/ajps12537_rev.pdf"></li>
+</ul>
+</div>
+</section>
+<section id="definition-patterns-in-writing" class="title-slide slide level2 center">
+<h2>DEFINITION : patterns in writing</h2>
+<ol type="1">
+<li><p><strong>THE POINT :</strong> What are you trying to say?</p></li>
+<li><p><strong>THE EVIDENCE :</strong> What is some evidence that supports this point? This could be empirical (e.g., a summary of past research on the topic), but also logic or real-life experiential examples work here.</p></li>
+<li><p><strong>WHO CARES :</strong> Why does this matter? How does this connect to your main thesis?</p></li>
+</ol>
+</section>
+<section id="the-evidence-logic-vs.-empirical-evidence." class="slide level3">
+<h3>THE EVIDENCE : logic vs.&nbsp;empirical evidence.</h3>
+<div class="r-fit-text">
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><img data-src="images/clipboard-817027539.png"></p>
+<p><em>“Think first of swallowing the saliva in your mouth, or do so. Then imagine expectorating it into a tumbler and drinking it! What seemed natural and”mine” suddenly becomes disgusting and alien. Or picture your self sucking blood from a prick in your finger; then imagine sucking blood from a bandage around your finger! What I perceive as separate from my body becomes, in the twinkling of an eye, cold and foreign.”</em></p>
+<ul>
+<li>Gordon Allport (1955). Becoming: basic considerations for a psychology of personality. Yale University Press.</li>
+</ul>
 </div><div class="column" style="width:50%;">
-
+<p>In a study of 45 female college students, a sweaty shirt was rated as more disgusting when it was associated with an outgroup than when associated with an ingroup (Reicher et al., 2016).</p>
+<ul>
+<li>S.D. Reicher, A. Templeton, F. Neville, L. Ferrari, &amp; J. Drury, Core disgust is attenuated by ingroup relations, Proc. Natl. Acad. Sci. U.S.A. 113 (10) 2631-2635, https://doi.org/10.1073/pnas.1517027113 (2016).</li>
+</ul>
 </div></div>
+</div>
+</section>
+<section id="example-patterns-in-writing." class="slide level3 smaller">
+<h3>EXAMPLE : patterns in writing.</h3>
+<div class="r-fit-text">
+<ul>
+<li><em>The Point, The Evidence, The Who Cares</em></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/clipboard-2518781628.png"></p>
+<figcaption>https://scholar.princeton.edu/sites/default/files/pfrymer/files/ajps12537_rev.pdf</figcaption>
+</figure>
+</div>
+</div>
+</section>
+
+<section id="the-end." class="title-slide slide level2 center">
+<h2>THE END.</h2>
+<p><img data-src="images/clipboard-1613162713.png"></p>
 
 
+</section>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
