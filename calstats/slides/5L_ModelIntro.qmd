@@ -1,6 +1,7 @@
 ---
 title: "Introduction to Linear Models"
 format: 
+  html: default
   revealjs: 
     slide-level: 3
     link-external-newwindow: true
@@ -137,18 +138,21 @@ hist(d$LifeExpectancy, col = "black", bor = "White", main = "Life Expectancy")
 #### Where the Line?
 
 ```{r}
-#| fig-width: 7
-#| fig-height: 7
+#| echo: false
 #| fig-align: center
+#| fig-height: 7
+#| fig-width: 7
+
 plot(SWLS_24 ~ LifeExpectancy, data = d)
 ```
 
 #### There the Line!
 
 ```{r}
-#| fig-width: 7
-#| fig-height: 7
 #| fig-align: center
+#| fig-height: 7
+#| fig-width: 7
+#| echo: false
 mod <- lm(SWLS_24 ~ LifeExpectancy, data = d) # defines the model; saves as mod
 plot(SWLS_24 ~ LifeExpectancy, data = d) # graphs the relationship.
 abline(mod, lwd = 5, col = 'red') # draws a red line of width five based on mod
