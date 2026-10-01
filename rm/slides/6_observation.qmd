@@ -6,7 +6,6 @@ format:
     slide-level: 3
     output-file: "observation_slidez.html"
     auto-stretch: false
-    chalkboard: true
     controls: true
     code-overflow: wrap
 tbl-colwidths: [33,33,33]
@@ -71,6 +70,7 @@ navbar: false
 (Other) better methods of counting the number of words men & women speak?
 
 ![](images/clipboard-1718092220.png){fig-align="center" width="466"}
+
 ## Deep Breath. No Talking.
 
 ## ACTIVITY : Count the Interruptions. {.smaller}
