@@ -330,7 +330,9 @@
     "STATDVC.html": "21cdbfe3"
   },
   "rm/slides/6_observation.qmd": {
-    "6_observation.html": "fec5435a"
+    "6_observation.html": "fec5435a",
+    "6_observation_slides.html": "51d32692",
+    "observation_slides.html": "cdc37845"
   },
   "rm/notes/class5RM.qmd": {
     "class5RM.html": "bbad6ad7"
@@ -910,5 +912,8 @@
   "dvcstats/slides/brainexam.qmd": {
     "brainexam.html": "d43827cd",
     "brainexam_slides.html": "44e52966"
+  },
+  "class6RM.qmd": {
+    "class6RM.html": "dbd0f142"
   }
 }
