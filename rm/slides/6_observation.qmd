@@ -4,10 +4,9 @@ format:
   html: default
   revealjs: 
     slide-level: 3
-    output-file: "observation_slides.html"
+    output-file: "observation_slide.html"
     auto-stretch: false
-    chalkboard: false
-    embed-resources: false
+    chalkboard: true
     controls: true
     code-overflow: wrap
 tbl-colwidths: [33,33,33]
