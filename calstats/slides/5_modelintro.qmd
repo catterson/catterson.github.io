@@ -1,14 +1,12 @@
 ---
-title: "Introduction to Linear Models"
+title: ""
 format: 
   html: default
   revealjs: 
-    slide-level: 3
-    link-external-newwindow: true
     output-file: "modelintro_slides.html"
+    slide-level: 3
     chalkboard: true
     controls: true
-    auto-stretch: false
     code-overflow: wrap
 tbl-colwidths: [50,50]
 ---
@@ -17,11 +15,25 @@ tbl-colwidths: [50,50]
 
 ![](images/clipboard-3082930128.png){width="498"}
 
-## The Linear Model : Prediction is a Line
+# PART 1 : Prediction
 
-### RECAP : The Mean as a Model (with Error) {.smaller}
+## Measures are a Prediction
 
-***DISCUSS. Measurement Error.*** The Cantril Ladder Score asks people to rank themselves on a ladder in terms of their well-being. What do y'all think of this measure? What benefits / problems are there of this approach? What questions do you have?
+::::: columns
+::: {.column width="60%"}
+![](images/clipboard-4118436267.png)
+:::
+
+::: {.column width="40%"}
+-   Could you place yourself on this ladder?
+-   Does this seem like a **valid** way to measure happiness?
+-   What benefits / problems are there of this approach? 
+-   What questions do you have?
+:::
+
+::::
+
+## The Mean as *Prediction*  (with Error) {.smaller}
 
 ```{r}
 #| echo: false
@@ -49,15 +61,15 @@ $\huge y_i = \hat{Y} + \epsilon_i$
 ::: {.column width="60%"}
 $\Large y_i$ = the DV = the individual’s actual score we are trying to predict.
 
--   `on the graph: each individual dot`
+- `on the graph: each individual dot`
 
 $\Large \hat{Y}$ = our prediction (the mean).
 
--   `on the graph: the solid red line`
+- `on the graph: the solid red line`
 
 $\Large \epsilon$ = residual error = difference between predicted and actual values of y
 
--   `on the graph: the distance between each dot and the line.`
+- `on the graph: the distance between each dot and the line.`
 :::
 
 ::: {.column width="40%"}
@@ -65,6 +77,7 @@ $\Large \epsilon$ = residual error = difference between predicted and actual val
 #| fig-width: 7
 #| fig-height: 7
 #| fig-align: center
+#| echo: false
 plot(d$SWLS_24, 
      main = "Mean as a Model (Red Line)",
      pch = 19,
@@ -93,8 +106,8 @@ SST
 1.  This number is critical - quantified error in our prediction.
 2.  This number makes no sense (total unsquared error??!?!)
 
--   sd gives some context (average error)
--   use number as a starting place to see if we can make *better* predictions
+- sd gives some context (average error)
+- use number as a starting place to see if we can make *better* predictions
 :::
 
 ::: {.column width="40%"}
@@ -102,6 +115,7 @@ SST
 #| fig-width: 7
 #| fig-height: 7
 #| fig-align: center
+#| echo: false
 plot(d$SWLS_24, 
      main = "Mean as a Model (Red Line)",
      pch = 19,
@@ -121,11 +135,12 @@ abline(h = mean(d$SWLS_24, na.rm = T), lwd = 5, col = 'red')
 
 ### DISCUSS : Making Predictions {.smaller}
 
--   **THINK ABOUT A LINEAR MODEL :** how do you think the variables (below) would help (or not help) us predict the happiness of a country in 2024? Why / why not???
+- **THINK ABOUT A LINEAR MODEL :** how do you think the variables (below) would help (or not help) us predict the happiness of a country in 2024? Why / why not???
 
--   **THINK ABOUT SOURCES OF DATA**. What other variables do you think would be important to include in this dataset?
+- **THINK ABOUT SOURCES OF DATA**. What other variables do you think would be important to include in this dataset?
 
 ```{r}
+#| echo: false
 par(mfrow = c(2,2))
 hist(d$SWLS_23, col = "black", bor = "White", main = "Ladder Scale (2023)")
 hist(d$Child.Mortality, col = "black", bor = "White", main = "Child Mortality Rate")
@@ -133,7 +148,7 @@ hist(d$Population, col = "black", bor = "White", main = "Population", breaks = 4
 hist(d$LifeExpectancy, col = "black", bor = "White", main = "Life Expectancy")
 ```
 
-### TIME TO PLAY : WHERE'S THE LINE
+### TIME TO PLAY : WHERE'S THE LINE {.smaller}
 
 ::: panel-tabset
 #### Where the Line?
@@ -174,6 +189,54 @@ round(coef(mod), 2)
 #| fig-width: 7
 #| fig-height: 7
 #| fig-align: center
+#| echo: false
+mod <- lm(SWLS_24 ~ LifeExpectancy, data = d) 
+plot(SWLS_24 ~ LifeExpectancy, data = d) 
+abline(mod, lwd = 5, col = 'red') 
+coef(mod)
+```
+:::
+
+:::: {.column width="60%"}
+::: r-fit-text
+$\Large y_i$ = the DV = each actual score on the DV.
+
+- `on the graph:** each dot on the y-axis`
+
+$\Large a$ = the intercept = starting place for our prediction ("the predicted value of y when all x values are zero”.)
+
+- `on the graph:** the value of the line at X = 0`
+
+$\Large X_i$ = the IV = the actual score on the IV.
+
+- `on the graph: the value of each dot on the x-axis`
+
+$\Large b_1$ = the slope = an adjustment to our prediction of y based changes in x
+
+- `on the graph: how much the line increases in y value when x-values increase by 1 unit.`
+
+$\Large \epsilon_i$ = residual error = the distance between actual y and predicted y
+
+- `on the graph: the distance between each individual data point and the line.`
+:::
+::::
+::::::
+
+### What's Going On : R Code to Draw The Line {.smaller}
+
+$\Huge y_i = a + b_1 * X_i + \epsilon_i$
+
+:::::: columns
+::: {.column width="40%"}
+```{r}
+round(coef(mod), 2)
+```
+
+```{r}
+#| fig-width: 7
+#| fig-height: 7
+#| fig-align: center
+#| echo: true
 mod <- lm(SWLS_24 ~ LifeExpectancy, data = d) 
 plot(SWLS_24 ~ LifeExpectancy, data = d) 
 abline(mod, lwd = 5, col = 'red') 
@@ -182,25 +245,13 @@ abline(mod, lwd = 5, col = 'red')
 
 :::: {.column width="60%"}
 ::: r-fit-text
-$\Large y_i$ = the DV = each actual score on the DV.
+- **plot(DV \~ IV, data = d) :** draws the scatterplot based on the relationship between the DV and IV
 
--   `on the graph:** each dot on the y-axis`
+- **mod \<- lm(DV \~ IV, data = d) :** defines a linear model based on the relationship between the DV and IV and saves this as an object called mod
 
-$\Large a$ = the intercept = starting place for our prediction ("the predicted value of y when all x values are zero”.)
+- **abline(mod) :** draws a line based on the a value (intercept) and b value (slope) of mod
 
--   `on the graph:** the value of the line at X = 0`
-
-$\Large X_i$ = the IV = the actual score on the IV.
-
--   `on the graph: the value of each dot on the x-axis`
-
-$\Large b_1$ = the slope = an adjustment to our prediction of y based changes in x
-
--   `on the graph: how much the line increases in y value when x-values increase by 1 unit.`
-
-$\Large \epsilon_i$ = residual error = the distance between actual y and predicted y
-
--   `on the graph: the distance between each individual data point and the line.`
+- **coef(mod) :** shows the values of the coefficients in the model (a and b)
 :::
 ::::
 ::::::
@@ -309,13 +360,41 @@ abline(mod, lwd = 5, col = 'red')
 ```
 ::::::
 
-## BREAK TIME : MEET BACK AT 3:30
+## BREAK TIME : MEET BACK AT 4:15
 
 ![](images/clipboard-2931715095.png)
 
-## PART 2 : DEFINING CONTINUOUS MEASURES
+# PART 2 : Milestone 2, Part B
 
-## RECAP : Reliability and Validity
+### [Milestone #2 (Measures)](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0#bookmark=id.8eg84yu09e7c)
+
+![](images/clipboard-2094072178.png)
+
+### The Likert Scale
+
+#### Example : [Satisfaction With Life Scale](https://ppc.sas.upenn.edu/resources/questionnaires-researchers/satisfaction-life-scale)
+
+::::: columns
+::: {.column width="40%"}
+![](images/clipboard-240134056.png)
+:::
+
+::: {.column width="60%"}
+- scale : The variable that you want to measure as a continuous variable.
+
+- items : The specific question(s) in the scale. Each item measures some aspect of the variable the researcher is interested in.
+
+  - positively keyed items : An item that measures the high end of the scale, where answering “yes” to the question means you are high on this variable.
+
+  - negatively keyed items : An item that measures the low end of the scale, where answering “yes” to the question means you are low on the variable.
+
+- response scale : How people answer the scale items.
+:::
+:::::
+
+### [Some Student Examples : Professor Office Hours](https://docs.google.com/document/d/1mzCALLQ2aWshxAbqXBbvgOn_QSEZbA6WGomMisiGSDw/edit?usp=sharing)
+
+## PART 3 : Reliability and Validity
 
 ### **Relevance to Real-Life.**
 
@@ -323,7 +402,7 @@ abline(mod, lwd = 5, col = 'red')
 How would you evaluate the reliability and validity of the STEP COUNTER on your phone???
 
 |  |  |
-|----|----|
+|------------------------------------|------------------------------------|
 | **Term** | **Way of Testing** |
 | **face :** does our measure or result look like what it should look like? |  |
 | **convergent :** is our measure similar to related concepts? |  |
@@ -345,31 +424,4 @@ How would you evaluate the reliability and validity of the STEP COUNTER on your 
 
 ![Bennett, C. M., Miller, M. B., & Wolford, G. L. (2009). Neural correlates of interspecies perspective taking in the post-mortem Atlantic Salmon: an argument for multiple comparisons correction. Neuroimage, 47(Suppl 1), S125. [Link to Full Article](http://prefrontal.org/files/posters/Bennett-Salmon-2009.pdf)](lecture_images/5L_fishfmri.png)
 
-
-### [Milestone #2 (Measures)](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0#bookmark=id.8eg84yu09e7c)
-
-![](images/clipboard-2094072178.png)
-
-### The Likert Scale
-
-#### Example : [Satisfaction With Life Scale](https://ppc.sas.upenn.edu/resources/questionnaires-researchers/satisfaction-life-scale)
-
-::::: columns
-::: {.column width="40%"}
-![](images/clipboard-240134056.png)
-:::
-
-::: {.column width="60%"}
--   scale : The variable that you want to measure as a continuous variable.
-
--   items : The specific question(s) in the scale. Each item measures some aspect of the variable the researcher is interested in.
-
-    -   positively keyed items : An item that measures the high end of the scale, where answering “yes” to the question means you are high on this variable.
-
-    -   negatively keyed items : An item that measures the low end of the scale, where answering “yes” to the question means you are low on the variable.
-
--   response scale : How people answer the scale items.
-:::
-:::::
-
-### [Some Student Examples : Professor Office Hours](https://docs.google.com/document/d/1mzCALLQ2aWshxAbqXBbvgOn_QSEZbA6WGomMisiGSDw/edit?usp=sharing)
+# 
