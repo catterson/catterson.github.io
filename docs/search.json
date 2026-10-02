@@ -5318,5 +5318,54 @@
     "title": "",
     "section": "THE END.",
     "text": "THE END."
+  },
+  {
+    "objectID": "calstats/slides/modelintro_slide.html#check-in-post-brain-exam-survey",
+    "href": "calstats/slides/modelintro_slide.html#check-in-post-brain-exam-survey",
+    "title": "",
+    "section": "CHECK-IN : Post Brain-Exam Survey!",
+    "text": "CHECK-IN : Post Brain-Exam Survey!"
+  },
+  {
+    "objectID": "calstats/slides/modelintro_slide.html#measures-are-a-prediction",
+    "href": "calstats/slides/modelintro_slide.html#measures-are-a-prediction",
+    "title": "",
+    "section": "Measures are a Prediction",
+    "text": "Measures are a Prediction\n\n\n\n\n\nCould you place yourself on this ladder?\nDoes this seem like a valid way to measure happiness?\nWhat benefits / problems are there of this approach?\nWhat questions do you have?"
+  },
+  {
+    "objectID": "calstats/slides/modelintro_slide.html#the-mean-as-prediction-with-error",
+    "href": "calstats/slides/modelintro_slide.html#the-mean-as-prediction-with-error",
+    "title": "",
+    "section": "The Mean as Prediction (with Error)",
+    "text": "The Mean as Prediction (with Error)"
+  },
+  {
+    "objectID": "calstats/slides/modelintro_slide.html#the-linear-model-error-in-our-predictions",
+    "href": "calstats/slides/modelintro_slide.html#the-linear-model-error-in-our-predictions",
+    "title": "",
+    "section": "The Linear Model : Error in Our Predictions",
+    "text": "The Linear Model : Error in Our Predictions\nWhich model has dots that are closer to the line??? (Mean of Satisfaction or Life Expectancy)"
+  },
+  {
+    "objectID": "calstats/slides/modelintro_slide.html#the-linear-model-quantifying-error",
+    "href": "calstats/slides/modelintro_slide.html#the-linear-model-quantifying-error",
+    "title": "",
+    "section": "The Linear Model : Quantifying Error",
+    "text": "The Linear Model : Quantifying Error\n\nWhich model has more error?How big is the difference in error?Is this a Big or Small Difference?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSWLS24 &lt;- mod$model$SWLS_24 # using data that also have life expectancy\nresidual &lt;- SWLS24 - mean(SWLS24) # error\nSST &lt;- sum(residual^2, na.rm = T) # sum of squared errors\nSST # total sum of squared errors\n\n[1] 195.867\n\n\n\n\nSSM &lt;- sum(mod$residuals^2) # R saves the residuals for you\nSSM # hooray!\n\n[1] 89.63457\n\n\n\n\n\nSome math helps us evaluate.\n\nSST - SSM # the total difference\n\n[1] 106.2324\n\n(SST - SSM)/SST # the relative difference\n\n[1] 0.5423702\n\nsummary(mod)$r.squared # R^2\n\n[1] 0.5423702"
+  },
+  {
+    "objectID": "calstats/slides/modelintro_slide.html#break-time-meet-back-at-415",
+    "href": "calstats/slides/modelintro_slide.html#break-time-meet-back-at-415",
+    "title": "",
+    "section": "BREAK TIME : MEET BACK AT 4:15",
+    "text": "BREAK TIME : MEET BACK AT 4:15"
+  },
+  {
+    "objectID": "calstats/slides/modelintro_slide.html#part-3-reliability-and-validity",
+    "href": "calstats/slides/modelintro_slide.html#part-3-reliability-and-validity",
+    "title": "",
+    "section": "PART 3 : Reliability and Validity",
+    "text": "PART 3 : Reliability and Validity"
   }
 ]

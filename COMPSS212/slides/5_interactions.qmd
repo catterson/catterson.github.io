@@ -1,8 +1,7 @@
 ---
 title: ""
 format: 
-  html: 
-    output-file: "5_interactions.html"
+  html: default
   revealjs: 
     output-file: "interactions_slides.html"
     slide-level: 3
