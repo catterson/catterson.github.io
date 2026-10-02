@@ -976,8 +976,8 @@
     "objectID": "dvcstats/slides/ch4.html#check-in-review-time",
     "href": "dvcstats/slides/ch4.html#check-in-review-time",
     "title": "",
-    "section": "Check-In : Review Time!",
-    "text": "Check-In : Review Time!\n\n\n\nhist(d$hrs.sleep, xlab = \"Hours of Sleep\", main = \"\")\n\n\n\n\n\n\n\nmean(d$hrs.sleep, na.rm = T)\n\n[1] 6.288462\n\nsd(d$hrs.sleep, na.rm = T)\n\n[1] 1.359528\n\n\n\n\nWhat is the shape, mean, and sd of this distribution?\nWhat do these statistics tell you about the people in our class?"
+    "section": "",
+    "text": "hist(d$hrs.sleep, xlab = \"Hours of Sleep\", main = \"\")\n\n\n\n\n\n\n\nmean(d$hrs.sleep, na.rm = T)\n\n[1] 6.288462\n\nsd(d$hrs.sleep, na.rm = T)\n\n[1] 1.359528\n\n\n\n\nWhat is the shape, mean, and sd of this distribution?\nWhat do these statistics tell you about the people in our class?"
   },
   {
     "objectID": "dvcstats/slides/ch4.html#lab-4.-graphing-numeric-variables-with-professor",
@@ -4387,5 +4387,670 @@
     "title": "",
     "section": "Deep Breath. No Talking.",
     "text": "Deep Breath. No Talking."
+  },
+  {
+    "objectID": "dvcstats/W8_CH7.html",
+    "href": "dvcstats/W8_CH7.html",
+    "title": "Week 8 - Chapter 7",
+    "section": "",
+    "text": "NoteAnnouncements and Agenda\n\n\n\n\n\n\n\n\nR Exam is TWO WEEKS. After Spring Break. See the study guide.\n\nopen-note and open-internet\ntake in class\n\nBrain Exam #1. Graded & Key & “Learning From” Assignment Posted\n\n\nToday, on Psych 214…\n\n8:55 - 10:00. Check-In and Linear Model Review.\n10:00 - 10:10. Break Time.\n10:10 - 11:00. Linear Model with a Categorical IV\n\n\n\n\n\n\n\nClass Slides and Materials\n\n\nCheck-In. Linear Model Review. Purposefully vague!\n\nNarcissism Data. For the check-in.\n\nR EXAM STUDY GUIDE. It will be chill.\nProfessor R Scripts [Zoom Room + Room Crew]\n\n\n\nFor Next Week.\n\nLab 6. Complete a Practice Exam from the Study Guide\n\nsubmit what you did + a brief paragraph (at the top) about how things went.\nset a timer for two hours.\n\nsee how far you can get\nopen-note; open-internet; adhere to course AI policy.\n\nUse the key AFTER you get stuck for at least 10 minutes. Ask questions on Discord if you have them (explain which practice exam you are taking.)\nAny submission gets 4/4. Your responsibility to practice!"
+  },
+  {
+    "objectID": "dvcstats/W14_BrainExam2M4.html",
+    "href": "dvcstats/W14_BrainExam2M4.html",
+    "title": "Week 14 - Brain Exam & Project Time",
+    "section": "",
+    "text": "NoteAnnouncements and Agenda\n\n\n\n\n\n\n\n\nBrain Exam. Today! First, some practice.\nProject Milestone 4. Project Draft. Whew.\nTHE END IS NEAR. All work completed by Friday, May 22nd to be guaranteed a grade :)\n\n\nToday, on Psych 214…\n\n8:55 - 10:00. Check-In and Brain Exam 2 and Multiple Regression Review Whew.\n10:00 - 10:10. Break Time.\n10:10 - 11:00. Multiple Regression & Your Final Project.\n\n\n\n\n\n\n\nClass Slides and Materials!!\n\n\nCheck-In Here\nProfessor R Scripts [Zoom Room + Room Crew]\n\n\n\nFor Next Week.\n\nMilestone 4\n\n\nChapter 11 (Interaction Effects) is OPTIONAL"
+  },
+  {
+    "objectID": "dvcstats/labs/Lab3.html",
+    "href": "dvcstats/labs/Lab3.html",
+    "title": "Lab 3",
+    "section": "",
+    "text": "Use R to answer the following questions. Make sure that you show your R code and the output (result or graphs.) You can do this by taking a screenshot and pasting into your Google / Word Document.\n\n\nDownload the “World Happiness” data, and import this data into R.\n\nLoad the data (I’ll call it d if you want to follow along with my code), check to make sure it loaded correctly, and report the sample size and names of the variables.\nChoose two variables from the dataset - look to the codebook for more information on what this variable measures. Graph each variable, and change the arguments to make the graph “look nice”.\nUse R to report the mean, median, range, and standard deviation for each variable (remember to use na.rm = T as an argument if there is missing data). Describe what each of these statistics tells you about the happiness of countries in the dataset. (Human brain stuff; no R needed! Goal is to connect the stats to knowledge and understanding of the variable.)\nDescribe what additional questions you have about this variable (what do you NOT learn about happiness levels of countries from this variable, and what might you want to know?)\n\n\n\n\nHere’s a link to a previous semester’s BRAIN EXAM. Answer the questions, and then use the key (no peeking; try to do the brain exam on your own first!!!) to review your answers. For this problem, just explain how the practice exam went for you. Note that each semester’s exam will be a little different.\n\n\n\nPlease describe how you used AI tools; make sure you include specific prompts here. Thanks!"
+  },
+  {
+    "objectID": "dvcstats/labs/Lab3.html#problem-1.-world-happiness-problems.",
+    "href": "dvcstats/labs/Lab3.html#problem-1.-world-happiness-problems.",
+    "title": "Lab 3",
+    "section": "",
+    "text": "Download the “World Happiness” data, and import this data into R.\n\nLoad the data (I’ll call it d if you want to follow along with my code), check to make sure it loaded correctly, and report the sample size and names of the variables.\nChoose two variables from the dataset - look to the codebook for more information on what this variable measures. Graph each variable, and change the arguments to make the graph “look nice”.\nUse R to report the mean, median, range, and standard deviation for each variable (remember to use na.rm = T as an argument if there is missing data). Describe what each of these statistics tells you about the happiness of countries in the dataset. (Human brain stuff; no R needed! Goal is to connect the stats to knowledge and understanding of the variable.)\nDescribe what additional questions you have about this variable (what do you NOT learn about happiness levels of countries from this variable, and what might you want to know?)"
+  },
+  {
+    "objectID": "dvcstats/labs/Lab3.html#problem-2.-brain-exam-practice.",
+    "href": "dvcstats/labs/Lab3.html#problem-2.-brain-exam-practice.",
+    "title": "Lab 3",
+    "section": "",
+    "text": "Here’s a link to a previous semester’s BRAIN EXAM. Answer the questions, and then use the key (no peeking; try to do the brain exam on your own first!!!) to review your answers. For this problem, just explain how the practice exam went for you. Note that each semester’s exam will be a little different."
+  },
+  {
+    "objectID": "dvcstats/labs/Lab3.html#ai-disclosure.",
+    "href": "dvcstats/labs/Lab3.html#ai-disclosure.",
+    "title": "Lab 3",
+    "section": "",
+    "text": "Please describe how you used AI tools; make sure you include specific prompts here. Thanks!"
+  },
+  {
+    "objectID": "macssstats/Week5.html",
+    "href": "macssstats/Week5.html",
+    "title": "Week 5 - Monday, April 13th",
+    "section": "",
+    "text": "NoteAnnouncements and Agenda\n\n\n\n\n\n\n\nToday’s Objectives :\n\nPractice with Interaction Effects and Likert Scales. Good to review!\nComparing and Evaluating Models. Which is better? And why?\nPower Analyses. What? / Who Cares??! / And How!?!!\n\n\nAgenda\n\n10:10 - 10:45. Check-In (Multiple Regression Review)\n10:45 - 11:20. Likert Scale and Interaction Effect Review\n11:20 - 11:30. BREAK TIME\n11:30 - 1:00. Power\n\n\n\n\n\n\n\n\n\n\nCheck-In : practice interpreting linear models and NHST.\nProfessor Notes. My R scripts and other notes, saved in real-time.\nVISION BOARD. Where we will share work we do in class.\n\n\n\n\n\n\n\nI’ll go through the slides below in class.\n\n\n\n\nConceptualizing Power. a d3 visualization to illustrate power that we will explore together and hopefully will help.\n\n\n\n\n\nRecording #1 : Conceptual Example of Power\nRecording #2 : Another Example. These data come from a paper I had rejected in part because reviewers complained that I only replicated the main result in 4 out of 5 studies. (The paper was also a hot mess.) Bummer! But it was a cool phenomenon; I sadly never published on it for a variety of REASONS, but the truth got out eventually someone published a very clearly written, much better, and perfectly replicating paper (across six studies!) on it 8 years later. Ahhh, one thing off the to-do list.\n\n\n\n\nBelow are a few different methods to help you estimate power across a wide variety of types of data.\n\nHere’s a nice overview of how to conduct sample size power analysis in R\nThis is a modern, thorough, and good overview of power, that also discusses ways to generate simulated data (like we did with bootstrapping) to estimate power.\nHere’s another tutorial of an R package that works for a wide variety of different tests; many of which can be used when yout think the assumptions of linear regression are violated."
+  },
+  {
+    "objectID": "macssstats/Week5.html#lab-5.-political-problems.",
+    "href": "macssstats/Week5.html#lab-5.-political-problems.",
+    "title": "Week 5 - Monday, April 13th",
+    "section": "Lab 5. Political Problems.",
+    "text": "Lab 5. Political Problems.\nLink to Dataset and Research Article. These data come from a published study on how dehumanizing language influences political beliefs. The author wanted to test “how the dehumanization of immigrants influences immigration policy attitudes”. To do this, they conducted an experiment, in which participants read either a dehumanizing or non-dehumanizing political speech about immigrants (variable = dh_treat) and then measured participants attitudes about three separate immigration questions (variables = imm1, imm2, imm3).\n\nWithout looking at the results of the original paper, think about what linear model(s) you would define (based on the variables measured) to test the author’s research question (above). Make sure you consider relevant control and / or confound variables to include, and explain why these are needed. Then, define and interpret this linear model. Was dehumanizing political speech related to immigration policy attitudes? Report your results with a graph and summary regression table.\nAfter you complete question 1, look at Table 1 from the original paper. How did the researcher’s linear models differ from your own? See if you can recreate the author’s results using the variables in the dataset (feel free to just focus on one model)."
+  },
+  {
+    "objectID": "macssstats/Week5.html#article-discussion",
+    "href": "macssstats/Week5.html#article-discussion",
+    "title": "Week 5 - Monday, April 13th",
+    "section": "Article Discussion",
+    "text": "Article Discussion\n\nSkim the method section of the research paper for this week’s lab assignment (in the dataset folder). Do you feel like this was a valid way to answer the question? Why / why not? What other questions do you have? (Note : I think there’s a lot to unpack about this paper! We will do so next week.)\nSubmit Your Response Here. We’ll use these responses to guide our discussion of the article next week. Great to use your own voice; don’t worry about sounding smart or having “perfect” english!"
+  },
+  {
+    "objectID": "macssstats/Week6.html",
+    "href": "macssstats/Week6.html",
+    "title": "Week 6 - Monday, April 20th",
+    "section": "",
+    "text": "NoteAnnouncements and Agenda\n\n\n\n\n\n\n\nToday’s Objectives :\n\nPractice with Interaction Effects and Power. Still good to review!\nDiscussing the Research on Dehumanization. Replication and need for transparent science.\nThe Learning Has Not Stopped. On extensions of the linear model (GLM –&gt; HLM).\n\n\nAgenda\n\n10:10 - 11:00. Check-In (Interaction Effect and Power)\n11:00 - 11:30. ACTIVITY : Experiments are Models.\n11:30 - 11:40. BREAK TIME\n11:40 - 1:00. More Linear Models\n\n\n\n\n\n\n\n\n\n\nCheck-In : practice interpreting linear models and NHST.\nProfessor Notes. My R scripts and other notes, saved in real-time.\nVISION BOARD. Where we will share work we do in class.\n\n\n\n\n\n\n\nAn overview of ML methods (including the partitioning approach) for evaluating models\nAnother overview of cross-validation methods.\nSome more notes on multicollinearity and VIFs.\n\n\n\n\n\nARTICLE : Meyer, G. J., Finn, S. E., Eyde, L. D., Kay, G. G., Moreland, K. L., Dies, R. R., Eisman, E.J., Kubiszyn, & Reed, G. M. (2001). Psychological testing and psychological assessment: A review of evidence and issues. American psychologist, 56(2), 128.\nFunder DC, Ozer DJ. Evaluating Effect Size in Psychological Research: Sense and Nonsense. Advances in Methods and Practices in Psychological Science. 2019;2(2):156-168. doi:10.1177/2515245919847202\nAllen C, Mehler DMA (2019) Correction: Open science challenges, benefits and tips in early career and beyond. PLOS Biology 17(12): e3000587. https://doi.org/10.1371/journal.pbio.3000587"
+  },
+  {
+    "objectID": "macssstats/Week6.html#lab-6.-teaching-problems",
+    "href": "macssstats/Week6.html#lab-6.-teaching-problems",
+    "title": "Week 6 - Monday, April 20th",
+    "section": "Lab 6. Teaching Problems",
+    "text": "Lab 6. Teaching Problems\nThe goal of this final lab assignment is to write a tutorial that walks a hypothetical student through interpreting the results of regression.\nWhat this lab looks like is open-ended, but it should be (a) engaging (e.g., is written with the goal of teaching someone in mind) and (b) transparent (e.g., includes the dataset so a student can follow along).\nMore specifically, your tutorial should include the following.\n\nDefinig the problem and dataset. A clearly stated research question and theory you can test with the variables in the dataset.\nData cleaning and descrption. Explain how to graph the variables needed to for your model, and doing any data cleaning or transformations needed.\nThe basics of regression. Defining the needed linear model(s) to test your theory, and interpreting the slope(s), intercept, and \\(R^2\\) for your model. Include a graph for at least one model, and connect the statistics to your graph. Then, diagnose those assumptions of regression.\nThe basics of inferential statistics. estimate and interpreting sampling error of the linear models (using either bootstrapping or NHST.)\nInteraction Effects. Define, testing, and interpreting an interaction effect (along with a graph!) and interpreting the slope(s) and \\(R^2\\) value from this model.\nChoose one of the following : something more advanced (or new)!\n\nExplain how a linear model changes after some transformation (e.g., z-scoring, log the DV, adding a quadratic term to the model.)\nTeach us some new method, and explain why this is helpful or important in terms of your research question!\n\n\nFeel free to keep this as short and streamlined as possible, but the idea is that someone could read through this and learn a little bit about the theory and practice of linear regression.\nWhen you are done, please submit this tutorial to the bCourses assignment, and then upload a link to the dataset and your tutorial as a .PDF to the Vision Board."
+  },
+  {
+    "objectID": "macssstats/Week6.html#article-discussion",
+    "href": "macssstats/Week6.html#article-discussion",
+    "title": "Week 6 - Monday, April 20th",
+    "section": "Article Discussion",
+    "text": "Article Discussion\nScan the article below; we will briefly discuss next week!\n\nMakin, T. R., & Orban de Xivry, J. J. (2019). Ten common statistical mistakes to watch out for when writing or reviewing a manuscript. Elife, 8, e48175. [PDF]\nSubmit Your Response Here. We’ll use these responses to guide our discussion of the article next week. Great to use your own voice; don’t worry about sounding smart or having “perfect” english!"
+  },
+  {
+    "objectID": "macssstats/Week3.html",
+    "href": "macssstats/Week3.html",
+    "title": "Week 3 - Monday, March 30th",
+    "section": "",
+    "text": "NoteAnnouncements and Agenda\n\n\n\n\n\n\n\n\nWelcome back! Please complete the check-in.\nNext Week : Professor on Zoom; You (and GSI Max!) in Class.\n\n\n\n10:10 - 10:40. Check-In and Linear Model Review\n10:40 - 11:20. Introduction to Sampling Error\n11:20 - 11:30. Break Time\n11:30 - 1:00. NHST and Objectivity Armoring\n\n\n\n\n\n\n\n\n\n\nCheck-In: practice working with linear models.\nDataset for Check-in : the world happiness dataset and codebook.\nProfessor Notes. My R scripts and other notes, saved in real-time.\nVISION BOARD. Where we will share work we do in class.\n\n\n\n\n\n\n\n\n\n\nNote1. READ THIS : Regression Assumptions\n\n\n\n\n\nThe interpretation of our linear model depends on a variety of different assumptions being met. You can read more about these from the great Gelman & Hill’s textbook : Data Analysis Using Regression. But below is a TLDR, with a few ideas of my own thrown in :)\n\nValidity. Is your linear model the right model to answer the research question that you have? This is the big question, and often goes beyond the specific statistics that we are focusing on. Did you include the right variables in your model, or are you leaving something out? Are you studying the right sample of people, drawn from the right population? Are your measures valid? This is hard to do, and good to remember that it is hard so you ask yourself “am I doing a good job”?\nReliability of Measures. The variables in your linear model should be measured with low error (“garbage in, garbage out”). There are different ways to assess reliability.\n\nCronbach’s alpha (psych::alpha()) is good for assessing the inter-item reliability of a likert scale.\nThe Intraclass Correlation Coefficient (ICC) is often used for observational ratings where multiple judges form impressions of the same target.\nTest-retest reliability is a great way to ensure that physiological or single-item measures will yield repeatable measures over time (assuming the target of measurement has not changed between time points). One way to test this is to define a linear model to predict the measure at one time point from the measure at another; you’d expect to see a strong relationship.\n\nIndependence. This is a big one - the residuals in your model need to be unrelated to each other. That is, I should not be able to predict the value of one error from another error. When the data in a linear model come from distinct individuals who are unrelated to each other, this assumption is usually considered to be met. However, there are often types of studies where the data are not independent.\n\nNested Data : Often times, individuals in a dataset belong to a group where there’s a clear dependence. For example, the happiness of individual members of a family is probably dependent on one another (since they share the same environment, stressors, etc.); the test-scores of children in a school are probably all related to each other (since they share the same teachers, administrators, funding, lead exposure in the drinking water, etc.)\nRepeated Measures : If a person is measured multiple times, then their data at one time point will be related to their data at the second time point, since they are coming from the same person, with the same past experiences and beliefs and genetics and all that other good stuff.\n\nIf the data are not independent, then we will need to account for the dependence in the data. We will learn to do this when we review Multilevel Linear Models. (Spoiler : it’s more lines.)\nLinearity. The dependent (outcome) variable should be the result of one or more linear functions (slopes). In other words, the outcome is the result of a bunch of straight lines. If the straight lines don’t properly “fit” or “explain” your data, then maybe you need some non-straight lines…you could bend the line (add a quadratic term), look for an interaction term (that tests whether there’s a multiplicative relationship between the variables), or apply a non-linear transformation to the data (i.e., often times income is log transformed, since a 9,000 point difference between 1000 and 10,000 dollars/month is not the same as a 9,000 point difference between 1,000,000 and 1,009,000 dollars/month).\nEqual Variance of Errors (Homoscedasticity). The errors associated with the predicted values of the DV (the residuals) should be similar for all different values of the IV. Homoscedasticity means that the residual errors in our outcome variable are distributed the same across the different values of the IV. Heteroscedasticity means there is some non-constant variability in errors, which means that your model may not be an appropriate explanation of the data.\nNormality of Errors (Residuals and Sampling). This assumption is less emphasized as our datasets have gotten larger, and methods for estimating sampling error have improved. But the basic idea is that statistics like confidence intervals and estimates of slopes assume that the errors in our model are normally distributed. If they are not, it’s likely that your model is not appropriately fitting the data (i.e., maybe some outliers are influencing the results.)\n\n\n\nAssumptions 1-3 require critical thinking about your methods and measures.\nAssumptions 4 and 5 can be examined using the plot() function in base R - you may have accidentally come across these when trying to graph your linear model.\nWe talked about how to interpret these plots a little in lecture; here’s another tutorial that walks through the interpretation. Let us know (on Discord!) if you find another good example / explanation.\n\n#par(mfrow = c(2,2))\n#plot(mod)\n\nAssumption 6 can be examined by graphing the residuals of your model object with a histogram.\n\n#par(mfrow = c(1,1))\n#hist(mod$residuals)\n\n\n\n\n\n\nBootstrapping Videos : A collection of videos that illustrate the principles of bootstrapping.\nWhy Stats : Sampling Error and Bias.A review of what we discussed in class today (focusing on NHST).\nOn Interpreting Log-Transformed Slopes"
+  },
+  {
+    "objectID": "macssstats/Week3.html#article-discussion.",
+    "href": "macssstats/Week3.html#article-discussion.",
+    "title": "Week 3 - Monday, March 30th",
+    "section": "Article Discussion.",
+    "text": "Article Discussion.\n\nRead This Article. Chung, J. M., Meijer, L., Zonneveld, R., Al Sawaf, Z., Alajak, K., Moopen, N., … & Laceulle, O. M. (2022). Lessons learned from conducting a study of emotions and positive personality change in Syrian origin young adults who have recently resettled in the Netherlands. European Journal of Personality, 36(4), 665-682.\nSubmit Your Response Here. We’ll use these responses to guide our discussion of the article next week. Great to use your own voice; don’t worry about sounding smart or having “perfect” english!"
+  },
+  {
+    "objectID": "macssstats/Week3.html#lab-3.-abstract-problems",
+    "href": "macssstats/Week3.html#lab-3.-abstract-problems",
+    "title": "Week 3 - Monday, March 30th",
+    "section": "Lab 3. Abstract Problems",
+    "text": "Lab 3. Abstract Problems\nAnswer the questions below as a .PDF; make sure your code is visible alongside your output. Please make sure to adhere to the course AI policy, and please ask for help if you get stuck / are confused / professor made a mistake.\nThis lab has you analyze the quantitative data that were collected for the article on Objectivity Interrogations that we (hopefully!) discussed in class, and you (hopefully!!) read :)\nLink to Dataset. The original dataset was in a .sav format (SPSS). It would be a good challenge to try and figure out how to load this into R. But if you get stuck / it’s not working, I’ve also uploaded the same data as a .csv file.\nPROFESSOR NOTE : I’m a little worried this lab assignment is too long. Spend no more than 2-3 hours working on this, and submit whatever you have, with a note about where you got stuck / what still seemed confusing.\n\nProblem 1. Abstract Problems, Linear Model Style.\nIn the paper, the researchers predicted that scholars of color would be less likely to use power words (variable = power) in their abstracts than White scholars. Test this theory using a linear model.\n\nLoad the data and make sure the data loaded correctly.\nGraph the variables that will go into your linear model, and do any data cleaning that’s necessary. Make sure your IV is saved as a categorical variable.\nDefine the linear model. Graph the relationship between the two variables, report the slope, intercept, and R^2 value, and explain what these terms mean.\nEvaluate the assumptions of regression for this linear model. Does the model seem properly defined?\nThat’s right; it’s time to estimate sampling error of the slope. Use bootstrapping to estimate the 95% Confidence Interval for the slope, and explain what this statistics tells you about the relationship between the DV and the IV.\nNow use NHST to estimate the sampling error. Did you get similar results to the bootstrapping approach?\nFinally, conclude - was the researcher’s theory supported?\n\n\n\nProblem 2. Abstract Problems, No Linear Models Allowed\nIn the paper, the researchers predicted that scholars of color would be less likely to use power words (variable = power) in their abstracts than White scholars. Test this theory without using a linear model.\n\nSplit the dataset into two new dataframes based on the variable pocu; confirm that this worked.\nGraph the number of power words used for each group. Then, report the mean number of power words used for each group. Finally, report the difference in these means.\nUse a for-loop to estimate the sampling error we might expect for a) the mean power for scholars of color, b) the mean power words for white scholars, and c) the difference between these means (you should be able to do this in one for-loop, but may need three separate “buckets” to save each of the three statistics.) Report these three average sampling errors. Then, calculate the 95% Confidence Interval for the difference in means (i.e., difference ± 1.96 * sampling error of the difference). How does this statistic influence your understanding of the difference in power words between scholars of color and White scholars?\nReflect on the difference in power words between scholars of color and White scholars; how large does this difference seem? Note : there are lots of different ways to think about differences….less important to get the “stats” right here, and more important to just demonstrate you are thinking about ways you might contextualize this difference between one mean and another.\nFINALLY : professor keeps saying that a linear regression is the same thing as a t-test. Use the t.test() function to see if you can get the same results. What seems the same? What seems different?"
+  },
+  {
+    "objectID": "macssstats/Week2.html",
+    "href": "macssstats/Week2.html",
+    "title": "Week 2 - Monday, March 16th",
+    "section": "",
+    "text": "NoteAnnouncements and Agenda\n\n\n\n\n\n\n\nWelcome! We will get started soon. In the meantime, please complete the following :\n\nCheck-In : still graded for completion; a warmup.\nLab 1 Key Posted : will discuss!\n\n\n\n10:10 - 11:30. Check-In and Review (Linear Models)\n11:30 - 11:45. Break Time\n11:45 - 1:00. Objectivity Armoring and Likert Scales\n\n\n\n\n\n\n\n\n\n\nCheck-In : Use R to DESCRIBE, PREDICT, evaluate ERROR, and think about how you might use the knowledge to CONTROL OUTCOMES!\n\nthe hormone dataset and codebook. from a study of business students at Berkeley.\n\nProfessor Notes. My R scripts and other notes, saved in real-time.\nVISION BOARD. Where we will share work we do in class.\n\n\n\n\n\nneed a review of stats and R? below are some relevant links from the stats textbook I use with my introductory classes. let me know if these are useful / you have ideas to make more useful :)\n\nchapter 6 : on the linear model with a numeric IV and numeric DV\nchapter 7 : on the linear model with a categorical IV and numeric DV\nchapter 9 : on the linear model when your categorical IV has more than two levels"
+  },
+  {
+    "objectID": "macssstats/Week2.html#no-article-discussion.-will-discuss-objectivity-interrogations-next-class",
+    "href": "macssstats/Week2.html#no-article-discussion.-will-discuss-objectivity-interrogations-next-class",
+    "title": "Week 2 - Monday, March 16th",
+    "section": "No Article Discussion. Will discuss objectivity interrogations next class :)",
+    "text": "No Article Discussion. Will discuss objectivity interrogations next class :)\n\nRead This Article. Chung, J. M., Meijer, L., Zonneveld, R., Al Sawaf, Z., Alajak, K., Moopen, N., … & Laceulle, O. M. (2022). Lessons learned from conducting a study of emotions and positive personality change in Syrian origin young adults who have recently resettled in the Netherlands. European Journal of Personality, 36(4), 665-682.\nSubmit Your Response Here. We’ll use these responses to guide our discussion of the article next week. Great to use your own voice; don’t worry about sounding smart or having “perfect” english!"
+  },
+  {
+    "objectID": "macssstats/Week2.html#lab-2.-onboarding-problems",
+    "href": "macssstats/Week2.html#lab-2.-onboarding-problems",
+    "title": "Week 2 - Monday, March 16th",
+    "section": "Lab 2. Onboarding Problems",
+    "text": "Lab 2. Onboarding Problems\nUse the Onboarding Dataset (from Week 1) to prepare a report that uses the data to a) practice working with linear models, b) learn something about our class, and c) practice thinking about how we might use this knowledge.\n\nDefine three separate linear models to predict one numeric variable from the dataset (a “dependent variable” or DV) from (A) a numeric variable (Independent Variable 1 = IV1), (B) a different numeric variable (IV2) and (C) a categorical variable (IV3). For each model, make sure to include a graph, and report the slope, intercept, and \\(R^2\\) term. Note : each linear model should use the same DV, and this DV should be numeric. There’s no need to report the p-values yet :) but you can include these if you want.\nBelow your graphs and statistics, explain (A) what you learn from each model, (B) why you might find this pattern in the data, (C) what other questions you might have about these data / ideas you have to improve predictions, and (D) how we might use this knowledge. No R is required for this - just your human brain.\nOrganize this report as a 1-2 page document. Think about what information your audience might need to understand your data and interpretation. We will look at some of these in-class together, so be prepared to share your work with the class!"
+  },
+  {
+    "objectID": "macssstats/slides/1_measures.html",
+    "href": "macssstats/slides/1_measures.html",
+    "title": "Welcome to COMPSS222",
+    "section": "",
+    "text": "Please complete this check-in!\nUse the onboarding dataset to answer a few questions.\n\n\n\n\n\n\n\n\n\n\n\nwho : Arman…Professor…Professor Catterson…Dr. Catterson\nwhere : from Texas to Berkeley to Google (briefly) to teaching statistics at the graduate and undergraduate level at Berkeley.\nwhat else : parenting, bicycles, dnd, Mr. Liu’s Noodle House.\n\n\n\n\n\n\n\n\n\n\nMax Facts Go Here.\n\n\n\n\nYour voice is needed.\n\nin data science!\nin the classroom! we learn from each other.\n\nclap once if you are here.\nsound you made when alarm went off this morning?\nthe vision board : name, where’s home?, capstone project, favorite place to eat?\n\n\n\n\n\n\nWhy is this class required?\nWhy is this degree or career path needed?????!?\n\n\n\n\n\n\n\n\n\n\n…to describe\n…to predict\n…to control\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n…error in description\n…error in prediction\n…error in controlling outcomes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n…to describe\n…to predict\n…to control\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nwhat are the variables you are trying to DESCRIBE in your capstone project?\nhow will you use this knowledge to make PREDICTIONS?\nhow might you use this knowledge to CONTROL OUTCOMES?\nwhat are some places that ERROR might be introduced into your work?\n\n\n\n\n\n\n\n\n\n\n\n\n\nReview and Extend Statistics Knowledge.\nPractice doing “Good Science” in Class.\nKeep it Chill. Been a long year and y’all have more to do.\n\n\n\n\n\nParticipation (Attendance & Vision Board & Discussions)\nPractice (Lab Assignments; graded for completion and effort)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvars\nn\nmean\nsd\nmedian\nmin\nmax\nrange\nse\n\n\n\n\nfam.r\n1\n20\n6.55\n1.50\n7\n3\n8\n5\n0.34\n\n\nfam.stat\n2\n20\n6.15\n1.63\n6\n2\n8\n6\n0.36\n\n\nfam.rm\n3\n20\n6.50\n1.88\n7\n2\n9\n7\n0.42\n\n\n\n\n\n\n\n\n\n\n\nchoose TWO variables you are interested in learning more about.\ngraph EACH variable (univariate statistics only for now!)\n\nwhat do you learn?\nreport descriptive statistics as needed.\n\nevaluate your results:\n\nthink of new questions (and limitations)\nhow do you use this knowledge?"
+  },
+  {
+    "objectID": "macssstats/slides/1_measures.html#who-are-you",
+    "href": "macssstats/slides/1_measures.html#who-are-you",
+    "title": "Welcome to COMPSS222",
+    "section": "",
+    "text": "who : Arman…Professor…Professor Catterson…Dr. Catterson\nwhere : from Texas to Berkeley to Google (briefly) to teaching statistics at the graduate and undergraduate level at Berkeley.\nwhat else : parenting, bicycles, dnd, Mr. Liu’s Noodle House.\n\n\n\n\n\n\n\n\n\n\nMax Facts Go Here.\n\n\n\n\nYour voice is needed.\n\nin data science!\nin the classroom! we learn from each other.\n\nclap once if you are here.\nsound you made when alarm went off this morning?\nthe vision board : name, where’s home?, capstone project, favorite place to eat?"
+  },
+  {
+    "objectID": "macssstats/slides/1_measures.html#why-advanced-applied-statistics-ii",
+    "href": "macssstats/slides/1_measures.html#why-advanced-applied-statistics-ii",
+    "title": "Welcome to COMPSS222",
+    "section": "",
+    "text": "Why is this class required?\nWhy is this degree or career path needed?????!?\n\n\n\n\n\n\n\n\n\n\n…to describe\n…to predict\n…to control\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n…error in description\n…error in prediction\n…error in controlling outcomes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n…to describe\n…to predict\n…to control\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nwhat are the variables you are trying to DESCRIBE in your capstone project?\nhow will you use this knowledge to make PREDICTIONS?\nhow might you use this knowledge to CONTROL OUTCOMES?\nwhat are some places that ERROR might be introduced into your work?"
+  },
+  {
+    "objectID": "macssstats/slides/1_measures.html#this-class.",
+    "href": "macssstats/slides/1_measures.html#this-class.",
+    "title": "Welcome to COMPSS222",
+    "section": "",
+    "text": "Review and Extend Statistics Knowledge.\nPractice doing “Good Science” in Class.\nKeep it Chill. Been a long year and y’all have more to do.\n\n\n\n\n\nParticipation (Attendance & Vision Board & Discussions)\nPractice (Lab Assignments; graded for completion and effort)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvars\nn\nmean\nsd\nmedian\nmin\nmax\nrange\nse\n\n\n\n\nfam.r\n1\n20\n6.55\n1.50\n7\n3\n8\n5\n0.34\n\n\nfam.stat\n2\n20\n6.15\n1.63\n6\n2\n8\n6\n0.36\n\n\nfam.rm\n3\n20\n6.50\n1.88\n7\n2\n9\n7\n0.42\n\n\n\n\n\n\n\n\n\n\n\nchoose TWO variables you are interested in learning more about.\ngraph EACH variable (univariate statistics only for now!)\n\nwhat do you learn?\nreport descriptive statistics as needed.\n\nevaluate your results:\n\nthink of new questions (and limitations)\nhow do you use this knowledge?"
+  },
+  {
+    "objectID": "macssstats/slides/1_measures.html#operationalization-an-eight-syllable-word",
+    "href": "macssstats/slides/1_measures.html#operationalization-an-eight-syllable-word",
+    "title": "Welcome to COMPSS222",
+    "section": "Operationalization (an Eight Syllable Word)",
+    "text": "Operationalization (an Eight Syllable Word)\n\nA fancy definition (like a rich doctor).\nTechnical and precise (like a doctor who operates).\nA process (an operation).\n\n\n\n\n\n\n\nOperationalization in Real-Life\n\n\n\n\n\n\n\nOperationalization of “Cognitive Exam”\n\n\n\n\n\n\n\nACTIVITY : Count the Interruptions.\nCount the Interruptions : tinyurl.com/researchinterruptions\n\nCount the number of interruptions in the video (which professor will play soon).\nSubmit your answer, then wait for the letter of the day.\n\n\n\nACTIVITY : Count the Interruptions.\n\n\nVideo\n\n\n\n\nDISCUSSION : Operationalization\n\nHow was watching the video?\nHow many INTERRUPTIONS did you count?\nHow did you OPERATIONALIZE an INTERRUPTION?\n\n\n\nACTIVITY : Count the Interruptions Again.\n\n\nVideo\n\n\n\n\nDISCUSSION : How did the data change?\n\nWhat differences between our counts at time 1 and time 2 would we expect there to be?"
+  },
+  {
+    "objectID": "macssstats/slides/1_measures.html#reliability-and-validity",
+    "href": "macssstats/slides/1_measures.html#reliability-and-validity",
+    "title": "Welcome to COMPSS222",
+    "section": "Reliability and Validity",
+    "text": "Reliability and Validity\n\n\n\n\n\n\nReliability and Validity (Specific Terms)\n\n\n\n\n\n\n\n\n\nTerm\nExample (Bathroom Scale)\nExample (Interruption? Onboarding?)\n\n\nface validity : does our measure or result look like what it should look like?\ndata are numbers; range from 0 to 100s\n\n\n\nconvergent validity : is our measure similar to related concepts?\nweight should increase with height…pant size.\n\n\n\ndiscriminant validity : is our measure different from unrelated concepts?\nweight should be unrelated to mouth position.\n\n\n\ntest-retest reliability : do we get the same result if we take multiple measures?\nstep on the scale multiple times; get same result.\n\n\n\ninter-rater reliability : would another observer (or tool) make the same measurements?\nstep on multiple scales; get same answer.\n\n\n\n\n\n\n\nDISCUSSION : examples of these terms in social science research?\n\n\n\n\n\n\n\n\n\nTerm\nExample (Social Media “Likes”)\nExample (Your Capstone Project?)\n\n\nface validity : does our measure or result look like what it should look like?\n\n\n\n\nconvergent validity : is our measure similar to related concepts?\n\n\n\n\ndiscriminant validity : is our measure different from unrelated concepts?\n\n\n\n\ntest-retest reliability : do we get the same result if we take multiple measures?\n\n\n\n\ninter-rater reliability : would another observer (or tool) make the same measurements?\n\n\n\n\n\n\n\n\nACTIVITES : examples of these terms in the onboarding dataset?\n\n\n\n\n\n\n\n\nTerm\nExample in Onboarding\n\n\nface validity : does our measure or result look like what it should look like?\n\n\n\nconvergent validity : is our measure similar to related concepts?\n\n\n\ndiscriminant validity : is our measure different from unrelated concepts?\n\n\n\ntest-retest reliability : do we get the same result if we take multiple measures?\n\n\n\ninter-rater reliability : would another observer (or tool) make the same measurements?"
+  },
+  {
+    "objectID": "macssstats/slides/1_measures.html#discussion-is-it-possible-to-be-objective",
+    "href": "macssstats/slides/1_measures.html#discussion-is-it-possible-to-be-objective",
+    "title": "Welcome to COMPSS222",
+    "section": "DISCUSSION : Is It Possible to Be Objective?",
+    "text": "DISCUSSION : Is It Possible to Be Objective?\n\n\n\n\n\n\n\n\n\n\nArticle for Next Week : Objectivity Interrogations"
+  },
+  {
+    "objectID": "macssstats/slides/6_PowerHLM.html",
+    "href": "macssstats/slides/6_PowerHLM.html",
+    "title": "BREAK TIME",
+    "section": "",
+    "text": "Check-In : Interpreting Interaction Effects\n\n\nThe GraphThe ModelsThe R Code\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 1. Predicting Social Support from GDP, Happiness, and their Interaction\n\n\n\n\nModel 1Model 2Model 3Model 4\n\n(Intercept)0.00    (0.06)0.00    (0.05)0.00    (0.05)0.08    (0.06)\n\nGDP0.73 ***(0.06)           0.25 ** (0.07)0.25 ** (0.07)\n\nhappiness           0.81 ***(0.05)0.62 ***(0.07)0.60 ***(0.07)\n\nhappiness:GDP                                 -0.10 *  (0.05)\n\nN140           140           140           140           \n\nR20.53        0.66        0.69        0.70        \n\nAll continuous variables are mean-centered and scaled by 1 standard deviation.  *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\nNot required, but in case you wanted to see :)\nh &lt;- read.csv(\"~/Dropbox/!GRADSTATS/Datasets/World Happiness Report - 2024/World-happiness-report-2024.csv\", stringsAsFactors = T)\nlibrary(ggplot2)\nlibrary(jtools)\n\n## Some data cleaning.\nh$GDPcat &lt;- ifelse(scale(h$Log.GDP.per.capita) &gt; sd(h$Log.GDP.per.capita, na.rm = T), \"High GDP (+1 SD)\", \"Low GDP (-1 SD)\")\nh$GDPcat &lt;- as.factor(h$GDPcat)\nplot(h$GDPcat)\nh$happiness &lt;- h$Ladder.score\nh$GDP &lt;- h$Log.GDP.per.capita\n\nggplot(data = subset(h, !is.na(h$GDPcat)), aes(x = scale(happiness), y = scale(Social.support), color = GDPcat)) + \n  geom_point(alpha = .5, position = \"jitter\") +\n  geom_smooth(method = \"lm\") + labs(title = \"Check-In Graph\") + ylab(\"Social Support\") + xlab(\"Happiness\") +\n  theme_apa()\n\nmod1 &lt;- lm(Social.support ~ GDP, data = h)\nmod2 &lt;- lm(Social.support ~ happiness, data = h)\nmod3 &lt;- lm(Social.support ~ GDP + happiness, data = h)\nmod4 &lt;- lm(Social.support ~ happiness * GDP, data = h)\n\nexport_summs(mod1, mod2, mod3, mod4, error_pos = \"right\", digits = 2, scale = T, transform.response = T)"
+  },
+  {
+    "objectID": "macssstats/slides/6_PowerHLM.html#review-evaluating-slopes-models",
+    "href": "macssstats/slides/6_PowerHLM.html#review-evaluating-slopes-models",
+    "title": "BREAK TIME",
+    "section": "Review : Evaluating Slopes & Models",
+    "text": "Review : Evaluating Slopes & Models\n\nmodelsANOVAdifferencesbootstrappingse for slope changese for R2 change\n\n\n\n\n\n\nModel 1Model 2Model 3Model 4\n\n(Intercept)0.00    (0.06)0.00    (0.05)0.00    (0.05)0.08    (0.06)\n\nGDP0.73 ***(0.06)           0.25 ** (0.07)0.25 ** (0.07)\n\nhappiness           0.81 ***(0.05)0.62 ***(0.07)0.60 ***(0.07)\n\nhappiness:GDP                                 -0.10 *  (0.05)\n\nN140           140           140           140           \n\nR20.53        0.66        0.69        0.70        \n\nAll continuous variables are mean-centered and scaled by 1 standard deviation.  *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\n\n\n\n\nRes.DfRSSDfSum of SqFPr(&gt;F)\n\n1387.28            \n\n1364.6922.5937.51.06e-13\n\n\n\n\n\nRes.DfRSSDfSum of SqFPr(&gt;F)\n\n1374.83         \n\n1364.6910.13840.0475\n\n\n\n\n\n\n\nz.happiness \n  0.1890785 \n\n\n[1] 0.02523017\n\n\n\n\n\n\n\n\n\n[1] 0.1997391\n\n\n[1] 0.07704344\n\n\n[1] 0.2767826 0.1226957\n\n\n\n\n\n\n\n\n\n\n\n\n\n[1] 0.02929939\n\n\n[1] 0.01840555\n\n\n[1] 0.04770495 0.01089384"
+  },
+  {
+    "objectID": "macssstats/slides/6_PowerHLM.html#recap-evaluating-power",
+    "href": "macssstats/slides/6_PowerHLM.html#recap-evaluating-power",
+    "title": "BREAK TIME",
+    "section": "RECAP : evaluating power",
+    "text": "RECAP : evaluating power\n\ncalculating in R (by hand)\n\nthe modelsaving the metricsdistributions\n\n\n\n\n\nCall:\nlm(formula = z.Social.support ~ z.happiness * z.GDP, data = h)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1.06566 -0.13843  0.00694  0.14130  1.02959 \n\nCoefficients:\n                  Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)        0.03825    0.03062   1.249  0.21367    \nz.happiness        0.59678    0.07394   8.071 3.27e-13 ***\nz.GDP              0.24570    0.07390   3.325  0.00114 ** \nz.happiness:z.GDP -0.20313    0.10155  -2.000  0.04746 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.2787 on 136 degrees of freedom\n  (3 observations deleted due to missingness)\nMultiple R-squared:  0.696, Adjusted R-squared:  0.6893 \nF-statistic: 103.8 on 3 and 136 DF,  p-value: &lt; 2.2e-16\n\n\n\n\n\n\n                     Estimate Std. Error   t value     Pr(&gt;|t|)\n(Intercept)        0.03825221 0.03061657  1.249396 2.136663e-01\nz.happiness        0.59678009 0.07393839  8.071316 3.271081e-13\nz.GDP              0.24570006 0.07389917  3.324801 1.137471e-03\nz.happiness:z.GDP -0.20313089 0.10154906 -2.000323 4.745671e-02\n\n\n\n\n\nthe t-distribution approaches the normal distribution (with a 95% Interval cutoff of 1.96….)\nbut we are not quite there so good to look up what the t-value actually is.\n\n\n\n[1] -1.977054\n\n\n[1] 0.5092651\n\n\n\n\n\n\n\nUsing Power to Estimate Sample Size.\n\nPower is a function of : effect size, sample size, and the alpha level (alpha = the Type I error that the researcher sets).\nYou can use these terms to estimate the sample size needed for a given power (the convention is often 80%).\n\n\n\nExample : Estimating Sample Size\nWhat sample size is needed for a slope of r = .23?\n\nusingt pwr packagevisual from pwr package\n\n\n\nlibrary(pwr)\npwr::pwr.r.test(r = .23, power = .80, alternative = \"two.sided\")\n\n\n     approximate correlation power calculation (arctangh transformation) \n\n              n = 145.2367\n              r = 0.23\n      sig.level = 0.05\n          power = 0.8\n    alternative = two.sided\n\n\n\n\n\np.ex &lt;- pwr.r.test(r = .23, power = .80, alternative = \"two.sided\")\nplot(p.ex)"
+  },
+  {
+    "objectID": "macssstats/slides/6_PowerHLM.html#anchoring-question-theory-data",
+    "href": "macssstats/slides/6_PowerHLM.html#anchoring-question-theory-data",
+    "title": "BREAK TIME",
+    "section": "Anchoring : Question –> Theory –> Data",
+    "text": "Anchoring : Question –&gt; Theory –&gt; Data\n\nQuestion : Will the number that people see BEFORE making their own rating influence their decision?\nTheory :\n\nOPTION A: People who see a HIGHER number before making their own rating will make a HIGHER number than people who see the LOWER number.\nOPTION B : People who see a LOWER number before making their own rating will make a HIGHER number than people who see the HIGHER number.\nOPTION C : There will be NO DIFFERENCES between the groups."
+  },
+  {
+    "objectID": "macssstats/slides/4_xescale.html",
+    "href": "macssstats/slides/4_xescale.html",
+    "title": "PART 1 : When Models Get Complicated",
+    "section": "",
+    "text": "M1.M1 (b).M2.M2 (b)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel 1\n\nSex (Male)0.263 *(0.107)\n\nN114           \n\nR20.051       \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel 1\n\nTestosterone0.004 **(0.001)\n\nN86            \n\nR20.078        \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05."
+  },
+  {
+    "objectID": "macssstats/slides/4_xescale.html#activity-professor-demo.",
+    "href": "macssstats/slides/4_xescale.html#activity-professor-demo.",
+    "title": "PART 1 : When Models Get Complicated",
+    "section": "ACTIVITY : Professor Demo.",
+    "text": "ACTIVITY : Professor Demo.\n\nChoose a DV from the conspiracy theory dataset.\nIdentify two IVs that you think might predict or explain this variable.\nDo the data cleaning and statistics (linear models) needed to answer this question.\n\n\nPREDICT : define the multivariate model. What do you see, and why do this pattern exist?\nERROR : evaluate the slopes (\\(r\\) or \\(\\beta\\)) and the change in error (\\(R^2\\)) across models.\nCONTROL : how might you use this knowledge?"
+  },
+  {
+    "objectID": "macssstats/slides/4_xescale.html#activity-in-the-vision-board.",
+    "href": "macssstats/slides/4_xescale.html#activity-in-the-vision-board.",
+    "title": "PART 1 : When Models Get Complicated",
+    "section": "ACTIVITY : In the Vision Board.",
+    "text": "ACTIVITY : In the Vision Board.\n\nChoose a DV from the conspiracy theory dataset.\nIdentify two IVs that you think might predict or explain this variable.\nDo the data cleaning and statistics (linear models) needed to answer this question.\n\nPREDICT : define the multivariate model. What do you see, and why do this pattern exist?\nERROR : evaluate the slopes (\\(r\\) or \\(\\beta\\)) and the change in error (\\(R^2\\)) across models.\nCONTROL : how might you use this knowledge?"
+  },
+  {
+    "objectID": "macssstats/slides/4_xescale.html#interaction-effects",
+    "href": "macssstats/slides/4_xescale.html#interaction-effects",
+    "title": "PART 1 : When Models Get Complicated",
+    "section": "Interaction Effects",
+    "text": "Interaction Effects\n\nWhat’s Going On In This Graph?\n\nlibrary(ggthemes)\nggplot(data = h, aes(x = test1, y = narc_scale, color = sexF)) + \n  geom_point(size = .5, alpha = .3, position = \"jitter\") + \n  labs(title = \"The Interaction Effect\", x = \"Testosterone (Time 1)\", y = \"Narcissism\", color = \"Sex\") +\n  geom_smooth(method = lm) + theme_apa()\n\n\n\n\n\n\n\n\n\n\nInteraction Effect, Explained?\n\n\n\n\n\n\n\n\n\n\n\n\n\nlibrary(arm)\nmod4 &lt;- lm(narc_scale ~ sexF * test1, data = h)\nmod1z &lt;- arm::standardize(mod1, NULL, TRUE)\nmod2z &lt;- arm::standardize(mod2, NULL, TRUE)\nmod3z &lt;- arm::standardize(mod3, NULL, TRUE)\nmod4z &lt;- arm::standardize(mod4, NULL, TRUE)\nexport_summs(mod1z, mod2z, mod3z, mod4z,\n             error_format = \"\",  error_pos = \"right\")\n\n\n\nModel 1Model 2Model 3Model 4\n\n(Intercept)0.00  -0.02   -0.02  0.05  \n\nc.sexF0.25 *      0.01  -0.18  \n\nz.test1     0.29 **0.28 *0.36 *\n\nc.sexF:z.test1                -0.50  \n\nN114     86      86     86     \n\nR20.05  0.08   0.08  0.09  \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\n\n\nMore Examples\n\nresume datapuzzle data\n\n\n\n\n\n\n\n\n\nBertrand, M., & Mullainathan, S. (2004). Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. American economic review, 94(4), 991-1013\n\n\n\n\n\n\n\n\n\n\n\nHoffman, M., Gneezy, U., & List, J. A. (2011). Nurture affects gender differences in spatial abilities. Proceedings of the National Academy of Sciences, 108(36), 14786-14788."
+  },
+  {
+    "objectID": "macssstats/slides/4_xescale.html#activity-in-the-vision-board",
+    "href": "macssstats/slides/4_xescale.html#activity-in-the-vision-board",
+    "title": "PART 1 : When Models Get Complicated",
+    "section": "ACTIVITY : In the Vision Board",
+    "text": "ACTIVITY : In the Vision Board\nThink about an interaction effect that might be relevant to your Capstone Project &lt;3\n\nWhat is some PATTERN in the data that you expect to see or would be interested to test?\nHow might some OTHER variable influence this pattern?"
+  },
+  {
+    "objectID": "macssstats/slides/4_xescale.html#the-theory",
+    "href": "macssstats/slides/4_xescale.html#the-theory",
+    "title": "PART 1 : When Models Get Complicated",
+    "section": "The Theory",
+    "text": "The Theory\n\n\n\nscale : The variable that you want to measure as a continuous variable.\nitems : The specific question(s) in the scale. Each item measures some aspect of the variable the researcher is interested in.\n\npositively keyed items : An item that measures the high end of the scale, where answering “yes” to the question means you are high on this variable.\nnegatively keyed items : An item that measures the low end of the scale, where answering “yes” to the question means you are low on the variable.\n\nresponse scale : How people answer the scale items."
+  },
+  {
+    "objectID": "macssstats/slides/4_xescale.html#example-conspiracy-beliefs",
+    "href": "macssstats/slides/4_xescale.html#example-conspiracy-beliefs",
+    "title": "PART 1 : When Models Get Complicated",
+    "section": "Example : Conspiracy Beliefs",
+    "text": "Example : Conspiracy Beliefs\n\nload the dataassess the itemsdefine the scale\n\n\n\n\n       Q1              Q2              Q3       \n Min.   :0.000   Min.   :0.000   Min.   :0.000  \n 1st Qu.:2.000   1st Qu.:2.000   1st Qu.:1.000  \n Median :4.000   Median :3.000   Median :1.000  \n Mean   :3.473   Mean   :2.964   Mean   :2.047  \n 3rd Qu.:5.000   3rd Qu.:4.000   3rd Qu.:3.000  \n Max.   :5.000   Max.   :5.000   Max.   :5.000  \n\n\n       Q1              Q2              Q3       \n Min.   :1.000   Min.   :1.000   Min.   :1.000  \n 1st Qu.:2.000   1st Qu.:2.000   1st Qu.:1.000  \n Median :4.000   Median :3.000   Median :1.000  \n Mean   :3.475   Mean   :2.979   Mean   :2.053  \n 3rd Qu.:5.000   3rd Qu.:4.000   3rd Qu.:3.000  \n Max.   :5.000   Max.   :5.000   Max.   :5.000  \n NA's   :2       NA's   :13      NA's   :8      \n\n\n\n\n\n\n\nReliability analysis   \nCall: psych::alpha(x = CONSP.df)\n\n  raw_alpha std.alpha G6(smc) average_r S/N    ase mean sd median_r\n      0.93      0.93    0.94      0.49  14 0.0019  2.9  1     0.48\n\n    95% confidence boundaries \n         lower alpha upper\nFeldt     0.93  0.93  0.94\nDuhachek  0.93  0.93  0.94\n\n Reliability if an item is dropped:\n    raw_alpha std.alpha G6(smc) average_r S/N alpha se  var.r med.r\nQ1       0.93      0.93    0.94      0.49  13   0.0020 0.0109  0.47\nQ2       0.93      0.93    0.94      0.48  13   0.0021 0.0102  0.48\nQ3       0.93      0.93    0.94      0.49  14   0.0020 0.0087  0.49\nQ4       0.93      0.93    0.94      0.48  13   0.0021 0.0109  0.46\nQ5       0.93      0.93    0.94      0.49  13   0.0020 0.0116  0.49\nQ6       0.93      0.93    0.94      0.48  13   0.0021 0.0108  0.47\nQ7       0.93      0.93    0.94      0.48  13   0.0021 0.0102  0.48\nQ8       0.93      0.93    0.94      0.49  13   0.0020 0.0089  0.49\nQ9       0.93      0.93    0.94      0.49  13   0.0021 0.0112  0.47\nQ10      0.93      0.93    0.94      0.50  14   0.0020 0.0105  0.50\nQ11      0.93      0.93    0.94      0.48  13   0.0021 0.0108  0.47\nQ12      0.93      0.93    0.94      0.48  13   0.0021 0.0096  0.47\nQ13      0.93      0.93    0.94      0.49  13   0.0020 0.0095  0.49\nQ14      0.93      0.93    0.94      0.48  13   0.0021 0.0114  0.47\nQ15      0.93      0.93    0.94      0.50  14   0.0020 0.0099  0.49\n\n Item statistics \n       n raw.r std.r r.cor r.drop mean  sd\nQ1  2493  0.73  0.73  0.71   0.68  3.5 1.5\nQ2  2482  0.75  0.74  0.73   0.70  3.0 1.5\nQ3  2487  0.68  0.68  0.67   0.63  2.1 1.4\nQ4  2489  0.79  0.79  0.77   0.75  2.6 1.4\nQ5  2485  0.71  0.71  0.68   0.66  3.3 1.5\nQ6  2490  0.76  0.76  0.74   0.72  3.1 1.5\nQ7  2488  0.76  0.75  0.74   0.71  2.7 1.5\nQ8  2485  0.70  0.69  0.69   0.64  2.5 1.6\nQ9  2485  0.72  0.72  0.70   0.68  2.2 1.4\nQ10 2495  0.61  0.61  0.56   0.54  3.5 1.4\nQ11 2486  0.74  0.75  0.73   0.70  3.3 1.4\nQ12 2484  0.80  0.80  0.79   0.76  2.7 1.5\nQ13 2482  0.72  0.72  0.71   0.67  2.1 1.4\nQ14 2492  0.76  0.76  0.74   0.72  3.0 1.5\nQ15 2494  0.61  0.62  0.58   0.56  4.2 1.1\n\nNon missing response frequency for each item\n       1    2    3    4    5 miss\nQ1  0.16 0.12 0.12 0.27 0.32 0.00\nQ2  0.24 0.19 0.16 0.20 0.22 0.01\nQ3  0.55 0.13 0.12 0.10 0.10 0.00\nQ4  0.32 0.19 0.15 0.20 0.14 0.00\nQ5  0.19 0.14 0.13 0.28 0.26 0.00\nQ6  0.23 0.15 0.15 0.23 0.25 0.00\nQ7  0.33 0.19 0.13 0.18 0.17 0.00\nQ8  0.45 0.12 0.14 0.12 0.18 0.00\nQ9  0.46 0.19 0.12 0.12 0.11 0.00\nQ10 0.14 0.12 0.14 0.30 0.30 0.00\nQ11 0.16 0.14 0.19 0.27 0.24 0.00\nQ12 0.34 0.18 0.15 0.17 0.17 0.00\nQ13 0.51 0.15 0.15 0.10 0.10 0.01\nQ14 0.25 0.17 0.15 0.22 0.20 0.00\nQ15 0.05 0.05 0.08 0.27 0.55 0.00"
+  },
+  {
+    "objectID": "macssstats/slides/4_xescale.html#lab-4-self-esteem-data-scale",
+    "href": "macssstats/slides/4_xescale.html#lab-4-self-esteem-data-scale",
+    "title": "PART 1 : When Models Get Complicated",
+    "section": "Lab 4 : Self-Esteem Data (& Scale)",
+    "text": "Lab 4 : Self-Esteem Data (& Scale)\n\n\n\n\n\n\n\nLikert Scale Item\nItem Evaluation\n\n\n\n\nQ1. I feel that I am a person of worth, at least on an equal plane with others.\n\n\n\nQ2. I feel that I have a number of good qualities.\n\n\n\nQ3. All in all, I am inclined to feel that I am a failure.\n\n\n\nQ4. I am able to do things as well as most other people.\n\n\n\nQ5. I feel I do not have much to be proud of.\n\n\n\nQ6. I take a positive attitude toward myself.\n\n\n\nQ7. On the whole, I am satisfied with myself.\n\n\n\nQ8. I wish I could have more respect for myself.\n\n\n\nQ9. I certainly feel useless at times.\n\n\n\nQ10. At times I think I am no good at all."
+  },
+  {
+    "objectID": "macssstats/slides/3_quadboot.html",
+    "href": "macssstats/slides/3_quadboot.html",
+    "title": "Check-In : Happy World",
+    "section": "",
+    "text": "Use the world happiness dataset (and codebook) to determine whether (a) child mortality, (b) Life Expectancy, or (c) Population is a better predictor of happiness in 2024.\n\n\n\n\n\n\n\n\n\n\n\n\n\nNotePotential Check-In Spoilers Below!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLook over the “READ THIS : Regression Assumptions” in the Additional Reading for this week.\nWe will walk through these together in class :)\n\n\n\n\n\nModel 1 : Adding a Quadratic TermModel 2 : Looks Fine :)Model 3 : The Issue?Model 3 : Issue ResolvedModel 3 : Issue ResolvedEvaluating Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nplot(mod3b)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                   MOD1 MOD2\nR2 with no changes 0.45 0.00\nR2 with changes    0.61 0.03"
+  },
+  {
+    "objectID": "macssstats/slides/3_quadboot.html#recap-linear-models",
+    "href": "macssstats/slides/3_quadboot.html#recap-linear-models",
+    "title": "Check-In : Happy World",
+    "section": "",
+    "text": "NotePotential Check-In Spoilers Below!"
+  },
+  {
+    "objectID": "macssstats/slides/3_quadboot.html#assumptions-in-regression",
+    "href": "macssstats/slides/3_quadboot.html#assumptions-in-regression",
+    "title": "Check-In : Happy World",
+    "section": "",
+    "text": "Look over the “READ THIS : Regression Assumptions” in the Additional Reading for this week.\nWe will walk through these together in class :)"
+  },
+  {
+    "objectID": "macssstats/slides/3_quadboot.html#dealing-with-assumptions.",
+    "href": "macssstats/slides/3_quadboot.html#dealing-with-assumptions.",
+    "title": "Check-In : Happy World",
+    "section": "",
+    "text": "Model 1 : Adding a Quadratic TermModel 2 : Looks Fine :)Model 3 : The Issue?Model 3 : Issue ResolvedModel 3 : Issue ResolvedEvaluating Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nplot(mod3b)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                   MOD1 MOD2\nR2 with no changes 0.45 0.00\nR2 with changes    0.61 0.03"
+  },
+  {
+    "objectID": "macssstats/slides/3_quadboot.html#estimating-sampling-error-in-r-bootstrapping",
+    "href": "macssstats/slides/3_quadboot.html#estimating-sampling-error-in-r-bootstrapping",
+    "title": "Check-In : Happy World",
+    "section": "Estimating Sampling Error in R (Bootstrapping)",
+    "text": "Estimating Sampling Error in R (Bootstrapping)\n\nSee professor notes and demo in the R-Script.\nSee bootstrapping videos (in notes below).\nAsk questions!!"
+  },
+  {
+    "objectID": "macssstats/slides/3_quadboot.html#activity-in-the-vision-board",
+    "href": "macssstats/slides/3_quadboot.html#activity-in-the-vision-board",
+    "title": "Check-In : Happy World",
+    "section": "ACTIVITY : in the Vision Board",
+    "text": "ACTIVITY : in the Vision Board\n\nTake a statistic that you calculated in Lab 2.\nUse bootstrapping to estimate sampling error for this statistic.\nEvaluate sampling error.\nThink about sampling bias - who is the population? who is in our sample? might the sample bias the results in some way?"
+  },
+  {
+    "objectID": "macssstats/slides/3_quadboot.html#nhst-standard-error-t-value-and-the-p-value.",
+    "href": "macssstats/slides/3_quadboot.html#nhst-standard-error-t-value-and-the-p-value.",
+    "title": "Check-In : Happy World",
+    "section": "NHST : standard error, t-value, and the p-value.",
+    "text": "NHST : standard error, t-value, and the p-value.\n\n1. Slope (from our data!)2. Standard Error3. t-value4. p-value\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCall:\nlm(formula = d$SWLS_24 ~ log(d$Population))\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-4.0634 -0.8179  0.1629  0.9009  2.0427 \n\nCoefficients:\n                  Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)        7.75748    1.01079   7.675 2.36e-12 ***\nlog(d$Population) -0.13284    0.06115  -2.173   0.0315 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1.148 on 143 degrees of freedom\n  (17 observations deleted due to missingness)\nMultiple R-squared:  0.03195,   Adjusted R-squared:  0.02518 \nF-statistic:  4.72 on 1 and 143 DF,  p-value: 0.03146\n\n\n\n\n\n\n\n\n\\[\n\\text{standard error (SE)} = \\frac{\\sigma}{\\sqrt{n}}\n\\]\n\n\n\n\n\n\n\n\n\n\n\n\n\nCall:\nlm(formula = d$SWLS_24 ~ log(d$Population))\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-4.0634 -0.8179  0.1629  0.9009  2.0427 \n\nCoefficients:\n                  Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)        7.75748    1.01079   7.675 2.36e-12 ***\nlog(d$Population) -0.13284    0.06115  -2.173   0.0315 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1.148 on 143 degrees of freedom\n  (17 observations deleted due to missingness)\nMultiple R-squared:  0.03195,   Adjusted R-squared:  0.02518 \nF-statistic:  4.72 on 1 and 143 DF,  p-value: 0.03146\n\n\n\n\n\n\n\n\n\\[\nt = \\frac{b}{SE}\n\\]\n\n\n\n\n\n\n\n\n\n\n\n\n\nCall:\nlm(formula = d$SWLS_24 ~ log(d$Population))\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-4.0634 -0.8179  0.1629  0.9009  2.0427 \n\nCoefficients:\n                  Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)        7.75748    1.01079   7.675 2.36e-12 ***\nlog(d$Population) -0.13284    0.06115  -2.173   0.0315 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1.148 on 143 degrees of freedom\n  (17 observations deleted due to missingness)\nMultiple R-squared:  0.03195,   Adjusted R-squared:  0.02518 \nF-statistic:  4.72 on 1 and 143 DF,  p-value: 0.03146\n\n\n\n\n\n\n\n\n\\(p = Pr(Ts \\geq |t_{\\text{obs}}| \\mid H_0)\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\nCall:\nlm(formula = d$SWLS_24 ~ log(d$Population))\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-4.0634 -0.8179  0.1629  0.9009  2.0427 \n\nCoefficients:\n                  Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)        7.75748    1.01079   7.675 2.36e-12 ***\nlog(d$Population) -0.13284    0.06115  -2.173   0.0315 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1.148 on 143 degrees of freedom\n  (17 observations deleted due to missingness)\nMultiple R-squared:  0.03195,   Adjusted R-squared:  0.02518 \nF-statistic:  4.72 on 1 and 143 DF,  p-value: 0.03146\n\n\n\n\n\n\n\n\nTLDR.\n\nWe estimate how much sampling error there might be.\nWe compare the slope we found to this guess about sampling error.\nIf t-value is high (and p-value is low) then our slope is VERY DIFFERENT from sampling error and we can reject the null hypothesis.\nThis is all made up : we might be making a mistake AND a “significant effect” doesn’t mean large or important."
+  },
+  {
+    "objectID": "macssstats/slides/3_quadboot.html#read-more-chapter-on-inferential-statistics-in-why-statistics",
+    "href": "macssstats/slides/3_quadboot.html#read-more-chapter-on-inferential-statistics-in-why-statistics",
+    "title": "Check-In : Happy World",
+    "section": "Read More : Chapter on Inferential Statistics in Why Statistics?",
+    "text": "Read More : Chapter on Inferential Statistics in Why Statistics?"
+  },
+  {
+    "objectID": "macssstats/slides/3_quadboot.html#bootstrapping-v.-nhst",
+    "href": "macssstats/slides/3_quadboot.html#bootstrapping-v.-nhst",
+    "title": "Check-In : Happy World",
+    "section": "Bootstrapping v. NHST",
+    "text": "Bootstrapping v. NHST"
+  },
+  {
+    "objectID": "macssstats/slides/3_quadboot.html#recap-we-mostly-think-its-possible-to-work-toward-validity",
+    "href": "macssstats/slides/3_quadboot.html#recap-we-mostly-think-its-possible-to-work-toward-validity",
+    "title": "Check-In : Happy World",
+    "section": "RECAP : we (mostly) think it’s possible to work toward validity",
+    "text": "RECAP : we (mostly) think it’s possible to work toward validity\n\nAnti-Positivism : Attempts to predict people with numbers is bad.\nPositivism : We will someday make perfect predictions about people.\nPost-Positivism : We will continually improve our predictions, but never get perfect.\nSocial Constructivism : There is no “truth” about people; we make it up."
+  },
+  {
+    "objectID": "macssstats/slides/3_quadboot.html#discuss-questions-yall-had",
+    "href": "macssstats/slides/3_quadboot.html#discuss-questions-yall-had",
+    "title": "Check-In : Happy World",
+    "section": "DISCUSS : Questions Y’all Had :)",
+    "text": "DISCUSS : Questions Y’all Had :)\n\nhow to tell the difference between normal academic criticism of a study and criticism that comes from bias against the researcher?\nI’d love to see some interview snippts of white interviewees’ answers. [PROF AGREES : the fact they did not include is an example of low DISCRIMINANT VALIDITY, since would want to see evidence that white people are not talking about these things too.]\nObjectivity armoring…feels like it has a cultural dimension that we can explore in class as well. [PROF SAYS : YES!]"
+  },
+  {
+    "objectID": "macssstats/slides/3_quadboot.html#discuss-examples-from-your-experiences-anticipation-in-the-future",
+    "href": "macssstats/slides/3_quadboot.html#discuss-examples-from-your-experiences-anticipation-in-the-future",
+    "title": "Check-In : Happy World",
+    "section": "DISCUSS : examples from your experiences? anticipation in the future?",
+    "text": "DISCUSS : examples from your experiences? anticipation in the future?"
+  },
+  {
+    "objectID": "macssstats/slides/3_quadboot.html#next-week-non-empirical-paper",
+    "href": "macssstats/slides/3_quadboot.html#next-week-non-empirical-paper",
+    "title": "Check-In : Happy World",
+    "section": "NEXT WEEK : Non-Empirical Paper",
+    "text": "NEXT WEEK : Non-Empirical Paper\n\nProf likes because :\n\nmodel of how to work with participants\nfocused on a specific population and real-world research question\nfriends with the lead author."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Arman Daniel Catterson | Website Version",
+    "section": "",
+    "text": "Psych C1000 | Introduction to Psychology [since 2016]\nPsych 214 | Statistics in Psychology [since 2020]\nPsych 215 | Research Methods in Psychology [since 2016]\nPersian Club | من تخته بازی می کنم و بربری و چای می خورم\n\n\n\n\n\nPSYCH 101 | Statistics and Research Methods [since 2015]\nCOMPSS 212 | Advanced Applied Statistics I [Fall 2026]\nPSYCH 102 | Advanced Research Methods [Fall 2025]\nPSYCH 205 | Graduate Statistics [Spring 2025, Spring 2027]\nCOMPSS 202 | Introduction to Applied Statistics [Summer 2026]\nCOMPSS 222 | Advanced Applied Statistics II [Spring 2026]"
+  },
+  {
+    "objectID": "index.html#dvc",
+    "href": "index.html#dvc",
+    "title": "Arman Daniel Catterson | Website Version",
+    "section": "",
+    "text": "Psych C1000 | Introduction to Psychology [since 2016]\nPsych 214 | Statistics in Psychology [since 2020]\nPsych 215 | Research Methods in Psychology [since 2016]\nPersian Club | من تخته بازی می کنم و بربری و چای می خورم"
+  },
+  {
+    "objectID": "index.html#uc-berkeley",
+    "href": "index.html#uc-berkeley",
+    "title": "Arman Daniel Catterson | Website Version",
+    "section": "",
+    "text": "PSYCH 101 | Statistics and Research Methods [since 2015]\nCOMPSS 212 | Advanced Applied Statistics I [Fall 2026]\nPSYCH 102 | Advanced Research Methods [Fall 2025]\nPSYCH 205 | Graduate Statistics [Spring 2025, Spring 2027]\nCOMPSS 202 | Introduction to Applied Statistics [Summer 2026]\nCOMPSS 222 | Advanced Applied Statistics II [Spring 2026]"
+  },
+  {
+    "objectID": "macssstats/slides/5_MRPower.html",
+    "href": "macssstats/slides/5_MRPower.html",
+    "title": "",
+    "section": "",
+    "text": "CHECK-IN : Interpreting Regression. Click here, and use the tabs below to answer!\n\nSummaryDescriptionModel 1Model 2Model 3\n\n\nTable 1. Predicting Salaries from Years of Service and Sex.\n\n\n\n\nModel 1Model 2Model 3\n\nYears of Service779.57 ***      747.61 ***\n\n(110.42)         (111.40)   \n\nSex (0 = F; 1 = M)       14088.01 **9071.80    \n\n       (5064.58)  (4861.64)   \n\nN397       397      397       \n\nR20.11    0.02   0.12    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\nSalaries Dataset. “The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”\n-   salary : the salary of the professor, in cold, hard, US American Dollars.\n\n-   yrs.service : the years of service the professor had at the college.\n\n-   sex : whether the professor was Male or Female\n\n\n\n\nGraph of Model 1\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGraph of Model 2\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots"
+  },
+  {
+    "objectID": "macssstats/slides/5_MRPower.html#recap-interaction-effects",
+    "href": "macssstats/slides/5_MRPower.html#recap-interaction-effects",
+    "title": "",
+    "section": "RECAP : Interaction Effects",
+    "text": "RECAP : Interaction Effects\nFrom the Vision Board\n\nFind someone who you haven’t talked to :) or have talked to :)\nEvaluate the interaction effect :\n\nWhat does the interaction effect (or lack of one) mean?\nDoes it seem significant?\nDoes it seem large or important?\n\n\n\nEXAMPLE : Interaction Effects\n\nthe extra slopea picture is worth 1000 words.standardizing your variables?\n\n\n\n\n\n\nModel 1Model 2Model 3Model 4\n\nYears of Service3011.28 ***      2984.38 ***3058.46 *\n\n(328.53)         (327.46)   (1469.57) \n\nYears ^ 2-51.13 ***      -51.27 ***-48.89  \n\n(7.14)         (7.11)   (47.61) \n\nSex (0 = F; 1 = M)       14088.01 **9392.25 *  11000.73  \n\n       (5064.58)  (4574.88)   (9923.15) \n\nService * Sex (if Male)                    -99.89  \n\n                    (1509.41) \n\nService^2 * Sex                    -1.95  \n\n                    (48.18) \n\nN397       397      397       397     \n\nR20.21    0.02   0.22    0.22  \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel 1Model 2Model 3Model 4\n\nYears of Service0.52 ***      0.51 ***0.51 ***\n\n(0.05)         (0.05)   (0.05)   \n\nService^2-0.57 ***      -0.57 ***-0.57 ***\n\n(0.08)         (0.08)   (0.09)   \n\nSex (0=F; 1=M)       0.23 **0.16 *  0.14    \n\n       (0.08)  (0.08)   (0.11)   \n\nService * Sex                    -0.07    \n\n                    (0.25)   \n\nService^2 * Sex                    -0.02    \n\n                    (0.54)   \n\nN397       397      397       397       \n\nR20.21    0.02   0.22    0.22    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\n\n\n\nMore Interaction Effect Practice (as needed)\n\nSEE PROFESSOR HANDOUT."
+  },
+  {
+    "objectID": "macssstats/slides/5_MRPower.html#recap-likert-scales",
+    "href": "macssstats/slides/5_MRPower.html#recap-likert-scales",
+    "title": "",
+    "section": "RECAP : Likert Scales",
+    "text": "RECAP : Likert Scales\nRelevance to Capstone Projects? clap on a scale from\n1 (not at all) ——— 2 ——— 3 (neutral) ——— 4 ——— 5 (very much)\nIssues :\n\n(zewei) responses may be biased (self-insight / self-enhancement)\n(becky) double-barreled questions : “how often do you experience slow loading or broken links”"
+  },
+  {
+    "objectID": "macssstats/slides/5_MRPower.html#power-tests",
+    "href": "macssstats/slides/5_MRPower.html#power-tests",
+    "title": "",
+    "section": "Power Tests",
+    "text": "Power Tests\n\nwhat’s the point, professor?\n\nPower : the probability that you would “correctly” observe the relationship between two variables if the relationship actually exists (if the null hypothesis were NOT true).\nReasons to Calculate Power :\n\nPost-Hoc Power : You did a study, and want to further contextualize your guess about how much sampling error influenced your results.\nPower Planning : You are planning to run a study, and want to know how many people to recruit to have the highest probability of observing the “true” effect (if it exists.)\n\n\n\n\ngoal : you want power to be HIGH\nDISCUSS : what could we do as researchers to increase power???\n\n\n\n\n\n\n\nNotespoilers\n\n\n\nthe effect size increases : the bigger the difference, the more likely you’ll detect it.\nyour sample size increases : the more people, the less sampling error, and the easier it is to have confidence that any difference you found is not just chance.\nyou increase the threshold for rejecting the null hypothesis : if the probability of rejecting the null hypothesis = 10%, then your power increases.\n\n\n\n\n\na tour of null and alternative realities\n\nsee the additional slide deck in the class notes\nexplore the power visualization\n\n\n\n\ncalculating in R (by hand)\n\nthe modelsaving the metricsdistributionscalculating in R (a package)\n\n\n\n\n\n\n\n\n\n\n\n\nCall:\nlm(formula = salary ~ sex, data = Salaries)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-57290 -23502  -6828  19710 116455 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)   101002       4809  21.001  &lt; 2e-16 ***\nsexMale        14088       5065   2.782  0.00567 ** \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 30030 on 395 degrees of freedom\nMultiple R-squared:  0.01921,   Adjusted R-squared:  0.01673 \nF-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667\n\n\n\n\n\n\n [1] \"adj.r.squared\" \"aliased\"       \"call\"          \"coefficients\" \n [5] \"cov.unscaled\"  \"df\"            \"fstatistic\"    \"r.squared\"    \n [9] \"residuals\"     \"sigma\"         \"terms\"        \n\n\n             Estimate Std. Error   t value     Pr(&gt;|t|)\n(Intercept) 101002.41   4809.386 21.001103 2.683482e-66\nsexMale      14088.01   5064.579  2.781674 5.667107e-03\n\n\n[1] 2.781674\n\n\n\n\n\nthe t-distribution approaches the normal distribution (with a 95% Interval cutoff of 1.96….)\nbut we are not quite there so good to look up what the t-value actually is.\n\n\n\n[1] 1.976233\n\n\n[1] 0.7890669\n\n\n\n\nsimilar to our calculation “by hand”\n\n# install.packages(\"pwr\")\nlibrary(pwr)\nnm &lt;- nrow(mod2$model)\nmr &lt;- summary(mod2)$r.squared^.5\npwr.r.test(n = nm, r = mr) \n\n\n     approximate correlation power calculation (arctangh transformation) \n\n              n = 397\n              r = 0.1386102\n      sig.level = 0.05\n          power = 0.7916982\n    alternative = two.sided\n\n\n\n\n\n\n\nACTIVITY : calculate the power you had to detect the interaction effect from Lab 4.\n\n\nUsing Power to Estimate Sample Size.\n\nPower is a function of : effect size, sample size, and the alpha level (alpha = the Type I error that the researcher sets).\nYou can use these terms to estimate the sample size needed for a given power (the convention is often 80%).\n\n\n\nExample : Estimating Sample Size\nWhat sample size is needed for a slope of r = .23?\n\nusingt pwr packagevisual from pwr package\n\n\n\npwr.r.test(r = .23, power = .80, alternative = \"two.sided\")\n\n\n     approximate correlation power calculation (arctangh transformation) \n\n              n = 145.2367\n              r = 0.23\n      sig.level = 0.05\n          power = 0.8\n    alternative = two.sided\n\n\n\n\n\np.ex &lt;- pwr.r.test(r = .23, power = .80, alternative = \"two.sided\")\nplot(p.ex)"
+  },
+  {
+    "objectID": "macssstats/slides/5_MRPower.html#next-time.",
+    "href": "macssstats/slides/5_MRPower.html#next-time.",
+    "title": "",
+    "section": "NEXT TIME.",
+    "text": "NEXT TIME.\n\nLab 5. Answering a research question.\nData for an in-class activity"
+  },
+  {
+    "objectID": "macssstats/slides/2_modelscales.html",
+    "href": "macssstats/slides/2_modelscales.html",
+    "title": "Hello Again!",
+    "section": "",
+    "text": "Please complete this check-in as a warm-up!\n\n\nUse the hormone dataset to…\n\nDESCRIBE : what is the mean of narc_score & age? the % of male and female participants?\nPREDICT : are there differences in the level of narcissism for males and females? why?\nERROR : how good is this prediction? do you believe in this pattern? why?\nCONTROL : how might we use this knowledge? what other questions do you have?\n\n\nDescription of Variables\n\nage = age of the participant (in years)\nnarc_score = a measure of narcissism (how much the person thinks they are better than others)\nsex = biological sex (1 = male, 2 = female)\n\n\n\n\n\n\n\n\n\n\n\n\ndid you see the gorilla in the data?\nreactions to the gorilla?\nhow did you answer the question? [linear model, comparison of means, etc?]\n\n\n\n\n\n\nWhen people were given a hypothesis, they were less likely to see the gorilla in the data then when left to “explore” the dataset on their own.\n\n\n\n\n\n\n\n\n\nBlog Post from February 2025\n\n\n\n\nBlog Post from March 2025"
+  },
+  {
+    "objectID": "macssstats/slides/2_modelscales.html#lab-1-review.",
+    "href": "macssstats/slides/2_modelscales.html#lab-1-review.",
+    "title": "Hello Again!",
+    "section": "",
+    "text": "did you see the gorilla in the data?\nreactions to the gorilla?\nhow did you answer the question? [linear model, comparison of means, etc?]\n\n\n\n\n\n\nWhen people were given a hypothesis, they were less likely to see the gorilla in the data then when left to “explore” the dataset on their own.\n\n\n\n\n\n\n\n\n\nBlog Post from February 2025\n\n\n\n\nBlog Post from March 2025"
+  },
+  {
+    "objectID": "macssstats/slides/2_modelscales.html#activity-in-the-vision-board.",
+    "href": "macssstats/slides/2_modelscales.html#activity-in-the-vision-board.",
+    "title": "Hello Again!",
+    "section": "ACTIVITY : In the Vision Board.",
+    "text": "ACTIVITY : In the Vision Board.\nPredict narc_score from another variable in the hormone dataset (or the onboarding dataset (from last week)?)\n\nDESCRIBE : your variables. What do you learn?\nPREDICT : define the model. Why does it exist?\nERROR : evaluate the error (\\(R^2\\); methods & measures too!) and compare this to the model from the check-in.\nCONTROL : how might you use this knowledge?"
+  },
+  {
+    "objectID": "macssstats/slides/2_modelscales.html#standardizing-variables",
+    "href": "macssstats/slides/2_modelscales.html#standardizing-variables",
+    "title": "Hello Again!",
+    "section": "Standardizing Variables",
+    "text": "Standardizing Variables\n\nplot(h$narc_scale ~ scale(h$narc_scale), \n     xlab = \"Narcissism Scale (Z-Scored)\",\n     ylab = \"Narcissism Scale (Raw Units)\")"
+  },
+  {
+    "objectID": "macssstats/slides/2_modelscales.html#standardizing-terms-in-a-model-z-score",
+    "href": "macssstats/slides/2_modelscales.html#standardizing-terms-in-a-model-z-score",
+    "title": "Hello Again!",
+    "section": "Standardizing Terms in a Model (Z-Score)",
+    "text": "Standardizing Terms in a Model (Z-Score)\n\n\n\n\nModel 1Model 2\n\n(Intercept)3.01 ***0.00  \n\n(0.09)   (0.05) \n\nsexFMale0.26 *       \n\n(0.11)        \n\nc.sexF       0.25 *\n\n       (0.10) \n\nN114       114     \n\nR20.05    0.05  \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05."
+  },
+  {
+    "objectID": "macssstats/slides/2_modelscales.html#multiple-regression",
+    "href": "macssstats/slides/2_modelscales.html#multiple-regression",
+    "title": "Hello Again!",
+    "section": "Multiple Regression",
+    "text": "Multiple Regression\n\nnarcissism ~ sexnarcissism ~ test1test1 ~ sexFnarcissism ~ sexF + test1\n\n\nSex is related to narcissism…\n\n\n\nlibrary(gplots)\nplotmeans(narc_scale ~ sexF, data = h, connect = F)\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel 1\n\n(Intercept)-0.34 *\n\n     \n\nsexFMale0.49 *\n\n     \n\nN114     \n\nR20.05  \n\nAll continuous variables are mean-centered and scaled by 1 standard deviation.  *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\n\n\nNarcissism is also related to testosterone (a hormone).\n\n\n\nmod2 &lt;- lm(narc_scale ~ test1, data = h)\nplot(narc_scale ~ test1, data = h)\nabline(mod2, lwd = 5, col = 'red')\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel 1\n\n(Intercept)0.00   \n\n      \n\ntest10.28 **\n\n      \n\nN86      \n\nR20.08   \n\nAll continuous variables are mean-centered and scaled by 1 standard deviation.  *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\n\n\nBut if testosterone is related to sex…\n\n\n\nmodx &lt;- lm(test1 ~ sexF, data = h)\nplotmeans(test1 ~ sexF, data = h, connect = F)\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel 1\n\n(Intercept)-0.94 ***\n\n       \n\nsexFMale1.34 ***\n\n       \n\nN90       \n\nR20.38    \n\nAll continuous variables are mean-centered and scaled by 1 standard deviation.  *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\n\n\nHow are they uniquely related?\n\n\n\n\nModel 1Model 2Model 3\n\n(Intercept)-0.34 *0.00   -0.01  \n\n                \n\nsexFMale0.49 *      0.02  \n\n                \n\ntest1     0.28 **0.27 *\n\n                \n\nN114     86      86     \n\nR20.05  0.08   0.08  \n\nAll continuous variables are mean-centered and scaled by 1 standard deviation.  *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05."
+  },
+  {
+    "objectID": "macssstats/slides/2_modelscales.html#activity-in-the-vision-board.-1",
+    "href": "macssstats/slides/2_modelscales.html#activity-in-the-vision-board.-1",
+    "title": "Hello Again!",
+    "section": "ACTIVITY : In the Vision Board.",
+    "text": "ACTIVITY : In the Vision Board.\nPredict narc_score from two variables in the hormone dataset (or the onboarding dataset (from last week)?)\n\nPREDICT : define the multivariate model. Why does it exist?\nERROR : evaluate the slopes (\\(r\\) or \\(\\beta\\)) and the change in error (\\(R^2\\)) across models.\nCONTROL : how might you use this knowledge?"
+  },
+  {
+    "objectID": "macssstats/slides/2_modelscales.html#recap-we-mostly-think-its-possible-to-work-toward-validity",
+    "href": "macssstats/slides/2_modelscales.html#recap-we-mostly-think-its-possible-to-work-toward-validity",
+    "title": "Hello Again!",
+    "section": "RECAP : we (mostly) think it’s possible to work toward validity",
+    "text": "RECAP : we (mostly) think it’s possible to work toward validity\n\nAnti-Positivism : Attempts to predict people with numbers is bad.\nPositivism : We will someday make perfect predictions about people.\nPost-Positivism : We will continually improve our predictions, but never get perfect.\nSocial Constructivism : There is no “truth” about people; we make it up."
+  },
+  {
+    "objectID": "macssstats/slides/2_modelscales.html#discuss-questions-yall-had",
+    "href": "macssstats/slides/2_modelscales.html#discuss-questions-yall-had",
+    "title": "Hello Again!",
+    "section": "DISCUSS : Questions Y’all Had :)",
+    "text": "DISCUSS : Questions Y’all Had :)\n\nhow to tell the difference between normal academic criticism of a study and criticism that comes from bias against the researcher?\nI’d love to see some interview snippts of white interviewees’ answers. [PROF AGREES : the fact they did not include is an example of low DISCRIMINANT VALIDITY, since would want to see evidence that white people are not talking about these things too.]\nObjectivity armoring…feels like it has a cultural dimension that we can explore in class as well. [PROF SAYS : YES!]"
+  },
+  {
+    "objectID": "macssstats/slides/2_modelscales.html#discuss-examples-from-your-experiences-anticipation-in-the-future",
+    "href": "macssstats/slides/2_modelscales.html#discuss-examples-from-your-experiences-anticipation-in-the-future",
+    "title": "Hello Again!",
+    "section": "DISCUSS : examples from your experiences? anticipation in the future?",
+    "text": "DISCUSS : examples from your experiences? anticipation in the future?"
+  },
+  {
+    "objectID": "macssstats/slides/2_modelscales.html#next-week-non-empirical-paper",
+    "href": "macssstats/slides/2_modelscales.html#next-week-non-empirical-paper",
+    "title": "Hello Again!",
+    "section": "NEXT WEEK : Non-Empirical Paper",
+    "text": "NEXT WEEK : Non-Empirical Paper"
+  },
+  {
+    "objectID": "macssstats/slides/2_modelscales.html#theory-defining-a-likert-scale",
+    "href": "macssstats/slides/2_modelscales.html#theory-defining-a-likert-scale",
+    "title": "Hello Again!",
+    "section": "Theory : Defining a Likert Scale",
+    "text": "Theory : Defining a Likert Scale\nSatisfaction With Life Scale\n\n\n\n\n\nscale : The variable that you want to measure as a continuous variable.\nitems : The specific question(s) in the scale.\n\npositively keyed item : measures the high end of the scale (“yes” = high on this variable.)\nnegatively keyed item : measures the low end of the scale (“yes” = low on the variable.)\n\nresponse scale : How people answer the scale items. Good to have a place for neutral."
+  },
+  {
+    "objectID": "macssstats/slides/2_modelscales.html#discussion-evaluating-a-likert-scale",
+    "href": "macssstats/slides/2_modelscales.html#discussion-evaluating-a-likert-scale",
+    "title": "Hello Again!",
+    "section": "DISCUSSION : Evaluating a Likert Scale",
+    "text": "DISCUSSION : Evaluating a Likert Scale\nSatisfaction With Life Scale\n\n\n\n\n\nDoes this seem like a valid way to measure satisfaction with life?\n\nSelf-Insight / Self-Enhancement / Self-Diminishment?\nWays to establish reliability? validity (convergent and discriminant)?\nWhat other (better) methods might exist?"
+  },
+  {
+    "objectID": "macssstats/slides/2_modelscales.html#but-you-dont-have-to-take-my-word-for-it",
+    "href": "macssstats/slides/2_modelscales.html#but-you-dont-have-to-take-my-word-for-it",
+    "title": "Hello Again!",
+    "section": "But You Don’t Have To Take My Word For It…",
+    "text": "But You Don’t Have To Take My Word For It…"
+  },
+  {
+    "objectID": "macssstats/slides/2_modelscales.html#but-you-dont-have-to-take-my-word-for-it-1",
+    "href": "macssstats/slides/2_modelscales.html#but-you-dont-have-to-take-my-word-for-it-1",
+    "title": "Hello Again!",
+    "section": "But You Don’t Have To Take My Word For It…",
+    "text": "But You Don’t Have To Take My Word For It…"
+  },
+  {
+    "objectID": "macssstats/slides/2_modelscales.html#activity-lets-define-a-scale-you-might-use-for-the-action-research-project-vision-board",
+    "href": "macssstats/slides/2_modelscales.html#activity-lets-define-a-scale-you-might-use-for-the-action-research-project-vision-board",
+    "title": "Hello Again!",
+    "section": "ACTIVITY : let’s define a scale you might use for the ACTION RESEARCH Project [Vision Board]",
+    "text": "ACTIVITY : let’s define a scale you might use for the ACTION RESEARCH Project [Vision Board]\n\nWhat is the variable?\nDoes a scale exist?\nCan we write a scale?"
+  },
+  {
+    "objectID": "macssstats/slides/2_modelscales.html#small-example-in-the-hormone-dataset",
+    "href": "macssstats/slides/2_modelscales.html#small-example-in-the-hormone-dataset",
+    "title": "Hello Again!",
+    "section": "Small Example : in the Hormone Dataset",
+    "text": "Small Example : in the Hormone Dataset"
+  },
+  {
+    "objectID": "macssstats/slides/2_modelscales.html#lab-2-working-with-the-self-esteem-dataset",
+    "href": "macssstats/slides/2_modelscales.html#lab-2-working-with-the-self-esteem-dataset",
+    "title": "Hello Again!",
+    "section": "Lab 2 : Working With the Self-Esteem Dataset",
+    "text": "Lab 2 : Working With the Self-Esteem Dataset\n\n\n\n\n\n\n\n\nLikert Scale Item\nPositive or Negative Key Item“Yes” = High in Self-Esteem = Positive Key.\nAny Issues of Face Validity?\n\n\n\n\nQ1. I feel that I am a person of worth, at least on an equal plane with others.\n\n\n\n\nQ2. I feel that I have a number of good qualities.\n\n\n\n\nQ3. All in all, I am inclined to feel that I am a failure.\n\n\n\n\nQ4. I am able to do things as well as most other people.\n\n\n\n\nQ5. I feel I do not have much to be proud of.\n\n\n\n\nQ6. I take a positive attitude toward myself.\n\n\n\n\nQ7. On the whole, I am satisfied with myself.\n\n\n\n\nQ8. I wish I could have more respect for myself.\n\n\n\n\nQ9. I certainly feel useless at times.\n\n\n\n\nQ10. At times I think I am no good at all."
+  },
+  {
+    "objectID": "macssstats/slides/7_TheEnd.html",
+    "href": "macssstats/slides/7_TheEnd.html",
+    "title": "RECAP : Four Validities This Semester",
+    "section": "",
+    "text": "Check-In : Interpreting Models\n\n\nGRAPH AGRAPH BMODEL B\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel 1Model 2Model 3Model 4\n\n(Intercept)3.45 ***(0.03)2.83 ***(0.02)3.17 ***(0.04)2.98 ***(0.06)\n\nage-0.01 ***(0.00)           -0.01 ***(0.00)-0.01 ** (0.00)\n\ngenderFemale           0.40 ***(0.03)0.38 ***(0.03)0.67 ***(0.07)\n\nage:genderFemale                                 -0.01 ***(0.00)\n\nN4180           4150           4148           4148           \n\nR20.03        0.05        0.07        0.08        \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05."
+  },
+  {
+    "objectID": "macssstats/slides/7_TheEnd.html#break-time.",
+    "href": "macssstats/slides/7_TheEnd.html#break-time.",
+    "title": "RECAP : Four Validities This Semester",
+    "section": "BREAK TIME.",
+    "text": "BREAK TIME."
+  },
+  {
+    "objectID": "macssstats/slides/7_TheEnd.html#statistical-conclusion-validity.-are-we-adhering-to-best-practices-and-doing-the-analyses-correctly",
+    "href": "macssstats/slides/7_TheEnd.html#statistical-conclusion-validity.-are-we-adhering-to-best-practices-and-doing-the-analyses-correctly",
+    "title": "RECAP : Four Validities This Semester",
+    "section": "4. Statistical Conclusion Validity. Are we adhering to “best practices” and doing the analyses correctly?",
+    "text": "4. Statistical Conclusion Validity. Are we adhering to “best practices” and doing the analyses correctly?\n\n4. Conclusion Validity. Lab 5.\n\nIssues of construct validity and external validity.\nBut also :\n\nI could not exactly replicate these results.\n“Unclear” why the researcher defined these specific models…\n\n\n\n\n\n4. Statistical Conclusion Validity.\n\npre-register analyses. (and don’t cheat or “p-hack”.)\n\n\n\n\n\n\nAllen C, Mehler DMA (2019) Correction: Open science challenges, benefits and tips in early career and beyond. PLOS Biology 17(12): e3000587. https://doi.org/10.1371/journal.pbio.3000587\n\n\n4. Statistical Conclusion Validity.\n\npre-register analyses. (and don’t cheat or “p-hack”.)\nuse the “right” methods. science is hard. lots of tools to try and do the right thing.\n\nCommon Statistical Mistakes. Any you are doing? Questions?? Feeling the pressure???\n\nAbsence of an adequate control condition/group\n\nInterpreting comparisons between two effects without directly comparing them\n\nSpurious correlations\n\nInflating the units of analysis\n\nCorrelation and causation\n\nUse of small samples\n\nCircular analysis\n\nFlexibility of analysis\n\nFailing to correct for multiple comparisons\n\nOver-interpreting non-significant results\n\n\n4. Statistical Conclusion Validity.\n\npre-register analyses. (and don’t cheat or “p-hack”.)\nuse the “right” methods. science is hard. lots of tools to try and do the right thing.\nbe transparent. share code and data; science is a process."
+  },
+  {
+    "objectID": "macssstats/slides/7_TheEnd.html#x.-prof-more-radical-questions",
+    "href": "macssstats/slides/7_TheEnd.html#x.-prof-more-radical-questions",
+    "title": "RECAP : Four Validities This Semester",
+    "section": "X. Prof More Radical Questions",
+    "text": "X. Prof More Radical Questions\n\ntolerate “imperfect” results. maybe there is no truth?\nfocus on the practice. why does this matter? who will this help (in practice)? do I really believe this is real?\n\n“If you want knowledge, you must take part in the practice of changing reality. If you want to know the taste of a pear, you must change the pear by eating it yourself. If you want to know the structure and properties of the atom, you must make physical and chemical experiments to change the state of the atom. If you want to know the theory and methods of revolution, you must take part in revolution. All genuine knowledge originates in direct experience.” - Mao"
+  },
+  {
+    "objectID": "macssstats/slides/7_TheEnd.html#how-do-we-do-this-in-r",
+    "href": "macssstats/slides/7_TheEnd.html#how-do-we-do-this-in-r",
+    "title": "RECAP : Four Validities This Semester",
+    "section": "How Do We Do This in R?",
+    "text": "How Do We Do This in R?\n\nExample : The Sleep Dataset\n\nDetails“Between Person”“Within-Person”Random Effects\n\n\nFrom the ?sleep dataset: “Data which show the effect of two soporific drugs (increase in hours of sleep compared to control).”\n\nExtra : increase in hours of sleep\nGroup : drug given (1 = control; 2 = drug)\nID : patient ID\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCall:\nlm(formula = extra ~ as.factor(group), data = sleep)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-2.430 -1.305 -0.580  1.455  3.170 \n\nCoefficients:\n                  Estimate Std. Error t value Pr(&gt;|t|)  \n(Intercept)         0.7500     0.6004   1.249   0.2276  \nas.factor(group)2   1.5800     0.8491   1.861   0.0792 .\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1.899 on 18 degrees of freedom\nMultiple R-squared:  0.1613,    Adjusted R-squared:  0.1147 \nF-statistic: 3.463 on 1 and 18 DF,  p-value: 0.07919\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFixed Effects : The “Average” across all the grouping variables.\n\n\nLinear mixed model fit by REML. t-tests use Satterthwaite's method [\nlmerModLmerTest]\nFormula: extra ~ as.factor(group) + (1 | ID)\n   Data: sleep\n\nREML criterion at convergence: 70\n\nScaled residuals: \n     Min       1Q   Median       3Q      Max \n-1.63372 -0.34157  0.03346  0.31511  1.83859 \n\nRandom effects:\n Groups   Name        Variance Std.Dev.\n ID       (Intercept) 2.8483   1.6877  \n Residual             0.7564   0.8697  \nNumber of obs: 20, groups:  ID, 10\n\nFixed effects:\n                  Estimate Std. Error      df t value Pr(&gt;|t|)   \n(Intercept)         0.7500     0.6004 11.0814   1.249  0.23735   \nas.factor(group)2   1.5800     0.3890  9.0000   4.062  0.00283 **\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nCorrelation of Fixed Effects:\n            (Intr)\nas.fctr(g)2 -0.324\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nICC = Intraclass Correlation Coefficient = how much the variation in our grouping variable (here : subject) explains total variation.\nTo calculate : take variance of intercept / total variance\n\n\n[1] 0.7901628\n\n\nOR :\n\n\n# Intraclass Correlation Coefficient\n\n    Adjusted ICC: 0.790\n  Unadjusted ICC: 0.668"
+  },
+  {
+    "objectID": "macssstats/Week1.html",
+    "href": "macssstats/Week1.html",
+    "title": "Week 1 - Monday, March 9th",
+    "section": "",
+    "text": "NoteAnnouncements and Agenda\n\n\n\n\n\n\n\nWelcome! We will get started soon. In the meantime, please complete the following :\n\nCheck-In : this is graded for completion; how we will start class each week.\nAccess these notes : on the class page (link on bCourses).\n\n\n\n10:10 - 11:30. Check-In, Welcome, and Why (Advanced Applied) Statistics II?!?\n11:30 - 11:45. Break Time\n11:45 - 1:00. Objectivity in Science\n\n\n\n\n\n\n\n\n\n\nCheck-In : Welcome! Please take this survey (graded for completion) to warm-up.\nDataset and Codebook. The Onboarding Dataset.\nProfessor Notes. My R scripts and other notes, saved in real-time.\nVISION BOARD. Where we will share work we do in class.\n\n\n\n\n\non the challenges of humans studying human behavior. an overview of the history of (psychological) social science, and some of the biases that scientists can hold.\nmore on reliability and validity. some review of the specific terms, as well as an application to the racist science of phrenology.\nneed a review of stats and R? below are some relevant links from the stats textbook I use with my introductory classes. let me know if these are useful / you have ideas to make more useful :)\n\nchapter 2 : on loading and navigating data into R.\nchapter 3 : on graphing variables\nchapter 4 : on “the normal” distribution and z-scores"
+  },
+  {
+    "objectID": "macssstats/Week1.html#article-discussion.",
+    "href": "macssstats/Week1.html#article-discussion.",
+    "title": "Week 1 - Monday, March 9th",
+    "section": "Article Discussion.",
+    "text": "Article Discussion.\n\nRead This Article. Torrez, B., Dupree, C.H. & Kraus, M.W. Objectivity interrogation of racial scholarship in psychology and management. Sci Rep 14, 12509 (2024). https://doi.org/10.1038/s41598-024-63236-z\nSubmit Your Response Here. We’ll use these responses to guide our discussion of the article next week. Great to use your own voice; don’t worry about sounding smart or having “perfect” english!"
+  },
+  {
+    "objectID": "macssstats/Week1.html#lab-1.-step-problems",
+    "href": "macssstats/Week1.html#lab-1.-step-problems",
+    "title": "Week 1 - Monday, March 9th",
+    "section": "Lab 1. Step Problems",
+    "text": "Lab 1. Step Problems\nAnswer the questions below as a .PDF; make sure your code is visible alongside your output. Please make sure to adhere to the course AI policy, and please ask for help if you get stuck / are confused / professor made a mistake.\nAccess the two “Steps and BMI” data files There are two data files - data9b_w.txt reports the Body Mass Index (bmi) and the number of steps taken in a day (steps) for a sample of women, and data9b_m.txt reports these same variables for a sample of men.\n\nIn class, we worked through terms of validity and reliability. Apply these terms to think about how you might evaluate the steps data and BMI data in the dataset. (You don’t need to do any stats for this question.)\n\n\n\n\nTerm\nSteps Data\nBMI Data\n\n\n\n\nFace validity\n\n\n\n\nConvergent Validity\n\n\n\n\nDiscriminant Validity\n\n\n\n\nTest-Retest Reliability\n\n\n\n\nInterjudge Reliability\n\n\n\n\n\n\nWhat is the relationship between the number of steps that people take and their BMI a) for all participants, b) for women, and c) for men? Report the relevant statistics you need to answer these questions. There are different ways to approach this - so just do your best to answer the question and show your work and you’ll get full credit."
+  },
+  {
+    "objectID": "macssstats/notes/Interruptions.html",
+    "href": "macssstats/notes/Interruptions.html",
+    "title": "Interruption Data",
+    "section": "",
+    "text": "In class, we watched an interruption video twice.\nBelow are the graphs of data from the activity we just did, through the magic of R.\n\n\n\n\n\n\n\n\n\nBelow are the descriptive statistics for these data.\n\n\n\n\n\n\nTime 1\nTime 2\n\n\n\n\nMean\n16.73\n12.61\n\n\nStandard Deviation\n8.40\n5.68\n\n\nMinimum Value\n0.00\n3.00\n\n\nMaximum Value\n35.00\n24.00"
+  },
+  {
+    "objectID": "macssstats/Week7.html",
+    "href": "macssstats/Week7.html",
+    "title": "Week 7 - Monday, April 27th",
+    "section": "",
+    "text": "Week 7 - Monday, April 27th\n\n\n\n\n\n\nNoteAnnouncements and Agenda\n\n\n\n\n\n\n\nToday’s Objectives :\n\nPractice Interpreting Models.\nReview and apply key concepts in doing GOOD SCIENCE.\nSay Goodbye &lt;3\n\n\nAgenda\n\n10:10 - 11:20. Check-In and Statistical + Conceptual Review\n11:20 - 11:30. BREAK TIME\n11:30 - 1:00. Statistical Conclusion Validity\n\n\n\n\n\n\n\nClass Slides and Material\n\n\nCheck-In : more linear model practice &lt;3\nProfessor Notes. My R scripts and other notes, saved in real-time.\nVISION BOARD. Where we will share work we do in class.\n\n\n\nAdditional Reading and Support Materials\n\nProfessor “Chapter” on GLM with Some Additional Links at the End\n\n\nOn Hierarchical Linear Models\n\nA Nice Overview, For and By Psychologists\nA More In-Depth Mini-Textbook\nMore on the sleepstudy dataset\n\n\n\n\n\nFor Next Week.\nTake care; have a lovely and mindful graduation and I wish you all well."
+  },
+  {
+    "objectID": "macssstats/Week4.html",
+    "href": "macssstats/Week4.html",
+    "title": "Week 4 - Monday, April 6th",
+    "section": "",
+    "text": "NoteAnnouncements and Agenda\n\n\n\n\n\n\n\nProfessor on Zoom : You (and GSI Max!) in the class. Hello!\nToday’s Objectives :\n\nComplications in the Linear Model : Multiple Regression and Interaction Effects\nDefine a Likert Scale : A Conceptual and Computational Understanding\n\n\nAgenda\n\n10:30 - 10:45. Check-In and Assumptions / Sampling Error Review\n10:45 - 11:20. Fun and Understanding in Multiple Regression\n11:30 - 11:40. Break Time\n11:30 - 12:00.\n12:00 - 1:00. Likert Scales\n\n\n\n\n\n\n\n\n\n\nCheck-In :practice interpreting linear models and NHST.\nJoin Our Zoom Room : https://berkeley.zoom.us/j/4804591274\nProfessor Notes. My R scripts and other notes, saved in real-time.\nVISION BOARD. Where we will share work we do in class.\n\nDataset for Vision Board Activity : Conspiracy Beliefs\n\n\n\n\n\n\nMore on Interpreting Multiple Regression.\n\nThe Difference Between “Significant” and “Not Significant” is not Itself Statistically Significant\nA conceptual review of mediation, and tour through the ‘mediation’ package.\nPreacher KJ, Hayes AF. Asymptotic and resampling strategies for assessing and comparing indirect effects in multiple mediator models. Behav Res Methods. 2008;40(3):879-891. doi:10.3758/BRM.40.3.879\nA nice and recent summary of why caution is needed for mediation analysis.\n\nOn Interaction Effects. More detail on interaction effects, how to interpret and calculate (from the linear model) and how to graph them using base R.\n\nThe Interactions Package. The author of jtools has made what looks like a super clean way to graph interaction effects in R, using ggplot2.\nVisualization Tutorials. Other, more cumbersome methods of plotting interaction effects exist!\n\nOn Likert Scales. some more on the theory of likert scales, and some videos on how to define (when there are negatively-keyed items)."
+  },
+  {
+    "objectID": "macssstats/Week4.html#article-discussion.",
+    "href": "macssstats/Week4.html#article-discussion.",
+    "title": "Week 4 - Monday, April 6th",
+    "section": "Article Discussion.",
+    "text": "Article Discussion.\nInstead of an article discussion, let’s try this : think about how either a LIKERT SCALE or an INTERACTION EFFECT might be relevant to your Capstone Project (or some other project that is relevant to you / example from real-life).\n\nLikert scale. write a positive or negatively keyed item that might measure some variable you are interested in.\nInteraction effect. describe how some relationship between two variables might depend on another variable.\n\nNo R or stats needed; just describe how you might use these tools. We will discuss next week in class :)"
+  },
+  {
+    "objectID": "macssstats/Week4.html#lab-4.-self-esteem-problems",
+    "href": "macssstats/Week4.html#lab-4.-self-esteem-problems",
+    "title": "Week 4 - Monday, April 6th",
+    "section": "Lab 4. Self-Esteem Problems",
+    "text": "Lab 4. Self-Esteem Problems\nHi Class! Thanks for your patience with this process today. Apologies it was a bit messier than I had planned; I hope this lab assigment feels useful and not too hard.\nHere’s a key for the first two questions in the Lab assignment to guide your work and learning.\nI also recorded a video key walking over the interpretation of the interaction effect (summary table and graph). I hope you find these useful in supporting your learning!\nAccess the self-esteem dataset. Look over the codebook to learn about the variables and how they were measured.\n\nCreate a self-esteem scale from the 10-items. Make sure to reverse-score the negatively-keyed items so that for every question, higher numbers measure higher self-esteem.\n\na) Graph this variable as a histogram, and make the graph look nice (ready for publication).\nb) Report the alpha reliability, mean, and standard deviation of this variable. Below your graph and these statistics, describe what these statistics tell you about the self-esteem of the participants.\nd) Finally, evaluate the items in the likert scale - does this seem like a valid and reliable way to measure self-esteem? Do you think these questions would generalize to people across the world (why / why not?) What other questions might you have about this variable?\n\nDefine a series of linear models to determine :\n\na) whether there is a relationship between self-esteem and age\nb) whether men and women differ in terms of their self-esteem\nc) which variable (age or gender) is a better predictor of self-esteem.\nd) whether the relationship between age and self-esteem depends on the gender of the participant (an interaction effect!).\nReport the relationship (slopes) and $R^2$ values from your model in a summary table and graph your interaction effect (you do not need to graph the other models).\n\nUsing the key as a guide, try to define a different series of linear models to predict SELF-ESTEEM (or the CONSPIRACY BELIEF) scale that professor demonstrated in class from some other variables. Post your work to the VISION BOARD."
+  },
+  {
+    "objectID": "macssstats/COMPSS222_SP26.html",
+    "href": "macssstats/COMPSS222_SP26.html",
+    "title": "COMPSS 222 - Advanced Applied Statistics II",
+    "section": "",
+    "text": "Lectures (1.5 Units) | Mondays, 10:10 AM - 1:00 PM, in the MaCSS Classroom (2121 Allston Way).\nProfessor | Arman Catterson, PhD [he / his / او ] 🐱. Office hours are Mondays, 1:00 - 2:00 PM. If this time doesn’t work, please e-mail (my lowercase last name at berkeley.edu) or talk to me after class to find a time that does!\nGSI | Max Dunsker (mdunsker at berkeley.edu). Office hours will be held Tuesdays, 4:00 - 5:00 PM [sign up here].\nTextbooks | We’ll be drawing from two open-sourced textbooks. The Handbook of Social Psychology (HSP) will cover the research-methods content required for this course, whereas Why Statistics (WS) will serve as an optional review of statistical content in R that students may need for this course depending on their past experience. Supplemental articles will be assigned for weekly online and in-class discussion.\nPrerequisites | Students are expected to have working knowledge of both R and statistics basics (e.g., descriptive statistics, linear models). Review material will be provided for students who need additional support.\nCourse Descriptions | The goal of this class is to teach students how to create, conduct, and critique the kinds of statistics and methods they can expect to use in applied research."
+  },
+  {
+    "objectID": "macssstats/COMPSS222_SP26.html#course-outline",
+    "href": "macssstats/COMPSS222_SP26.html#course-outline",
+    "title": "COMPSS 222 - Advanced Applied Statistics II",
+    "section": "Course Outline",
+    "text": "Course Outline\n\n\n\n\n\n\n\n\n\n\n\nDate\nClass Topic\nSupport Readings\nLab Assignment\n\n\n\n\n08/31\nObjective Science :\n\n\n\n\nQuarto, Reliability & Validity\nROS : 2 & 6; WS : 6 & 7; LSR 15.1 - 15.2\n\n\n\n\nHSP : The Who of Psychology\nLab 1 : BMI and Steps (Health Data)\n\n\n\n\n09/07\nNo Class : Labor Day\n\n\n\n\n09/14\nConstructing Reality : Operationalization and Likert Scales\nWS : 5;\n\n\n\nHSP : Measuring Constructs\nLab 2 : Love in R (Survey Data)\n\n\n\n\n09/21\nLines Can Have Errors : Linear Model Review and Assumptions\nROS : 6;\n\n\n\n09/28\nFaking Data is Good, Actually\n\n\n\n\nSimulating Data; Bootstrapping\nROS : 5; WS : 8; LSR : 9-10\nLab 4 : More Doors, More Problems (Simulated Data)\n\n\n\n10/05\nWe Could Always Be Wrong : Power and P-Hacking\nHSP : Changing Practices\nLab 5 : More Power, More Practice\n\n\n10/12\nExperiments for Fun (and Profit) : Treatment Effects\nHSP : Art of Experimentation\nLab 6 : Replicating Experiments (Dehumanization Data)\n\n\n10/19\nLife is Complex : Multiple Regression (Still a Line)\nROS : 10.1-10.2; WS : 10\n\n\n\nHSP : Field Research\nLab 7 : Nudging R (Field Data)\n\n\n\n\n10/26\nLife Depends : Interaction Effects (Also Lines)\nROS : 10.3; WS : 11\nLab 8 : Feels Good to Be Here (Self-Esteem Data)\n\n\n11/02\nNever Tell Me The Odds : Generalized Linear Models (Bendy Lines)\n\nLab 9 : I Need a Dataset\n\n\n11/09\nBRAIN EXAM + R EXAM\n\n\n\n\n11/16\nMultilevel Models. Random Slopes, Random Intercepts, Still Lines.\n\n\n\n\n11/23\nMultilevel Models, Part 2. Time-Series Data.\n\nLab 10 : It Depends (Football Data)\n\n\n11/30\nReview and Catch-Up. The learning has stopped; would you like to learn more?\n\n\n\n\n12/07\nPresentations. We learn from each other."
+  },
+  {
+    "objectID": "macssstats/COMPSS222_SP26.html#grade-details",
+    "href": "macssstats/COMPSS222_SP26.html#grade-details",
+    "title": "COMPSS 222 - Advanced Applied Statistics II",
+    "section": "Grade Details",
+    "text": "Grade Details\nYour grade in the class will be based on the following components.\n\n\n\n30% Participation\n40% Lab Assignments\n30% Article Discussions\n\n\n\nLetter grades will be based on the following cutoffs :\n\n\n\n\n\n\n\n\n\nA+ is &gt; 96.5\nA is &gt; 92.5\nA- is &gt; 89.5\nB+ is &gt; 86.5\nB is &gt; 82.5\nB- is &gt; 79.5\nC + is &gt; 76.5\nC is &gt; 72.5\nC- is &gt; 69.5\nD is &gt; 59.5\nF is &lt; 59.5\nnote : an 89.499 is a B+"
+  },
+  {
+    "objectID": "macssstats/COMPSS222_SP26.html#about-this-class",
+    "href": "macssstats/COMPSS222_SP26.html#about-this-class",
+    "title": "COMPSS 222 - Advanced Applied Statistics II",
+    "section": "About This Class",
+    "text": "About This Class\nRead the tabs below for more information about our class. Let me know if you have any questions or spot errors.\n\nCourse Components.Course Policies.Student Support Services.\n\n\nParticipation. Because we all learn from each other, your voice is needed! Participation grades will be based on in-person attendance, completion of check-ins throughout lecture, and engagement in class activities and discussion. You may miss up to one lecture with no penalty. Lectures will be recorded for students who want to review the material they missed (however watching the recording does not count toward your participation grade.)\nArticle Discussion. Each week, we will discuss one article related to the course topic. All students should plan to read the article, and post comments to a discussion forum on bCourses.\nLab Assignments : Each week, you will work through a “lab” assignment that is designed to help practice the skills we review in lecture and readings. You can expect to work on these in lecture, in discussion sections, and at home as needed. Each lab document will have a set of questions to answer - you should submit answers to these questions as a separate document to bCourses. Lab assignments are due the week after they are assigned. You can drop your lowest submitted lab assignment.\nFinal Project (Research Paper) : You’ll apply the skills you have learned in the class to propose a novel research study that includes both survey and experimental methods that addresses a research question relevant to your interests. There will be several milestones to support this assignment. See the Final Project Description & Rubric for more information.\nExtra Credit : There will be no extra credit offered in this course, even for students who ask kindly.\n\n\nLate Work Policy. Assignments and Discussion Posts are due before lecture, the week after they are assigned. Late assignments will be penalized 25% for any reason (even if they are 1-minute late), and 50% if turned in more than a week late (after the key has been posted). Students with extra time DSP accommodations should work out a plan to submit work within a week of the original deadline.\nComputer Access. Access to a personal computer is required We will spend time each lecture working in R - a free and powerful statistics program that works with all operating systems and computers. Laptops are available for rent from the library (see Berkeley’s Technology Loan Program), or you can purchase one that will work for this class for as little as $150 (less than the price of most textbooks, which is not required for this class). Talk to me or a GSI if access to a laptop or computer is interfering with your ability to do well in the course.\nRegrades. Students may ask for a re-grade on exams and papers if they believe they lost points for something they should have earned. To request a regrade, talk to your GSI in office hours or set up a meeting. In the case that you and your GSI cannot resolve the regrade issue, the professor will step in and regrade the exam. For final project regrades, just e-mail the professor. When requesting a regrade, you consent to have your score increased or decreased if we find that you earned points you should not have earned.\nStudent Contact. It is your responsibility to regularly check e-mail for announcements. Please post questions about the class or R to our class discord page, so other students can see the question (and answer) and benefit from your question! If you have specific questions to e-mail me, please make sure to (a) search the syllabus and / or Google for the answer to your question and (b) contact your TA about your question. I am always happy to answer any questions in office hours (either during the scheduled time or online by appointment), or before, during, or after lecture. I should respond to e-mail within 24 hours on weekdays (I do not check e-mail on weekends); please send a gentle reminder if I do not respond in this timeframe. Thanks!\nIncomplete Policy. I will only grant an incomplete to students who (1) have a significant life event that prevents them from completing the final project at the end of the semester and (2) are passing the class at the point they request the incomplete.\nAcademic Integrity. Do NOT cheat. Do NOT plagiarize. To copy text or ideas from another source (including your own submitted coursework) without appropriate reference is plagiarism. You may work on lab assignments with other students, but should be able to understand what you are doing. You may not work with other students on the R exam. Anyone caught cheating or plagiarizing will receive a zero on the assignment or test, and will be reported to the Office of Student Conduct. It is your responsibility to read the official Student Conduct Policy for more information about campus standards and policies regarding Academic Integrity.\nAI Policy. Generative AI tools should be used to support - not replace - your learning. All students must disclose how they used generative-AI software for each assignment (writing, coding, troubleshooting, etc.). If you used AI tools in any way (e.g., idea generation, writing, editing, troubleshooting or generating R code, etc.) you must include an appendix at the end of the assignment where you include screenshots of your specific queries and answers. Failure to be transparent about the use of AI tools - or feeding an assignment into an AI tool and using the output to completely replace your own work - will result in a zero of the assignment and a scheduled meeting in office hours. Multiple violations of this policy will result in the professor submitting a report to the Academic Integrity office and an F in the class. This is a new technology that we are all figuring out, so ask me if you have questions about this policy, or want to chat more about ways to use (or not use) AI in this class. I ultimately want to see that you are learning the material, and that any AI tools that you use are helping YOU learn, and not replacing the learning process. Whew!!\nRespect for Others. We all belong in our classroom, and I hope that everyone feels free and supported to express our identities when relevant. To achieve this goal, make sure that you are treating others with respect in this course. This means considering others’ opinions and perspectives, making sure not to generalize to groups (or ask students to be representatives of their group), and being mindful of the words that you use. (Also remember that nothing is ever really deleted from the internet, so please be extra mindful of the words you use.) While I will be monitoring class posts and communication, feel free to reach out to me if you see another student engaging in disrespectful or threatening behavior. Of course, this extends to me as well - if you feel like there are parts of the course instruction, subject matter, or class environment that create barriers to your success or inclusion, please contact me via e-mail and trust that your voice will be heard and I will not punish you for offering constructive criticisms of my teaching. I’m very open to learning how to be a better teacher, and always learn a lot from my students. \nSensitive Subjects. Our class will touch on important and potentially sensitive topics that are related to social science and data, such as racism, depression, sex, and poverty. These topics can generate strong emotional responses in students for a variety of reasons - such as their own past histories with these topics or their reactions to the ways the information is presented or described. I will try to make sure to give you a heads up when we start to discuss these topics so you can be mindful of your reactions.\nStrategies for success. Do your readings, complete assignments on time, understand how the topics and information relate to what you’ve learned (and are learning), and if you don’t understand something, please ask the question!\nMost important. Please let me know as soon as there is anything going on in your life that you think may affect your ability to do as well as you would like in this class (e.g. sickness, work, small children at home, threats to immigration status, etc.), and I will do my best to work with you on a plan to succeed in the class. If you’re not comfortable talking to me directly, you can talk to your TA who can talk to me about your issue.\n\n\nUC Berkeley offers a variety of services to help support students facing difficulties in these historic times.\nStudents with Disabilities : Students who require support or adaptive equipment because of a specific disability – or would like to be tested to see if they qualify for a learning, auditory, or visual disability – can request these services through the Disabled Students Program (DSP) office. Please note that I can only provide accommodations authorized by the DSP office. If you have DSP status, make sure you submit your letter and feel free to talk to me or a GSI about any specific accommodations you need, or other ways we might be able to make the class more accessible. [260 César E. Chávez Student Center| 510-642-0518 | https://dsp.berkeley.edu/]\nStudents with Mental Health Issues : If you feel a mental health issue (e.g., depression, anxiety) is negatively impacting your ability to succeed, I’d highly encourage you to seek out experts who can help. Berkeley has several free, confidential, and science-based programs designed to help students. [https://uhs.berkeley.edu/caps | Tang Center 3rd Floor | 510-642-9494 | After hours support line : 855-817-5667]\nUndocumented Students : I believe that all people deserve equal access to education. The UC Berkeley Undocumented Student Program has organized resources to support undocumented students, protect their rights, and offer potential financial aid | https://undocu.berkeley.edu/\nStudents from Low-Income Backgrounds : The Extended Opportunity Program (EOP) provides college support services for low-income students. Services include additional counseling, financial assistance (study-time parent grants, work-study assignments, and book vouchers), child-care opportunities, and assistance transferring to four-year colleges. [119 César E. Chavez Student Center | 510-642-7224 | https://eop.berkeley.edu/]\nFree On-Campus Tutoring :\n\nTheData Peer Consulting program in the Division of Computing, Data Science, and Society. This program strives to help make data science accessible across the broader campus community, by aiming to help undergraduate students, graduate students, staff, and faculty with research project infrastructure or other projects and modules that incorporate data. \nThe UC Berkeley D-Lab. Drop-in consulting where people may be able to help you with R specific problems.\nLibrarians are great. They can help you find research articles for your final project, think about how to organize or structure your literature review, and probably have other powers from a life of being surrounded by books."
+  },
+  {
+    "objectID": "dvcstats/labs/Lab4.html",
+    "href": "dvcstats/labs/Lab4.html",
+    "title": "Lab 4",
+    "section": "",
+    "text": "Problem. Graphing Numeric Variables Without Professor Help\nMake sure to choose different variables from the one(s) that we did together in class.\n\nChoose two numeric variables from the dataset. Graph each variable side-by-side using the par() function. Change the arguments to make the graphs look nice, and remove any outliers.\nReport the descriptive statistics for each variable. Then, explain what each variable tells you about the individuals in the dataset.\nReport the minimum and maximum value in the dataset as a z-score.\nDescribe what additional questions you have about each variable."
+  },
+  {
+    "objectID": "dvcstats/W12_ProjectTime 2.html",
+    "href": "dvcstats/W12_ProjectTime 2.html",
+    "title": "Week 12 - Project Time",
+    "section": "",
+    "text": "NoteAnnouncements and Agenda\n\n\n\n\n\n\n\n\nR Exam is GRADED. Key + Learning From R Exam Assignment.\n\n\nToday, on Psych 214…\n\n8:55 - 10:00. Check-In and NHST Review.\n10:00 - 10:10. Break Time.\n10:10 - 11:00. More NHST Review. Whew.\n\n\n\n\n\n\n\nClass Slides and Materials!!\n\n\nCheck-In. NHST Review. No R needed!\nProfessor R Scripts [Zoom Room + Room Crew]\n\n\n\nFor Next Week.\n\nLearning From the R Exam Revisions\n\nProfessor posted the R Exam Key.\nGo through the assignment and learn from your mistakes.\n\n\n\nWatch some more pre-recorded NHST Review Videos\nNote : I recorded these videos in a previous semester (with different class data). You will likely get different results if you try and replicate these results in this semester’s class (though we likely had a different class dataset). a good example of how NHST doesn’t really tell us whether the results are “truth” or not, or whether they will replicate.\n\nExample 1 : Weather and Love for Water\n\n\n\n\n\n\n\nExample 2 : Love of Water and Age"
   }
 ]
