@@ -1,0 +1,190 @@
+---
+title: ""
+format: 
+  html: 
+    output-file: "5_interactions.html"
+  revealjs: 
+    output-file: "interactions_slides.html"
+    slide-level: 3
+    code-overflow: wrap
+tbl-colwidths: [70,25]
+---
+
+## MR. NHST Review {.smaller}
+
+[CHECK-IN : Interpreting Regression](https://docs.google.com/forms/d/e/1FAIpQLSfzCFALIvkPydP2cDaWKQNOz6SIuMsiFp6cbCeunvAk0gL1Nw/viewform?usp=header). Click here, and use the tabs below to answer!
+
+::::::::: panel-tabset
+#### Summary
+
+```{r}
+#| include: false
+library(car)
+library(gplots)
+library(jtools)
+library(ggplot2)
+library(arm)
+
+mod1 <- lm(salary ~ yrs.service, data = Salaries)
+mod2 <- lm(salary ~ sex, data = Salaries)
+modx <- lm(yrs.service ~ sex, data = Salaries)
+mod3 <- lm(salary ~ yrs.service + sex, data = Salaries)
+mod4 <- lm(salary ~ yrs.service * sex, data = Salaries)
+
+mod1x <- arm::standardize(mod1, NULL, T)
+mod2x <- arm::standardize(mod2, NULL, T)
+mod3x <- arm::standardize(mod3, NULL, T)
+mod4x <- arm::standardize(mod4, NULL, T)
+
+```
+
+Table 1. Predicting Salaries from Years of Service and Sex.
+
+```{r}
+export_summs(mod1, mod2, mod3,
+             coefs = c("Years of Service" = "yrs.service",
+                       "Sex (0 = F; 1 = M)" = "sexMale"))
+```
+
+#### Description {.smaller}
+
+**Salaries Dataset.** "The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college's administration to monitor salary differences between male and female faculty members."
+
+```         
+-   salary : the salary of the professor, in cold, hard, US American Dollars.
+
+-   yrs.service : the years of service the professor had at the college.
+
+-   sex : whether the professor was Male or Female
+```
+
+#### Model 1 {.smaller}
+
+::::: columns
+::: {.column width="40%"}
+Graph of Model 1
+
+```{r}
+#| fig-width: 5
+#| fig-height: 5
+
+plot(salary ~ yrs.service, data = Salaries)
+abline(mod1, lwd = 5)
+```
+:::
+
+::: {.column width="60%"}
+Diagnostic Plots
+
+```{r}
+#| fig-width: 5
+#| fig-height: 5
+par(mfrow = c(2,2))
+plot(mod1)
+```
+:::
+:::::
+
+#### Model 2 {.smaller}
+
+::::: columns
+::: {.column width="40%"}
+Graph of Model 2
+
+```{r}
+#| fig-width: 5
+#| fig-height: 5
+
+plotmeans(salary ~ sex, data = Salaries, connect = F)
+```
+:::
+
+::: {.column width="60%"}
+Diagnostic Plots
+
+```{r}
+#| fig-width: 5
+#| fig-height: 5
+par(mfrow = c(2,2))
+plot(mod2)
+```
+:::
+:::::
+
+#### Model 3 {.smaller}
+
+Diagnostic Plots
+
+```{r}
+#| fig-width: 5
+#| fig-height: 5
+par(mfrow = c(2,2))
+plot(mod3)
+```
+:::::::::
+
+## RECAP : Interaction Effects {.smaller}
+
+From the [Vision Board](https://docs.google.com/spreadsheets/d/11FZJ76JMBUkKYZRoWASrHhPIldmP7Pziz-WGnlIZuC4/edit?usp=sharing)
+
+-   Find someone who you haven't talked to :) or have talked to :)
+-   Evaluate the interaction effect :
+    -   What does the interaction effect (or lack of one) mean?
+    -   Does it seem significant?
+    -   Does it seem large or important?
+
+### EXAMPLE : Interaction Effects {.smaller}
+
+::: panel-tabset
+#### the extra slope {.smaller}
+
+```{r}
+mod1 <- lm(salary ~ yrs.service + I(yrs.service^2), data = Salaries)
+mod2 <- lm(salary ~ sex, data = Salaries)
+mod3 <- lm(salary ~ yrs.service + I(yrs.service^2) + sex, data = Salaries)
+mod4 <- lm(salary ~ (yrs.service + I(yrs.service^2)) * sex, data = Salaries)
+export_summs(mod1, mod2, mod3, mod4,
+             coefs = c("Years of Service" = "yrs.service",
+                       "Years ^ 2" = "I(yrs.service^2)",
+                       "Sex (0 = F; 1 = M)" = "sexMale",
+                       "Service * Sex (if Male)" = "yrs.service:sexMale",
+                       "Service^2 * Sex" = "I(yrs.service^2):sexMale"))
+```
+
+#### a picture is worth 1000 words.
+
+```{r}
+#| echo: false
+#| fig-width: 14
+#| fig-height: 7
+library(ggplot2)
+library(ggthemes)
+library(jtools)
+ggplot(data = Salaries, aes(x = yrs.service, y = salary, color = sex)) + 
+  geom_point(size = .5, alpha = .3, position = "jitter") + 
+  labs(title = "The Interaction Effect", x = "Years of Service", y = "Salary", color = "Sex") +
+  geom_smooth(method = lm, formula = y ~ poly(x, 2)) + theme_apa()
+```
+
+#### standardizing your variables?
+
+```{r}
+mod1x <- arm::standardize(mod1, NULL, T)
+mod2x <- arm::standardize(mod2, NULL, T)
+mod3x <- arm::standardize(mod3, NULL, T)
+mod4x <- arm::standardize(mod4, NULL, T)
+
+export_summs(mod1x, mod2x, mod3x, mod4x,
+             coefs = c("Years of Service" = "z.yrs.service",
+                       "Service^2" = "I(z.yrs.service^2)",
+                       "Sex (0=F; 1=M)" = "c.sex",
+                       "Service * Sex" = "z.yrs.service:c.sex",
+                       "Service^2 * Sex" = "I(z.yrs.service^2):c.sex"))
+```
+:::
+
+### More Interaction Effect Practice (as needed)
+
+#### [**SEE PROFESSOR HANDOUT.**](https://docs.google.com/document/d/1YVzL5ud5UGy82KXqGrc-mjSRFJh7ocuQpXdIBmbvd0o/edit?usp=sharing)
+
+#### ![](images/clipboard-2763942266.png){width="80%"}

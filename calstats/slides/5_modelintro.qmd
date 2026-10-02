@@ -5,8 +5,9 @@ format:
   revealjs: 
     output-file: "modelintro_slides.html"
     slide-level: 3
-    chalkboard: true
+    embed-resources: true
     controls: true
+    auto-stretch: false
     code-overflow: wrap
 tbl-colwidths: [50,50]
 ---

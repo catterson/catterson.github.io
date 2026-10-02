@@ -738,7 +738,8 @@
     "3L_Description.html": "3a90bc8e"
   },
   "calstats/slides/4L_Methods.qmd": {
-    "4L_Methods.html": "a2cb032c"
+    "4L_Methods.html": "a2cb032c",
+    "4_Methods_slides.html": "329b5c3d"
   },
   "calstats/slides/XL_Scales.qmd": {
     "XL_Scales.html": "7f018bd3"
@@ -930,5 +931,12 @@
   "calstats/slides/5_modelintro.qmd": {
     "5_modelintro.html": "d382bba8",
     "modelintro_slides.html": "12a18d39"
+  },
+  "COMPSS212/slides/5_interactions.qmd": {
+    "5_interactions.html": "83f73f2a",
+    "interactions_slides.html": "430aa3e5"
+  },
+  "COMPSS212/Week5.qmd": {
+    "Week5.html": "5369f8ad"
   }
 }

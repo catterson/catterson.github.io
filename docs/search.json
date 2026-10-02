@@ -5058,7 +5058,7 @@
     "href": "calstats/notes/Week6.html",
     "title": "Week 6 - Monday, October 6th",
     "section": "",
-    "text": "NoteAnnouncements and Agenda\n\n\n\n\n\n\n\n\nMilestone #2 Due Next Week. Everything is a draft…“done is better than perfect.”\nNo Lab. Yes reading and quiz.\n\n\n\n3:10 - 3:20. Check-In & Exam Debrief\n3:25 - 4:05. From Mean –&gt; Linear Model Predictions\n4:05 - 4:15. Break Time\n4:15 - 5:00. Milestone #2 (Defining Measures).\n5:00 - 6:00. Project Workshop Time Whew.\n\n\n\n\n\n\n\n\n\n\nCheck-In : Brain Exam Debrief\nMini Dataset and Codebook\nFolder with Professor R Scripts and Notes\nFinal Project Vision Board + Final Project Description & Rubric\n\n\n\n\n\nIn Discussion Section : Work on Milestone 2\nMilestone 2 Due.\nChapter 6 (Linear Models) + a Quiz."
+    "text": "NoteAnnouncements and Agenda\n\n\n\n\n\n\n\n\nMilestone #2 Due Next Week. Everything is a draft…“done is better than perfect.”\nNo Lab. Yes reading and quiz.\n\n\n\n3:10 - 3:20. Check-In & Exam Debrief\n3:25 - 4:05. From Mean –&gt; Linear Model Predictions\n4:05 - 4:15. Break Time\n4:15 - 5:00. Milestone #2 (Defining Measures).\n5:00 - 6:00. Project Workshop Time Whew.\n\n\n\n\n\n\n\n\n\n\nCheck-In : Brain Exam Debrief\nMini Dataset and Codebook\nFolder with Professor R Scripts and Notes\nFinal Project Vision Board + Final Project Description & Rubric\n\n\n\n\n\nIn Discussion Section : Work on Milestone 2\nMilestone 2 Due. You’ll work on this in section (see above.)\nChapter 6 (Linear Models) + a Quiz."
   },
   {
     "objectID": "calstats/notes/Week6.html#class-slides-and-materials",
@@ -5072,7 +5072,7 @@
     "href": "calstats/notes/Week6.html#due-next-week",
     "title": "Week 6 - Monday, October 6th",
     "section": "",
-    "text": "In Discussion Section : Work on Milestone 2\nMilestone 2 Due.\nChapter 6 (Linear Models) + a Quiz."
+    "text": "In Discussion Section : Work on Milestone 2\nMilestone 2 Due. You’ll work on this in section (see above.)\nChapter 6 (Linear Models) + a Quiz."
   },
   {
     "objectID": "calstats/slides/modelintro_slides.html#check-in-post-brain-exam-survey",
@@ -5220,5 +5220,103 @@
     "title": "PART 1 : Prediction",
     "section": "PART 3 : Reliability and Validity",
     "text": "PART 3 : Reliability and Validity\n\nRelevance to Real-Life.\n\nHow would you evaluate the reliability and validity of the STEP COUNTER on your phone???\n\n\n\n\n\n\n\nTerm\nWay of Testing\n\n\nface : does our measure or result look like what it should look like?\n\n\n\nconvergent : is our measure similar to related concepts?\n\n\n\ndiscriminant : is our measure different from unrelated concepts?\n\n\n\ntest-retest : do we get the same result if we take multiple measures?\n\n\n\ninterrater reliability : would another observer make the same measurements?\n\n\n\ninter-item reliability : would one item in the likert scale be related to others?\n\n\n\n\n\n\n\nRelevance to Psychological Science\n\nReliability in Neuroscience\n\n\n\nBrandt, D. J., Sommer, J., Krach, S., Bedenbender, J., Kircher, T., Paulus, F. M., & Jansen, A. (2013). Test-retest reliability of fMRI brain activity during memory encoding. Frontiers in psychiatry, 4, 163. Link to Full Article\n\n\n\n\n\nRelevance to Psychological Science\n\nValidity in Neuroscience\n\n\n\nBennett, C. M., Miller, M. B., & Wolford, G. L. (2009). Neural correlates of interspecies perspective taking in the post-mortem Atlantic Salmon: an argument for multiple comparisons correction. Neuroimage, 47(Suppl 1), S125. Link to Full Article"
+  },
+  {
+    "objectID": "COMPSS212/slides/5_interactions.html#recap-interaction-effects",
+    "href": "COMPSS212/slides/5_interactions.html#recap-interaction-effects",
+    "title": "",
+    "section": "RECAP : Interaction Effects",
+    "text": "RECAP : Interaction Effects\nFrom the Vision Board\n\nFind someone who you haven’t talked to :) or have talked to :)\nEvaluate the interaction effect :\n\nWhat does the interaction effect (or lack of one) mean?\nDoes it seem significant?\nDoes it seem large or important?\n\n\n\nEXAMPLE : Interaction Effects\n\nthe extra slopea picture is worth 1000 words.standardizing your variables?\n\n\n\nmod1 &lt;- lm(salary ~ yrs.service + I(yrs.service^2), data = Salaries)\nmod2 &lt;- lm(salary ~ sex, data = Salaries)\nmod3 &lt;- lm(salary ~ yrs.service + I(yrs.service^2) + sex, data = Salaries)\nmod4 &lt;- lm(salary ~ (yrs.service + I(yrs.service^2)) * sex, data = Salaries)\nexport_summs(mod1, mod2, mod3, mod4,\n             coefs = c(\"Years of Service\" = \"yrs.service\",\n                       \"Years ^ 2\" = \"I(yrs.service^2)\",\n                       \"Sex (0 = F; 1 = M)\" = \"sexMale\",\n                       \"Service * Sex (if Male)\" = \"yrs.service:sexMale\",\n                       \"Service^2 * Sex\" = \"I(yrs.service^2):sexMale\"))\n\n\n\nModel 1Model 2Model 3Model 4\n\nYears of Service3011.28 ***      2984.38 ***3058.46 *\n\n(328.53)         (327.46)   (1469.57) \n\nYears ^ 2-51.13 ***      -51.27 ***-48.89  \n\n(7.14)         (7.11)   (47.61) \n\nSex (0 = F; 1 = M)       14088.01 **9392.25 *  11000.73  \n\n       (5064.58)  (4574.88)   (9923.15) \n\nService * Sex (if Male)                    -99.89  \n\n                    (1509.41) \n\nService^2 * Sex                    -1.95  \n\n                    (48.18) \n\nN397       397      397       397     \n\nR20.21    0.02   0.22    0.22  \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmod1x &lt;- arm::standardize(mod1, NULL, T)\nmod2x &lt;- arm::standardize(mod2, NULL, T)\nmod3x &lt;- arm::standardize(mod3, NULL, T)\nmod4x &lt;- arm::standardize(mod4, NULL, T)\n\nexport_summs(mod1x, mod2x, mod3x, mod4x,\n             coefs = c(\"Years of Service\" = \"z.yrs.service\",\n                       \"Service^2\" = \"I(z.yrs.service^2)\",\n                       \"Sex (0=F; 1=M)\" = \"c.sex\",\n                       \"Service * Sex\" = \"z.yrs.service:c.sex\",\n                       \"Service^2 * Sex\" = \"I(z.yrs.service^2):c.sex\"))\n\n\n\nModel 1Model 2Model 3Model 4\n\nYears of Service0.52 ***      0.51 ***0.51 ***\n\n(0.05)         (0.05)   (0.05)   \n\nService^2-0.57 ***      -0.57 ***-0.57 ***\n\n(0.08)         (0.08)   (0.09)   \n\nSex (0=F; 1=M)       0.23 **0.16 *  0.14    \n\n       (0.08)  (0.08)   (0.11)   \n\nService * Sex                    -0.07    \n\n                    (0.25)   \n\nService^2 * Sex                    -0.02    \n\n                    (0.54)   \n\nN397       397      397       397       \n\nR20.21    0.02   0.22    0.22    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\n\n\n\nMore Interaction Effect Practice (as needed)\n\nSEE PROFESSOR HANDOUT."
+  },
+  {
+    "objectID": "COMPSS212/slides/5_interactions.html",
+    "href": "COMPSS212/slides/5_interactions.html",
+    "title": "",
+    "section": "",
+    "text": "CHECK-IN : Interpreting Regression. Click here, and use the tabs below to answer!\n\nSummaryDescriptionModel 1Model 2Model 3\n\n\nTable 1. Predicting Salaries from Years of Service and Sex.\n\nexport_summs(mod1, mod2, mod3,\n             coefs = c(\"Years of Service\" = \"yrs.service\",\n                       \"Sex (0 = F; 1 = M)\" = \"sexMale\"))\n\n\n\nModel 1Model 2Model 3\n\nYears of Service779.57 ***      747.61 ***\n\n(110.42)         (111.40)   \n\nSex (0 = F; 1 = M)       14088.01 **9071.80    \n\n       (5064.58)  (4861.64)   \n\nN397       397      397       \n\nR20.11    0.02   0.12    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\nSalaries Dataset. “The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”\n-   salary : the salary of the professor, in cold, hard, US American Dollars.\n\n-   yrs.service : the years of service the professor had at the college.\n\n-   sex : whether the professor was Male or Female\n\n\n\n\nGraph of Model 1\n\nplot(salary ~ yrs.service, data = Salaries)\nabline(mod1, lwd = 5)\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\npar(mfrow = c(2,2))\nplot(mod1)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGraph of Model 2\n\nplotmeans(salary ~ sex, data = Salaries, connect = F)\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\npar(mfrow = c(2,2))\nplot(mod2)\n\n\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\npar(mfrow = c(2,2))\nplot(mod3)"
+  },
+  {
+    "objectID": "COMPSS212/Week5.html",
+    "href": "COMPSS212/Week5.html",
+    "title": "Week 4 - Monday, September 28th",
+    "section": "",
+    "text": "Week 4 - Monday, September 28th\n\n\n\n\n\n\nNoteAnnouncements and Agenda\n\n\n\n\n\nAnnouncements\n\nLab 2 Key Posted.\nSome changes to this course (based on your exit survey feedback; thanks!!!)\n\nno coding for check-ins : professor code will save in real-time.\nreadings : will introduce topics; offer for students wanting to go deeper.\nwe wanna learn a ton : review of “basics” –&gt; new material.\nthe program is a lot : we have this 1 year…can continue to voice some of the ideas and comments you have; please continue let me know what feels helpful (or not) in this class.\n\n\nAgenda\n\n10:10 - 11:00. Check-In (no R) & Multivariate Models\n11:00 - 11:10 : BREAK TIME\n11:10 - 12:00 : Sampling Error with Bootstrapping (Whew)\n\n\n\n\n\nClass Slides and Materials\n\n\nCheck-In (no R!) : 2 Models : Please use the regression output to answer these questions. No R required; just interpretation.\n\nDataset of the Week : The “Hormone” Dataset\nVISION BOARD.\n\nProfessor Notes. My R scripts and other notes, saved in real-time.\n\n\n\n\nFor Next Week.\n\nComplete Lab 4.\n\n\nSupport Materials\n\nMore on Multiple Regression\n\nWhy Statistics? Chapter 10 - Multiple Regression.A chapter that goes into how to interpret and conduct multiple regression, with some additional examples and videos.\n\n\n\nAdditional Readings : For students who want to learn more!\n\nThe Difference Between “Significant” and “Not Significant” is not Itself Statistically Significant\nA conceptual review of mediation, and tour through the ‘mediation’ package.\nPreacher KJ, Hayes AF. Asymptotic and resampling strategies for assessing and comparing indirect effects in multiple mediator models. Behav Res Methods. 2008;40(3):879-891. doi:10.3758/BRM.40.3.879\nA nice and recent summary of why caution is needed for mediation analysis."
+  },
+  {
+    "objectID": "COMPSS212/slides/interactions_slides.html#recap-interaction-effects",
+    "href": "COMPSS212/slides/interactions_slides.html#recap-interaction-effects",
+    "title": "",
+    "section": "RECAP : Interaction Effects",
+    "text": "RECAP : Interaction Effects\nFrom the Vision Board\n\nFind someone who you haven’t talked to :) or have talked to :)\nEvaluate the interaction effect :\n\nWhat does the interaction effect (or lack of one) mean?\nDoes it seem significant?\nDoes it seem large or important?"
+  },
+  {
+    "objectID": "COMPSS212/slides/5_interactions.html#mr.-nhst-review",
+    "href": "COMPSS212/slides/5_interactions.html#mr.-nhst-review",
+    "title": "",
+    "section": "",
+    "text": "CHECK-IN : Interpreting Regression. Click here, and use the tabs below to answer!\n\nSummaryDescriptionModel 1Model 2Model 3\n\n\nTable 1. Predicting Salaries from Years of Service and Sex.\n\nexport_summs(mod1, mod2, mod3,\n             coefs = c(\"Years of Service\" = \"yrs.service\",\n                       \"Sex (0 = F; 1 = M)\" = \"sexMale\"))\n\n\n\nModel 1Model 2Model 3\n\nYears of Service779.57 ***      747.61 ***\n\n(110.42)         (111.40)   \n\nSex (0 = F; 1 = M)       14088.01 **9071.80    \n\n       (5064.58)  (4861.64)   \n\nN397       397      397       \n\nR20.11    0.02   0.12    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\nSalaries Dataset. “The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”\n-   salary : the salary of the professor, in cold, hard, US American Dollars.\n\n-   yrs.service : the years of service the professor had at the college.\n\n-   sex : whether the professor was Male or Female\n\n\n\n\nGraph of Model 1\n\nplot(salary ~ yrs.service, data = Salaries)\nabline(mod1, lwd = 5)\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\npar(mfrow = c(2,2))\nplot(mod1)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGraph of Model 2\n\nplotmeans(salary ~ sex, data = Salaries, connect = F)\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\npar(mfrow = c(2,2))\nplot(mod2)\n\n\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\npar(mfrow = c(2,2))\nplot(mod3)"
+  },
+  {
+    "objectID": "COMPSS212/slides/interactions_slides.html#mr.-nhst-review",
+    "href": "COMPSS212/slides/interactions_slides.html#mr.-nhst-review",
+    "title": "",
+    "section": "MR. NHST Review",
+    "text": "MR. NHST Review\nCHECK-IN : Interpreting Regression. Click here, and use the tabs below to answer!\n\nSummaryDescriptionModel 1Model 2Model 3\n\n\nTable 1. Predicting Salaries from Years of Service and Sex.\n\nexport_summs(mod1, mod2, mod3,\n             coefs = c(\"Years of Service\" = \"yrs.service\",\n                       \"Sex (0 = F; 1 = M)\" = \"sexMale\"))\n\n\n\nModel 1Model 2Model 3\n\nYears of Service779.57 ***      747.61 ***\n\n(110.42)         (111.40)   \n\nSex (0 = F; 1 = M)       14088.01 **9071.80    \n\n       (5064.58)  (4861.64)   \n\nN397       397      397       \n\nR20.11    0.02   0.12    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\nSalaries Dataset. “The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”\n-   salary : the salary of the professor, in cold, hard, US American Dollars.\n\n-   yrs.service : the years of service the professor had at the college.\n\n-   sex : whether the professor was Male or Female\n\n\n\n\nGraph of Model 1\n\nplot(salary ~ yrs.service, data = Salaries)\nabline(mod1, lwd = 5)\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\npar(mfrow = c(2,2))\nplot(mod1)\n\n\n\n\n\n\n\n\n\n\n\n\n\nGraph of Model 2\n\nplotmeans(salary ~ sex, data = Salaries, connect = F)\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\npar(mfrow = c(2,2))\nplot(mod2)\n\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\npar(mfrow = c(2,2))\nplot(mod3)"
+  },
+  {
+    "objectID": "calstats/slides/4_Methods_slides.html#check-in-review-time",
+    "href": "calstats/slides/4_Methods_slides.html#check-in-review-time",
+    "title": "",
+    "section": "Check-In : Review Time!",
+    "text": "Check-In : Review Time!\n\n\n\nhist(d$hrs.sleep, xlab = \"Hours of Sleep\", main = \"\")\n\n\n\n\n\n\n\nround(mean(d$hrs.sleep, na.rm = T), 0)\n\n[1] 7\n\nround(sd(d$hrs.sleep, na.rm = T), 1)\n\n[1] 1.7\n\nmin(d$hrs.sleep,na.rm = T)\n\n[1] 1\n\n\n\n\nWhat is the shape, mean, and sd of this distribution?\nWhat do these statistics tell you about the people in our class?\nIs the minimum value an outlier? Why / why not?"
+  },
+  {
+    "objectID": "calstats/slides/4_Methods_slides.html#lab-4.-graphing-sleep-and-height-with-professor",
+    "href": "calstats/slides/4_Methods_slides.html#lab-4.-graphing-sleep-and-height-with-professor",
+    "title": "",
+    "section": "Lab 4. Graphing Sleep and Height With Professor",
+    "text": "Lab 4. Graphing Sleep and Height With Professor\n\nChoose two numeric variables from the dataset. Graph each variable side-by-side using the par() function. Change the arguments to make the graphs look nice, and remove any outliers.\nReport the descriptive statistics for each variable. Then, explain what each variable tells you about the individuals in the dataset.\nReport the minimum and maximum value in the dataset as a z-score.\nDescribe what additional questions you have about each variable."
+  },
+  {
+    "objectID": "calstats/slides/4_Methods_slides.html#lab-4.-graphing-numeric-variables-without-professor",
+    "href": "calstats/slides/4_Methods_slides.html#lab-4.-graphing-numeric-variables-without-professor",
+    "title": "",
+    "section": "Lab 4. Graphing Numeric Variables Without Professor",
+    "text": "Lab 4. Graphing Numeric Variables Without Professor\nWork with a buddy.\n\nChoose two numeric variables from the dataset. Graph each variable side-by-side using the par() function. Change the arguments to make the graphs look nice, and remove any outliers.\nReport the descriptive statistics for each variable. Then, explain what each variable tells you about the individuals in the dataset.\nReport the minimum and maximum value in the dataset as a z-score.\nDescribe what additional questions you have about each variable."
+  },
+  {
+    "objectID": "calstats/slides/4_Methods_slides.html#if-time-quarto-why-are-we-learning-this",
+    "href": "calstats/slides/4_Methods_slides.html#if-time-quarto-why-are-we-learning-this",
+    "title": "",
+    "section": "IF TIME : Quarto : Why are we learning this?",
+    "text": "IF TIME : Quarto : Why are we learning this?\n\nAn authentic skill (professor uses)\n\nSaves trouble of screenshotting : integrates code and text.\nsome GSIs are introducing it :)\n\nWARNING : professor still gets frustrated when using quarto. If you are feeling dread / maxxed out, then just use an Rscript + screenshot method. Okay?"
+  },
+  {
+    "objectID": "calstats/slides/4_Methods_slides.html#quarto-from-source-render",
+    "href": "calstats/slides/4_Methods_slides.html#quarto-from-source-render",
+    "title": "",
+    "section": "Quarto : From Source –> Render",
+    "text": "Quarto : From Source –&gt; Render\n\n\nWhat looks different about our R Script? What looks the same (or similar??)"
+  },
+  {
+    "objectID": "calstats/slides/4_Methods_slides.html#break-time-check-in",
+    "href": "calstats/slides/4_Methods_slides.html#break-time-check-in",
+    "title": "",
+    "section": "BREAK TIME Check-In",
+    "text": "BREAK TIME Check-In"
+  },
+  {
+    "objectID": "calstats/slides/4_Methods_slides.html#definition-patterns-in-writing",
+    "href": "calstats/slides/4_Methods_slides.html#definition-patterns-in-writing",
+    "title": "",
+    "section": "DEFINITION : patterns in writing",
+    "text": "DEFINITION : patterns in writing\n\nTHE POINT : What are you trying to say?\nTHE EVIDENCE : What is some evidence that supports this point? This could be empirical (e.g., a summary of past research on the topic), but also logic or real-life experiential examples work here.\nWHO CARES : Why does this matter? How does this connect to your main thesis?"
+  },
+  {
+    "objectID": "calstats/slides/4_Methods_slides.html#the-end.",
+    "href": "calstats/slides/4_Methods_slides.html#the-end.",
+    "title": "",
+    "section": "THE END.",
+    "text": "THE END."
   }
 ]
