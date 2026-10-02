@@ -9,9 +9,7 @@ format:
 tbl-colwidths: [70,25]
 ---
 
-## MR. NHST Review {.smaller}
-
-[CHECK-IN : Interpreting Regression](https://docs.google.com/forms/d/e/1FAIpQLSfzCFALIvkPydP2cDaWKQNOz6SIuMsiFp6cbCeunvAk0gL1Nw/viewform?usp=header). Click here, and use the tabs below to answer!
+## Check-In : MR. NHST Review {.smaller}
 
 ::::::::: panel-tabset
 #### Summary
@@ -40,6 +38,7 @@ mod4x <- arm::standardize(mod4, NULL, T)
 Table 1. Predicting Salaries from Years of Service and Sex.
 
 ```{r}
+#| echo: false
 export_summs(mod1, mod2, mod3,
              coefs = c("Years of Service" = "yrs.service",
                        "Sex (0 = F; 1 = M)" = "sexMale"))
@@ -66,6 +65,7 @@ Graph of Model 1
 ```{r}
 #| fig-width: 5
 #| fig-height: 5
+#| echo: false
 
 plot(salary ~ yrs.service, data = Salaries)
 abline(mod1, lwd = 5)
@@ -78,6 +78,7 @@ Diagnostic Plots
 ```{r}
 #| fig-width: 5
 #| fig-height: 5
+#| echo: false
 par(mfrow = c(2,2))
 plot(mod1)
 ```
@@ -86,13 +87,14 @@ plot(mod1)
 
 #### Model 2 {.smaller}
 
-::::: columns
+::::: {.columns}
 ::: {.column width="40%"}
 Graph of Model 2
 
 ```{r}
 #| fig-width: 5
 #| fig-height: 5
+#| echo: false
 
 plotmeans(salary ~ sex, data = Salaries, connect = F)
 ```
@@ -104,6 +106,7 @@ Diagnostic Plots
 ```{r}
 #| fig-width: 5
 #| fig-height: 5
+#| echo: false
 par(mfrow = c(2,2))
 plot(mod2)
 ```
@@ -117,22 +120,55 @@ Diagnostic Plots
 ```{r}
 #| fig-width: 5
 #| fig-height: 5
+#| echo: false
 par(mfrow = c(2,2))
 plot(mod3)
 ```
 :::::::::
 
-## RECAP : Interaction Effects {.smaller}
+## RECAP : Adding a Quadtratic Effect to Address issues of Heteroscedasticity
 
-From the [Vision Board](https://docs.google.com/spreadsheets/d/11FZJ76JMBUkKYZRoWASrHhPIldmP7Pziz-WGnlIZuC4/edit?usp=sharing)
+::::: {.columns}
+::: {.column width = "50"}
 
--   Find someone who you haven't talked to :) or have talked to :)
--   Evaluate the interaction effect :
-    -   What does the interaction effect (or lack of one) mean?
-    -   Does it seem significant?
-    -   Does it seem large or important?
+```{r}
+mod3b <- lm(salary ~ yrs.service + I(yrs.service^2) + sex, data = Salaries)
+export_summs(mod3, mod3b,model.names = c("Without Quad", "With Quad"))
+```
+:::
 
-### EXAMPLE : Interaction Effects {.smaller}
+::: {.column width = "50"}
+
+```{r}
+par(mfrow = c(2,2))
+plot(mod3b)
+```
+
+:::
+
+:::::
+
+## BREAK TIME
+
+## COMMERCIAL BREAK : looking over Lab 4 (& discussing the results)
+
+## Part 2 : Introduction to Interaction Effects
+
+### Some Examples {.smaller}
+
+::: panel-tabset
+#### resume data {.smaller}
+
+![Bertrand, M., & Mullainathan, S. (2004). Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. American economic review, 94(4), 991-1013](images/clipboard-1943000841.png){alt="Bertrand, M., & Mullainathan, S. (2004). Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. American economic review, 94(4), 991-1013" fig-align="center" width="60%"}
+
+#### puzzle data {.smaller}
+
+![Hoffman, M., Gneezy, U., & List, J. A. (2011). Nurture affects gender differences in spatial abilities. Proceedings of the National Academy of Sciences, 108(36), 14786-14788.](images/clipboard-4218932613.png){alt="Hoffman, M., Gneezy, U., & List, J. A. (2011). Nurture affects gender differences in spatial abilities. Proceedings of the National Academy of Sciences, 108(36), 14786-14788." fig-align="center" width="60%"}
+:::
+
+##  {.smaller}
+
+### EXAMPLE : An Interaction Effect {.smaller}
 
 ::: panel-tabset
 #### the extra slope {.smaller}
@@ -182,8 +218,18 @@ export_summs(mod1x, mod2x, mod3x, mod4x,
 ```
 :::
 
+## DISCUSS : Interaction Effects {.smaller}
+
+From the [Vision Board](https://docs.google.com/spreadsheets/d/11FZJ76JMBUkKYZRoWASrHhPIldmP7Pziz-WGnlIZuC4/edit?usp=sharing)
+
+- Find someone who you haven't talked to :) or have talked to :)
+- Consider an "effect" that you found before.
+  - What is the pattern in the data?
+  - What's another variable that might influence this pattern result?
+  - What might the interaction effect (or lack of one) look like?
+
 ### More Interaction Effect Practice (as needed)
 
-#### [**SEE PROFESSOR HANDOUT.**](https://docs.google.com/document/d/1YVzL5ud5UGy82KXqGrc-mjSRFJh7ocuQpXdIBmbvd0o/edit?usp=sharing)
+#### [**SEE PROFESSOR HANDOUT.**](https://www.dropbox.com/scl/fi/uhbe7e4allcig19npwp2a/Interaction_Practice.pdf?rlkey=yhlw9utyq4tfyn8fkg5i44kzg&dl=0)
 
 #### ![](images/clipboard-2763942266.png){width="80%"}

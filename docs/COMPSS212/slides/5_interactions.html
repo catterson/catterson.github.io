@@ -125,10 +125,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#mr.-nhst-review" id="toc-mr.-nhst-review" class="nav-link active" data-scroll-target="#mr.-nhst-review">MR. NHST Review</a></li>
-  <li><a href="#recap-interaction-effects" id="toc-recap-interaction-effects" class="nav-link" data-scroll-target="#recap-interaction-effects">RECAP : Interaction Effects</a>
+  <li><a href="#check-in-mr.-nhst-review" id="toc-check-in-mr.-nhst-review" class="nav-link active" data-scroll-target="#check-in-mr.-nhst-review">Check-In : MR. NHST Review</a></li>
+  <li><a href="#recap-adding-a-quadtratic-effect-to-address-issues-of-heteroscedasticity" id="toc-recap-adding-a-quadtratic-effect-to-address-issues-of-heteroscedasticity" class="nav-link" data-scroll-target="#recap-adding-a-quadtratic-effect-to-address-issues-of-heteroscedasticity">RECAP : Adding a Quadtratic Effect to Address issues of Heteroscedasticity</a></li>
+  <li><a href="#break-time" id="toc-break-time" class="nav-link" data-scroll-target="#break-time">BREAK TIME</a></li>
+  <li><a href="#commercial-break-looking-over-lab-4-discussing-the-results" id="toc-commercial-break-looking-over-lab-4-discussing-the-results" class="nav-link" data-scroll-target="#commercial-break-looking-over-lab-4-discussing-the-results">COMMERCIAL BREAK : looking over Lab 4 (&amp; discussing the results)</a></li>
+  <li><a href="#part-2-introduction-to-interaction-effects" id="toc-part-2-introduction-to-interaction-effects" class="nav-link" data-scroll-target="#part-2-introduction-to-interaction-effects">Part 2 : Introduction to Interaction Effects</a>
   <ul class="collapse">
-  <li><a href="#example-interaction-effects" id="toc-example-interaction-effects" class="nav-link" data-scroll-target="#example-interaction-effects">EXAMPLE : Interaction Effects</a></li>
+  <li><a href="#some-examples" id="toc-some-examples" class="nav-link" data-scroll-target="#some-examples">Some Examples</a></li>
+  </ul></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a>
+  <ul class="collapse">
+  <li><a href="#example-an-interaction-effect" id="toc-example-an-interaction-effect" class="nav-link" data-scroll-target="#example-an-interaction-effect">EXAMPLE : An Interaction Effect</a></li>
+  </ul></li>
+  <li><a href="#discuss-interaction-effects" id="toc-discuss-interaction-effects" class="nav-link" data-scroll-target="#discuss-interaction-effects">DISCUSS : Interaction Effects</a>
+  <ul class="collapse">
   <li><a href="#more-interaction-effect-practice-as-needed" id="toc-more-interaction-effect-practice-as-needed" class="nav-link" data-scroll-target="#more-interaction-effect-practice-as-needed">More Interaction Effect Practice (as needed)</a></li>
   </ul></li>
   </ul>
@@ -140,18 +150,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="mr.-nhst-review" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="mr.-nhst-review">MR. NHST Review</h2>
-<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfzCFALIvkPydP2cDaWKQNOz6SIuMsiFp6cbCeunvAk0gL1Nw/viewform?usp=header">CHECK-IN : Interpreting Regression</a>. Click here, and use the tabs below to answer!</p>
+<section id="check-in-mr.-nhst-review" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="check-in-mr.-nhst-review">Check-In : MR. NHST Review</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Summary</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Description</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Model 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Model 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false" href="">Model 3</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>Table 1. Predicting Salaries from Years of Service and Sex.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(mod1, mod2, mod3,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">coefs =</span> <span class="fu">c</span>(<span class="st">"Years of Service"</span> <span class="ot">=</span> <span class="st">"yrs.service"</span>,</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Sex (0 = F; 1 = M)"</span> <span class="ot">=</span> <span class="st">"sexMale"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  ">
 <colgroup><col><col><col><col></colgroup><tbody><tr>
@@ -187,8 +193,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="column" style="width:40%;">
 <p>Graph of Model 1</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(salary <span class="sc">~</span> yrs.service, <span class="at">data =</span> Salaries)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(mod1, <span class="at">lwd =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -200,8 +204,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div><div class="column" style="width:60%;">
 <p>Diagnostic Plots</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -218,7 +220,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="column" style="width:40%;">
 <p>Graph of Model 2</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(salary <span class="sc">~</span> sex, <span class="at">data =</span> Salaries, <span class="at">connect =</span> F)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -230,8 +231,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div><div class="column" style="width:60%;">
 <p>Diagnostic Plots</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -246,8 +245,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
 <p>Diagnostic Plots</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -260,35 +257,109 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="recap-interaction-effects" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="recap-interaction-effects">RECAP : Interaction Effects</h2>
-<p>From the <a href="https://docs.google.com/spreadsheets/d/11FZJ76JMBUkKYZRoWASrHhPIldmP7Pziz-WGnlIZuC4/edit?usp=sharing">Vision Board</a></p>
-<ul>
-<li>Find someone who you haven’t talked to :) or have talked to :)</li>
-<li>Evaluate the interaction effect :
-<ul>
-<li>What does the interaction effect (or lack of one) mean?</li>
-<li>Does it seem significant?</li>
-<li>Does it seem large or important?</li>
-</ul></li>
-</ul>
-<section id="example-interaction-effects" class="level3 smaller">
-<h3 class="smaller anchored" data-anchor-id="example-interaction-effects">EXAMPLE : Interaction Effects</h3>
+<section id="recap-adding-a-quadtratic-effect-to-address-issues-of-heteroscedasticity" class="level2">
+<h2 class="anchored" data-anchor-id="recap-adding-a-quadtratic-effect-to-address-issues-of-heteroscedasticity">RECAP : Adding a Quadtratic Effect to Address issues of Heteroscedasticity</h2>
+<div class="columns">
+<div class="column" style="width:50;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mod3b <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> yrs.service <span class="sc">+</span> <span class="fu">I</span>(yrs.service<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> sex, <span class="at">data =</span> Salaries)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(mod3, mod3b,<span class="at">model.names =</span> <span class="fu">c</span>(<span class="st">"Without Quad"</span>, <span class="st">"With Quad"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  ">
+<colgroup><col><col><col></colgroup><tbody><tr>
+<th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Without Quad</th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">With Quad</th></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(Intercept)</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">92356.95 ***</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">77227.50 ***</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(4740.19)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(4929.33)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">yrs.service</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">747.61 ***</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">2984.38 ***</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(111.40)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(327.46)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">sexMale</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">9071.80&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">9392.25 *&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(4861.64)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(4574.88)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">I(yrs.service^2)</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-51.27 ***</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(7.11)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">N</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">397&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">397&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">R2</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.12&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.22&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th colspan="3" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"> *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.</th></tr>
+</tbody></table>
+</div>
+</div>
+</div><div class="column" style="width:50;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod3b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="5_interactions_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="break-time" class="level2">
+<h2 class="anchored" data-anchor-id="break-time">BREAK TIME</h2>
+</section>
+<section id="commercial-break-looking-over-lab-4-discussing-the-results" class="level2">
+<h2 class="anchored" data-anchor-id="commercial-break-looking-over-lab-4-discussing-the-results">COMMERCIAL BREAK : looking over Lab 4 (&amp; discussing the results)</h2>
+</section>
+<section id="part-2-introduction-to-interaction-effects" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-introduction-to-interaction-effects">Part 2 : Introduction to Interaction Effects</h2>
+<section id="some-examples" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="some-examples">Some Examples</h3>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">the extra slope</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">a picture is worth 1000 words.</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">standardizing your variables?</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">resume data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">puzzle data</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1943000841.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Bertrand, M., &amp; Mullainathan, S. (2004). Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. American economic review, 94(4), 991-1013</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-4218932613.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Hoffman, M., Gneezy, U., &amp; List, J. A. (2011). Nurture affects gender differences in spatial abilities. Proceedings of the National Academy of Sciences, 108(36), 14786-14788.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="section" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section"></h2>
+<section id="example-an-interaction-effect" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="example-an-interaction-effect">EXAMPLE : An Interaction Effect</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">the extra slope</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">a picture is worth 1000 words.</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false" href="">standardizing your variables?</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> yrs.service <span class="sc">+</span> <span class="fu">I</span>(yrs.service<span class="sc">^</span><span class="dv">2</span>), <span class="at">data =</span> Salaries)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> sex, <span class="at">data =</span> Salaries)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> yrs.service <span class="sc">+</span> <span class="fu">I</span>(yrs.service<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> sex, <span class="at">data =</span> Salaries)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> (yrs.service <span class="sc">+</span> <span class="fu">I</span>(yrs.service<span class="sc">^</span><span class="dv">2</span>)) <span class="sc">*</span> sex, <span class="at">data =</span> Salaries)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(mod1, mod2, mod3, mod4,</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">coefs =</span> <span class="fu">c</span>(<span class="st">"Years of Service"</span> <span class="ot">=</span> <span class="st">"yrs.service"</span>,</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Years ^ 2"</span> <span class="ot">=</span> <span class="st">"I(yrs.service^2)"</span>,</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Sex (0 = F; 1 = M)"</span> <span class="ot">=</span> <span class="st">"sexMale"</span>,</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Service * Sex (if Male)"</span> <span class="ot">=</span> <span class="st">"yrs.service:sexMale"</span>,</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Service^2 * Sex"</span> <span class="ot">=</span> <span class="st">"I(yrs.service^2):sexMale"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> yrs.service <span class="sc">+</span> <span class="fu">I</span>(yrs.service<span class="sc">^</span><span class="dv">2</span>), <span class="at">data =</span> Salaries)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> sex, <span class="at">data =</span> Salaries)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> yrs.service <span class="sc">+</span> <span class="fu">I</span>(yrs.service<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> sex, <span class="at">data =</span> Salaries)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> (yrs.service <span class="sc">+</span> <span class="fu">I</span>(yrs.service<span class="sc">^</span><span class="dv">2</span>)) <span class="sc">*</span> sex, <span class="at">data =</span> Salaries)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(mod1, mod2, mod3, mod4,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">coefs =</span> <span class="fu">c</span>(<span class="st">"Years of Service"</span> <span class="ot">=</span> <span class="st">"yrs.service"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Years ^ 2"</span> <span class="ot">=</span> <span class="st">"I(yrs.service^2)"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Sex (0 = F; 1 = M)"</span> <span class="ot">=</span> <span class="st">"sexMale"</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Service * Sex (if Male)"</span> <span class="ot">=</span> <span class="st">"yrs.service:sexMale"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Service^2 * Sex"</span> <span class="ot">=</span> <span class="st">"I(yrs.service^2):sexMale"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  ">
 <colgroup><col><col><col><col><col></colgroup><tbody><tr>
@@ -323,30 +394,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="5_interactions_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="1344"></p>
+<p><img src="5_interactions_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="1344"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mod1x <span class="ot">&lt;-</span> arm<span class="sc">::</span><span class="fu">standardize</span>(mod1, <span class="cn">NULL</span>, T)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>mod2x <span class="ot">&lt;-</span> arm<span class="sc">::</span><span class="fu">standardize</span>(mod2, <span class="cn">NULL</span>, T)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>mod3x <span class="ot">&lt;-</span> arm<span class="sc">::</span><span class="fu">standardize</span>(mod3, <span class="cn">NULL</span>, T)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>mod4x <span class="ot">&lt;-</span> arm<span class="sc">::</span><span class="fu">standardize</span>(mod4, <span class="cn">NULL</span>, T)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(mod1x, mod2x, mod3x, mod4x,</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">coefs =</span> <span class="fu">c</span>(<span class="st">"Years of Service"</span> <span class="ot">=</span> <span class="st">"z.yrs.service"</span>,</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Service^2"</span> <span class="ot">=</span> <span class="st">"I(z.yrs.service^2)"</span>,</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Sex (0=F; 1=M)"</span> <span class="ot">=</span> <span class="st">"c.sex"</span>,</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Service * Sex"</span> <span class="ot">=</span> <span class="st">"z.yrs.service:c.sex"</span>,</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Service^2 * Sex"</span> <span class="ot">=</span> <span class="st">"I(z.yrs.service^2):c.sex"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mod1x <span class="ot">&lt;-</span> arm<span class="sc">::</span><span class="fu">standardize</span>(mod1, <span class="cn">NULL</span>, T)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mod2x <span class="ot">&lt;-</span> arm<span class="sc">::</span><span class="fu">standardize</span>(mod2, <span class="cn">NULL</span>, T)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>mod3x <span class="ot">&lt;-</span> arm<span class="sc">::</span><span class="fu">standardize</span>(mod3, <span class="cn">NULL</span>, T)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>mod4x <span class="ot">&lt;-</span> arm<span class="sc">::</span><span class="fu">standardize</span>(mod4, <span class="cn">NULL</span>, T)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(mod1x, mod2x, mod3x, mod4x,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">coefs =</span> <span class="fu">c</span>(<span class="st">"Years of Service"</span> <span class="ot">=</span> <span class="st">"z.yrs.service"</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Service^2"</span> <span class="ot">=</span> <span class="st">"I(z.yrs.service^2)"</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Sex (0=F; 1=M)"</span> <span class="ot">=</span> <span class="st">"c.sex"</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Service * Sex"</span> <span class="ot">=</span> <span class="st">"z.yrs.service:c.sex"</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Service^2 * Sex"</span> <span class="ot">=</span> <span class="st">"I(z.yrs.service^2):c.sex"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  ">
 <colgroup><col><col><col><col><col></colgroup><tbody><tr>
@@ -384,13 +455,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
+</section>
+<section id="discuss-interaction-effects" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="discuss-interaction-effects">DISCUSS : Interaction Effects</h2>
+<p>From the <a href="https://docs.google.com/spreadsheets/d/11FZJ76JMBUkKYZRoWASrHhPIldmP7Pziz-WGnlIZuC4/edit?usp=sharing">Vision Board</a></p>
+<ul>
+<li>Find someone who you haven’t talked to :) or have talked to :)</li>
+<li>Consider an “effect” that you found before.
+<ul>
+<li>What is the pattern in the data?</li>
+<li>What’s another variable that might influence this pattern result?</li>
+<li>What might the interaction effect (or lack of one) look like?</li>
+</ul></li>
+</ul>
 <section id="more-interaction-effect-practice-as-needed" class="level3">
 <h3 class="anchored" data-anchor-id="more-interaction-effect-practice-as-needed">More Interaction Effect Practice (as needed)</h3>
 <section id="see-professor-handout." class="level4">
-<h4 class="anchored" data-anchor-id="see-professor-handout."><a href="https://docs.google.com/document/d/1YVzL5ud5UGy82KXqGrc-mjSRFJh7ocuQpXdIBmbvd0o/edit?usp=sharing"><strong>SEE PROFESSOR HANDOUT.</strong></a></h4>
+<h4 class="anchored" data-anchor-id="see-professor-handout."><a href="https://www.dropbox.com/scl/fi/uhbe7e4allcig19npwp2a/Interaction_Practice.pdf?rlkey=yhlw9utyq4tfyn8fkg5i44kzg&amp;dl=0"><strong>SEE PROFESSOR HANDOUT.</strong></a></h4>
 </section>
-<section id="section" class="level4">
-<h4 class="anchored" data-anchor-id="section"><img src="images/clipboard-2763942266.png" class="img-fluid" style="width:80.0%"></h4>
+<section id="section-1" class="level4">
+<h4 class="anchored" data-anchor-id="section-1"><img src="images/clipboard-2763942266.png" class="img-fluid" style="width:80.0%"></h4>
 
 
 </section>

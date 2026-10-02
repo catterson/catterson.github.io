@@ -5233,14 +5233,14 @@
     "href": "COMPSS212/slides/5_interactions.html",
     "title": "",
     "section": "",
-    "text": "CHECK-IN : Interpreting Regression. Click here, and use the tabs below to answer!\n\nSummaryDescriptionModel 1Model 2Model 3\n\n\nTable 1. Predicting Salaries from Years of Service and Sex.\n\nexport_summs(mod1, mod2, mod3,\n             coefs = c(\"Years of Service\" = \"yrs.service\",\n                       \"Sex (0 = F; 1 = M)\" = \"sexMale\"))\n\n\n\nModel 1Model 2Model 3\n\nYears of Service779.57 ***      747.61 ***\n\n(110.42)         (111.40)   \n\nSex (0 = F; 1 = M)       14088.01 **9071.80    \n\n       (5064.58)  (4861.64)   \n\nN397       397      397       \n\nR20.11    0.02   0.12    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\nSalaries Dataset. “The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”\n-   salary : the salary of the professor, in cold, hard, US American Dollars.\n\n-   yrs.service : the years of service the professor had at the college.\n\n-   sex : whether the professor was Male or Female\n\n\n\n\nGraph of Model 1\n\nplot(salary ~ yrs.service, data = Salaries)\nabline(mod1, lwd = 5)\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\npar(mfrow = c(2,2))\nplot(mod1)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGraph of Model 2\n\nplotmeans(salary ~ sex, data = Salaries, connect = F)\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\npar(mfrow = c(2,2))\nplot(mod2)\n\n\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\npar(mfrow = c(2,2))\nplot(mod3)"
+    "text": "SummaryDescriptionModel 1Model 2Model 3\n\n\nTable 1. Predicting Salaries from Years of Service and Sex.\n\n\n\n\nModel 1Model 2Model 3\n\nYears of Service779.57 ***      747.61 ***\n\n(110.42)         (111.40)   \n\nSex (0 = F; 1 = M)       14088.01 **9071.80    \n\n       (5064.58)  (4861.64)   \n\nN397       397      397       \n\nR20.11    0.02   0.12    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\nSalaries Dataset. “The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”\n-   salary : the salary of the professor, in cold, hard, US American Dollars.\n\n-   yrs.service : the years of service the professor had at the college.\n\n-   sex : whether the professor was Male or Female\n\n\n\n\nGraph of Model 1\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGraph of Model 2\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots"
   },
   {
     "objectID": "COMPSS212/Week5.html",
     "href": "COMPSS212/Week5.html",
-    "title": "Week 4 - Monday, September 28th",
+    "title": "Week 5 - Monday, October 4th",
     "section": "",
-    "text": "Week 4 - Monday, September 28th\n\n\n\n\n\n\nNoteAnnouncements and Agenda\n\n\n\n\n\nAnnouncements\n\nLab 2 Key Posted.\nSome changes to this course (based on your exit survey feedback; thanks!!!)\n\nno coding for check-ins : professor code will save in real-time.\nreadings : will introduce topics; offer for students wanting to go deeper.\nwe wanna learn a ton : review of “basics” –&gt; new material.\nthe program is a lot : we have this 1 year…can continue to voice some of the ideas and comments you have; please continue let me know what feels helpful (or not) in this class.\n\n\nAgenda\n\n10:10 - 11:00. Check-In (no R) & Multivariate Models\n11:00 - 11:10 : BREAK TIME\n11:10 - 12:00 : Sampling Error with Bootstrapping (Whew)\n\n\n\n\n\nClass Slides and Materials\n\n\nCheck-In (no R!) : 2 Models : Please use the regression output to answer these questions. No R required; just interpretation.\n\nDataset of the Week : The “Hormone” Dataset\nVISION BOARD.\n\nProfessor Notes. My R scripts and other notes, saved in real-time.\n\n\n\n\nFor Next Week.\n\nComplete Lab 4.\n\n\nSupport Materials\n\nMore on Multiple Regression\n\nWhy Statistics? Chapter 10 - Multiple Regression.A chapter that goes into how to interpret and conduct multiple regression, with some additional examples and videos.\n\n\n\nAdditional Readings : For students who want to learn more!\n\nThe Difference Between “Significant” and “Not Significant” is not Itself Statistically Significant\nA conceptual review of mediation, and tour through the ‘mediation’ package.\nPreacher KJ, Hayes AF. Asymptotic and resampling strategies for assessing and comparing indirect effects in multiple mediator models. Behav Res Methods. 2008;40(3):879-891. doi:10.3758/BRM.40.3.879\nA nice and recent summary of why caution is needed for mediation analysis."
+    "text": "Week 5 - Monday, October 4th\n\n\n\n\n\n\nNoteAnnouncements and Agenda\n\n\n\n\n\nAnnouncements\n\nLab 2 Key Posted.\nSome changes to this course (based on your exit survey feedback; thanks!!!)\n\nno coding for check-ins : professor code will save in real-time.\nreadings : will introduce topics; offer for students wanting to go deeper.\nwe wanna learn a ton : review of “basics” –&gt; new material.\nthe program is a lot : we have this 1 year…can continue to voice some of the ideas and comments you have; please continue let me know what feels helpful (or not) in this class.\n\n\nAgenda\n\n10:10 - 10:50. Check-In (no R) & Multivariate Models\n10:50 - 11:00 : BREAK TIME\n11:00 - 12:00 : Interaction Effects\n\n\n\n\n\nClass Slides and Materials\n\n\nCheck-In (no R!) : 3 Models : Please use the regression output to answer these questions. No R required; just interpretation.\n\nDataset of the Week: The “Salaries” Dataset in R ?Salaries\nVISION BOARD.\n\nProfessor Notes. My R scripts and other notes, saved in real-time.\n\n\n\n\nFor Next Week.\n\nNo Lab.\n\n\nSupport Materials\n\nOn Interaction Effects. More detail on interaction effects, how to interpret and calculate (from the linear model) and how to graph them using base R.\n\nThe Interactions Package. The author of jtools has made what looks like a super clean way to graph interaction effects in R, using ggplot2.\nVisualization Tutorials. Other, more cumbersome methods of plotting interaction effects exist!"
   },
   {
     "objectID": "COMPSS212/slides/interactions_slides.html#recap-interaction-effects",
@@ -5254,14 +5254,14 @@
     "href": "COMPSS212/slides/5_interactions.html#mr.-nhst-review",
     "title": "",
     "section": "",
-    "text": "CHECK-IN : Interpreting Regression. Click here, and use the tabs below to answer!\n\nSummaryDescriptionModel 1Model 2Model 3\n\n\nTable 1. Predicting Salaries from Years of Service and Sex.\n\nexport_summs(mod1, mod2, mod3,\n             coefs = c(\"Years of Service\" = \"yrs.service\",\n                       \"Sex (0 = F; 1 = M)\" = \"sexMale\"))\n\n\n\nModel 1Model 2Model 3\n\nYears of Service779.57 ***      747.61 ***\n\n(110.42)         (111.40)   \n\nSex (0 = F; 1 = M)       14088.01 **9071.80    \n\n       (5064.58)  (4861.64)   \n\nN397       397      397       \n\nR20.11    0.02   0.12    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\nSalaries Dataset. “The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”\n-   salary : the salary of the professor, in cold, hard, US American Dollars.\n\n-   yrs.service : the years of service the professor had at the college.\n\n-   sex : whether the professor was Male or Female\n\n\n\n\nGraph of Model 1\n\nplot(salary ~ yrs.service, data = Salaries)\nabline(mod1, lwd = 5)\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\npar(mfrow = c(2,2))\nplot(mod1)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGraph of Model 2\n\nplotmeans(salary ~ sex, data = Salaries, connect = F)\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\npar(mfrow = c(2,2))\nplot(mod2)\n\n\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\npar(mfrow = c(2,2))\nplot(mod3)"
+    "text": "CHECK-IN : Interpreting Regression. Click here, and use the tabs below to answer!\n\nSummaryDescriptionModel 1Model 2Model 3\n\n\nTable 1. Predicting Salaries from Years of Service and Sex.\n\n\n\n\nModel 1Model 2Model 3\n\nYears of Service779.57 ***      747.61 ***\n\n(110.42)         (111.40)   \n\nSex (0 = F; 1 = M)       14088.01 **9071.80    \n\n       (5064.58)  (4861.64)   \n\nN397       397      397       \n\nR20.11    0.02   0.12    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\nSalaries Dataset. “The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”\n-   salary : the salary of the professor, in cold, hard, US American Dollars.\n\n-   yrs.service : the years of service the professor had at the college.\n\n-   sex : whether the professor was Male or Female\n\n\n\n\nGraph of Model 1\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGraph of Model 2\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots"
   },
   {
     "objectID": "COMPSS212/slides/interactions_slides.html#mr.-nhst-review",
     "href": "COMPSS212/slides/interactions_slides.html#mr.-nhst-review",
     "title": "",
     "section": "MR. NHST Review",
-    "text": "MR. NHST Review\nCHECK-IN : Interpreting Regression. Click here, and use the tabs below to answer!\n\nSummaryDescriptionModel 1Model 2Model 3\n\n\nTable 1. Predicting Salaries from Years of Service and Sex.\n\nexport_summs(mod1, mod2, mod3,\n             coefs = c(\"Years of Service\" = \"yrs.service\",\n                       \"Sex (0 = F; 1 = M)\" = \"sexMale\"))\n\n\n\nModel 1Model 2Model 3\n\nYears of Service779.57 ***      747.61 ***\n\n(110.42)         (111.40)   \n\nSex (0 = F; 1 = M)       14088.01 **9071.80    \n\n       (5064.58)  (4861.64)   \n\nN397       397      397       \n\nR20.11    0.02   0.12    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\nSalaries Dataset. “The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”\n-   salary : the salary of the professor, in cold, hard, US American Dollars.\n\n-   yrs.service : the years of service the professor had at the college.\n\n-   sex : whether the professor was Male or Female\n\n\n\n\nGraph of Model 1\n\nplot(salary ~ yrs.service, data = Salaries)\nabline(mod1, lwd = 5)\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\npar(mfrow = c(2,2))\nplot(mod1)\n\n\n\n\n\n\n\n\n\n\n\n\n\nGraph of Model 2\n\nplotmeans(salary ~ sex, data = Salaries, connect = F)\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\npar(mfrow = c(2,2))\nplot(mod2)\n\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\npar(mfrow = c(2,2))\nplot(mod3)"
+    "text": "MR. NHST Review\nCHECK-IN : Interpreting Regression. Click here, and use the tabs below to answer!\n\nSummaryDescriptionModel 1Model 2Model 3\n\n\nTable 1. Predicting Salaries from Years of Service and Sex.\n\n\n\n\nModel 1Model 2Model 3\n\nYears of Service779.57 ***      747.61 ***\n\n(110.42)         (111.40)   \n\nSex (0 = F; 1 = M)       14088.01 **9071.80    \n\n       (5064.58)  (4861.64)   \n\nN397       397      397       \n\nR20.11    0.02   0.12    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\nSalaries Dataset. “The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”\n-   salary : the salary of the professor, in cold, hard, US American Dollars.\n\n-   yrs.service : the years of service the professor had at the college.\n\n-   sex : whether the professor was Male or Female\n\n\n\n\nGraph of Model 1\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGraph of Model 2\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots"
   },
   {
     "objectID": "calstats/slides/4_Methods_slides.html#check-in-review-time",
@@ -5367,5 +5367,96 @@
     "title": "",
     "section": "PART 3 : Reliability and Validity",
     "text": "PART 3 : Reliability and Validity"
+  },
+  {
+    "objectID": "COMPSS212/slides/5_interactions.html#recap-adding-a-quadtratic-effect-to-address-issues-of-heteroscedasticity",
+    "href": "COMPSS212/slides/5_interactions.html#recap-adding-a-quadtratic-effect-to-address-issues-of-heteroscedasticity",
+    "title": "",
+    "section": "RECAP : Adding a Quadtratic Effect to Address issues of Heteroscedasticity",
+    "text": "RECAP : Adding a Quadtratic Effect to Address issues of Heteroscedasticity\n\n\n\nmod3b &lt;- lm(salary ~ yrs.service + I(yrs.service^2) + sex, data = Salaries)\nexport_summs(mod3, mod3b,model.names = c(\"Without Quad\", \"With Quad\"))\n\n\n\nWithout QuadWith Quad\n\n(Intercept)92356.95 ***77227.50 ***\n\n(4740.19)   (4929.33)   \n\nyrs.service747.61 ***2984.38 ***\n\n(111.40)   (327.46)   \n\nsexMale9071.80    9392.25 *  \n\n(4861.64)   (4574.88)   \n\nI(yrs.service^2)       -51.27 ***\n\n       (7.11)   \n\nN397       397       \n\nR20.12    0.22    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\npar(mfrow = c(2,2))\nplot(mod3b)"
+  },
+  {
+    "objectID": "COMPSS212/slides/5_interactions.html#break-time",
+    "href": "COMPSS212/slides/5_interactions.html#break-time",
+    "title": "",
+    "section": "BREAK TIME",
+    "text": "BREAK TIME"
+  },
+  {
+    "objectID": "COMPSS212/slides/5_interactions.html#part-2-introduction-to-interaction-effects",
+    "href": "COMPSS212/slides/5_interactions.html#part-2-introduction-to-interaction-effects",
+    "title": "",
+    "section": "Part 2 : Introduction to Interaction Effects",
+    "text": "Part 2 : Introduction to Interaction Effects\n\nSome Examples\n\nresume datapuzzle data\n\n\n\n\n\nBertrand, M., & Mullainathan, S. (2004). Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. American economic review, 94(4), 991-1013\n\n\n\n\n\n\n\nHoffman, M., Gneezy, U., & List, J. A. (2011). Nurture affects gender differences in spatial abilities. Proceedings of the National Academy of Sciences, 108(36), 14786-14788."
+  },
+  {
+    "objectID": "COMPSS212/slides/5_interactions.html#discuss-interaction-effects",
+    "href": "COMPSS212/slides/5_interactions.html#discuss-interaction-effects",
+    "title": "",
+    "section": "DISCUSS : Interaction Effects",
+    "text": "DISCUSS : Interaction Effects\nFrom the Vision Board\n\nFind someone who you haven’t talked to :) or have talked to :)\nConsider an “effect” that you found before.\n\nWhat is the pattern in the data?\nWhat’s another variable that might influence this pattern result?\nWhat might the interaction effect (or lack of one) look like?\n\n\n\nMore Interaction Effect Practice (as needed)\n\nSEE PROFESSOR HANDOUT."
+  },
+  {
+    "objectID": "COMPSS212/slides/interactions_slides.html#recap-adding-a-quadtratic-effect-to-address-issues-of-heteroscedasticity",
+    "href": "COMPSS212/slides/interactions_slides.html#recap-adding-a-quadtratic-effect-to-address-issues-of-heteroscedasticity",
+    "title": "",
+    "section": "RECAP : Adding a Quadtratic Effect to Address issues of Heteroscedasticity",
+    "text": "RECAP : Adding a Quadtratic Effect to Address issues of Heteroscedasticity\n\n\n\nmod3b &lt;- lm(salary ~ yrs.service + I(yrs.service^2) + sex, data = Salaries)\nexport_summs(mod3, mod3b,model.names = c(\"Without Quad\", \"With Quad\"))\n\n\n\nWithout QuadWith Quad\n\n(Intercept)92356.95 ***77227.50 ***\n\n(4740.19)   (4929.33)   \n\nyrs.service747.61 ***2984.38 ***\n\n(111.40)   (327.46)   \n\nsexMale9071.80    9392.25 *  \n\n(4861.64)   (4574.88)   \n\nI(yrs.service^2)       -51.27 ***\n\n       (7.11)   \n\nN397       397       \n\nR20.12    0.22    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\npar(mfrow = c(2,2))\nplot(mod3b)"
+  },
+  {
+    "objectID": "COMPSS212/slides/interactions_slides.html#break-time",
+    "href": "COMPSS212/slides/interactions_slides.html#break-time",
+    "title": "",
+    "section": "BREAK TIME",
+    "text": "BREAK TIME"
+  },
+  {
+    "objectID": "COMPSS212/slides/interactions_slides.html#part-2-introduction-to-interaction-effects",
+    "href": "COMPSS212/slides/interactions_slides.html#part-2-introduction-to-interaction-effects",
+    "title": "",
+    "section": "Part 2 : Introduction to Interaction Effects",
+    "text": "Part 2 : Introduction to Interaction Effects"
+  },
+  {
+    "objectID": "COMPSS212/slides/interactions_slides.html#discuss-interaction-effects",
+    "href": "COMPSS212/slides/interactions_slides.html#discuss-interaction-effects",
+    "title": "",
+    "section": "DISCUSS : Interaction Effects",
+    "text": "DISCUSS : Interaction Effects\nFrom the Vision Board\n\nFind someone who you haven’t talked to :) or have talked to :)\nConsider an “effect” that you found before.\n\nWhat is the pattern in the data?\nWhat’s another variable that might influence this pattern result?\nWhat might the interaction effect (or lack of one) look like?"
+  },
+  {
+    "objectID": "COMPSS212/slides/5_interactions.html#check-in-mr.-nhst-review",
+    "href": "COMPSS212/slides/5_interactions.html#check-in-mr.-nhst-review",
+    "title": "",
+    "section": "",
+    "text": "SummaryDescriptionModel 1Model 2Model 3\n\n\nTable 1. Predicting Salaries from Years of Service and Sex.\n\n\n\n\nModel 1Model 2Model 3\n\nYears of Service779.57 ***      747.61 ***\n\n(110.42)         (111.40)   \n\nSex (0 = F; 1 = M)       14088.01 **9071.80    \n\n       (5064.58)  (4861.64)   \n\nN397       397      397       \n\nR20.11    0.02   0.12    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\nSalaries Dataset. “The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”\n-   salary : the salary of the professor, in cold, hard, US American Dollars.\n\n-   yrs.service : the years of service the professor had at the college.\n\n-   sex : whether the professor was Male or Female\n\n\n\n\nGraph of Model 1\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGraph of Model 2\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots"
+  },
+  {
+    "objectID": "COMPSS212/slides/5_interactions.html#section",
+    "href": "COMPSS212/slides/5_interactions.html#section",
+    "title": "",
+    "section": "",
+    "text": "EXAMPLE : An Interaction Effect\n\nthe extra slopea picture is worth 1000 words.standardizing your variables?\n\n\n\nmod1 &lt;- lm(salary ~ yrs.service + I(yrs.service^2), data = Salaries)\nmod2 &lt;- lm(salary ~ sex, data = Salaries)\nmod3 &lt;- lm(salary ~ yrs.service + I(yrs.service^2) + sex, data = Salaries)\nmod4 &lt;- lm(salary ~ (yrs.service + I(yrs.service^2)) * sex, data = Salaries)\nexport_summs(mod1, mod2, mod3, mod4,\n             coefs = c(\"Years of Service\" = \"yrs.service\",\n                       \"Years ^ 2\" = \"I(yrs.service^2)\",\n                       \"Sex (0 = F; 1 = M)\" = \"sexMale\",\n                       \"Service * Sex (if Male)\" = \"yrs.service:sexMale\",\n                       \"Service^2 * Sex\" = \"I(yrs.service^2):sexMale\"))\n\n\n\nModel 1Model 2Model 3Model 4\n\nYears of Service3011.28 ***      2984.38 ***3058.46 *\n\n(328.53)         (327.46)   (1469.57) \n\nYears ^ 2-51.13 ***      -51.27 ***-48.89  \n\n(7.14)         (7.11)   (47.61) \n\nSex (0 = F; 1 = M)       14088.01 **9392.25 *  11000.73  \n\n       (5064.58)  (4574.88)   (9923.15) \n\nService * Sex (if Male)                    -99.89  \n\n                    (1509.41) \n\nService^2 * Sex                    -1.95  \n\n                    (48.18) \n\nN397       397      397       397     \n\nR20.21    0.02   0.22    0.22  \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmod1x &lt;- arm::standardize(mod1, NULL, T)\nmod2x &lt;- arm::standardize(mod2, NULL, T)\nmod3x &lt;- arm::standardize(mod3, NULL, T)\nmod4x &lt;- arm::standardize(mod4, NULL, T)\n\nexport_summs(mod1x, mod2x, mod3x, mod4x,\n             coefs = c(\"Years of Service\" = \"z.yrs.service\",\n                       \"Service^2\" = \"I(z.yrs.service^2)\",\n                       \"Sex (0=F; 1=M)\" = \"c.sex\",\n                       \"Service * Sex\" = \"z.yrs.service:c.sex\",\n                       \"Service^2 * Sex\" = \"I(z.yrs.service^2):c.sex\"))\n\n\n\nModel 1Model 2Model 3Model 4\n\nYears of Service0.52 ***      0.51 ***0.51 ***\n\n(0.05)         (0.05)   (0.05)   \n\nService^2-0.57 ***      -0.57 ***-0.57 ***\n\n(0.08)         (0.08)   (0.09)   \n\nSex (0=F; 1=M)       0.23 **0.16 *  0.14    \n\n       (0.08)  (0.08)   (0.11)   \n\nService * Sex                    -0.07    \n\n                    (0.25)   \n\nService^2 * Sex                    -0.02    \n\n                    (0.54)   \n\nN397       397      397       397       \n\nR20.21    0.02   0.22    0.22    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05."
+  },
+  {
+    "objectID": "COMPSS212/slides/5_interactions.html#commercial-break-looking-over-lab-4-discussing-the-results",
+    "href": "COMPSS212/slides/5_interactions.html#commercial-break-looking-over-lab-4-discussing-the-results",
+    "title": "",
+    "section": "COMMERCIAL BREAK : looking over Lab 4 (& discussing the results)",
+    "text": "COMMERCIAL BREAK : looking over Lab 4 (& discussing the results)"
+  },
+  {
+    "objectID": "COMPSS212/slides/interactions_slides.html#check-in-mr.-nhst-review",
+    "href": "COMPSS212/slides/interactions_slides.html#check-in-mr.-nhst-review",
+    "title": "",
+    "section": "Check-In : MR. NHST Review",
+    "text": "Check-In : MR. NHST Review\n\nSummaryDescriptionModel 1Model 2Model 3\n\n\nTable 1. Predicting Salaries from Years of Service and Sex.\n\n\n\n\nModel 1Model 2Model 3\n\nYears of Service779.57 ***      747.61 ***\n\n(110.42)         (111.40)   \n\nSex (0 = F; 1 = M)       14088.01 **9071.80    \n\n       (5064.58)  (4861.64)   \n\nN397       397      397       \n\nR20.11    0.02   0.12    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\nSalaries Dataset. “The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”\n-   salary : the salary of the professor, in cold, hard, US American Dollars.\n\n-   yrs.service : the years of service the professor had at the college.\n\n-   sex : whether the professor was Male or Female\n\n\n\n\nGraph of Model 1\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGraph of Model 2\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots"
+  },
+  {
+    "objectID": "COMPSS212/slides/interactions_slides.html#commercial-break-looking-over-lab-4-discussing-the-results",
+    "href": "COMPSS212/slides/interactions_slides.html#commercial-break-looking-over-lab-4-discussing-the-results",
+    "title": "",
+    "section": "COMMERCIAL BREAK : looking over Lab 4 (& discussing the results)",
+    "text": "COMMERCIAL BREAK : looking over Lab 4 (& discussing the results)"
   }
 ]
