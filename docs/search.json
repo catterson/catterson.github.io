@@ -5240,7 +5240,7 @@
     "href": "COMPSS212/Week5.html",
     "title": "Week 5 - Monday, October 4th",
     "section": "",
-    "text": "Week 5 - Monday, October 4th\n\n\n\n\n\n\nNoteAnnouncements and Agenda\n\n\n\n\n\nAnnouncements\n\nLab 2 Key Posted.\nSome changes to this course (based on your exit survey feedback; thanks!!!)\n\nno coding for check-ins : professor code will save in real-time.\nreadings : will introduce topics; offer for students wanting to go deeper.\nwe wanna learn a ton : review of “basics” –&gt; new material.\nthe program is a lot : we have this 1 year…can continue to voice some of the ideas and comments you have; please continue let me know what feels helpful (or not) in this class.\n\n\nAgenda\n\n10:10 - 10:50. Check-In (no R) & Multivariate Models\n10:50 - 11:00 : BREAK TIME\n11:00 - 12:00 : Interaction Effects\n\n\n\n\n\nClass Slides and Materials\n\n\nCheck-In (no R!) : 3 Models : Please use the regression output to answer these questions. No R required; just interpretation.\n\nDataset of the Week: The “Salaries” Dataset in R ?Salaries\nVISION BOARD.\n\nProfessor Notes. My R scripts and other notes, saved in real-time.\n\n\n\n\nFor Next Week.\n\nNo Lab.\n\n\nSupport Materials\n\nOn Interaction Effects. More detail on interaction effects, how to interpret and calculate (from the linear model) and how to graph them using base R.\n\nThe Interactions Package. The author of jtools has made what looks like a super clean way to graph interaction effects in R, using ggplot2.\nVisualization Tutorials. Other, more cumbersome methods of plotting interaction effects exist!"
+    "text": "Week 5 - Monday, October 4th\n\n\n\n\n\n\nNoteAnnouncements and Agenda\n\n\n\n\n\nAnnouncements\n\nLab 2 Key Posted.\nSome changes to this course (based on your exit survey feedback; thanks!!!)\n\nno coding for check-ins : professor code will save in real-time.\nreadings : will introduce topics; offer for students wanting to go deeper.\nwe wanna learn a ton : review of “basics” –&gt; new material.\nthe program is a lot : we have this 1 year…can continue to voice some of the ideas and comments you have; please continue let me know what feels helpful (or not) in this class.\n\n\nAgenda\n\n10:10 - 10:50. Check-In (no R) & Multivariate Models\n10:50 - 11:00 : BREAK TIME\n11:00 - 12:00 : Interaction Effects\n\n\n\n\n\nClass Slides and Materials\n\n\nCheck-In (no R!) : 3 Models : Please use the regression output to answer these questions. No R required; just interpretation.\n\nDataset of the Week: The “Salaries” Dataset from the car library in R ?car::Salaries\nVISION BOARD.\n\nProfessor Notes. My R scripts and other notes, saved in real-time.\n\n\n\n\nFor Next Week.\n\nNo Lab.\n\n\nSupport Materials\n\nMeyer et al. (2001) article on effect sizes. You do not need to read all of this article, and promised me you would not in class! Here’s a video professor recorded in a previous semester walking through how to navigate this article to answer some similar questions I’m asking this semester. (I cut a few steps (and hadn’t yet seen the light of the vision board….), but this should give you the general idea.)"
   },
   {
     "objectID": "COMPSS212/slides/interactions_slides.html#recap-interaction-effects",
@@ -5458,5 +5458,159 @@
     "title": "",
     "section": "COMMERCIAL BREAK : looking over Lab 4 (& discussing the results)",
     "text": "COMMERCIAL BREAK : looking over Lab 4 (& discussing the results)"
+  },
+  {
+    "objectID": "COMPSS212/slides/5_MRexperiment.html",
+    "href": "COMPSS212/slides/5_MRexperiment.html",
+    "title": "",
+    "section": "",
+    "text": "SummaryDescriptionModel 1Model 2Model 3\n\n\nTable 1. Predicting Salaries from Years of Service and Sex.\n\n\n\n\nModel 1Model 2Model 3\n\nYears of Service779.57 ***      747.61 ***\n\n(110.42)         (111.40)   \n\nSex (0 = F; 1 = M)       14088.01 **9071.80    \n\n       (5064.58)  (4861.64)   \n\nN397       397      397       \n\nR20.11    0.02   0.12    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\nSalaries Dataset. “The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”\n-   salary : the salary of the professor, in cold, hard, US American Dollars.\n\n-   yrs.service : the years of service the professor had at the college.\n\n-   sex : whether the professor was Male or Female\n\n\n\n\nGraph of Model 1\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGraph of Model 2\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots"
+  },
+  {
+    "objectID": "COMPSS212/slides/5_MRexperiment.html#check-in-mr.-nhst-review",
+    "href": "COMPSS212/slides/5_MRexperiment.html#check-in-mr.-nhst-review",
+    "title": "",
+    "section": "",
+    "text": "SummaryDescriptionModel 1Model 2Model 3\n\n\nTable 1. Predicting Salaries from Years of Service and Sex.\n\n\n\n\nModel 1Model 2Model 3\n\nYears of Service779.57 ***      747.61 ***\n\n(110.42)         (111.40)   \n\nSex (0 = F; 1 = M)       14088.01 **9071.80    \n\n       (5064.58)  (4861.64)   \n\nN397       397      397       \n\nR20.11    0.02   0.12    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\nSalaries Dataset. “The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”\n-   salary : the salary of the professor, in cold, hard, US American Dollars.\n\n-   yrs.service : the years of service the professor had at the college.\n\n-   sex : whether the professor was Male or Female\n\n\n\n\nGraph of Model 1\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGraph of Model 2\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots"
+  },
+  {
+    "objectID": "COMPSS212/slides/5_MRexperiment.html#recap-adding-a-quadtratic-effect-to-address-issues-of-heteroscedasticity",
+    "href": "COMPSS212/slides/5_MRexperiment.html#recap-adding-a-quadtratic-effect-to-address-issues-of-heteroscedasticity",
+    "title": "Part 3 : Experiments",
+    "section": "RECAP : Adding a Quadtratic Effect to Address issues of Heteroscedasticity",
+    "text": "RECAP : Adding a Quadtratic Effect to Address issues of Heteroscedasticity\n\n::: {.column width=“50”}\nmod3b &lt;- lm(salary ~ yrs.service + I(yrs.service^2) + sex, data = Salaries)\nexport_summs(mod3, mod3b,model.names = c(\"Without Quad\", \"With Quad\"))\n\n\n\nWithout QuadWith Quad\n\n(Intercept)92356.95 ***77227.50 ***\n\n(4740.19)   (4929.33)   \n\nyrs.service747.61 ***2984.38 ***\n\n(111.40)   (327.46)   \n\nsexMale9071.80    9392.25 *  \n\n(4861.64)   (4574.88)   \n\nI(yrs.service^2)       -51.27 ***\n\n       (7.11)   \n\nN397       397       \n\nR20.12    0.22    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n::: {.column width=“50”}\n\npar(mfrow = c(2,2))\nplot(mod3b)\n\n\n\n\n\n\n\n\n:::\n:::::::"
+  },
+  {
+    "objectID": "COMPSS212/slides/5_MRexperiment.html#break-time",
+    "href": "COMPSS212/slides/5_MRexperiment.html#break-time",
+    "title": "Part 3 : Experiments",
+    "section": "BREAK TIME",
+    "text": "BREAK TIME"
+  },
+  {
+    "objectID": "COMPSS212/slides/5_MRexperiment.html#commercial-break-looking-over-lab-4-discussing-the-results",
+    "href": "COMPSS212/slides/5_MRexperiment.html#commercial-break-looking-over-lab-4-discussing-the-results",
+    "title": "",
+    "section": "COMMERCIAL BREAK : looking over Lab 4 (& discussing the results)",
+    "text": "COMMERCIAL BREAK : looking over Lab 4 (& discussing the results)"
+  },
+  {
+    "objectID": "COMPSS212/slides/5_MRexperiment.html#part-2-experiments",
+    "href": "COMPSS212/slides/5_MRexperiment.html#part-2-experiments",
+    "title": "",
+    "section": "Part 2 : Experiments",
+    "text": "Part 2 : Experiments\nWhy did google change???\n\n\nDEFINITION : Causality\n\n\n\nThe cause and effect are contiguous in space and time.\nThe cause must be prior to the effect.\nThere must be a constant union betwixt the cause and effect. (“Tis chiefly this quality, that constitutes the relation.”)\nThe same cause always produces the same effect, and the same effect never arises but from the same cause.\n\n\nDISCUSS : \nWhich parts of this definition rule out the other reasons for a pattern in the data??\n\nApply this definition to a true causal relationship. Does it hold up?\n\n\n\n\nDEFINITION : Principles of an Experiment\n\n\ndependent variable. what the researchers want to predict or explain\n\nexperimental manipulation. change only one thing about the variable\n\nextraneous variables as “noise”. other factors that might influence the outcome variable\n\nrandom assignment. the group people are put in is random; this ensures that all other variables that might affect the result are evenly split across the two groups \n\nplacebo effects. when individuals in the study change their behavior if they expect something to have an effect\n\nexternal validity. how much does the experimental manipulation represent what someone might experience in real life?\n\nconstruct validity. how much does the manipulation actually change the variable of interest?\n\nexperimenter expectancy effects. if experimenters know what will happen to participants, they may change their behavior in ways that affect the results\n\n\n\n\n\n\nKEY IDEA : Watch out for Misleading Control Variables\nRECAP : the manipulation (A/B Testing) : researchers create multiple groups (conditions) and change ONE THING (the IV) about a person’s experience in each group & observe the result (the DV).\nKEY IDEA : the comparison group matters!\n\na 2 hour stats class DECREASES boredom compared to…\na 2 hour stats class INCREASES boredom compared to…\n\n\n\nScience is Hard : Power Posing\n\nWhat is the experimental / control condotion?\nIs this a fair comparison / manipulation?\n\n\n\n\n\n\n\n\n\n\nExample : Gratitude Study\n\n\nRead the prompt below. Answer the following questions.\n\nICE-BREAKER : What’s something that you are grateful for?\nWhat is the experimental / control condition?\nIs this a fair comparison / manipulation? What would be better?\n\n\n\n\n\n\n\nExample : Dehumanization Study\n\nThe Measures\n\n\nThe Manipulation\n\n\n\nAnchoring : Question –&gt; Theory –&gt; Data\n\nQuestion : Will the number that people see BEFORE making their own rating influence their decision?\nTheory :\n\nOPTION A: People who see a HIGHER number before making their own rating will make a HIGHER number than people who see the LOWER number.\nOPTION B : People who see a LOWER number before making their own rating will make a HIGHER number than people who see the HIGHER number.\nOPTION C : There will be NO DIFFERENCES between the groups."
+  },
+  {
+    "objectID": "COMPSS212/slides/5_MRexperiment.html#part-x-introduction-to-interaction-effects",
+    "href": "COMPSS212/slides/5_MRexperiment.html#part-x-introduction-to-interaction-effects",
+    "title": "Part 3 : Experiments",
+    "section": "Part X : Introduction to Interaction Effects",
+    "text": "Part X : Introduction to Interaction Effects\n\nSome Examples\n\nresume datapuzzle data\n\n\n\n\n\nBertrand, M., & Mullainathan, S. (2004). Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. American economic review, 94(4), 991-1013\n\n\n\n\n\n\n\nHoffman, M., Gneezy, U., & List, J. A. (2011). Nurture affects gender differences in spatial abilities. Proceedings of the National Academy of Sciences, 108(36), 14786-14788."
+  },
+  {
+    "objectID": "COMPSS212/slides/5_MRexperiment.html#section",
+    "href": "COMPSS212/slides/5_MRexperiment.html#section",
+    "title": "Part 3 : Experiments",
+    "section": "",
+    "text": "EXAMPLE : An Interaction Effect\n\nthe extra slopea picture is worth 1000 words.standardizing your variables?\n\n\n\nmod1 &lt;- lm(salary ~ yrs.service + I(yrs.service^2), data = Salaries)\nmod2 &lt;- lm(salary ~ sex, data = Salaries)\nmod3 &lt;- lm(salary ~ yrs.service + I(yrs.service^2) + sex, data = Salaries)\nmod4 &lt;- lm(salary ~ (yrs.service + I(yrs.service^2)) * sex, data = Salaries)\nexport_summs(mod1, mod2, mod3, mod4,\n             coefs = c(\"Years of Service\" = \"yrs.service\",\n                       \"Years ^ 2\" = \"I(yrs.service^2)\",\n                       \"Sex (0 = F; 1 = M)\" = \"sexMale\",\n                       \"Service * Sex (if Male)\" = \"yrs.service:sexMale\",\n                       \"Service^2 * Sex\" = \"I(yrs.service^2):sexMale\"))\n\n\n\nModel 1Model 2Model 3Model 4\n\nYears of Service3011.28 ***      2984.38 ***3058.46 *\n\n(328.53)         (327.46)   (1469.57) \n\nYears ^ 2-51.13 ***      -51.27 ***-48.89  \n\n(7.14)         (7.11)   (47.61) \n\nSex (0 = F; 1 = M)       14088.01 **9392.25 *  11000.73  \n\n       (5064.58)  (4574.88)   (9923.15) \n\nService * Sex (if Male)                    -99.89  \n\n                    (1509.41) \n\nService^2 * Sex                    -1.95  \n\n                    (48.18) \n\nN397       397      397       397     \n\nR20.21    0.02   0.22    0.22  \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmod1x &lt;- arm::standardize(mod1, NULL, T)\nmod2x &lt;- arm::standardize(mod2, NULL, T)\nmod3x &lt;- arm::standardize(mod3, NULL, T)\nmod4x &lt;- arm::standardize(mod4, NULL, T)\n\nexport_summs(mod1x, mod2x, mod3x, mod4x,\n             coefs = c(\"Years of Service\" = \"z.yrs.service\",\n                       \"Service^2\" = \"I(z.yrs.service^2)\",\n                       \"Sex (0=F; 1=M)\" = \"c.sex\",\n                       \"Service * Sex\" = \"z.yrs.service:c.sex\",\n                       \"Service^2 * Sex\" = \"I(z.yrs.service^2):c.sex\"))\n\n\n\nModel 1Model 2Model 3Model 4\n\nYears of Service0.52 ***      0.51 ***0.51 ***\n\n(0.05)         (0.05)   (0.05)   \n\nService^2-0.57 ***      -0.57 ***-0.57 ***\n\n(0.08)         (0.08)   (0.09)   \n\nSex (0=F; 1=M)       0.23 **0.16 *  0.14    \n\n       (0.08)  (0.08)   (0.11)   \n\nService * Sex                    -0.07    \n\n                    (0.25)   \n\nService^2 * Sex                    -0.02    \n\n                    (0.54)   \n\nN397       397      397       397       \n\nR20.21    0.02   0.22    0.22    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05."
+  },
+  {
+    "objectID": "COMPSS212/slides/5_MRexperiment.html#discuss-interaction-effects",
+    "href": "COMPSS212/slides/5_MRexperiment.html#discuss-interaction-effects",
+    "title": "Part 3 : Experiments",
+    "section": "DISCUSS : Interaction Effects",
+    "text": "DISCUSS : Interaction Effects\nFrom the Vision Board\n\nFind someone who you haven’t talked to :) or have talked to :)\nConsider an “effect” that you found before.\n\nWhat is the pattern in the data?\nWhat’s another variable that might influence this pattern result?\nWhat might the interaction effect (or lack of one) look like?\n\n\n\nMore Interaction Effect Practice (as needed)\n\nSEE PROFESSOR HANDOUT."
+  },
+  {
+    "objectID": "COMPSS212/slides/mrexperiment_slides.html#check-in-mr.-nhst-review",
+    "href": "COMPSS212/slides/mrexperiment_slides.html#check-in-mr.-nhst-review",
+    "title": "",
+    "section": "Check-In : MR. NHST Review",
+    "text": "Check-In : MR. NHST Review\n\nSummaryDescriptionModel 1Model 2Model 3\n\n\nTable 1. Predicting Salaries from Years of Service and Sex.\n\n\n\n\nModel 1Model 2Model 3\n\nYears of Service779.57 ***      747.61 ***\n\n(110.42)         (111.40)   \n\nSex (0 = F; 1 = M)       14088.01 **9071.80    \n\n       (5064.58)  (4861.64)   \n\nN397       397      397       \n\nR20.11    0.02   0.12    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\nSalaries Dataset. “The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”\n-   salary : the salary of the professor, in cold, hard, US American Dollars.\n\n-   yrs.service : the years of service the professor had at the college.\n\n-   sex : whether the professor was Male or Female\n\n\n\n\nGraph of Model 1\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGraph of Model 2\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots"
+  },
+  {
+    "objectID": "COMPSS212/slides/mrexperiment_slides.html#recap-adding-a-quadtratic-effect-to-address-issues-of-heteroscedasticity",
+    "href": "COMPSS212/slides/mrexperiment_slides.html#recap-adding-a-quadtratic-effect-to-address-issues-of-heteroscedasticity",
+    "title": "",
+    "section": "RECAP : Adding a Quadtratic Effect to Address issues of Heteroscedasticity",
+    "text": "RECAP : Adding a Quadtratic Effect to Address issues of Heteroscedasticity\n\n::: {.column width=“50”}\nmod3b &lt;- lm(salary ~ yrs.service + I(yrs.service^2) + sex, data = Salaries)\nexport_summs(mod3, mod3b,model.names = c(\"Without Quad\", \"With Quad\"))\n\n\n\nWithout QuadWith Quad\n\n(Intercept)92356.95 ***77227.50 ***\n\n(4740.19)   (4929.33)   \n\nyrs.service747.61 ***2984.38 ***\n\n(111.40)   (327.46)   \n\nsexMale9071.80    9392.25 *  \n\n(4861.64)   (4574.88)   \n\nI(yrs.service^2)       -51.27 ***\n\n       (7.11)   \n\nN397       397       \n\nR20.12    0.22    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n::: {.column width=“50”}\n\npar(mfrow = c(2,2))\nplot(mod3b)\n\n\n:::\n:::::::"
+  },
+  {
+    "objectID": "COMPSS212/slides/mrexperiment_slides.html#break-time",
+    "href": "COMPSS212/slides/mrexperiment_slides.html#break-time",
+    "title": "",
+    "section": "BREAK TIME",
+    "text": "BREAK TIME"
+  },
+  {
+    "objectID": "COMPSS212/slides/mrexperiment_slides.html#commercial-break-looking-over-lab-4-discussing-the-results",
+    "href": "COMPSS212/slides/mrexperiment_slides.html#commercial-break-looking-over-lab-4-discussing-the-results",
+    "title": "",
+    "section": "COMMERCIAL BREAK : looking over Lab 4 (& discussing the results)",
+    "text": "COMMERCIAL BREAK : looking over Lab 4 (& discussing the results)"
+  },
+  {
+    "objectID": "COMPSS212/slides/mrexperiment_slides.html#part-2-experiments",
+    "href": "COMPSS212/slides/mrexperiment_slides.html#part-2-experiments",
+    "title": "",
+    "section": "Part 2 : Experiments",
+    "text": "Part 2 : Experiments\nWhy did google change???"
+  },
+  {
+    "objectID": "COMPSS212/slides/mrexperiment_slides.html#part-x-introduction-to-interaction-effects",
+    "href": "COMPSS212/slides/mrexperiment_slides.html#part-x-introduction-to-interaction-effects",
+    "title": "",
+    "section": "Part X : Introduction to Interaction Effects",
+    "text": "Part X : Introduction to Interaction Effects"
+  },
+  {
+    "objectID": "COMPSS212/slides/mrexperiment_slides.html#discuss-interaction-effects",
+    "href": "COMPSS212/slides/mrexperiment_slides.html#discuss-interaction-effects",
+    "title": "",
+    "section": "DISCUSS : Interaction Effects",
+    "text": "DISCUSS : Interaction Effects\nFrom the Vision Board\n\nFind someone who you haven’t talked to :) or have talked to :)\nConsider an “effect” that you found before.\n\nWhat is the pattern in the data?\nWhat’s another variable that might influence this pattern result?\nWhat might the interaction effect (or lack of one) look like?"
+  },
+  {
+    "objectID": "COMPSS212/slides/5_MRexperiment.html#recap-adding-a-quadratic-effect-to-address-issues-of-heteroscedasticity",
+    "href": "COMPSS212/slides/5_MRexperiment.html#recap-adding-a-quadratic-effect-to-address-issues-of-heteroscedasticity",
+    "title": "",
+    "section": "RECAP : Adding a Quadratic Effect to Address issues of Heteroscedasticity",
+    "text": "RECAP : Adding a Quadratic Effect to Address issues of Heteroscedasticity\n\nThe ModelThe Diagnostics\n\n\n\nmod3b &lt;- lm(salary ~ yrs.service + I(yrs.service^2) + sex, data = Salaries)\nexport_summs(mod3, mod3b,model.names = c(\"Without Quad\", \"With Quad\"))\n\n\n\nWithout QuadWith Quad\n\n(Intercept)92356.95 ***77227.50 ***\n\n(4740.19)   (4929.33)   \n\nyrs.service747.61 ***2984.38 ***\n\n(111.40)   (327.46)   \n\nsexMale9071.80    9392.25 *  \n\n(4861.64)   (4574.88)   \n\nI(yrs.service^2)       -51.27 ***\n\n       (7.11)   \n\nN397       397       \n\nR20.12    0.22    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\n\n\nOriginal Model\n\npar(mfrow = c(2,2))\nplot(mod3)\n\n\n\n\n\n\n\n\n\nModel With Quadratic Term\n\npar(mfrow = c(2,2))\nplot(mod3b)"
+  },
+  {
+    "objectID": "COMPSS212/slides/5_MRexperiment.html#break-time-check-in",
+    "href": "COMPSS212/slides/5_MRexperiment.html#break-time-check-in",
+    "title": "",
+    "section": "BREAK TIME CHECK-IN",
+    "text": "BREAK TIME CHECK-IN\nWe are going to collect some more data for an activity in section.\nPlease do this on your own; no looking up answers on Google / phoning a friend / talking to your buddy / ChatGPT.\nThanks!"
+  },
+  {
+    "objectID": "COMPSS212/slides/5_MRexperiment.html#in-section",
+    "href": "COMPSS212/slides/5_MRexperiment.html#in-section",
+    "title": "Part 3 : Experiments",
+    "section": "IN SECTION :",
+    "text": "IN SECTION :"
+  },
+  {
+    "objectID": "COMPSS212/slides/5_MRexperiment.html#anchoring-question-theory-data",
+    "href": "COMPSS212/slides/5_MRexperiment.html#anchoring-question-theory-data",
+    "title": "Part 3 : Experiments",
+    "section": "Anchoring : Question –> Theory –> Data",
+    "text": "Anchoring : Question –&gt; Theory –&gt; Data\n\nQuestion : Will the number that people see BEFORE making their own rating influence their decision?\nTheory :\n\nOPTION A: People who see a HIGHER number before making their own rating will make a HIGHER number than people who see the LOWER number.\nOPTION B : People who see a LOWER number before making their own rating will make a HIGHER number than people who see the HIGHER number.\nOPTION C : There will be NO DIFFERENCES between the groups."
+  },
+  {
+    "objectID": "COMPSS212/slides/mrexperiment_slides.html#recap-adding-a-quadratic-effect-to-address-issues-of-heteroscedasticity",
+    "href": "COMPSS212/slides/mrexperiment_slides.html#recap-adding-a-quadratic-effect-to-address-issues-of-heteroscedasticity",
+    "title": "",
+    "section": "RECAP : Adding a Quadratic Effect to Address issues of Heteroscedasticity",
+    "text": "RECAP : Adding a Quadratic Effect to Address issues of Heteroscedasticity\n\nThe ModelThe Diagnostics\n\n\n\nmod3b &lt;- lm(salary ~ yrs.service + I(yrs.service^2) + sex, data = Salaries)\nexport_summs(mod3, mod3b,model.names = c(\"Without Quad\", \"With Quad\"))\n\n\n\nWithout QuadWith Quad\n\n(Intercept)92356.95 ***77227.50 ***\n\n(4740.19)   (4929.33)   \n\nyrs.service747.61 ***2984.38 ***\n\n(111.40)   (327.46)   \n\nsexMale9071.80    9392.25 *  \n\n(4861.64)   (4574.88)   \n\nI(yrs.service^2)       -51.27 ***\n\n       (7.11)   \n\nN397       397       \n\nR20.12    0.22    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\n\n\nOriginal Model\n\npar(mfrow = c(2,2))\nplot(mod3)\n\n\n\n\n\n\n\n\n\nModel With Quadratic Term\n\npar(mfrow = c(2,2))\nplot(mod3b)"
+  },
+  {
+    "objectID": "COMPSS212/slides/mrexperiment_slides.html#break-time-check-in",
+    "href": "COMPSS212/slides/mrexperiment_slides.html#break-time-check-in",
+    "title": "",
+    "section": "BREAK TIME CHECK-IN",
+    "text": "BREAK TIME CHECK-IN\nWe are going to collect some more data for an activity in section.\nPlease do this on your own; no looking up answers on Google / phoning a friend / talking to your buddy / ChatGPT.\nThanks!"
   }
 ]

@@ -3,7 +3,7 @@ title: ""
 format: 
   html: default
   revealjs: 
-    output-file: "interactions_slides.html"
+    output-file: "mrexperiment_slides.html"
     slide-level: 3
     code-overflow: wrap
 tbl-colwidths: [70,25]
@@ -87,7 +87,7 @@ plot(mod1)
 
 #### Model 2 {.smaller}
 
-::::: {.columns}
+::::: columns
 ::: {.column width="40%"}
 Graph of Model 2
 
@@ -128,8 +128,8 @@ plot(mod3)
 
 ## RECAP : Adding a Quadtratic Effect to Address issues of Heteroscedasticity
 
-::::: {.columns}
-::: {.column width = "50"}
+::: columns
+\::: {.column width = "50"}
 
 ```{r}
 mod3b <- lm(salary ~ yrs.service + I(yrs.service^2) + sex, data = Salaries)
@@ -137,33 +137,131 @@ export_summs(mod3, mod3b,model.names = c("Without Quad", "With Quad"))
 ```
 :::
 
-::: {.column width = "50"}
+\::: {.column width = "50"}
 
 ```{r}
 par(mfrow = c(2,2))
 plot(mod3b)
 ```
 
-:::
+\:::
 
-:::::
+\:::::::
 
 ## BREAK TIME
 
 ## COMMERCIAL BREAK : looking over Lab 4 (& discussing the results)
 
-## Part 2 : Introduction to Interaction Effects
+## Part 2 : Experiments
+
+# Part 3 : Experiments {.smaller}
+
+Why did google change???
+
+![](images/clipboard-503911641.png)
+
+### DEFINITION : Causality {.smaller}
+
+::::: columns
+::: {.column width="70%"}
+1.  The cause and effect are contiguous in space and time.
+2.  The cause must be prior to the effect.
+3.  There must be a constant union betwixt the cause and effect. (“Tis chiefly this quality, that constitutes the relation.”)
+4.  The same cause always produces the same effect, and the same effect never arises but from the same cause.
+:::
+
+::: {.column width="30%"}
+```         
+DISCUSS : 
+Which parts of this definition rule out the other reasons for a pattern in the data??
+
+Apply this definition to a true causal relationship. Does it hold up?
+```
+:::
+:::::
+
+### DEFINITION : Principles of an Experiment {.smaller}
+
+::::: columns
+::: {.column width="40%"}
+```         
+dependent variable. what the researchers want to predict or explain
+
+experimental manipulation. change only one thing about the variable
+
+extraneous variables as “noise”. other factors that might influence the outcome variable
+
+random assignment. the group people are put in is random; this ensures that all other variables that might affect the result are evenly split across the two groups 
+
+placebo effects. when individuals in the study change their behavior if they expect something to have an effect
+
+external validity. how much does the experimental manipulation represent what someone might experience in real life?
+
+construct validity. how much does the manipulation actually change the variable of interest?
+
+experimenter expectancy effects. if experimenters know what will happen to participants, they may change their behavior in ways that affect the results
+```
+:::
+
+::: {.column width="60%"}
+![](images/clipboard-1347737405.png)
+:::
+:::::
+
+### KEY IDEA : Watch out for Misleading Control Variables {.smaller}
+
+**RECAP : the manipulation (A/B Testing) :** researchers create multiple groups (conditions) and change ONE THING (the IV) about a person’s experience in each group & observe the result (the DV).
+
+**KEY IDEA : the comparison group matters!**
+
+- a 1.5 hour research methods class DECREASES boredom compared to…
+
+- a 1.5 hour research methods class INCREASES boredom compared to…
+
+### Science is Hard : Power Posing
+
+- What is the experimental / control condotion?
+
+- Is this a fair comparison / manipulation?
+
+::::: columns
+::: {.column width="50%"}
+![](images/clipboard-3273747639.png)
+:::
+
+::: {.column width="50%"}
+![](images/clipboard-1831303406.png)
+:::
+:::::
+
+### Example : Gratitude Study {.smaller}
+
+::::: columns
+::: {.column width="40%"}
+Read the prompt below. Answer the following questions.
+
+1.  **ICE-BREAKER :** What's something that you are grateful for?
+2.  What is the experimental / control condition?
+3.  Is this a fair comparison / manipulation? What would be better?
+:::
+
+::: {.column width="60%"}
+![](images/clipboard-4269890032.png)
+:::
+:::::
+
+## Part X : Introduction to Interaction Effects
 
 ### Some Examples {.smaller}
 
 ::: panel-tabset
 #### resume data {.smaller}
 
-![Bertrand, M., & Mullainathan, S. (2004). Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. American economic review, 94(4), 991-1013](images/clipboard-1943000841.png){alt="Bertrand, M., & Mullainathan, S. (2004). Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. American economic review, 94(4), 991-1013" fig-align="center" width="60%"}
+![Bertrand, M., & Mullainathan, S. (2004). Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. American economic review, 94(4), 991-1013](images/clipboard-1943000841.png){fig-align="center" width="60%"}
 
 #### puzzle data {.smaller}
 
-![Hoffman, M., Gneezy, U., & List, J. A. (2011). Nurture affects gender differences in spatial abilities. Proceedings of the National Academy of Sciences, 108(36), 14786-14788.](images/clipboard-4218932613.png){alt="Hoffman, M., Gneezy, U., & List, J. A. (2011). Nurture affects gender differences in spatial abilities. Proceedings of the National Academy of Sciences, 108(36), 14786-14788." fig-align="center" width="60%"}
+![Hoffman, M., Gneezy, U., & List, J. A. (2011). Nurture affects gender differences in spatial abilities. Proceedings of the National Academy of Sciences, 108(36), 14786-14788.](images/clipboard-4218932613.png){fig-align="center" width="60%"}
 :::
 
 ##  {.smaller}
