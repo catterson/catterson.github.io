@@ -6,6 +6,7 @@ format:
     output-file: "mrexperiment_slides.html"
     slide-level: 3
     code-overflow: wrap
+    controls: true
 tbl-colwidths: [70,25]
 ---
 
