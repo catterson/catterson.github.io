@@ -1,68 +1,103 @@
 ---
 title: ""
 format: 
+  html: default
   revealjs: 
+    output-file: "ch6_slides.html"
     slide-level: 3
-    link-external-newwindow: true
+    code-overflow: wrap
     chalkboard: true
     controls: true
-    auto-stretch: false
-    code-overflow: wrap
 tbl-colwidths: [50,50]
 ---
 
 ## [CHECK-IN : Linear Model Prep](https://docs.google.com/forms/d/e/1FAIpQLSe-830Xaq_jAfRomviIR6CrIaurGYB_hUJcRYbLFXQfeASI4A/viewform?usp=header)
 
-:::: {.columns}
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-width: 5
+#| fig-height: 5
+#| echo: false
+d <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/Our World in Happy Data/DATASET_happy_data.csv", stringsAsFactors = T)
+plot(d$SWLS_24 ~ d$Child.Mortality, xlab = "Child Mortality", ylab = "World Happiness in 2024")
+mod <- lm(d$SWLS_24 ~ d$Child.Mortality)
+abline(mod, lwd = 5, col = 'red')
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+knitr::kable(c(round(coef(mod), 2),
+                   RSQUARED = round(summary(mod)$r.squared, 2)), 
+             col.names = "Linear Model 1",
+             align = "c")
+```
+
+:::
+:::::
+
+## Comparing Models
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-width: 5
+#| fig-height: 5
+#| echo: false
+d <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/Our World in Happy Data/DATASET_happy_data.csv", stringsAsFactors = T)
+plot(d$SWLS_24 ~ d$Child.Mortality, xlab = "Child Mortality", ylab = "World Happiness in 2024")
+mod <- lm(d$SWLS_24 ~ d$Child.Mortality)
+abline(mod, lwd = 5, col = 'red')
+knitr::kable(c(round(coef(mod), 2),
+                   RSQUARED = round(summary(mod)$r.squared, 2)), 
+             col.names = "Linear Model 1",
+             align = "c")
+```
+:::
 
 ::: {.column width="50%"}
 ```{r}
 #| fig-width: 5
 #| fig-height: 5
-d <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/Our World in Happy Data/DATASET_happy_data.csv", stringsAsFactors = T)
-plot(d$SWLS_24 ~ d$Child.Mortality, xlab = "Child Mortality", ylab = "World Happiness in 2024")
-mod <- lm(d$SWLS_24 ~ d$Child.Mortality)
-abline(mod, lwd = 5, col = 'red')
-```
-
-:::
-
-::: {.column width="50%"}
-```{r}
-#| column: margin
-knitr::kable(c(round(coef(mod), 2),
-                   RSQUARED = round(summary(mod)$r.squared, 2)), col.names = "Linear Model")
+#| echo: false
+plot(d$SWLS_24 ~ d$SWLS_23, xlab = "World Happiness in 2023", ylab = "World Happiness in 2024")
+mod2 <- lm(d$SWLS_24 ~ d$SWLS_23)
+abline(mod2, lwd = 5, col = 'red')
+knitr::kable(c(round(coef(mod2), 2),
+                   RSQUARED = round(summary(mod2)$r.squared, 2)), 
+             col.names = "Linear Model 2",
+             align = "c")
 ```
 :::
-
-::::
-
+:::::
 
 ## Steps for a Linear Model (in R)
 
--   Choose a dataset
--   Identify the variables (graph and make sure there are no outliers.)
--   Graph the relationship between the two variables
--   Define the model
--   Add the model to the scatterplot
--   Interpret the statistics : intercept, slope, and $R^2$
-
+- Choose a dataset
+- Identify the variables (graph and make sure there are no outliers.)
+- Graph the relationship between the two variables
+- Define the model
+- Add the model to the scatterplot
+- Interpret the statistics : intercept, slope, and $R^2$
 
 ## BREAK TIME : MEET BACK AT \_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ## Quarto : Why are we learning this?
 
--   An authentic skill (professor uses)
+- An authentic skill (professor uses)
 
-    -   Saves trouble of screenshotting : integrates code and text.
-    -   some GSIs are introducing it :)
+  - Saves trouble of screenshotting : integrates code and text.
+  - some GSIs are introducing it :)
 
--   WARNING : professor still gets frustrated when using quarto. If you are feeling dread / maxxed out, then just use an Rscript + screenshot method. Okay?
+- WARNING : professor still gets frustrated when using quarto. If you are feeling dread / maxxed out, then just use an Rscript + screenshot method. Okay?
 
 ## Quarto : From Source –\> Render
 
 ::: r-fit-text
--   What looks different about our R Script? What looks the same (or similar??)
+- What looks different about our R Script? What looks the same (or similar??)
 
 ![](images/clipboard-2104163521.png)
 :::

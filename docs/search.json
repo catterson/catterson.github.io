@@ -1173,14 +1173,14 @@
     "href": "dvcstats/slides/ch6.html",
     "title": "",
     "section": "",
-    "text": "d &lt;- read.csv(\"~/Dropbox/!WHY STATS/Chapter Datasets/Our World in Happy Data/DATASET_happy_data.csv\", stringsAsFactors = T)\nplot(d$SWLS_24 ~ d$Child.Mortality, xlab = \"Child Mortality\", ylab = \"World Happiness in 2024\")\nmod &lt;- lm(d$SWLS_24 ~ d$Child.Mortality)\nabline(mod, lwd = 5, col = 'red')\n\n\n\n\n\n\n\n\n\n\nknitr::kable(c(round(coef(mod), 2),\n                   RSQUARED = round(summary(mod)$r.squared, 2)), col.names = \"Linear Model\")\n\n\n\n\n\n\n\n\n\n\nLinear Model\n\n\n\n\n(Intercept)\n6.29\n\n\nd$Child.Mortality\n-0.30\n\n\nRSQUARED\n0.45"
+    "text": "Linear Model 1\n\n\n\n\n(Intercept)\n6.29\n\n\nd$Child.Mortality\n-0.30\n\n\nRSQUARED\n0.45"
   },
   {
     "objectID": "dvcstats/slides/ch6.html#check-in-linear-model-prep",
     "href": "dvcstats/slides/ch6.html#check-in-linear-model-prep",
     "title": "",
     "section": "",
-    "text": "d &lt;- read.csv(\"~/Dropbox/!WHY STATS/Chapter Datasets/Our World in Happy Data/DATASET_happy_data.csv\", stringsAsFactors = T)\nplot(d$SWLS_24 ~ d$Child.Mortality, xlab = \"Child Mortality\", ylab = \"World Happiness in 2024\")\nmod &lt;- lm(d$SWLS_24 ~ d$Child.Mortality)\nabline(mod, lwd = 5, col = 'red')\n\n\n\n\n\n\n\n\n\n\nknitr::kable(c(round(coef(mod), 2),\n                   RSQUARED = round(summary(mod)$r.squared, 2)), col.names = \"Linear Model\")\n\n\n\n\n\n\n\n\n\n\nLinear Model\n\n\n\n\n(Intercept)\n6.29\n\n\nd$Child.Mortality\n-0.30\n\n\nRSQUARED\n0.45"
+    "text": "Linear Model 1\n\n\n\n\n(Intercept)\n6.29\n\n\nd$Child.Mortality\n-0.30\n\n\nRSQUARED\n0.45"
   },
   {
     "objectID": "dvcstats/slides/ch6.html#steps-for-a-linear-model-in-r",
@@ -1306,7 +1306,7 @@
     "href": "dvcstats/W7_CH6.html",
     "title": "Week 7 - Chapter 6",
     "section": "",
-    "text": "NoteAnnouncements and Agenda\n\n\n\n\n\n\n\nWelcome! We will get started soon. In the meantime, please complete the following :\n\nSpring Break in Two Weeks. Whew!\nR Exam in Three Weeks (After Spring Break.) Yikes! We will practice :)\n\n\n\n8:55 - 9:20. Check-In and Review\n9:20 - 10:00. Linear Models Review\n10:00 - 10:10. BREAK TIME\n10:10 - 11:00. Working in Quarto for on Lab 5\n\n\n\n\n\n\n\nClass Slides and Materials\n\n\nCHECK-IN : Working with the World\nDATA (AND CODEBOOK) FOR TODAY : Mini Class\nProfessor R Scripts [Zoom Room + Room Crew]\n\n\n\nLab 5\nSubmit screenshots (like we normally do) or try using Quarto (like we did in class.)\n\nChoose two numeric variables from the mini class dataset. Determine whether there is a relationship between the two variables. Make sure to include a graph of the variables, a graph of your model and the relevant statistics.\nRepeat the steps above for two other numeric variables, from either the mini dataset or another dataset of your choice."
+    "text": "NoteAnnouncements and Agenda\n\n\n\n\n\n\n\n\nOffice Hours : normal schedule this week.\nLab Grades Updated : thanks for your patience!\n\n\n\n8:55 - 9:20. Check-In and Review\n9:20 - 10:00. Linear Models Review\n10:00 - 10:10. BREAK TIME\n10:10 - 11:00. Working on Lab 5\n\n\n\n\n\n\n\nClass Slides and Materials\n\n\nCHECK-IN : Working with the World\nDATA (AND CODEBOOK) FOR TODAY : Mini Class\nProfessor R Scripts [Zoom Room + Room Crew]\n\n\n\nFor Next Week\n\nComplete Lab 5\nRead Chapter 7 and Complete Quiz 7 (on Canvas)"
   },
   {
     "objectID": "dvcstats/STATDVC.html",
@@ -5612,5 +5612,131 @@
     "title": "",
     "section": "BREAK TIME CHECK-IN",
     "text": "BREAK TIME CHECK-IN\nWe are going to collect some more data for an activity in section.\nPlease do this on your own; no looking up answers on Google / phoning a friend / talking to your buddy / ChatGPT.\nThanks!"
+  },
+  {
+    "objectID": "COMPSS212/Week6.html",
+    "href": "COMPSS212/Week6.html",
+    "title": "Week 5 - Monday, October 4th",
+    "section": "",
+    "text": "Week 5 - Monday, October 4th\n\n\n\n\n\n\nNoteAnnouncements and Agenda\n\n\n\n\n\nAnnouncements\n\nLab 2 Key Posted.\nSome changes to this course (based on your exit survey feedback; thanks!!!)\n\nno coding for check-ins : professor code will save in real-time.\nreadings : will introduce topics; offer for students wanting to go deeper.\nwe wanna learn a ton : review of “basics” –&gt; new material.\nthe program is a lot : we have this 1 year…can continue to voice some of the ideas and comments you have; please continue let me know what feels helpful (or not) in this class.\n\n\nAgenda\n\n10:10 - 10:50. Check-In (no R) & Multivariate Models\n10:50 - 11:00 : BREAK TIME\n11:00 - 12:00 : Interaction Effects\n\n\n\n\n\nClass Slides and Materials\n\n\nCheck-In (no R!) : 3 Models : Please use the regression output to answer these questions. No R required; just interpretation.\n\nDataset of the Week: The “Salaries” Dataset in R ?Salaries\nVISION BOARD.\n\nProfessor Notes. My R scripts and other notes, saved in real-time.\n\n\n\n\nFor Next Week.\n\nNo Lab.\n\n\nSupport Materials\n\nOn Interaction Effects. More detail on interaction effects, how to interpret and calculate (from the linear model) and how to graph them using base R.\n\nThe Interactions Package. The author of jtools has made what looks like a super clean way to graph interaction effects in R, using ggplot2.\nVisualization Tutorials. Other, more cumbersome methods of plotting interaction effects exist!"
+  },
+  {
+    "objectID": "COMPSS212/slides/6_interactions.html",
+    "href": "COMPSS212/slides/6_interactions.html",
+    "title": "Part 3 : Experiments",
+    "section": "",
+    "text": "SummaryDescriptionModel 1Model 2Model 3\n\n\nTable 1. Predicting Salaries from Years of Service and Sex.\n\n\n\n\nModel 1Model 2Model 3\n\nYears of Service779.57 ***      747.61 ***\n\n(110.42)         (111.40)   \n\nSex (0 = F; 1 = M)       14088.01 **9071.80    \n\n       (5064.58)  (4861.64)   \n\nN397       397      397       \n\nR20.11    0.02   0.12    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\nSalaries Dataset. “The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”\n-   salary : the salary of the professor, in cold, hard, US American Dollars.\n\n-   yrs.service : the years of service the professor had at the college.\n\n-   sex : whether the professor was Male or Female\n\n\n\n\nGraph of Model 1\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGraph of Model 2\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots"
+  },
+  {
+    "objectID": "COMPSS212/slides/6_interactions.html#check-in-mr.-nhst-review",
+    "href": "COMPSS212/slides/6_interactions.html#check-in-mr.-nhst-review",
+    "title": "Part 3 : Experiments",
+    "section": "",
+    "text": "SummaryDescriptionModel 1Model 2Model 3\n\n\nTable 1. Predicting Salaries from Years of Service and Sex.\n\n\n\n\nModel 1Model 2Model 3\n\nYears of Service779.57 ***      747.61 ***\n\n(110.42)         (111.40)   \n\nSex (0 = F; 1 = M)       14088.01 **9071.80    \n\n       (5064.58)  (4861.64)   \n\nN397       397      397       \n\nR20.11    0.02   0.12    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\nSalaries Dataset. “The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”\n-   salary : the salary of the professor, in cold, hard, US American Dollars.\n\n-   yrs.service : the years of service the professor had at the college.\n\n-   sex : whether the professor was Male or Female\n\n\n\n\nGraph of Model 1\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGraph of Model 2\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots"
+  },
+  {
+    "objectID": "COMPSS212/slides/6_interactions.html#recap-adding-a-quadtratic-effect-to-address-issues-of-heteroscedasticity",
+    "href": "COMPSS212/slides/6_interactions.html#recap-adding-a-quadtratic-effect-to-address-issues-of-heteroscedasticity",
+    "title": "Part 3 : Experiments",
+    "section": "RECAP : Adding a Quadtratic Effect to Address issues of Heteroscedasticity",
+    "text": "RECAP : Adding a Quadtratic Effect to Address issues of Heteroscedasticity\n\n::: {.column width=“50”}\nmod3b &lt;- lm(salary ~ yrs.service + I(yrs.service^2) + sex, data = Salaries)\nexport_summs(mod3, mod3b,model.names = c(\"Without Quad\", \"With Quad\"))\n\n\n\nWithout QuadWith Quad\n\n(Intercept)92356.95 ***77227.50 ***\n\n(4740.19)   (4929.33)   \n\nyrs.service747.61 ***2984.38 ***\n\n(111.40)   (327.46)   \n\nsexMale9071.80    9392.25 *  \n\n(4861.64)   (4574.88)   \n\nI(yrs.service^2)       -51.27 ***\n\n       (7.11)   \n\nN397       397       \n\nR20.12    0.22    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n::: {.column width=“50”}\n\npar(mfrow = c(2,2))\nplot(mod3b)\n\n\n\n\n\n\n\n\n:::\n:::::::"
+  },
+  {
+    "objectID": "COMPSS212/slides/6_interactions.html#break-time",
+    "href": "COMPSS212/slides/6_interactions.html#break-time",
+    "title": "Part 3 : Experiments",
+    "section": "BREAK TIME",
+    "text": "BREAK TIME"
+  },
+  {
+    "objectID": "COMPSS212/slides/6_interactions.html#commercial-break-looking-over-lab-4-discussing-the-results",
+    "href": "COMPSS212/slides/6_interactions.html#commercial-break-looking-over-lab-4-discussing-the-results",
+    "title": "Part 3 : Experiments",
+    "section": "COMMERCIAL BREAK : looking over Lab 4 (& discussing the results)",
+    "text": "COMMERCIAL BREAK : looking over Lab 4 (& discussing the results)"
+  },
+  {
+    "objectID": "COMPSS212/slides/6_interactions.html#part-2-experiments",
+    "href": "COMPSS212/slides/6_interactions.html#part-2-experiments",
+    "title": "Part 3 : Experiments",
+    "section": "Part 2 : Experiments",
+    "text": "Part 2 : Experiments"
+  },
+  {
+    "objectID": "COMPSS212/slides/6_interactions.html#part-x-introduction-to-interaction-effects",
+    "href": "COMPSS212/slides/6_interactions.html#part-x-introduction-to-interaction-effects",
+    "title": "Part 3 : Experiments",
+    "section": "Part X : Introduction to Interaction Effects",
+    "text": "Part X : Introduction to Interaction Effects\n\nSome Examples\n\nresume datapuzzle data\n\n\n\n\n\nBertrand, M., & Mullainathan, S. (2004). Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. American economic review, 94(4), 991-1013\n\n\n\n\n\n\n\nHoffman, M., Gneezy, U., & List, J. A. (2011). Nurture affects gender differences in spatial abilities. Proceedings of the National Academy of Sciences, 108(36), 14786-14788."
+  },
+  {
+    "objectID": "COMPSS212/slides/6_interactions.html#section",
+    "href": "COMPSS212/slides/6_interactions.html#section",
+    "title": "Part 3 : Experiments",
+    "section": "",
+    "text": "EXAMPLE : An Interaction Effect\n\nthe extra slopea picture is worth 1000 words.standardizing your variables?\n\n\n\nmod1 &lt;- lm(salary ~ yrs.service + I(yrs.service^2), data = Salaries)\nmod2 &lt;- lm(salary ~ sex, data = Salaries)\nmod3 &lt;- lm(salary ~ yrs.service + I(yrs.service^2) + sex, data = Salaries)\nmod4 &lt;- lm(salary ~ (yrs.service + I(yrs.service^2)) * sex, data = Salaries)\nexport_summs(mod1, mod2, mod3, mod4,\n             coefs = c(\"Years of Service\" = \"yrs.service\",\n                       \"Years ^ 2\" = \"I(yrs.service^2)\",\n                       \"Sex (0 = F; 1 = M)\" = \"sexMale\",\n                       \"Service * Sex (if Male)\" = \"yrs.service:sexMale\",\n                       \"Service^2 * Sex\" = \"I(yrs.service^2):sexMale\"))\n\n\n\nModel 1Model 2Model 3Model 4\n\nYears of Service3011.28 ***      2984.38 ***3058.46 *\n\n(328.53)         (327.46)   (1469.57) \n\nYears ^ 2-51.13 ***      -51.27 ***-48.89  \n\n(7.14)         (7.11)   (47.61) \n\nSex (0 = F; 1 = M)       14088.01 **9392.25 *  11000.73  \n\n       (5064.58)  (4574.88)   (9923.15) \n\nService * Sex (if Male)                    -99.89  \n\n                    (1509.41) \n\nService^2 * Sex                    -1.95  \n\n                    (48.18) \n\nN397       397      397       397     \n\nR20.21    0.02   0.22    0.22  \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmod1x &lt;- arm::standardize(mod1, NULL, T)\nmod2x &lt;- arm::standardize(mod2, NULL, T)\nmod3x &lt;- arm::standardize(mod3, NULL, T)\nmod4x &lt;- arm::standardize(mod4, NULL, T)\n\nexport_summs(mod1x, mod2x, mod3x, mod4x,\n             coefs = c(\"Years of Service\" = \"z.yrs.service\",\n                       \"Service^2\" = \"I(z.yrs.service^2)\",\n                       \"Sex (0=F; 1=M)\" = \"c.sex\",\n                       \"Service * Sex\" = \"z.yrs.service:c.sex\",\n                       \"Service^2 * Sex\" = \"I(z.yrs.service^2):c.sex\"))\n\n\n\nModel 1Model 2Model 3Model 4\n\nYears of Service0.52 ***      0.51 ***0.51 ***\n\n(0.05)         (0.05)   (0.05)   \n\nService^2-0.57 ***      -0.57 ***-0.57 ***\n\n(0.08)         (0.08)   (0.09)   \n\nSex (0=F; 1=M)       0.23 **0.16 *  0.14    \n\n       (0.08)  (0.08)   (0.11)   \n\nService * Sex                    -0.07    \n\n                    (0.25)   \n\nService^2 * Sex                    -0.02    \n\n                    (0.54)   \n\nN397       397      397       397       \n\nR20.21    0.02   0.22    0.22    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05."
+  },
+  {
+    "objectID": "COMPSS212/slides/6_interactions.html#discuss-interaction-effects",
+    "href": "COMPSS212/slides/6_interactions.html#discuss-interaction-effects",
+    "title": "Part 3 : Experiments",
+    "section": "DISCUSS : Interaction Effects",
+    "text": "DISCUSS : Interaction Effects\nFrom the Vision Board\n\nFind someone who you haven’t talked to :) or have talked to :)\nConsider an “effect” that you found before.\n\nWhat is the pattern in the data?\nWhat’s another variable that might influence this pattern result?\nWhat might the interaction effect (or lack of one) look like?\n\n\n\nMore Interaction Effect Practice (as needed)\n\nSEE PROFESSOR HANDOUT."
+  },
+  {
+    "objectID": "dvcstats/slides/ch6_slides.html#check-in-linear-model-prep",
+    "href": "dvcstats/slides/ch6_slides.html#check-in-linear-model-prep",
+    "title": "",
+    "section": "CHECK-IN : Linear Model Prep",
+    "text": "CHECK-IN : Linear Model Prep\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinear Model 1\n\n\n\n\n(Intercept)\n6.29\n\n\nd$Child.Mortality\n-0.30\n\n\nRSQUARED\n0.45"
+  },
+  {
+    "objectID": "dvcstats/slides/ch6_slides.html#steps-for-a-linear-model-in-r",
+    "href": "dvcstats/slides/ch6_slides.html#steps-for-a-linear-model-in-r",
+    "title": "",
+    "section": "Steps for a Linear Model (in R)",
+    "text": "Steps for a Linear Model (in R)\n\nChoose a dataset\nIdentify the variables (graph and make sure there are no outliers.)\nGraph the relationship between the two variables\nDefine the model\nAdd the model to the scatterplot\nInterpret the statistics : intercept, slope, and \\(R^2\\)"
+  },
+  {
+    "objectID": "dvcstats/slides/ch6_slides.html#break-time-meet-back-at-_____________",
+    "href": "dvcstats/slides/ch6_slides.html#break-time-meet-back-at-_____________",
+    "title": "",
+    "section": "BREAK TIME : MEET BACK AT _____________",
+    "text": "BREAK TIME : MEET BACK AT _____________"
+  },
+  {
+    "objectID": "dvcstats/slides/ch6_slides.html#quarto-why-are-we-learning-this",
+    "href": "dvcstats/slides/ch6_slides.html#quarto-why-are-we-learning-this",
+    "title": "",
+    "section": "Quarto : Why are we learning this?",
+    "text": "Quarto : Why are we learning this?\n\nAn authentic skill (professor uses)\n\nSaves trouble of screenshotting : integrates code and text.\nsome GSIs are introducing it :)\n\nWARNING : professor still gets frustrated when using quarto. If you are feeling dread / maxxed out, then just use an Rscript + screenshot method. Okay?"
+  },
+  {
+    "objectID": "dvcstats/slides/ch6_slides.html#quarto-from-source-render",
+    "href": "dvcstats/slides/ch6_slides.html#quarto-from-source-render",
+    "title": "",
+    "section": "Quarto : From Source –> Render",
+    "text": "Quarto : From Source –&gt; Render\n\n\nWhat looks different about our R Script? What looks the same (or similar??)"
+  },
+  {
+    "objectID": "dvcstats/slides/ch6.html#comparing-models",
+    "href": "dvcstats/slides/ch6.html#comparing-models",
+    "title": "",
+    "section": "Comparing Models",
+    "text": "Comparing Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinear Model 1\n\n\n\n\n(Intercept)\n6.29\n\n\nd$Child.Mortality\n-0.30\n\n\nRSQUARED\n0.45\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinear Model 2\n\n\n\n\n(Intercept)\n0.12\n\n\nd$SWLS_23\n0.99\n\n\nRSQUARED\n0.99"
+  },
+  {
+    "objectID": "dvcstats/slides/ch6_slides.html#comparing-models",
+    "href": "dvcstats/slides/ch6_slides.html#comparing-models",
+    "title": "",
+    "section": "Comparing Models",
+    "text": "Comparing Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinear Model 1\n\n\n\n\n(Intercept)\n6.29\n\n\nd$Child.Mortality\n-0.30\n\n\nRSQUARED\n0.45\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinear Model 2\n\n\n\n\n(Intercept)\n0.12\n\n\nd$SWLS_23\n0.99\n\n\nRSQUARED\n0.99"
+  },
+  {
+    "objectID": "dvcstats/labs/Lab5.html",
+    "href": "dvcstats/labs/Lab5.html",
+    "title": "Lab5",
+    "section": "",
+    "text": "Submit screenshots (like we normally do) or try using Quarto (like we did in class.)\n\nChoose three numeric variables from the mini class dataset. Graph each variable (make sure to remove any outliers) and describe what you observe.\nPredict one variable (the DV) from the other two variables (IV1 and IV2). Define two separate linear models to predict the DV from each other variable. Make sure to include a graph of the variables and a graph of each model (the line). Then, report the intercept, slope, and \\(R^2\\) value for each model, and describe what these statistics tell you about the relationship between the DV and each IV. Which IV is a better predictor of the DV? What other questions do you have about the data?\n\nCode You Need. Make sure to adapt the code as needed.\nhist(d$DV) # graphs a histogram\nplot(d$DV ~ d$IV1) # draws a scatterplot\nmod1 &lt;- lm(d$DV ~ d$IV1) # defines and saves model 1\nabline(mod1) # draws the line for model 1\ncoef(mod1)"
   }
 ]

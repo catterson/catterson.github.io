@@ -1,0 +1,20 @@
+---
+title: "Lab5"
+format: html
+---
+
+**Submit screenshots (like we normally do) or try using Quarto (like we did in class.)**
+
+1.  **Choose three numeric variables from the mini class dataset.** Graph each variable (make sure to remove any outliers) and describe what you observe.
+
+2.  **Predict one variable (the DV) from the other two variables (IV1 and IV2).** Define two separate linear models to predict the DV from each other variable. Make sure to include a graph of the variables and a graph of each model (the line). Then, report the intercept, slope, and $R^2$ value for each model, and describe what these statistics tell you about the relationship between the DV and each IV. Which IV is a better predictor of the DV? What other questions do you have about the data?
+
+**Code You Need.** Make sure to adapt the code as needed.
+
+```         
+hist(d$DV) # graphs a histogram
+plot(d$DV ~ d$IV1) # draws a scatterplot
+mod1 <- lm(d$DV ~ d$IV1) # defines and saves model 1
+abline(mod1) # draws the line for model 1
+coef(mod1)
+```
