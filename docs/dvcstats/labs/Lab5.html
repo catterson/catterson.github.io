@@ -149,7 +149,8 @@ window.Quarto = {
 plot(d$DV ~ d$IV1) # draws a scatterplot
 mod1 &lt;- lm(d$DV ~ d$IV1) # defines and saves model 1
 abline(mod1) # draws the line for model 1
-coef(mod1)</code></pre>
+coef(mod1) # reports the slope and intercept.
+summary(mod1)$r.squared # reports R^2 value</code></pre>
 
 
 
