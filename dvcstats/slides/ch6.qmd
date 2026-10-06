@@ -39,37 +39,33 @@ knitr::kable(c(round(coef(mod), 2),
 :::
 :::::
 
-## Comparing Models
+## Comparing Models{.smaller}
 
 ::::: columns
 ::: {.column width="50%"}
 ```{r}
-#| fig-width: 5
-#| fig-height: 5
+#| fig-width: 4
+#| fig-height: 4
 #| echo: false
 d <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/Our World in Happy Data/DATASET_happy_data.csv", stringsAsFactors = T)
 plot(d$SWLS_24 ~ d$Child.Mortality, xlab = "Child Mortality", ylab = "World Happiness in 2024")
 mod <- lm(d$SWLS_24 ~ d$Child.Mortality)
 abline(mod, lwd = 5, col = 'red')
-knitr::kable(c(round(coef(mod), 2),
-                   RSQUARED = round(summary(mod)$r.squared, 2)), 
-             col.names = "Linear Model 1",
-             align = "c")
+c(round(coef(mod), 2),
+  RSQUARED = round(summary(mod)$r.squared, 2))
 ```
 :::
 
 ::: {.column width="50%"}
 ```{r}
-#| fig-width: 5
-#| fig-height: 5
+#| fig-width: 4
+#| fig-height: 4
 #| echo: false
 plot(d$SWLS_24 ~ d$SWLS_23, xlab = "World Happiness in 2023", ylab = "World Happiness in 2024")
 mod2 <- lm(d$SWLS_24 ~ d$SWLS_23)
 abline(mod2, lwd = 5, col = 'red')
-knitr::kable(c(round(coef(mod2), 2),
-                   RSQUARED = round(summary(mod2)$r.squared, 2)), 
-             col.names = "Linear Model 2",
-             align = "c")
+c(round(coef(mod2), 2),
+  RSQUARED = round(summary(mod2)$r.squared, 2))
 ```
 :::
 :::::

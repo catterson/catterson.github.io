@@ -1306,7 +1306,7 @@
     "href": "dvcstats/W7_CH6.html",
     "title": "Week 7 - Chapter 6",
     "section": "",
-    "text": "NoteAnnouncements and Agenda\n\n\n\n\n\n\n\n\nOffice Hours : normal schedule this week.\nLab Grades Updated : thanks for your patience!\n\n\n\n8:55 - 9:20. Check-In and Review\n9:20 - 10:00. Linear Models Review\n10:00 - 10:10. BREAK TIME\n10:10 - 11:00. Working on Lab 5\n\n\n\n\n\n\n\nClass Slides and Materials\n\n\nCHECK-IN : Working with the World\nDATA (AND CODEBOOK) FOR TODAY : Mini Class\nProfessor R Scripts [Zoom Room + Room Crew]\n\n\n\nFor Next Week\n\nComplete Lab 5\nRead Chapter 7 and Complete Quiz 7 (on Canvas)"
+    "text": "NoteAnnouncements and Agenda\n\n\n\n\n\n\n\n\nOffice Hours : normal schedule this week.\nLab Grades Updated : thanks for your patience!\nBrain Exam Grades Soon : whoop.\n\n\n\n8:55 - 9:20. Check-In and Review\n9:20 - 10:00. Linear Models Review\n10:00 - 10:10. BREAK TIME\n10:10 - 11:00. Working on Lab 5\n\n\n\n\n\n\n\nClass Slides and Materials\n\n\nCHECK-IN : Working with the World\nDATA (AND CODEBOOK) FOR TODAY : Mini Class\nProfessor R Scripts [Zoom Room + Room Crew]\n\n\n\nFor Next Week\n\nComplete Lab 5\nRead Chapter 7 and Complete Quiz 7 (on Canvas)"
   },
   {
     "objectID": "dvcstats/STATDVC.html",
@@ -5723,14 +5723,14 @@
     "href": "dvcstats/slides/ch6.html#comparing-models",
     "title": "",
     "section": "Comparing Models",
-    "text": "Comparing Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinear Model 1\n\n\n\n\n(Intercept)\n6.29\n\n\nd$Child.Mortality\n-0.30\n\n\nRSQUARED\n0.45\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinear Model 2\n\n\n\n\n(Intercept)\n0.12\n\n\nd$SWLS_23\n0.99\n\n\nRSQUARED\n0.99"
+    "text": "Comparing Models\n\n\n\n\n\n\n\n\n\n\n\n      (Intercept) d$Child.Mortality          RSQUARED \n             6.29             -0.30              0.45 \n\n\n\n\n\n\n\n\n\n\n\n\n(Intercept)   d$SWLS_23    RSQUARED \n       0.12        0.99        0.99"
   },
   {
     "objectID": "dvcstats/slides/ch6_slides.html#comparing-models",
     "href": "dvcstats/slides/ch6_slides.html#comparing-models",
     "title": "",
     "section": "Comparing Models",
-    "text": "Comparing Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinear Model 1\n\n\n\n\n(Intercept)\n6.29\n\n\nd$Child.Mortality\n-0.30\n\n\nRSQUARED\n0.45\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinear Model 2\n\n\n\n\n(Intercept)\n0.12\n\n\nd$SWLS_23\n0.99\n\n\nRSQUARED\n0.99"
+    "text": "Comparing Models\n\n\n\n\n\n\n\n\n\n\n\n      (Intercept) d$Child.Mortality          RSQUARED \n             6.29             -0.30              0.45 \n\n\n\n\n\n\n\n\n\n\n\n\n(Intercept)   d$SWLS_23    RSQUARED \n       0.12        0.99        0.99"
   },
   {
     "objectID": "dvcstats/labs/Lab5.html",
