@@ -13,6 +13,8 @@ format: html
 
 ```         
 hist(d$DV) # graphs a histogram
+d$DV[d$DV > 0] # finds outliers (need to update the rule based on the data that you think are outliers)
+d$DV[d$DV > 0] <- NA # removes outliers (assigns NA to the value of the outliers)
 plot(d$DV ~ d$IV1) # draws a scatterplot
 mod1 <- lm(d$DV ~ d$IV1) # defines and saves model 1
 abline(mod1) # draws the line for model 1
