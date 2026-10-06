@@ -35,11 +35,10 @@ knitr::kable(c(round(coef(mod), 2),
              col.names = "Linear Model 1",
              align = "c")
 ```
-
 :::
 :::::
 
-## Comparing Models{.smaller}
+## Comparing Models {.smaller}
 
 ::::: columns
 ::: {.column width="50%"}
