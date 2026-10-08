@@ -4,7 +4,7 @@ format:
   html: default
   revealjs: 
     slide-level: 3
-    output-file: "7_surveys_slides.html"
+    output-file: "7_surveys_slide.html"
     link-external-newwindow: true
     controls: true
 navbar: false
