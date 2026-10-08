@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -34,10 +37,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6033a600180109c3731f6a886c29932c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-9d96f532d65220ca877c0304385df42f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -69,8 +72,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#check-in-defining-a-likert-scale" id="toc-check-in-defining-a-likert-scale" class="nav-link active" data-scroll-target="#check-in-defining-a-likert-scale">CHECK-IN : Defining a Likert Scale</a></li>
-  <li><a href="#part-2-defining-a-likert-scale" id="toc-part-2-defining-a-likert-scale" class="nav-link" data-scroll-target="#part-2-defining-a-likert-scale">PART 2 : Defining a Likert Scale</a></li>
+  <li><a href="#week-7-scale-review" id="toc-week-7-scale-review" class="nav-link active" data-scroll-target="#week-7-scale-review">Week 7 : Scale Review!</a>
+  <ul class="collapse">
+  <li><a href="#review-defining-a-likert-scale" id="toc-review-defining-a-likert-scale" class="nav-link" data-scroll-target="#review-defining-a-likert-scale">REVIEW : Defining a Likert Scale</a></li>
+  <li><a href="#discussion-evaluating-a-likert-scale" id="toc-discussion-evaluating-a-likert-scale" class="nav-link" data-scroll-target="#discussion-evaluating-a-likert-scale">DISCUSSION : Evaluating a Likert Scale</a></li>
+  <li><a href="#but-you-dont-have-to-take-my-word-for-it" id="toc-but-you-dont-have-to-take-my-word-for-it" class="nav-link" data-scroll-target="#but-you-dont-have-to-take-my-word-for-it">But You Don’t Have To Take My Word For It…</a></li>
+  <li><a href="#activity-valid-and-biased-personality" id="toc-activity-valid-and-biased-personality" class="nav-link" data-scroll-target="#activity-valid-and-biased-personality">ACTIVITY : valid and biased personality</a></li>
+  <li><a href="#clap-which-one-big-five-or-myers-briggs" id="toc-clap-which-one-big-five-or-myers-briggs" class="nav-link" data-scroll-target="#clap-which-one-big-five-or-myers-briggs">CLAP : which one (big five or myers briggs)…</a></li>
+  </ul></li>
+  <li><a href="#part-2-buddy-time" id="toc-part-2-buddy-time" class="nav-link" data-scroll-target="#part-2-buddy-time">Part 2 : Buddy Time!!</a>
+  <ul class="collapse">
+  <li><a href="#activity-fast-friends-task" id="toc-activity-fast-friends-task" class="nav-link" data-scroll-target="#activity-fast-friends-task">Activity : Fast Friends Task</a></li>
+  </ul></li>
+  <li><a href="#part-3-digging-deeper" id="toc-part-3-digging-deeper" class="nav-link" data-scroll-target="#part-3-digging-deeper">Part 3 : Digging Deeper</a>
+  <ul class="collapse">
+  <li><a href="#recap-dig-deeper-assignment" id="toc-recap-dig-deeper-assignment" class="nav-link" data-scroll-target="#recap-dig-deeper-assignment">RECAP : Dig Deeper Assignment</a></li>
+  <li><a href="#activity-find-the-science" id="toc-activity-find-the-science" class="nav-link" data-scroll-target="#activity-find-the-science">ACTIVITY : find the science</a></li>
+  <li><a href="#activity-evaluate-the-measure" id="toc-activity-evaluate-the-measure" class="nav-link" data-scroll-target="#activity-evaluate-the-measure">ACTIVITY : evaluate the measure</a></li>
+  </ul></li>
+  <li><a href="#next-week-patterns-in-data" id="toc-next-week-patterns-in-data" class="nav-link" data-scroll-target="#next-week-patterns-in-data">NEXT WEEK : PATTERNS IN DATA</a></li>
+  <li><a href="#bye." id="toc-bye." class="nav-link" data-scroll-target="#bye.">BYE.</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="7_surveys_slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
@@ -80,8 +101,9 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="check-in-defining-a-likert-scale" class="level2 r-fit-text">
-<h2 class="anchored" data-anchor-id="check-in-defining-a-likert-scale"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdzuU9IKFyElROMwkgkZgGj_3DuXxIKzot5kjkEu2QXpI7S5g/viewform?usp=header">CHECK-IN : Defining a Likert Scale</a></h2>
+<section id="week-7-scale-review" class="level1 smaller">
+<h1 class="smaller">Week 7 : Scale Review!</h1>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdzuU9IKFyElROMwkgkZgGj_3DuXxIKzot5kjkEu2QXpI7S5g/viewform?usp=header"><strong>CHECK-IN : Defining a Likert Scale</strong></a></p>
 <div class="r-fit-text">
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -100,9 +122,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-</section>
-<section id="part-2-defining-a-likert-scale" class="level1 smaller">
-<h1 class="smaller">PART 2 : Defining a Likert Scale</h1>
+<section id="review-defining-a-likert-scale" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="review-defining-a-likert-scale">REVIEW : Defining a Likert Scale</h2>
 <p><a href="https://ppc.sas.upenn.edu/resources/questionnaires-researchers/satisfaction-life-scale">Satisfaction With Life Scale</a></p>
 <div class="r-fit-text">
 <div class="columns">
@@ -114,25 +135,12 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p><strong>positively keyed item :</strong> measures the high end of the scale (“yes” = high on this variable.)</p></li>
 <li><p><strong>negatively keyed item :</strong> measures the low end of the scale (“yes” = low on the variable.)</p></li>
-<li><p><strong>response scale :</strong> How people answer the scale items. Good to have a place for neutral.</p></li>
 </ul>
+<p><strong>response scale :</strong> How people answer the scale items. Good to have a place for neutral.</p>
 </div>
 </div>
-<section id="satisfaction-with-life-scale" class="level2">
-<h2 class="anchored" data-anchor-id="satisfaction-with-life-scale"><a href="https://ppc.sas.upenn.edu/resources/questionnaires-researchers/satisfaction-life-scale">Satisfaction With Life Scale</a></h2>
-<div class="r-fit-text">
-<div class="columns">
-<div class="column" style="width:40%;">
-<p><img src="images/clipboard-158092278.png" class="img-fluid"></p>
-</div><div class="column" style="width:60%;">
-<p><strong>QUESTIONS</strong>. How would you…</p>
-<ul>
-<li>determine if the test was valid (face, convergent, discriminant)?</li>
-<li>determine if the test was reliable (test-retest, interjudge, interitem)?</li>
-<li>write some negatively-keyed items</li>
-</ul>
 </div>
-</div>
+</section>
 <section id="discussion-evaluating-a-likert-scale" class="level2 smaller">
 <h2 class="smaller anchored" data-anchor-id="discussion-evaluating-a-likert-scale">DISCUSSION : Evaluating a Likert Scale</h2>
 <p><a href="https://ppc.sas.upenn.edu/resources/questionnaires-researchers/satisfaction-life-scale">Satisfaction With Life Scale</a></p>
@@ -159,24 +167,76 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 </section>
-<section id="clap-which-one-big-five-or-myers-briggs" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="clap-which-one-big-five-or-myers-briggs">CLAP : which one (big five or myers briggs)…</h2>
-<p>…was the most interesting to take?</p>
-<p>…gave you the most valid feedback?</p>
-<p>…seemed the most scientific?</p>
-</section>
-<section id="activity-valid-and-biased-personality" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="activity-valid-and-biased-personality">ACTIVITY : valid and biased personality</h2>
-<div class="columns">
-<div class="column" style="width:30%;">
-<p><strong>Type in the <a href="https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing">RESEARCH METHODS VISION BOARD</a>.</strong></p>
-<p><em>Search through the list big five items and choose an item.</em></p>
+<section id="activity-valid-and-biased-personality" class="level2">
+<h2 class="anchored" data-anchor-id="activity-valid-and-biased-personality">ACTIVITY : valid and biased personality</h2>
 <ul>
-<li>How might self-enhancement bias influence people’s responses?</li>
-<li>How might self-insight be relevant?</li>
-<li>What is another (non-self-report) way of measuring this variable??*</li>
+<li><strong>Type in the <a href="https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing">RESEARCH METHODS VISION BOARD</a>.</strong></li>
 </ul>
-</div><div class="column" style="width:70%;">
+<p><em>Search through the list of myers-briggs and big five items. What are some questions that seem VALID? That seem biased? Why???</em></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Myers-Briggs Items</p>
+<pre><code>1. You regularly make new friends.
+2. Complex and novel ideas excite you more than simple and straightforward ones.
+3. You usually feel more persuaded by what resonates emotionally with you than by factual arguments.
+4. Your living and working spaces are clean and organized.
+5. You usually stay calm, even under a lot of pressure.
+6. You find the idea of networking or promoting yourself to strangers very daunting.
+7. You prioritize and plan tasks effectively, often completing them well before the deadline.
+8. People’s stories and emotions speak louder to you than numbers or data.
+9. You like to use organizing tools like schedules and lists.
+10. Even a small mistake can cause you to doubt your overall abilities and knowledge.
+11. You feel comfortable just walking up to someone you find interesting and striking up a conversation.
+12. You are not too interested in discussions about various interpretations of creative works.
+13. You prioritize facts over people’s feelings when determining a course of action.
+14. You often allow the day to unfold without any schedule at all.
+15. You rarely worry about whether you make a good impression on people you meet.
+16. You enjoy participating in team-based activities.
+17. You enjoy experimenting with new and untested approaches.
+18. You prioritize being sensitive over being completely honest.
+19. You actively seek out new experiences and knowledge areas to explore.
+20. You are prone to worrying that things will take a turn for the worse.
+21. You enjoy solitary hobbies or activities more than group ones.
+22. You cannot imagine yourself writing fictional stories for a living.
+23. You favor efficiency in decisions, even if it means disregarding some emotional aspects.
+24. You prefer to do your chores before allowing yourself to relax.
+25. In disagreements, you prioritize proving your point over preserving the feelings of others.
+26. You usually wait for others to introduce themselves first at social gatherings.
+27. Your mood can change very quickly.
+28. You are not easily swayed by emotional arguments.
+29. You often end up doing things at the last possible moment.
+30. You enjoy debating ethical dilemmas.
+31. You usually prefer to be around others rather than on your own.
+32. You become bored or lose interest when the discussion gets highly theoretical.
+33. When facts and feelings conflict, you usually find yourself following your heart.
+34. You find it challenging to maintain a consistent work or study schedule.
+35. You rarely second-guess the choices that you have made.
+36. Your friends would describe you as lively and outgoing.
+37. You are drawn to various forms of creative expression, such as writing.
+38. You usually base your choices on objective facts rather than emotional impressions.
+39. You like to have a to-do list for each day.
+40. You rarely feel insecure.
+41. You avoid making phone calls.
+42. You enjoy exploring unfamiliar ideas and viewpoints.
+43. You can easily connect with people you have just met.
+44. If your plans are interrupted, your top priority is to get back on track as soon as possible.
+45. You are still bothered by mistakes that you made a long time ago.
+46. You are not too interested in discussing theories on what the world could look like in the future.
+47. Your emotions control you more than you control them.
+48. When making decisions, you focus more on how the affected people might feel than on what is most logical or efficient.
+49. Your personal work style is closer to spontaneous bursts of energy than organized and consistent efforts.
+50. When someone thinks highly of you, you wonder how long it will take them to feel disappointed in you.
+51. You would love a job that requires you to work alone most of the time.
+52. You believe that pondering abstract philosophical questions is a waste of time.
+53. You feel more drawn to busy, bustling atmospheres than to quiet, intimate places.
+54. If a decision feels right to you, you often act on it without needing further proof.
+55. You often feel overwhelmed.
+56. You complete things methodically without skipping over any steps.
+57. You prefer tasks that require you to come up with creative solutions rather than follow concrete steps.
+58. You are more likely to rely on emotional intuition than logical reasoning when making a choice.
+59. You struggle with deadlines.
+60. You feel confident that things will work out for you.</code></pre>
+</div><div class="column" style="width:50%;">
 <p>Big Five Items</p>
 <pre><code>1. Is outgoing, sociable.
 2. Is compassionate, has a soft heart.
@@ -241,6 +301,61 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
+<section id="clap-which-one-big-five-or-myers-briggs" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="clap-which-one-big-five-or-myers-briggs">CLAP : which one (big five or myers briggs)…</h2>
+<p>…was the most interesting to take?</p>
+<p>…gave you the most valid feedback?</p>
+<p>…seemed the most scientific?</p>
+</section>
+</section>
+<section id="part-2-buddy-time" class="level1 smaller">
+<h1 class="smaller">Part 2 : Buddy Time!!</h1>
+<section id="activity-fast-friends-task" class="level3">
+<h3 class="anchored" data-anchor-id="activity-fast-friends-task">Activity : Fast Friends Task</h3>
+<p>Find the person whose Life Narrative you responded to in the VISION BOARD. (Or, someone who you have never spoken to or maybe even seen in our class.)</p>
+<pre><code>Set I
+1. Given the choice of anyone in the world, whom would you want as a dinner guest?
+2. Would you like to be famous? In what way?
+3. Before making a telephone call, do you ever rehearse what you are going to say? Why?
+4. What would constitute a “perfect” day for you?
+5. When did you last sing to yourself? To someone else?
+6. If you were able to live to the age of 90 and retain either the mind or body of a 30-year-old for the last 60 years of your life, which would you want?
+7. Do you have a secret hunch about how you will die?
+8. Name three things you and your partner appear to have in common.
+9. For what in your life do you feel most grateful?
+10. If you could change anything about the way you were raised, what would it be?
+11. Take four minutes and tell your partner your life story in as much detail as possible.
+12. If you could wake up tomorrow having gained any one quality or ability, what would it be?
+
+Set II
+13. If a crystal ball could tell you the truth about yourself, your life, the future, or anything else, what would you want to know?
+14. Is there something that you’ve dreamed of doing for a long time? Why haven’t you done it?
+15. What is the greatest accomplishment of your life?
+16. What do you value most in a friendship?
+17. What is your most treasured memory?
+18. What is your most terrible memory?
+19. If you knew that in one year you would die suddenly, would you change anything about the way you are now living? Why?
+20. What does friendship mean to you?
+21. What roles do love and affection play in your life?
+22. Alternate sharing something you consider a positive characteristic of your partner. Share a total of five items.
+23. How close and warm is your family? Do you feel your childhood was happier than most other people’s?
+24. How do you feel about your relationship with your mother?</code></pre>
+</section>
+</section>
+<section id="part-3-digging-deeper" class="level1 smaller">
+<h1 class="smaller">Part 3 : Digging Deeper</h1>
+<section id="recap-dig-deeper-assignment" class="level2">
+<h2 class="anchored" data-anchor-id="recap-dig-deeper-assignment">RECAP : <a href="https://catterson.github.io/rm/notes/digdeeper.html" class="smaller">Dig Deeper Assignment</a></h2>
+</section>
+<section id="activity-find-the-science" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="activity-find-the-science">ACTIVITY : find the science</h2>
+<p><img src="images/clipboard-2787118681.png" class="img-fluid"></p>
+</section>
+<section id="activity-evaluate-the-measure" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="activity-evaluate-the-measure">ACTIVITY : evaluate the measure</h2>
+<p><img src="images/clipboard-2150884350.png" class="img-fluid"></p>
+</section>
+</section>
 <section id="next-week-patterns-in-data" class="level1">
 <h1>NEXT WEEK : PATTERNS IN DATA</h1>
 <div class="quarto-figure quarto-figure-center">
@@ -253,20 +368,11 @@ ul.task-list li input[type="checkbox"] {
 <h1>BYE.</h1>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src=".png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/frog-dance-ff7.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="https://www.gif-vif.com/trending/frog-dance-frog.gif.pagespeed.ce.P7TEOgyG1P.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 
 
-</section>
-</div>
-</section>
-</div>
 </section>
 
 </main> <!-- /main -->

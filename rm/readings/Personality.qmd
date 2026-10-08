@@ -24,7 +24,7 @@ codebook <- data.frame(rename, names(d))
 write.csv(codebook, "~/Dropbox/RM/Datasets/Personality Data/CODEBOOK_personality.csv", row.names = F)
 
 names(d) <- rename
-d <- d[d$time > "2026-03-01",]
+d <- d[d$time > "2026-08-01",]
 BF.DF <- with(d, data.frame(E, O, N, C, A))
 MB.DF <- with(d, data.frame(MB_E, MB_I, MB_A, MB_J, MB_T))
 bfd <- round(describe(MB.DF)[c(3,4,5,8,9)], 2)
