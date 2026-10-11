@@ -6,20 +6,11 @@ editor: visual
 
 # Week 7 - Monday, October 12th
 
-## Class Slides and Materials
 
-```{=html}
-<iframe data-external="1" class="slide-deck" src="/calstats/slides/6_mascot_model_slides.html" width="100%" height="500px" title=""></iframe>
-```
-
-- [Check-In: Working With the Mascot Dataset](https://docs.google.com/forms/d/e/1FAIpQLSdrgiekPpIjCHqi_ALSJoZseMKC3BfkUGx2eC3QCExESX8zoQ/viewform?usp=sf_link)
-  - [Mascot Dataset and Codebook](https://www.dropbox.com/scl/fo/lioqn3vcv5wkl4c7igxlz/AOAZII2z_pt973R4DMKKdDE?rlkey=neym1p5i8x6fdudkf5lrryosg&dl=0)
-- [Folder with Professor R Scripts and Notes](https://www.dropbox.com/scl/fo/gl6k038pu9duy75jvq1t0/ALCXZvj5iBfl0uCRfZfZiHM?rlkey=kon74xzou91hkhgx8tfjmdet5&dl=0)
-- [Final Project Vision Board](https://docs.google.com/spreadsheets/d/1WMn8SH-yQC-5bNcnQR-Jp5RWkxutVlKNmxCgMDgompI/edit?usp=sharing) + [Final Project Description & Rubric](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?usp=sharing)
-
+:::::: {.callout-note collapse="true"}
+## Announcements and Agenda
 ::::: columns
 ::: {.column width="60%"}
-### Announcements and Agenda
 
 - **R Exam is in 4 weeks.** 4 Lectures + Review. Will post study guides + practice exams in a few weeks.
 
@@ -41,9 +32,22 @@ editor: visual
 
 - **4:20 - 4:40.** Mascot Dataset (Part 2)
 
-- **4:40 - 6:00.** Final Project Workshop (Milestone 2 Review)
+- **4:40 - 5:00.** Final Project Workshop
 :::
 :::::
+::::::
+
+## Class Slides and Materials
+
+```{=html}
+<iframe data-external="1" class="slide-deck" src="/calstats/slides/6_mascot_model_slides.html" width="100%" height="500px" title=""></iframe>
+```
+
+- [Check-In: Working With the Mascot Dataset](https://docs.google.com/forms/d/e/1FAIpQLSdrgiekPpIjCHqi_ALSJoZseMKC3BfkUGx2eC3QCExESX8zoQ/viewform?usp=sf_link)
+  - [Mascot Dataset and Codebook](https://www.dropbox.com/scl/fo/lioqn3vcv5wkl4c7igxlz/AOAZII2z_pt973R4DMKKdDE?rlkey=neym1p5i8x6fdudkf5lrryosg&dl=0)
+- [Folder with Professor R Scripts and Notes](https://www.dropbox.com/scl/fo/gl6k038pu9duy75jvq1t0/ALCXZvj5iBfl0uCRfZfZiHM?rlkey=kon74xzou91hkhgx8tfjmdet5&dl=0)
+- [Final Project Vision Board](https://docs.google.com/spreadsheets/d/1WMn8SH-yQC-5bNcnQR-Jp5RWkxutVlKNmxCgMDgompI/edit?usp=sharing) + [Final Project Description & Rubric](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?usp=sharing)
+
 
 ## Due Next Week
 
@@ -51,4 +55,3 @@ editor: visual
 2.  [**Complete Lab 5.**](/calstats/labs/Lab5.html) We will work on this in class and in discussion section.
 3.  **Chapter 7 (Linear Models when the IV is categorical) + a Quiz.**
 
-# 
