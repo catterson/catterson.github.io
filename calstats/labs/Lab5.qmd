@@ -3,32 +3,25 @@ title: "Lab 5"
 format: html
 ---
 
-1.  **More Mini Models.** In lecture, we defined linear models using the “mini” dataset.
+**Note :** part of the skill in working with data is thinking through the steps you will need to answer the question. We will practice this!
 
-    -   Load the data and check to make sure the data loaded correctly. Then, choose two numeric variables from the dataset - how do you think these variables will be related to each other?
+## Dataset and Researcher Questions
 
-    -   Graph your DV and IV as separate variables using the hist() function. Make sure there are no errors in the data, and do any data cleaning as necessary. Underneath the graphs, describe what you observe.
+[Mascot Dataset and Codebook](https://www.dropbox.com/scl/fo/lioqn3vcv5wkl4c7igxlz/AOAZII2z_pt973R4DMKKdDE?rlkey=neym1p5i8x6fdudkf5lrryosg&dl=0)
 
-    -   Graph the relationship between the two variables, and add the regression line to the graph.
+Researchers wanted to better understand what predicts people's attitudes about native american mascots. (We discussed this dataset at length in lecture; see the recording if you missed.)
 
-    -   Report the intercept, slope, and R2 value from your model.
+Define a series of linear models to test the following predictions :
 
-    -   Underneath the graph describe what you learn about the relationship between these two variables (making sure to reference the relevant statistics reported above.
+1.  IN CLASS : implicit prejudice will be positively related to people's attitudes about the mascot.
+2.  IN CLASS : explicit prejudice will be positively related to people's attitudes about the mascot.
+3.  IN SECTION : come up and test your own prediction about how two numeric variables from the "mascot" dataset are related to each other.
 
-    -   Finally, use your human brain to make some conclusions. What seems important about this relationship? Why do you think this relationship occurs? How might we use this knowledge?
+## Assignment Details
 
-2.  **(In Discussion Section) Predict Ladder.Score from a variable from the world happiness dataset.** The [world happiness dataset](https://www.dropbox.com/scl/fi/p20l0aj1ttgdl4m75dqvm/World-happiness-report-2024.csv?rlkey=26t7eubo5rowkc0bvabceyzvg&dl=0) reports the average happiness (variable = Ladder.score) for each country in the world. Work with a buddy to predict Ladder.score (DV) from one of the following numeric variables in the dataset : "Log.GDP.per.capita"; "Social.support”; "Healthy.life.expectancy"; "Freedom.to.make.life.choices"; “Generosity”; or "Perceptions.of.corruption". Make sure to include the following.
+For this lab, your task is to prepare a report (using Quarto or Google Docs) that includes the following. You do not need to include code in your report - just include the graphs, relevant statistics, and your analysis. Please copy and paste your code into the assignment comment so your GSI can see what you did.
 
-    -   Load your dataset and check to make sure the data are loaded correctly.
-
-    -   Graph your DV and IV as separate variables using the hist() function. Make sure there are no errors in the data, and do any data cleaning as necessary.
-
-    -   Graph the relationship between the two variables, and add the regression line to the graph.
-
-    -   Report the intercept, slope, and R2 value from your model.
-
-    -   Underneath the graph describe what you learn about the relationship between these two variables (making sure to reference the relevant statistics reported above.)
-
-    -   Finally, use your human brain to make some conclusions. What seems important about this relationship? Why do you think this relationship occurs? How might we use this knowledge?
-
-3.  **(In Discussion Section) Share Your Code.** Share your code for Problem 2 with another student who chose a different IV to predict Ladder.score. Use their code to generate the same graph and output that they did. Hooray for Rscripts.
+1.  **Graphs of all your variables.** Underneath the graphs, briefly describe what you learn about the variables in your study (reporting descriptive statistics not required, though feel free to include as needed.)
+2.  **Graphs for your linear models.** Make sure the graphs are clearly labeled and look nice.
+3.  **Statistics for your linear models.** Report the intercept, slope, and $R^2$ value for each model.
+4.  **Interpretation of Statistics.** Describe what each statistic (reported above) tells you about the relationship between these two variables. Then, conclude - why might this relationship (or lack of one) matter? What other questions do you have / how could you use this knowledge?
