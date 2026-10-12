@@ -1,13 +1,16 @@
 ---
-title: "Lab5"
+title: "Lab 5"
 format: html
 ---
 
-1.  Last week, you examined one of the effects of anchoring (e.g., you predicted people's guesses about the speed of cats from the experimental condition they were in). Use R to calculate the statistical power you had to reject the null hypothesis. Then, use the pwr package to estimate the sample size that you would have needed to have 80% power. 
+Return to a previous lab or linear model where you defined a bivariate relationship (DV ~ IV).
 
-2.  Return to a previous lab or linear model where you defined a bivariate relationship (DV ~ IV).
+1.   Consider some of the other variables in the linear model that might be important to include as part of a multiple regression. Explain why it might be important (or interesting) to include these other variables as part of your linear model.
 
--   Consider some of the other variables in the linear model that might be important to include as part of a multiple regression. Explain why it might be important (or interesting) to include these other variables as part of your linear model.
--   Define a linear model to predict the DV from your original IV, as well as at least one other IV from the dataset. (Make sure to do any necessary data cleaning). Report the summary table from your multiple regression analyses. 
--   Below the summary table, explain what changed (if anything) from the bivariate linear model to the multivariate linear model. Does the multivariate model seem like a better linear model? Why / why not?
--   Calculate the power for one of the results in your analysis.
+2.  Define a linear model to predict the DV from your original IV, as well as at least one other IV from the dataset. (Make sure to do any necessary data cleaning). Feel free to add lots of IVs...just think about what variables you think would make sense to include in the model. Report the summary table from your multiple regression analyses. You should not try to graph the multivariate regression.
+
+3.  Below the summary table, explain what changed (if anything) from the bivariate linear model to the multivariate linear model. Does the multivariate model seem like a better linear model? Why / why not?
+
+4.  Choose one slope in your model. Calculate the 95% Confidence Interval for this slope using the model summary statistics. Confirm you did this right "by hand" by comparing it to the `confint()` function.
+
+5.  For this one slope : sketch out a graph of what this slope looks like in the context of the null distribution (e.g., where does the slope you found fall relative to the slope you would expect to find if the null hypothesis were "true"?) Include a photo of the graph you drew.
