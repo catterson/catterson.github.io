@@ -4,44 +4,63 @@ format: html
 editor: visual
 ---
 
-# Week 5 - Monday, October 4th
+# Week 6 - Monday, October 12th
 
 ::: {.callout-note collapse="true"}
 ### Announcements and Agenda
 
 **Announcements**
 
-- **Lab 2 Key Posted.**
-- **Some changes to this course (based on your exit survey feedback; thanks!!!)**
-  - **no coding for check-ins :** professor code will save in real-time.
-  - **readings :** will introduce topics; offer for students wanting to go deeper.
-  - **we wanna learn a ton :** review of "basics" –\> new material.
-  - **the program is a lot :** we have this 1 year...can continue to voice some of the ideas and comments you have; please continue let me know what feels helpful (or not) in this class.
+- **PRESENTATIONS 12/7 (Cancel?)** Sounds like other classes are not scheduling content then?
+
+- **R EXAM 11/2? (A week early).** Will be chill. But feel like good to have earlier.
 
 **Agenda**
 
-- **10:10 - 10:50.** Check-In (no R) & Multivariate Models
-- **10:50 - 11:00 :** BREAK TIME
-- **11:00 - 12:00 :** Interaction Effects
+- **10:10 - 10:30.** Check-In (no R) & Multivariate Models Review
+- **10:30 - 11:00.** Introducing Power
+- **11:00 - 11:10 :** BREAK TIME
+- **11:10 - 12:00 :** Calcuating Power
 :::
 
 ### Class Slides and Materials
 
 ```{=html}
-<iframe data-external="1" class="slide-deck" src="/COMPSS212/slides/mrexperiment_slides.html" width="100%" height="500px" title=""></iframe>
+<iframe data-external="1" class="slide-deck" src="/COMPSS212/slides/6_MRpower_slides.html" width="100%" height="500px" title=""></iframe>
 ```
 
-- [**Check-In (no R!) : 3 Models**](https://forms.gle/gBixuzC9jDksnokJ8) **:** Please use the regression output to answer these questions. No R required; just interpretation.
-  - **Dataset of the Week:** The "Salaries" Dataset in R `?Salaries`
+- [**Check-In (no R!) : Hair Models**](https://forms.gle/Q51WhLAHwu3XqmfT7) **:** Please use the regression output to answer these questions. No R required; just interpretation.
+  - [**Dataset of the Week**](https://www.dropbox.com/scl/fi/uo4yvgkwfel5nmhzcgiej/MR_Example.csv?rlkey=2z0bmgwbgco8e78m31ldrh6pa&dl=0)**:** data on height, whether the person has long hair, and whether the person is female.
   - [**VISION BOARD**](https://docs.google.com/spreadsheets/d/14y4W9LJk1I9M3HFIOp3_94tdM0qUSYfkGdZnKK6L23c/edit?usp=sharing).
 - [**Professor Notes**](https://www.dropbox.com/scl/fo/7yhs2afoyisskz3eynnh8/ABO5kzYAdp8Y9cDBsqFU_TI?rlkey=hx72km35b6n02ep59vywdy7o4&dl=0). My R scripts and other notes, saved in real-time.
 
 # For Next Week.
 
-### No Lab.
+### [Lab 5](/COMPSS212/labs/Lab5.html)
 
-### Support Materials
+In this lab, you'll revisit some previous bivariate (DV \~ IV) analysis you conducted and consider (and define) a multiple regression to predict the same DV from the same IV, but also some other variables. You'll also practice calculating (and interpreting) power.
 
-- [**On Interaction Effects**](https://catterson.github.io/ystats/chapters/11R_InteractionFX.html). More detail on interaction effects, how to interpret and calculate (from the linear model) and how to graph them using base R.
-  - [The Interactions Package](https://interactions.jacob-long.com). The author of jtools has made what looks like a super clean way to graph interaction effects in R, using ggplot2.
-  - [Visualization Tutorials](https://sebastiansauer.github.io/vis_interaction_effects/). Other, more cumbersome methods of plotting interaction effects exist!
+### Professor Power Demo
+
+- **Power Slides**
+
+```{=html}
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQMiQVIgG2WPl7t45rAYtUhrU1wnPNOxxeKX3zIj1eiMmN8M6nkEotx6sjDTECvRFwF4IzV5C30w-N5/embed?" frameborder="0" width="960" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+```
+
+- [**Conceptualizing Power**](https://rpsychologist.com/d3/nhst/)**.** a d3 visualization to illustrate power that we will explore together and hopefully will help us understand power.
+- [**library(pwrss)**](https://cran.r-project.org/web/packages/pwrss/vignettes/examples.html) : a fantastic (and relatively new) library that helps you calculate power for a variety of different circumstances.
+
+#### Professor Previously Recorded Power Demo
+
+- [**Recording #1 : Conceptual Example of Power**](https://www.loom.com/share/f393327465f54f3cbf5bbe8c349e3a2e?sid=45f72b59-894e-4d8d-a977-254d6e52f5c4)
+
+- [**Recording #2 : Another Example**](https://www.loom.com/share/62440c2754cd4874a22ef2f00618eaff)**.** These data come from a paper I had rejected in part because reviewers complained that I only replicated the main result in 4 out of 5 studies. (The paper was also a hot mess.) Bummer! But it was a cool phenomenon; I sadly never published on it for a variety of REASONS, but the truth got out eventually someone published a very clearly written, much better, and perfectly replicating paper (across six studies!) on it 8 years later. Ahhh, one thing off the to-do list.
+
+#### Other Power Readings
+
+Below are a few different methods to help you estimate power across a wide variety of types of data.
+
+- [Here's a nice overview of how to conduct sample size power analysis in R](https://rpubs.com/mbounthavong/sample_size_power_analysis_R)
+- [This is a modern, thorough, and good overview of power, that also discusses ways to generate simulated data (like we did with bootstrapping) to estimate power.](https://aaroncaldwell.us/SuperpowerBook/introduction-to-power-analysis.html)

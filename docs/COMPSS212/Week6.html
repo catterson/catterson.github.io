@@ -90,14 +90,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#week-5---monday-october-4th" id="toc-week-5---monday-october-4th" class="nav-link active" data-scroll-target="#week-5---monday-october-4th">Week 5 - Monday, October 4th</a>
+  <li><a href="#week-6---monday-october-12th" id="toc-week-6---monday-october-12th" class="nav-link active" data-scroll-target="#week-6---monday-october-12th">Week 6 - Monday, October 12th</a>
   <ul class="collapse">
   <li><a href="#class-slides-and-materials" id="toc-class-slides-and-materials" class="nav-link" data-scroll-target="#class-slides-and-materials">Class Slides and Materials</a></li>
   </ul></li>
   <li><a href="#for-next-week." id="toc-for-next-week." class="nav-link" data-scroll-target="#for-next-week.">For Next Week.</a>
   <ul class="collapse">
-  <li><a href="#no-lab." id="toc-no-lab." class="nav-link" data-scroll-target="#no-lab.">No Lab.</a></li>
-  <li><a href="#support-materials" id="toc-support-materials" class="nav-link" data-scroll-target="#support-materials">Support Materials</a></li>
+  <li><a href="#lab-5" id="toc-lab-5" class="nav-link" data-scroll-target="#lab-5">Lab 5</a></li>
+  <li><a href="#professor-power-demo" id="toc-professor-power-demo" class="nav-link" data-scroll-target="#professor-power-demo">Professor Power Demo</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -108,8 +108,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="week-5---monday-october-4th" class="level1">
-<h1>Week 5 - Monday, October 4th</h1>
+<section id="week-6---monday-october-12th" class="level1">
+<h1>Week 6 - Monday, October 12th</h1>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -124,31 +124,26 @@ ul.task-list li input[type="checkbox"] {
 <div class="callout-body-container callout-body">
 <p><strong>Announcements</strong></p>
 <ul>
-<li><strong>Lab 2 Key Posted.</strong></li>
-<li><strong>Some changes to this course (based on your exit survey feedback; thanks!!!)</strong>
-<ul>
-<li><strong>no coding for check-ins :</strong> professor code will save in real-time.</li>
-<li><strong>readings :</strong> will introduce topics; offer for students wanting to go deeper.</li>
-<li><strong>we wanna learn a ton :</strong> review of “basics” –&gt; new material.</li>
-<li><strong>the program is a lot :</strong> we have this 1 year…can continue to voice some of the ideas and comments you have; please continue let me know what feels helpful (or not) in this class.</li>
-</ul></li>
+<li><p><strong>PRESENTATIONS 12/7 (Cancel?)</strong> Sounds like other classes are not scheduling content then?</p></li>
+<li><p><strong>R EXAM 11/2? (A week early).</strong> Will be chill. But feel like good to have earlier.</p></li>
 </ul>
 <p><strong>Agenda</strong></p>
 <ul>
-<li><strong>10:10 - 10:50.</strong> Check-In (no R) &amp; Multivariate Models</li>
-<li><strong>10:50 - 11:00 :</strong> BREAK TIME</li>
-<li><strong>11:00 - 12:00 :</strong> Interaction Effects</li>
+<li><strong>10:10 - 10:30.</strong> Check-In (no R) &amp; Multivariate Models Review</li>
+<li><strong>10:30 - 11:00.</strong> Introducing Power</li>
+<li><strong>11:00 - 11:10 :</strong> BREAK TIME</li>
+<li><strong>11:10 - 12:00 :</strong> Calcuating Power</li>
 </ul>
 </div>
 </div>
 </div>
 <section id="class-slides-and-materials" class="level3">
 <h3 class="anchored" data-anchor-id="class-slides-and-materials">Class Slides and Materials</h3>
-<iframe data-external="1" class="slide-deck" src="../COMPSS212/slides/mrexperiment_slides.html" width="100%" height="500px" title=""></iframe>
+<iframe data-external="1" class="slide-deck" src="../COMPSS212/slides/6_MRpower_slides.html" width="100%" height="500px" title=""></iframe>
 <ul>
-<li><a href="https://forms.gle/gBixuzC9jDksnokJ8"><strong>Check-In (no R!) : 3 Models</strong></a> <strong>:</strong> Please use the regression output to answer these questions. No R required; just interpretation.
+<li><a href="https://forms.gle/Q51WhLAHwu3XqmfT7"><strong>Check-In (no R!) : Hair Models</strong></a> <strong>:</strong> Please use the regression output to answer these questions. No R required; just interpretation.
 <ul>
-<li><strong>Dataset of the Week:</strong> The “Salaries” Dataset in R <code>?Salaries</code></li>
+<li><a href="https://www.dropbox.com/scl/fi/uo4yvgkwfel5nmhzcgiej/MR_Example.csv?rlkey=2z0bmgwbgco8e78m31ldrh6pa&amp;dl=0"><strong>Dataset of the Week</strong></a><strong>:</strong> data on height, whether the person has long hair, and whether the person is female.</li>
 <li><a href="https://docs.google.com/spreadsheets/d/14y4W9LJk1I9M3HFIOp3_94tdM0qUSYfkGdZnKK6L23c/edit?usp=sharing"><strong>VISION BOARD</strong></a>.</li>
 </ul></li>
 <li><a href="https://www.dropbox.com/scl/fo/7yhs2afoyisskz3eynnh8/ABO5kzYAdp8Y9cDBsqFU_TI?rlkey=hx72km35b6n02ep59vywdy7o4&amp;dl=0"><strong>Professor Notes</strong></a>. My R scripts and other notes, saved in real-time.</li>
@@ -157,20 +152,38 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="for-next-week." class="level1">
 <h1>For Next Week.</h1>
-<section id="no-lab." class="level3">
-<h3 class="anchored" data-anchor-id="no-lab.">No Lab.</h3>
+<section id="lab-5" class="level3">
+<h3 class="anchored" data-anchor-id="lab-5"><a href="../COMPSS212/labs/Lab5.html">Lab 5</a></h3>
+<p>In this lab, you’ll revisit some previous bivariate (DV ~ IV) analysis you conducted and consider (and define) a multiple regression to predict the same DV from the same IV, but also some other variables. You’ll also practice calculating (and interpreting) power.</p>
 </section>
-<section id="support-materials" class="level3">
-<h3 class="anchored" data-anchor-id="support-materials">Support Materials</h3>
+<section id="professor-power-demo" class="level3">
+<h3 class="anchored" data-anchor-id="professor-power-demo">Professor Power Demo</h3>
 <ul>
-<li><a href="https://catterson.github.io/ystats/chapters/11R_InteractionFX.html"><strong>On Interaction Effects</strong></a>. More detail on interaction effects, how to interpret and calculate (from the linear model) and how to graph them using base R.
+<li><strong>Power Slides</strong></li>
+</ul>
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQMiQVIgG2WPl7t45rAYtUhrU1wnPNOxxeKX3zIj1eiMmN8M6nkEotx6sjDTECvRFwF4IzV5C30w-N5/embed?" frameborder="0" width="960" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 <ul>
-<li><a href="https://interactions.jacob-long.com">The Interactions Package</a>. The author of jtools has made what looks like a super clean way to graph interaction effects in R, using ggplot2.</li>
-<li><a href="https://sebastiansauer.github.io/vis_interaction_effects/">Visualization Tutorials</a>. Other, more cumbersome methods of plotting interaction effects exist!</li>
-</ul></li>
+<li><a href="https://rpsychologist.com/d3/nhst/"><strong>Conceptualizing Power</strong></a><strong>.</strong> a d3 visualization to illustrate power that we will explore together and hopefully will help us understand power.</li>
+<li><a href="https://cran.r-project.org/web/packages/pwrss/vignettes/examples.html"><strong>library(pwrss)</strong></a> : a fantastic (and relatively new) library that helps you calculate power for a variety of different circumstances.</li>
+</ul>
+<section id="professor-previously-recorded-power-demo" class="level4">
+<h4 class="anchored" data-anchor-id="professor-previously-recorded-power-demo">Professor Previously Recorded Power Demo</h4>
+<ul>
+<li><p><a href="https://www.loom.com/share/f393327465f54f3cbf5bbe8c349e3a2e?sid=45f72b59-894e-4d8d-a977-254d6e52f5c4"><strong>Recording #1 : Conceptual Example of Power</strong></a></p></li>
+<li><p><a href="https://www.loom.com/share/62440c2754cd4874a22ef2f00618eaff"><strong>Recording #2 : Another Example</strong></a><strong>.</strong> These data come from a paper I had rejected in part because reviewers complained that I only replicated the main result in 4 out of 5 studies. (The paper was also a hot mess.) Bummer! But it was a cool phenomenon; I sadly never published on it for a variety of REASONS, but the truth got out eventually someone published a very clearly written, much better, and perfectly replicating paper (across six studies!) on it 8 years later. Ahhh, one thing off the to-do list.</p></li>
+</ul>
+</section>
+<section id="other-power-readings" class="level4">
+<h4 class="anchored" data-anchor-id="other-power-readings">Other Power Readings</h4>
+<p>Below are a few different methods to help you estimate power across a wide variety of types of data.</p>
+<ul>
+<li><a href="https://rpubs.com/mbounthavong/sample_size_power_analysis_R">Here’s a nice overview of how to conduct sample size power analysis in R</a></li>
+<li><a href="https://aaroncaldwell.us/SuperpowerBook/introduction-to-power-analysis.html">This is a modern, thorough, and good overview of power, that also discusses ways to generate simulated data (like we did with bootstrapping) to estimate power.</a></li>
 </ul>
 
 
+</section>
 </section>
 </section>
 

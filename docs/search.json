@@ -2125,7 +2125,7 @@
     "href": "COMPSS212/COMPSS212.html#course-outline",
     "title": "COMPSS 212 - Applied Statistics I",
     "section": "Course Outline",
-    "text": "Course Outline\nNOTE : Schedule subject to change; professor will make announcements and updates on bCourses.\n\n\n\nDate\nClass Topic\nSupport Readings\nLab Assignment\n\n\n8/31\nObjective Science : Quarto, Reliability & Validity\nWS 2-7; LSR 15.1 - 15.2; HSP : The Who of Psychology\nLab 1 : BMI and Steps (Health Data)\n\n\n9/7\nNo Class : Labor Day\nROS 2; WS 5\nNo HW.\n\n\n9/14\nConstructing Reality : Operationalization and Likert Scales\nHSP : Measuring Constructs\nLab 2 : I Feel Good About R (Self-Esteem Survey Data)\n\n\n9/21\nFaking Data is Good, Actually: Simulating Data; Bootstrapping\nROS 5; WS 8; LSR 9-10\nLab 3 : The Truth is Out There (Conspiracy Belief Data)\n\n\n9/28\nLife is Complex : Multiple Regression (Still a Line)\nROS 10.1-10.2; WS 10\nLab 4 : Replicating Experiments (Dehumanization Data)\n\n\n10/5\nLife Depends : Interaction Effects (Also Lines)\nROS 10.3; WS 11\nLab 5 : Feels Good to Be Here (Self-Esteem Data)\n\n\n10/12\nWe Could Always Be Wrong : Power and P-Hacking\nHSP : Changing Practices\nLab 6 : More Power, More Practice\n\n\n10/19\nNever Tell Me The Odds : Generalized Linear Models (Bendy Lines)\nROS 15; WS 12\nLab 7 : Purchase Power.\n\n\n10/26\nRe-Sample Review : Simulating Data\nROS 18; HSP : Art of Experimentation\nLab 8 : More Doors, More Problems (Simulated Data)\n\n\n11/2\nReview and Catch-Up : How are we doing at this point in time?\n\nLab 9 : Practice Exam + Key\n\n\n11/9\nR EXAM\n\n\n\n\n11/16\nMultilevel Models. Random Slopes, Random Intercepts, Still Lines.\nROS 22.5\nLab 11 : Project Milestone 1\n\n\n11/23\nMultilevel Models, Part 2: Time-Series Data.\nROS B\nLab 12 : It Depends (Football Data)\n\n\n11/30\nProject Workshop. The end is near.\n\nLab 13 : Project Milestone 2\n\n\n12/7\nPresentations. We learn from each other."
+    "text": "Course Outline\nNOTE : Schedule subject to change; professor will make announcements and updates on bCourses.\n\n\n\nDate\nClass Topic\nSupport Readings\nLab Assignment\n\n\n8/31\nObjective Science : Quarto, Reliability & Validity\nWS 2-7; LSR 15.1 - 15.2; HSP : The Who of Psychology\nLab 1 : BMI and Steps (Health Data)\n\n\n9/7\nNo Class : Labor Day\nROS 2; WS 5\nNo HW.\n\n\n9/14\nConstructing Reality : Operationalization and Likert Scales\nHSP : Measuring Constructs\nLab 2 : I Feel Good About R (Self-Esteem Survey Data)\n\n\n9/21\nFaking Data is Good, Actually: Simulating Data; Bootstrapping\nROS 5; WS 8; LSR 9-10\nLab 3 : The Truth is Out There (Conspiracy Belief Data)\n\n\n9/28\nLife is Complex : Multiple Regression (Still a Line)\nROS 10.1-10.2; WS 10\nLab 4 : Replicating Experiments (Dehumanization Data)\n\n\n10/5\nLife Depends : More Regression and Experiments\nROS 10.3; WS 11\nLab 5 : Feels Good to Be Here (Self-Esteem Data)\n\n\n10/12\nWe Could Always Be Wrong : Power\nHSP : Changing Practices\nLab 6 : More Power, More Practice\n\n\n10/19\nLife is Complex : Interaction Effects\nROS 15; WS 12\nLab 7 : Purchase Power.\n\n\n10/26\nRe-Sample Review : Simulating Data and P-Hacking\nROS 18; HSP : Art of Experimentation\nLab 8 : More Doors, More Problems (Simulated Data)\n\n\n11/2\nNever Tell Me The Odds : Generalized Linear Models (Bendy Lines)\n\nLab 9 : Practice Exam + Key\n\n\n11/9\nR EXAM\n\n\n\n\n11/16\nMultilevel Models. Random Slopes, Random Intercepts, Still Lines.\nROS 22.5\nLab 11 : Project Milestone 1\n\n\n11/23\nMultilevel Models, Part 2: Time-Series Data.\nROS B\nLab 12 : It Depends (Football Data)\n\n\n11/30\nProject Workshop. The end is near.\n\nLab 13 : Project Milestone 2\n\n\n12/7\nPresentations. We learn from each other."
   },
   {
     "objectID": "COMPSS212/COMPSS212.html#grade-details",
@@ -5240,7 +5240,7 @@
     "href": "COMPSS212/Week5.html",
     "title": "Week 5 - Monday, October 4th",
     "section": "",
-    "text": "Week 5 - Monday, October 4th\n\n\n\n\n\n\nNoteAnnouncements and Agenda\n\n\n\n\n\nAnnouncements\n\nLab 2 Key Posted.\nSome changes to this course (based on your exit survey feedback; thanks!!!)\n\nno coding for check-ins : professor code will save in real-time.\nreadings : will introduce topics; offer for students wanting to go deeper.\nwe wanna learn a ton : review of “basics” –&gt; new material.\nthe program is a lot : we have this 1 year…can continue to voice some of the ideas and comments you have; please continue let me know what feels helpful (or not) in this class.\n\n\nAgenda\n\n10:10 - 10:50. Check-In (no R) & Multivariate Models\n10:50 - 11:00 : BREAK TIME\n11:00 - 12:00 : Interaction Effects\n\n\n\n\n\nClass Slides and Materials\n\n\nCheck-In (no R!) : 3 Models : Please use the regression output to answer these questions. No R required; just interpretation.\n\nDataset of the Week: The “Salaries” Dataset from the car library in R ?car::Salaries\nVISION BOARD.\n\nProfessor Notes. My R scripts and other notes, saved in real-time.\n\n\n\n\nFor Next Week.\n\nNo Lab.\n\n\nSupport Materials\n\nMeyer et al. (2001) article on effect sizes. You do not need to read all of this article, and promised me you would not in class! Here’s a video professor recorded in a previous semester walking through how to navigate this article to answer some similar questions I’m asking this semester. (I cut a few steps (and hadn’t yet seen the light of the vision board….), but this should give you the general idea.)"
+    "text": "Week 5 - Monday, October 4th\n\n\n\n\n\n\nNoteAnnouncements and Agenda\n\n\n\n\n\nAnnouncements\nAgenda\n\n10:10 - 10:50. Check-In (no R) & Multivariate Models\n10:50 - 11:00 : BREAK TIME\n11:00 - 12:00 : Interaction Effects\n\n\n\n\n\nClass Slides and Materials\n\n\nCheck-In (no R!) : 3 Models : Please use the regression output to answer these questions. No R required; just interpretation.\n\nDataset of the Week: The “Salaries” Dataset from the car library in R ?car::Salaries\nVISION BOARD.\n\nProfessor Notes. My R scripts and other notes, saved in real-time.\n\n\n\n\nFor Next Week.\n\nNo Lab.\n\n\nSupport Materials\n\nMeyer et al. (2001) article on effect sizes. You do not need to read all of this article, and promised me you would not in class! Here’s a video professor recorded in a previous semester walking through how to navigate this article to answer some similar questions I’m asking this semester. (I cut a few steps (and hadn’t yet seen the light of the vision board….), but this should give you the general idea.)"
   },
   {
     "objectID": "COMPSS212/slides/interactions_slides.html#recap-interaction-effects",
@@ -5616,9 +5616,9 @@
   {
     "objectID": "COMPSS212/Week6.html",
     "href": "COMPSS212/Week6.html",
-    "title": "Week 5 - Monday, October 4th",
+    "title": "Week 6 - Monday, October 12th",
     "section": "",
-    "text": "Week 5 - Monday, October 4th\n\n\n\n\n\n\nNoteAnnouncements and Agenda\n\n\n\n\n\nAnnouncements\n\nLab 2 Key Posted.\nSome changes to this course (based on your exit survey feedback; thanks!!!)\n\nno coding for check-ins : professor code will save in real-time.\nreadings : will introduce topics; offer for students wanting to go deeper.\nwe wanna learn a ton : review of “basics” –&gt; new material.\nthe program is a lot : we have this 1 year…can continue to voice some of the ideas and comments you have; please continue let me know what feels helpful (or not) in this class.\n\n\nAgenda\n\n10:10 - 10:50. Check-In (no R) & Multivariate Models\n10:50 - 11:00 : BREAK TIME\n11:00 - 12:00 : Interaction Effects\n\n\n\n\n\nClass Slides and Materials\n\n\nCheck-In (no R!) : 3 Models : Please use the regression output to answer these questions. No R required; just interpretation.\n\nDataset of the Week: The “Salaries” Dataset in R ?Salaries\nVISION BOARD.\n\nProfessor Notes. My R scripts and other notes, saved in real-time.\n\n\n\n\nFor Next Week.\n\nNo Lab.\n\n\nSupport Materials\n\nOn Interaction Effects. More detail on interaction effects, how to interpret and calculate (from the linear model) and how to graph them using base R.\n\nThe Interactions Package. The author of jtools has made what looks like a super clean way to graph interaction effects in R, using ggplot2.\nVisualization Tutorials. Other, more cumbersome methods of plotting interaction effects exist!"
+    "text": "Week 6 - Monday, October 12th\n\n\n\n\n\n\nNoteAnnouncements and Agenda\n\n\n\n\n\nAnnouncements\n\nPRESENTATIONS 12/7 (Cancel?) Sounds like other classes are not scheduling content then?\nR EXAM 11/2? (A week early). Will be chill. But feel like good to have earlier.\n\nAgenda\n\n10:10 - 10:30. Check-In (no R) & Multivariate Models Review\n10:30 - 11:00. Introducing Power\n11:00 - 11:10 : BREAK TIME\n11:10 - 12:00 : Calcuating Power\n\n\n\n\n\nClass Slides and Materials\n\n\nCheck-In (no R!) : Hair Models : Please use the regression output to answer these questions. No R required; just interpretation.\n\nDataset of the Week: data on height, whether the person has long hair, and whether the person is female.\nVISION BOARD.\n\nProfessor Notes. My R scripts and other notes, saved in real-time.\n\n\n\n\nFor Next Week.\n\nLab 5\nIn this lab, you’ll revisit some previous bivariate (DV ~ IV) analysis you conducted and consider (and define) a multiple regression to predict the same DV from the same IV, but also some other variables. You’ll also practice calculating (and interpreting) power.\n\n\nProfessor Power Demo\n\nPower Slides\n\n\n\n\nConceptualizing Power. a d3 visualization to illustrate power that we will explore together and hopefully will help us understand power.\nlibrary(pwrss) : a fantastic (and relatively new) library that helps you calculate power for a variety of different circumstances.\n\n\nProfessor Previously Recorded Power Demo\n\nRecording #1 : Conceptual Example of Power\nRecording #2 : Another Example. These data come from a paper I had rejected in part because reviewers complained that I only replicated the main result in 4 out of 5 studies. (The paper was also a hot mess.) Bummer! But it was a cool phenomenon; I sadly never published on it for a variety of REASONS, but the truth got out eventually someone published a very clearly written, much better, and perfectly replicating paper (across six studies!) on it 8 years later. Ahhh, one thing off the to-do list.\n\n\n\nOther Power Readings\nBelow are a few different methods to help you estimate power across a wide variety of types of data.\n\nHere’s a nice overview of how to conduct sample size power analysis in R\nThis is a modern, thorough, and good overview of power, that also discusses ways to generate simulated data (like we did with bootstrapping) to estimate power."
   },
   {
     "objectID": "COMPSS212/slides/6_interactions.html",
@@ -6011,5 +6011,180 @@
     "title": "",
     "section": "Final Project : Milestone 2",
     "text": "Final Project : Milestone 2\nProf. looks over some examples of student surveys!"
+  },
+  {
+    "objectID": "COMPSS212/slides/6_MRpower.html",
+    "href": "COMPSS212/slides/6_MRpower.html",
+    "title": "",
+    "section": "",
+    "text": "Table 1. Multiple Regression Analyses : predicting height (in Inches) from whether the person has long hair and whether the person is female.\n\n\n\n\nModel 1Model 2Model 3\n\nIntercept66.94 ***68.69 ***69.21 ***\n\n[65.41, 68.48]   [66.92, 70.47]   [67.34, 71.07]   \n\nHas Long Hair (0=no, 1=yes)-2.97 **        -1.53    \n\n[-4.79, -1.15]          [-3.39, 0.33]   \n\nIs Female (0=no, 1=yes)       -4.79 ***-4.07 ***\n\n       [-6.76, -2.81]   [-6.21, -1.93]   \n\nN93       93       93       \n\nR20.10    0.20    0.23    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05."
+  },
+  {
+    "objectID": "COMPSS212/slides/6_MRpower.html#check-in",
+    "href": "COMPSS212/slides/6_MRpower.html#check-in",
+    "title": "",
+    "section": "",
+    "text": "## Multivariate Linear Model\nmod3 &lt;- lm(height ~ long.hair + is.female, d)\nexport_summs(mod1, mod2, mod3,\n             error_format = \"95%CI [{conf.low}, {conf.high}]\")\n\n\n\nModel 1Model 2Model 3\n\n(Intercept)66.94 ***68.69 ***69.21 ***\n\n95.00%CI [65.41, 68.48]   95.00%CI [66.92, 70.47]   95.00%CI [67.34, 71.07]   \n\nlong.hairYes-2.97 **        -1.53    \n\n95.00%CI [-4.79, -1.15]          95.00%CI [-3.39, 0.33]   \n\nis.femaleYes       -4.79 ***-4.07 ***\n\n       95.00%CI [-6.76, -2.81]   95.00%CI [-6.21, -1.93]   \n\nN93       93       93       \n\nR20.10    0.20    0.23    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05."
+  },
+  {
+    "objectID": "COMPSS212/slides/6_MRpower.html#power-tests",
+    "href": "COMPSS212/slides/6_MRpower.html#power-tests",
+    "title": "",
+    "section": "Power Tests",
+    "text": "Power Tests\n\nwhat is power, professor?\n\nPower : the probability that you would “correctly” observe the relationship between two variables if the relationship actually exists (i.e., if the null hypothesis were NOT true).\n\n\n\nReal-Life Examples on the vision board : a decision you need to make (eating old pizza in the refrigerator)\nProfessor Slideshow. Underneath this one, and then we will explore the power visualization\n\n\n\nwhat’s the point, professor?\n\n\n\nReasons to Calculate Power :\n\nPost-Hoc Power : You did a study, and want to further contextualize your guess about how much sampling error influenced your results.\nPower Planning : You are planning to run a study, and want to know how many people to recruit to have the highest probability of observing the “true” effect (if it exists.)\n\n\n\n\n\n\n\n\ngoal : you want power to be HIGH\nDISCUSS : what could we do as researchers to increase power???\n\n\n\n\n\n\n\nNotespoilers\n\n\n\nthe effect size increases : the bigger the difference, the more likely you’ll detect it.\nyour sample size increases : the more people, the less sampling error, and the easier it is to have confidence that any difference you found is not just chance.\nyou increase the threshold for rejecting the null hypothesis : if the probability of rejecting the null hypothesis = 10%, then your power increases.\n\n\n\n\n\nACTIVITY : calculating in R (by hand)\n\nthe modelsaving the metricsdistributionscalculating in R (a package)a picture is worth….\n\n\n\n#|echo: true\nsummary(mod3) \n\n\nCall:\nlm(formula = height ~ long.hair + is.female, data = d)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-9.6721 -2.1020 -0.2056  1.8645 14.7944 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)    69.206      0.937  73.862  &lt; 2e-16 ***\nlong.hairYes   -1.534      0.937  -1.637 0.105183    \nis.femaleYes   -4.070      1.077  -3.781 0.000281 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 3.748 on 90 degrees of freedom\n  (7 observations deleted due to missingness)\nMultiple R-squared:  0.2265,    Adjusted R-squared:  0.2093 \nF-statistic: 13.17 on 2 and 90 DF,  p-value: 9.587e-06\n\n\n\n\n\n#|echo: true\nsm &lt;- summary(mod3) # saving this as an object\nobjects(sm) # there is more inside.\n\n [1] \"adj.r.squared\" \"aliased\"       \"call\"          \"coefficients\" \n [5] \"cov.unscaled\"  \"df\"            \"fstatistic\"    \"na.action\"    \n [9] \"r.squared\"     \"residuals\"     \"sigma\"         \"terms\"        \n\nsm$coefficients # tadaa\n\n              Estimate Std. Error   t value     Pr(&gt;|t|)\n(Intercept)  69.205625   0.936964 73.861560 2.457893e-82\nlong.hairYes -1.533542   0.936964 -1.636713 1.051826e-01\nis.femaleYes -4.070125   1.076490 -3.780923 2.807017e-04\n\nsm$coefficients[2,3] # our t-value\n\n[1] -1.636713\n\nmtval &lt;- sm$coefficients[2,3]\n\n\n\n\nthe t-distribution approaches the normal distribution (with a 95% Interval cutoff of 1.96….)\nbut we are not quite there so good to look up what the t-value actually is based on our degrees of freedom (the sample size minus the number of parameters in our model)\n\n\n#|echo: true\nsm$df\n\n[1]  3 90  3\n\nqt(.025, df = sm$df[2]) # \n\n[1] -1.986675\n\nmcut &lt;- qt(.025, df = sm$df[2]) # saving this value\npt(mcut - mtval, df = sm$df[2]) # our power.\n\n[1] 0.3635928\n\n\n\n\nsimilar to our calculation “by hand”\n\n# install.packages(\"pwrss\")\nlibrary(pwrss)\n\n\nAttaching package: 'pwrss'\n\n\nThe following object is masked from 'package:stats':\n\n    power.t.test\n\npwrss::power.t.test(ncp = mtval, df = sm$df[2], plot = FALSE)\n\n+--------------------------------------------------+\n|                POWER CALCULATION                 |\n+--------------------------------------------------+\n\nGeneric T-Test\n\n---------------------------------------------------\nHypotheses\n---------------------------------------------------\n  H0 (Null Claim) : ncp = null.ncp \n  H1 (Alt. Claim) : ncp != null.ncp \n\n---------------------------------------------------\nResults\n---------------------------------------------------\n  Type 1 Error (alpha)   = 0.050\n  Type 2 Error (beta)    = 0.633\n  Statistical Power      = 0.367  &lt;&lt; \n\n\n\n\n\npwrss::power.t.test(ncp = mtval, df = sm$df[2], plot = TRUE, verbose = FALSE)\n\n\n\n\n\n\n\n\n\n\n\n\n\nACTIVITY : calculate the power we had to detect an effect from Lab 4.\n\n\n\nUsing Power to Estimate Sample Size.\n\nPower is a function of : effect size, sample size, and the alpha level (alpha = the Type I error that the researcher sets).\nYou can use these terms to estimate the sample size needed for a given power (the convention is often 80%).\n\n\n\nExample : Estimating Sample Size\nWhat sample size is needed for a slope of r = .23?\n\npwrss::power.z.onecor(rho = .23, power = .80)\n\n+--------------------------------------------------+\n|             SAMPLE SIZE CALCULATION              |\n+--------------------------------------------------+\n\nOne-Sample Correlation \n\n---------------------------------------------------\nHypotheses\n---------------------------------------------------\n  H0 (Null Claim) : rho -  null.rho = 0\n  H1 (Alt. Claim) : rho -  null.rho != 0\n\n---------------------------------------------------\nResults\n---------------------------------------------------\n  Sample Size          = 147  &lt;&lt;\n  Type 1 Error (alpha) = 0.050\n  Type 2 Error (beta)  = 0.198\n  Statistical Power    = 0.802\n\n\n\n\nokay."
+  },
+  {
+    "objectID": "COMPSS212/slides/7_interactions.html",
+    "href": "COMPSS212/slides/7_interactions.html",
+    "title": "Part 3 : Experiments",
+    "section": "",
+    "text": "SummaryDescriptionModel 1Model 2Model 3\n\n\nTable 1. Predicting Salaries from Years of Service and Sex.\n\n\n\n\nModel 1Model 2Model 3\n\nYears of Service779.57 ***      747.61 ***\n\n(110.42)         (111.40)   \n\nSex (0 = F; 1 = M)       14088.01 **9071.80    \n\n       (5064.58)  (4861.64)   \n\nN397       397      397       \n\nR20.11    0.02   0.12    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\nSalaries Dataset. “The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”\n-   salary : the salary of the professor, in cold, hard, US American Dollars.\n\n-   yrs.service : the years of service the professor had at the college.\n\n-   sex : whether the professor was Male or Female\n\n\n\n\nGraph of Model 1\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGraph of Model 2\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots"
+  },
+  {
+    "objectID": "COMPSS212/slides/7_interactions.html#check-in-mr.-nhst-review",
+    "href": "COMPSS212/slides/7_interactions.html#check-in-mr.-nhst-review",
+    "title": "Part 3 : Experiments",
+    "section": "",
+    "text": "SummaryDescriptionModel 1Model 2Model 3\n\n\nTable 1. Predicting Salaries from Years of Service and Sex.\n\n\n\n\nModel 1Model 2Model 3\n\nYears of Service779.57 ***      747.61 ***\n\n(110.42)         (111.40)   \n\nSex (0 = F; 1 = M)       14088.01 **9071.80    \n\n       (5064.58)  (4861.64)   \n\nN397       397      397       \n\nR20.11    0.02   0.12    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\nSalaries Dataset. “The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”\n-   salary : the salary of the professor, in cold, hard, US American Dollars.\n\n-   yrs.service : the years of service the professor had at the college.\n\n-   sex : whether the professor was Male or Female\n\n\n\n\nGraph of Model 1\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGraph of Model 2\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots"
+  },
+  {
+    "objectID": "COMPSS212/slides/7_interactions.html#recap-adding-a-quadtratic-effect-to-address-issues-of-heteroscedasticity",
+    "href": "COMPSS212/slides/7_interactions.html#recap-adding-a-quadtratic-effect-to-address-issues-of-heteroscedasticity",
+    "title": "Part 3 : Experiments",
+    "section": "RECAP : Adding a Quadtratic Effect to Address issues of Heteroscedasticity",
+    "text": "RECAP : Adding a Quadtratic Effect to Address issues of Heteroscedasticity\n\n::: {.column width=“50”}\nmod3b &lt;- lm(salary ~ yrs.service + I(yrs.service^2) + sex, data = Salaries)\nexport_summs(mod3, mod3b,model.names = c(\"Without Quad\", \"With Quad\"))\n\n\n\nWithout QuadWith Quad\n\n(Intercept)92356.95 ***77227.50 ***\n\n(4740.19)   (4929.33)   \n\nyrs.service747.61 ***2984.38 ***\n\n(111.40)   (327.46)   \n\nsexMale9071.80    9392.25 *  \n\n(4861.64)   (4574.88)   \n\nI(yrs.service^2)       -51.27 ***\n\n       (7.11)   \n\nN397       397       \n\nR20.12    0.22    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n::: {.column width=“50”}\n\npar(mfrow = c(2,2))\nplot(mod3b)\n\n\n\n\n\n\n\n\n:::\n:::::::"
+  },
+  {
+    "objectID": "COMPSS212/slides/7_interactions.html#break-time",
+    "href": "COMPSS212/slides/7_interactions.html#break-time",
+    "title": "Part 3 : Experiments",
+    "section": "BREAK TIME",
+    "text": "BREAK TIME"
+  },
+  {
+    "objectID": "COMPSS212/slides/7_interactions.html#commercial-break-looking-over-lab-4-discussing-the-results",
+    "href": "COMPSS212/slides/7_interactions.html#commercial-break-looking-over-lab-4-discussing-the-results",
+    "title": "Part 3 : Experiments",
+    "section": "COMMERCIAL BREAK : looking over Lab 4 (& discussing the results)",
+    "text": "COMMERCIAL BREAK : looking over Lab 4 (& discussing the results)"
+  },
+  {
+    "objectID": "COMPSS212/slides/7_interactions.html#part-2-experiments",
+    "href": "COMPSS212/slides/7_interactions.html#part-2-experiments",
+    "title": "Part 3 : Experiments",
+    "section": "Part 2 : Experiments",
+    "text": "Part 2 : Experiments"
+  },
+  {
+    "objectID": "COMPSS212/slides/7_interactions.html#part-x-introduction-to-interaction-effects",
+    "href": "COMPSS212/slides/7_interactions.html#part-x-introduction-to-interaction-effects",
+    "title": "Part 3 : Experiments",
+    "section": "Part X : Introduction to Interaction Effects",
+    "text": "Part X : Introduction to Interaction Effects\n\nSome Examples\n\nresume datapuzzle data\n\n\n\n\n\nBertrand, M., & Mullainathan, S. (2004). Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. American economic review, 94(4), 991-1013\n\n\n\n\n\n\n\nHoffman, M., Gneezy, U., & List, J. A. (2011). Nurture affects gender differences in spatial abilities. Proceedings of the National Academy of Sciences, 108(36), 14786-14788."
+  },
+  {
+    "objectID": "COMPSS212/slides/7_interactions.html#section",
+    "href": "COMPSS212/slides/7_interactions.html#section",
+    "title": "Part 3 : Experiments",
+    "section": "",
+    "text": "EXAMPLE : An Interaction Effect\n\nthe extra slopea picture is worth 1000 words.standardizing your variables?\n\n\n\nmod1 &lt;- lm(salary ~ yrs.service + I(yrs.service^2), data = Salaries)\nmod2 &lt;- lm(salary ~ sex, data = Salaries)\nmod3 &lt;- lm(salary ~ yrs.service + I(yrs.service^2) + sex, data = Salaries)\nmod4 &lt;- lm(salary ~ (yrs.service + I(yrs.service^2)) * sex, data = Salaries)\nexport_summs(mod1, mod2, mod3, mod4,\n             coefs = c(\"Years of Service\" = \"yrs.service\",\n                       \"Years ^ 2\" = \"I(yrs.service^2)\",\n                       \"Sex (0 = F; 1 = M)\" = \"sexMale\",\n                       \"Service * Sex (if Male)\" = \"yrs.service:sexMale\",\n                       \"Service^2 * Sex\" = \"I(yrs.service^2):sexMale\"))\n\n\n\nModel 1Model 2Model 3Model 4\n\nYears of Service3011.28 ***      2984.38 ***3058.46 *\n\n(328.53)         (327.46)   (1469.57) \n\nYears ^ 2-51.13 ***      -51.27 ***-48.89  \n\n(7.14)         (7.11)   (47.61) \n\nSex (0 = F; 1 = M)       14088.01 **9392.25 *  11000.73  \n\n       (5064.58)  (4574.88)   (9923.15) \n\nService * Sex (if Male)                    -99.89  \n\n                    (1509.41) \n\nService^2 * Sex                    -1.95  \n\n                    (48.18) \n\nN397       397      397       397     \n\nR20.21    0.02   0.22    0.22  \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmod1x &lt;- arm::standardize(mod1, NULL, T)\nmod2x &lt;- arm::standardize(mod2, NULL, T)\nmod3x &lt;- arm::standardize(mod3, NULL, T)\nmod4x &lt;- arm::standardize(mod4, NULL, T)\n\nexport_summs(mod1x, mod2x, mod3x, mod4x,\n             coefs = c(\"Years of Service\" = \"z.yrs.service\",\n                       \"Service^2\" = \"I(z.yrs.service^2)\",\n                       \"Sex (0=F; 1=M)\" = \"c.sex\",\n                       \"Service * Sex\" = \"z.yrs.service:c.sex\",\n                       \"Service^2 * Sex\" = \"I(z.yrs.service^2):c.sex\"))\n\n\n\nModel 1Model 2Model 3Model 4\n\nYears of Service0.52 ***      0.51 ***0.51 ***\n\n(0.05)         (0.05)   (0.05)   \n\nService^2-0.57 ***      -0.57 ***-0.57 ***\n\n(0.08)         (0.08)   (0.09)   \n\nSex (0=F; 1=M)       0.23 **0.16 *  0.14    \n\n       (0.08)  (0.08)   (0.11)   \n\nService * Sex                    -0.07    \n\n                    (0.25)   \n\nService^2 * Sex                    -0.02    \n\n                    (0.54)   \n\nN397       397      397       397       \n\nR20.21    0.02   0.22    0.22    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05."
+  },
+  {
+    "objectID": "COMPSS212/slides/7_interactions.html#discuss-interaction-effects",
+    "href": "COMPSS212/slides/7_interactions.html#discuss-interaction-effects",
+    "title": "Part 3 : Experiments",
+    "section": "DISCUSS : Interaction Effects",
+    "text": "DISCUSS : Interaction Effects\nFrom the Vision Board\n\nFind someone who you haven’t talked to :) or have talked to :)\nConsider an “effect” that you found before.\n\nWhat is the pattern in the data?\nWhat’s another variable that might influence this pattern result?\nWhat might the interaction effect (or lack of one) look like?\n\n\n\nMore Interaction Effect Practice (as needed)\n\nSEE PROFESSOR HANDOUT."
+  },
+  {
+    "objectID": "COMPSS212/Week7.html",
+    "href": "COMPSS212/Week7.html",
+    "title": "Week 7 - Monday, October 19th",
+    "section": "",
+    "text": "Week 7 - Monday, October 19th\n\n\n\n\n\n\nNoteAnnouncements and Agenda\n\n\n\n\n\nAnnouncements\n\n\n\nAgenda\n\ndifference in R2 across models –&gt; ANOVA (& bootstrapping)\noverfitting a model\ninteraction effects\n\n\n\n\n\nClass Slides and Materials\n\n\nCheck-In (no R!) : Please use the regression output to answer these questions. No R required; just interpretation.\n\nDataset of the Week: The “Salaries” Dataset in R ?Salaries\nVISION BOARD.\n\nProfessor Notes. My R scripts and other notes, saved in real-time.\n\n\n\n\nFor Next Week.\n\nLab 6. Interaction Effects\n\n\nSupport Materials\n\nOn Interaction Effects. More detail on interaction effects, how to interpret and calculate (from the linear model) and how to graph them using base R.\n\nThe Interactions Package. The author of jtools has made what looks like a super clean way to graph interaction effects in R, using ggplot2.\nVisualization Tutorials. Other, more cumbersome methods of plotting interaction effects exist!"
+  },
+  {
+    "objectID": "COMPSS212/slides/mrpower_slides.html#check-in",
+    "href": "COMPSS212/slides/mrpower_slides.html#check-in",
+    "title": "",
+    "section": "Check-In",
+    "text": "Check-In\n\n\n## Multivariate Linear Model\nmod3 &lt;- lm(height ~ long.hair + is.female, d)\nexport_summs(mod1, mod2, mod3,\n             error_format = \"95%CI [{conf.low}, {conf.high}]\")\n\n\n\nModel 1Model 2Model 3\n\n(Intercept)66.94 ***68.69 ***69.21 ***\n\n95.00%CI [65.41, 68.48]   95.00%CI [66.92, 70.47]   95.00%CI [67.34, 71.07]   \n\nlong.hairYes-2.97 **        -1.53    \n\n95.00%CI [-4.79, -1.15]          95.00%CI [-3.39, 0.33]   \n\nis.femaleYes       -4.79 ***-4.07 ***\n\n       95.00%CI [-6.76, -2.81]   95.00%CI [-6.21, -1.93]   \n\nN93       93       93       \n\nR20.10    0.20    0.23    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05."
+  },
+  {
+    "objectID": "COMPSS212/slides/mrpower_slides.html#power-tests",
+    "href": "COMPSS212/slides/mrpower_slides.html#power-tests",
+    "title": "",
+    "section": "Power Tests",
+    "text": "Power Tests"
+  },
+  {
+    "objectID": "COMPSS212/slides/6_MRpower.html#multiple-regression",
+    "href": "COMPSS212/slides/6_MRpower.html#multiple-regression",
+    "title": "",
+    "section": "",
+    "text": "Model 1Model 2Model 3\n\nLong Hair (0=no, 1=yes)-2.97 **       -1.53    \n\n[-4.79, -1.15]         [-3.39, 0.33]   \n\nIs Female (0=no, 1=yes)      -4.79 ***-4.07 ***\n\n      [-6.76, -2.81]   [-6.21, -1.93]   \n\nN93      93       93       \n\nR20.10   0.20    0.23    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05."
+  },
+  {
+    "objectID": "COMPSS212/slides/mrpower_slides.html#multiple-regression",
+    "href": "COMPSS212/slides/mrpower_slides.html#multiple-regression",
+    "title": "",
+    "section": "Multiple Regression",
+    "text": "Multiple Regression\n\n\n\n\nModel 1Model 2Model 3\n\nLong Hair (0=no, 1=yes)-2.97 **       -1.53    \n\n[-4.79, -1.15]         [-3.39, 0.33]   \n\nIs Female (0=no, 1=yes)      -4.79 ***-4.07 ***\n\n      [-6.76, -2.81]   [-6.21, -1.93]   \n\nN93      93       93       \n\nR20.10   0.20    0.23    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05."
+  },
+  {
+    "objectID": "COMPSS212/slides/6_MRpower.html#using-the-for-loop-to-estimate-and-evaluate-the-effects-of-sampling-error.",
+    "href": "COMPSS212/slides/6_MRpower.html#using-the-for-loop-to-estimate-and-evaluate-the-effects-of-sampling-error.",
+    "title": "",
+    "section": "Using the for-loop to estimate and evaluate the effects of sampling error.",
+    "text": "Using the for-loop to estimate and evaluate the effects of sampling error.\nSee Professor R script to…\n\nEstimate sampling error for one of the slopes\nDetermine whether the difference in slope from Model 1 to Model 3 is statistically significant."
+  },
+  {
+    "objectID": "COMPSS212/labs/Lab5.html",
+    "href": "COMPSS212/labs/Lab5.html",
+    "title": "Lab5",
+    "section": "",
+    "text": "Last week, you examined one of the effects of anchoring (e.g., you predicted people’s guesses about the speed of cats from the experimental condition they were in). Use R to calculate the statistical power you had to reject the null hypothesis. Then, use the pwr package to estimate the sample size that you would have needed to have 80% power.\nReturn to a previous lab or linear model where you defined a bivariate relationship (DV ~ IV).\n\n\nConsider some of the other variables in the linear model that might be important to include as part of a multiple regression. Explain why it might be important (or interesting) to include these other variables as part of your linear model.\nDefine a linear model to predict the DV from your original IV, as well as at least one other IV from the dataset. (Make sure to do any necessary data cleaning). Report the summary table from your multiple regression analyses.\nBelow the summary table, explain what changed (if anything) from the bivariate linear model to the multivariate linear model. Does the multivariate model seem like a better linear model? Why / why not?\nCalculate the power for one of the results in your analysis."
+  },
+  {
+    "objectID": "COMPSS212/slides/6_MRpower_slides.html#using-the-for-loop-to-estimate-and-evaluate-the-effects-of-sampling-error.",
+    "href": "COMPSS212/slides/6_MRpower_slides.html#using-the-for-loop-to-estimate-and-evaluate-the-effects-of-sampling-error.",
+    "title": "",
+    "section": "Using the for-loop to estimate and evaluate the effects of sampling error.",
+    "text": "Using the for-loop to estimate and evaluate the effects of sampling error.\nSee Professor R script to…\n\nEstimate sampling error for one of the slopes\nDetermine whether the difference in slope from Model 1 to Model 3 is statistically significant."
+  },
+  {
+    "objectID": "COMPSS212/slides/6_MRpower_slides.html#power-tests",
+    "href": "COMPSS212/slides/6_MRpower_slides.html#power-tests",
+    "title": "",
+    "section": "Power Tests",
+    "text": "Power Tests"
+  },
+  {
+    "objectID": "COMPSS212/slides/6_MRpower.html#part-1-multiple-regression-in-3-d-space",
+    "href": "COMPSS212/slides/6_MRpower.html#part-1-multiple-regression-in-3-d-space",
+    "title": "",
+    "section": "Part 1 : Multiple Regression in 3-D SPACE!!!!",
+    "text": "Part 1 : Multiple Regression in 3-D SPACE!!!!\n\nsee professor R Script for code, but no need to try and create these graphs. just for teaching purposes."
+  },
+  {
+    "objectID": "COMPSS212/slides/6_MRpower.html#part-2-power",
+    "href": "COMPSS212/slides/6_MRpower.html#part-2-power",
+    "title": "",
+    "section": "Part 2 : Power",
+    "text": "Part 2 : Power\n\nwhat is power, professor?\n\nPower : the probability that you would “correctly” observe the relationship between two variables if the relationship actually exists (i.e., if the null hypothesis were NOT true).\n\n\n\nReal-Life Examples on the vision board : a decision you need to make (eating old pizza in the refrigerator)\nProfessor Slideshow. Underneath this one, and then we will explore the power visualization\n\n\n\nwhat’s the point, professor?\n\n\n\nReasons to Calculate Power :\n\nPost-Hoc Power : You did a study, and want to further contextualize your guess about how much sampling error influenced your results.\nPower Planning : You are planning to run a study, and want to know how many people to recruit to have the highest probability of observing the “true” effect (if it exists.)\n\n\n\n\n\n\n\n\ngoal : you want power to be HIGH\nDISCUSS : what could we do as researchers to increase power???\n\n\n\n\n\n\n\nNotespoilers\n\n\n\nthe effect size increases : the bigger the difference, the more likely you’ll detect it.\nyour sample size increases : the more people, the less sampling error, and the easier it is to have confidence that any difference you found is not just chance.\nyou increase the threshold for rejecting the null hypothesis : if the probability of rejecting the null hypothesis = 10%, then your power increases.\n\n\n\n\n\nACTIVITY : calculating in R (by hand)\n\nthe modelsaving the metricsdistributionspwrssa picture is worth….\n\n\n\n#|echo: true\nsummary(mod3) \n\n\nCall:\nlm(formula = height ~ long.hair + is.female, data = d)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-9.6721 -2.1020 -0.2056  1.8645 14.7944 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)    69.206      0.937  73.862  &lt; 2e-16 ***\nlong.hairYes   -1.534      0.937  -1.637 0.105183    \nis.femaleYes   -4.070      1.077  -3.781 0.000281 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 3.748 on 90 degrees of freedom\n  (7 observations deleted due to missingness)\nMultiple R-squared:  0.2265,    Adjusted R-squared:  0.2093 \nF-statistic: 13.17 on 2 and 90 DF,  p-value: 9.587e-06\n\n\n\n\n\n#|echo: true\nsm &lt;- summary(mod3) # saving this as an object\nobjects(sm) # there is more inside.\n\n [1] \"adj.r.squared\" \"aliased\"       \"call\"          \"coefficients\" \n [5] \"cov.unscaled\"  \"df\"            \"fstatistic\"    \"na.action\"    \n [9] \"r.squared\"     \"residuals\"     \"sigma\"         \"terms\"        \n\nsm$coefficients # tadaa\n\n              Estimate Std. Error   t value     Pr(&gt;|t|)\n(Intercept)  69.205625   0.936964 73.861560 2.457893e-82\nlong.hairYes -1.533542   0.936964 -1.636713 1.051826e-01\nis.femaleYes -4.070125   1.076490 -3.780923 2.807017e-04\n\nsm$coefficients[2,3] # our t-value\n\n[1] -1.636713\n\nmtval &lt;- sm$coefficients[2,3]\n\n\n\n\nthe t-distribution approaches the normal distribution (with a 95% Interval cutoff of 1.96….)\nbut we are not quite there so good to look up what the t-value actually is based on our degrees of freedom (the sample size minus the number of parameters in our model)\n\n\n#|echo: true\nsm$df\n\n[1]  3 90  3\n\nqt(.025, df = sm$df[2]) # \n\n[1] -1.986675\n\nmcut &lt;- qt(.025, df = sm$df[2]) # saving this value\npt(mcut - mtval, df = sm$df[2]) # our power.\n\n[1] 0.3635928\n\n\n\n\nsimilar to our calculation “by hand”\n\n# install.packages(\"pwrss\")\nlibrary(pwrss)\n\n\nAttaching package: 'pwrss'\n\n\nThe following object is masked from 'package:stats':\n\n    power.t.test\n\npwrss::power.t.test(ncp = mtval, df = sm$df[2], plot = FALSE)\n\n+--------------------------------------------------+\n|                POWER CALCULATION                 |\n+--------------------------------------------------+\n\nGeneric T-Test\n\n---------------------------------------------------\nHypotheses\n---------------------------------------------------\n  H0 (Null Claim) : ncp = null.ncp \n  H1 (Alt. Claim) : ncp != null.ncp \n\n---------------------------------------------------\nResults\n---------------------------------------------------\n  Type 1 Error (alpha)   = 0.050\n  Type 2 Error (beta)    = 0.633\n  Statistical Power      = 0.367  &lt;&lt; \n\n\n\n\n\npwrss::power.t.test(ncp = mtval, df = sm$df[2], plot = TRUE, verbose = FALSE)\n\n\n\n\n\n\n\n\n\n\n\n\n\nUsing Power to Estimate Sample Size.\n\nPower is a function of : effect size, sample size, and the alpha level (alpha = the Type I error that the researcher sets).\nYou can use these terms to estimate the sample size needed for a given power (the convention is often 80%).\n\n\n\nACTIVITY : Calculating (and Planning) Power in Lab 4\n\nthe dataestimating sdestimating powerestimating sample size\n\n\n\n\n\nsampling error = \\(\\frac{\\sigma}{\\sqrt{n}}\\)\n\nsdest &lt;- (.19 * 237^.5) # formula for sd based on sampling error\n\n\n\n\npwrss::power.t.student(-.37/sdest, n2 = 237, design = \"one.sample\")\n\n+--------------------------------------------------+\n|                POWER CALCULATION                 |\n+--------------------------------------------------+\n\nStudent's T-Test (One Sample)\n\n---------------------------------------------------\nHypotheses\n---------------------------------------------------\n  H0 (Null Claim) : d - null.d = 0 \n  H1 (Alt. Claim) : d - null.d != 0 \n\n---------------------------------------------------\nResults\n---------------------------------------------------\n  Sample Size            = 237\n  Type 1 Error (alpha)   = 0.050\n  Type 2 Error (beta)    = 0.508\n  Statistical Power      = 0.492  &lt;&lt;\n\n\n\n\n\npwrss::power.t.student(-.37/sdest, power = .80, design = \"one.sample\")\n\n+--------------------------------------------------+\n|             SAMPLE SIZE CALCULATION              |\n+--------------------------------------------------+\n\nStudent's T-Test (One Sample)\n\n---------------------------------------------------\nHypotheses\n---------------------------------------------------\n  H0 (Null Claim) : d - null.d = 0 \n  H1 (Alt. Claim) : d - null.d != 0 \n\n---------------------------------------------------\nResults\n---------------------------------------------------\n  Sample Size            = 493  &lt;&lt;\n  Type 1 Error (alpha)   = 0.050\n  Type 2 Error (beta)    = 0.200\n  Statistical Power      = 0.8\n\n\n\n\n\n\n\nokay."
+  },
+  {
+    "objectID": "COMPSS212/slides/6_MRpower_slides.html#part-1-multiple-regression-in-3-d-space",
+    "href": "COMPSS212/slides/6_MRpower_slides.html#part-1-multiple-regression-in-3-d-space",
+    "title": "",
+    "section": "Part 1 : Multiple Regression in 3-D SPACE!!!!",
+    "text": "Part 1 : Multiple Regression in 3-D SPACE!!!!\n\nsee professor R Script for code, but no need to try and create these graphs. just for teaching purposes."
+  },
+  {
+    "objectID": "COMPSS212/slides/6_MRpower_slides.html#part-2-power",
+    "href": "COMPSS212/slides/6_MRpower_slides.html#part-2-power",
+    "title": "",
+    "section": "Part 2 : Power",
+    "text": "Part 2 : Power"
   }
 ]
