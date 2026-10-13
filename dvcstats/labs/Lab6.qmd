@@ -1,0 +1,27 @@
+---
+title: "Lab 6"
+format: html
+---
+
+**Note :** part of the skill in working with data is thinking through the steps you will need to answer the question. We will practice this!
+
+## Dataset and Researcher Questions
+
+[Mascot Dataset and Codebook](https://www.dropbox.com/scl/fo/lioqn3vcv5wkl4c7igxlz/AOAZII2z_pt973R4DMKKdDE?rlkey=neym1p5i8x6fdudkf5lrryosg&dl=0)
+
+Researchers wanted to better understand what predicts people's attitudes about native american mascots. (We discussed this dataset at length in lecture; see the recording if you missed.)
+
+Define a series of linear models to test the following predictions :
+
+1.  IN CLASS : implicit prejudice will be positively related to people's attitudes about the mascot.
+2.  IN CLASS : explicit prejudice will be positively related to people's attitudes about the mascot.
+3.  IN SECTION : come up and test your own prediction about how two numeric variables from the "mascot" dataset are related to each other.
+
+## Assignment Details
+
+For this lab, your task is to prepare a report (using Quarto or Google Docs) that includes the following. You do not need to include code in your report - just include the graphs, relevant statistics, and your analysis. However, please copy and paste your code into the assignment comment so I can see what you did.
+
+1.  **Graphs of all your variables.** Underneath the graphs, briefly describe what you learn about the variables in your study (reporting descriptive statistics not required, though feel free to include as needed.)
+2.  **Graphs for your linear models.** Make sure the graphs are clearly labeled and look nice.
+3.  **Statistics for your linear models.** Report the intercept, slope, and $R^2$ value for each model.
+4.  **Interpretation of Statistics.** Describe what each statistic (reported above) tells you about the relationship between these two variables. Then, conclude - why might this relationship (or lack of one) matter? What other questions do you have / how could you use this knowledge?
