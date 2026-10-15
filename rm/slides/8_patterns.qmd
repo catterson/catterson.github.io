@@ -89,6 +89,8 @@ In the linear regression analysis, lead authors of color again wrote abstracts w
 ::: {.column width="60%"}
 ```{r}
 #| echo: false
+#| warning: false
+#| message: false
 #| fig-width: 5
 #| fig-height: 5
 
@@ -111,6 +113,8 @@ In the linear regression analysis, lead authors of color again wrote abstracts w
 ::: {.column width="60%"}
 ```{r}
 #| echo: false
+#| warning: false
+#| message: false
 #| fig-width: 5
 #| fig-height: 5
 
