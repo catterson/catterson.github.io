@@ -2,6 +2,7 @@
 title: "Interruption Data (FA26)"
 format: html
 ---
+
 **FOR DISCUSSION 6.** Look over the data from the class activity. Explain how our operationalization task influenced the responses in terms of the mean and standard deviation, and how this relates to the concepts of reliability and validity.
 
 ```{r}
@@ -23,6 +24,7 @@ d <- d[d$time > "2026-03-01",]
 ```
 
 Below are the graphs of data from the activity we just did, through the magic of R.
+
 ```{r}
 #| echo: false
 #| message: false
@@ -36,6 +38,7 @@ hist(d$i2, xlab = "Interruptions Counted at Time 2", main = "Time 2", col = "bla
 ```
 
 Below are the descriptive statistics for these data.
+
 ```{r}
 #| echo: false
 tt <- data.frame(c(round(mean(d$i1, na.rm = T), 2), round(sd(d$i1, na.rm = T), 2), round(range(d$i1, na.rm = T), 2)),

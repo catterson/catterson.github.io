@@ -4,18 +4,18 @@ format:
   html: default
   revealjs: 
     slide-level: 3
-    output-file: "7_surveys_slide.html"
+    output-file: "8_pattern_slide.html"
     link-external-newwindow: true
     controls: true
+    smaller: true
 navbar: false
 ---
 
-## Check-In : Interruptions Data {.smaller}
+## [Check-In : Interruptions Data](https://forms.gle/7vVrzuGYU9VjEJJh7)
 
-
-:::{.panel-tabset}
-
+::: panel-tabset
 ### Graphs
+
 ```{r}
 #| echo: false
 #| message: false
@@ -31,6 +31,7 @@ names(d) <- c("time", "i1", "lod", "i2", "Date")
 d$i1[d$i1 > 60] <- NA
 d$i2[d$i2 > 60] <- NA
 d <- d[d$time > "2026-07-01",]
+mod <- lm(d$i2 ~ d$i1)
 ```
 
 ```{r}
@@ -46,6 +47,7 @@ hist(d$i2, xlab = "Interruptions Counted at Time 2", main = "Time 2", col = "bla
 ```
 
 ### Descriptive Statistics
+
 ```{r}
 #| echo: false
 tt <- data.frame(c(round(mean(d$i1, na.rm = T), 2), round(sd(d$i1, na.rm = T), 2), round(range(d$i1, na.rm = T), 2)),
@@ -56,9 +58,12 @@ knitr::kable(tt)
 ```
 
 ### Predictive Statistics
+
+Correlation = `{r} round(summary(mod)$r.squared^.5, 2)`
+
 ```{r}
 #| fig-height: 5
-#| fig-width: 10
+#| fig-width: 5
 #| echo: false
 #| message: false
 #| warning: false
@@ -66,10 +71,9 @@ knitr::kable(tt)
 plot(x = d$i1, y = d$i2,
      xlab = "Interruptions at Time 1",
      ylab = "Interruptions at Time 2")
-mod <- lm(d$i2 ~ d$i1)
 abline(mod, lwd = 5)
 ```
-
+:::
 
 # Part 1 : Patterns in the Data {.smaller}
 
@@ -135,4 +139,4 @@ plotmeans(power ~ POC, data = d, ylim = c(0,12))
 
 BYE.
 
-![](https://www.gif-vif.com/trending/frog-dance-frog.gif.pagespeed.ce.P7TEOgyG1P.gif){fig-align="center"}
+![](/images/frog-dance-ff7.gif){fig-align="center"}
