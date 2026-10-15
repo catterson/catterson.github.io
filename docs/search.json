@@ -1843,14 +1843,14 @@
   {
     "objectID": "rm/slides/8_patterns.html#clap-which-one-big-five-or-myers-briggs",
     "href": "rm/slides/8_patterns.html#clap-which-one-big-five-or-myers-briggs",
-    "title": "Part 2 : Patterns in the Data",
+    "title": "",
     "section": "CLAP : which one (big five or myers briggs)…",
-    "text": "CLAP : which one (big five or myers briggs)…\n…was the most interesting to take?\n…gave you the most valid feedback?\n…seemed the most scientific?\n\nThe Big Five and Myers-Briggs in our Class"
+    "text": "CLAP : which one (big five or myers briggs)…\n…was the most interesting to take?\n…gave you the most valid feedback?\n…seemed the most scientific?"
   },
   {
     "objectID": "rm/slides/8_patterns.html#activity-evaluate-the-measure-vision-board-review",
     "href": "rm/slides/8_patterns.html#activity-evaluate-the-measure-vision-board-review",
-    "title": "Part 2 : Patterns in the Data",
+    "title": "",
     "section": "ACTIVITY : evaluate the measure (vision board review)",
     "text": "ACTIVITY : evaluate the measure (vision board review)"
   },
@@ -6207,5 +6207,12 @@
     "title": "Lab 6",
     "section": "Assignment Details",
     "text": "Assignment Details\nFor this lab, your task is to prepare a report (using Quarto or Google Docs) that includes the following. You do not need to include code in your report - just include the graphs, relevant statistics, and your analysis. However, please copy and paste your code into the assignment comment so I can see what you did.\n\nGraphs of all your variables. Underneath the graphs, briefly describe what you learn about the variables in your study (reporting descriptive statistics not required, though feel free to include as needed.)\nGraphs for your linear models. Make sure the graphs are clearly labeled and look nice.\nStatistics for your linear models. Report the intercept, slope, and \\(R^2\\) value for each model.\nInterpretation of Statistics. Describe what each statistic (reported above) tells you about the relationship between these two variables. Then, conclude - why might this relationship (or lack of one) matter? What other questions do you have / how could you use this knowledge?"
+  },
+  {
+    "objectID": "rm/slides/8_patterns.html#check-in-interruptions-data",
+    "href": "rm/slides/8_patterns.html#check-in-interruptions-data",
+    "title": "",
+    "section": "Check-In : Interruptions Data",
+    "text": "Check-In : Interruptions Data"
   }
 ]

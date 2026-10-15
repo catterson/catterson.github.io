@@ -1,9 +1,9 @@
 ---
-title: "Interruption Data"
+title: "Interruption Data (FA26)"
 format: html
 ---
-**DISCUSSION : ** Look over the data from the class activity. Explain how our operationalization task influenced the responses in terms of the mean and standard deviation, and how this relates to the concepts of reliability and validity.
 
+**FOR DISCUSSION 6.** Look over the data from the class activity. Explain how our operationalization task influenced the responses in terms of the mean and standard deviation, and how this relates to the concepts of reliability and validity.
 
 ```{r}
 #| echo: false
@@ -15,11 +15,12 @@ library(gt)
 library(tidyverse)
 options(knitr.kable.NA = "")
 gs4_deauth()
-d <- read_sheet("https://docs.google.com/spreadsheets/d/1Vw8ezL6BeXRronRFLAZUEpUZoETND_hra80u-RQFCGM/edit?usp=sharing", sheet = "somedat")
+d <- read_sheet("https://docs.google.com/spreadsheets/d/1Vw8ezL6BeXRronRFLAZUEpUZoETND_hra80u-RQFCGM/edit?usp=sharing", sheet = "sp26")
 d$Date <- format(d$Date, "%m/%d")
 names(d) <- c("time", "i1", "lod", "i2", "Date")
 d$i1[d$i1 > 60] <- NA
 d$i2[d$i2 > 60] <- NA
+d <- d[d$time > "2026-03-01",]
 ```
 
 Below are the graphs of data from the activity we just did, through the magic of R.
@@ -32,11 +33,12 @@ Below are the graphs of data from the activity we just did, through the magic of
 #| fig-width: 10
 
 par(mfrow = c(1,2))
-hist(d$i1, xlab = "Interruptions Counted at Time 1", main = "Time 1", col = "black", bor = "white", breaks = 15, xlim = c(0,60))
-hist(d$i2, xlab = "Interruptions Counted at Time 2", main = "Time 2", col = "black", bor = "white", xlim = c(0,60))
+hist(d$i1, xlab = "Interruptions Counted at Time 1", main = "Time 1", col = "black", bor = "white", breaks = 10, xlim = c(0,60), ylim = c(0,15))
+hist(d$i2, xlab = "Interruptions Counted at Time 2", main = "Time 2", col = "black", bor = "white", xlim = c(0,60), ylim = c(0,15))
 ```
 
 Below are the descriptive statistics for these data.
+
 ```{r}
 #| echo: false
 tt <- data.frame(c(round(mean(d$i1, na.rm = T), 2), round(sd(d$i1, na.rm = T), 2), round(range(d$i1, na.rm = T), 2)),
@@ -46,3 +48,20 @@ row.names(tt) <- c("Mean", "Standard Deviation", "Minimum Value", "Maximum Value
 knitr::kable(tt)
 ```
 
+Below are the predictive statistics for these data.
+
+```{r}
+#| fig-height: 5
+#| fig-width: 10
+#| echo: false
+#| message: false
+#| warning: false
+
+plot(x = d$i1, y = d$i2,
+     xlab = "Interruptions at Time 1",
+     ylab = "Interruptions at Time 2")
+mod <- lm(d$i2 ~ d$i1)
+abline(mod, lwd = 5)
+```
+
+Correlation between Interruptions at Time 1 & Time 2 = `r round(summary(mod)$r.squared^.5, 2)`.
