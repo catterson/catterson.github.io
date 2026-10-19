@@ -177,6 +177,70 @@ Use Related Research as Examples
 :::::
 
 ::::::
+## Milestone #3 : Launching Your Study (Google Forms) {.smaller}
+
+### Your Survey : DV is NUMERIC with MULTIPLE ITEMS {.smaller}
+
+-   variable measured as likert scale = numeric
+
+-   how to get multiple items for...
+
+    -   hours of sleep
+
+    -   do you like me Y/N
+
+    -   other variables in this room?
+
+### Your Survey : Likert Scales {.smaller}
+
+::::: columns
+::: {.column width="50%"}
+![](images/clipboard-2843954023.png)
+:::
+
+::: {.column width="50%"}
+**Use a Multiple Choice Grid**
+
+-   **Each row is an item.**
+    -   All the items use the same "stem" ("I am someone who...")
+    -   Do not *require* responses. Okay if folks skip, right?
+        -   Attention Checks (e.g., "Mark Strongly Agree for this question.")
+        -   BETTER : to keep the survey short; give authentic motivation.
+-   **Each column is a response.** Use a 1-5 scale to make it easy / allow for neutral.
+:::
+:::::
+
+### Your Survey : Categorical Variables {.smaller}
+
+::::: columns
+::: {.column width="50%"}
+![](images/clipboard-538131922.png)
+:::
+
+::: {.column width="50%"}
+-   **Include demographic variables like age and sex;** give people options to self-identify as something outside a forced binary!
+-   **Keep categorical variables to just a few levels;** you will need a LOT of data to capture variation if there are too many levels! 3-4 groups per variable.
+:::
+:::::
+
+### Your Survey : The Right Type of Variable! {.smaller}
+
+::::: columns
+::: {.column width="50%"}
+![](images/clipboard-3774686706.png)
+:::
+
+::: {.column width="50%"}
+-   **Make sure categorical variables are not better measured numerically.** set "response validation" for any open-ended numbers you hope to collect to make data cleaning easier.
+
+-   **Make sure each variable is measured independently of the others.** For example, if I want to measure the relationship between happiness and reading, I would want to measure these separately.
+
+    -   I am happy.
+    -   I like to read.
+    -   ~~Reading makes me happy.~~ This mixes up the two variables (the DV and IV). It could be a cool measure on its own (love for reading scale?).
+:::
+:::::
+
 
 ## THE END.
 

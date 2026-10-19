@@ -1,0 +1,81 @@
+---
+title: "Lab 6 - Professor Key"
+format: html
+---
+
+## Experimental Power
+
+1.  Calculate the statistical power you had to determine whether the CONTROL CONDITION in the anchoring experiment was significantly different from the HIGH or LOW condition. You can choose do this for just one of the different outcome variables : a) cat speeds, b) tree heights, and c) meat consumption.
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+library(pwrss)
+library(gplots)
+library(jtools)
+
+d <- read.csv("~/Dropbox/!GRADSTATS/COMPSS212/Datasets/Nobel Prize Experiment Data/anchor.csv", stringsAsFactors = T)
+d$treeheight[d$treeheight > 1000] <- NA
+d$meateat[d$meateat > 1000] <- NA
+
+par(mfrow = c(1,4))
+plot(d$condition)
+hist(d$catspeed)
+hist(d$treeheight)
+hist(d$meateat)
+```
+
+Below are my final models (after doing some data cleaning.)
+```{r}
+#| echo: false
+#| fig-width: 15
+#| fig-height: 5
+
+mod1 <- lm(catspeed ~ condition, data = d)
+mod2 <- lm(treeheight ~ condition, data = d)
+mod3 <- lm(meateat ~ condition, data = d)
+
+par(mfrow = c(1,3))
+plotmeans(catspeed~ condition, data = d, connect = F, main = "CAT SPEEDS")
+plotmeans(treeheight ~ condition, data = d, connect = F, main = "TREE HEIGHTS")
+plotmeans(meateat ~ condition, data = d, connect = F, main = "MEAT CONSUMPTION")
+
+export_summs(mod1, mod2, mod3,
+             model.names = c("DV = Cat Speeds",
+                             "DV = Tree Heights",
+                             "DV = Meat Consumption"))
+```
+
+
+
+2.  Then, calculate the sample size you would need to have 80% power for these two differences.
+
+## Conceptual Power
+
+Practice calculating the probability of Power for the following tests. Hint : you will need to calculate the t-value for each test, and use R to look-up the cut-off scores for the given t-distribution, alpha level, and directional vs. non-directional hypothesis.
+
+-   cut-off value (to compare your slope) : qt(p = 1-α/2, df = n-1)
+    -   alpha : divided by two for a two-tailed test
+    -   n : the sample size
+    -   *note : you can calculate the cut-off scores for n = 10, n = 100, and n = 1000 and confirm the values approach 1.96.*
+-   standard error : pooled sd / sqrt(n)
+-   degrees of freedom : n - 1
+-   t-value for your slope: b / se
+-   probability of a given t-value : pt()
+
+1.  Slope = .43, Pooled SD = 2, Sample Size = 100, α = .05
+
+2.  The sample has more variation (increase the pooled SD) : Slope  = .43, Pooled SD = 4, Sample Size = 100, α = .05
+
+3.  The effect is stronger (increase the slope) : Slope  = .73, Pooled SD = 4, Sample Size = 100, α = .05
+
+4.  The sample size is larger (increase n) : Slope  = .73, Pooled SD = 4, Sample Size = 1000, α = .05
+
+5.  There's a negative relationship (decrease the slope and also change the cut-off) : Slope  = -.20, Pooled SD = 4, Sample Size = 15, α = .05
+
+6.  The researcher has a more conservative test (iecrease the alpha to .01) : Slope  = -.20, Pooled SD = 4, Sample Size = 15, α = .01
+
+7.  The researcher does a more liberal test (increase the alpha to .10) : Slope  = -.20, Pooled SD = 4, Sample Size = 15, α = .10
+
+8.  What do the results from the above power analyses tell you about all the ways that you can increase your power as a researcher? Which of these strategies seem like the best way to conduct high-quality science that seeks to find the TRUTH™?

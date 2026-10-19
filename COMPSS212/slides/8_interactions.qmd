@@ -129,7 +129,7 @@ plot(mod3)
 ## RECAP : Adding a Quadtratic Effect to Address issues of Heteroscedasticity
 
 ::: columns
-\::: {.column width = "50"}
+::: {.column width = "50"}
 
 ```{r}
 mod3b <- lm(salary ~ yrs.service + I(yrs.service^2) + sex, data = Salaries)
@@ -137,20 +137,18 @@ export_summs(mod3, mod3b,model.names = c("Without Quad", "With Quad"))
 ```
 :::
 
-\::: {.column width = "50"}
+::: {.column width = "50"}
 
 ```{r}
 par(mfrow = c(2,2))
 plot(mod3b)
 ```
 
-\:::
+:::
 
-\:::::::
+:::::::
 
 ## BREAK TIME
-
-## COMMERCIAL BREAK : looking over Lab 4 (& discussing the results)
 
 ## Part 2 : Experiments
 

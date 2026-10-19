@@ -7,19 +7,19 @@ editor: visual
 # Week 7 - Monday, October 19th
 
 ::: {.callout-note collapse="true"}
-### Announcements and Agenda
+### Agenda & Announcements
+
+**Goals**
+
+- **10:10 - 11:00. Review Calculating Power.** Conceptually and in R.
+
+- 11:00 - 11:10. Break Time
+
+- 
 
 **Announcements**
 
 - 
-
-**Agenda**
-
-- difference in R2 across models –\> ANOVA (& bootstrapping)
-
-- overfitting a model
-
-- interaction effects
 :::
 
 ### Class Slides and Materials
@@ -34,6 +34,8 @@ editor: visual
 - [**Professor Notes**](https://www.dropbox.com/scl/fo/7yhs2afoyisskz3eynnh8/ABO5kzYAdp8Y9cDBsqFU_TI?rlkey=hx72km35b6n02ep59vywdy7o4&dl=0). My R scripts and other notes, saved in real-time.
 
 # For Next Week.
+
+- [Some more notes on multicollinearity and VIFs.](https://online.stat.psu.edu/stat462/node/180/)
 
 ### Lab 6. Interaction Effects
 
