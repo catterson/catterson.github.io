@@ -6101,7 +6101,7 @@
     "href": "COMPSS212/Week7.html",
     "title": "Week 7 - Monday, October 19th",
     "section": "",
-    "text": "Week 7 - Monday, October 19th\n\n\n\n\n\n\nNoteAnnouncements and Agenda\n\n\n\n\n\nAnnouncements\n\n\n\nAgenda\n\ndifference in R2 across models –&gt; ANOVA (& bootstrapping)\noverfitting a model\ninteraction effects\n\n\n\n\n\nClass Slides and Materials\n\n\nCheck-In (no R!) : Please use the regression output to answer these questions. No R required; just interpretation.\n\nDataset of the Week: The “Salaries” Dataset in R ?Salaries\nVISION BOARD.\n\nProfessor Notes. My R scripts and other notes, saved in real-time.\n\n\n\n\nFor Next Week.\n\nLab 6. Interaction Effects\n\n\nSupport Materials\n\nOn Interaction Effects. More detail on interaction effects, how to interpret and calculate (from the linear model) and how to graph them using base R.\n\nThe Interactions Package. The author of jtools has made what looks like a super clean way to graph interaction effects in R, using ggplot2.\nVisualization Tutorials. Other, more cumbersome methods of plotting interaction effects exist!"
+    "text": "Week 7 - Monday, October 19th\n\n\n\n\n\n\nNoteAgenda & Announcements\n\n\n\n\n\nGoals\n\n10:10 - 11:00. Review Calculating Power. Conceptually and in R.\n11:00 - 11:10. Break Time\n\n\nAnnouncements\n\n\n\n\n\n\n\nClass Slides and Materials\n\n\nCheck-In (no R!) : Please use the regression output to answer these questions. No R required; just interpretation.\n\nDataset of the Week (for Lab 6): The Nobel Prize Winning Experimental Data\nVISION BOARD.\n\nProfessor Notes. My R scripts and other notes, saved in real-time.\n\n\n\n\nFor Next Week.\n\nLab 6. Calculating Power\nSome conceptual and computational exercises to practice understanding power.\n\n\nSupplemental Materials\n\nP-Hacking\n\nP-Hacking Demonstration. A recreation of a great interactive demonstration of how you can say anything with the “right” linear model.\nTsang, B. (2025). P hacking—five ways it could happen to you. Nature, 10. Do you think fear mongering is good if it’s in the interest of valid science?\nData Colada. Thoughts on quality control in the social science. These authors have shed light on (and taken down) some big names in the field.\n\n\n\nMultiple Comparisons Problem.\nThe more analyses you run, the more likely you’ll reject the null due to chance.\n\na comic. haha.\na blog post outlining the different problems and some possible solutions.\na more serious article on the problem of multiple comparisons, and methods to make corrections.\n\n\n\nConstruct Validity\n\nA thorough article on different types of construct validity in psychology."
   },
   {
     "objectID": "COMPSS212/slides/mrpower_slides.html#check-in",
@@ -6501,5 +6501,152 @@
     "title": "",
     "section": "THE END.",
     "text": "THE END."
+  },
+  {
+    "objectID": "COMPSS212/labs/Lab6.html",
+    "href": "COMPSS212/labs/Lab6.html",
+    "title": "Lab 6",
+    "section": "",
+    "text": "Calculate the statistical power you had to determine whether the CONTROL CONDITION in the anchoring experiment was significantly different from the HIGH or LOW condition. You can choose do this for just one of the different outcome variables : a) cat speeds, b) tree heights, and c) meat consumption.\n\nBelow are my final models (after doing some data cleaning.)\n\n\n\n\n\n\n\n\n\n\n\nDV = Cat SpeedsDV = Tree HeightsDV = Meat Consumption\n\n(Intercept)16.33 **270.20 *268.64 **\n\n(5.32)  (105.53) (78.87)  \n\nconditionHIGH12.67   369.35 *295.70 * \n\n(7.38)  (145.81) (117.58)  \n\nconditionLOW-6.26   54.80  -210.97   \n\n(8.76)  (172.32) (132.76)  \n\nN32      27     26      \n\nR20.16   0.23  0.38   \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\nThen, calculate the sample size you would need to have 80% power for these two differences."
+  },
+  {
+    "objectID": "COMPSS212/labs/Lab6.html#experimental-power",
+    "href": "COMPSS212/labs/Lab6.html#experimental-power",
+    "title": "Lab 6",
+    "section": "",
+    "text": "Calculate the statistical power you had to determine whether the CONTROL CONDITION in the anchoring experiment was significantly different from the HIGH or LOW condition. You can choose do this for just one of the different outcome variables : a) cat speeds, b) tree heights, and c) meat consumption.\n\nBelow are my final models (after doing some data cleaning.)\n\n\n\n\n\n\n\n\n\n\n\nDV = Cat SpeedsDV = Tree HeightsDV = Meat Consumption\n\n(Intercept)16.33 **270.20 *268.64 **\n\n(5.32)  (105.53) (78.87)  \n\nconditionHIGH12.67   369.35 *295.70 * \n\n(7.38)  (145.81) (117.58)  \n\nconditionLOW-6.26   54.80  -210.97   \n\n(8.76)  (172.32) (132.76)  \n\nN32      27     26      \n\nR20.16   0.23  0.38   \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\nThen, calculate the sample size you would need to have 80% power for these two differences."
+  },
+  {
+    "objectID": "COMPSS212/labs/Lab6.html#conceptual-power",
+    "href": "COMPSS212/labs/Lab6.html#conceptual-power",
+    "title": "Lab 6",
+    "section": "Conceptual Power",
+    "text": "Conceptual Power\nPractice calculating the probability of Power for the following tests. Hint : you will need to calculate the t-value for each test, and use R to look-up the cut-off scores for the given t-distribution, alpha level, and directional vs. non-directional hypothesis.\n\ncut-off value (to compare your slope) : qt(p = 1-α/2, df = n-1)\n\nalpha : divided by two for a two-tailed test\nn : the sample size\nnote : you can calculate the cut-off scores for n = 10, n = 100, and n = 1000 and confirm the values approach 1.96.\n\nstandard error : pooled sd / sqrt(n)\ndegrees of freedom : n - 1\nt-value for your slope: b / se\nprobability of a given t-value : pt()\n\n\nSlope = .43, Pooled SD = 2, Sample Size = 100, α = .05\nThe sample has more variation (increase the pooled SD) : Slope = .43, Pooled SD = 4, Sample Size = 100, α = .05\nThe effect is stronger (increase the slope) : Slope = .73, Pooled SD = 4, Sample Size = 100, α = .05\nThe sample size is larger (increase n) : Slope = .73, Pooled SD = 4, Sample Size = 1000, α = .05\nThere’s a negative relationship (decrease the slope and also change the cut-off) : Slope = -.20, Pooled SD = 4, Sample Size = 15, α = .05\nThe researcher has a more conservative test (iecrease the alpha to .01) : Slope = -.20, Pooled SD = 4, Sample Size = 15, α = .01\nThe researcher does a more liberal test (increase the alpha to .10) : Slope = -.20, Pooled SD = 4, Sample Size = 15, α = .10\nWhat do the results from the above power analyses tell you about all the ways that you can increase your power as a researcher? Which of these strategies seem like the best way to conduct high-quality science that seeks to find the TRUTH™?"
+  },
+  {
+    "objectID": "COMPSS212/slides/7_powerx.html",
+    "href": "COMPSS212/slides/7_powerx.html",
+    "title": "",
+    "section": "",
+    "text": "P-Hacking Demonstration. A recreation of a great interactive demonstration of how you can say anything with the “right” linear model.\nTsang, B. (2025). P hacking—five ways it could happen to you. Nature, 10. Do you think fear mongering is good if it’s in the interest of valid science?\nData Colada. Thoughts on quality control in the social science. These authors have shed light on (and taken down) some big names in the field.\n\n\n\n\n\nthe problemsome corrections"
+  },
+  {
+    "objectID": "COMPSS212/slides/7_powerx.html#check-in",
+    "href": "COMPSS212/slides/7_powerx.html#check-in",
+    "title": "",
+    "section": "",
+    "text": "AnchoringAnchoring Study Recap"
+  },
+  {
+    "objectID": "COMPSS212/slides/7_powerx.html#part-1-power-review",
+    "href": "COMPSS212/slides/7_powerx.html#part-1-power-review",
+    "title": "",
+    "section": "PART 1 : Power Review",
+    "text": "PART 1 : Power Review\n\nhaha so what was power, professor?\nPower : the probability that you would “correctly” observe the relationship between two variables if the relationship actually exists (i.e., if the null hypothesis were NOT true).\n\n\n\ngoal : you want power to be HIGH\n\nPlay with the power visualization - click “solve for power”\nDISCUSS : what could we do as researchers to increase power???\n\n\n\n\n\n\n\n\nNotespoilers\n\n\n\nthe effect size increases : the bigger the difference, the more likely you’ll detect it.\nyour sample size increases : the more people, the less sampling error, and the easier it is to have confidence that any difference you found is not just chance.\nyou increase the threshold for rejecting the null hypothesis : if the probability of rejecting the null hypothesis = 10%, then your power increases.\n\n\n\n\n\nwhat’s the point, professor?\n\n\n\nReasons to Calculate Power :\n\nPost-Hoc Power : You did a study, and want to further contextualize your guess about how much sampling error influenced your results.\nPower Planning : You are planning to run a study, and want to know how many people to recruit to have the highest probability of observing the “true” effect (if it exists.)\n\nPower is a function of : effect size, sample size, and the alpha level (alpha = the Type I error that the researcher sets).\nYou can use these terms to estimate the sample size needed for a given power (the convention is often 80%).\n\n\n\n\n\n\n\n\n\nACTIVITY : calculating in R (by hand)\n\nthe modelsaving the metrics we needt-distributionpwrssa picture is worth….another methodestimating sample size\n\n\n\n\n\n\nb &lt;- .39\nse &lt;- .20\nt &lt;- b / se\n\n\n\n\nthe t-distribution approaches the normal distribution (with a 95% Interval cutoff of 1.96….)\nbut we are not quite there so good to look up what the t-value actually is based on our degrees of freedom (the sample size minus the number of parameters in our model)\n\n\nn &lt;- 237 # the sample size\ndf &lt;- n-1 # degrees of freedom\nqt(.975, df = df) # pretty close to 1.96\n\n[1] 1.970067\n\nmcut &lt;- qt(.975, df = df) # saving this value\n\nt - mcut \n\n[1] -0.02006685\n\ntdiff &lt;- t - mcut \npt(tdiff, df = df) # our power.\n\n[1] 0.4920035\n\n\n\n\nsimilar to our calculation “by hand”\n\n# install.packages(\"pwrss\")\nlibrary(pwrss)\npwrss::power.t.test(ncp = t, df = df, plot = FALSE)\n\n+--------------------------------------------------+\n|                POWER CALCULATION                 |\n+--------------------------------------------------+\n\nGeneric T-Test\n\n---------------------------------------------------\nHypotheses\n---------------------------------------------------\n  H0 (Null Claim) : ncp = null.ncp \n  H1 (Alt. Claim) : ncp != null.ncp \n\n---------------------------------------------------\nResults\n---------------------------------------------------\n  Type 1 Error (alpha)   = 0.050\n  Type 2 Error (beta)    = 0.507\n  Statistical Power      = 0.493  &lt;&lt; \n\n\n\n\n\npwrss::power.t.test(ncp = t, df = df, plot = TRUE, verbose = FALSE)\n\n\n\n\n\n\n\n\n\n\n\n\n\ncohen’s d = b / \\(\\sigma\\)\nsampling error = \\(\\frac{\\sigma}{\\sqrt{n}}\\)\n\\(\\sigma\\) = \\(se * \\sqrt{n}\\)\n\n\n\nsdest &lt;- (.20 * 237^.5) # formula for sd based on sampling error\npwrss::power.t.student(.39/sdest, n2 = 237, design = \"one.sample\")\n\n+--------------------------------------------------+\n|                POWER CALCULATION                 |\n+--------------------------------------------------+\n\nStudent's T-Test (One Sample)\n\n---------------------------------------------------\nHypotheses\n---------------------------------------------------\n  H0 (Null Claim) : d - null.d = 0 \n  H1 (Alt. Claim) : d - null.d != 0 \n\n---------------------------------------------------\nResults\n---------------------------------------------------\n  Sample Size            = 237\n  Type 1 Error (alpha)   = 0.050\n  Type 2 Error (beta)    = 0.507\n  Statistical Power      = 0.493  &lt;&lt;\n\n\n\n\n\n\n\npwrss::power.t.student(.39/sdest, power = .80, design = \"one.sample\")\n\n+--------------------------------------------------+\n|             SAMPLE SIZE CALCULATION              |\n+--------------------------------------------------+\n\nStudent's T-Test (One Sample)\n\n---------------------------------------------------\nHypotheses\n---------------------------------------------------\n  H0 (Null Claim) : d - null.d = 0 \n  H1 (Alt. Claim) : d - null.d != 0 \n\n---------------------------------------------------\nResults\n---------------------------------------------------\n  Sample Size            = 492  &lt;&lt;\n  Type 1 Error (alpha)   = 0.050\n  Type 2 Error (beta)    = 0.199\n  Statistical Power      = 0.801\n\n\n\n\n\n\n\nACTIVITY : Calculating (and Plan) Power for Another Lab 4\n\n\n\n\n\ncohen’s d = b / \\(\\sigma\\)\nsampling error = \\(\\frac{\\sigma}{\\sqrt{n}}\\)\n\\(\\sigma\\) = \\(se * \\sqrt{n}\\)\n\npwrss::power.t.student(d = ???, n2 = ???, design = \"one.sample\")\npwrss::power.t.student(d = ???, power = ???, design = \"one.sample\")"
+  },
+  {
+    "objectID": "COMPSS212/slides/7_powerx.html#part-2-recapping-experiments",
+    "href": "COMPSS212/slides/7_powerx.html#part-2-recapping-experiments",
+    "title": "",
+    "section": "PART 2 : Recapping Experiments",
+    "text": "PART 2 : Recapping Experiments\n\nDEFINITION : Principles of an Experiment\n\n\noutcome (DV). what the researchers want to predict or explain\nmanipulation (IV). change only one thing about the variable\nconfound variables (“noise”). other factors that might influence the outcome variable\nrandom assignment. if people put in random groups, then all other confound variables are random error.\n\n\n\n\n\n\n\nKEY IDEA : Watch out for Misleading Control Variables\nRECAP : the manipulation (A/B Testing) : researchers create multiple groups (conditions) and change ONE THING (the IV) about a person’s experience in each group & observe the result (the DV).\nKEY IDEA : the comparison group matters!\n\na 1.5 hour research methods class DECREASES boredom compared to…\na 1.5 hour research methods class INCREASES boredom compared to…\n\n\n\nScience is Hard : Power Posing\n\nWhat is the experimental / control condotion?\nIs this a fair comparison / manipulation?\n\n\n\n\n\n\n\n\n\n\nExample : Gratitude Study\n\n\nRead the prompt below. Answer the following questions.\n\nICE-BREAKER : What’s something that you are grateful for?\nWhat is the experimental / control condition?\nIs this a fair comparison / manipulation? What would be better?\n\n\n\n\n\n\n\nLab 4 : The Dehumanization Study\n\n\n\nLab 6 : The Anchoring Study\n\nAnchoring DataAnchoring Study (Real-Life Examples)\n\n\n\n\n\n\nDV = Cat SpeedsDV = Tree HeightsDV = Meat Consumption\n\n(Intercept)16.33 **270.20 *268.64 **\n\n(5.32)  (105.53) (78.87)  \n\nconditionHIGH12.67   369.35 *295.70 * \n\n(7.38)  (145.81) (117.58)  \n\nconditionLOW-6.26   54.80  -210.97   \n\n(8.76)  (172.32) (132.76)  \n\nN32      27     26      \n\nR20.16   0.23  0.38   \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOther Questions to Consider : Does the experiment have….\n\nplacebo effectsexternal validityconstruct validityexpectancy effects\n\n\nWill individuals in the study change their behavior if they expect something to have an effect?\n\n\n\nHow much does the experimental manipulation represent what someone might experience in real life?\n\n\n\nHow much does the manipulation actually change the variable of interest?\n\n\n\n\n\n\n\nIf experimenters know what will happen to participants, will they change their behavior in ways that affect the results?\n\n\n\n\n\n\nokay."
+  },
+  {
+    "objectID": "COMPSS212/Week8.html",
+    "href": "COMPSS212/Week8.html",
+    "title": "Week 7 - Monday, October 19th",
+    "section": "",
+    "text": "Week 7 - Monday, October 19th\n\n\n\n\n\n\nNoteAgenda & Announcements\n\n\n\n\n\nGoals\n\n10:10 - 11:00. Review Calculating Power. Conceptually and in R.\n11:00 - 11:10. Break Time\n\n\nAnnouncements\n\n\n\n\n\n\n\nClass Slides and Materials\n\n\nCheck-In (no R!) : Please use the regression output to answer these questions. No R required; just interpretation.\n\nDataset of the Week: The “Salaries” Dataset in R ?Salaries\nVISION BOARD.\n\nProfessor Notes. My R scripts and other notes, saved in real-time.\n\n\n\n\nFor Next Week.\n\nLab 6. Calculating Power\nSome conceptual and computational exercises to practice understanding power.\n\n\nSupport Materials\n\nOn Interaction Effects. More detail on interaction effects, how to interpret and calculate (from the linear model) and how to graph them using base R.\n\nThe Interactions Package. The author of jtools has made what looks like a super clean way to graph interaction effects in R, using ggplot2.\nVisualization Tutorials. Other, more cumbersome methods of plotting interaction effects exist!"
+  },
+  {
+    "objectID": "COMPSS212/slides/8_interactions.html",
+    "href": "COMPSS212/slides/8_interactions.html",
+    "title": "Part 3 : Experiments",
+    "section": "",
+    "text": "SummaryDescriptionModel 1Model 2Model 3\n\n\nTable 1. Predicting Salaries from Years of Service and Sex.\n\n\n\n\nModel 1Model 2Model 3\n\nYears of Service779.57 ***      747.61 ***\n\n(110.42)         (111.40)   \n\nSex (0 = F; 1 = M)       14088.01 **9071.80    \n\n       (5064.58)  (4861.64)   \n\nN397       397      397       \n\nR20.11    0.02   0.12    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\nSalaries Dataset. “The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”\n-   salary : the salary of the professor, in cold, hard, US American Dollars.\n\n-   yrs.service : the years of service the professor had at the college.\n\n-   sex : whether the professor was Male or Female\n\n\n\n\nGraph of Model 1\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGraph of Model 2\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots"
+  },
+  {
+    "objectID": "COMPSS212/slides/8_interactions.html#check-in-mr.-nhst-review",
+    "href": "COMPSS212/slides/8_interactions.html#check-in-mr.-nhst-review",
+    "title": "Part 3 : Experiments",
+    "section": "",
+    "text": "SummaryDescriptionModel 1Model 2Model 3\n\n\nTable 1. Predicting Salaries from Years of Service and Sex.\n\n\n\n\nModel 1Model 2Model 3\n\nYears of Service779.57 ***      747.61 ***\n\n(110.42)         (111.40)   \n\nSex (0 = F; 1 = M)       14088.01 **9071.80    \n\n       (5064.58)  (4861.64)   \n\nN397       397      397       \n\nR20.11    0.02   0.12    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\nSalaries Dataset. “The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college’s administration to monitor salary differences between male and female faculty members.”\n-   salary : the salary of the professor, in cold, hard, US American Dollars.\n\n-   yrs.service : the years of service the professor had at the college.\n\n-   sex : whether the professor was Male or Female\n\n\n\n\nGraph of Model 1\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGraph of Model 2\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiagnostic Plots"
+  },
+  {
+    "objectID": "COMPSS212/slides/8_interactions.html#recap-adding-a-quadtratic-effect-to-address-issues-of-heteroscedasticity",
+    "href": "COMPSS212/slides/8_interactions.html#recap-adding-a-quadtratic-effect-to-address-issues-of-heteroscedasticity",
+    "title": "Part 3 : Experiments",
+    "section": "RECAP : Adding a Quadtratic Effect to Address issues of Heteroscedasticity",
+    "text": "RECAP : Adding a Quadtratic Effect to Address issues of Heteroscedasticity\n\n\n\nmod3b &lt;- lm(salary ~ yrs.service + I(yrs.service^2) + sex, data = Salaries)\nexport_summs(mod3, mod3b,model.names = c(\"Without Quad\", \"With Quad\"))\n\n\n\nWithout QuadWith Quad\n\n(Intercept)92356.95 ***77227.50 ***\n\n(4740.19)   (4929.33)   \n\nyrs.service747.61 ***2984.38 ***\n\n(111.40)   (327.46)   \n\nsexMale9071.80    9392.25 *  \n\n(4861.64)   (4574.88)   \n\nI(yrs.service^2)       -51.27 ***\n\n       (7.11)   \n\nN397       397       \n\nR20.12    0.22    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\npar(mfrow = c(2,2))\nplot(mod3b)"
+  },
+  {
+    "objectID": "COMPSS212/slides/8_interactions.html#break-time",
+    "href": "COMPSS212/slides/8_interactions.html#break-time",
+    "title": "Part 3 : Experiments",
+    "section": "BREAK TIME",
+    "text": "BREAK TIME"
+  },
+  {
+    "objectID": "COMPSS212/slides/8_interactions.html#part-2-experiments",
+    "href": "COMPSS212/slides/8_interactions.html#part-2-experiments",
+    "title": "Part 3 : Experiments",
+    "section": "Part 2 : Experiments",
+    "text": "Part 2 : Experiments"
+  },
+  {
+    "objectID": "COMPSS212/slides/8_interactions.html#part-x-introduction-to-interaction-effects",
+    "href": "COMPSS212/slides/8_interactions.html#part-x-introduction-to-interaction-effects",
+    "title": "Part 3 : Experiments",
+    "section": "Part X : Introduction to Interaction Effects",
+    "text": "Part X : Introduction to Interaction Effects\n\nSome Examples\n\nresume datapuzzle data\n\n\n\n\n\nBertrand, M., & Mullainathan, S. (2004). Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. American economic review, 94(4), 991-1013\n\n\n\n\n\n\n\nHoffman, M., Gneezy, U., & List, J. A. (2011). Nurture affects gender differences in spatial abilities. Proceedings of the National Academy of Sciences, 108(36), 14786-14788."
+  },
+  {
+    "objectID": "COMPSS212/slides/8_interactions.html#section",
+    "href": "COMPSS212/slides/8_interactions.html#section",
+    "title": "Part 3 : Experiments",
+    "section": "",
+    "text": "EXAMPLE : An Interaction Effect\n\nthe extra slopea picture is worth 1000 words.standardizing your variables?\n\n\n\nmod1 &lt;- lm(salary ~ yrs.service + I(yrs.service^2), data = Salaries)\nmod2 &lt;- lm(salary ~ sex, data = Salaries)\nmod3 &lt;- lm(salary ~ yrs.service + I(yrs.service^2) + sex, data = Salaries)\nmod4 &lt;- lm(salary ~ (yrs.service + I(yrs.service^2)) * sex, data = Salaries)\nexport_summs(mod1, mod2, mod3, mod4,\n             coefs = c(\"Years of Service\" = \"yrs.service\",\n                       \"Years ^ 2\" = \"I(yrs.service^2)\",\n                       \"Sex (0 = F; 1 = M)\" = \"sexMale\",\n                       \"Service * Sex (if Male)\" = \"yrs.service:sexMale\",\n                       \"Service^2 * Sex\" = \"I(yrs.service^2):sexMale\"))\n\n\n\nModel 1Model 2Model 3Model 4\n\nYears of Service3011.28 ***      2984.38 ***3058.46 *\n\n(328.53)         (327.46)   (1469.57) \n\nYears ^ 2-51.13 ***      -51.27 ***-48.89  \n\n(7.14)         (7.11)   (47.61) \n\nSex (0 = F; 1 = M)       14088.01 **9392.25 *  11000.73  \n\n       (5064.58)  (4574.88)   (9923.15) \n\nService * Sex (if Male)                    -99.89  \n\n                    (1509.41) \n\nService^2 * Sex                    -1.95  \n\n                    (48.18) \n\nN397       397      397       397     \n\nR20.21    0.02   0.22    0.22  \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmod1x &lt;- arm::standardize(mod1, NULL, T)\nmod2x &lt;- arm::standardize(mod2, NULL, T)\nmod3x &lt;- arm::standardize(mod3, NULL, T)\nmod4x &lt;- arm::standardize(mod4, NULL, T)\n\nexport_summs(mod1x, mod2x, mod3x, mod4x,\n             coefs = c(\"Years of Service\" = \"z.yrs.service\",\n                       \"Service^2\" = \"I(z.yrs.service^2)\",\n                       \"Sex (0=F; 1=M)\" = \"c.sex\",\n                       \"Service * Sex\" = \"z.yrs.service:c.sex\",\n                       \"Service^2 * Sex\" = \"I(z.yrs.service^2):c.sex\"))\n\n\n\nModel 1Model 2Model 3Model 4\n\nYears of Service0.52 ***      0.51 ***0.51 ***\n\n(0.05)         (0.05)   (0.05)   \n\nService^2-0.57 ***      -0.57 ***-0.57 ***\n\n(0.08)         (0.08)   (0.09)   \n\nSex (0=F; 1=M)       0.23 **0.16 *  0.14    \n\n       (0.08)  (0.08)   (0.11)   \n\nService * Sex                    -0.07    \n\n                    (0.25)   \n\nService^2 * Sex                    -0.02    \n\n                    (0.54)   \n\nN397       397      397       397       \n\nR20.21    0.02   0.22    0.22    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05."
+  },
+  {
+    "objectID": "COMPSS212/slides/8_interactions.html#discuss-interaction-effects",
+    "href": "COMPSS212/slides/8_interactions.html#discuss-interaction-effects",
+    "title": "Part 3 : Experiments",
+    "section": "DISCUSS : Interaction Effects",
+    "text": "DISCUSS : Interaction Effects\nFrom the Vision Board\n\nFind someone who you haven’t talked to :) or have talked to :)\nConsider an “effect” that you found before.\n\nWhat is the pattern in the data?\nWhat’s another variable that might influence this pattern result?\nWhat might the interaction effect (or lack of one) look like?\n\n\n\nMore Interaction Effect Practice (as needed)\n\nSEE PROFESSOR HANDOUT."
+  },
+  {
+    "objectID": "COMPSS212/slides/7_powerx_slides.html#check-in",
+    "href": "COMPSS212/slides/7_powerx_slides.html#check-in",
+    "title": "",
+    "section": "Check-In :",
+    "text": "Check-In :\n\nAnchoringAnchoring Study Recap"
+  },
+  {
+    "objectID": "COMPSS212/slides/7_powerx_slides.html#part-1-power-review",
+    "href": "COMPSS212/slides/7_powerx_slides.html#part-1-power-review",
+    "title": "",
+    "section": "PART 1 : Power Review",
+    "text": "PART 1 : Power Review"
+  },
+  {
+    "objectID": "COMPSS212/slides/7_powerx_slides.html#part-2-recapping-experiments",
+    "href": "COMPSS212/slides/7_powerx_slides.html#part-2-recapping-experiments",
+    "title": "",
+    "section": "PART 2 : Recapping Experiments",
+    "text": "PART 2 : Recapping Experiments"
+  },
+  {
+    "objectID": "COMPSS212/slides/7_powerx.html#check-in-dehumanization-data",
+    "href": "COMPSS212/slides/7_powerx.html#check-in-dehumanization-data",
+    "title": "",
+    "section": "",
+    "text": "P-Hacking Demonstration. A recreation of a great interactive demonstration of how you can say anything with the “right” linear model.\nTsang, B. (2025). P hacking—five ways it could happen to you. Nature, 10. Do you think fear mongering is good if it’s in the interest of valid science?\nData Colada. Thoughts on quality control in the social science. These authors have shed light on (and taken down) some big names in the field.\n\n\n\n\n\nthe problemsome corrections"
+  },
+  {
+    "objectID": "COMPSS212/slides/7_powerx_slides.html#check-in-dehumanization-data",
+    "href": "COMPSS212/slides/7_powerx_slides.html#check-in-dehumanization-data",
+    "title": "",
+    "section": "Check-In : Dehumanization Data",
+    "text": "Check-In : Dehumanization Data"
   }
 ]

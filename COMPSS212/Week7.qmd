@@ -25,22 +25,36 @@ editor: visual
 ### Class Slides and Materials
 
 ```{=html}
-<iframe data-external="1" class="slide-deck" src="/COMPSS212/slides/mrexperiment_slides.html" width="100%" height="500px" title=""></iframe>
+<iframe data-external="1" class="slide-deck" src="/COMPSS212/slides/7_powerx_slides.html" width="100%" height="500px" title=""></iframe>
 ```
 
-- [**Check-In (no R!)**](https://forms.gle/gBixuzC9jDksnokJ8) **:** Please use the regression output to answer these questions. No R required; just interpretation.
-  - **Dataset of the Week:** The "Salaries" Dataset in R `?Salaries`
+- [**Check-In (no R!)**](https://forms.gle/tQbHnMEiCfzAMz5W7) **:** Please use the regression output to answer these questions. No R required; just interpretation.
+  - **Dataset of the Week (for Lab 6):** [The Nobel Prize Winning Experimental Data](https://www.dropbox.com/scl/fi/pyw0ppgoei48rb6j4ujxs/anchor.csv?rlkey=tw8z9j0zbk3c7p93aft48n9k1&dl=0)
   - [**VISION BOARD**](https://docs.google.com/spreadsheets/d/14y4W9LJk1I9M3HFIOp3_94tdM0qUSYfkGdZnKK6L23c/edit?usp=sharing).
 - [**Professor Notes**](https://www.dropbox.com/scl/fo/7yhs2afoyisskz3eynnh8/ABO5kzYAdp8Y9cDBsqFU_TI?rlkey=hx72km35b6n02ep59vywdy7o4&dl=0). My R scripts and other notes, saved in real-time.
 
 # For Next Week.
 
-- [Some more notes on multicollinearity and VIFs.](https://online.stat.psu.edu/stat462/node/180/)
+### [Lab 6. Calculating Power](/COMPSS212/labs/Lab6.qmd)
 
-### Lab 6. Interaction Effects
+Some conceptual and computational exercises to practice understanding power.
 
-### Support Materials
+### Supplemental Materials
 
-- [**On Interaction Effects**](https://catterson.github.io/ystats/chapters/11R_InteractionFX.html). More detail on interaction effects, how to interpret and calculate (from the linear model) and how to graph them using base R.
-  - [The Interactions Package](https://interactions.jacob-long.com). The author of jtools has made what looks like a super clean way to graph interaction effects in R, using ggplot2.
-  - [Visualization Tutorials](https://sebastiansauer.github.io/vis_interaction_effects/). Other, more cumbersome methods of plotting interaction effects exist!
+#### P-Hacking
+
+1.  [**P-Hacking Demonstration**](https://stats.andrewheiss.com/hack-your-way/)**.** A recreation of a great interactive demonstration of how you can say anything with the "right" linear model.
+2.  [**Tsang, B. (2025). P hacking—five ways it could happen to you. *Nature*, *10***](https://www.dropbox.com/scl/fi/qvzu81r7xkdifrybc1753/PhackingFivewaysitcouldhappentoyou.pdf?rlkey=ixxwyu3tuefn1dbgwhjyxtx7g&dl=0)**.** Do you think fear mongering is good if it's in the interest of valid science?
+3.  [**Data Colada**](https://datacolada.org)**.** Thoughts on quality control in the social science. These authors have shed light on (and taken down) some big names in the field.
+
+#### **Multiple Comparisons Problem.** 
+
+The more analyses you run, the more likely you'll reject the null due to chance.
+
+1.  [a comic. haha](https://www.explainxkcd.com/wiki/index.php/882:_Significant).
+2.  [a blog post](https://methods.egap.org/guides/analysis-procedures/multiple-comparisons_en.html) outlining the different problems and some possible solutions.
+3.  [a more serious article](https://pmc.ncbi.nlm.nih.gov/articles/PMC5506159/) on the problem of multiple comparisons, and methods to make corrections.
+
+#### Construct Validity
+
+1.  [**A thorough article**](https://pmc.ncbi.nlm.nih.gov/articles/PMC7954782/) on different types of construct validity in psychology.

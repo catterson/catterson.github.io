@@ -3,7 +3,7 @@ title: ""
 format: 
   html: default
   revealjs: 
-    output-file: "7_PowerX_slides.html"
+    output-file: "7_powerx_slides.html"
     slide-level: 3
     smaller: true
     code-overflow: wrap
@@ -11,9 +11,31 @@ format:
 tbl-colwidths: [70,25]
 ---
 
-## Check-In :
+## [Check-In : Dehumanization Data](https://forms.gle/tQbHnMEiCfzAMz5W7)
 
-## Part 1 : Power Review
+![](images/clipboard-3944840293.png)
+
+### A Case of P-Hacking
+
+- [**P-Hacking Demonstration**](https://stats.andrewheiss.com/hack-your-way/)**.** A recreation of a great interactive demonstration of how you can say anything with the "right" linear model.
+
+- [**Tsang, B. (2025). P hacking—five ways it could happen to you. *Nature*, *10***](https://www.dropbox.com/scl/fi/qvzu81r7xkdifrybc1753/PhackingFivewaysitcouldhappentoyou.pdf?rlkey=ixxwyu3tuefn1dbgwhjyxtx7g&dl=0)**.** Do you think fear mongering is good if it's in the interest of valid science?
+
+- [**Data Colada**](https://datacolada.org)**.** Thoughts on quality control in the social science. These authors have shed light on (and taken down) some big names in the field.
+
+### Multiple Comparisons
+
+::: panel-tabset
+#### the problem
+
+![](images/clipboard-2192818347.png){fig-align="center" width="539"}
+
+#### some corrections
+
+![](images/clipboard-128480155.png){fig-align="center" width="591"}
+:::
+
+## PART 1 : Power Review
 
 ### haha so what was power, professor?
 
@@ -47,6 +69,9 @@ tbl-colwidths: [70,25]
   - **Post-Hoc Power :** You did a study, and want to further contextualize your guess about how much sampling error influenced your results.
 
   - **Power Planning :** You are planning to run a study, and want to know how many people to recruit to have the highest probability of observing the "true" effect (if it exists.)
+
+    - Power is a function of : effect size, sample size, and the alpha level (alpha = the Type I error that the researcher sets).
+    - You can use these terms to estimate the sample size needed for a given power (the convention is often 80%).
 :::
 
 ::: {.column width="50%"}
@@ -56,36 +81,33 @@ tbl-colwidths: [70,25]
 
 ### ACTIVITY : calculating in R (by hand) {.smaller}
 
-::: panel-tabset
+:::::: panel-tabset
 #### the model
 
-```{r}
-#|echo: true
-summary(mod3) 
-```
+![](images/clipboard-3944840293.png)
 
-#### saving the metrics
+#### saving the metrics we need
 
 ```{r}
-#|echo: true
-sm <- summary(mod3) # saving this as an object
-objects(sm) # there is more inside.
-sm$coefficients # tadaa
-sm$coefficients[2,3] # our t-value
-mtval <- sm$coefficients[2,3]
+b <- .39
+se <- .20
+t <- b / se
 ```
 
-#### distributions
+#### t-distribution
 
 - the t-distribution approaches the normal distribution (with a 95% Interval cutoff of 1.96....)
 - but we are not quite there so good to look up what the t-value actually is based on our degrees of freedom (the sample size minus the number of parameters in our model)
 
 ```{r}
-#|echo: true
-sm$df
-qt(.025, df = sm$df[2]) # 
-mcut <- qt(.025, df = sm$df[2]) # saving this value
-pt(mcut - mtval, df = sm$df[2]) # our power.
+n <- 237 # the sample size
+df <- n-1 # degrees of freedom
+qt(.975, df = df) # pretty close to 1.96
+mcut <- qt(.975, df = df) # saving this value
+
+t - mcut 
+tdiff <- t - mcut 
+pt(tdiff, df = df) # our power.
 ```
 
 #### pwrss
@@ -94,55 +116,62 @@ similar to our calculation "by hand"
 
 ```{r}
 #| echo: true
+#| message: false
+#| warning: false
 # install.packages("pwrss")
 library(pwrss)
-pwrss::power.t.test(ncp = mtval, df = sm$df[2], plot = FALSE)
+pwrss::power.t.test(ncp = t, df = df, plot = FALSE)
 ```
 
 #### a picture is worth....
 
 ```{r}
-pwrss::power.t.test(ncp = mtval, df = sm$df[2], plot = TRUE, verbose = FALSE)
+pwrss::power.t.test(ncp = t, df = df, plot = TRUE, verbose = FALSE)
 ```
+
+#### another method
+
+::::: columns
+::: {.column width="30%"}
+- cohen's d = b / $\sigma$
+- sampling error = $\frac{\sigma}{\sqrt{n}}$
+- $\sigma$ = $se * \sqrt{n}$
 :::
 
-### Using Power to Estimate Sample Size.
-
-- Power is a function of : effect size, sample size, and the alpha level (alpha = the Type I error that the researcher sets).
-- You can use these terms to estimate the sample size needed for a given power (the convention is often 80%).
-
-### ACTIVITY : Calculating (and Planning) Power in Lab 4
-
-::: panel-tabset
-#### the data
-
-![](images/clipboard-3944840293.png)
-
-#### estimating sd
-
-sampling error = $\frac{\sigma}{\sqrt{n}}$
-
+::: {.column width="70%"}
 ```{r}
-#| echo: true
-
-sdest <- (.19 * 237^.5) # formula for sd based on sampling error
+sdest <- (.20 * 237^.5) # formula for sd based on sampling error
+pwrss::power.t.student(.39/sdest, n2 = 237, design = "one.sample")
 ```
-
-#### estimating power
-
-```{r}
-#| echo: true
-pwrss::power.t.student(-.37/sdest, n2 = 237, design = "one.sample")
-
-```
+:::
+:::::
 
 #### estimating sample size
 
 ```{r}
 #| echo: true
-pwrss::power.t.student(-.37/sdest, power = .80, design = "one.sample")
+pwrss::power.t.student(.39/sdest, power = .80, design = "one.sample")
+```
+::::::
+
+### ACTIVITY : Calculating (and Plan) Power for Another Lab 4
+
+::::: columns
+::: {.column width="50%"}
+![](images/clipboard-3944840293.png)
+:::
+
+::: {.column width="50%"}
+- cohen's d = b / $\sigma$
+- sampling error = $\frac{\sigma}{\sqrt{n}}$
+- $\sigma$ = $se * \sqrt{n}$
+
+```         
+pwrss::power.t.student(d = ???, n2 = ???, design = "one.sample")
+pwrss::power.t.student(d = ???, power = ???, design = "one.sample")
 ```
 :::
+:::::
 
 ## PART 2 : Recapping Experiments
 
@@ -150,29 +179,19 @@ pwrss::power.t.student(-.37/sdest, power = .80, design = "one.sample")
 
 ::::: columns
 ::: {.column width="40%"}
-```         
-dependent variable. what the researchers want to predict or explain
+outcome (DV). what the researchers want to predict or explain
 
-experimental manipulation. change only one thing about the variable
+manipulation (IV). change only one thing about the variable
 
-extraneous variables as “noise”. other factors that might influence the outcome variable
+confound variables (“noise”). other factors that might influence the outcome variable
 
-random assignment. the group people are put in is random; this ensures that all other variables that might affect the result are evenly split across the two groups 
-
-placebo effects. when individuals in the study change their behavior if they expect something to have an effect
-
-external validity. how much does the experimental manipulation represent what someone might experience in real life?
-
-construct validity. how much does the manipulation actually change the variable of interest?
-
-experimenter expectancy effects. if experimenters know what will happen to participants, they may change their behavior in ways that affect the results
-```
+random assignment. if people put in random groups, then all other confound variables are *random error*.
 :::
 
 ::: {.column width="60%"}
-![](images/clipboard-1566104108.png)
+![](images/clipboard-1566104108.png){width="628"}
 
-![](images/clipboard-1999045374.png)
+![](images/clipboard-1999045374.png){width="625"}
 :::
 :::::
 
@@ -198,7 +217,7 @@ experimenter expectancy effects. if experimenters know what will happen to parti
 :::
 
 ::: {.column width="50%"}
-![](images/clipboard-1831303406.png)
+![](images/clipboard-1831303406.png){width="598"}
 :::
 :::::
 
@@ -214,9 +233,77 @@ Read the prompt below. Answer the following questions.
 :::
 
 ::: {.column width="60%"}
-![](images/clipboard-4269890032.png)
+![](images/clipboard-4269890032.png){width="587"}
 :::
 :::::
+
+### Lab 4 : The Dehumanization Study
+
+![](images/clipboard-4215952922.png){width="308"}
+
+### Lab 6 : The Anchoring Study
+
+::: panel-tabset
+#### Anchoring Data
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+library(pwrss)
+library(gplots)
+library(jtools)
+d <- read.csv("~/Dropbox/!GRADSTATS/COMPSS212/Datasets/Nobel Prize Experiment Data/anchor.csv", stringsAsFactors = T)
+d$treeheight[d$treeheight > 1000] <- NA
+d$meateat[d$meateat > 1000] <- NA
+mod1 <- lm(catspeed ~ condition, data = d)
+mod2 <- lm(treeheight ~ condition, data = d)
+mod3 <- lm(meateat ~ condition, data = d)
+```
+
+```{r}
+#| echo: false
+
+export_summs(mod1, mod2, mod3,
+             model.names = c("DV = Cat Speeds",
+                             "DV = Tree Heights",
+                             "DV = Meat Consumption"))
+```
+
+#### Anchoring Study (Real-Life Examples)
+
+|                                      |                                      |
+|------------------------------------|------------------------------------|
+| ![](images/clipboard-1142015815.png) | ![](images/clipboard-1443265713.png) |
+:::
+
+### Other Questions to Consider : Does the experiment have....
+
+::: panel-tabset
+#### placebo effects
+
+Will individuals in the study change their behavior if they expect something to have an effect?
+
+![](images/clipboard-2409565938.png)
+
+#### external validity
+
+How much does the experimental manipulation represent what someone might experience in real life?
+
+[![](images/clipboard-2842103364.png)](http://neuro.hms.harvard.edu/harvard-mahoney-neuroscience-institute/brain-newsletter/and-brain-series/love-and-brain)
+
+#### construct validity
+
+How much does the manipulation actually change the variable of interest?
+
+![](images/cyberball_gif.gif){fig-align="center"}
+
+#### expectancy effects
+
+If experimenters know what will happen to participants, will they change their behavior in ways that affect the results?
+
+[![](images/clipboard-232105013.png){width="678"}](http://query.nytimes.com/mem/archive-free/pdf?res=9E02E2D91F3AE733A25757C0A96F9C946597D6CF)
+:::
 
 ### okay.
 
