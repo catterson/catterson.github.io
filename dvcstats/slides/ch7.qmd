@@ -1,18 +1,54 @@
 ---
 title: ""
 format: 
+  html: default
   revealjs: 
-    height: 900
+    output-file: "ch7_slides.html"
     slide-level: 3
-    link-external-newwindow: true
-    chalkboard: true
+    embed-resources: true
     controls: true
+    smaller: true
     auto-stretch: false
     code-overflow: wrap
 tbl-colwidths: [50,50]
 ---
 
-### [CHECK-IN : Is there a relationship between narcissism and age?](https://forms.gle/ukg3b16VfzdiRiJF6) {.smaller}
+## [Check-In : Interpreting Models](https://forms.gle/JwNfsjJubhzzZJJX8)
+
+::: {.panel-tabset}
+    
+### The Graphs
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 5
+
+library(jtools)
+d <- read.csv("~/Dropbox/!WHY STATS/Chapter Datasets/Mascot Data/mascot_data.csv", stringsAsFactors = T)
+par(mfrow = c(1,2))
+mod1 <- lm(Income ~ MotherEducation, data = d)
+mod2 <- lm(Income ~ FatherEducation, data = d)
+plot(jitter(Income) ~ jitter(MotherEducation), data = d, xlab = "Mother Education", ylab = "Income", main = "Model 1", pch = 19)
+abline(mod1, col = "red", lwd = 5)
+
+plot(jitter(Income) ~ jitter(FatherEducation), data = d, xlab = "Father Education", ylab = "Income", main = "Model 2", pch = 19)
+abline(mod2, col = "red", lwd = 5)
+```
+
+### The Models
+
+```{r}
+#| echo: false
+export_summs(mod1, mod2,
+             model.names = c("Model 1", "Model 2"))
+```
+
+:::
+
+
+
+### [PRACTICE : Is there a relationship between narcissism and age?](https://forms.gle/oDmGgZmX2HcRWtuV8) {.smaller}
 **Go into a breakout room and share your screen as you work on the check-in.**
 
 ::::: columns
@@ -40,7 +76,7 @@ summary(mod)$r.squared # report R^2
 :::
 :::::
 
-### Check-In Spoilers
+### Practice Spoilers
 
 :::::::::: r-fit-text
 ::::::::: panel-tabset
