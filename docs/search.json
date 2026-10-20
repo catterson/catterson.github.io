@@ -6661,7 +6661,7 @@
     "href": "dvcstats/W9_CH7.html",
     "title": "Week 8 - Chapter 7",
     "section": "",
-    "text": "NoteAnnouncements and Agenda\n\n\n\n\n\n\n\n\nR Exam is TWO WEEKS. See the study guide.\n\nopen-note and open-internet\nstart (& submit) in class\nextra time as needed (hopefully not)?\n\n\n\nToday, on Psych 214…\n\n8:55 - 10:00. Check-In and Linear Model Review.\n10:00 - 10:10. Break Time.\n10:10 - 11:00. Linear Model with a Categorical IV\n\n\n\n\n\n\n\nClass Slides and Materials\n\n\nCheck-In. Linear Model Review. Purposefully vague!\n\nNarcissism Data. For the practice.\n\nR EXAM STUDY GUIDE. It will be chill.\nProfessor R Scripts [Zoom Room + Room Crew]\n\n\n\nFor Next Week.\n\nComplete Lab 6. Do the practice exam.\nNo new reading :)"
+    "text": "NoteAnnouncements and Agenda\n\n\n\n\n\n\n\n\nR Exam is TWO WEEKS. See the study guide.\n\nopen-note and open-internet\nstart (& submit) in class\nextra time as needed (hopefully not)?\n\n\n\nToday, on Psych 214…\n\n8:55 - 10:00. Check-In and Linear Model Review.\n10:00 - 10:10. Break Time.\n10:10 - 11:00. Linear Model with a Categorical IV\n\n\n\n\n\n\n\nClass Slides and Materials\n\n\nCheck-In. Linear Model Review. No R needed!\n\nNarcissism Data. For the practice.\n\nR EXAM STUDY GUIDE. It will be chill.\nProfessor R Scripts [Zoom Room + Room Crew]\n\n\n\nFor Next Week.\n\nComplete Lab 6. Do the practice exam.\nNo new reading :)"
   },
   {
     "objectID": "dvcstats/slides/ch7_slides.html#check-in",
@@ -6697,5 +6697,26 @@
     "title": "",
     "section": "Check-In : Interpreting Models",
     "text": "Check-In : Interpreting Models\n\nThe GraphsThe Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel 1Model 2\n\n(Intercept)3.56 ***4.21 ***\n\n(0.38)   (0.37)   \n\nMotherEducation0.41 ***       \n\n(0.08)          \n\nFatherEducation       0.24 ***\n\n       (0.07)   \n\nN201       201       \n\nR20.12    0.05    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05."
+  },
+  {
+    "objectID": "dvcstats/slides/ch7_slide.html#check-in-interpreting-models",
+    "href": "dvcstats/slides/ch7_slide.html#check-in-interpreting-models",
+    "title": "",
+    "section": "Check-In : Interpreting Models",
+    "text": "Check-In : Interpreting Models\n\nThe GraphsThe Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel 1Model 2\n\n(Intercept)3.56 ***4.21 ***\n\n(0.38)   (0.37)   \n\nMotherEducation0.41 ***       \n\n(0.08)          \n\nFatherEducation       0.24 ***\n\n       (0.07)   \n\nN201       201       \n\nR20.12    0.05    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05."
+  },
+  {
+    "objectID": "dvcstats/slides/ch7_slide.html#question-is-there-a-relationship-between-gender-and-narcissism",
+    "href": "dvcstats/slides/ch7_slide.html#question-is-there-a-relationship-between-gender-and-narcissism",
+    "title": "",
+    "section": "Question : Is there a relationship between gender and narcissism?",
+    "text": "Question : Is there a relationship between gender and narcissism?\nSee Prof. R script and demo."
+  },
+  {
+    "objectID": "dvcstats/slides/ch7_slide.html#the-end.",
+    "href": "dvcstats/slides/ch7_slide.html#the-end.",
+    "title": "",
+    "section": "THE END.",
+    "text": "THE END."
   }
 ]
