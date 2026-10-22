@@ -1,11 +1,13 @@
 ---
 title: ""
 format: 
+  html: default
   revealjs: 
     slide-level: 3
+    output-file: "9_precausation_slide.html"
     link-external-newwindow: true
-    chalkboard: true
     controls: true
+    smaller: true
 navbar: false
 ---
 
@@ -14,13 +16,13 @@ navbar: false
 :::::: r-fit-text
 ::::: columns
 ::: {.column width="20%"}
--   researchers measured rates of heart disease (AHD mortality) and rates of negative language usage on Twitter.
+- researchers measured rates of heart disease (AHD mortality) and rates of negative language usage on Twitter.
 
--   Focus on correlations in the red box --\>
+- Focus on correlations in the red box --\>
 :::
 
 ::: {.column width="80%"}
-![](images/clipboard-3217738726.png)
+![](images/clipboard-3217738726.png){width="473"}
 :::
 :::::
 ::::::
@@ -31,11 +33,11 @@ navbar: false
 
 ::::: columns
 ::: {.column width="50%"}
--   **direction of a relationship :** as one variable increases, what happens to the other variable?
+- **direction of a relationship :** as one variable increases, what happens to the other variable?
 
--   **strength of a relationship :** how well one variable can predict another (correlation coefficient (*r*) and/or $R^2$)
+- **strength of a relationship :** how well one variable can predict another (correlation coefficient (*r*) and/or $R^2$)
 
--   **the four reason(s) for a relationship :** correlation is not causation (*but causation is correlated...*)
+- **the four reason(s) for a relationship :** correlation is not causation (*but causation is correlated...*)
 :::
 
 ::: {.column width="50%"}
@@ -43,19 +45,17 @@ navbar: false
 :::
 :::::
 
-# Part 2 : [Digging Deeper](https://catterson.github.io/rm/notes/digdeeper.html) {.smaller}
+# Part 1 : [Digging Deeper](https://catterson.github.io/rm/notes/digdeeper.html) {.smaller}
 
-**evaluate the results ([vision board review](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing))**
+## ACTIVITY : find the empirical article (vision board)
 
--   Finding the "right" results that describe the pattern.
+![](images/clipboard-78843369.png)
 
-<!-- -->
+## HOMEWORK : evaluate the measure ([vision board review](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing)) {.smaller}
 
--   Thoughts on interpreting slope and "statistical significance".
+![](images/clipboard-2150884350.png)
 
-![](images/clipboard-480748356.png)
-
-# Part 3 : Experiments {.smaller}
+# Part 2 : Experiments {.smaller}
 
 Why did google change???
 
@@ -115,15 +115,15 @@ experimenter expectancy effects. if experimenters know what will happen to parti
 
 **KEY IDEA : the comparison group matters!**
 
--   a 1.5 hour research methods class DECREASES boredom compared to…
+- a 1.5 hour research methods class DECREASES boredom compared to…
 
--   a 1.5 hour research methods class INCREASES boredom compared to…
+- a 1.5 hour research methods class INCREASES boredom compared to…
 
 ### Science is Hard : Power Posing
 
--   What is the experimental / control condotion?
+- What is the experimental / control condition?
 
--   Is this a fair comparison / manipulation?
+- Is this a fair comparison / manipulation?
 
 ::::: columns
 ::: {.column width="50%"}
@@ -147,24 +147,40 @@ Read the prompt below. Answer the following questions.
 :::
 
 ::: {.column width="60%"}
-![](images/clipboard-4269890032.png)
+![](images/clipboard-4269890032.png){width="364" height="600"}
 :::
 :::::
 
-### ACTIVITY : Evaluating Dig Deeper {.smaller}
+### okay.
 
--   Look over the study you posted.
+![](images/frog-dance-ff7.gif){fig-align="center" width="466"}
 
--   Did the researchers do an experiment or correlational study?
+### Other Questions to Consider : Does the experiment have....
 
--   Could they do an experiment?
+::: panel-tabset
+#### placebo effects
 
-# NEXT CLASS : sampling error and bias
+Will individuals in the study change their behavior if they expect something to have an effect?
 
-**problem : the people we studied are different from EVERYONE ELSE**
+![](images/clipboard-3273758330.png)
 
--   sampling error : when these differences are random (p-value and stats stuff)
+#### external validity
 
--   sampling bias : these differences are not random (critical thinking stuff)
+How much does the experimental manipulation represent what someone might experience in real life?
 
-![](https://www.gif-vif.com/trending/frog-dance-frog.gif.pagespeed.ce.P7TEOgyG1P.gif){fig-align="center" width="80%"}
+![](images/clipboard-1011573524.png)
+
+#### construct validity
+
+How much does the manipulation actually change the variable of interest?
+
+![](images/cyberball.gif){fig-align="center"}
+
+#### expectancy effects
+
+If experimenters know what will happen to participants, will they change their behavior in ways that affect the results?
+
+![](images/clipboard-1046030223.png)
+:::
+
+### 
