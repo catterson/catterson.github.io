@@ -4,110 +4,121 @@ format:
   html: default
   revealjs: 
     slide-level: 3
-    output-file: "9_precausation_slide.html"
+    output-file: "10_experiments_slide.html"
     link-external-newwindow: true
     controls: true
     smaller: true
 navbar: false
 ---
 
-## [**CHECK-IN : tinyurl.com/twitterpattern**](https://docs.google.com/forms/d/e/1FAIpQLSf8Fo8cJBEUGCYlMg75pnYjFKqriEGVFRYYQOIsSPvEAcIszg/viewform)
+## [**CHECK-IN**]()
 
-:::::: r-fit-text
-::::: columns
-::: {.column width="20%"}
-- researchers measured rates of heart disease (AHD mortality) and rates of negative language usage on Twitter.
+::: panel-tabset
+#### Anchoring Data
 
-- Focus on correlations in the red box --\>
-:::
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+library(googlesheets4)
+library(gt)
+library(tidyverse)
+options(knitr.kable.NA = "")
+gs4_deauth()
+anchor <- read_sheet("https://docs.google.com/spreadsheets/d/1hPzlbSV6fex0aJbEd4zPPmrNcdEGrp-5u4reqpVdQhI/edit?usp=sharing", sheet = "Form Responses 1")
 
-::: {.column width="80%"}
-![](images/clipboard-3217738726.png){width="473"}
-:::
-:::::
-::::::
+# anchor <- read.csv("~/Downloads/9A_Eichstaedt_SP24.csv", stringsAsFactors = T)
+names(anchor)
+anchor <- anchor[,c(7, 9, 11:13, 15, 17:19)]
+names(anchor) <- c("condition", "catH", "treeH", "have.catH", "hikeH",
+                   "catL", "treeL", "have.catL", "hikeL")
+head(anchor)
 
-### RECAP : Correlations {.smaller}
+anchor$condition <- as.factor(anchor$condition)
+levels(anchor$condition) <- c("LOW", "HIGH")
 
-![](images/clipboard-4250847411.png){width="96%"}
+anchorH <- anchor[anchor$condition == "HIGH",]
+anchorL <- anchor[anchor$condition == "LOW",]
 
-::::: columns
-::: {.column width="50%"}
-- **direction of a relationship :** as one variable increases, what happens to the other variable?
+names(anchorH)[1:5] <- c("condition", "cat", "tree", "have.cat", "do.hike")
+names(anchorL)[c(1, 6:9)] <- c("condition", "cat", "tree", "have.cat", "do.hike")
 
-- **strength of a relationship :** how well one variable can predict another (correlation coefficient (*r*) and/or $R^2$)
+anchor <- rbind(anchorH[,c(1:5)],
+                anchorL[,c(1,6:9)])
 
-- **the four reason(s) for a relationship :** correlation is not causation (*but causation is correlated...*)
-:::
+## Data Cleaning
 
-::: {.column width="50%"}
-![](images/clipboard-3417651699.png)
-:::
-:::::
+library(gplots)
+hist(anchor$cat)
+hist(anchor$tree)
+anchor$tree[anchor$tree > 1500] <- NA
+anchor$have.cat <- as.factor(anchor$have.cat)
+anchor$do.hike <- as.factor(anchor$do.hike)
+plot(anchor$condition)
+plot(anchor$have.cat)
+plot(anchor$do.hike)
 
-# Part 1 : [Digging Deeper](https://catterson.github.io/rm/notes/digdeeper.html) {.smaller}
+## Experiments
 
-## ACTIVITY : find the empirical article (vision board)
+plot(condition ~ have.cat, data = anchor)
+plot(condition ~ do.hike, data = anchor)
 
-![](images/clipboard-78843369.png)
-
-## HOMEWORK : evaluate the measure ([vision board review](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing)) {.smaller}
-
-![](images/clipboard-2150884350.png)
-
-# Part 2 : Experiments {.smaller}
-
-Why did google change???
-
-![](images/clipboard-3590877897.png)
-
-### DEFINITION : Causality {.smaller}
-
-::::: columns
-::: {.column width="70%"}
-1.  The cause and effect are contiguous in space and time.
-2.  The cause must be prior to the effect.
-3.  There must be a constant union betwixt the cause and effect. (“Tis chiefly this quality, that constitutes the relation.”)
-4.  The same cause always produces the same effect, and the same effect never arises but from the same cause.
-:::
-
-::: {.column width="30%"}
-```         
-DISCUSS : 
-Which parts of this definition rule out the other reasons for a pattern in the data??
-
-Apply this definition to a true causal relationship. Does it hold up?
+## Models
+plotmeans(tree ~ condition, data = anchor)
+plotmeans(cat ~ condition, data = anchor)
 ```
+
+### Anchoring (Study
+
+:::: {.columns}
+    
+::: {.column width="50%"}
+
+outcome (DV). what the researchers want to predict or explain
+
+manipulation (IV). change only one thing about the variable
+
+confound variables (“noise”). other factors that might influence the outcome variable
+
+random assignment. if people put in random groups, then all other confound variables are *random error*.
+
 :::
-:::::
+    
+::: {.column width="50%"}
 
-### DEFINITION : Principles of an Experiment {.smaller}
+![](images/clipboard-3534066160.png)
 
-::::: columns
-::: {.column width="40%"}
-```         
-dependent variable. what the researchers want to predict or explain
+:::
+    
+::::
 
-experimental manipulation. change only one thing about the variable
 
-extraneous variables as “noise”. other factors that might influence the outcome variable
+### Anchoring (Real-Life Example)
 
-random assignment. the group people are put in is random; this ensures that all other variables that might affect the result are evenly split across the two groups 
+![](images/clipboard-448231483.png)
 
-placebo effects. when individuals in the study change their behavior if they expect something to have an effect
+### Anchoring (How Use?)
 
-external validity. how much does the experimental manipulation represent what someone might experience in real life?
-
-construct validity. how much does the manipulation actually change the variable of interest?
-
-experimenter expectancy effects. if experimenters know what will happen to participants, they may change their behavior in ways that affect the results
-```
+![](images/clipboard-2464854690.png)
 :::
 
-::: {.column width="60%"}
-![](images/clipboard-218932127.png)
+### Anchoring
+
+::: panel-tabset
+#### Anchoring Study (Real-Life Examples)
+
+|     |     |
+|-----|-----|
+|     |     |
 :::
-:::::
+
+# Part 2 : [Digging Deeper](https://catterson.github.io/rm/notes/digdeeper.html) {.smaller}
+
+## RECAP : evaluate the measure ([vision board review](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing)) {.smaller}
+
+![](images/clipboard-2150884350.png) \## NEXT : try to make the result make sense.
+
+# Part 1 : Experiments {.smaller}
 
 ### KEY IDEA : Watch out for Misleading Control Variables {.smaller}
 
