@@ -1,0 +1,33 @@
+---
+title: "Lab 7"
+format: html
+---
+
+## Calculating Interaction Effects
+
+**These problems focus on the self-esteem dataset (from the class dataset folder).** **You should find a codebook that describes these data in the same folder; we worked on these in Lab 2.**
+
+1.  Using the Lab 2 Key as a guide (if needed), re-define the self-esteem scale, and do any data cleaning needed for the variable Gender (which should be categorical) and Age. Include the three graphs for these variables below. You can (and should) copy existing code; that is the point of saving your work!
+
+```{r}
+```
+
+2.  Define a series of linear models to predict self-esteem from age, gender, and their interaction. (Start with the bivariate models, the include the multivariate regression, and then build up to the interaction effect.) Report a summary table that includes all four models.
+
+```{r}
+
+```
+
+3.  Graph the interaction effect. There are different ways to do this; you can do this "by hand" using the methods outlined in Chapter 11 of Y Stats, using ggplot2, or by using the ["interactions" package](https://interactions.jacob-long.com), which professor used for the key because it is really quick hooray.
+
+```{r}
+
+```
+
+4.  Below the graph, describe what you learn about the relationship between age, self-esteem, and gender. What other questions do you have?
+5.  Oh yeah, calculate the power for the interaction effect(s).
+
+## Interpreting Interaction Effects
+
+1.  **Look over the [PROFESSOR HANDOUT.](https://www.dropbox.com/scl/fi/uhbe7e4allcig19npwp2a/Interaction_Practice.pdf?rlkey=yhlw9utyq4tfyn8fkg5i44kzg&dl=0)** Practice interpreting whether there is a main effect of IV1, main effect of IV2, and interaction effect for each of the graphs. You can use the key as a guide - no need to show your work here; we trust that you will do this. Please come to class next week prepared with any questions that you have.
+2.  **On the Vision Board (for Week 9),** sketch out an interaction effect that you might expect to observe for some pattern that is related to a question you are interested in, a project you are working on for another class, or something related to your real-life.

@@ -3,16 +3,18 @@ title: ""
 format: 
   html: default
   revealjs: 
-    output-file: "mrexperiment_slides.html"
+    output-file: "interactions_slide.html"
     slide-level: 3
+    smaller: true
     code-overflow: wrap
+    controls: true
 tbl-colwidths: [70,25]
 ---
 
-## Check-In : MR. NHST Review {.smaller}
+## Check-In : Power Review {.smaller}
 
-::::::::: panel-tabset
-#### Summary
+::: panel-tabset
+#### Summary Model
 
 ```{r}
 #| include: false
@@ -35,16 +37,29 @@ mod4x <- arm::standardize(mod4, NULL, T)
 
 ```
 
-Table 1. Predicting Salaries from Years of Service and Sex.
+Table 1A. Predicting Salaries from Years of Service and Sex.
 
 ```{r}
 #| echo: false
 export_summs(mod1, mod2, mod3,
-             coefs = c("Years of Service" = "yrs.service",
+             coefs = c("Intercept" = "(Intercept)",
+                       "Years of Service" = "yrs.service",
                        "Sex (0 = F; 1 = M)" = "sexMale"))
 ```
 
-#### Description {.smaller}
+#### Standardized Model
+
+Table 1B. Predicting Salaries from Years of Service and Sex (Standardized / Z-Scored)
+
+```{r}
+#| echo: false
+export_summs(mod1x, mod2x, mod3x,
+             coefs = c("Intercept" = "(Intercept)",
+                       "Years of Service" = "z.yrs.service",
+                       "Sex (0 = F; 1 = M)" = "c.sex"))
+```
+
+#### Variables
 
 **Salaries Dataset.** "The 2008-09 nine-month academic salary for Assistant Professors, Associate Professors and Professors in a college in the U.S. The data were collected as part of the on-going effort of the college's administration to monitor salary differences between male and female faculty members."
 
@@ -56,151 +71,125 @@ export_summs(mod1, mod2, mod3,
 -   sex : whether the professor was Male or Female
 ```
 
-#### Model 1 {.smaller}
+#### Code
 
-::::: columns
-::: {.column width="40%"}
-Graph of Model 1
-
-```{r}
-#| fig-width: 5
-#| fig-height: 5
-#| echo: false
-
-plot(salary ~ yrs.service, data = Salaries)
-abline(mod1, lwd = 5)
-```
-:::
-
-::: {.column width="60%"}
-Diagnostic Plots
-
-```{r}
-#| fig-width: 5
-#| fig-height: 5
-#| echo: false
-par(mfrow = c(2,2))
-plot(mod1)
-```
-:::
-:::::
-
-#### Model 2 {.smaller}
-
-::::: columns
-::: {.column width="40%"}
-Graph of Model 2
-
-```{r}
-#| fig-width: 5
-#| fig-height: 5
-#| echo: false
-
-plotmeans(salary ~ sex, data = Salaries, connect = F)
-```
-:::
-
-::: {.column width="60%"}
-Diagnostic Plots
-
-```{r}
-#| fig-width: 5
-#| fig-height: 5
-#| echo: false
-par(mfrow = c(2,2))
-plot(mod2)
-```
-:::
-:::::
-
-#### Model 3 {.smaller}
-
-Diagnostic Plots
-
-```{r}
-#| fig-width: 5
-#| fig-height: 5
-#| echo: false
-par(mfrow = c(2,2))
-plot(mod3)
-```
-:::::::::
-
-## RECAP : Adding a Quadtratic Effect to Address issues of Heteroscedasticity
-
-::: columns
-::: {.column width = "50"}
-
-```{r}
-mod3b <- lm(salary ~ yrs.service + I(yrs.service^2) + sex, data = Salaries)
-export_summs(mod3, mod3b,model.names = c("Without Quad", "With Quad"))
-```
-:::
-
-::: {.column width = "50"}
-
-```{r}
-par(mfrow = c(2,2))
-plot(mod3b)
-```
-
-:::
-
-:::::::
-
-## BREAK TIME
-
-## Part 2 : Experiments
-
-# Part 3 : Experiments {.smaller}
-
-Why did google change???
-
-![](images/clipboard-503911641.png)
-
-### DEFINITION : Causality {.smaller}
-
-::::: columns
-::: {.column width="70%"}
-1.  The cause and effect are contiguous in space and time.
-2.  The cause must be prior to the effect.
-3.  There must be a constant union betwixt the cause and effect. (“Tis chiefly this quality, that constitutes the relation.”)
-4.  The same cause always produces the same effect, and the same effect never arises but from the same cause.
-:::
-
-::: {.column width="30%"}
 ```         
-DISCUSS : 
-Which parts of this definition rule out the other reasons for a pattern in the data??
+library(car)
+library(gplots)
+library(jtools)
+library(ggplot2)
+library(arm)
 
-Apply this definition to a true causal relationship. Does it hold up?
+mod1 <- lm(salary ~ yrs.service, data = Salaries)
+mod2 <- lm(salary ~ sex, data = Salaries)
+modx <- lm(yrs.service ~ sex, data = Salaries)
+mod3 <- lm(salary ~ yrs.service + sex, data = Salaries)
+mod4 <- lm(salary ~ yrs.service * sex, data = Salaries)
+export_summs(mod1, mod2, mod3,
+             coefs = c("Years of Service" = "yrs.service",
+                       "Sex (0 = F; 1 = M)" = "sexMale"))
+
+mod1x <- arm::standardize(mod1, NULL, T)
+mod2x <- arm::standardize(mod2, NULL, T)
+mod3x <- arm::standardize(mod3, NULL, T)
+mod4x <- arm::standardize(mod4, NULL, T)
+export_summs(mod1x, mod2x, mod3x,
+             coefs = c("Years of Service" = "z.yrs.service",
+                       "Sex (0 = F; 1 = M)" = "c.sex"))
+```
+:::
+
+## Part 1 : Power Recap
+
+:::::: panel-tabset
+### Drawing Power
+
+[Link to Professor Drawing](https://docs.google.com/drawings/d/1IYhMSCZXp5K1HqmxRzNET98Vu1bXnJSIs5_oZZ5n2GQ/edit?usp=sharing)
+
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vSh8uK0OtHk4nJjr9nHyKkUKRiePbEIRuYwXjddy6v_SIiW1CUCn4GlXipG7HMzTgW5NbVwNhsxmqq2/pub?w=677&amp;h=366" width="925"/>
+
+### Power (t)
+
+::::: columns
+::: {.column width="30%"}
+```{r}
+#| message: false
+#| warning: false
+library(pwrss)
+pwrss::power.t.test(1.86, df = 397, verbose = FALSE)
+```
+:::
+
+::: {.column width="70%"}
+```{r}
+pwrss::power.t.test(1.86, df = 397, plot = FALSE)
 ```
 :::
 :::::
 
-
-## Part X : Introduction to Interaction Effects
-
-### Some Examples {.smaller}
-
-::: panel-tabset
-#### resume data {.smaller}
-
-![Bertrand, M., & Mullainathan, S. (2004). Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. American economic review, 94(4), 991-1013](images/clipboard-1943000841.png){fig-align="center" width="60%"}
-
-#### puzzle data {.smaller}
-
-![Hoffman, M., Gneezy, U., & List, J. A. (2011). Nurture affects gender differences in spatial abilities. Proceedings of the National Academy of Sciences, 108(36), 14786-14788.](images/clipboard-4218932613.png){fig-align="center" width="60%"}
-:::
-
-##  {.smaller}
-
-### EXAMPLE : An Interaction Effect {.smaller}
-
-::: panel-tabset
-#### the extra slope {.smaller}
+### Power (d)
 
 ```{r}
+pwrss::power.t.student(d = .09, # cohen's d
+                         n2 = 397, # sample size
+                         design = "one.sample") # assuming no difference (null)
+```
+
+### Power (R2diff)
+
+```{r}
+pwrss::power.f.reg(r.squared.change = .01, # change from model 3 and model 1
+                   n = 397, # sample size
+                   k.total = 3) # number of predictors
+```
+
+### N? (d)
+
+```{r}
+pwrss::power.t.student(d = .09, # cohen's d
+                       power = .80, # power
+                         design = "one.sample") # assuming no difference (null)
+```
+
+### N? (r2)
+
+```{r}
+pwrss::power.f.reg(.01, power = .80, k.total = 3)
+```
+::::::
+
+## Part 2 : Introduction to Interaction Effects
+
+### Some Examples
+
+::: panel-tabset
+#### resume data
+
+![Bertrand, M., & Mullainathan, S. (2004). Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination. American economic review, 94(4), 991-1013](images/clipboard-1943000841.png){fig-align="center" width="404"}
+
+#### working example
+
+![](images/clipboard-1692964363.png){width="651"}
+:::
+
+### DISCUSS : Interaction Effects
+
+From the [Vision Board](https://docs.google.com/spreadsheets/d/11FZJ76JMBUkKYZRoWASrHhPIldmP7Pziz-WGnlIZuC4/edit?usp=sharing)
+
+- Find someone who you haven't talked to :) or have talked to :)
+- Consider an "effect" that you found before.
+  - What is the pattern in the data?
+  - What's another variable that might influence this pattern result?
+  - What might the interaction effect (or lack of one) look like?
+
+### IN R : An Interaction Effect {.smaller}
+
+::: panel-tabset
+#### the model
+
+```{r}
+#| echo: false
+
 mod1 <- lm(salary ~ yrs.service + I(yrs.service^2), data = Salaries)
 mod2 <- lm(salary ~ sex, data = Salaries)
 mod3 <- lm(salary ~ yrs.service + I(yrs.service^2) + sex, data = Salaries)
@@ -213,12 +202,12 @@ export_summs(mod1, mod2, mod3, mod4,
                        "Service^2 * Sex" = "I(yrs.service^2):sexMale"))
 ```
 
-#### a picture is worth 1000 words.
+#### the graph
 
 ```{r}
 #| echo: false
-#| fig-width: 14
-#| fig-height: 7
+#| fig-width: 7
+#| fig-height: 5
 library(ggplot2)
 library(ggthemes)
 library(jtools)
@@ -228,9 +217,10 @@ ggplot(data = Salaries, aes(x = yrs.service, y = salary, color = sex)) +
   geom_smooth(method = lm, formula = y ~ poly(x, 2)) + theme_apa()
 ```
 
-#### standardizing your variables?
+#### the standardized model
 
 ```{r}
+#| echo: false
 mod1x <- arm::standardize(mod1, NULL, T)
 mod2x <- arm::standardize(mod2, NULL, T)
 mod3x <- arm::standardize(mod3, NULL, T)
@@ -243,20 +233,32 @@ export_summs(mod1x, mod2x, mod3x, mod4x,
                        "Service * Sex" = "z.yrs.service:c.sex",
                        "Service^2 * Sex" = "I(z.yrs.service^2):c.sex"))
 ```
+
+#### the code
+
+```         
+### the interaction effect
+mod4 <- lm(salary ~ (yrs.service + I(yrs.service^2)) * sex, data = Salaries)
+
+### standardizing models
+mod1x <- arm::standardize(mod1, NULL, T)
+mod2x <- arm::standardize(mod2, NULL, T)
+mod3x <- arm::standardize(mod3, NULL, T)
+mod4x <- arm::standardize(mod4, NULL, T)
+
+export_summs(mod1x, mod2x, mod3x, mod4x,
+             coefs = c("Years of Service" = "z.yrs.service",
+                       "Service^2" = "I(z.yrs.service^2)",
+                       "Sex (0=F; 1=M)" = "c.sex",
+                       "Service * Sex" = "z.yrs.service:c.sex",
+                       "Service^2 * Sex" = "I(z.yrs.service^2):c.sex"))
+### the graph
+library(ggplot2)
+library(ggthemes)
+library(jtools)
+ggplot(data = Salaries, aes(x = yrs.service, y = salary, color = sex)) + 
+  geom_point(size = .5, alpha = .3, position = "jitter") + 
+  labs(title = "The Interaction Effect", x = "Years of Service", y = "Salary", color = "Sex") +
+  geom_smooth(method = lm, formula = y ~ poly(x, 2)) + theme_apa()
+```
 :::
-
-## DISCUSS : Interaction Effects {.smaller}
-
-From the [Vision Board](https://docs.google.com/spreadsheets/d/11FZJ76JMBUkKYZRoWASrHhPIldmP7Pziz-WGnlIZuC4/edit?usp=sharing)
-
-- Find someone who you haven't talked to :) or have talked to :)
-- Consider an "effect" that you found before.
-  - What is the pattern in the data?
-  - What's another variable that might influence this pattern result?
-  - What might the interaction effect (or lack of one) look like?
-
-### More Interaction Effect Practice (as needed)
-
-#### [**SEE PROFESSOR HANDOUT.**](https://www.dropbox.com/scl/fi/uhbe7e4allcig19npwp2a/Interaction_Practice.pdf?rlkey=yhlw9utyq4tfyn8fkg5i44kzg&dl=0)
-
-#### ![](images/clipboard-2763942266.png){width="80%"}
