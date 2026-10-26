@@ -2,23 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>lab7</title>
+<title>Lab 7</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -37,10 +34,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-9d96f532d65220ca877c0304385df42f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6033a600180109c3731f6a886c29932c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -85,48 +82,37 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#lab-7" id="toc-lab-7" class="nav-link active" data-scroll-target="#lab-7">Lab 7</a>
-  <ul class="collapse">
-  <li><a href="#question-1.-anchoring-dataset." id="toc-question-1.-anchoring-dataset." class="nav-link" data-scroll-target="#question-1.-anchoring-dataset.">Question 1. Anchoring Dataset.</a></li>
-  <li><a href="#question-2.-your-final-project-dataset-in-r." id="toc-question-2.-your-final-project-dataset-in-r." class="nav-link" data-scroll-target="#question-2.-your-final-project-dataset-in-r.">Question 2. Your Final Project Dataset in R.</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lab 7</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="lab-7" class="level2">
-<h2 class="anchored" data-anchor-id="lab-7">Lab 7</h2>
-<section id="question-1.-anchoring-dataset." class="level3">
-<h3 class="anchored" data-anchor-id="question-1.-anchoring-dataset.">Question 1. Anchoring Dataset.</h3>
-<p><strong>Use the anchoring dataset to predict cat speeds, tree heights, and meat consumption from the experimental condition that people were in.</strong></p>
-<ol type="1">
-<li>Load the data, and check to make sure it loaded correctly.</li>
-<li>Graph your variables - make sure there are no errors or outliers.</li>
-<li>Define a linear model for each DV. Make sure to include a graph or each model, report the intercept, slope, and R2 for each model. What do these statistics tell you?</li>
-<li><a href="https://catterson.github.io/ystats/chapters/9R_ModelExtensions.html#part-2-experimental-methods">Read the chapter notes on experiments</a>, and apply these ideas to the anchoring study. How was this an example of an experiment (e.g., what were the conditions; was it randomly assigned; etc.)</li>
-<li>Conclude - what do these models tell us about the phenomenon of anchoring? How we might use this knowledge?</li>
-</ol>
-</section>
-<section id="question-2.-your-final-project-dataset-in-r." class="level3">
-<h3 class="anchored" data-anchor-id="question-2.-your-final-project-dataset-in-r.">Question 2. Your Final Project Dataset in R.</h3>
-<p><strong>Finish collecting your final project data, export these data into a .csv format, do some (extra) data cleaning to make your project dataset nice and organized, and then start doing descriptive statistics for your variables.</strong></p>
-<p><a href="https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?tab=t.0#bookmark=kix.f8xqppo2xcej"><strong>There are videos and steps in the Final Project Description on how to do this you should watch</strong></a><strong>. You will also work on this in Discussion Section!!</strong></p>
-<p>To show you’ve done this, start filling in some of the descriptive statistics for your final project in the some kind of table (see below for an example of what this could look like.)</p>
-<p><img src="images/clipboard-1686461134.png" class="img-fluid"></p>
+    
+  
+    
+  </div>
+  
 
 
-</section>
-</section>
+</header>
+
+
+<p>Do something nice for yourself that you wouldn’t have done if you had had a lab assignment to do. It should take at least 5 minutes.</p>
+<p>Share on Discord if you’d like, or not!</p>
+<p>Upload anything to the assignment on bCourses just to keep things official.</p>
+<p>Go bears.</p>
+
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

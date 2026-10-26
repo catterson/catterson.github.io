@@ -1,0 +1,12 @@
+## Lab 8
+
+### Question 1. Anchoring Dataset.
+
+**Use the anchoring dataset to predict cat speeds, tree heights, and meat consumption from the experimental condition that people were in.**
+
+1.  Load the data, and check to make sure it loaded correctly.
+2.  Graph your variables - make sure there are no errors or outliers.
+3.  Define a linear model for each DV. Make sure to include a graph or each model, report the intercept, slope, and R2 for each model. What do these statistics tell you?
+4.  [Read the chapter notes on experiments](https://catterson.github.io/ystats/chapters/9R_ModelExtensions.html#part-2-experimental-methods), and apply these ideas to the anchoring study. How was this an example of an experiment (e.g., what were the conditions; was it randomly assigned; etc.)
+5.  Conclude - what do these models tell us about the phenomenon of anchoring? How we might use this knowledge?
+

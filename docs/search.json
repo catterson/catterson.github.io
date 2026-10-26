@@ -3033,9 +3033,9 @@
   {
     "objectID": "calstats/labs/Lab7.html",
     "href": "calstats/labs/Lab7.html",
-    "title": "",
+    "title": "Lab 7",
     "section": "",
-    "text": "Use the anchoring dataset to predict cat speeds, tree heights, and meat consumption from the experimental condition that people were in.\n\nLoad the data, and check to make sure it loaded correctly.\nGraph your variables - make sure there are no errors or outliers.\nDefine a linear model for each DV. Make sure to include a graph or each model, report the intercept, slope, and R2 for each model. What do these statistics tell you?\nRead the chapter notes on experiments, and apply these ideas to the anchoring study. How was this an example of an experiment (e.g., what were the conditions; was it randomly assigned; etc.)\nConclude - what do these models tell us about the phenomenon of anchoring? How we might use this knowledge?\n\n\n\n\nFinish collecting your final project data, export these data into a .csv format, do some (extra) data cleaning to make your project dataset nice and organized, and then start doing descriptive statistics for your variables.\nThere are videos and steps in the Final Project Description on how to do this you should watch. You will also work on this in Discussion Section!!\nTo show you’ve done this, start filling in some of the descriptive statistics for your final project in the some kind of table (see below for an example of what this could look like.)"
+    "text": "Do something nice for yourself that you wouldn’t have done if you had had a lab assignment to do. It should take at least 5 minutes.\nShare on Discord if you’d like, or not!\nUpload anything to the assignment on bCourses just to keep things official.\nGo bears."
   },
   {
     "objectID": "calstats/labs/Lab7.html#lab-7",
@@ -7047,5 +7047,236 @@
     "title": "",
     "section": "Part 2 : Introduction to Interaction Effects",
     "text": "Part 2 : Introduction to Interaction Effects"
+  },
+  {
+    "objectID": "calstats/notes/Week9.html",
+    "href": "calstats/notes/Week9.html",
+    "title": "Week 8 - Monday, October 26th",
+    "section": "",
+    "text": "NoteAnnouncements and Agenda\n\n\n\n\n\n\n\n\nTHE END IS NEAR. Four lectures (and an R Exam) left.\nR Exam is TWO WEEKS. Study guide posted. Review next week. Adding NHST interpretation. Will be chill. Still time to learn but we are learning so added to the assessment, ya know?\nDiscussion Section. NHST review and working on Milestone 3.\n\n\nToday, on Psych 101…\n\n3:10 - 4:10. Check-In and NHST Review.\n4:10 - 4:20. Break Time.\n4:20 - 5:00. More on \\(R^2\\) and other topics.\n5:00 - ???. Project Workshop.\n\n\n\n\n\n\n\n\n\n\nCheck-In. Data for next class.\nR EXAM STUDY GUIDE. It will be chill.\nProfessor Notes. My R scripts and other notes, saved in real-time.\nFinal Project Description & Rubric. And here’s the Final Project Vision Board.\n\n\n\n\n\nComplete Lab 7. Self-care lab.\nStart Milestone #3. Drafting your methods section; like a mad-libs. Would recommend doing this before you start building your survey on Google Forms (and would recommend using Google Forms instead of Qualtrics, but if you use Qualtrics to create your survey make sure you are using the Berkeley version.)\nProfessor, watching more videos on NHST is my self-care. Below are some videos. Note : I recorded these videos in a previous semester (with different class data). You will likely get different results if you try and replicate these results in this semester’s class (though we likely had a different class dataset). a good example of how NHST doesn’t really tell us whether the results are “truth” or not, or whether they will replicate.\n\nNHST Recap [20 min]Example 1Example 2\n\n\nFocus on the difference between making predictions from our sample and the population, the difference between sampling error and bias, and get a quick(ish) overview of one (confusing) way we try to estimate sampling error called Null Hypothesis Significance Testing (NHST). The p-value and “significance” stuff you may remember from another stats class."
+  },
+  {
+    "objectID": "calstats/notes/Week9.html#milestone-3.-launch-your-study",
+    "href": "calstats/notes/Week9.html#milestone-3.-launch-your-study",
+    "title": "Week 8 - Monday, October 26th",
+    "section": "",
+    "text": "Self-Check. Before you launch! Seatbelts!!\nPost your study. To Discord I think?\nSubmit a methods draft. Use the template. Like a mad-lib."
+  },
+  {
+    "objectID": "calstats/notes/Week8.html",
+    "href": "calstats/notes/Week8.html",
+    "title": "Week 8 - Monday, October 19th",
+    "section": "",
+    "text": "NoteAnnouncements and Agenda\n\n\n\n\n\n\n\n\nTHE END IS NEAR. Five lectures (and an Exam) left. Actually this feels like a lot?\nR Exam is THREE WEEKS. Study guide posted. Practice in section.\nDiscussion Section. Milestone 2 Feedback + Working on Lab 6 (Practice Exam with a Key.)\n\n\nToday, on Psych 101…\n\n3:10 - 4:10. Check-In and Linear Model Review.\n4:10 - 4:20. Break Time.\n4:20 - 5:00. Linear Models with a Categorical IV\n5:00 - ???. Project Workshop.\n\n\n\n\n\n\n\n\n\n\nCheck-In. Linear Model Review. Purposefully vague!\n\nNarcissism Data. For the check-in.\n\nR EXAM STUDY GUIDE. It will be chill.\nProfessor Notes. My R scripts and other notes, saved in real-time.\nFinal Project Description & Rubric. And here’s the Final Project Vision Board."
+  },
+  {
+    "objectID": "calstats/notes/Week8.html#discussion-section.-milestone-2-feedback",
+    "href": "calstats/notes/Week8.html#discussion-section.-milestone-2-feedback",
+    "title": "Week 8 - Monday, October 19th",
+    "section": "Discussion Section. Milestone #2 Feedback",
+    "text": "Discussion Section. Milestone #2 Feedback\nIn Discussion Section this week, you’ll have a 1-on-1 meeting with your GSI to go over Milestone 2, and hopefully get approval to start Milestone 3. Yeah!"
+  },
+  {
+    "objectID": "calstats/notes/Week8.html#lab-6.-complete-the-practice-r-exam-in-discussion-section",
+    "href": "calstats/notes/Week8.html#lab-6.-complete-the-practice-r-exam-in-discussion-section",
+    "title": "Week 8 - Monday, October 19th",
+    "section": "Lab 6. Complete the Practice R Exam (In Discussion Section)",
+    "text": "Lab 6. Complete the Practice R Exam (In Discussion Section)\nIn Discussion Section while other students are working on the Practice Exam, you’ll be working on the previous semester’s exam as practice for our upcoming R Exam. A video key will be posted; use this after you try to complete the entire exam. Any Lab 6 submission will get full credit."
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap.html",
+    "href": "calstats/slides/8_nhst_recap.html",
+    "title": "",
+    "section": "",
+    "text": "No talking, no looking up answers!\nWill use data in lecture :)"
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap.html#hi-again",
+    "href": "calstats/slides/8_nhst_recap.html#hi-again",
+    "title": "",
+    "section": "",
+    "text": "Check-In Here\n\n\n\nlibrary(car)\nlibrary(gplots)\nmod &lt;- lm(salary ~ rank, data = Salaries)\nsummary(mod)\n\n\nCall:\nlm(formula = salary ~ rank, data = Salaries)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-68972 -16376  -1580  11755 104773 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)      80776       2887  27.976  &lt; 2e-16 ***\nrankAssocProf    13100       4131   3.171  0.00164 ** \nrankProf         45996       3230  14.238  &lt; 2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 23630 on 394 degrees of freedom\nMultiple R-squared:  0.3943,    Adjusted R-squared:  0.3912 \nF-statistic: 128.2 on 2 and 394 DF,  p-value: &lt; 2.2e-16\n\n\n\n\nplotmeans(salary ~ rank, data = Salaries, connect = F)"
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap.html#more-examples",
+    "href": "calstats/slides/8_nhst_recap.html#more-examples",
+    "title": "",
+    "section": "More Examples",
+    "text": "More Examples\n\nice-breaker : dream life (utopia)?\nthe stats : what’s the slope, significance, R^2?\nwho cares : how would you use this knowledge?\n\n\nmodel 1model 2model 3\n\n\n\n\n\nmod1 &lt;- lm(salary ~ yrs.service, data = Salaries)\nsummary(mod1)\n\n\nCall:\nlm(formula = salary ~ yrs.service, data = Salaries)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-81933 -20511  -3776  16417 101947 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  99974.7     2416.6   41.37  &lt; 2e-16 ***\nyrs.service    779.6      110.4    7.06 7.53e-12 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 28580 on 395 degrees of freedom\nMultiple R-squared:  0.1121,    Adjusted R-squared:  0.1098 \nF-statistic: 49.85 on 1 and 395 DF,  p-value: 7.529e-12\n\n\n\n\nplot(salary ~ yrs.service, data = Salaries)\nabline(mod1, lwd = 5)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmod2 &lt;- lm(salary ~ sex, data = Salaries)\nsummary(mod2)\n\n\nCall:\nlm(formula = salary ~ sex, data = Salaries)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-57290 -23502  -6828  19710 116455 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)   101002       4809  21.001  &lt; 2e-16 ***\nsexMale        14088       5065   2.782  0.00567 ** \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 30030 on 395 degrees of freedom\nMultiple R-squared:  0.01921,   Adjusted R-squared:  0.01673 \nF-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667\n\n\n\n\nplotmeans(salary ~ sex, data = Salaries, connect = F)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmod3 &lt;- lm(yrs.service ~ sex, data = Salaries)\nsummary(mod3)\n\n\nCall:\nlm(formula = yrs.service ~ sex, data = Salaries)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-18.274 -10.564  -0.564   8.726  41.726 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)    11.56       2.06   5.612 3.76e-08 ***\nsexMale         6.71       2.17   3.092  0.00213 ** \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 12.87 on 395 degrees of freedom\nMultiple R-squared:  0.02364,   Adjusted R-squared:  0.02116 \nF-statistic: 9.562 on 1 and 395 DF,  p-value: 0.002127\n\n\n\n\nplotmeans(yrs.service ~ sex, data = Salaries, connect = F)"
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap.html#nhst-review.",
+    "href": "calstats/slides/8_nhst_recap.html#nhst-review.",
+    "title": "",
+    "section": "NHST Review.",
+    "text": "NHST Review.\n\nSlopeStandard ErrorSignificance is Not…Significance is NotSignificance Is……Confusing.Other Questions?\n\n\n\nDirection & Strength of a Relationship\nHard to evaluate strength across models if the units differ too.\n\n\n\n\n\nThe amount of variation in an effect you might expect to find due to chance if the null hypothesis were “true”.\n\n\n\n\n\n…about slope! Large slope & sampling error = NOT SIGNIFICANT\n\n\n\n\n\n…about size : you can be VERY confident that a small effect is not due to sampling error.\n…about importance : why does the effect matter?\n\n…about truth : our estimates of sampling error are all made up.\n\n\n\n\nA p-value of .03 means…there is a 3% chance that this slope (or a stronger slope) would be found due to chance if the true correlation was zero.\n\n\n\nHaller, H., & Krauss, S. (2002). Misinterpretations of significance: A problem students share with their teachers. Methods of Psychological Research, 7(1), 1-20."
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap_slides.html#hi-again",
+    "href": "calstats/slides/8_nhst_recap_slides.html#hi-again",
+    "title": "",
+    "section": "Hi Again!",
+    "text": "Hi Again!\nCheck-In Here\n\n\n\nlibrary(car)\nlibrary(gplots)\nmod &lt;- lm(salary ~ rank, data = Salaries)\nsummary(mod)\n\n\nCall:\nlm(formula = salary ~ rank, data = Salaries)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-68972 -16376  -1580  11755 104773 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)      80776       2887  27.976  &lt; 2e-16 ***\nrankAssocProf    13100       4131   3.171  0.00164 ** \nrankProf         45996       3230  14.238  &lt; 2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 23630 on 394 degrees of freedom\nMultiple R-squared:  0.3943,    Adjusted R-squared:  0.3912 \nF-statistic: 128.2 on 2 and 394 DF,  p-value: &lt; 2.2e-16\n\n\n\n\nplotmeans(salary ~ rank, data = Salaries, connect = F)"
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap_slides.html#more-examples",
+    "href": "calstats/slides/8_nhst_recap_slides.html#more-examples",
+    "title": "",
+    "section": "More Examples",
+    "text": "More Examples\n\nice-breaker : dream life (utopia)?\nthe stats : what’s the slope, significance, R^2?\nwho cares : how would you use this knowledge?\n\n\nmodel 1model 2model 3\n\n\n\n\n\nmod1 &lt;- lm(salary ~ yrs.service, data = Salaries)\nsummary(mod1)\n\n\nCall:\nlm(formula = salary ~ yrs.service, data = Salaries)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-81933 -20511  -3776  16417 101947 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  99974.7     2416.6   41.37  &lt; 2e-16 ***\nyrs.service    779.6      110.4    7.06 7.53e-12 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 28580 on 395 degrees of freedom\nMultiple R-squared:  0.1121,    Adjusted R-squared:  0.1098 \nF-statistic: 49.85 on 1 and 395 DF,  p-value: 7.529e-12\n\n\n\n\nplot(salary ~ yrs.service, data = Salaries)\nabline(mod1, lwd = 5)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmod2 &lt;- lm(salary ~ sex, data = Salaries)\nsummary(mod2)\n\n\nCall:\nlm(formula = salary ~ sex, data = Salaries)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-57290 -23502  -6828  19710 116455 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)   101002       4809  21.001  &lt; 2e-16 ***\nsexMale        14088       5065   2.782  0.00567 ** \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 30030 on 395 degrees of freedom\nMultiple R-squared:  0.01921,   Adjusted R-squared:  0.01673 \nF-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667\n\n\n\n\nplotmeans(salary ~ sex, data = Salaries, connect = F)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmod3 &lt;- lm(yrs.service ~ sex, data = Salaries)\nsummary(mod3)\n\n\nCall:\nlm(formula = yrs.service ~ sex, data = Salaries)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-18.274 -10.564  -0.564   8.726  41.726 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)    11.56       2.06   5.612 3.76e-08 ***\nsexMale         6.71       2.17   3.092  0.00213 ** \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 12.87 on 395 degrees of freedom\nMultiple R-squared:  0.02364,   Adjusted R-squared:  0.02116 \nF-statistic: 9.562 on 1 and 395 DF,  p-value: 0.002127\n\n\n\n\nplotmeans(yrs.service ~ sex, data = Salaries, connect = F)"
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap_slides.html#nhst-review.",
+    "href": "calstats/slides/8_nhst_recap_slides.html#nhst-review.",
+    "title": "",
+    "section": "NHST Review.",
+    "text": "NHST Review.\n\nSlopeStandard ErrorSignificance is Not…Significance is NotSignificance Is……Confusing.Other Questions?\n\n\n\nDirection & Strength of a Relationship\nHard to evaluate strength across models if the units differ too.\n\n\n\n\n\nThe amount of variation in an effect you might expect to find due to chance if the null hypothesis were “true”.\n\n\n\n\n\n…about slope! Large slope & sampling error = NOT SIGNIFICANT\n\n\n\n\n\n…about size : you can be VERY confident that a small effect is not due to sampling error.\n…about importance : why does the effect matter?\n\n…about truth : our estimates of sampling error are all made up.\n\n\n\n\nA p-value of .03 means…there is a 3% chance that this slope (or a stronger slope) would be found due to chance if the true correlation was zero.\n\n\n\nHaller, H., & Krauss, S. (2002). Misinterpretations of significance: A problem students share with their teachers. Methods of Psychological Research, 7(1), 1-20."
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap.html#check-in",
+    "href": "calstats/slides/8_nhst_recap.html#check-in",
+    "title": "",
+    "section": "",
+    "text": "model 1model 2\n\n\n\n\n\n\n\nCall:\nlm(formula = salary ~ yrs.service, data = Salaries)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-81933 -20511  -3776  16417 101947 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  99974.7     2416.6   41.37  &lt; 2e-16 ***\nyrs.service    779.6      110.4    7.06 7.53e-12 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 28580 on 395 degrees of freedom\nMultiple R-squared:  0.1121,    Adjusted R-squared:  0.1098 \nF-statistic: 49.85 on 1 and 395 DF,  p-value: 7.529e-12\n\n\n\n\nplot(salary ~ yrs.service, data = Salaries)\nabline(mod1, lwd = 5)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmod2 &lt;- lm(salary ~ sex, data = Salaries)\nsummary(mod2)\n\n\nCall:\nlm(formula = salary ~ sex, data = Salaries)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-57290 -23502  -6828  19710 116455 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)   101002       4809  21.001  &lt; 2e-16 ***\nsexMale        14088       5065   2.782  0.00567 ** \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 30030 on 395 degrees of freedom\nMultiple R-squared:  0.01921,   Adjusted R-squared:  0.01673 \nF-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667\n\n\n\n\nplotmeans(salary ~ sex, data = Salaries, connect = F)"
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap_slides.html#check-in",
+    "href": "calstats/slides/8_nhst_recap_slides.html#check-in",
+    "title": "",
+    "section": "Check-In",
+    "text": "Check-In\n\nmodel 1model 2\n\n\n\n\n\n\n\nCall:\nlm(formula = salary ~ yrs.service, data = Salaries)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-81933 -20511  -3776  16417 101947 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  99974.7     2416.6   41.37  &lt; 2e-16 ***\nyrs.service    779.6      110.4    7.06 7.53e-12 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 28580 on 395 degrees of freedom\nMultiple R-squared:  0.1121,    Adjusted R-squared:  0.1098 \nF-statistic: 49.85 on 1 and 395 DF,  p-value: 7.529e-12\n\n\n\n\nplot(salary ~ yrs.service, data = Salaries)\nabline(mod1, lwd = 5)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmod2 &lt;- lm(salary ~ sex, data = Salaries)\nsummary(mod2)\n\n\nCall:\nlm(formula = salary ~ sex, data = Salaries)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-57290 -23502  -6828  19710 116455 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)   101002       4809  21.001  &lt; 2e-16 ***\nsexMale        14088       5065   2.782  0.00567 ** \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 30030 on 395 degrees of freedom\nMultiple R-squared:  0.01921,   Adjusted R-squared:  0.01673 \nF-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667\n\n\n\n\nplotmeans(salary ~ sex, data = Salaries, connect = F)"
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap.html#some-nhst-examples",
+    "href": "calstats/slides/8_nhst_recap.html#some-nhst-examples",
+    "title": "",
+    "section": "",
+    "text": "model 1model 2\n\n\n\n\n\n\n\nCall:\nlm(formula = salary ~ yrs.service, data = Salaries)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-81933 -20511  -3776  16417 101947 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  99974.7     2416.6   41.37  &lt; 2e-16 ***\nyrs.service    779.6      110.4    7.06 7.53e-12 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 28580 on 395 degrees of freedom\nMultiple R-squared:  0.1121,    Adjusted R-squared:  0.1098 \nF-statistic: 49.85 on 1 and 395 DF,  p-value: 7.529e-12\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCall:\nlm(formula = salary ~ sex, data = Salaries)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-57290 -23502  -6828  19710 116455 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)   101002       4809  21.001  &lt; 2e-16 ***\nsexMale        14088       5065   2.782  0.00567 ** \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 30030 on 395 degrees of freedom\nMultiple R-squared:  0.01921,   Adjusted R-squared:  0.01673 \nF-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667"
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap.html#ch-8-review.",
+    "href": "calstats/slides/8_nhst_recap.html#ch-8-review.",
+    "title": "",
+    "section": "Ch 8 Review.",
+    "text": "Ch 8 Review.\n\nSlopeStandard ErrorSignificance is Not…Significance is NotSignificance Is……Confusing.Other Questions?\n\n\n\nDirection & Strength of a Relationship\nHard to evaluate strength across models if the units differ too.\n\n\n\n\n\nThe amount of variation in an effect you might expect to find due to chance if the null hypothesis were “true”.\n\n\n\n\n\n…about slope! Large slope & sampling error = NOT SIGNIFICANT\n\n\n\n\n\n…about size : you can be VERY confident that a small effect is not due to sampling error.\n…about importance : why does the effect matter?\n\n…about truth : our estimates of sampling error are all made up.\n\n\n\n\nA p-value of .03 means…there is a 3% chance that this slope (or a stronger slope) would be found due to chance if the true correlation was zero.\n\n\n\nHaller, H., & Krauss, S. (2002). Misinterpretations of significance: A problem students share with their teachers. Methods of Psychological Research, 7(1), 1-20.\n\n\n\n\n\n\n\nBreak time."
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap_slides.html#some-nhst-examples",
+    "href": "calstats/slides/8_nhst_recap_slides.html#some-nhst-examples",
+    "title": "",
+    "section": "Some NHST Examples",
+    "text": "Some NHST Examples\n\nmodel 1model 2\n\n\n\n\n\n\n\nCall:\nlm(formula = salary ~ yrs.service, data = Salaries)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-81933 -20511  -3776  16417 101947 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  99974.7     2416.6   41.37  &lt; 2e-16 ***\nyrs.service    779.6      110.4    7.06 7.53e-12 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 28580 on 395 degrees of freedom\nMultiple R-squared:  0.1121,    Adjusted R-squared:  0.1098 \nF-statistic: 49.85 on 1 and 395 DF,  p-value: 7.529e-12\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCall:\nlm(formula = salary ~ sex, data = Salaries)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-57290 -23502  -6828  19710 116455 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)   101002       4809  21.001  &lt; 2e-16 ***\nsexMale        14088       5065   2.782  0.00567 ** \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 30030 on 395 degrees of freedom\nMultiple R-squared:  0.01921,   Adjusted R-squared:  0.01673 \nF-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667"
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap_slides.html#ch-8-review.",
+    "href": "calstats/slides/8_nhst_recap_slides.html#ch-8-review.",
+    "title": "",
+    "section": "Ch 8 Review.",
+    "text": "Ch 8 Review.\n\nSlopeStandard ErrorSignificance is Not…Significance is NotSignificance Is……Confusing.Other Questions?\n\n\n\nDirection & Strength of a Relationship\nHard to evaluate strength across models if the units differ too.\n\n\n\n\n\nThe amount of variation in an effect you might expect to find due to chance if the null hypothesis were “true”.\n\n\n\n\n\n…about slope! Large slope & sampling error = NOT SIGNIFICANT\n\n\n\n\n\n…about size : you can be VERY confident that a small effect is not due to sampling error.\n…about importance : why does the effect matter?\n\n…about truth : our estimates of sampling error are all made up.\n\n\n\n\nA p-value of .03 means…there is a 3% chance that this slope (or a stronger slope) would be found due to chance if the true correlation was zero.\n\n\n\nHaller, H., & Krauss, S. (2002). Misinterpretations of significance: A problem students share with their teachers. Methods of Psychological Research, 7(1), 1-20.\n\n\n\n\n\n\n\nBreak time."
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap.html#break-time-a-quick-study-from-last-class-we-didnt-do.",
+    "href": "calstats/slides/8_nhst_recap.html#break-time-a-quick-study-from-last-class-we-didnt-do.",
+    "title": "",
+    "section": "BREAK TIME : A Quick Study from last class we didn’t do….",
+    "text": "BREAK TIME : A Quick Study from last class we didn’t do….\n\nNo talking, no looking up answers!\nWill use data in lecture :)"
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap.html#recap-r2-in-real-life",
+    "href": "calstats/slides/8_nhst_recap.html#recap-r2-in-real-life",
+    "title": "",
+    "section": "RECAP : \\(R^2\\) In Real-Life",
+    "text": "RECAP : \\(R^2\\) In Real-Life\n\n\n\n\n\nDISCUSS : what do these linear models tell us about the relationship between GPA, SAT (IVs) and freshman grades (DV)? Why did the researchers not report significance values?\n\n\n\n\\(R^2\\) is r * r = a correlation"
+  },
+  {
+    "objectID": "calstats/notes/Week9.html#for-next-week.",
+    "href": "calstats/notes/Week9.html#for-next-week.",
+    "title": "Week 8 - Monday, October 26th",
+    "section": "",
+    "text": "Complete Lab 7. Self-care lab.\nStart Milestone #3. Drafting your methods section; like a mad-libs. Would recommend doing this before you start building your survey on Google Forms (and would recommend using Google Forms instead of Qualtrics, but if you use Qualtrics to create your survey make sure you are using the Berkeley version.)\nProfessor, watching more videos on NHST is my self-care. Below are some videos. Note : I recorded these videos in a previous semester (with different class data). You will likely get different results if you try and replicate these results in this semester’s class (though we likely had a different class dataset). a good example of how NHST doesn’t really tell us whether the results are “truth” or not, or whether they will replicate.\n\nNHST Recap [20 min]Example 1Example 2\n\n\nFocus on the difference between making predictions from our sample and the population, the difference between sampling error and bias, and get a quick(ish) overview of one (confusing) way we try to estimate sampling error called Null Hypothesis Significance Testing (NHST). The p-value and “significance” stuff you may remember from another stats class."
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap.html#check-in-a-quick-study-from-last-class-we-didnt-do.",
+    "href": "calstats/slides/8_nhst_recap.html#check-in-a-quick-study-from-last-class-we-didnt-do.",
+    "title": "",
+    "section": "",
+    "text": "No talking, no looking up answers!\nWill use data in lecture :)"
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap.html#okay-some-nhst-examples",
+    "href": "calstats/slides/8_nhst_recap.html#okay-some-nhst-examples",
+    "title": "",
+    "section": "Okay, some NHST Examples",
+    "text": "Okay, some NHST Examples\n\nmodel 1model 2\n\n\n\n\n\n\n\nCall:\nlm(formula = salary ~ yrs.service, data = Salaries)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-81933 -20511  -3776  16417 101947 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  99974.7     2416.6   41.37  &lt; 2e-16 ***\nyrs.service    779.6      110.4    7.06 7.53e-12 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 28580 on 395 degrees of freedom\nMultiple R-squared:  0.1121,    Adjusted R-squared:  0.1098 \nF-statistic: 49.85 on 1 and 395 DF,  p-value: 7.529e-12\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCall:\nlm(formula = salary ~ sex, data = Salaries)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-57290 -23502  -6828  19710 116455 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)   101002       4809  21.001  &lt; 2e-16 ***\nsexMale        14088       5065   2.782  0.00567 ** \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 30030 on 395 degrees of freedom\nMultiple R-squared:  0.01921,   Adjusted R-squared:  0.01673 \nF-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667"
+  },
+  {
+    "objectID": "calstats/labs/Milestone4.html",
+    "href": "calstats/labs/Milestone4.html",
+    "title": "Milestone4",
+    "section": "",
+    "text": "Your Final Project Dataset in R.\nFinish collecting your final project data, export these data into a .csv format, do some (extra) data cleaning to make your project dataset nice and organized, and then start doing descriptive statistics for your variables.\nThere are videos and steps in the Final Project Description on how to do this you should watch. You will also work on this in Discussion Section!!\nTo show you’ve done this, start filling in some of the descriptive statistics for your final project in the some kind of table (see below for an example of what this could look like.)"
+  },
+  {
+    "objectID": "calstats/labs/Lab8.html",
+    "href": "calstats/labs/Lab8.html",
+    "title": "",
+    "section": "",
+    "text": "Use the anchoring dataset to predict cat speeds, tree heights, and meat consumption from the experimental condition that people were in.\n\nLoad the data, and check to make sure it loaded correctly.\nGraph your variables - make sure there are no errors or outliers.\nDefine a linear model for each DV. Make sure to include a graph or each model, report the intercept, slope, and R2 for each model. What do these statistics tell you?\nRead the chapter notes on experiments, and apply these ideas to the anchoring study. How was this an example of an experiment (e.g., what were the conditions; was it randomly assigned; etc.)\nConclude - what do these models tell us about the phenomenon of anchoring? How we might use this knowledge?"
+  },
+  {
+    "objectID": "calstats/labs/Lab8.html#lab-8",
+    "href": "calstats/labs/Lab8.html#lab-8",
+    "title": "",
+    "section": "",
+    "text": "Use the anchoring dataset to predict cat speeds, tree heights, and meat consumption from the experimental condition that people were in.\n\nLoad the data, and check to make sure it loaded correctly.\nGraph your variables - make sure there are no errors or outliers.\nDefine a linear model for each DV. Make sure to include a graph or each model, report the intercept, slope, and R2 for each model. What do these statistics tell you?\nRead the chapter notes on experiments, and apply these ideas to the anchoring study. How was this an example of an experiment (e.g., what were the conditions; was it randomly assigned; etc.)\nConclude - what do these models tell us about the phenomenon of anchoring? How we might use this knowledge?"
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap_slides.html#check-in-a-quick-study-from-last-class-we-didnt-do.",
+    "href": "calstats/slides/8_nhst_recap_slides.html#check-in-a-quick-study-from-last-class-we-didnt-do.",
+    "title": "",
+    "section": "Check-In: a quick study from last class we didn’t do….",
+    "text": "Check-In: a quick study from last class we didn’t do….\n\nNo talking, no looking up answers!\nWill use data in lecture :)"
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap_slides.html#okay-some-nhst-examples",
+    "href": "calstats/slides/8_nhst_recap_slides.html#okay-some-nhst-examples",
+    "title": "",
+    "section": "Okay, some NHST Examples",
+    "text": "Okay, some NHST Examples\n\nmodel 1model 2\n\n\n\n\n\n\n\nCall:\nlm(formula = salary ~ yrs.service, data = Salaries)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-81933 -20511  -3776  16417 101947 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  99974.7     2416.6   41.37  &lt; 2e-16 ***\nyrs.service    779.6      110.4    7.06 7.53e-12 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 28580 on 395 degrees of freedom\nMultiple R-squared:  0.1121,    Adjusted R-squared:  0.1098 \nF-statistic: 49.85 on 1 and 395 DF,  p-value: 7.529e-12\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCall:\nlm(formula = salary ~ sex, data = Salaries)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-57290 -23502  -6828  19710 116455 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)   101002       4809  21.001  &lt; 2e-16 ***\nsexMale        14088       5065   2.782  0.00567 ** \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 30030 on 395 degrees of freedom\nMultiple R-squared:  0.01921,   Adjusted R-squared:  0.01673 \nF-statistic: 7.738 on 1 and 395 DF,  p-value: 0.005667"
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap_slides.html#recap-r2-in-real-life",
+    "href": "calstats/slides/8_nhst_recap_slides.html#recap-r2-in-real-life",
+    "title": "",
+    "section": "RECAP : \\(R^2\\) In Real-Life",
+    "text": "RECAP : \\(R^2\\) In Real-Life\n\n\n\n\n\nDISCUSS : what do these linear models tell us about the relationship between GPA, SAT (IVs) and freshman grades (DV)? Why did the researchers not report significance values?"
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap.html#project-time-milestone-3",
+    "href": "calstats/slides/8_nhst_recap.html#project-time-milestone-3",
+    "title": "",
+    "section": "Project Time : Milestone 3",
+    "text": "Project Time : Milestone 3\n\nFinal Project Description & Rubric.\nFinal Project Vision Board."
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap.html#the-end.",
+    "href": "calstats/slides/8_nhst_recap.html#the-end.",
+    "title": "",
+    "section": "The End.",
+    "text": "The End."
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap_slides.html#project-time-milestone-3",
+    "href": "calstats/slides/8_nhst_recap_slides.html#project-time-milestone-3",
+    "title": "",
+    "section": "Project Time : Milestone 3",
+    "text": "Project Time : Milestone 3\n\nFinal Project Description & Rubric.\nFinal Project Vision Board."
+  },
+  {
+    "objectID": "calstats/slides/8_nhst_recap_slides.html#the-end.",
+    "href": "calstats/slides/8_nhst_recap_slides.html#the-end.",
+    "title": "",
+    "section": "The End.",
+    "text": "The End."
   }
 ]

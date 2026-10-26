@@ -12,45 +12,26 @@ format:
 tbl-colwidths: [50,50]
 ---
 
-## Hi Again! {.smaller}
+## [Check-In: a quick study from last class we didn't do....](https://docs.google.com/forms/d/e/1FAIpQLSfJC8RLLtQf0Px0yz1nJjx-8CGXFrMcuUg_b3od54kHHPCEHQ/viewform?usp=sf_link)
 
-[Check-In Here](https://docs.google.com/forms/d/e/1FAIpQLSdyVnc80GrkTtGyaESOJJjjlAUHAUfpgMeiVkpZRo2JhKEbgQ/viewform)
+- No talking, no looking up answers!
+- Will use data in lecture :)
 
-::::: columns
-::: {.column width="60%"}
-```{r}
-#| message: false
-#| warning: false
-library(car)
-library(gplots)
-mod <- lm(salary ~ rank, data = Salaries)
-summary(mod)
-```
-:::
+![](images/7_cattree.png){fig-align="center" width="485"}
 
-::: {.column width="40%"}
-```{r}
-#| message: false
-#| warning: false
-#| fig-width: 5
-#| fig-height: 5
-plotmeans(salary ~ rank, data = Salaries, connect = F)
-```
-:::
-:::::
+## Okay, some NHST Examples
 
-## More Examples {.smaller}
-
--   **ice-breaker :** dream life (utopia)?
--   **the stats :** what's the slope, significance, R\^2?
--   **who cares :** how would you use this knowledge?
-
-:::::::::::: panel-tabset
+::::::::: panel-tabset
 #### model 1
 
 ::::: columns
 ::: {.column width="60%"}
 ```{r}
+#| echo: false
+#| message: false
+#| warning: false
+library(car)
+library(gplots)
 mod1 <- lm(salary ~ yrs.service, data = Salaries)
 summary(mod1)
 ```
@@ -58,6 +39,7 @@ summary(mod1)
 
 ::: {.column width="40%"}
 ```{r}
+#| echo: false
 #| message: false
 #| warning: false
 #| fig-width: 5
@@ -73,6 +55,9 @@ abline(mod1, lwd = 5)
 ::::: columns
 ::: {.column width="60%"}
 ```{r}
+#| echo: false
+#| message: false
+#| warning: false
 mod2 <- lm(salary ~ sex, data = Salaries)
 summary(mod2)
 ```
@@ -80,6 +65,7 @@ summary(mod2)
 
 ::: {.column width="40%"}
 ```{r}
+#| echo: false
 #| message: false
 #| warning: false
 #| fig-width: 5
@@ -88,56 +74,35 @@ plotmeans(salary ~ sex, data = Salaries, connect = F)
 ```
 :::
 :::::
+:::::::::
 
-#### model 3
-
-::::: columns
-::: {.column width="60%"}
-```{r}
-mod3 <- lm(yrs.service ~ sex, data = Salaries)
-summary(mod3)
-```
-:::
-
-::: {.column width="40%"}
-```{r}
-#| message: false
-#| warning: false
-#| fig-width: 5
-#| fig-height: 5
-plotmeans(yrs.service ~ sex, data = Salaries, connect = F)
-```
-:::
-:::::
-::::::::::::
-
-## NHST Review. {.smaller}
+## Ch 8 Review. {.smaller}
 
 ::: panel-tabset
 ### Slope
 
--   Direction & Strength of a Relationship
--   Hard to evaluate strength across models if the units differ too.
+- Direction & Strength of a Relationship
+- Hard to evaluate strength across models if the units differ too.
 
 ![](images/clipboard-3256555507.png)
 
 ### Standard Error
 
--   The amount of variation in an effect you might expect to find due to chance if the null hypothesis were "true".
+- The amount of variation in an effect you might expect to find due to chance if the null hypothesis were "true".
 
 ![](images/clipboard-3219785521.png)
 
 ### Significance is Not...
 
--   ...about slope! Large slope & sampling error = NOT SIGNIFICANT
+- ...about slope! Large slope & sampling error = NOT SIGNIFICANT
 
 ![](images/clipboard-422304565.png)
 
 ### Significance is Not
 
--   **...about size :** you can be VERY confident that a small effect is not due to sampling error.
--   **...about importance :** why does the effect matter?\
--   **...about truth :** our estimates of sampling error are all made up.
+- **...about size :** you can be VERY confident that a small effect is not due to sampling error.
+- **...about importance :** why does the effect matter?\
+- **...about truth :** our estimates of sampling error are all made up.
 
 ![](images/clipboard-3243820561.png)
 
@@ -155,5 +120,35 @@ Haller, H., & Krauss, S. (2002). [Misinterpretations of significance: A problem 
 
 ### Other Questions?
 
+Break time.
+
 ![](images/clipboard-148237661.png){fig-align="center"}
 :::
+
+## RECAP : $R^2$ In Real-Life
+
+::::: columns
+::: {.column width="50%"}
+![](images/clipboard-606508161.png)
+:::
+
+::: {.column width="50%"}
+![](images/clipboard-1347662291.png)
+
+**DISCUSS :** what do these linear models tell us about the relationship between GPA, SAT (IVs) and freshman grades (DV)? Why did the researchers not report significance values?
+:::
+:::::
+
+### $R^2$ is r \* r = a correlation
+
+![](images/clipboard-124761261.png){width="498"}
+
+## Project Time : Milestone 3
+
+- [**Final Project Description & Rubric**](https://docs.google.com/document/d/1DxiIxm_sRtm8t5FEOWhOJluJOo6ZPUI_eZTS13K4CxA/edit?usp=sharing)**.**
+
+- [Final Project Vision Board](https://docs.google.com/spreadsheets/d/1WMn8SH-yQC-5bNcnQR-Jp5RWkxutVlKNmxCgMDgompI/edit?usp=sharing).
+
+## The End.
+
+![](images/frog-dance-ff7.gif){fig-align="center"}
