@@ -1,0 +1,87 @@
+---
+title: ""
+format: 
+  html: default
+  revealjs: 
+    output-file: "r_review_slide.html"
+    slide-level: 3
+    embed-resources: true
+    controls: true
+    smaller: true
+    auto-stretch: false
+    code-overflow: wrap
+tbl-colwidths: [50,50]
+---
+
+## In-Class R Practice
+
+::::: columns
+::: {.column width="40%"}
+Instead of a check-in, please access the In-Class R Practice Document.
+
+Once you understand the assignment, join a breakout room by yourself.
+
+Share your screen in the breakout room, and work on the assignment.
+
+Professor will check in on you; ask for help if you get stuck.
+
+Any submission will receive FULL CREDIT. The point is to practice for next week :)
+
+Thanks!
+:::
+
+::: {.column width="60%"}
+**code you may need :**
+
+``` r
+head(d) # check the data
+hist(d$variable) # graph a numeric variable
+plot(d$variable) # graph a categorical variable
+plot(d$dv ~ d$iv) # draw a scatterplot
+mod <- lm(d$dv ~ d$iv) # define a linear model
+abline(mod) # draw the model on the scatterplot
+coef(mod) # find the slope and intercept
+summary(mod)$r.squared # report R^2
+```
+:::
+:::::
+
+## More Practice
+
+::: panel-tabset
+### Questions.
+
+Work with your buddy to look over the models.
+
+### The Models
+
+```{r}
+#| echo: false
+
+library(car)
+library(gplots)
+par(mfrow = c(1,2))
+mod1 <- lm(salary ~ sex, data = Salaries)
+mod2 <- lm(salary ~ yrs.service, data = Salaries)
+
+jtools::export_summs(mod1, mod2,
+             model.names = c("Model 1", "Model 2"),
+             error_format = "", stars = NULL)
+```
+
+### The Graphs
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 5
+
+plotmeans(salary ~ sex, data = Salaries, connect = F, main = "Model 1", xlab = "Sex", ylab = "Salary (USD)")
+plot(salary ~ yrs.service, data = Salaries, xlab = "Years of Service", ylab = "Salary (USD)", main = "Model 2", pch = 19)
+abline(mod2, col = "red", lwd = 5)
+```
+:::
+
+## THE END.
+
+![](images/frog-dance-ff7.gif){fig-align="center" width="498"}
