@@ -7278,5 +7278,82 @@
     "title": "",
     "section": "The End.",
     "text": "The End."
+  },
+  {
+    "objectID": "dvcstats/slides/r_review.html",
+    "href": "dvcstats/slides/r_review.html",
+    "title": "",
+    "section": "",
+    "text": "Instead of a check-in, please access the In-Class R Practice Document.\nOnce you understand the assignment, join a breakout room by yourself.\nShare your screen in the breakout room, and work on the assignment.\nProfessor will check in on you; ask for help if you get stuck.\nAny submission will receive FULL CREDIT. The point is to practice for next week :)\nThanks!\n\ncode you may need :\nhead(d) # check the data\nhist(d$variable) # graph a numeric variable\nplot(d$variable) # graph a categorical variable\nplot(d$dv ~ d$iv) # draw a scatterplot\nmod &lt;- lm(d$dv ~ d$iv) # define a linear model\nabline(mod) # draw the model on the scatterplot\ncoef(mod) # find the slope and intercept\nsummary(mod)$r.squared # report R^2"
+  },
+  {
+    "objectID": "dvcstats/slides/r_review.html#in-class-r-practice",
+    "href": "dvcstats/slides/r_review.html#in-class-r-practice",
+    "title": "",
+    "section": "",
+    "text": "Instead of a check-in, please access the In-Class R Practice Document.\nOnce you understand the assignment, join a breakout room by yourself.\nShare your screen in the breakout room, and work on the assignment.\nProfessor will check in on you; ask for help if you get stuck.\nAny submission will receive FULL CREDIT. The point is to practice for next week :)\nThanks!\n\ncode you may need :\nhead(d) # check the data\nhist(d$variable) # graph a numeric variable\nplot(d$variable) # graph a categorical variable\nplot(d$dv ~ d$iv) # draw a scatterplot\nmod &lt;- lm(d$dv ~ d$iv) # define a linear model\nabline(mod) # draw the model on the scatterplot\ncoef(mod) # find the slope and intercept\nsummary(mod)$r.squared # report R^2"
+  },
+  {
+    "objectID": "dvcstats/slides/r_review.html#more-practice",
+    "href": "dvcstats/slides/r_review.html#more-practice",
+    "title": "",
+    "section": "More Practice",
+    "text": "More Practice\n\nQuestions.The ModelsThe Graphs\n\n\nWork with your buddy to look over the models.\n\n\n\n\nLoading required package: carData\n\n\n\nAttaching package: 'gplots'\n\n\nThe following object is masked from 'package:stats':\n\n    lowess\n\n\n\n\nModel 1Model 2\n\n(Intercept)101002.4199974.65\n\n      \n\nsexMale14088.01   \n\n      \n\nyrs.service   779.57\n\n      \n\nN397   397   \n\nR20.020.11"
+  },
+  {
+    "objectID": "dvcstats/slides/r_review.html#the-end.",
+    "href": "dvcstats/slides/r_review.html#the-end.",
+    "title": "",
+    "section": "THE END.",
+    "text": "THE END."
+  },
+  {
+    "objectID": "dvcstats/W11_NHSTPreview.html",
+    "href": "dvcstats/W11_NHSTPreview.html",
+    "title": "Week 10 (No Class, But The Learning Continues)",
+    "section": "",
+    "text": "Hi class. Thank you for reading these words that I wrote. Does it sound like me? Can you make the voice sound like someone else? Amazing.\nAnyway, hope y’all are enjoying the week off. Before next week, please complete the following.\n\nComplete this Check-In. Your thoughts on the R Exam and rest of the semester.\nWatch the two videos below. (Or just the first video would probably be fine.)\nRead Chapter 8 and take the Reading Quiz. We back.\n\n\n\n\nIn the next part of our class, we’ll discuss how scientists use information from the individuals they studied to make a prediction about what EVERYONE is like. This can be confusing, because scientists are just making up data to guess about what people they did not study are like, and often do so in confusing and misleading ways. But the good news is doing this in R is very easy, and you will learn, and we will review in class.\n\n\nFocus on the difference between making predictions from our sample and the population, the difference between sampling error and bias, and get a quick(ish) overview of one (confusing) way we try to estimate sampling error called Null Hypothesis Significance Testing (NHST). The p-value and “significance” stuff you may remember from another stats class.\n\n\n\n\nA 12-minute video focusing more on “sampling error” if you are interested, why researchers should care about it, and how it can be reduced."
+  },
+  {
+    "objectID": "dvcstats/W11_NHSTPreview.html#announcements.",
+    "href": "dvcstats/W11_NHSTPreview.html#announcements.",
+    "title": "Week 10 (No Class, But The Learning Continues)",
+    "section": "",
+    "text": "Hi class. Thank you for reading these words that I wrote. Does it sound like me? Can you make the voice sound like someone else? Amazing.\nAnyway, hope y’all are enjoying the week off. Before next week, please complete the following.\n\nComplete this Check-In. Your thoughts on the R Exam and rest of the semester.\nWatch the two videos below. (Or just the first video would probably be fine.)\nRead Chapter 8 and take the Reading Quiz. We back."
+  },
+  {
+    "objectID": "dvcstats/W11_NHSTPreview.html#class-videos",
+    "href": "dvcstats/W11_NHSTPreview.html#class-videos",
+    "title": "Week 10 (No Class, But The Learning Continues)",
+    "section": "",
+    "text": "In the next part of our class, we’ll discuss how scientists use information from the individuals they studied to make a prediction about what EVERYONE is like. This can be confusing, because scientists are just making up data to guess about what people they did not study are like, and often do so in confusing and misleading ways. But the good news is doing this in R is very easy, and you will learn, and we will review in class.\n\n\nFocus on the difference between making predictions from our sample and the population, the difference between sampling error and bias, and get a quick(ish) overview of one (confusing) way we try to estimate sampling error called Null Hypothesis Significance Testing (NHST). The p-value and “significance” stuff you may remember from another stats class.\n\n\n\n\nA 12-minute video focusing more on “sampling error” if you are interested, why researchers should care about it, and how it can be reduced."
+  },
+  {
+    "objectID": "dvcstats/W10_Review.html",
+    "href": "dvcstats/W10_Review.html",
+    "title": "Week 10 - R Review",
+    "section": "",
+    "text": "NoteAnnouncements and Agenda\n\n\n\n\n\n\n\n\nR Exam is ONE WEEK. See the study guide.\n\nopen-note and open-internet\nstart (& submit) in class\nextra time as needed (hopefully not)?\n\nNo Class Week of 11/9 (Veteran’s Day). Professor will assign some videos + a new chapter.\n\n\nToday, on Psych 214.\n\n8:55 - 9:50. Check-In and R Practice.\n9:50 - 10:00. Break Time.\n10:00 - 11:00. Review.\n\n\n\n\n\n\n\nClass Slides and Materials\n\n\nNo Check-In.\nIn-Class R Practice.We are working on this in class to practice the R and test-taking skills required for next week!\nR EXAM STUDY GUIDE. It will be chill.\nProfessor R Scripts : Zoom Room + Room Crew\nVision Board : Zoom Crew + Room Crew\n\n\n\nFor Next Week.\n\n\nNo new reading :)"
+  },
+  {
+    "objectID": "dvcstats/slides/r_review_slide.html#in-class-r-practice",
+    "href": "dvcstats/slides/r_review_slide.html#in-class-r-practice",
+    "title": "",
+    "section": "In-Class R Practice",
+    "text": "In-Class R Practice\n\n\nInstead of a check-in, please access the In-Class R Practice Document.\nOnce you understand the assignment, join a breakout room by yourself.\nShare your screen in the breakout room, and work on the assignment.\nProfessor will check in on you; ask for help if you get stuck.\nAny submission will receive FULL CREDIT. The point is to practice for next week :)\nThanks!\n\ncode you may need :\nhead(d) # check the data\nhist(d$variable) # graph a numeric variable\nplot(d$variable) # graph a categorical variable\nplot(d$dv ~ d$iv) # draw a scatterplot\nmod &lt;- lm(d$dv ~ d$iv) # define a linear model\nabline(mod) # draw the model on the scatterplot\ncoef(mod) # find the slope and intercept\nsummary(mod)$r.squared # report R^2"
+  },
+  {
+    "objectID": "dvcstats/slides/r_review_slide.html#more-practice",
+    "href": "dvcstats/slides/r_review_slide.html#more-practice",
+    "title": "",
+    "section": "More Practice",
+    "text": "More Practice\n\nQuestions.The ModelsThe Graphs\n\n\nWork with your buddy to look over the models.\n\n\n\n\nLoading required package: carData\n\n\n\nAttaching package: 'gplots'\n\n\nThe following object is masked from 'package:stats':\n\n    lowess\n\n\n\n\nModel 1Model 2\n\n(Intercept)101002.4199974.65\n\n      \n\nsexMale14088.01   \n\n      \n\nyrs.service   779.57\n\n      \n\nN397   397   \n\nR20.020.11"
+  },
+  {
+    "objectID": "dvcstats/slides/r_review_slide.html#the-end.",
+    "href": "dvcstats/slides/r_review_slide.html#the-end.",
+    "title": "",
+    "section": "THE END.",
+    "text": "THE END."
   }
 ]
