@@ -13,8 +13,20 @@ navbar: false
 
 ## [**CHECK-IN**]()
 
-::: panel-tabset
-#### Anchoring Data
+::::: columns
+::: {.column width="50%"}
+![version a](images/clipboard-2455100868.png)
+:::
+
+::: {.column width="50%"}
+![version b](images/clipboard-3534066160.png)
+:::
+:::::
+
+## The Anchoring Study
+
+:::::: panel-tabset
+#### Check-In
 
 ```{r}
 #| message: false
@@ -23,6 +35,7 @@ navbar: false
 library(googlesheets4)
 library(gt)
 library(tidyverse)
+library(jtools)
 options(knitr.kable.NA = "")
 gs4_deauth()
 anchor <- read_sheet("https://docs.google.com/spreadsheets/d/1hPzlbSV6fex0aJbEd4zPPmrNcdEGrp-5u4reqpVdQhI/edit?usp=sharing", sheet = "Form Responses 1")
@@ -57,68 +70,81 @@ anchor$do.hike <- as.factor(anchor$do.hike)
 plot(anchor$condition)
 plot(anchor$have.cat)
 plot(anchor$do.hike)
-
-## Experiments
-
-plot(condition ~ have.cat, data = anchor)
-plot(condition ~ do.hike, data = anchor)
-
-## Models
-plotmeans(tree ~ condition, data = anchor)
-plotmeans(cat ~ condition, data = anchor)
 ```
 
-### Anchoring (Study
-
-:::: {.columns}
-    
+::::: columns
 ::: {.column width="50%"}
+```         
+dependent variable. what the researchers want to predict or explain
 
-outcome (DV). what the researchers want to predict or explain
+experimental manipulation. change only one thing about the variable
 
-manipulation (IV). change only one thing about the variable
+extraneous variables as “noise”. other factors that might influence the outcome variable
 
-confound variables (“noise”). other factors that might influence the outcome variable
+random assignment. the group people are put in is random; this ensures that all other variables that might affect the result are evenly split across the two groups 
 
-random assignment. if people put in random groups, then all other confound variables are *random error*.
+placebo effects. when individuals in the study change their behavior if they expect something to have an effect
 
+external validity. how much does the experimental manipulation represent what someone might experience in real life?
+
+construct validity. how much does the manipulation actually change the variable of interest?
+
+experimenter expectancy effects. if experimenters know what will happen to participants, they may change their behavior in ways that affect the results 
+```
 :::
-    
+
 ::: {.column width="50%"}
-
-![](images/clipboard-3534066160.png)
-
+![version a](images/clipboard-2455100868.png){alt="version a"} ![version b](images/clipboard-3534066160.png)
 :::
-    
-::::
+:::::
+
+#### Random Assignment
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+par(mfrow = c(1,2))
+plot(condition ~ have.cat, data = anchor)
+plot(condition ~ do.hike, data = anchor)
+```
+
+#### Causing Differences
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
 
 
-### Anchoring (Real-Life Example)
+mod1 <- lm(cat ~ condition, data = anchor)
+mod2 <- lm(tree ~ condition, data = anchor)
+par(mfrow = c(1,2))
+plotmeans(cat ~ condition, data = anchor, connect = F,
+          xlab = "Experimental Condition",
+          ylab = "Guesses About Cat Speeds (MPH)")
+plotmeans(tree ~ condition, data = anchor, connect = F,
+          xlab = "Experimental Condition",
+          ylab = "Guesses About Tree Heights (ft)")
+
+export_summs(mod1, mod2,
+             model.names = c("Cat Speeds", "Tree Heights"),
+             coefs = c("Low Group" = "(Intercept)",
+                       "Difference in High Group" = "conditionHIGH"),
+             error_format = "",
+             star = NULL)
+```
+
+#### Generalizability
 
 ![](images/clipboard-448231483.png)
 
-### Anchoring (How Use?)
+#### Anchoring (How Use?)
 
 ![](images/clipboard-2464854690.png)
-:::
+::::::
 
-### Anchoring
-
-::: panel-tabset
-#### Anchoring Study (Real-Life Examples)
-
-|     |     |
-|-----|-----|
-|     |     |
-:::
-
-# Part 2 : [Digging Deeper](https://catterson.github.io/rm/notes/digdeeper.html) {.smaller}
-
-## RECAP : evaluate the measure ([vision board review](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing)) {.smaller}
-
-![](images/clipboard-2150884350.png) \## NEXT : try to make the result make sense.
-
-# Part 1 : Experiments {.smaller}
+# Part 2 : Experiments {.smaller}
 
 ### KEY IDEA : Watch out for Misleading Control Variables {.smaller}
 
@@ -162,10 +188,6 @@ Read the prompt below. Answer the following questions.
 :::
 :::::
 
-### okay.
-
-![](images/frog-dance-ff7.gif){fig-align="center" width="466"}
-
 ### Other Questions to Consider : Does the experiment have....
 
 ::: panel-tabset
@@ -194,4 +216,14 @@ If experimenters know what will happen to participants, will they change their b
 ![](images/clipboard-1046030223.png)
 :::
 
-### 
+# Part 2 : [Digging Deeper](https://catterson.github.io/rm/notes/digdeeper.html) {.smaller}
+
+## RECAP : evaluate the measure ([vision board review](https://docs.google.com/spreadsheets/d/14u3w5edvo6KSFRw2U9t1knDANFSGBWOvDjS7-ZGujos/edit?usp=sharing)) {.smaller}
+
+![](images/clipboard-2150884350.png)
+
+## NEXT : try to make the result make sense.
+
+### okay.
+
+![](images/frog-dance-ff7.gif){fig-align="center" width="466"}
