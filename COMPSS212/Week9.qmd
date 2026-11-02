@@ -1,0 +1,50 @@
+---
+title: ""
+format: html
+editor: visual
+---
+
+# Week 9 - Monday, November 1st
+
+::: {.callout-note collapse="true"}
+### Agenda & Announcements
+
+**Goals**
+
+- **10:10 - 11:00.** RECAP : Interaction Effects
+
+- **11:00 - 11:10.** Break Time.
+
+- **11:10 - End.** Comparing and Evaluating Models
+
+**Announcements**
+
+- **Five lectures left :) :(**
+
+- **NO CLASS 12/7.**
+:::
+
+### Class Slides and Materials
+
+```{=html}
+<iframe data-external="1" class="slide-deck" src="/COMPSS212/slides/experiment_recap_slides.html" width="100%" height="650px" title=""></iframe>
+```
+
+- [**Check-In (Course Eval)**](https://forms.gle/wMAE9RiYfR3kWCcw5) **:** Five weeks left :) :(
+- [**Dataset of the Week**](https://www.dropbox.com/scl/fi/4fynfg4th4zdq4b2wuwv3/ds_final.csv?rlkey=7amq30kxgz4jj2jtjhste07ql&dl=0) **:** Climate Change Policies (and Trust in Science)
+  - [**CODEBOOK**](https://www.dropbox.com/scl/fi/qhjv51liz8votw6tp9j4s/core-questionnaire_english.pdf?rlkey=0krcfwxeiow5e3rkectcuetas&dl=0)**:** the list of questions that the researchers used to collect data.
+- [**Practice Brain Exam**](https://www.dropbox.com/scl/fi/a8d4pcq0e26ld0hpfchyd/Interaction_Brain.pdf?rlkey=55ksb8tki9xjr8t7t4wpg0pk6&dl=0)**.** From the Climate Change Dataset.
+- [**VISION BOARD**](https://docs.google.com/spreadsheets/d/14y4W9LJk1I9M3HFIOp3_94tdM0qUSYfkGdZnKK6L23c/edit?usp=sharing).
+- [**Professor Notes**](https://www.dropbox.com/scl/fo/7yhs2afoyisskz3eynnh8/ABO5kzYAdp8Y9cDBsqFU_TI?rlkey=hx72km35b6n02ep59vywdy7o4&dl=0). My R scripts and other notes, saved in real-time.
+
+# For Next Week.
+
+### Lab 8 - R Exam Draft.
+
+Use the Climate Change (and Trust in Science) Dataset to complete the following in R.
+
+1.  **Import the data.** Hmm, something might be different about these data :) :) :)
+2.  **Define a likert scale.** The participants were questions about whether they supported five different climate policies (CLIM_POLSUPPORT_fueltax, CLIM_POLSUPPORT_publictransport, CLIM_POLSUPPORT_sustenergy, CLIM_POLSUPPORT_protection, CLIM_POLSUPPORT_foodtax). Define a likert scale that measures participants' support for all five of these measures. Determine whether there's high reliability in this measure (e.g, cronbach's alpha). Graph the variable, and report what you learn about people's support for climate policies in the data.
+3.  **Define a series of linear models to test whether** a) religiousness (variable = DEM_RELIGIOUS) predicts climate policy support, b) optimism for the climate (variable = CLIM_EMO_optimistic), and c) the interaction between religiousness and optimism predicts climate policy support. Make sure to graph the interaction effect, interpret the results (in terms of the effects, significance values, and meaning / importance of any relationships).
+4.  **Calculate the power you have to detect this interaction effect.** Just an estimate.
+5.  **Define your own linear model to answer some question you have about the dataset.** The analysis must include a) an interaction effect and b) an estimate of power for the interaction effect. Be prepared to share your results, analyses, and any questions that you have about the analyses (either your R code or interpretation). in class next week.
