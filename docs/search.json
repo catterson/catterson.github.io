@@ -2125,7 +2125,7 @@
     "href": "COMPSS212/COMPSS212.html#course-outline",
     "title": "COMPSS 212 - Applied Statistics I",
     "section": "Course Outline",
-    "text": "Course Outline\nNOTE : Schedule subject to change; professor will make announcements and updates on bCourses.\n\n\n\nDate\nClass Topic\nSupport Readings\nLab Assignment\n\n\n8/31\nObjective Science : Quarto, Reliability & Validity\nWS 2-7; LSR 15.1 - 15.2; HSP : The Who of Psychology\nLab 1 : BMI and Steps (Health Data)\n\n\n9/7\nNo Class : Labor Day\nROS 2; WS 5\nNo HW.\n\n\n9/14\nConstructing Reality : Operationalization and Likert Scales\nHSP : Measuring Constructs\nLab 2 : I Feel Good About R (Self-Esteem Survey Data)\n\n\n9/21\nFaking Data is Good, Actually: Simulating Data; Bootstrapping\nROS 5; WS 8; LSR 9-10\nLab 3 : The Truth is Out There (Conspiracy Belief Data)\n\n\n9/28\nLife is Complex : Multiple Regression (Still a Line)\nROS 10.1-10.2; WS 10\nLab 4 : Replicating Experiments (Dehumanization Data)\n\n\n10/5\nLife Depends : More Regression and Experiments\nROS 10.3; WS 11\nLab 5 : Feels Good to Be Here (Self-Esteem Data)\n\n\n10/12\nWe Could Always Be Wrong : Power\nHSP : Changing Practices\n\n\n\n10/19\nWe Are Wrong : P-Hacking and Power\nROS 18; HSP : Art of Experimentation\nLab 6 : More Power, More Practice\n\n\n10/26\nLife is Complex : Interaction Effects\nROS 15; WS 11\nLab 7 : Purchasing Power.\n\n\n11/2\nR EXAM\n\nLab 9 : Practice Exam + Key\n\n\n11/9\nNever Tell Me The Odds : Generalized Linear Models (Bendy Lines)\nWS 12\n\n\n\n11/16\nMultilevel Models. Random Slopes, Random Intercepts, Still Lines.\nROS 22.5\nLab 11 : Project Milestone 1\n\n\n11/23\nMultilevel Models, Part 2: Time-Series Data.\nROS B\nLab 12 : It Depends (Football Data)\n\n\n11/30\nProject Workshop. The end is near.\n\nLab 13 : Project Milestone 2"
+    "text": "Course Outline\nNOTE : Schedule subject to change; professor will make announcements and updates on bCourses.\n\n\n\nDate\nClass Topic\nSupport Readings\nLab Assignment\n\n\n8/31\nObjective Science : Quarto, Reliability & Validity\nWS 2-7; LSR 15.1 - 15.2; HSP : The Who of Psychology\nLab 1 : BMI and Steps (Health Data)\n\n\n9/7\nNo Class : Labor Day\nROS 2; WS 5\nNo HW.\n\n\n9/14\nConstructing Reality : Operationalization and Likert Scales\nHSP : Measuring Constructs\nLab 2 : I Feel Good About R (Self-Esteem Survey Data)\n\n\n9/21\nFaking Data is Good, Actually: Simulating Data; Bootstrapping\nROS 5; WS 8; LSR 9-10\nLab 3 : The Truth is Out There (Conspiracy Belief Data)\n\n\n9/28\nLife is Complex : Multiple Regression (Still a Line)\nROS 10.1-10.2; WS 10\nLab 4 : Replicating Experiments (Dehumanization Data)\n\n\n10/5\nLife Depends : More Regression and Experiments\nROS 10.3; WS 11\nLab 5 : Feels Good to Be Here (Self-Esteem Data)\n\n\n10/12\nWe Could Always Be Wrong : Power\nHSP : Changing Practices\n\n\n\n10/19\nWe Are Wrong : P-Hacking and Power\nROS 18; HSP : Art of Experimentation\nLab 6 : More Power, More Practice\n\n\n10/26\nLife is Complex : Interaction Effects\nROS 15; WS 11\nLab 7 : Purchasing Power.\n\n\n11/2\nR EXAM REVIEW\n\nLab 9 : Practice Exam + Key\n\n\n11/9\nNever Tell Me The Odds : Generalized Linear Models (Bendy Lines)\nWS 12\n\n\n\n11/16\nMultilevel Models. Random Slopes, Random Intercepts, Still Lines.\nROS 22.5\nLab 11 : Project Milestone 1\n\n\n11/23\nMultilevel Models, Part 2: Time-Series Data.\nROS B\nLab 12 : It Depends (Football Data)\n\n\n11/30\nProject Workshop. The end is near.\n\nLab 13 : Project Milestone 2"
   },
   {
     "objectID": "COMPSS212/COMPSS212.html#grade-details",
@@ -7446,5 +7446,110 @@
     "title": "",
     "section": "RECAP : Interaction Effects",
     "text": "RECAP : Interaction Effects"
+  },
+  {
+    "objectID": "calstats/slides/r_review.html",
+    "href": "calstats/slides/r_review.html",
+    "title": "",
+    "section": "",
+    "text": "Instead of a check-in, please access the In-Class R Practice Template.\nTHIS IS JUST A PRACTICE EXAM.\nProfessor or GSI or Buddy will check in on you; ask for help if you get stuck.\nAny submission will receive FULL CREDIT. The point is to practice for next week :)\nThanks!\n\ncode you may need :\nhead(d) # check the data\nhist(d$variable) # graph a numeric variable\nplot(d$variable) # graph a categorical variable\nmod &lt;- lm(d$dv ~ d$iv) # define a linear model\ncoef(mod) # find the slope and intercept\nsummary(mod)$r.squared # report R^2\nplot(d$dv ~ d$iv) # graph when IV is numeric (scatterplot)\nabline(mod) # draw the model on the scatterplot\ngplots::plotmeans(d$dv ~ d$ivF) # graph when IV is categorical"
+  },
+  {
+    "objectID": "calstats/slides/r_review.html#in-class-r-practice",
+    "href": "calstats/slides/r_review.html#in-class-r-practice",
+    "title": "",
+    "section": "",
+    "text": "Instead of a check-in, please access the In-Class R Practice Template.\nTHIS IS JUST A PRACTICE EXAM.\nProfessor or GSI or Buddy will check in on you; ask for help if you get stuck.\nAny submission will receive FULL CREDIT. The point is to practice for next week :)\nThanks!\n\ncode you may need :\nhead(d) # check the data\nhist(d$variable) # graph a numeric variable\nplot(d$variable) # graph a categorical variable\nmod &lt;- lm(d$dv ~ d$iv) # define a linear model\ncoef(mod) # find the slope and intercept\nsummary(mod)$r.squared # report R^2\nplot(d$dv ~ d$iv) # graph when IV is numeric (scatterplot)\nabline(mod) # draw the model on the scatterplot\ngplots::plotmeans(d$dv ~ d$ivF) # graph when IV is categorical"
+  },
+  {
+    "objectID": "calstats/slides/r_review.html#more-practice",
+    "href": "calstats/slides/r_review.html#more-practice",
+    "title": "",
+    "section": "More Practice",
+    "text": "More Practice\n\nQuestions.The ModelsThe Graphs\n\n\nWork with your buddy to look over the models.\n\n\n\n\n\n\nModel 1Model 2\n\nIntercept0.79 ***3.95 ***\n\n(0.01)   (0.01)   \n\nClimate Change Influenced Past Weather0.85 ***       \n\n(0.00)          \n\nResidence (0 = Rural, 1 = Urban)       0.09 ***\n\n       (0.01)   \n\nN65552       65899       \n\nR20.71    0.00    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05."
+  },
+  {
+    "objectID": "calstats/slides/r_review.html#the-end.",
+    "href": "calstats/slides/r_review.html#the-end.",
+    "title": "",
+    "section": "THE END.",
+    "text": "THE END."
+  },
+  {
+    "objectID": "calstats/notes/Week10.html",
+    "href": "calstats/notes/Week10.html",
+    "title": "Week 10 - Monday, November 2nd",
+    "section": "",
+    "text": "NoteAnnouncements and Agenda\n\n\n\n\n\n\n\n\nTHE END IS NEAR. Three lectures (and an R Exam) left.\nR Exam is ONE WEEK. Study guide posted. Yes, dear student, there will be some NHST interpretation.\nDiscussion Section. Review and working on Milestone 3.\n\n\nToday, on Psych 101…\n\n3:10 - 4:10. Check-In and Review.\n4:30 - 4:40. Break Time.\n4:40 - ???. Project Workshop.\n\n\n\n\n\n\n\n\n\n\nNo Check-In. I know.\nIn-Class R Practice Template. Yeah.\nR EXAM STUDY GUIDE. Is it still feeling chill.\n\nCodebook for R Exam. A preview.\n\nProfessor Notes. My R scripts and other notes, saved in real-time.\nFinal Project Description & Rubric. And here’s the Final Project Vision Board.\n\n\n\n\n\nSubmit Milestone #3. Drafting your methods section; like a mad-libs. Would recommend doing this before you start building your survey on Google Forms (and would recommend using Google Forms instead of Qualtrics, but if you use Qualtrics to create your survey make sure you are using the Berkeley version.)\nPrepare for the R Exam. It is happening. You will do okay and if not that will be okay too. I am sorry it is stressful being a student at Cal sometimes. We can debrief after the exam and there is still plenty of time to learn and demonstrate that you have learned."
+  },
+  {
+    "objectID": "calstats/notes/Week10.html#for-next-week.",
+    "href": "calstats/notes/Week10.html#for-next-week.",
+    "title": "Week 10 - Monday, November 2nd",
+    "section": "",
+    "text": "Submit Milestone #3. Drafting your methods section; like a mad-libs. Would recommend doing this before you start building your survey on Google Forms (and would recommend using Google Forms instead of Qualtrics, but if you use Qualtrics to create your survey make sure you are using the Berkeley version.)\nPrepare for the R Exam. It is happening. You will do okay and if not that will be okay too. I am sorry it is stressful being a student at Cal sometimes. We can debrief after the exam and there is still plenty of time to learn and demonstrate that you have learned."
+  },
+  {
+    "objectID": "calstats/slides/r_review_slide.html#in-class-r-practice",
+    "href": "calstats/slides/r_review_slide.html#in-class-r-practice",
+    "title": "",
+    "section": "In-Class R Practice",
+    "text": "In-Class R Practice\n\n\nInstead of a check-in, please access the In-Class R Practice Template.\nTHIS IS JUST A PRACTICE EXAM.\nProfessor or GSI or Buddy will check in on you; ask for help if you get stuck.\nAny submission will receive FULL CREDIT. The point is to practice for next week :)\nThanks!\n\ncode you may need :\nhead(d) # check the data\nhist(d$variable) # graph a numeric variable\nplot(d$variable) # graph a categorical variable\nmod &lt;- lm(d$dv ~ d$iv) # define a linear model\ncoef(mod) # find the slope and intercept\nsummary(mod)$r.squared # report R^2\nplot(d$dv ~ d$iv) # graph when IV is numeric (scatterplot)\nabline(mod) # draw the model on the scatterplot\ngplots::plotmeans(d$dv ~ d$ivF) # graph when IV is categorical"
+  },
+  {
+    "objectID": "calstats/slides/r_review_slide.html#more-practice",
+    "href": "calstats/slides/r_review_slide.html#more-practice",
+    "title": "",
+    "section": "More Practice",
+    "text": "More Practice\n\nQuestions.The ModelsThe Graphs\n\n\nWork with your buddy to look over the models.\n\n\n\n\n\n\nModel 1Model 2\n\nIntercept0.79 ***3.95 ***\n\n(0.01)   (0.01)   \n\nClimate Change Influenced Past Weather0.85 ***       \n\n(0.00)          \n\nResidence (0 = Rural, 1 = Urban)       0.09 ***\n\n       (0.01)   \n\nN65552       65899       \n\nR20.71    0.00    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05."
+  },
+  {
+    "objectID": "calstats/slides/r_review_slide.html#the-end.",
+    "href": "calstats/slides/r_review_slide.html#the-end.",
+    "title": "",
+    "section": "THE END.",
+    "text": "THE END."
+  },
+  {
+    "objectID": "calstats/slides/r_review_milestone3.html",
+    "href": "calstats/slides/r_review_milestone3.html",
+    "title": "Milestone 3 : Launch Your Study & Draft Your Measures",
+    "section": "",
+    "text": "Instead of a check-in, please access the In-Class R Practice Template.\nTHIS IS JUST A PRACTICE EXAM.\nProfessor or GSI or Buddy will check in on you; ask for help if you get stuck.\nAny submission will receive FULL CREDIT. The point is to practice for next week :)\nThanks!\n\ncode you may need :\nhead(d) # check the data\nhist(d$variable) # graph a numeric variable\nplot(d$variable) # graph a categorical variable\nmod &lt;- lm(d$dv ~ d$iv) # define a linear model\ncoef(mod) # find the slope and intercept\nsummary(mod)$r.squared # report R^2\nplot(d$dv ~ d$iv) # graph when IV is numeric (scatterplot)\nabline(mod) # draw the model on the scatterplot\ngplots::plotmeans(d$dv ~ d$ivF) # graph when IV is categorical"
+  },
+  {
+    "objectID": "calstats/slides/r_review_milestone3.html#break-time-meet-back-at",
+    "href": "calstats/slides/r_review_milestone3.html#break-time-meet-back-at",
+    "title": "Milestone 3 : Launch Your Study & Draft Your Measures",
+    "section": "BREAK TIME : MEET BACK AT",
+    "text": "BREAK TIME : MEET BACK AT"
+  },
+  {
+    "objectID": "calstats/slides/r_review_milestone3.html#the-end.",
+    "href": "calstats/slides/r_review_milestone3.html#the-end.",
+    "title": "Milestone 3 : Launch Your Study & Draft Your Measures",
+    "section": "THE END.",
+    "text": "THE END."
+  },
+  {
+    "objectID": "calstats/slides/r_review_slide.html#break-time-meet-back-at",
+    "href": "calstats/slides/r_review_slide.html#break-time-meet-back-at",
+    "title": "",
+    "section": "BREAK TIME : MEET BACK AT",
+    "text": "BREAK TIME : MEET BACK AT"
+  },
+  {
+    "objectID": "calstats/slides/r_review_milestone3.html#milestone-3-launching-your-study-google-forms",
+    "href": "calstats/slides/r_review_milestone3.html#milestone-3-launching-your-study-google-forms",
+    "title": "Milestone 3 : Launch Your Study & Draft Your Measures",
+    "section": "Milestone 3 : Launching Your Study (Google Forms)",
+    "text": "Milestone 3 : Launching Your Study (Google Forms)\n\nYour Survey : DV is NUMERIC with MULTIPLE ITEMS\n\nvariable measured as likert scale = numeric\nhow to get multiple items for…\n\nhours of sleep\ndo you like me Y/N\nother variables in this room?\n\n\n\n\nYour Survey : Likert Scales\n\n\n\n\nUse a Multiple Choice Grid\n\nEach row is an item.\n\nAll the items use the same “stem” (“I am someone who…”)\nDo not require responses. Okay if folks skip, right?\n\nAttention Checks (e.g., “Mark Strongly Agree for this question.”)\nBETTER : to keep the survey short; give authentic motivation.\n\n\nEach column is a response. Use a 1-5 scale to make it easy / allow for neutral.\n\n\n\n\n\nYour Survey : Categorical Variables\n\n\n\n\n\nInclude demographic variables like age and sex; give people options to self-identify as something outside a forced binary!\nKeep categorical variables to just a few levels; you will need a LOT of data to capture variation if there are too many levels! 3-4 groups per variable.\n\n\n\n\n\nYour Survey : The Right Type of Variable!\n\n\n\n\n\nMake sure categorical variables are not better measured numerically. set “response validation” for any open-ended numbers you hope to collect to make data cleaning easier.\nMake sure each variable is measured independently of the others. For example, if I want to measure the relationship between happiness and reading, I would want to measure these separately.\n\nI am happy.\nI like to read.\nReading makes me happy. This mixes up the two variables (the DV and IV). It could be a cool measure on its own (love for reading scale?)."
+  },
+  {
+    "objectID": "calstats/slides/r_review_slide.html#milestone-3-launching-your-study-google-forms",
+    "href": "calstats/slides/r_review_slide.html#milestone-3-launching-your-study-google-forms",
+    "title": "",
+    "section": "Milestone 3 : Launching Your Study (Google Forms)",
+    "text": "Milestone 3 : Launching Your Study (Google Forms)"
   }
 ]
