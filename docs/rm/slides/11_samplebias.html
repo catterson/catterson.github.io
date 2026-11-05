@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,13 +12,10 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -37,10 +34,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-9d96f532d65220ca877c0304385df42f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6033a600180109c3731f6a886c29932c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -60,29 +57,11 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-          <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://catterson.github.io/ystats/"> 
-<span class="menu-text">Why Statistics?</span></a>
-  </li>  
-</ul>
-          <div class="quarto-navbar-tools">
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
-</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -91,22 +70,19 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#check-in" id="toc-check-in" class="nav-link active" data-scroll-target="#check-in">Check-In</a></li>
-  <li><a href="#mushroom-science-the-manipulation" id="toc-mushroom-science-the-manipulation" class="nav-link" data-scroll-target="#mushroom-science-the-manipulation">Mushroom Science : The Manipulation</a></li>
-  <li><a href="#mushroom-science-the-measure" id="toc-mushroom-science-the-measure" class="nav-link" data-scroll-target="#mushroom-science-the-measure">Mushroom Science : The Measure</a></li>
-  <li><a href="#recap-experiments" id="toc-recap-experiments" class="nav-link" data-scroll-target="#recap-experiments">RECAP : Experiments</a></li>
-  <li><a href="#part-2-intro-to-sampling-bias" id="toc-part-2-intro-to-sampling-bias" class="nav-link" data-scroll-target="#part-2-intro-to-sampling-bias">PART 2 : INTRO TO SAMPLING BIAS</a>
+  <li><a href="#mushroom-science" id="toc-mushroom-science" class="nav-link" data-scroll-target="#mushroom-science">Mushroom Science</a></li>
+  <li><a href="#results-the-effect-depends" id="toc-results-the-effect-depends" class="nav-link" data-scroll-target="#results-the-effect-depends">Results : The Effect Depends</a>
   <ul class="collapse">
-  <li><a href="#mushroom-science-the-sample" id="toc-mushroom-science-the-sample" class="nav-link" data-scroll-target="#mushroom-science-the-sample">Mushroom Science : The Sample</a></li>
   <li><a href="#the-effect-depends" id="toc-the-effect-depends" class="nav-link" data-scroll-target="#the-effect-depends">The Effect Depends…</a></li>
   <li><a href="#the-effect-depends-1" id="toc-the-effect-depends-1" class="nav-link" data-scroll-target="#the-effect-depends-1">The Effect Depends…</a></li>
+  <li><a href="#the-result" id="toc-the-result" class="nav-link" data-scroll-target="#the-result">The Result</a></li>
+  </ul></li>
   <li><a href="#other-things-to-chat-about" id="toc-other-things-to-chat-about" class="nav-link" data-scroll-target="#other-things-to-chat-about">Other Things To Chat About?</a></li>
   <li><a href="#part-2-dig-deeper-assignment" id="toc-part-2-dig-deeper-assignment" class="nav-link" data-scroll-target="#part-2-dig-deeper-assignment">Part 2 : Dig Deeper Assignment</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
-  <li><a href="#writing-dig-deeper" id="toc-writing-dig-deeper" class="nav-link" data-scroll-target="#writing-dig-deeper">Writing Dig Deeper</a></li>
-  </ul></li>
-  <li><a href="#next-week-final-project-time" id="toc-next-week-final-project-time" class="nav-link" data-scroll-target="#next-week-final-project-time">NEXT WEEK : Final Project Time</a></li>
+  <li><a href="#next-week-writing-dig-deeper" id="toc-next-week-writing-dig-deeper" class="nav-link" data-scroll-target="#next-week-writing-dig-deeper">NEXT WEEK : Writing Dig Deeper</a></li>
+  <li><a href="#the-end." id="toc-the-end." class="nav-link" data-scroll-target="#the-end.">THE END.</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="11_samplebias.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="11_samplebiasslides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -125,52 +101,45 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="mushroom-science-the-manipulation" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="mushroom-science-the-manipulation">Mushroom Science : The Manipulation</h2>
+<section id="mushroom-science" class="level2">
+<h2 class="anchored" data-anchor-id="mushroom-science">Mushroom Science</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">manipulation</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">measure</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">sample (bias)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <table class="caption-top table">
 <colgroup>
-<col style="width: 63%">
-<col style="width: 36%">
+<col style="width: 66%">
+<col style="width: 33%">
 </colgroup>
 <tbody>
 <tr class="odd">
 <td><img src="images/clipboard-2231150091.png" class="img-fluid" style="width:80.0%"></td>
-<td><ul>
-<li><p>control / manipulation?</p></li>
-<li><p>double-blind?</p></li>
-<li><p>generalizability?</p></li>
-<li><p>random assignment?</p></li>
-</ul></td>
+<td><p>control / manipulation?</p>
+<p>double-blind?</p>
+<p>generalizability?</p>
+<p>random assignment?</p></td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="mushroom-science-the-measure" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="mushroom-science-the-measure">Mushroom Science : The Measure</h2>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 72%">
-<col style="width: 26%">
+<col style="width: 23%">
 </colgroup>
 <tbody>
 <tr class="odd">
 <td><p><img src="images/clipboard-683151553.png" class="img-fluid" style="width:80.0%"></p>
 <p><img src="images/clipboard-3878123438.png" class="img-fluid" style="width:80.0%"></p></td>
-<td><ul>
-<li><p>validity?</p></li>
-<li><p>reliability?</p></li>
-</ul></td>
+<td><p>validity?</p>
+<p>reliability?</p></td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="recap-experiments" class="level2">
-<h2 class="anchored" data-anchor-id="recap-experiments">RECAP : Experiments</h2>
-</section>
-<section id="part-2-intro-to-sampling-bias" class="level1">
-<h1>PART 2 : INTRO TO SAMPLING BIAS</h1>
-<section id="mushroom-science-the-sample" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="mushroom-science-the-sample">Mushroom Science : The Sample</h2>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -183,19 +152,29 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</div>
 </section>
-<section id="the-effect-depends" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="the-effect-depends">The Effect Depends…</h2>
+<section id="results-the-effect-depends" class="level2">
+<h2 class="anchored" data-anchor-id="results-the-effect-depends">Results : The Effect Depends</h2>
+<section id="the-effect-depends" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="the-effect-depends">The Effect Depends…</h3>
 <p><strong>On the Vision Board :</strong></p>
 <ul>
 <li><p>have you ever had a mystical / transcendental experience (drug or non-drug)?</p></li>
 <li><p>what is some other factor (about people or the situation) that would change the relationship between taking the drug and openness to new experiences?</p></li>
 </ul>
-<p><img src="images/clipboard-725542102.png" class="img-fluid"></p>
+<p><img src="images/clipboard-725542102.png" class="img-fluid" width="566"></p>
 </section>
-<section id="the-effect-depends-1" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="the-effect-depends-1">The Effect Depends…</h2>
-<p><img src="images/clipboard-2372287094.png" class="img-fluid"></p>
+<section id="the-effect-depends-1" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="the-effect-depends-1">The Effect Depends…</h3>
+<p><img src="images/clipboard-2372287094.png" class="img-fluid" width="609"></p>
+</section>
+<section id="the-result" class="level3">
+<h3 class="anchored" data-anchor-id="the-result">The Result</h3>
+<p><img src="images/clipboard-2740746137.png" class="img-fluid"></p>
+</section>
 </section>
 <section id="other-things-to-chat-about" class="level2 smaller">
 <h2 class="smaller anchored" data-anchor-id="other-things-to-chat-about">Other Things To Chat About?</h2>
@@ -222,26 +201,17 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 </section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
-</section>
-<section id="writing-dig-deeper" class="level2">
-<h2 class="anchored" data-anchor-id="writing-dig-deeper">Writing Dig Deeper</h2>
+<section id="next-week-writing-dig-deeper" class="level1">
+<h1>NEXT WEEK : Writing Dig Deeper</h1>
 <p><strong>Final Product :</strong> write a short summary compare / contrasting the news article and the research article.</p>
 <ul>
 <li><p>include at least one thing on the rubric from each category.</p></li>
 <li><p>THE POINT / THE EVIDENCE / WHO CARES</p></li>
-<li><p>Professor demonstrates and then you write.</p></li>
 </ul>
 </section>
-</section>
-<section id="next-week-final-project-time" class="level1">
-<h1>NEXT WEEK : Final Project Time</h1>
-<ul>
-<li><p>Submit Dig Deeper [DONE]</p></li>
-<li><p>Maybe read an article to discuss? [OR NAH]</p></li>
-</ul>
-<p><img src="https://www.gif-vif.com/trending/frog-dance-frog.gif.pagespeed.ce.P7TEOgyG1P.gif" class="img-fluid"></p>
+<section id="the-end." class="level1">
+<h1>THE END.</h1>
+<p><img src="images/frog-dance-ff7.gif" class="img-fluid"></p>
 
 
 </section>
