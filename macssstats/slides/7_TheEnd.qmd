@@ -228,10 +228,9 @@ summary(glmod)
 ```
 :::
 
-### Real-Life Example{.smaller}
+### Real-Life Example {.smaller}
 
-:::{.panel-tabset}
-
+::: panel-tabset
 #### Study Design
 
 [**Link to Article**](https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0072946&type=printable) **:** Somers, J. M., Rezansoff, S. N., Moniruzzaman, A., Palepu, A., & Patterson, M. (2013). Housing First reduces re-offending among formerly homeless adults with mental disorders: results of a randomized controlled trial. PloS one, 8(9), e72946.
@@ -241,7 +240,6 @@ summary(glmod)
 #### A Regression Table
 
 ![](images/clipboard-3913196998.png)
-
 :::
 
 ### [see chapter 12](https://catterson.github.io/ystats/chapters/12R_LogisticRegression.html)
