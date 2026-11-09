@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -34,10 +37,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6033a600180109c3731f6a886c29932c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9d96f532d65220ca877c0304385df42f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -91,7 +94,11 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#class-slides-and-materials" id="toc-class-slides-and-materials" class="nav-link" data-scroll-target="#class-slides-and-materials">Class Slides and Materials</a></li>
   </ul></li>
-  <li><a href="#r-exam." id="toc-r-exam." class="nav-link" data-scroll-target="#r-exam.">R Exam.</a></li>
+  <li><a href="#for-next-week" id="toc-for-next-week" class="nav-link" data-scroll-target="#for-next-week">For Next Week</a>
+  <ul class="collapse">
+  <li><a href="#chill-r-exam." id="toc-chill-r-exam." class="nav-link" data-scroll-target="#chill-r-exam.">Chill R Exam.</a></li>
+  <li><a href="#hey-professor.-i-still-have-time-and-energy-and-interest-in-reading" id="toc-hey-professor.-i-still-have-time-and-energy-and-interest-in-reading" class="nav-link" data-scroll-target="#hey-professor.-i-still-have-time-and-energy-and-interest-in-reading">Hey, Professor. I still have time and energy and interest in reading!</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -124,29 +131,44 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><strong>Announcements</strong></p>
 <ul>
-<li><p><strong>Four lectures left :) :(</strong></p></li>
-<li><p><strong>NO CLASS 12/7.</strong></p></li>
+<li><p><strong>Four lectures left; NO CLASS 12/7.</strong></p></li>
+<li><p><strong>MaCSS Feedback.</strong> Some structural issues; will try to advocate for ya’ll. burnout is real &lt;3</p></li>
+<li><p><strong>Class Feedback.</strong> Things mostly good; a few misses; general desire to keep things chill and realize good to reinforce and not add too much to your full plates. Will chat project next week.</p></li>
 </ul>
 </div>
 </div>
 </div>
 <section id="class-slides-and-materials" class="level3">
 <h3 class="anchored" data-anchor-id="class-slides-and-materials">Class Slides and Materials</h3>
-<iframe data-external="1" class="slide-deck" src="../COMPSS212/slides/experiment_recap_slides.html" width="100%" height="650px" title=""></iframe>
+<iframe data-external="1" class="slide-deck" src="../COMPSS212/slides/glm_slides.html" width="100%" height="650px" title=""></iframe>
 <ul>
-<li><a href="https://forms.gle/wMAE9RiYfR3kWCcw5"><strong>Check-In (Course Eval)</strong></a> <strong>:</strong> Five weeks left :) :(</li>
+<li><a href="https://forms.gle/GuXCEjpxVwWudRdh7"><strong>Check-In (Course Eval)</strong> <strong>:</strong></a> More brain exam practice.
+<ul>
+<li><a href="https://docs.google.com/drawings/d/1-wVkkrEMVv5P2tXO3c-SU6h8o1MdN_FaxJwdj7wTWrk/edit?usp=sharing">Professor Drawing.</a> Hi.</li>
+</ul></li>
 <li><a href="https://www.dropbox.com/scl/fi/4fynfg4th4zdq4b2wuwv3/ds_final.csv?rlkey=7amq30kxgz4jj2jtjhste07ql&amp;dl=0"><strong>Dataset of the Week</strong></a> <strong>:</strong> Climate Change Policies (and Trust in Science) + <a href="https://www.dropbox.com/scl/fi/qhjv51liz8votw6tp9j4s/core-questionnaire_english.pdf?rlkey=0krcfwxeiow5e3rkectcuetas&amp;dl=0"><strong>CODEBOOK</strong></a></li>
 <li><a href="https://docs.google.com/spreadsheets/d/14y4W9LJk1I9M3HFIOp3_94tdM0qUSYfkGdZnKK6L23c/edit?usp=sharing"><strong>VISION BOARD</strong></a>.</li>
 <li><a href="https://www.dropbox.com/scl/fo/7yhs2afoyisskz3eynnh8/ABO5kzYAdp8Y9cDBsqFU_TI?rlkey=hx72km35b6n02ep59vywdy7o4&amp;dl=0"><strong>Professor Notes</strong></a>. My R scripts and other notes, saved in real-time.</li>
 </ul>
-<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vQuXKzwyH8kHOuYn4VCvejcBGRBPSKipz2b4bFvAfPp2WXJqYSl8ZARurmWgqdLqe_GU86cVjmnQq6E/pub?w=960&amp;h=720"></p>
 </section>
 </section>
-<section id="r-exam." class="level1">
-<h1>R Exam.</h1>
+<section id="for-next-week" class="level1">
+<h1>For Next Week</h1>
+<section id="chill-r-exam." class="level3">
+<h3 class="anchored" data-anchor-id="chill-r-exam.">Chill R Exam.</h3>
 <p>Submit what you did for Q5 from Lab 8 as a 1-page report. You do not need to include code or a regression table - think about what might be important to show</p>
+</section>
+<section id="hey-professor.-i-still-have-time-and-energy-and-interest-in-reading" class="level3">
+<h3 class="anchored" data-anchor-id="hey-professor.-i-still-have-time-and-energy-and-interest-in-reading">Hey, Professor. I still have time and energy and interest in reading!</h3>
+<p><strong>On logistic regression, one example of the <em>generalized linear model</em>.</strong></p>
+<ul>
+<li><p><a href="https://catterson.github.io/ystats/chapters/12R_LogisticRegression.html">Chapter 12 of <em>Why Statistics</em></a><em>.</em> The basics of how to adapt the linear model to predict a binary variable.</p></li>
+<li><p><a href="https://m-clark.github.io/book-of-models/generalized_linear_models.html">Generalized Linear Models</a>. I like this researcher’s approach to linear models, and while this textbook chapter is a little more spare than some of the other chapters, it presents a nice overview of why and how we use generalized linear models.</p></li>
+<li><p><a href="https://www.datascienceblog.net/post/machine-learning/interpreting_generalized_linear_models/">A stats blog</a> works through the output of a generalized linear model in R; focuses on a poisson distribution, but many of the principles are the same (and good to see a different example of a similar concept.)</p></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -21,25 +21,37 @@ editor: visual
 
 **Announcements**
 
-- **Four lectures left :) :(**
+- **Four lectures left; NO CLASS 12/7.**
 
-- **NO CLASS 12/7.**
+- **MaCSS Feedback.** Some structural issues; will try to advocate for ya'll. burnout is real \<3
+
+- **Class Feedback.** Things mostly good; a few misses; general desire to keep things chill and realize good to reinforce and not add too much to your full plates. Will chat project next week.
 :::
 
 ### Class Slides and Materials
 
 ```{=html}
-<iframe data-external="1" class="slide-deck" src="/COMPSS212/slides/experiment_recap_slides.html" width="100%" height="650px" title=""></iframe>
+<iframe data-external="1" class="slide-deck" src="/COMPSS212/slides/glm_slides.html" width="100%" height="650px" title=""></iframe>
 ```
 
-- [**Check-In (Course Eval)**](https://forms.gle/wMAE9RiYfR3kWCcw5) **:** Five weeks left :) :(
+- [**Check-In (Course Eval)** **:**](https://forms.gle/GuXCEjpxVwWudRdh7) More brain exam practice.
+  - [Professor Drawing.](https://docs.google.com/drawings/d/1-wVkkrEMVv5P2tXO3c-SU6h8o1MdN_FaxJwdj7wTWrk/edit?usp=sharing) Hi.
 - [**Dataset of the Week**](https://www.dropbox.com/scl/fi/4fynfg4th4zdq4b2wuwv3/ds_final.csv?rlkey=7amq30kxgz4jj2jtjhste07ql&dl=0) **:** Climate Change Policies (and Trust in Science) + [**CODEBOOK**](https://www.dropbox.com/scl/fi/qhjv51liz8votw6tp9j4s/core-questionnaire_english.pdf?rlkey=0krcfwxeiow5e3rkectcuetas&dl=0)
 - [**VISION BOARD**](https://docs.google.com/spreadsheets/d/14y4W9LJk1I9M3HFIOp3_94tdM0qUSYfkGdZnKK6L23c/edit?usp=sharing).
 - [**Professor Notes**](https://www.dropbox.com/scl/fo/7yhs2afoyisskz3eynnh8/ABO5kzYAdp8Y9cDBsqFU_TI?rlkey=hx72km35b6n02ep59vywdy7o4&dl=0). My R scripts and other notes, saved in real-time.
 
-<img src="https://docs.google.com/drawings/d/e/2PACX-1vQuXKzwyH8kHOuYn4VCvejcBGRBPSKipz2b4bFvAfPp2WXJqYSl8ZARurmWgqdLqe_GU86cVjmnQq6E/pub?w=960&amp;h=720">
+# For Next Week
 
-# R Exam.
+### Chill R Exam.
 
-Submit what you did for Q5 from Lab 8 as a 1-page report. You do not need to include code or a regression table - think about what might be important to show 
+Submit what you did for Q5 from Lab 8 as a 1-page report. You do not need to include code or a regression table - think about what might be important to show
 
+### Hey, Professor. I still have time and energy and interest in reading!
+
+**On logistic regression, one example of the *generalized linear model*.**
+
+- [Chapter 12 of *Why Statistics*](https://catterson.github.io/ystats/chapters/12R_LogisticRegression.html)*.* The basics of how to adapt the linear model to predict a binary variable.
+
+- [Generalized Linear Models](https://m-clark.github.io/book-of-models/generalized_linear_models.html). I like this researcher’s approach to linear models, and while this textbook chapter is a little more spare than some of the other chapters, it presents a nice overview of why and how we use generalized linear models.
+
+- [A stats blog](https://www.datascienceblog.net/post/machine-learning/interpreting_generalized_linear_models/) works through the output of a generalized linear model in R; focuses on a poisson distribution, but many of the principles are the same (and good to see a different example of a similar concept.)
