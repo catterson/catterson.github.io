@@ -7684,5 +7684,47 @@
     "title": "",
     "section": "RECAP : Experiments",
     "text": "RECAP : Experiments\n\nDEFINITION : Principles of an Experiment\n\n\noutcome (DV). what the researchers want to predict or explain\nmanipulation (IV). change only one thing about the variable.\n\nconfound variables (“noise”). other factors that might influence the outcome variable\n\n\n\nrandom assignment. if people put in random groups, then all other confound variables are random error.\n\n\nIn the Vision Board : think about a question that you have (real-life or research)\n\nWhat is this question as a linear model?\nHow would you measure the DV?\nWhat is the IV (the ONE thing that differs between the two groups)?\nHow might you manipulate this variable? (What is the experimental and control group?)\nWhat are all the things that you would need or want to try and keep the same (avoid placebo)?\n\n\n\n\n\nKEY IDEA : Watch out for Misleading Control Variables\nRECAP : the manipulation (A/B Testing) : researchers create multiple groups (conditions) and change ONE THING (the IV) about a person’s experience in each group & observe the result (the DV).\nKEY IDEA : the comparison group matters!\n\na 1.5 hour research methods class DECREASES boredom compared to…\na 1.5 hour research methods class INCREASES boredom compared to…\n\n\n\nScience is Hard : Power Posing\n\n\n\n\n\n\n\n\n\nExample : Gratitude Study\n\n\nRead the prompt below. Answer the following questions.\n\nICE-BREAKER : What’s something that you are grateful for?\nWhat is the experimental / control condition?\nIs this a fair comparison / manipulation? What would be better?\n\n\n\n\n\n\n\nLab 4 : The Dehumanization Study\n\n\n\nLab 6 : The Anchoring Study\n\nAnchoring DataAnchoring Study (Real-Life Examples)\n\n\n\n\n\n\nDV = Cat SpeedsDV = Tree HeightsDV = Meat Consumption\n\n(Intercept)16.33 **270.20 *268.64 **\n\n(5.32)  (105.53) (78.87)  \n\nconditionHIGH12.67   369.35 *295.70 * \n\n(7.38)  (145.81) (117.58)  \n\nconditionLOW-6.26   54.80  -210.97   \n\n(8.76)  (172.32) (132.76)  \n\nN32      27     26      \n\nR20.16   0.23  0.38   \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOther Questions to Consider : Does the experiment have….\n\nplacebo effectsexternal validityconstruct validityexpectancy effects\n\n\nWill individuals in the study change their behavior if they expect something to have an effect?\n\n\n\nHow much does the experimental manipulation represent what someone might experience in real life?\n\n\n\nHow much does the manipulation actually change the variable of interest?\n\n\n\n\n\n\n\nIf experimenters know what will happen to participants, will they change their behavior in ways that affect the results?\n\n\n\n\n\n\nokay."
+  },
+  {
+    "objectID": "COMPSS212/slides/10_XEexperimentRECAP.html#recap-experiments",
+    "href": "COMPSS212/slides/10_XEexperimentRECAP.html#recap-experiments",
+    "title": "",
+    "section": "RECAP : Experiments",
+    "text": "RECAP : Experiments\n\nDEFINITION : Principles of an Experiment\n\n\noutcome (DV). what the researchers want to predict or explain\nmanipulation (IV). change only one thing about the variable.\n\nconfound variables (“noise”). other factors that might influence the outcome variable\n\n\n\nrandom assignment. if people put in random groups, then all other confound variables are random error.\n\n\nIn the Vision Board : think about a question that you have (real-life or research)\n\nWhat is this question as a linear model?\nHow would you measure the DV?\nWhat is the IV (the ONE thing that differs between the two groups)?\nHow might you manipulate this variable? (What is the experimental and control group?)\nWhat are all the things that you would need or want to try and keep the same (avoid placebo)?\n\n\n\n\n\nKEY IDEA : Watch out for Misleading Control Variables\nRECAP : the manipulation (A/B Testing) : researchers create multiple groups (conditions) and change ONE THING (the IV) about a person’s experience in each group & observe the result (the DV).\nKEY IDEA : the comparison group matters!\n\na 2 hour stats class DECREASES boredom compared to…\na 2 hour stats class INCREASES boredom compared to…\n\n\n\nScience is Hard : Power Posing\n\n\n\n\n\n\n\n\n\nExample : Gratitude Study\n\n\nRead the prompt below. Answer the following questions.\n\nICE-BREAKER : What’s something that you are grateful for?\nWhat is the experimental / control condition?\nIs this a fair comparison / manipulation? What would be better?\n\n\n\n\n\n\n\nLab 4 : The Dehumanization Study\n\n\n\nLab 6 : The Anchoring Study\n\nAnchoring DataAnchoring Study (Real-Life Examples)\n\n\n\n\n\n\nDV = Cat SpeedsDV = Tree HeightsDV = Meat Consumption\n\n(Intercept)16.33 **270.20 *268.64 **\n\n(5.32)  (105.53) (78.87)  \n\nconditionHIGH12.67   369.35 *295.70 * \n\n(7.38)  (145.81) (117.58)  \n\nconditionLOW-6.26   54.80  -210.97   \n\n(8.76)  (172.32) (132.76)  \n\nN32      27     26      \n\nR20.16   0.23  0.38   \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOther Questions to Consider : Does the experiment have….\n\nplacebo effectsexternal validityconstruct validityexpectancy effects\n\n\nWill individuals in the study change their behavior if they expect something to have an effect?\n\n\n\nHow much does the experimental manipulation represent what someone might experience in real life?\n\n\n\nHow much does the manipulation actually change the variable of interest?\n\n\n\n\n\n\n\nIf experimenters know what will happen to participants, will they change their behavior in ways that affect the results?\n\n\n\n\n\n\nokay."
+  },
+  {
+    "objectID": "COMPSS212/slides/11_GLM.html",
+    "href": "COMPSS212/slides/11_GLM.html",
+    "title": "Logistic Regression",
+    "section": "",
+    "text": "Model 1\n\nIntercept0.03 ***\n\n       \n\nNegative Emotions0.24 ***\n\n       \n\nBelief in Climate Change0.24 ***\n\n       \n\nNegative Emotions x Belief-0.08 ***\n\n       \n\nN67262       \n\nR20.19    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05."
+  },
+  {
+    "objectID": "COMPSS212/slides/review_slides.html#more-practice-interaction-effects",
+    "href": "COMPSS212/slides/review_slides.html#more-practice-interaction-effects",
+    "title": "",
+    "section": "MORE PRACTICE : Interaction Effects",
+    "text": "MORE PRACTICE : Interaction Effects"
+  },
+  {
+    "objectID": "COMPSS212/slides/review_slides.html#recap-experiments",
+    "href": "COMPSS212/slides/review_slides.html#recap-experiments",
+    "title": "",
+    "section": "RECAP : Experiments",
+    "text": "RECAP : Experiments"
+  },
+  {
+    "objectID": "COMPSS212/slides/10_XEexperimentRECAP.html#question-what-if-you-have-lots-of-interaction-effects",
+    "href": "COMPSS212/slides/10_XEexperimentRECAP.html#question-what-if-you-have-lots-of-interaction-effects",
+    "title": "",
+    "section": "QUESTION : what if you have lots of interaction effects????",
+    "text": "QUESTION : what if you have lots of interaction effects????"
+  },
+  {
+    "objectID": "COMPSS212/slides/review_slides.html#question-what-if-you-have-lots-of-interaction-effects",
+    "href": "COMPSS212/slides/review_slides.html#question-what-if-you-have-lots-of-interaction-effects",
+    "title": "",
+    "section": "QUESTION : what if you have lots of interaction effects????",
+    "text": "QUESTION : what if you have lots of interaction effects????"
   }
 ]
