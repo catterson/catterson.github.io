@@ -11,7 +11,7 @@ format:
 tbl-colwidths: [70,25]
 ---
 
-# Interaction Effect Review
+### Interaction Effect Review
 
 ```{r}
 #| message: false
