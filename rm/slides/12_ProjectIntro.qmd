@@ -1,79 +1,39 @@
 ---
 title: ""
 format: 
+  html: default
   revealjs: 
     slide-level: 3
+    output-file: "12_project_intro_slide.html"
     link-external-newwindow: true
-    chalkboard: true
     controls: true
+    smaller: true
+navbar: false
 ---
 
-## Data on Resumes{.smaller}
-
-[Check-In : Resume Study](https://docs.google.com/forms/d/e/1FAIpQLSfCxa3eYx90UC3OUw03dDMBzisPn27M4cNPSjp-sdgJQQinIw/viewform?usp=sf_link)
-
-::::::::: panel-tabset
-#### Data
+## [Check-In : Refugee Study](https://docs.google.com/forms/d/e/1FAIpQLSfXDma6OLDL3LZgEs_3z_pyHepAz7SsAVv3eU7gIRxTViZ5Ug/viewform?usp=header)
 
 ::::: columns
-::: {.column width="50%"}
-![](images/clipboard-4169009733.png)
+::: {.column width="70%"}
+![](images/clipboard-1585073730.png)
 :::
 
-::: {.column width="50%"}
+::: {.column width="30%"}
+- scan the results (table 3)
 :::
 :::::
 
-#### Fanon
-
-::::: columns
-::: {.column width="60%"}
-“To speak means to be in a position to use a certain syntax, to grasp the morphology of this or that language, but it means above all to assume a culture, to support the weight of civilization...Every colonized people--in other words, every people in whose soul an inferiority complex has been created by the death and burial of its local cultural originality--finds itself face to face with the language of the civilizing nation; that is, with the culture of the mother country. The colonized is elevated above his jungle status in proportion to his adoption of the mother country's cultural standards.”
-
-**Frantz Fanon, Black Skin White Masks (1967)**
-:::
-
-::: {.column width="20%"}
-![](images/clipboard-3746470010.png)
-:::
-:::::
-:::::::::
-
-## Check-In Review {.smaller}
-
-::::: columns
-::: {.column width="60%"}
-![](images/clipboard-4169009733.png)
-:::
-
-::: {.column width="40%"}
-The effect of resume quality on callback percentage *depends on* perceived race of name.
-
-- for low quality resume
-- for high quality resume
-:::
-:::::
-
-## Check-In Review {.smaller}
-
-::::: columns
-::: {.column width="60%"}
-![](images/clipboard-4169009733.png)
-:::
-
-::: {.column width="40%"}
-The effect of perceived race of name on callback percentage *depends on* resume quality.
-
-- for white names
-- for black names
-:::
-:::::
-
-## PART 1 : SKETCHING AN [INTERACTION EFFECT](https://catterson.github.io/ystats/chapters/11R_InteractionFX.html#the-effect-of-using-implementation-intentions-on-task-completion-depends-on-the-type-of-goal)
-
-- [**Final Project Description and Rubric**](https://docs.google.com/document/d/1QJKm9s8WUXAoYACf_pC9QIWdYyfEOHQNMnP4unkXGYI/edit?usp=sharing)
+## [**Final Project Description and Rubric**](https://docs.google.com/document/d/1QJKm9s8WUXAoYACf_pC9QIWdYyfEOHQNMnP4unkXGYI/edit?usp=sharing)
 
 ![](images/clipboard-2543770134.png)
+
+## PART 1 : STARTING A LITERATURE REVIEW
+
+- **In the Vision Board :** what's a topic that you care about or might want to learn more about?
+
+- **On Google Scholar :** search for this topic (add psychology); what do you learn from the titles?
+
+- **Choose one Article :** what is the APA citation? how much has this article been cited? what do you learn from the abstact?
 
 ## PART 2 : INTRODUCTIONS
 
@@ -87,7 +47,7 @@ The effect of perceived race of name on callback percentage *depends on* resume 
 Start broad, but focus to your specific question!
 
 |  |  |
-|-------------|-----------------------------------------------------------|
+|-------------------|-----------------------------------------------------|
 | **Section** | **Brief Explanation** |
 | **1. The Opening** | Describe the question you have, and explain why this question matters |
 | **2. The Review** | Describe what past research and theory has to say on the question and your theory. Your goal is to give the reader the background they need to understand why you are doing your study; you don’t need to cover EVERY single issue on your topic.. |
@@ -152,22 +112,20 @@ In a study of 45 female college students, a sweaty shirt was rated as more disgu
 :::::
 ::::::
 
-### EXAMPLE : patterns in writing. {.smaller}
+## ACTIVITY : start outlining your introduction {.smaller}
 
-::: r-fit-text
-*The Point, The Evidence, The Who Cares*
+**The Opening :**
 
-![](images/clipboard-2928229491.png){fig-align="center" width="80%"}
-:::
+1.  What is your topic :
+2.  What evidence (past research) has been done on this :
+3.  Why do we / should we care :
+
+**Past Research on IV1 :**
+
+1.  What is one variable you think might influence the DV?
+2.  What evidence (past research) has been done on this IV (and its relation to the DV)?
+3.  Why do we / should we care?
 
 ## NEXT WEEK : More Project Time {.smaller}
 
-- [**Final Project Description and Rubric**](https://docs.google.com/document/d/1QJKm9s8WUXAoYACf_pC9QIWdYyfEOHQNMnP4unkXGYI/edit?usp=sharing)
-
-- **Milestone #2 :**
-
-  - bring a sketch of what you think the pattern in the data might look like (and/or paste an image of this to the vision board)
-
-  - outline the argument for your introduction \[link to your paper on the vision board\]
-
-![](https://www.gif-vif.com/trending/frog-dance-frog.gif.pagespeed.ce.P7TEOgyG1P.gif)
+![](images/frog-dance-ff7-01.gif){fig-align="center" width="434"}
