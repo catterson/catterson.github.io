@@ -2440,7 +2440,7 @@
     "href": "calstats/calstatsFA26.html#course-outline",
     "title": "Psych 101 : Research and Data in Psychology (FA26)",
     "section": "Course Outline",
-    "text": "Course Outline\nNote : Chapters are from our course textbook : Why Statistics?\n\n\n\n\n\nDate\nChapter\nTopic (and Class Notes)\nAssignment Due\n\n\n\n\n08/31\nOnboard\nWelcome to the Class!\nMilestone 1 : Project Brainstorm\n\n\n09/07\nCh 1\nNo Class (Labor Day), Yes Sections\nLab 1 : Getting StaRted\n\n\n09/14\nCh 2\nData\nLab 2 : Navigating Data\n\n\n09/21\nCh 3\nDescription\nLab 3 : Describing Data\n\n\n09/28\nCh 4\n“Normality” + Brain Exam 1 (in Section)\nLab 4 : Data and Me\n\n\n10/05\nCh 5\nModel Introduction & Likert Scales\nMilestone 2 : Intro Outline + Survey Draft\n\n\n10/12\nCh 6\nLinear Model : Continuous IV\nLab 5 : I Love Lines\n\n\n10/19\nCh 7\nLinear Model : Categorical IV\nLab 6 : Practice Exam\n\n\n10/26\nCh 8\nNHST and Sample Bias\nMilestone 3 : Launch Study + Methods Draft\n\n\n11/02\nCh 9\nReview\nLab 7 : Practice Exam\n\n\n11/09\n\nR EXAM (no section this week)\n\n\n\n11/16\nCh 10\nMultiple Regression\nMilestone 4 : Data Export and Cleaning\n\n\n11/23\nCh 11\nInteraction Effects\nMilestone 5 : Linear Model Tables\n\n\n11/30\nCh 13\nBrain Exam 2 (Section) + The End\nMilestone 6 : Draft\n\n\n12/07\n\nRRR Week (Project Workshop)\nFinal Project Due 12/13 at 11:59 PM"
+    "text": "Course Outline\nNote : Chapters are from our course textbook : Why Statistics?\n\n\n\n\n\nDate\nChapter\nTopic (and Class Notes)\nAssignment Due\n\n\n\n\n08/31\nOnboard\nWelcome to the Class!\nMilestone 1 : Project Brainstorm\n\n\n09/07\nCh 1\nNo Class (Labor Day), Yes Sections\nLab 1 : Getting StaRted\n\n\n09/14\nCh 2\nData\nLab 2 : Navigating Data\n\n\n09/21\nCh 3\nDescription\nLab 3 : Describing Data\n\n\n09/28\nCh 4\n“Normality” + Brain Exam 1 (in Section)\nLab 4 : Data and Me\n\n\n10/05\nCh 5\nModel Introduction & Likert Scales\nMilestone 2 : Intro Outline + Survey Draft\n\n\n10/12\nCh 6\nLinear Model : Continuous IV\nLab 5 : I Love Lines\n\n\n10/19\nCh 7\nLinear Model : Categorical IV\nLab 6 : Practice Exam\n\n\n10/26\nCh 8\nNHST and Sample Bias\nMilestone 3 : Launch Study + Methods Draft\n\n\n11/02\nCh 9\nReview\nLab 7 : Practice Exam\n\n\n11/09\n\nR EXAM (no section this week)\n\n\n\n11/16\nCh 5 + 9\nLikert Scales and Experiments\nMilestone 4 : Data Export and Cleaning\n\n\n11/23\nCh 10\nMultiple Regression\nMilestone 5 : Linear Model Tables\n\n\n11/30\nCh 11 + 13\nBrain Exam 2 (Section) + The End\nMilestone 6 : Draft\n\n\n12/07\n\nRRR Week (Project Workshop)\nFinal Project Due 12/13 at 11:59 PM"
   },
   {
     "objectID": "calstats/calstatsFA26.html#summary-of-course-components",
@@ -3103,9 +3103,9 @@
   {
     "objectID": "calstats/labs/Week11.html",
     "href": "calstats/labs/Week11.html",
-    "title": "Week 11 - Friday, April 17th",
+    "title": "Week 11 - Monday, November 16th",
     "section": "",
-    "text": "NoteAnnouncements and Agenda and Advertisement(s)\n\n\n\n\n\n\n\n\nTHE END IS NEAR. Three classes (and a brain exam and final project) left. Whew!\nBrain Exam is final week HELD IN SECTION. Will review in class and section. On interpreting regression (NHST and multiple regression). The learning has not stopped. But will soon.\nFinal Project : really really really great to have final project data collected and into R.\n\n\nToday, on Psych 101…\n\n2:10 - 3:00. Check-In (NHST Review)\n3:00 - 3:30. Introducing Multiple Regression.\n3:30 - 3:45. BREAK TIME\n3:45 - 5:00. Milestone #5 and Likert Scales\n\n\n\n\n\n\n\n\n\n\nCheck-In. NHST Review. No R required. Just brain. Data from the covid dataset.\nProfessor Notes. My R scripts and other notes, saved in real-time.\nFinal Project Description & Rubric. And here’s the Final Project Vision Board.\n\n\n\n\nNote : I recorded these videos in a previous semester (with different class data). You will likely get different results if you try and replicate these results in this semester’s class (though we likely had a different class dataset). a good example of how NHST doesn’t really tell us whether the results are “truth” or not, or whether they will replicate.\n\nExample 1Example 2"
+    "text": "NoteAnnouncements and Agenda and Advertisement(s)\n\n\n\n\n\n\n\n\nTHE END IS NEAR. Three classes (and a brain exam and final project) left. Whew!\nBrain Exam is final week HELD IN SECTION. Will review in class and section. On interpreting regression (NHST and multiple regression). The learning has not stopped. But will soon.\nFinal Project : really really really great to have final project data collected and into R by end of this week.\n\n\nToday, on Psych 101…\n\n3:10 - 3:20. Post R-Exam.\n3:20 - 4:10. Experiments and Cat Speeds\n4:10 - 4:20. BREAK TIME\n4:20 - 5:00. Likert Scales in R\n5:00 - 6:00. Final Project Workshop\n\n\n\n\n\n\n\n\n\n\nComplete this Check-In. Your thoughts on the R Exam and Final Project and rest of the semester.\n\nPart 1 : Anchoring Dataset\nPart 2 : Full Conspiracy Beliefs Dataset\n\nProfessor Notes. My R scripts and other notes, saved in real-time.\nFinal Project Description & Rubric. And here’s the Final Project Vision Board."
   },
   {
     "objectID": "calstats/labs/Week11.html#milestone-5.-final-project-regression-tables",
@@ -3117,7 +3117,7 @@
   {
     "objectID": "calstats/labs/Week11.html#chapter-10.-on-multiple-regression.",
     "href": "calstats/labs/Week11.html#chapter-10.-on-multiple-regression.",
-    "title": "Week 11 - Friday, April 17th",
+    "title": "Week 11 - Monday, November 16th",
     "section": "Chapter 10. On Multiple Regression.",
     "text": "Chapter 10. On Multiple Regression.\nAnd the reading quiz. No R required."
   },
@@ -7695,9 +7695,9 @@
   {
     "objectID": "COMPSS212/slides/11_GLM.html",
     "href": "COMPSS212/slides/11_GLM.html",
-    "title": "Logistic Regression",
+    "title": "More Examples",
     "section": "",
-    "text": "Model 1\n\nIntercept0.03 ***\n\n       \n\nNegative Emotions0.24 ***\n\n       \n\nBelief in Climate Change0.24 ***\n\n       \n\nNegative Emotions x Belief-0.08 ***\n\n       \n\nN67262       \n\nR20.19    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05."
+    "text": "h &lt;- read.csv(\"~/Dropbox/!GRADSTATS/Datasets/Hormone Data/hormone_dataset.csv\")\nh$sexF &lt;- as.factor(h$sex)\nlevels(h$sexF) &lt;- c(\"Male\", \"Female\")\nh$sex &lt;- h$sex - 1\nplot(sex ~ test_mean, data = h, xlab = \"Testosterone\", ylab = \"Sex (0 = Male, 1 = Female)\", yaxt = \"n\")\naxis(side = 2, \n     at = c(0, 1), \n     labels = c(\"Male\", \"Female\"),\n     las = 1)\nmod2 &lt;- lm(sex ~ test_mean, data = h)\nabline(mod2)\n\n\n\n\n\n\n\n\n\n\n\n\n\nglmod &lt;- glm(sex ~ test_mean, data = h, family = \"binomial\")\nplot(sex ~ test_mean, data = h,\n     xlab = \"Testosterone\",\n     ylab = \"Probability of Being Female\")\ncurve(predict(glmod, data.frame(test_mean=x), type = \"resp\"), add = T, col = \"red\", lwd = 2)\n\n\n\n\n\n\n\n\n\n\nsummary(glmod)\n\n\nCall:\nglm(formula = sex ~ test_mean, family = \"binomial\", data = h)\n\nCoefficients:\n            Estimate Std. Error z value Pr(&gt;|z|)    \n(Intercept)  4.81974    1.19821   4.022 5.76e-05 ***\ntest_mean   -0.09200    0.02081  -4.420 9.86e-06 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 109.96  on 89  degrees of freedom\nResidual deviance:  56.09  on 88  degrees of freedom\n  (32 observations deleted due to missingness)\nAIC: 60.09\n\nNumber of Fisher Scoring iterations: 7"
   },
   {
     "objectID": "COMPSS212/slides/review_slides.html#more-practice-interaction-effects",
@@ -7716,7 +7716,7 @@
   {
     "objectID": "COMPSS212/slides/10_XEexperimentRECAP.html#question-what-if-you-have-lots-of-interaction-effects",
     "href": "COMPSS212/slides/10_XEexperimentRECAP.html#question-what-if-you-have-lots-of-interaction-effects",
-    "title": "",
+    "title": "Experiments",
     "section": "QUESTION : what if you have lots of interaction effects????",
     "text": "QUESTION : what if you have lots of interaction effects????"
   },
@@ -7985,5 +7985,236 @@
     "title": "",
     "section": "NEXT WEEK : More Project Time",
     "text": "NEXT WEEK : More Project Time"
+  },
+  {
+    "objectID": "COMPSS212/slides/11_GLM.html#climate-change-data",
+    "href": "COMPSS212/slides/11_GLM.html#climate-change-data",
+    "title": "Experiments",
+    "section": "Climate Change Data",
+    "text": "Climate Change Data\n\nthe graphthe model\n\n\n\ncl_glmod &lt;- glm(numRes ~ sci_info, data = x, family = \"binomial\")\nplot(numRes ~ sci_info, data = x,\n     xlab = \"Scientific Knowledge Seeking\",\n     ylab = \"Probability of Being in an Urban Environment\")\ncurve(predict(cl_glmod, data.frame(sci_info=x), type = \"resp\"), add = T, col = \"red\", lwd = 2)\n\n\n\n\n\n\n\n\n\n\n\nsummary(cl_glmod)\n\n\nCall:\nglm(formula = numRes ~ sci_info, family = \"binomial\", data = x)\n\nCoefficients:\n            Estimate Std. Error z value Pr(&gt;|z|)    \n(Intercept) 0.368732   0.023784   15.50   &lt;2e-16 ***\nsci_info    0.190317   0.006717   28.33   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 80636  on 69513  degrees of freedom\nResidual deviance: 79814  on 69512  degrees of freedom\n  (20 observations deleted due to missingness)\nAIC: 79818\n\nNumber of Fisher Scoring iterations: 4\n\n\n\n\n\n\nReal-Life Example\n\nStudy DesignA Regression Table\n\n\nLink to Article : Somers, J. M., Rezansoff, S. N., Moniruzzaman, A., Palepu, A., & Patterson, M. (2013). Housing First reduces re-offending among formerly homeless adults with mental disorders: results of a randomized controlled trial. PloS one, 8(9), e72946.\n\n\n\n\n\n\n\n\n\n\nsee chapter 12"
+  },
+  {
+    "objectID": "COMPSS212/Week11.html",
+    "href": "COMPSS212/Week11.html",
+    "title": "Week 11 - Monday, November 16th",
+    "section": "",
+    "text": "Week 11 - Monday, November 16th\n\n\n\n\n\n\nNoteAgenda & Announcements\n\n\n\n\n\nGoals\n\n10:10 - 10:20. Check-In and Brain Exam Debrief.\n10:20 - 11:00. Experiments, Finally.\n11:00 - 11:10. Break Time\n11:10 - End. The Generalized Linear Model\n\nAnnouncements\n\nTHREE lectures left; NO CLASS 12/7.\nBrain Exam and R Exam : Grades soon. Can revise for 1/2 the points back.\nINTEREST IN PROFESSOR BONUS WORKSHOPS :\n\ngrad school and industry. have done both; happy to chat about those paths.\nwriting a personal statement. i can try to make it easier to write about yourself.\n\n\n\n\n\n\nClass Slides and Materials\n\n\nCheck-In : Three Weeks, A Few Questions\n\nFinal Project Description and Rubric.We will discuss and work on this in class!\nPre-Registration Guidelines. For Milestone #1\nDataset of the Week : Micro-Inequities Against Asians in the United States: Evidence from a Large-Scale Field Experiment.\n\nVISION BOARD.\nProfessor Notes. My R scripts and other notes, saved in real-time.\n\n\n\n\nFor Next Week\n\nMilestone #1 (on the Vision Board)\nComplete the Week 11 questions on the Vision Board.\n\nDataset You Are Choosing. Look over the final project description and rubric. What dataset do you want to choose for the final project? If you found / are using another dataset, provide a link or explanation for us.\nDV You Are Interested In from the Dataset.\nWhy Are You Interested in This Topic? I’d encourage you to try and find a topic that’s related to your future career interests, so you can “write” about\nQuestions About the Dataset. Take a look at the codebook or dataset. Do you have any questions / concerns about how you might analyze the data?\nQuestions About Pre-Registration. For the project, I’d like you to submit some kind of pre-registration guide. You don’t need to do this officially, but I want there to be some practice in thinking through how you might analyze the data BEFORE you do the data analysis work. Look over the pre-registration guidelines from OSF and let us know if you have any questions.\n\n\n\nI Have Ideas for a Lab 9 if We Want One.\nBut it depends on your answers to the check-in."
+  },
+  {
+    "objectID": "COMPSS212/slides/glm_slides.html#climate-change-data",
+    "href": "COMPSS212/slides/glm_slides.html#climate-change-data",
+    "title": "",
+    "section": "Climate Change Data",
+    "text": "Climate Change Data\n\nthe graphthe model\n\n\n\ncl_glmod &lt;- glm(numRes ~ sci_info, data = x, family = \"binomial\")\nplot(numRes ~ sci_info, data = x,\n     xlab = \"Scientific Knowledge Seeking\",\n     ylab = \"Probability of Being in an Urban Environment\")\ncurve(predict(cl_glmod, data.frame(sci_info=x), type = \"resp\"), add = T, col = \"red\", lwd = 2)\n\n\n\n\n\n\n\n\n\n\n\nsummary(cl_glmod)\n\n\nCall:\nglm(formula = numRes ~ sci_info, family = \"binomial\", data = x)\n\nCoefficients:\n            Estimate Std. Error z value Pr(&gt;|z|)    \n(Intercept) 0.368732   0.023784   15.50   &lt;2e-16 ***\nsci_info    0.190317   0.006717   28.33   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 80636  on 69513  degrees of freedom\nResidual deviance: 79814  on 69512  degrees of freedom\n  (20 observations deleted due to missingness)\nAIC: 79818\n\nNumber of Fisher Scoring iterations: 4"
+  },
+  {
+    "objectID": "COMPSS212/slides/12_ModelEval.html",
+    "href": "COMPSS212/slides/12_ModelEval.html",
+    "title": "12_ModelEval",
+    "section": "",
+    "text": "TipR Code for the graph\n\n\n\n\n\n\nh &lt;- read.csv(\"~/Dropbox/!GRADSTATS/Datasets/World Happiness Report - 2024/World-happiness-report-2024.csv\", stringsAsFactors = T)\nlibrary(ggplot2)\nlibrary(jtools)\n\n## Some data cleaning.\nh$GDPcat &lt;- ifelse(scale(h$Log.GDP.per.capita) &gt; sd(h$Log.GDP.per.capita, na.rm = T), \"High GDP\", \"Low GDP\")\nh$GDPcat &lt;- as.factor(h$GDPcat)\nplot(h$GDPcat)\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = subset(h, !is.na(h$GDPcat)), aes(x = scale(Ladder.score), y = scale(Social.support), color = GDPcat)) + \n  geom_point(alpha = .5, position = \"jitter\") +\n  geom_smooth(method = \"lm\") + labs(title = \"Check-In Graph\") + ylab(\"Social Support\") + xlab(\"Happiness (Ladder Score)\") +\n  theme_apa()\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nInteraction Effect : social support = .08 + .25GDP + .60  Ladder - .10 * (GDP * Ladder) BLUE LINE : social support = .08 + .25-1 + .60  Ladder - .10 * (-1 * Ladder) = -.17 + .7 * Ladder RED LINE : = .08 + .251 + .60  Ladder - .10 * (1 * Ladder) = .32 + .5 * Ladder\n\n\n\n\n\n\nTipR Code for the models\n\n\n\n\n\n\nmod1 &lt;- lm(scale(Social.support) ~ scale(Log.GDP.per.capita), data = h)\nmod2 &lt;- lm(scale(Social.support) ~ scale(Ladder.score), data = h)\nmod3 &lt;- lm(scale(Social.support) ~ scale(Log.GDP.per.capita) + scale(Ladder.score), data = h)\nmod4 &lt;- lm(scale(Social.support) ~ scale(Ladder.score) * scale(Log.GDP.per.capita), data = h)\nexport_summs(mod1, mod2, mod3, mod4)\n\n\n\nModel 1Model 2Model 3Model 4\n\n(Intercept)0.00    -0.00    -0.00    0.08    \n\n(0.06)   (0.05)   (0.05)   (0.06)   \n\nscale(Log.GDP.per.capita)0.73 ***       0.25 ** 0.25 ** \n\n(0.06)          (0.07)   (0.07)   \n\nscale(Ladder.score)       0.81 ***0.62 ***0.60 ***\n\n       (0.05)   (0.07)   (0.07)   \n\nscale(Ladder.score):scale(Log.GDP.per.capita)                     -0.10 *  \n\n                     (0.05)   \n\nN140       140       140       140       \n\nR20.53    0.66    0.69    0.70    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05."
+  },
+  {
+    "objectID": "COMPSS212/slides/12_ModelEval.html#two-question-check-in.",
+    "href": "COMPSS212/slides/12_ModelEval.html#two-question-check-in.",
+    "title": "12_ModelEval",
+    "section": "",
+    "text": "TipR Code for the graph\n\n\n\n\n\n\nh &lt;- read.csv(\"~/Dropbox/!GRADSTATS/Datasets/World Happiness Report - 2024/World-happiness-report-2024.csv\", stringsAsFactors = T)\nlibrary(ggplot2)\nlibrary(jtools)\n\n## Some data cleaning.\nh$GDPcat &lt;- ifelse(scale(h$Log.GDP.per.capita) &gt; sd(h$Log.GDP.per.capita, na.rm = T), \"High GDP\", \"Low GDP\")\nh$GDPcat &lt;- as.factor(h$GDPcat)\nplot(h$GDPcat)\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = subset(h, !is.na(h$GDPcat)), aes(x = scale(Ladder.score), y = scale(Social.support), color = GDPcat)) + \n  geom_point(alpha = .5, position = \"jitter\") +\n  geom_smooth(method = \"lm\") + labs(title = \"Check-In Graph\") + ylab(\"Social Support\") + xlab(\"Happiness (Ladder Score)\") +\n  theme_apa()\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nInteraction Effect : social support = .08 + .25GDP + .60  Ladder - .10 * (GDP * Ladder) BLUE LINE : social support = .08 + .25-1 + .60  Ladder - .10 * (-1 * Ladder) = -.17 + .7 * Ladder RED LINE : = .08 + .251 + .60  Ladder - .10 * (1 * Ladder) = .32 + .5 * Ladder\n\n\n\n\n\n\nTipR Code for the models\n\n\n\n\n\n\nmod1 &lt;- lm(scale(Social.support) ~ scale(Log.GDP.per.capita), data = h)\nmod2 &lt;- lm(scale(Social.support) ~ scale(Ladder.score), data = h)\nmod3 &lt;- lm(scale(Social.support) ~ scale(Log.GDP.per.capita) + scale(Ladder.score), data = h)\nmod4 &lt;- lm(scale(Social.support) ~ scale(Ladder.score) * scale(Log.GDP.per.capita), data = h)\nexport_summs(mod1, mod2, mod3, mod4)\n\n\n\nModel 1Model 2Model 3Model 4\n\n(Intercept)0.00    -0.00    -0.00    0.08    \n\n(0.06)   (0.05)   (0.05)   (0.06)   \n\nscale(Log.GDP.per.capita)0.73 ***       0.25 ** 0.25 ** \n\n(0.06)          (0.07)   (0.07)   \n\nscale(Ladder.score)       0.81 ***0.62 ***0.60 ***\n\n       (0.05)   (0.07)   (0.07)   \n\nscale(Ladder.score):scale(Log.GDP.per.capita)                     -0.10 *  \n\n                     (0.05)   \n\nN140       140       140       140       \n\nR20.53    0.66    0.69    0.70    \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05."
+  },
+  {
+    "objectID": "COMPSS212/slides/12_ModelEval.html#other-issues-to-consider-with-multiple-regression",
+    "href": "COMPSS212/slides/12_ModelEval.html#other-issues-to-consider-with-multiple-regression",
+    "title": "12_ModelEval",
+    "section": "Other Issues to Consider with Multiple Regression",
+    "text": "Other Issues to Consider with Multiple Regression\n\n0. Transforming Models (Quadratic Terms)\n\nggplot(h, aes(x = Ladder.score, y = Social.support)) + \n  geom_point(alpha = .5) + \n  #geom_smooth(method = \"lm\") \n  geom_smooth(method = \"lm\", formula = y ~ x + I(x^2))\n\nWarning: Removed 3 rows containing non-finite outside the scale range\n(`stat_smooth()`).\n\n\nWarning: Removed 3 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\nlm1 &lt;- lm(Social.support ~ Ladder.score, data = h)\nsummary(lm1)\n\n\nCall:\nlm(formula = Social.support ~ Ladder.score, data = h)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-0.74144 -0.09781  0.00007  0.11996  0.59888 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  -0.13535    0.07899  -1.714   0.0889 .  \nLadder.score  0.22956    0.01397  16.435   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.1945 on 138 degrees of freedom\n  (3 observations deleted due to missingness)\nMultiple R-squared:  0.6619,    Adjusted R-squared:  0.6594 \nF-statistic: 270.1 on 1 and 138 DF,  p-value: &lt; 2.2e-16\n\nlm2 &lt;- lm(Social.support ~ Ladder.score + I(Ladder.score^2), data = h)\nsummary(lm2)\n\n\nCall:\nlm(formula = Social.support ~ Ladder.score + I(Ladder.score^2), \n    data = h)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-0.74531 -0.09978 -0.00104  0.11676  0.60543 \n\nCoefficients:\n                   Estimate Std. Error t value Pr(&gt;|t|)   \n(Intercept)       -0.266626   0.264845  -1.007    0.316   \nLadder.score       0.282699   0.103251   2.738    0.007 **\nI(Ladder.score^2) -0.005086   0.009791  -0.519    0.604   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.195 on 137 degrees of freedom\n  (3 observations deleted due to missingness)\nMultiple R-squared:  0.6625,    Adjusted R-squared:  0.6576 \nF-statistic: 134.5 on 2 and 137 DF,  p-value: &lt; 2.2e-16\n\n\n\n\n1. Which Model is “Best”???\nWe can evaluate whether a model is an improvement (compared to the mean) by evaluating the “fit”.\nNot enough to see an increase in \\(R^2\\), because WHY????????\n\nanova(lm1) # evaluating the model vs. the mean\n\nAnalysis of Variance Table\n\nResponse: Social.support\n              Df Sum Sq Mean Sq F value    Pr(&gt;F)    \nLadder.score   1 10.221 10.2209   270.1 &lt; 2.2e-16 ***\nResiduals    138  5.222  0.0378                      \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\nWhen the models are “nested”, we can compare one model to another.\n\nanova(lm1, lm2) # evaluating model 2 vs. model 1\n\nAnalysis of Variance Table\n\nModel 1: Social.support ~ Ladder.score\nModel 2: Social.support ~ Ladder.score + I(Ladder.score^2)\n  Res.Df    RSS Df Sum of Sq      F Pr(&gt;F)\n1    138 5.2220                           \n2    137 5.2118  1  0.010265 0.2698 0.6043\n\n\nThe F-Distribution, Visualized\n\n#install.packages(\"sjPlot\")\nlibrary(sjPlot)\n\ndist_f(deg.f1 = 1, deg.f2 = 138) # the f-distribution for model 1\n\n\n\n\n\n\n\ndist_f(deg.f1 = 2, deg.f2 = 136) # the f-distribution for comparing model 1 and model 4\n\n\n\n\n\n\n\n\nWhen comparing the fit of one model to a completely different model, will need another method.\n\nBootstrapping. You could resample the data, define two separate models, and evaluate the model fit in each resampled dataset, compare these models, then repeat the process many times. Yeah!\nThere are many other estimates of model performance, such as cross validation or fancier ML methods I don’t know :)\n\n\n\n2. Watch Out For Overfitting.\nWhen your model is too complex, each variable in the model (parameter) increases the model complexity.\n\ncomplex models that perfectly fit the data are problematic: you essentially describing your sample, and not the underlying population (which is usually the goal of multiple regression.)\nWe don’t expect over-fit models to generalize to other samples. [Image source]\n\n\nCross Validation. To ensure your model generalizes to other samples, you can a) replicate, or b) cross-validate your data. Cross validation involves dividing your sample into sub-samples; define a model on one sample, then test the model in the other(s).\n\nHere’s the most simple example of cross-validation (“train-test split”; “holdout cross validation”)\n\nsample(0:1, nrow(h), replace = T, prob = c(.7, .3)) # using the sample function\n\n  [1] 0 0 1 0 0 1 0 0 0 1 1 1 0 1 0 0 1 1 0 0 0 0 0 0 0 1 0 1 0 0 0 1 0 0 1 0 0\n [38] 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 1 1 1 0 1 1 1 1 0 1 0 0 0 0 0 1\n [75] 0 0 0 0 0 0 0 1 0 0 0 0 1 1 0 0 1 0 0 0 1 0 1 1 0 0 1 0 1 0 0 0 0 0 0 0 0\n[112] 0 0 0 0 1 0 0 1 1 1 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0\n\nset.seed(424242)\nrandom.selection &lt;- sample(0:1, nrow(h), replace = T, prob = c(.7, .3))\nhtrain &lt;- h[random.selection == 0,]\nhtest &lt;- h[random.selection == 1,]\n\n## Model in training Data\ntrain.mod &lt;- lm(Social.support ~ Ladder.score * Log.GDP.per.capita, data = htrain)\nsummary(train.mod)\n\n\nCall:\nlm(formula = Social.support ~ Ladder.score * Log.GDP.per.capita, \n    data = htrain)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-0.70478 -0.08978 -0.00238  0.09815  0.68575 \n\nCoefficients:\n                                Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)                     -0.53619    0.32701  -1.640    0.105    \nLadder.score                     0.27113    0.06472   4.189 7.39e-05 ***\nLog.GDP.per.capita               0.45651    0.27441   1.664    0.100    \nLadder.score:Log.GDP.per.capita -0.05874    0.04648  -1.264    0.210    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.2043 on 77 degrees of freedom\n  (2 observations deleted due to missingness)\nMultiple R-squared:  0.6821,    Adjusted R-squared:  0.6697 \nF-statistic: 55.07 on 3 and 77 DF,  p-value: &lt; 2.2e-16\n\npredict(train.mod) # the predicted values of the DV, based on our model.\n\n        1         2         4         6         7         8         9        10 \n1.5658691 1.5408531 1.5020893 1.4986799 1.4973743 1.4764175 1.4602632 1.4549315 \n       12        13        17        18        19        20        21        22 \n1.4243403 1.4373031 1.4344788 1.4128527 1.4112355 1.4030480 1.3998894 1.4102398 \n       24        29        31        34        35        37        38        39 \n1.4011533 1.3396428 1.3641704 1.3482150 1.3461128 1.3248942 1.3221398 1.3289260 \n       41        42        44        46        51        53        54        55 \n1.3314375 1.2782423 1.2902556 1.3075235 1.2863680 1.2282990 1.2373548 1.2754498 \n       58        60        61        63        65        67        68        70 \n1.2405613 1.2413826 1.1974643 1.2585895 1.2202362 1.1927948 1.2029163 1.2210060 \n       74        75        79        84        85        86        87        89 \n1.1740772 1.1404057 0.9840313 1.1276332 1.1053595 1.1804468 1.1102798 1.0129970 \n       91        93        94        97        98        99       101       102 \n1.0924736 1.0104227 1.0439202 0.9598416 1.0922332 0.9636387 1.0327200 0.9640955 \n      104       105       108       110       111       112       114       116 \n0.9457778 1.0148509 0.9220134 0.8400436 0.8920740 0.8246022 0.8768503 0.8327770 \n      117       119       120       121       122       123       127       128 \n0.8033361 0.8444944 0.8469843 0.7486051 0.7665298 0.7408530 0.8474353 0.8303265 \n      129       130       132       133       134       140       141       142 \n0.7734868 0.6925578 0.6519904 0.5952518 0.6387592 0.5175113 0.5352949 0.6073950 \n      143 \n0.1536218 \n\n## Applying the model to our testing dataset.\npredict(train.mod, newdata = htest) # produces predicted values from our training model, using the testing data.\n\n        3         5        11        14        15        16        23        25 \n1.5312384 1.4997124 1.4484716 1.4318518 1.4287474 1.4292117 1.4062990 1.3720706 \n       26        27        28        30        32        33        36        40 \n1.3650023 1.3798016 1.3789961 1.3876634 1.3514627 1.3144987 1.3447837 1.3373362 \n       43        45        47        48        49        50        52        56 \n1.2634123 1.3119962 1.2556643 1.2868124 1.2923920 1.2884980 1.2889539 1.2726265 \n       57        59        64        66        69        71        72        73 \n1.2316819 1.2574693 1.2544183 1.2250269 1.2161932 1.1997594 1.2238602 1.1740769 \n       76        77        78        80        81        82        83        90 \n1.2016273 1.1730867 1.1831393 1.1495913 1.1658541 1.1392808 1.1255433 0.9620724 \n       92        95        96       100       103       106       107       109 \n1.0555989 1.0678431 1.0118759 1.0386631        NA 0.9924835 0.9759377 0.8072950 \n      113       115       118       124       125       126       131       135 \n0.7929260 0.9196825 0.8406228 0.7647379 0.8645359 0.8175708 0.6811526 0.7280377 \n      136       137       138       139 \n0.5490131 0.7535235 0.5643139 0.4975936 \n\npredval.test &lt;- predict(train.mod, newdata = htest)  # saves these predicted values from the testing dataset.\n\n## Calculating R^2\ntest.mod.resid &lt;- htest$Social.support - predval.test\nSSE &lt;- sum(test.mod.resid^2, na.rm = T)\nSSE\n\n[1] 1.541793\n\ntest.resid &lt;- htest$Social.support - mean(htest$Social.support, na.rm = T)\nsum(test.resid^2)\n\n[1] NA\n\nSST &lt;- sum(test.resid^2, na.rm = T)\n\n(SST - SSE)/SST\n\n[1] 0.7040524\n\n\nYou’ll often see a few different methods of evaluating model fit.\n\n\\(R^2\\). Our good friend. The proportion of variance explained by the model (vs. the mean)\nRooted Mean Squared Error (RMSE). The average amount of residual error (actual - predicted values).\nMean Absoulte Error. The average of the absolute value of the residuals; less sensitive to outliers than RMSE or \\(R^2\\).\n\nAnd there are different methods of defining the test and training datasets. And different packages and tutorials to do this. Here’s one, called “Leave one out cross validation - LOOCV”; gif below via Wikipedia.\n\n\n\n\n\n\n# install.packages(\"caret\")\nlibrary(caret)\n\nLoading required package: lattice\n\ntrain.control &lt;- trainControl(method = \"LOOCV\")\nloocvmod &lt;- train(Social.support ~ Ladder.score * Log.GDP.per.capita, data = h, method = \"lm\",\n                  trControl = train.control, na.action = \"na.omit\")\n\nprint(loocvmod)\n\nLinear Regression \n\n143 samples\n  2 predictor\n\nNo pre-processing\nResampling: Leave-One-Out Cross-Validation \nSummary of sample sizes: 139, 139, 139, 139, 139, 139, ... \nResampling results:\n\n  RMSE       Rsquared   MAE      \n  0.1902603  0.6720989  0.1361974\n\nTuning parameter 'intercept' was held constant at a value of TRUE\n\n\n\n\n3. Watch Out For Multicollinearity.\nIf your independent variables are highly related, then your multivariate regression slope estimates are not uniquely determined. weird things happen to your coefficients, and this makes it hard to interpret your effects.\n\nIN R : check the “variance inflation factor” (VIF); a measure of how much one IV is related to all the other IVs in the model. “Tradition” is that if VIF is &gt; 5 (or I’ve also seen VIF &gt; 10) there’s a problem in the regression.\n\\(\\huge VIF_j=\\frac{1}{1-R_{j}^{2}}\\)\n\n\nlibrary(car)\n\nLoading required package: carData\n\nvif(mod4) # doesn't seem like multicollinearity is a problem.\n\nthere are higher-order terms (interactions) in this model\nconsider setting type = 'predictor'; see ?vif\n\n\n                          scale(Ladder.score) \n                                     2.490104 \n                    scale(Log.GDP.per.capita) \n                                     2.443312 \nscale(Ladder.score):scale(Log.GDP.per.capita) \n                                     1.057269 \n\n## creating a highly correlated second IV.\njitter(h$Healthy.life.expectancy, 300)\n\n  [1]  0.63649887  0.68930612  0.71828952  0.66823278  0.78147940  0.64639281\n  [7]  0.66783200  0.65547462  0.71468602  0.72225337  0.71773673  0.64999642\n [13]  0.62952106  0.64185465  0.72092831  0.69836634  0.64067483  0.60323449\n [19]  0.61564585  0.70589567  0.74527554  0.54082440  0.57966955  0.74032124\n [25]  0.52293196  0.54462176  0.75101008  0.55563685  0.60367356  0.74810486\n [31]  0.69789473  0.54448689  0.56294229  0.69718620  0.62746987  0.69055692\n [37]  0.62267421  0.70380172  0.62007029  0.68723153  0.74690172  0.49826800\n [43]  0.58734907  0.50056514  0.69238462  0.52731539  0.57692015  0.64389105\n [49]  0.57280871  0.69425428  0.82612563  0.77274534  0.38400182  0.57725457\n [55]  0.70352020  0.61930331  0.55762718  0.57337490  0.53553203  0.65959492\n [61]  0.45026458          NA  0.66845212  0.69307250  0.59281784  0.52861070\n [67]  0.54621673  0.69875356  0.45710762  0.43500797  0.56482900  0.54559839\n [73]  0.50964668  0.60188374  0.54674710  0.60113762  0.41675213  0.67774238\n [79]  0.45482879  0.51207586  0.53754193  0.65166685  0.26579890  0.58060330\n [85]  0.53234986  0.85807969  0.66611649          NA  0.25647428  0.12829974\n [91]  0.51774245  0.49561179  0.47517286  0.47895859  0.35411168  0.25447142\n [97]  0.21655523  0.58171885  0.35686944  0.51373138  0.48182973  0.20760587\n[103]          NA  0.31835400  0.46658725  0.34832926  0.52310604  0.28958395\n[109]  0.33832352  0.33133514  0.42088085  0.27791840  0.16285129  0.31895572\n[115]  0.62433954  0.30866350  0.37751970  0.43665557  0.41469131  0.38656597\n[121]  0.32196352  0.25386893  0.35348747  0.26579842  0.62022055  0.43845057\n[127]  0.49687114  0.62927456  0.48772773  0.38520825  0.37719937  0.40156511\n[133]  0.33585422  0.29027768  0.12197319  0.39450247  0.18769012  0.21595348\n[139]  0.24276263  0.24909294 -0.03799866  0.57172747  0.27471988\n\nh$health2 &lt;- jitter(h$Healthy.life.expectancy, 300)\n\nplot(h$health2, h$Healthy.life.expectancy) # yup.\n\n\n\n\n\n\n\nmultimod &lt;- lm(Ladder.score ~ Healthy.life.expectancy + health2, data = h) # both in the model.\nsummary(multimod) # results! Things look good....\n\n\nCall:\nlm(formula = Ladder.score ~ Healthy.life.expectancy + health2, \n    data = h)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-3.0155 -0.4313  0.1701  0.5191  1.5809 \n\nCoefficients:\n                        Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)               2.6514     0.2202  12.041  &lt; 2e-16 ***\nHealthy.life.expectancy   7.5885     1.9725   3.847 0.000182 ***\nhealth2                  -2.0676     1.8604  -1.111 0.268360    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.7703 on 137 degrees of freedom\n  (3 observations deleted due to missingness)\nMultiple R-squared:  0.5809,    Adjusted R-squared:  0.5747 \nF-statistic: 94.93 on 2 and 137 DF,  p-value: &lt; 2.2e-16\n\nvif(multimod) # ...but wait!\n\nHealthy.life.expectancy                 health2 \n               24.78939                24.78939 \n\n\n\n\n4. Don’t Forget to Evaluate Those Regression Assumptions\n\npar(mfrow = c(2,2))\nplot(mod4)\n\n\n\n\n\n\n\n\n\n\nWould You Like to Learn More??\n\nAn overview of ML methods (including the partitioning approach) for evaluating models\nAnother overview of cross-validation methods.\nSome more notes on multicollinearity and VIFs."
+  },
+  {
+    "objectID": "COMPSS212/slides/11_GLM.html#definition-principles-of-an-experiment",
+    "href": "COMPSS212/slides/11_GLM.html#definition-principles-of-an-experiment",
+    "title": "Experiments",
+    "section": "DEFINITION : Principles of an Experiment",
+    "text": "DEFINITION : Principles of an Experiment\n\n\noutcome (DV). what the researchers want to predict or explain\nmanipulation (IV). change only one thing about the variable.\n\nconfound variables (“noise”). other factors that might influence the outcome variable\nrandom assignment. if people put in random groups, then all other confound variables are random error.\n\n\nIn the Vision Board : think about a question that you have (real-life or research)\n\nWhat is this question as a linear model?\nHow would you measure the DV?\nWhat is the IV (the ONE thing that differs between the two groups)?\nHow might you manipulate this variable? (What is the experimental and control group?)\nWhat are all the things that you would need or want to try and keep the same (avoid placebo)?\n\n\n\n\nKEY IDEA : Watch out for Misleading Control Variables\nRECAP : the manipulation (A/B Testing) : researchers create multiple groups (conditions) and change ONE THING (the IV) about a person’s experience in each group & observe the result (the DV).\nKEY IDEA : the comparison group matters!\n\na 2 hour stats class DECREASES boredom compared to…\na 2 hour stats class INCREASES boredom compared to…\n\n\n\nExample : Gratitude Study\n\n\nRead the prompt below. Answer the following questions.\n\nICE-BREAKER : What’s something that you are grateful for?\nWhat is the experimental / control condition?\nIs this a fair comparison / manipulation? What would be better?\n\n\n\n\n\n\n\nOther Questions to Consider : Does the experiment have….\n\nplacebo effectsexternal validityconstruct validityexpectancy effects\n\n\nWill individuals in the study change their behavior if they expect something to have an effect?\n\n\n\nHow much does the experimental manipulation represent what someone might experience in real life?\n\n\n\nHow much does the manipulation actually change the variable of interest?\n\n\n\n\n\n\n\nIf experimenters know what will happen to participants, will they change their behavior in ways that affect the results?\n\n\n\n\n\n\nAn Experiment!\n\n\n\nAn Experiment!"
+  },
+  {
+    "objectID": "COMPSS212/slides/11_GLM.html#dicusss-whats-wrong-and-why",
+    "href": "COMPSS212/slides/11_GLM.html#dicusss-whats-wrong-and-why",
+    "title": "Experiments",
+    "section": "DICUSSS : What’s Wrong (and WHY?)",
+    "text": "DICUSSS : What’s Wrong (and WHY?)\n\n\n\n\n\n\n\n\n\n\nGeneralized Linear Models\n\n\n\nglmod &lt;- glm(sex ~ test_mean, data = h, family = \"binomial\")\nplot(sex ~ test_mean, data = h,\n     xlab = \"Testosterone\",\n     ylab = \"Probability of Being Female\")\ncurve(predict(glmod, data.frame(test_mean=x), type = \"resp\"), add = T, col = \"red\", lwd = 2)\n\n\n\n\n\n\n\n\n\n\ncoefz &lt;- rbind(coef(glmod), exp(coef(glmod)))\nrow.names(coefz) &lt;- c(\"Coefficients (Log-Odds)\", \"Exponentiated (Odds-Ratio)\")\ncoefz\n\n                           (Intercept)   test_mean\nCoefficients (Log-Odds)       4.819744 -0.09199851\nExponentiated (Odds-Ratio)  123.933402  0.91210651\n\n\n\nLog-Odds - coef(glmod):\nOdds-Ratio - exp(coef(glmod)):\n\n\n\n\n\nGeneralized Linear Models\n\n\n\nglmod &lt;- glm(sex ~ test_mean, data = h, family = \"binomial\")\nplot(sex ~ test_mean, data = h,\n     xlab = \"Testosterone\",\n     ylab = \"Probability of Being Female\")\ncurve(predict(glmod, data.frame(test_mean=x), type = \"resp\"), add = T, col = \"red\", lwd = 2)\n\n\n\n\n\n\n\n\n\n\nsummary(glmod)\n\n\nCall:\nglm(formula = sex ~ test_mean, family = \"binomial\", data = h)\n\nCoefficients:\n            Estimate Std. Error z value Pr(&gt;|z|)    \n(Intercept)  4.81974    1.19821   4.022 5.76e-05 ***\ntest_mean   -0.09200    0.02081  -4.420 9.86e-06 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 109.96  on 89  degrees of freedom\nResidual deviance:  56.09  on 88  degrees of freedom\n  (32 observations deleted due to missingness)\nAIC: 60.09\n\nNumber of Fisher Scoring iterations: 7"
+  },
+  {
+    "objectID": "COMPSS212/slides/11_GLM.html#more-examples",
+    "href": "COMPSS212/slides/11_GLM.html#more-examples",
+    "title": "Experiments",
+    "section": "More Examples",
+    "text": "More Examples"
+  },
+  {
+    "objectID": "COMPSS212/slides/glm_slides.html#check-in-three-weeks-three-questions",
+    "href": "COMPSS212/slides/glm_slides.html#check-in-three-weeks-three-questions",
+    "title": "",
+    "section": "CHECK-IN : Three Weeks, Three Questions",
+    "text": "CHECK-IN : Three Weeks, Three Questions"
+  },
+  {
+    "objectID": "COMPSS212/slides/glm_slides.html#definition-principles-of-an-experiment",
+    "href": "COMPSS212/slides/glm_slides.html#definition-principles-of-an-experiment",
+    "title": "",
+    "section": "DEFINITION : Principles of an Experiment",
+    "text": "DEFINITION : Principles of an Experiment\n\n\noutcome (DV). what the researchers want to predict or explain\nmanipulation (IV). change only one thing about the variable.\n\nconfound variables (“noise”). other factors that might influence the outcome variable\nrandom assignment. if people put in random groups, then all other confound variables are random error.\n\n\nIn the Vision Board : think about a question that you have (real-life or research)\n\nWhat is this question as a linear model?\nHow would you measure the DV?\nWhat is the IV (the ONE thing that differs between the two groups)?\nHow might you manipulate this variable? (What is the experimental and control group?)\nWhat are all the things that you would need or want to try and keep the same (avoid placebo)?"
+  },
+  {
+    "objectID": "COMPSS212/slides/glm_slides.html#dicusss-whats-wrong-and-why",
+    "href": "COMPSS212/slides/glm_slides.html#dicusss-whats-wrong-and-why",
+    "title": "",
+    "section": "DICUSSS : What’s Wrong (and WHY?)",
+    "text": "DICUSSS : What’s Wrong (and WHY?)"
+  },
+  {
+    "objectID": "COMPSS212/slides/glm_slides.html#more-examples",
+    "href": "COMPSS212/slides/glm_slides.html#more-examples",
+    "title": "",
+    "section": "More Examples",
+    "text": "More Examples"
+  },
+  {
+    "objectID": "calstats/slides/experiment3L_likertR_slides.html",
+    "href": "calstats/slides/experiment3L_likertR_slides.html",
+    "title": "Experiments",
+    "section": "",
+    "text": "Load the Anchoring Dataset; use R to define two (separate) linear models to determine whether people’s experience in the class (DV = howclass) is better predicted by:\n\nhow students are doing in life (IV1 = howgo)\nhow students are doing on the final project (IV2 = howproject)."
+  },
+  {
+    "objectID": "calstats/slides/experiment3L_likertR_slides.html#check-in-anchoring-data",
+    "href": "calstats/slides/experiment3L_likertR_slides.html#check-in-anchoring-data",
+    "title": "",
+    "section": "Check-In : Anchoring Data",
+    "text": "Check-In : Anchoring Data\n\n\n\nLoad the Anchoring Dataset; use R to define two (separate) linear models to determine whether people’s experience in the class (DV = howclass) is better predicted by:\n\nhow students are doing in life (IV1 = howgo)\nhow students are doing on the final project (IV2 = howproject)."
+  },
+  {
+    "objectID": "calstats/slides/experiment3L_likertR_slides.html#check-in-review-see-prof.-r-script",
+    "href": "calstats/slides/experiment3L_likertR_slides.html#check-in-review-see-prof.-r-script",
+    "title": "",
+    "section": "Check-In Review (see Prof. R Script)",
+    "text": "Check-In Review (see Prof. R Script)"
+  },
+  {
+    "objectID": "calstats/slides/experiment3L_likertR_slides.html#definition-principles-of-an-experiment",
+    "href": "calstats/slides/experiment3L_likertR_slides.html#definition-principles-of-an-experiment",
+    "title": "",
+    "section": "DEFINITION : Principles of an Experiment",
+    "text": "DEFINITION : Principles of an Experiment\n\n\ndependent variable. what the researchers want to predict or explain\n\nexperimental manipulation. change only one thing about the variable\n\nextraneous variables as “noise”. other factors that might influence the outcome variable\n\nrandom assignment. the group people are put in is random; this ensures that all other variables that might affect the result are evenly split across the two groups \n\nplacebo effects. when individuals in the study change their behavior if they expect something to have an effect\n\nexternal validity. how much does the experimental manipulation represent what someone might experience in real life?\n\nconstruct validity. how much does the manipulation actually change the variable of interest?\n\nexperimenter expectancy effects. if experimenters know what will happen to participants, they may change their behavior in ways that affect the results"
+  },
+  {
+    "objectID": "calstats/slides/experiment3L_likertR_slides.html#definition-principles-of-an-experiment-1",
+    "href": "calstats/slides/experiment3L_likertR_slides.html#definition-principles-of-an-experiment-1",
+    "title": "",
+    "section": "DEFINITION : Principles of an Experiment",
+    "text": "DEFINITION : Principles of an Experiment\n\n\noutcome (DV). what the researchers want to predict or explain\nmanipulation (IV). change only one thing about the variable.\n\nconfound variables (“noise”). other factors that might influence the outcome variable\nrandom assignment. if people put in random groups, then all other confound variables are random error.\n\n\nDISCUSSION : for your final project topic.\n\nWhat is this question as a linear model?\nWhat is the key IV (the ONE thing that differs between the two groups)?\nHow might you manipulate this variable? (What would be the experimental and control group?)\nWhat are all the things that you would need or want to try and keep the same (avoid placebo)?"
+  },
+  {
+    "objectID": "calstats/slides/experiment3L_likertR_slides.html#experiment-nuance",
+    "href": "calstats/slides/experiment3L_likertR_slides.html#experiment-nuance",
+    "title": "",
+    "section": "Experiment Nuance",
+    "text": "Experiment Nuance"
+  },
+  {
+    "objectID": "calstats/slides/experiment3L_likertR_slides.html#anchoring-as-an-experiment",
+    "href": "calstats/slides/experiment3L_likertR_slides.html#anchoring-as-an-experiment",
+    "title": "",
+    "section": "Anchoring as an Experiment",
+    "text": "Anchoring as an Experiment"
+  },
+  {
+    "objectID": "calstats/slides/experiment3L_likertR_slides.html#part-2-likert-scales-in-r",
+    "href": "calstats/slides/experiment3L_likertR_slides.html#part-2-likert-scales-in-r",
+    "title": "",
+    "section": "PART 2 : Likert Scales in R",
+    "text": "PART 2 : Likert Scales in R"
+  },
+  {
+    "objectID": "calstats/slides/experiment3L_likertR_slides.html#the-end.",
+    "href": "calstats/slides/experiment3L_likertR_slides.html#the-end.",
+    "title": "",
+    "section": "THE END.",
+    "text": "THE END."
+  },
+  {
+    "objectID": "COMPSS212/slides/10_XEexperimentRECAP.html#definition-principles-of-an-experiment",
+    "href": "COMPSS212/slides/10_XEexperimentRECAP.html#definition-principles-of-an-experiment",
+    "title": "Experiments",
+    "section": "DEFINITION : Principles of an Experiment",
+    "text": "DEFINITION : Principles of an Experiment\n\n\noutcome (DV). what the researchers want to predict or explain\nmanipulation (IV). change only one thing about the variable.\n\nconfound variables (“noise”). other factors that might influence the outcome variable\nrandom assignment. if people put in random groups, then all other confound variables are random error.\n\n\nIn the Vision Board : think about a question that you have (real-life or research)\n\nWhat is this question as a linear model?\nHow would you measure the DV?\nWhat is the IV (the ONE thing that differs between the two groups)?\nHow might you manipulate this variable? (What is the experimental and control group?)\nWhat are all the things that you would need or want to try and keep the same (avoid placebo)?\n\n\n\n\nKEY IDEA : Watch out for Misleading Control Variables\nRECAP : the manipulation (A/B Testing) : researchers create multiple groups (conditions) and change ONE THING (the IV) about a person’s experience in each group & observe the result (the DV).\nKEY IDEA : the comparison group matters!\n\na 2 hour stats class DECREASES boredom compared to…\na 2 hour stats class INCREASES boredom compared to…\n\n\n\nScience is Hard : Power Posing\n\n\n\n\n\n\n\n\n\nExample : Gratitude Study\n\n\nRead the prompt below. Answer the following questions.\n\nICE-BREAKER : What’s something that you are grateful for?\nWhat is the experimental / control condition?\nIs this a fair comparison / manipulation? What would be better?\n\n\n\n\n\n\n\nLab 4 : The Dehumanization Study\n\n\n\nLab 6 : The Anchoring Study\n\nAnchoring DataAnchoring Study (Real-Life Examples)\n\n\n\n\n\n\nDV = Cat SpeedsDV = Tree HeightsDV = Meat Consumption\n\n(Intercept)16.33 **270.20 *268.64 **\n\n(5.32)  (105.53) (78.87)  \n\nconditionHIGH12.67   369.35 *295.70 * \n\n(7.38)  (145.81) (117.58)  \n\nconditionLOW-6.26   54.80  -210.97   \n\n(8.76)  (172.32) (132.76)  \n\nN32      27     26      \n\nR20.16   0.23  0.38   \n\n *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOther Questions to Consider : Does the experiment have….\n\nplacebo effectsexternal validityconstruct validityexpectancy effects\n\n\nWill individuals in the study change their behavior if they expect something to have an effect?\n\n\n\nHow much does the experimental manipulation represent what someone might experience in real life?\n\n\n\nHow much does the manipulation actually change the variable of interest?\n\n\n\n\n\n\n\nIf experimenters know what will happen to participants, will they change their behavior in ways that affect the results?\n\n\n\n\n\n\n\n\n\nokay."
+  },
+  {
+    "objectID": "calstats/labs/Week11.html#milestone-4.-exporting-your-data-and-descriptive-statistics",
+    "href": "calstats/labs/Week11.html#milestone-4.-exporting-your-data-and-descriptive-statistics",
+    "title": "Week 11 - Monday, November 16th",
+    "section": "Milestone #4. Exporting Your Data and Descriptive Statistics",
+    "text": "Milestone #4. Exporting Your Data and Descriptive Statistics\n\nExport your final project data from Google Forms. You may need to do some data cleaning to get this into R. Once you load the data, make sure it “looks good” (each variable has a name; the data are the right type (e.g., number data are numeric).\n\nThen, do some descriptive statistics. Submitting a 1-2page document that includes the table below."
+  },
+  {
+    "objectID": "calstats/labs/Week10_NHSTAsynch.html",
+    "href": "calstats/labs/Week10_NHSTAsynch.html",
+    "title": "Week 10 - Friday, April 10th",
+    "section": "",
+    "text": "Hi class. Thank you for reading these words that I wrote. Does it sound like me? Can you make the voice sound like Mickey Mouse? Amazing either way. I can almost imagine speaking these words in our classroom; every seat full and the wifi is fast and our broken VGA and HDMI cables have been replaced by Chancellor Rich Lyons himself (smiling; a public servant).\nAnyway, hope y’all are enjoying the week off. For this week, please complete the following :\n\nComplete this Check-In. Your thoughts on the R Exam and Final Project and rest of the semester.\nWatch the three videos below. (Or just the first video would probably be fine.)\nRead Chapter 8 and take the Reading Quiz. We back.\nSubmit Milestone #4. You will be exporting your Final Project data from Google Forms, getting it into a nice & clean format that R can read, and then showing that this worked. You’ll work on this in discussion section the week of April 13th.\n\n\n\n\nIn the next part of our class, we’ll discuss how scientists use information from the individuals they studied to make a prediction about what EVERYONE is like. This can be confusing, because scientists are just making up data to guess about what people they did not study are like, and often do so in confusing and misleading ways. But the good news is doing this in R is very easy, and you will learn, and we will review in class.\n\n\nFocus on the difference between making predictions from our sample and the population, the difference between sampling error and bias, and get a quick(ish) overview of one (confusing) way we try to estimate sampling error called Null Hypothesis Significance Testing (NHST). The p-value and “significance” stuff you may remember from another stats class.\n\n\n\n\nProfessor discusses critical questions to consider when evaluating whether a sample is biased for those who want to learn more.\n\n\n\n\nA 12-minute video focusing more on “sampling error” if you are interested, why researchers should care about it, and how it can be reduced. \n\n\n\n“A WEIRD View of Human Nature”. A short and classic article that describes how most psychologists get samples for their studies. Focus on : the definition of WEIRD, how frequently psychologists conduct cross-cultural research, how different types of results in psychology differ depending on culture."
+  },
+  {
+    "objectID": "calstats/labs/Week10_NHSTAsynch.html#announcements.",
+    "href": "calstats/labs/Week10_NHSTAsynch.html#announcements.",
+    "title": "Week 10 - Friday, April 10th",
+    "section": "",
+    "text": "Hi class. Thank you for reading these words that I wrote. Does it sound like me? Can you make the voice sound like Mickey Mouse? Amazing either way. I can almost imagine speaking these words in our classroom; every seat full and the wifi is fast and our broken VGA and HDMI cables have been replaced by Chancellor Rich Lyons himself (smiling; a public servant).\nAnyway, hope y’all are enjoying the week off. For this week, please complete the following :\n\nComplete this Check-In. Your thoughts on the R Exam and Final Project and rest of the semester.\nWatch the three videos below. (Or just the first video would probably be fine.)\nRead Chapter 8 and take the Reading Quiz. We back.\nSubmit Milestone #4. You will be exporting your Final Project data from Google Forms, getting it into a nice & clean format that R can read, and then showing that this worked. You’ll work on this in discussion section the week of April 13th."
+  },
+  {
+    "objectID": "calstats/labs/Week10_NHSTAsynch.html#class-videos",
+    "href": "calstats/labs/Week10_NHSTAsynch.html#class-videos",
+    "title": "Week 10 - Friday, April 10th",
+    "section": "",
+    "text": "In the next part of our class, we’ll discuss how scientists use information from the individuals they studied to make a prediction about what EVERYONE is like. This can be confusing, because scientists are just making up data to guess about what people they did not study are like, and often do so in confusing and misleading ways. But the good news is doing this in R is very easy, and you will learn, and we will review in class.\n\n\nFocus on the difference between making predictions from our sample and the population, the difference between sampling error and bias, and get a quick(ish) overview of one (confusing) way we try to estimate sampling error called Null Hypothesis Significance Testing (NHST). The p-value and “significance” stuff you may remember from another stats class.\n\n\n\n\nProfessor discusses critical questions to consider when evaluating whether a sample is biased for those who want to learn more.\n\n\n\n\nA 12-minute video focusing more on “sampling error” if you are interested, why researchers should care about it, and how it can be reduced. \n\n\n\n“A WEIRD View of Human Nature”. A short and classic article that describes how most psychologists get samples for their studies. Focus on : the definition of WEIRD, how frequently psychologists conduct cross-cultural research, how different types of results in psychology differ depending on culture."
+  },
+  {
+    "objectID": "calstats/slides/experiment3L_likertR_slides.html#complete-this-check-in.-our-exam-thoughts",
+    "href": "calstats/slides/experiment3L_likertR_slides.html#complete-this-check-in.-our-exam-thoughts",
+    "title": "",
+    "section": "Complete this Check-In. ouR Exam Thoughts",
+    "text": "Complete this Check-In. ouR Exam Thoughts\n\n\nAfter doing the check-in, load the Anchoring Dataset. We back."
+  },
+  {
+    "objectID": "calstats/slides/experiment3L_likertR_slides.html#check-in.-our-exam-thoughts",
+    "href": "calstats/slides/experiment3L_likertR_slides.html#check-in.-our-exam-thoughts",
+    "title": "",
+    "section": "Check-In. ouR Exam Thoughts",
+    "text": "Check-In. ouR Exam Thoughts\n\n\nAfter doing the check-in, load the Anchoring Dataset. We back."
+  },
+  {
+    "objectID": "calstats/slides/experiment3L_likertR_slides.html#break-time",
+    "href": "calstats/slides/experiment3L_likertR_slides.html#break-time",
+    "title": "",
+    "section": "BREAK TIME",
+    "text": "BREAK TIME"
+  },
+  {
+    "objectID": "calstats/slides/experiment3L_likertR_slides.html#anchoring-in-real-life",
+    "href": "calstats/slides/experiment3L_likertR_slides.html#anchoring-in-real-life",
+    "title": "",
+    "section": "Anchoring in Real-Life",
+    "text": "Anchoring in Real-Life"
+  },
+  {
+    "objectID": "calstats/slides/experiment3L_likertR_slides.html#your-study-an-experiment-not-requireddiscussion-section-stuff",
+    "href": "calstats/slides/experiment3L_likertR_slides.html#your-study-an-experiment-not-requireddiscussion-section-stuff",
+    "title": "",
+    "section": "YOUR STUDY : an experiment (NOT REQUIRED…DISCUSSION SECTION STUFF)",
+    "text": "YOUR STUDY : an experiment (NOT REQUIRED…DISCUSSION SECTION STUFF)\n\n\noutcome (DV). what the researchers want to predict or explain\nmanipulation (IV). change only one thing about the variable.\n\nconfound variables (“noise”). other factors that might influence the outcome variable\nrandom assignment. if people put in random groups, then all other confound variables are random error.\n\n\nDISCUSSION : for your final project topic.\n\nWhat is this question as a linear model?\nWhat is the key IV (the ONE thing that differs between the two groups)?\nHow might you manipulate this variable? (What would be the experimental and control group?)\nWhat are all the things that you would need or want to try and keep the same (avoid placebo)?"
+  },
+  {
+    "objectID": "calstats/slides/experiment3L_likertR_slides.html#break-time.",
+    "href": "calstats/slides/experiment3L_likertR_slides.html#break-time.",
+    "title": "",
+    "section": "BREAK TIME.",
+    "text": "BREAK TIME."
   }
 ]

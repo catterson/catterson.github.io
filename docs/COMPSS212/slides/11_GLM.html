@@ -125,13 +125,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#interaction-effect-review" id="toc-interaction-effect-review" class="nav-link active" data-scroll-target="#interaction-effect-review">Interaction Effect Review</a></li>
-  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression">Logistic Regression</a>
+  <li><a href="#check-in-three-weeks-three-questions" id="toc-check-in-three-weeks-three-questions" class="nav-link active" data-scroll-target="#check-in-three-weeks-three-questions">CHECK-IN : Three Weeks, Three Questions</a></li>
+  <li><a href="#experiments" id="toc-experiments" class="nav-link" data-scroll-target="#experiments">Experiments</a>
   <ul class="collapse">
-  <li><a href="#whats-wrong" id="toc-whats-wrong" class="nav-link" data-scroll-target="#whats-wrong">what’s wrong?</a></li>
-  <li><a href="#whats-better" id="toc-whats-better" class="nav-link" data-scroll-target="#whats-better">what’s better?</a></li>
+  <li><a href="#definition-principles-of-an-experiment" id="toc-definition-principles-of-an-experiment" class="nav-link" data-scroll-target="#definition-principles-of-an-experiment">DEFINITION : Principles of an Experiment</a>
+  <ul class="collapse">
+  <li><a href="#key-idea-watch-out-for-misleading-control-variables" id="toc-key-idea-watch-out-for-misleading-control-variables" class="nav-link" data-scroll-target="#key-idea-watch-out-for-misleading-control-variables">KEY IDEA : Watch out for Misleading Control Variables</a></li>
+  <li><a href="#example-gratitude-study" id="toc-example-gratitude-study" class="nav-link" data-scroll-target="#example-gratitude-study">Example : Gratitude Study</a></li>
+  <li><a href="#other-questions-to-consider-does-the-experiment-have." id="toc-other-questions-to-consider-does-the-experiment-have." class="nav-link" data-scroll-target="#other-questions-to-consider-does-the-experiment-have.">Other Questions to Consider : Does the experiment have….</a></li>
+  <li><a href="#an-experiment" id="toc-an-experiment" class="nav-link" data-scroll-target="#an-experiment">An Experiment!</a></li>
+  <li><a href="#an-experiment-1" id="toc-an-experiment-1" class="nav-link" data-scroll-target="#an-experiment-1">An Experiment!</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#part-2-glm" id="toc-part-2-glm" class="nav-link" data-scroll-target="#part-2-glm">Part 2 : GLM</a>
+  <ul class="collapse">
+  <li><a href="#dicusss-whats-wrong-and-why" id="toc-dicusss-whats-wrong-and-why" class="nav-link" data-scroll-target="#dicusss-whats-wrong-and-why">DICUSSS : What’s Wrong (and WHY?)</a>
+  <ul class="collapse">
+  <li><a href="#generalized-linear-models" id="toc-generalized-linear-models" class="nav-link" data-scroll-target="#generalized-linear-models">Generalized Linear Models</a></li>
+  <li><a href="#generalized-linear-models-1" id="toc-generalized-linear-models-1" class="nav-link" data-scroll-target="#generalized-linear-models-1">Generalized Linear Models</a></li>
+  </ul></li>
+  <li><a href="#more-examples" id="toc-more-examples" class="nav-link" data-scroll-target="#more-examples">More Examples</a></li>
+  <li><a href="#climate-change-data" id="toc-climate-change-data" class="nav-link" data-scroll-target="#climate-change-data">Climate Change Data</a>
+  <ul class="collapse">
   <li><a href="#real-life-example" id="toc-real-life-example" class="nav-link" data-scroll-target="#real-life-example">Real-Life Example</a></li>
   <li><a href="#see-chapter-12" id="toc-see-chapter-12" class="nav-link" data-scroll-target="#see-chapter-12">see chapter 12</a></li>
+  </ul></li>
   <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
   </ul></li>
   </ul>
@@ -143,11 +161,118 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="interaction-effect-review" class="level3">
-<h3 class="anchored" data-anchor-id="interaction-effect-review">Interaction Effect Review</h3>
+<section id="check-in-three-weeks-three-questions" class="level2">
+<h2 class="anchored" data-anchor-id="check-in-three-weeks-three-questions"><a href="https://forms.gle/vwQs4xKWuTPQeRWH7">CHECK-IN : Three Weeks, Three Questions</a></h2>
+<p><img src="images/clipboard-2198560518.png" class="img-fluid" width="519"></p>
+</section>
+<section id="experiments" class="level1">
+<h1>Experiments</h1>
+<section id="definition-principles-of-an-experiment" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="definition-principles-of-an-experiment">DEFINITION : Principles of an Experiment</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><strong>outcome (DV).</strong> what the researchers want to predict or explain</p>
+<p><strong>manipulation (IV).</strong> change only <u>one thing</u> about the variable.</p>
+<ul>
+<li><strong>confound variables (“noise”).</strong> other factors that might influence the outcome variable</li>
+<li><strong>random assignment.</strong> if people put in random groups, then all other confound variables are <em>random error</em>.</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<p><strong>In the Vision Board : think about a question that you have (real-life or research)</strong></p>
+<ul>
+<li><p>What is this question as a linear model?</p></li>
+<li><p>How would you measure the DV?</p></li>
+<li><p>What is the IV (the ONE thing that differs between the two groups)?</p></li>
+<li><p>How might you manipulate this variable? (What is the experimental and control group?)</p></li>
+<li><p>What are all the things that you would need or want to try and keep the same (avoid placebo)?</p></li>
+</ul>
+</div>
+</div>
+<section id="key-idea-watch-out-for-misleading-control-variables" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="key-idea-watch-out-for-misleading-control-variables">KEY IDEA : Watch out for Misleading Control Variables</h3>
+<p><strong>RECAP : the manipulation (A/B Testing) :</strong> researchers create multiple groups (conditions) and change ONE THING (the IV) about a person’s experience in each group &amp; observe the result (the DV).</p>
+<p><strong>KEY IDEA : the comparison group matters!</strong></p>
+<ul>
+<li><p>a 2 hour stats class DECREASES boredom compared to…</p></li>
+<li><p>a 2 hour stats class INCREASES boredom compared to…</p></li>
+</ul>
+</section>
+<section id="example-gratitude-study" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="example-gratitude-study">Example : Gratitude Study</h3>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Read the prompt below. Answer the following questions.</p>
+<ol type="1">
+<li><strong>ICE-BREAKER :</strong> What’s something that you are grateful for?</li>
+<li>What is the experimental / control condition?</li>
+<li>Is this a fair comparison / manipulation? What would be better?</li>
+</ol>
+</div><div class="column" style="width:60%;">
+<p><img src="images/clipboard-4269890032.png" class="img-fluid" width="449"></p>
+</div>
+</div>
+</section>
+<section id="other-questions-to-consider-does-the-experiment-have." class="level3">
+<h3 class="anchored" data-anchor-id="other-questions-to-consider-does-the-experiment-have.">Other Questions to Consider : Does the experiment have….</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">placebo effects</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">external validity</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">construct validity</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">expectancy effects</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Will individuals in the study change their behavior if they expect something to have an effect?</p>
+<p><img src="images/clipboard-2263360308.png" class="img-fluid"></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>How much does the experimental manipulation represent what someone might experience in real life?</p>
+<p><img src="images/clipboard-2842103364.png" class="img-fluid"></p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>How much does the manipulation actually change the variable of interest?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/cyberball_gif.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p>If experimenters know what will happen to participants, will they change their behavior in ways that affect the results?</p>
+<p><img src="images/clipboard-232105013.png" class="img-fluid" width="678"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="an-experiment" class="level3">
+<h3 class="anchored" data-anchor-id="an-experiment">An Experiment!</h3>
+<p><img src="images/clipboard-2240208085.png" class="img-fluid"></p>
+</section>
+<section id="an-experiment-1" class="level3">
+<h3 class="anchored" data-anchor-id="an-experiment-1">An Experiment!</h3>
+<p><img src="images/clipboard-2594855025.png" class="img-fluid"></p>
+</section>
+</section>
+</section>
+<section id="part-2-glm" class="level1">
+<h1>Part 2 : GLM</h1>
+<section id="dicusss-whats-wrong-and-why" class="level2">
+<h2 class="anchored" data-anchor-id="dicusss-whats-wrong-and-why">DICUSSS : What’s Wrong (and WHY?)</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="11_GLM_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="generalized-linear-models" class="level3">
+<h3 class="anchored" data-anchor-id="generalized-linear-models">Generalized Linear Models</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>glmod <span class="ot">&lt;-</span> <span class="fu">glm</span>(sex <span class="sc">~</span> test_mean, <span class="at">data =</span> h, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sex <span class="sc">~</span> test_mean, <span class="at">data =</span> h,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Testosterone"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Probability of Being Female"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">predict</span>(glmod, <span class="fu">data.frame</span>(<span class="at">test_mean=</span>x), <span class="at">type =</span> <span class="st">"resp"</span>), <span class="at">add =</span> T, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -158,89 +283,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="cell-output-display">
-<table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  ">
-<colgroup><col><col></colgroup><tbody><tr>
-<th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Model 1</th></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Intercept</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.03 ***</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Negative Emotions</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.24 ***</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Belief in Climate Change</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.24 ***</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Negative Emotions x Belief</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-0.08 ***</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">N</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">67262&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">R2</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.19&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-<tr>
-<th colspan="2" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"> *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.</th></tr>
-</tbody></table>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>coefz <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="fu">coef</span>(glmod), <span class="fu">exp</span>(<span class="fu">coef</span>(glmod)))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">row.names</span>(coefz) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Coefficients (Log-Odds)"</span>, <span class="st">"Exponentiated (Odds-Ratio)"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>coefz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                           (Intercept)   test_mean
+Coefficients (Log-Odds)       4.819744 -0.09199851
+Exponentiated (Odds-Ratio)  123.933402  0.91210651</code></pre>
 </div>
 </div>
+<ul>
+<li>Log-Odds - coef(glmod):</li>
+<li>Odds-Ratio - exp(coef(glmod)):</li>
+</ul>
 </div>
 </div>
 </section>
-<section id="logistic-regression" class="level1">
-<h1>Logistic Regression</h1>
-<section id="whats-wrong" class="level3">
-<h3 class="anchored" data-anchor-id="whats-wrong">what’s wrong?</h3>
+<section id="generalized-linear-models-1" class="level3">
+<h3 class="anchored" data-anchor-id="generalized-linear-models-1">Generalized Linear Models</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!GRADSTATS/Datasets/Hormone Data/hormone_dataset.csv"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>h<span class="sc">$</span>sexF <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(h<span class="sc">$</span>sex)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(h<span class="sc">$</span>sexF) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Male"</span>, <span class="st">"Female"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>h<span class="sc">$</span>sexF <span class="ot">&lt;-</span> <span class="fu">relevel</span>(h<span class="sc">$</span>sexF, <span class="at">ref =</span> <span class="st">"Female"</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sex <span class="sc">~</span> test_mean, <span class="at">data =</span> h, <span class="at">xlab =</span> <span class="st">"Testosterone"</span>, <span class="at">ylab =</span> <span class="st">"Sex (1 = Male, 2 = Female)"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(sex <span class="sc">~</span> test_mean, <span class="at">data =</span> h)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(mod2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>glmod <span class="ot">&lt;-</span> <span class="fu">glm</span>(sex <span class="sc">~</span> test_mean, <span class="at">data =</span> h, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sex <span class="sc">~</span> test_mean, <span class="at">data =</span> h,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Testosterone"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Probability of Being Female"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">predict</span>(glmod, <span class="fu">data.frame</span>(<span class="at">test_mean=</span>x), <span class="at">type =</span> <span class="st">"resp"</span>), <span class="at">add =</span> T, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="11_GLM_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="480"></p>
+<p><img src="11_GLM_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="whats-better" class="level3">
-<h3 class="anchored" data-anchor-id="whats-better">what’s better?</h3>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">the graph</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">the model</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+</div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>h<span class="sc">$</span>sexR <span class="ot">&lt;-</span> h<span class="sc">$</span>sex <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>glmod <span class="ot">&lt;-</span> <span class="fu">glm</span>(sexR <span class="sc">~</span> test_mean, <span class="at">data =</span> h, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sexR <span class="sc">~</span> test_mean, <span class="at">data =</span> h,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Testosterone"</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Probability of Being Female"</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">predict</span>(glmod, <span class="fu">data.frame</span>(<span class="at">test_mean=</span>x), <span class="at">type =</span> <span class="st">"resp"</span>), <span class="at">add =</span> T, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="11_GLM_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glmod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glmod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-glm(formula = sexR ~ test_mean, family = "binomial", data = h)
+glm(formula = sex ~ test_mean, family = "binomial", data = h)
 
 Coefficients:
             Estimate Std. Error z value Pr(&gt;|z|)    
@@ -261,25 +344,79 @@ Number of Fisher Scoring iterations: 7</code></pre>
 </div>
 </div>
 </div>
-</div>
 </section>
+</section>
+<section id="more-examples" class="level2">
+<h2 class="anchored" data-anchor-id="more-examples">More Examples</h2>
+</section>
+<section id="climate-change-data" class="level2">
+<h2 class="anchored" data-anchor-id="climate-change-data">Climate Change Data</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">the graph</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">the model</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>cl_glmod <span class="ot">&lt;-</span> <span class="fu">glm</span>(numRes <span class="sc">~</span> sci_info, <span class="at">data =</span> x, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(numRes <span class="sc">~</span> sci_info, <span class="at">data =</span> x,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Scientific Knowledge Seeking"</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Probability of Being in an Urban Environment"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">predict</span>(cl_glmod, <span class="fu">data.frame</span>(<span class="at">sci_info=</span>x), <span class="at">type =</span> <span class="st">"resp"</span>), <span class="at">add =</span> T, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="11_GLM_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cl_glmod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = numRes ~ sci_info, family = "binomial", data = x)
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept) 0.368732   0.023784   15.50   &lt;2e-16 ***
+sci_info    0.190317   0.006717   28.33   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 80636  on 69513  degrees of freedom
+Residual deviance: 79814  on 69512  degrees of freedom
+  (20 observations deleted due to missingness)
+AIC: 79818
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <section id="real-life-example" class="level3 smaller">
 <h3 class="smaller anchored" data-anchor-id="real-life-example">Real-Life Example</h3>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Study Design</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">A Regression Table</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Study Design</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">A Regression Table</a></li></ul>
 <div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <p><a href="https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0072946&amp;type=printable"><strong>Link to Article</strong></a> <strong>:</strong> Somers, J. M., Rezansoff, S. N., Moniruzzaman, A., Palepu, A., &amp; Patterson, M. (2013). Housing First reduces re-offending among formerly homeless adults with mental disorders: results of a randomized controlled trial. PloS one, 8(9), e72946.</p>
 <p><img src="images/clipboard-3999460150.png" class="img-fluid" width="473"></p>
 </div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <p><img src="images/clipboard-3913196998.png" class="img-fluid" width="658"></p>
 </div>
 </div>
 </div>
+<p><img src="images/clipboard-2951733940.png" class="img-fluid"></p>
 </section>
 <section id="see-chapter-12" class="level3">
 <h3 class="anchored" data-anchor-id="see-chapter-12"><a href="https://catterson.github.io/ystats/chapters/12R_LogisticRegression.html">see chapter 12</a></h3>
+</section>
 </section>
 <section id="section" class="level2 smaller">
 <h2 class="smaller anchored" data-anchor-id="section"></h2>

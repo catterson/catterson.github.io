@@ -45,9 +45,9 @@ interact_plot(mod,
               cex.main = 0.9)
 ```
 
-## RECAP : Experiments
+# Experiments
 
-### DEFINITION : Principles of an Experiment {.smaller}
+## DEFINITION : Principles of an Experiment {.smaller}
 
 ::::: columns
 ::: {.column width="40%"}
@@ -56,9 +56,6 @@ interact_plot(mod,
 **manipulation (IV).** change only [one thing]{.underline} about the variable.
 
 - **confound variables (“noise”).** other factors that might influence the outcome variable
-
-<!-- -->
-
 - **random assignment.** if people put in random groups, then all other confound variables are *random error*.
 :::
 
@@ -168,7 +165,7 @@ Will individuals in the study change their behavior if they expect something to 
 
 How much does the experimental manipulation represent what someone might experience in real life?
 
-[![](images/clipboard-2842103364.png)](http://neuro.hms.harvard.edu/harvard-mahoney-neuroscience-institute/brain-newsletter/and-brain-series/love-and-brain)
+![](images/clipboard-2842103364.png)
 
 #### construct validity
 
@@ -180,8 +177,10 @@ How much does the manipulation actually change the variable of interest?
 
 If experimenters know what will happen to participants, will they change their behavior in ways that affect the results?
 
-[![](images/clipboard-232105013.png){width="678"}](http://query.nytimes.com/mem/archive-free/pdf?res=9E02E2D91F3AE733A25757C0A96F9C946597D6CF)
+![](images/clipboard-232105013.png){width="678"}
 :::
+
+### 
 
 ### okay.
 

@@ -198,100 +198,166 @@
     <div class="slides">
 
 
-<section id="interaction-effect-review" class="slide level3">
-<h3>Interaction Effect Review</h3>
+<section id="check-in-three-weeks-three-questions" class="title-slide slide level2 center">
+<h2><a href="https://forms.gle/vwQs4xKWuTPQeRWH7">CHECK-IN : Three Weeks, Three Questions</a></h2>
+
+<img data-src="images/clipboard-2198560518.png" width="519" class="r-stretch"></section>
+
+<section>
+<section id="experiments" class="title-slide slide level1 center">
+<h1>Experiments</h1>
+
+</section>
+<section id="definition-principles-of-an-experiment" class="title-slide slide level2 smaller center">
+<h2>DEFINITION : Principles of an Experiment</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><strong>outcome (DV).</strong> what the researchers want to predict or explain</p>
+<p><strong>manipulation (IV).</strong> change only <u>one thing</u> about the variable.</p>
+<ul>
+<li><strong>confound variables (“noise”).</strong> other factors that might influence the outcome variable</li>
+<li><strong>random assignment.</strong> if people put in random groups, then all other confound variables are <em>random error</em>.</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<p><strong>In the Vision Board : think about a question that you have (real-life or research)</strong></p>
+<ul>
+<li><p>What is this question as a linear model?</p></li>
+<li><p>How would you measure the DV?</p></li>
+<li><p>What is the IV (the ONE thing that differs between the two groups)?</p></li>
+<li><p>How might you manipulate this variable? (What is the experimental and control group?)</p></li>
+<li><p>What are all the things that you would need or want to try and keep the same (avoid placebo)?</p></li>
+</ul>
+</div></div>
+</section>
+<section id="key-idea-watch-out-for-misleading-control-variables" class="slide level3 smaller">
+<h3>KEY IDEA : Watch out for Misleading Control Variables</h3>
+<p><strong>RECAP : the manipulation (A/B Testing) :</strong> researchers create multiple groups (conditions) and change ONE THING (the IV) about a person’s experience in each group &amp; observe the result (the DV).</p>
+<p><strong>KEY IDEA : the comparison group matters!</strong></p>
+<ul>
+<li><p>a 2 hour stats class DECREASES boredom compared to…</p></li>
+<li><p>a 2 hour stats class INCREASES boredom compared to…</p></li>
+</ul>
+</section>
+<section id="example-gratitude-study" class="slide level3 smaller">
+<h3>Example : Gratitude Study</h3>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Read the prompt below. Answer the following questions.</p>
+<ol type="1">
+<li><strong>ICE-BREAKER :</strong> What’s something that you are grateful for?</li>
+<li>What is the experimental / control condition?</li>
+<li>Is this a fair comparison / manipulation? What would be better?</li>
+</ol>
+</div><div class="column" style="width:60%;">
+<p><img data-src="images/clipboard-4269890032.png" width="449"></p>
+</div></div>
+</section>
+<section id="other-questions-to-consider-does-the-experiment-have." class="slide level3">
+<h3>Other Questions to Consider : Does the experiment have….</h3>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">placebo effects</a></li><li><a href="#tabset-1-2">external validity</a></li><li><a href="#tabset-1-3">construct validity</a></li><li><a href="#tabset-1-4">expectancy effects</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<p>Will individuals in the study change their behavior if they expect something to have an effect?</p>
+<p><img data-src="images/clipboard-2263360308.png"></p>
+</div>
+<div id="tabset-1-2">
+<p>How much does the experimental manipulation represent what someone might experience in real life?</p>
+<p><img data-src="images/clipboard-2842103364.png"></p>
+</div>
+<div id="tabset-1-3">
+<p>How much does the manipulation actually change the variable of interest?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/cyberball_gif.gif" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+<div id="tabset-1-4">
+<p>If experimenters know what will happen to participants, will they change their behavior in ways that affect the results?</p>
+<p><img data-src="images/clipboard-232105013.png" width="678"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="an-experiment" class="slide level3">
+<h3>An Experiment!</h3>
+
+<img data-src="images/clipboard-2240208085.png" class="r-stretch"></section>
+<section id="an-experiment-1" class="slide level3">
+<h3>An Experiment!</h3>
+
+<img data-src="images/clipboard-2594855025.png" class="r-stretch"></section>
+</section>
+<section>
+<section id="part-2-glm" class="title-slide slide level1 center">
+<h1>Part 2 : GLM</h1>
+
+</section>
+<section id="dicusss-whats-wrong-and-why" class="title-slide slide level2 center">
+<h2>DICUSSS : What’s Wrong (and WHY?)</h2>
+
+<img data-src="11_GLM_files/figure-html/unnamed-chunk-1-1.png" width="672" class="r-stretch"></section>
+<section id="generalized-linear-models" class="slide level3">
+<h3>Generalized Linear Models</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>glmod <span class="ot">&lt;-</span> <span class="fu">glm</span>(sex <span class="sc">~</span> test_mean, <span class="at">data =</span> h, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb1-2"><a aria-label="2"></a><span class="fu">plot</span>(sex <span class="sc">~</span> test_mean, <span class="at">data =</span> h,</span>
+<span id="cb1-3"><a aria-label="3"></a>     <span class="at">xlab =</span> <span class="st">"Testosterone"</span>,</span>
+<span id="cb1-4"><a aria-label="4"></a>     <span class="at">ylab =</span> <span class="st">"Probability of Being Female"</span>)</span>
+<span id="cb1-5"><a aria-label="5"></a><span class="fu">curve</span>(<span class="fu">predict</span>(glmod, <span class="fu">data.frame</span>(<span class="at">test_mean=</span>x), <span class="at">type =</span> <span class="st">"resp"</span>), <span class="at">add =</span> T, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10_GLM_files/figure-html/unnamed-chunk-2-1.png" width="672"></p>
+<p><img data-src="11_GLM_files/figure-html/unnamed-chunk-2-1.png" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="cell-output-display">
-<table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  ">
-<colgroup><col><col></colgroup><tbody><tr>
-<th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Model 1</th></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Intercept</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.03 ***</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Negative Emotions</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.24 ***</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Belief in Climate Change</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.24 ***</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Negative Emotions x Belief</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-0.08 ***</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">N</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">67262&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">R2</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.19&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-<tr>
-<th colspan="2" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"> *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.</th></tr>
-</tbody></table>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>coefz <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="fu">coef</span>(glmod), <span class="fu">exp</span>(<span class="fu">coef</span>(glmod)))</span>
+<span id="cb2-2"><a aria-label="2"></a><span class="fu">row.names</span>(coefz) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Coefficients (Log-Odds)"</span>, <span class="st">"Exponentiated (Odds-Ratio)"</span>)</span>
+<span id="cb2-3"><a aria-label="3"></a>coefz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                           (Intercept)   test_mean
+Coefficients (Log-Odds)       4.819744 -0.09199851
+Exponentiated (Odds-Ratio)  123.933402  0.91210651</code></pre>
 </div>
 </div>
+<ul>
+<li>Log-Odds - coef(glmod):</li>
+<li>Odds-Ratio - exp(coef(glmod)):</li>
+</ul>
 </div></div>
 </section>
-<section>
-<section id="logistic-regression" class="title-slide slide level1 center">
-<h1>Logistic Regression</h1>
-
-</section>
-<section id="whats-wrong" class="slide level3">
-<h3>what’s wrong?</h3>
+<section id="generalized-linear-models-1" class="slide level3">
+<h3>Generalized Linear Models</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>h <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/!GRADSTATS/Datasets/Hormone Data/hormone_dataset.csv"</span>)</span>
-<span id="cb1-2"><a aria-label="2"></a>h<span class="sc">$</span>sexF <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(h<span class="sc">$</span>sex)</span>
-<span id="cb1-3"><a aria-label="3"></a><span class="fu">levels</span>(h<span class="sc">$</span>sexF) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Male"</span>, <span class="st">"Female"</span>)</span>
-<span id="cb1-4"><a aria-label="4"></a>h<span class="sc">$</span>sexF <span class="ot">&lt;-</span> <span class="fu">relevel</span>(h<span class="sc">$</span>sexF, <span class="at">ref =</span> <span class="st">"Female"</span>)</span>
-<span id="cb1-5"><a aria-label="5"></a></span>
-<span id="cb1-6"><a aria-label="6"></a><span class="fu">plot</span>(sex <span class="sc">~</span> test_mean, <span class="at">data =</span> h, <span class="at">xlab =</span> <span class="st">"Testosterone"</span>, <span class="at">ylab =</span> <span class="st">"Sex (1 = Male, 2 = Female)"</span>)</span>
-<span id="cb1-7"><a aria-label="7"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(sex <span class="sc">~</span> test_mean, <span class="at">data =</span> h)</span>
-<span id="cb1-8"><a aria-label="8"></a><span class="fu">abline</span>(mod2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-
-</div>
-<img data-src="10_GLM_files/figure-html/unnamed-chunk-4-1.png" width="480" class="r-stretch"></section>
-<section id="whats-better" class="slide level3">
-<h3>what’s better?</h3>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">the graph</a></li><li><a href="#tabset-1-2">the model</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>h<span class="sc">$</span>sexR <span class="ot">&lt;-</span> h<span class="sc">$</span>sex <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb2-2"><a aria-label="2"></a>glmod <span class="ot">&lt;-</span> <span class="fu">glm</span>(sexR <span class="sc">~</span> test_mean, <span class="at">data =</span> h, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb2-3"><a aria-label="3"></a><span class="fu">plot</span>(sexR <span class="sc">~</span> test_mean, <span class="at">data =</span> h,</span>
-<span id="cb2-4"><a aria-label="4"></a>     <span class="at">xlab =</span> <span class="st">"Testosterone"</span>,</span>
-<span id="cb2-5"><a aria-label="5"></a>     <span class="at">ylab =</span> <span class="st">"Probability of Being Female"</span>)</span>
-<span id="cb2-6"><a aria-label="6"></a><span class="fu">curve</span>(<span class="fu">predict</span>(glmod, <span class="fu">data.frame</span>(<span class="at">test_mean=</span>x), <span class="at">type =</span> <span class="st">"resp"</span>), <span class="at">add =</span> T, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>glmod <span class="ot">&lt;-</span> <span class="fu">glm</span>(sex <span class="sc">~</span> test_mean, <span class="at">data =</span> h, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb4-2"><a aria-label="2"></a><span class="fu">plot</span>(sex <span class="sc">~</span> test_mean, <span class="at">data =</span> h,</span>
+<span id="cb4-3"><a aria-label="3"></a>     <span class="at">xlab =</span> <span class="st">"Testosterone"</span>,</span>
+<span id="cb4-4"><a aria-label="4"></a>     <span class="at">ylab =</span> <span class="st">"Probability of Being Female"</span>)</span>
+<span id="cb4-5"><a aria-label="5"></a><span class="fu">curve</span>(<span class="fu">predict</span>(glmod, <span class="fu">data.frame</span>(<span class="at">test_mean=</span>x), <span class="at">type =</span> <span class="st">"resp"</span>), <span class="at">add =</span> T, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10_GLM_files/figure-html/unnamed-chunk-5-1.png" width="480"></p>
+<p><img data-src="11_GLM_files/figure-html/unnamed-chunk-4-1.png" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</div>
-<div id="tabset-1-2">
+</div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">summary</span>(glmod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">summary</span>(glmod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-glm(formula = sexR ~ test_mean, family = "binomial", data = h)
+glm(formula = sex ~ test_mean, family = "binomial", data = h)
 
 Coefficients:
             Estimate Std. Error z value Pr(&gt;|z|)    
@@ -310,6 +376,60 @@ AIC: 60.09
 Number of Fisher Scoring iterations: 7</code></pre>
 </div>
 </div>
+</div></div>
+</section>
+
+<section id="more-examples" class="title-slide slide level2 center">
+<h2>More Examples</h2>
+
+</section>
+
+<section id="climate-change-data" class="title-slide slide level2 center">
+<h2>Climate Change Data</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">the graph</a></li><li><a href="#tabset-2-2">the model</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>cl_glmod <span class="ot">&lt;-</span> <span class="fu">glm</span>(numRes <span class="sc">~</span> sci_info, <span class="at">data =</span> x, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb7-2"><a aria-label="2"></a><span class="fu">plot</span>(numRes <span class="sc">~</span> sci_info, <span class="at">data =</span> x,</span>
+<span id="cb7-3"><a aria-label="3"></a>     <span class="at">xlab =</span> <span class="st">"Scientific Knowledge Seeking"</span>,</span>
+<span id="cb7-4"><a aria-label="4"></a>     <span class="at">ylab =</span> <span class="st">"Probability of Being in an Urban Environment"</span>)</span>
+<span id="cb7-5"><a aria-label="5"></a><span class="fu">curve</span>(<span class="fu">predict</span>(cl_glmod, <span class="fu">data.frame</span>(<span class="at">sci_info=</span>x), <span class="at">type =</span> <span class="st">"resp"</span>), <span class="at">add =</span> T, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="11_GLM_files/figure-html/unnamed-chunk-7-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">summary</span>(cl_glmod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = numRes ~ sci_info, family = "binomial", data = x)
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept) 0.368732   0.023784   15.50   &lt;2e-16 ***
+sci_info    0.190317   0.006717   28.33   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 80636  on 69513  degrees of freedom
+Residual deviance: 79814  on 69512  degrees of freedom
+  (20 observations deleted due to missingness)
+AIC: 79818
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -317,21 +437,23 @@ Number of Fisher Scoring iterations: 7</code></pre>
 <section id="real-life-example" class="slide level3 smaller">
 <h3>Real-Life Example</h3>
 <div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Study Design</a></li><li><a href="#tabset-2-2">A Regression Table</a></li></ul>
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Study Design</a></li><li><a href="#tabset-3-2">A Regression Table</a></li></ul>
 <div class="tab-content">
-<div id="tabset-2-1">
+<div id="tabset-3-1">
 <p><a href="https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0072946&amp;type=printable"><strong>Link to Article</strong></a> <strong>:</strong> Somers, J. M., Rezansoff, S. N., Moniruzzaman, A., Palepu, A., &amp; Patterson, M. (2013). Housing First reduces re-offending among formerly homeless adults with mental disorders: results of a randomized controlled trial. PloS one, 8(9), e72946.</p>
 <p><img data-src="images/clipboard-3999460150.png" width="473"></p>
 </div>
-<div id="tabset-2-2">
+<div id="tabset-3-2">
 <p><img data-src="images/clipboard-3913196998.png" width="658"></p>
 </div>
 </div>
 </div>
+<p><img data-src="images/clipboard-2951733940.png"></p>
 </section>
 <section id="see-chapter-12" class="slide level3">
 <h3><a href="https://catterson.github.io/ystats/chapters/12R_LogisticRegression.html">see chapter 12</a></h3>
 </section>
+
 <section id="section" class="title-slide slide level2 smaller center">
 <h2></h2>
 
