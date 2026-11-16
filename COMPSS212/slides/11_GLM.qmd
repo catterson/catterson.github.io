@@ -159,7 +159,7 @@ row.names(coefz) <- c("LM (Probability)", "GLM/4 (Gelman & Hill Rule)", "Exponen
 round(coefz, 2)
 ```
 
-- **Linear Model - Probability `coef(mod)*100` :** Multiplying the coefficient by 100 gives you the *percentage-point change*in the probability that Y = 1 for a one-unit increase in the independent variable. (*But violates assumption of heteroscedasticity....so need to check.*)
+- **Linear Model - Probability `coef(mod)*100` :** Multiplying the coefficient by 100 gives you the *percentage-point change* in the probability that Y = 1 for a one-unit increase in the independent variable. (*But violates assumption of heteroscedasticity....so need to check.*)
 - **Generalized Linear Model - Log-Odds `coef(glmod)/4` :** very confusing on its own. Gelman & Hill tell you that dividing this number by 4 gives you the upper bound of the predictive difference in Y that corresponds to a 1-unit increase in X.
 - **Exponentiation Generalized Linear Model - Odds-Ratio** `exp(coef(glmod))` : how the odds change between two different outcomes.
   - **Odds Ratio less than 1 =** as X increases by 1, the probability of Y decreases (by the difference between the slope and 1).
@@ -176,31 +176,6 @@ round(coefz, 2)
 - Pseudo $R^2$ = (null deviance - residual deviance) / null deviance
 
 - AIC = Akaike Information Criterion = a measure of goodness of fit...lower is "better".
-:::
-
-## More Examples
-
-## Climate Change Data
-
-::: panel-tabset
-#### the graph
-
-```{r}
-#| fig-width: 5
-#| fig-height: 5
-
-cl_glmod <- glm(numRes ~ sci_info, data = x, family = "binomial")
-plot(numRes ~ sci_info, data = x,
-     xlab = "Scientific Knowledge Seeking",
-     ylab = "Probability of Being in an Urban Environment")
-curve(predict(cl_glmod, data.frame(sci_info=x), type = "resp"), add = T, col = "red", lwd = 2)
-```
-
-#### the model
-
-```{r}
-summary(cl_glmod)
-```
 :::
 
 ### Real-Life Example {.smaller}
@@ -224,7 +199,7 @@ summary(cl_glmod)
 
 ![](images/clipboard-1182519525.png){width="520"}
 
-#### The Result (Table)
+### The Result (Table)
 
 ![](images/clipboard-2951733940.png){width="548"}
 :::
