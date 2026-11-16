@@ -8223,5 +8223,54 @@
     "title": "",
     "section": "CHECK-IN : Three Weeks, Some Questions",
     "text": "CHECK-IN : Three Weeks, Some Questions"
+  },
+  {
+    "objectID": "calstats/notes/Week11.html",
+    "href": "calstats/notes/Week11.html",
+    "title": "Week 11 - Monday, November 16th",
+    "section": "",
+    "text": "NoteAnnouncements and Agenda and Advertisement(s)\n\n\n\n\n\n\n\n\nTHE END IS NEAR. Three classes (and a brain exam and final project) left. Whew!\nBrain Exam is final week HELD IN SECTION. Will review in class and section. On interpreting regression (NHST and multiple regression). The learning has not stopped. But will soon.\nFinal Project : really really really great to have final project data collected and into R by end of this week.\n\n\nToday, on Psych 101…\n\n3:10 - 3:20. Post R-Exam.\n3:20 - 4:10. Experiments and Cat Speeds\n4:10 - 4:20. BREAK TIME\n4:20 - 5:00. Likert Scales in R\n5:00 - 6:00. Final Project Workshop\n\n\n\n\n\n\n\n\n\n\nComplete this Check-In. Your thoughts on the R Exam and Final Project and rest of the semester.\n\nPart 1 : Anchoring Dataset\nPart 2 : Full Conspiracy Beliefs Dataset\n\nProfessor Notes. My R scripts and other notes, saved in real-time.\nFinal Project Description & Rubric. And here’s the Final Project Vision Board."
+  },
+  {
+    "objectID": "calstats/notes/Week11.html#chapter-10.-on-multiple-regression.",
+    "href": "calstats/notes/Week11.html#chapter-10.-on-multiple-regression.",
+    "title": "Week 11 - Monday, November 16th",
+    "section": "Chapter 10. On Multiple Regression.",
+    "text": "Chapter 10. On Multiple Regression.\nAnd the reading quiz. No R required."
+  },
+  {
+    "objectID": "calstats/notes/Week11.html#milestone-4.-exporting-your-data-and-descriptive-statistics",
+    "href": "calstats/notes/Week11.html#milestone-4.-exporting-your-data-and-descriptive-statistics",
+    "title": "Week 11 - Monday, November 16th",
+    "section": "Milestone #4. Exporting Your Data and Descriptive Statistics",
+    "text": "Milestone #4. Exporting Your Data and Descriptive Statistics\n\nExport your final project data from Google Forms. You may need to do some data cleaning to get this into R. Once you load the data, make sure it “looks good” (each variable has a name; the data are the right type (e.g., number data are numeric).\n\nThen, do some descriptive statistics. Submitting a 1-2page document that includes the table below."
+  },
+  {
+    "objectID": "COMPSS212/slides/12_GLMHLM.html#definition-principles-of-an-experiment",
+    "href": "COMPSS212/slides/12_GLMHLM.html#definition-principles-of-an-experiment",
+    "title": "Experiments",
+    "section": "DEFINITION : Principles of an Experiment",
+    "text": "DEFINITION : Principles of an Experiment\n\n\noutcome (DV). what the researchers want to predict or explain\nmanipulation (IV). change only one thing about the variable.\n\nconfound variables (“noise”). other factors that might influence the outcome variable\nrandom assignment. if people put in random groups, then all other confound variables are random error.\n\n\nIn the Vision Board : think about a question that you have (real-life or research)\n\nWhat is this question as a linear model?\nHow would you measure the DV?\nWhat is the IV (the ONE thing that differs between the two groups)?\nHow might you manipulate this variable? (What is the experimental and control group?)\nWhat are all the things that you would need or want to try and keep the same (avoid placebo)?\n\n\n\n\nKEY IDEA : Watch out for Misleading Control Variables\nRECAP : the manipulation (A/B Testing) : researchers create multiple groups (conditions) and change ONE THING (the IV) about a person’s experience in each group & observe the result (the DV).\nKEY IDEA : the comparison group matters!\n\na 2 hour stats class DECREASES boredom compared to…\na 2 hour stats class INCREASES boredom compared to…\n\n\n\nExample : Gratitude Study\n\n\nRead the prompt below. Answer the following questions.\n\nICE-BREAKER : What’s something that you are grateful for?\nWhat is the experimental / control condition?\nIs this a fair comparison / manipulation? What would be better?\n\n\n\n\n\n\n\nOther Questions to Consider : Does the experiment have….\n\nplacebo effectsexternal validityconstruct validityexpectancy effects\n\n\nWill individuals in the study change their behavior if they expect something to have an effect?\n\n\n\nHow much does the experimental manipulation represent what someone might experience in real life?\n\n\n\nHow much does the manipulation actually change the variable of interest?\n\n\n\n\n\n\n\nIf experimenters know what will happen to participants, will they change their behavior in ways that affect the results?\n\n\n\n\n\n\nAn Experiment!\n\n\n\nAn Experiment!"
+  },
+  {
+    "objectID": "COMPSS212/slides/12_GLMHLM.html#dicusss-whats-wrong-and-why",
+    "href": "COMPSS212/slides/12_GLMHLM.html#dicusss-whats-wrong-and-why",
+    "title": "Experiments",
+    "section": "DICUSSS : What’s Wrong (and WHY?)",
+    "text": "DICUSSS : What’s Wrong (and WHY?)\n\n\n\n\n\n\n\n\n\n (Intercept)    test_mean \n 0.862301781 -0.007303453 \n\n\n\nGeneralized Linear Models\n\nthe graphthe summaryinterpreting the slopeinterpreting the “fit”\n\n\n\nglmod &lt;- glm(sex ~ test_mean, data = h, family = \"binomial\")\nplot(sex ~ test_mean, data = h,\n     xlab = \"Testosterone\",\n     ylab = \"Probability of Being Female\")\ncurve(predict(glmod, data.frame(test_mean=x), type = \"resp\"), add = T, col = \"red\", lwd = 2)\n\n\n\n\n\n\n\n\n\n\n\nsummary(glmod)\n\n\nCall:\nglm(formula = sex ~ test_mean, family = \"binomial\", data = h)\n\nCoefficients:\n            Estimate Std. Error z value Pr(&gt;|z|)    \n(Intercept)  4.81974    1.19821   4.022 5.76e-05 ***\ntest_mean   -0.09200    0.02081  -4.420 9.86e-06 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 109.96  on 89  degrees of freedom\nResidual deviance:  56.09  on 88  degrees of freedom\n  (32 observations deleted due to missingness)\nAIC: 60.09\n\nNumber of Fisher Scoring iterations: 7\n\n\n\n\n\n\n                               test_mean\nLM (Probability)                   -0.73\nGLM/4 (Gelman & Hill Rule)         -0.02\nExponentiated GLM (Odds-Ratio)      0.91\n\n\n\nLinear Model - Probability coef(mod)*100 : Multiplying the coefficient by 100 gives you the percentage-point change in the probability that Y = 1 for a one-unit increase in the independent variable. (But violates assumption of heteroscedasticity….so need to check.)\nGeneralized Linear Model - Log-Odds coef(glmod)/4 : very confusing on its own. Gelman & Hill tell you that dividing this number by 4 gives you the upper bound of the predictive difference in Y that corresponds to a 1-unit increase in X.\nExponentiation Generalized Linear Model - Odds-Ratio exp(coef(glmod)) : how the odds change between two different outcomes.\n\nOdds Ratio less than 1 = as X increases by 1, the probability of Y decreases (by the difference between the slope and 1).\nOdds Ratio greater than 1 = as X increases by 1, the probability of Y increases (by the difference between the slope and 1).\n\n\n\n\n\nDeviance : distance between an individual point and our line (non-linear)\nNull Deviance : the distance with just the intercept to make predictions\nResidual Deviance : the distances after our model makes predictions\nPseudo \\(R^2\\) = (null deviance - residual deviance) / null deviance\nAIC = Akaike Information Criterion = a measure of goodness of fit…lower is “better”."
+  },
+  {
+    "objectID": "COMPSS212/slides/12_GLMHLM.html#more-examples",
+    "href": "COMPSS212/slides/12_GLMHLM.html#more-examples",
+    "title": "Experiments",
+    "section": "More Examples",
+    "text": "More Examples"
+  },
+  {
+    "objectID": "COMPSS212/slides/12_GLMHLM.html#climate-change-data",
+    "href": "COMPSS212/slides/12_GLMHLM.html#climate-change-data",
+    "title": "Experiments",
+    "section": "Climate Change Data",
+    "text": "Climate Change Data\n\nthe graphthe model\n\n\n\nx &lt;- read.csv(\"https://www.dropbox.com/scl/fi/kxh61tvf01ur4shqb230h/trust_in_science.csv?rlkey=9ythtv5mz6medhkme3m88j6sk&dl=1\",\n              stringsAsFactors = T)\nx$numRes &lt;- as.numeric(x$residence)-1\ncl_glmod &lt;- glm(numRes ~ sci_info, data = x, family = \"binomial\")\nplot(numRes ~ sci_info, data = x,\n     xlab = \"Scientific Knowledge Seeking\",\n     ylab = \"Probability of Being in an Urban Environment\")\ncurve(predict(cl_glmod, data.frame(sci_info=x), type = \"resp\"), add = T, col = \"red\", lwd = 2)\n\n\n\n\n\n\n\n\n\n\n\nsummary(cl_glmod)\n\n\nCall:\nglm(formula = numRes ~ sci_info, family = \"binomial\", data = x)\n\nCoefficients:\n            Estimate Std. Error z value Pr(&gt;|z|)    \n(Intercept) 0.368732   0.023784   15.50   &lt;2e-16 ***\nsci_info    0.190317   0.006717   28.33   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 80636  on 69513  degrees of freedom\nResidual deviance: 79814  on 69512  degrees of freedom\n  (20 observations deleted due to missingness)\nAIC: 79818\n\nNumber of Fisher Scoring iterations: 4\n\n\n\n\n\n\nReal-Life Example\n\nStudy DesignThe Result (Table)\n\n\n\n\nThe Result (Text)\n\n\n\n\nResults (Different Methods)\n\n\n\nThe Result (Graph)\n\n\n\n\n\n\n\n\n\n\nsee chapter 12"
   }
 ]
