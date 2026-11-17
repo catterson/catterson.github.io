@@ -90,31 +90,32 @@ plotmeans(d$oski.love ~ d$tuhobura, connect = F, ylim = c(0,10))
 ## Chapter 8 Recap : NHST is Confusing!
 
 +--------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                      |                                                                                                                                                        |
++======================================+========================================================================================================================================================+
 | **Chapter 8 Check-In Results**       | **Correct Answer (& Prof. Comments)**                                                                                                                  |
 +--------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ![](images/clipboard-3256555507.png) | **A Slope is the Direction & Strength of Relationship**                                                                                                |
 |                                      |                                                                                                                                                        |
-|                                      | -   hard to evaluate strength across models if the units differ too.                                                                                   |
+|                                      | - hard to evaluate strength across models if the units differ too.                                                                                     |
 |                                      |                                                                                                                                                        |
-|                                      | -   steeper slope (compared to another slope with similar units) = stronger relationship                                                               |
+|                                      | - steeper slope (compared to another slope with similar units) = stronger relationship                                                                 |
 +--------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ![](images/clipboard-3219785521.png) | **The amount of variation in an effect you might expect to find due to chance if the null hypothesis were "true".**                                    |
 +--------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ![](images/clipboard-422304565.png)  | **Impossible to Tell Significance from the Slope Alone**                                                                                               |
 |                                      |                                                                                                                                                        |
-|                                      | -   Large slope & sampling error = NOT SIGNIFICANT                                                                                                     |
+|                                      | - Large slope & sampling error = NOT SIGNIFICANT                                                                                                       |
 +--------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ![](images/clipboard-3243820561.png) | **A Significant Effect is NOT necessarily....**                                                                                                        |
 |                                      |                                                                                                                                                        |
-|                                      | -   **large :** you can be VERY confident that a small effect is not due to sampling error.                                                            |
+|                                      | - **large :** you can be VERY confident that a small effect is not due to sampling error.                                                              |
 |                                      |                                                                                                                                                        |
-|                                      | -   **important :** why does the effect matter?                                                                                                        |
+|                                      | - **important :** why does the effect matter?                                                                                                          |
 |                                      |                                                                                                                                                        |
-|                                      | -   **fool-proof :** our estimates of sampling error are all made up.                                                                                  |
+|                                      | - **fool-proof :** our estimates of sampling error are all made up.                                                                                    |
 +--------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ![](images/clipboard-2167468538.png) | **A p-value of .03 means...there is a 3% chance that this slope (or a stronger slope) would be found due to chance if the true correlation was zero.** |
 +--------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-
 
 Haller, H., & Krauss, S. (2002). [Misinterpretations of significance: A problem students share with their teachers](https://www.metheval.uni-jena.de/lehre/0405-ws/evaluationuebung/haller.pdf). Methods of Psychological Research, 7(1), 1-20.
 
@@ -151,11 +152,11 @@ summary(mod3)
 
 ### Some Pre-Recorded NHST Review Videos
 
--   **Note : I used last semester's dataset for these examples, so you will likely get different results if you try and replicate in this semester's class; a good example of how NHST doesn't really tell us whether the results are "truth" or not, or whether they will replicate, etc.**
+- **Note : I used last semester's dataset for these examples, so you will likely get different results if you try and replicate in this semester's class; a good example of how NHST doesn't really tell us whether the results are "truth" or not, or whether they will replicate, etc.**
 
--   [**Example 1 : LOVEWATER \~ smoke.pot**](https://www.loom.com/share/67776eb1a41f4b5eaa0ca5312d0663ad?sid=534835dc-c163-4604-b985-137b2bede4ac)
+- [**Example 1 : LOVEWATER \~ smoke.pot**](https://www.loom.com/share/67776eb1a41f4b5eaa0ca5312d0663ad?sid=534835dc-c163-4604-b985-137b2bede4ac)
 
--   [**Examples 2 - 4 : faster explanations!**](https://www.loom.com/share/8b755a32fe094e9eb1fc0bd7f16991bd?sid=b0c120f4-4190-4115-9722-da0a19856006)
+- [**Examples 2 - 4 : faster explanations!**](https://www.loom.com/share/8b755a32fe094e9eb1fc0bd7f16991bd?sid=b0c120f4-4190-4115-9722-da0a19856006)
 
 ![](images/clipboard-422460195.png)
 
@@ -203,47 +204,47 @@ Read an excerpt from the introduction[^1]; identify (in the margins) each of par
 
 #### Parts of an Outline
 
--   **The DV (the Opening / Past Research) :**
+- **The DV (the Opening / Past Research) :**
 
-    -   **THE POINT :** What is your DV? \[Citation\]
+  - **THE POINT :** What is your DV? \[Citation\]
 
-        -   **THE EVIDENCE :** How have psychologists operationalized or studied this variable in the past? \[Citation\]
+    - **THE EVIDENCE :** How have psychologists operationalized or studied this variable in the past? \[Citation\]
 
-        -   **WHO CARES :** Why should we care about this topic?
+    - **WHO CARES :** Why should we care about this topic?
 
--   **IV1 (Past Research) :**
+- **IV1 (Past Research) :**
 
-    -   **THE POINT :** What is your independent variable?
+  - **THE POINT :** What is your independent variable?
 
-        -   **THE EVIDENCE :**
+    - **THE EVIDENCE :**
 
-            -   How do psychologists operationalize this variable?
+      - How do psychologists operationalize this variable?
 
-            -   Summarize at least one past research study on this independent variable, and how this IV is (or might be) related to your DV. \[Citation\]
+      - Summarize at least one past research study on this independent variable, and how this IV is (or might be) related to your DV. \[Citation\]
 
-        -   **WHO CARES :** Why does this research matter to your topic?
+    - **WHO CARES :** Why does this research matter to your topic?
 
-    -   **ANOTHER POINT YOU COULD MAKE :** Are there any limitations with this past research that you will address in your study (this could set up IV2)?
+  - **ANOTHER POINT YOU COULD MAKE :** Are there any limitations with this past research that you will address in your study (this could set up IV2)?
 
-        -   **THE EVIDENCE :** why (research or common sense) might these limitations interfere with our VALID KNOWLEDGE about the DV?
+    - **THE EVIDENCE :** why (research or common sense) might these limitations interfere with our VALID KNOWLEDGE about the DV?
 
-        -   **WHO CARES :** why should we care about these limitations?
+    - **WHO CARES :** why should we care about these limitations?
 
--   **IV2 (The Critique / Past Research) :**
+- **IV2 (The Critique / Past Research) :**
 
-    -   **THE POINT :** What is another independent variable that might be related to your dependent variable?
+  - **THE POINT :** What is another independent variable that might be related to your dependent variable?
 
-    -   **THE EVIDENCE :** How has this variable been defined / studied in the past? \[Citation\]
+  - **THE EVIDENCE :** How has this variable been defined / studied in the past? \[Citation\]
 
-    -   **WHO CARES :** Why might this variable be important to look at / change the relationship between IV1 and the DV? \[Citation or Logic Goes Here\]
+  - **WHO CARES :** Why might this variable be important to look at / change the relationship between IV1 and the DV? \[Citation or Logic Goes Here\]
 
--   **The Present Research (The Current Study) :**
+- **The Present Research (The Current Study) :**
 
-    -   THE POINT : What is the goal of your research? Include your specific predictions in a summary table.
+  - THE POINT : What is the goal of your research? Include your specific predictions in a summary table.
 
-    -   THE EVIDENCE : What will your research do? You don’t need to fully explain the methods for your study, but instead should set up the broad ideas of what you hope to do.
+  - THE EVIDENCE : What will your research do? You don’t need to fully explain the methods for your study, but instead should set up the broad ideas of what you hope to do.
 
-    -   WHO CARES : How does your study advance past research?
+  - WHO CARES : How does your study advance past research?
 
 |                                |                     |                 |
 |--------------------------------|---------------------|-----------------|
