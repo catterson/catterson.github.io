@@ -3,7 +3,7 @@ title: ""
 format: 
   html: default
   revealjs: 
-    output-file: "glm_slides.html"
+    output-file: "hlm_slides.html"
     slide-level: 3
     smaller: true
     code-overflow: wrap
@@ -11,226 +11,260 @@ format:
 tbl-colwidths: [70,25]
 ---
 
-## [CHECK-IN : Three Weeks, Some Questions](https://forms.gle/vwQs4xKWuTPQeRWH7)
+## [CHECK-IN : Generalized Linear Models](https://docs.google.com/forms/d/e/1FAIpQLSciBOqZIhOAintascD8zbH-Y2Mc9FgrD6NAear_eK7d3KGsGw/viewform?usp=header)
 
-![](images/clipboard-2198560518.png){width="502"}
+Try to interpret the linear model below, where we are predicting the probabiliyt of being in an Urban (vs. Rural) Environment from how much the person seeks out information about the science of climate change.
 
-# Experiments
-
-## DEFINITION : Principles of an Experiment {.smaller}
-
-::::: columns
-::: {.column width="40%"}
-**outcome (DV).** what the researchers want to predict or explain
-
-**manipulation (IV).** change only [one thing]{.underline} about the variable.
-
-- **confound variables (“noise”).** other factors that might influence the outcome variable
-- **random assignment.** if people put in random groups, then all other confound variables are *random error*.
-:::
-
-::: {.column width="60%"}
-**In the Vision Board : think about a question that you have (real-life or research)**
-
-- What is this question as a linear model?
-
-- How would you measure the DV?
-
-- What is the IV (the ONE thing that differs between the two groups)?
-
-- How might you manipulate this variable? (What is the experimental and control group?)
-
-- What are all the things that you would need or want to try and keep the same (avoid placebo)?
-:::
-:::::
-
-### KEY IDEA : Watch out for Misleading Control Variables {.smaller}
-
-**RECAP : the manipulation (A/B Testing) :** researchers create multiple groups (conditions) and change ONE THING (the IV) about a person’s experience in each group & observe the result (the DV).
-
-**KEY IDEA : the comparison group matters!**
-
-- a 2 hour stats class DECREASES boredom compared to…
-
-- a 2 hour stats class INCREASES boredom compared to…
-
-### Example : Gratitude Study {.smaller}
-
-::::: columns
-::: {.column width="40%"}
-Read the prompt below. Answer the following questions.
-
-1.  **ICE-BREAKER :** What's something that you are grateful for?
-2.  What is the experimental / control condition?
-3.  Is this a fair comparison / manipulation? What would be better?
-:::
-
-::: {.column width="60%"}
-![](images/clipboard-4269890032.png){width="449"}
-:::
-:::::
-
-### Other Questions to Consider : Does the experiment have....
-
-::: panel-tabset
-#### placebo effects
-
-Will individuals in the study change their behavior if they expect something to have an effect?
-
-![](images/clipboard-2263360308.png)
-
-#### external validity
-
-How much does the experimental manipulation represent what someone might experience in real life?
-
-![](images/clipboard-2842103364.png)
-
-#### construct validity
-
-How much does the manipulation actually change the variable of interest?
-
-![](images/cyberball_gif.gif){fig-align="center"}
-
-#### expectancy effects
-
-If experimenters know what will happen to participants, will they change their behavior in ways that affect the results?
-
-![](images/clipboard-232105013.png){width="678"}
-:::
-
-### An Experiment!
-
-![](images/clipboard-2240208085.png)
-
-### An Experiment!
-
-![](images/clipboard-2594855025.png)
-
-# Part 2 : GLM
-
-## DICUSSS : What's Wrong (and WHY?)
+::::: panel-tabset
+### the model
 
 ```{r}
 #| echo: false
 #| message: false
 #| warning: false
-h <- read.csv("~/Dropbox/!GRADSTATS/Datasets/Hormone Data/hormone_dataset.csv")
-h$sexF <- as.factor(h$sex)
-levels(h$sexF) <- c("Male", "Female")
-h$sex <- h$sex - 1
-plot(sex ~ test_mean, data = h, xlab = "Testosterone", ylab = "Sex (0 = Male, 1 = Female)", yaxt = "n")
-axis(side = 2, 
-     at = c(0, 1), 
-     labels = c("Male", "Female"),
-     las = 1)
-mod2 <- lm(sex ~ test_mean, data = h)
-abline(mod2)
-coef(mod2)
+
+options(scipen = 999)
+options(digits = 2)
+x <- read.csv("https://www.dropbox.com/scl/fi/kxh61tvf01ur4shqb230h/trust_in_science.csv?rlkey=9ythtv5mz6medhkme3m88j6sk&dl=1",
+              stringsAsFactors = T)
+x$numRes <- as.numeric(x$residence)-1
+cl_glmod <- glm(residence ~ sci_info, data = x, family = "binomial")
+cl_glmod <- glm(residence ~ sci_info, data = x, family = "binomial")
+mod <- lm(numRes ~ sci_info, data = x)
+summary(cl_glmod)
 ```
 
-### Generalized Linear Models
-
-::: panel-tabset
-### the graph
-
-```{r}
-glmod <- glm(sex ~ test_mean, data = h, family = "binomial")
-plot(sex ~ test_mean, data = h,
-     xlab = "Testosterone",
-     ylab = "Probability of Being Female")
-curve(predict(glmod, data.frame(test_mean=x), type = "resp"), add = T, col = "red", lwd = 2)
-```
-
-### the summary
-
-```{r}
-summary(glmod)
-```
-
-### interpreting the slope
+### the slope?
 
 ```{r}
 #| echo: false
 #| message: false
 #| warning: false
-glmod <- glm(sex ~ test_mean, data = h, family = "binomial")
-coefz <- rbind(coef(mod2)[2]*100, coef(glmod)[2]/4, exp(coef(glmod)[2]))
+
+coefz <- rbind(coef(mod)[2], coef(cl_glmod)[2]/4, exp(coef(cl_glmod)[2]))
 row.names(coefz) <- c("LM (Probability)", "GLM/4 (Gelman & Hill Rule)", "Exponentiated GLM (Odds-Ratio)")
 round(coefz, 2)
 ```
 
-- **Linear Model - Probability `coef(mod)*100` :** Multiplying the coefficient by 100 gives you the *percentage-point change* in the probability that Y = 1 for a one-unit increase in the independent variable. (*But violates assumption of heteroscedasticity....so need to check.*)
-- **Generalized Linear Model - Log-Odds `coef(glmod)/4` :** very confusing on its own. Gelman & Hill tell you that dividing this number by 4 gives you the upper bound of the predictive difference in Y that corresponds to a 1-unit increase in X.
-- **Exponentiation Generalized Linear Model - Odds-Ratio** `exp(coef(glmod))` : how the odds change between two different outcomes.
+- **Linear Model (LM) Slope - Probability `coef(mod)*100` :** Multiplying the coefficient by 100 gives you the *percentage-point change* in the probability that Y = 1 for a one-unit increase in the independent variable. (*But violates assumption of heteroscedasticity....so need to check.*)
+- **Generalized Linear Model (GLM) Slope (Log-Odds) `coef(cl_glmod)/4` :** very confusing on its own. Gelman & Hill tell you that dividing this number by 4 gives you the upper bound of the predictive difference in Y that corresponds to a 1-unit increase in X.
+- **Exponentiation Generalized Linear Model Slope (Odds-Ratio)** `exp(coef(cl_glmod))` : how the odds change between two different outcomes.
   - **Odds Ratio less than 1 =** as X increases by 1, the probability of Y decreases (by the difference between the slope and 1).
   - **Odds Ratio greater than 1 =** as X increases by 1, the probability of Y increases (by the difference between the slope and 1).
 
-### interpreting the "fit"
+### the "fit"??
 
-- Deviance : distance between an individual point and our line (non-linear)
+- Deviance = distance between an individual point and our line (non-linear)
 
-- Null Deviance : the distance with just the intercept to make predictions
+- Null Deviance = `r summary(cl_glmod)$null.deviance` = the total distances with just the intercept to make predictions
 
-- Residual Deviance : the distances after our model makes predictions
+- Residual Deviance = `r summary(cl_glmod)$deviance` the total distances after our model makes predictions
 
-- Pseudo $R^2$ = (null deviance - residual deviance) / null deviance
+- Pseudo $R^2$ = (null deviance - residual deviance) / null deviance = `r (summary(cl_glmod)$null.deviance - summary(cl_glmod)$deviance)/summary(cl_glmod)$null.deviance` = a measure of improvement to the model
 
 - AIC = Akaike Information Criterion = a measure of goodness of fit...lower is "better".
-:::
 
-## More Examples
+### the graph
 
-## Climate Change Data
+::: {.callout-tip collapse = "true"}
 
-::: panel-tabset
-#### the graph
+#### no peeking!!!!
 
 ```{r}
-#| fig-width: 5
+#| echo: false
+#| message: false
+#| warning: false
 #| fig-height: 5
-x <- read.csv("https://www.dropbox.com/scl/fi/kxh61tvf01ur4shqb230h/trust_in_science.csv?rlkey=9ythtv5mz6medhkme3m88j6sk&dl=1",
-              stringsAsFactors = T)
-x$numRes <- as.numeric(x$residence)-1
-cl_glmod <- glm(numRes ~ sci_info, data = x, family = "binomial")
+#| fig-width: 5
+
 plot(numRes ~ sci_info, data = x,
      xlab = "Scientific Knowledge Seeking",
      ylab = "Probability of Being in an Urban Environment")
 curve(predict(cl_glmod, data.frame(sci_info=x), type = "resp"), add = T, col = "red", lwd = 2)
 ```
+:::
 
-#### the model
+### the code
 
-```{r}
+```         
+## Dataset and Settings
+options(scipen = 999) # removes exponents
+options(digits = 2) # rounds to two digits
+x <- read.csv("https://www.dropbox.com/scl/fi/kxh61tvf01ur4shqb230h/trust_in_science.csv?rlkey=9ythtv5mz6medhkme3m88j6sk&dl=1",
+              stringsAsFactors = T) 
+x$numRes <- as.numeric(x$residence)-1
+cl_glmod <- glm(residence ~ sci_info, data = x, family = "binomial") # The generalized Linear model
+plot(numRes ~ sci_info, data = x,
+     xlab = "Scientific Knowledge Seeking",
+     ylab = "Probability of Being in an Urban Environment")
+curve(predict(cl_glmod, data.frame(sci_info=x), type = "resp"), add = T, col = "red", lwd = 2)
+### Models
+mod <- lm(numRes ~ sci_info, data = x) # Linear Probit Model
+
 summary(cl_glmod)
+
+### Making The Tables
+coefz <- rbind(coef(mod)[2], coef(cl_glmod)[2]/4, exp(coef(cl_glmod)[2]))
+row.names(coefz) <- c("LM (Probability)", "GLM/4 (Gelman & Hill Rule)", "Exponentiated GLM (Odds-Ratio)")
+round(coefz, 2)
+```
+
+:::::
+
+# Project Time : Milestone #2
+
+1.  **Think about the decisions you'll need to make about your analyses :** how are the data structured? what type of linear model might you want to use?
+2.  **Link to a pre-registration document.** Okay if you change this, and you will learn more about what to do as you analyze the project. But good to set some intentions!
+3.  **Graph your DV.** What do you learn from this distribution?
+4.  **Graph some predictive statistic (linear model).** What do you learn about the relationship between these two variables?
+
+# Multilevel Models (MLM). Conceptual Understanding
+
+### Definition : Multilevel Models (MLM)
+
+- Hierarchical linear models, mixed effects models, random effects models, others?
+
+  - **Level 1 :** the smallest unit of analysis (where the DV is measured)
+
+  - **Level 2 :** organize non-independent responses at Level 1.
+
+### Examples :
+
+::: panel-tabset
+#### Students in School
+
+**non-independence :** students in a school are similar to each other
+
+![](images/clipboard-2317369415.png){width="80%"}
+
+#### Repeated Measure Studies
+
+**non-independence :** person at time 1 is still the same person at time 2
+
+![](images/clipboard-1043666253.png){fig-align="center" width="80%"}
+:::
+
+### The Formulas
+
+***The Linear Model***
+
+$$\huge y = \beta_0 + \beta_1x_1 + ... + \beta_kx_k + \epsilon$$
+
+![](images/clipboard-1496409426.png){width="74%"}
+
+### Why Are We Doing This? {.smaller}
+
+1.  **The Assumption of Independence Has Been Violated! (MLM increases our power and reliability as scientists.)**
+    - Multiple measures of an individual gives you a more reliable estimate of what and who they are.
+    - A person serves as their own control, so can more precisely examinine how a person changes over time.
+2.  **Model more complex phenomenon.**
+    - How people change over time (within-person variation).
+    - Simpson's Paradox
+
+## How Do We Do This in R?
+
+### Example : The Sleep Dataset {.smaller}
+
+:::::::::::: panel-tabset
+##### Details
+
+From the `?sleep` dataset: "Data which show the effect of two soporific drugs (increase in hours of sleep compared to control)."
+
+- Extra : increase in hours of sleep
+- Group : drug given (1 = control; 2 = drug)
+- ID : patient ID
+
+##### "Between Person"
+
+::::: columns
+::: {.column width="40%"}
+```{r}
+#| message: false
+#| warning: false
+#| fig-height: 8
+#| fig-width: 6
+library(ggplot2)
+ggplot(sleep, aes(y = extra, x = group)) + 
+  geom_point(size=2) + 
+  stat_summary(fun.data=mean_se, color = 'red', size = 1.25, linewidth = 2)
 ```
 :::
 
-### Real-Life Example {.smaller}
+::: {.column width="60%"}
+```{r}
+#| message: false
+#| warning: false
+lmod <- lm(extra ~ as.factor(group), data = sleep)
+summary(lmod)
+```
+:::
+:::::
 
-::: panel-tabset
-#### Study Design
+##### "Within-Person"
 
-![](images/clipboard-1669805316.png)
-
-### The Result (Text)
-
-![](images/clipboard-2069870786.png){width="599"}
-
-![](images/clipboard-1987882470.png){width="601"}
-
-### Results (Different Methods)
-
-![](images/clipboard-11961799.png)
-
-### The Result (Graph)
-
-![](images/clipboard-1182519525.png){width="520"}
-
-#### The Result (Table)
-
-![](images/clipboard-2951733940.png){width="548"}
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| message: false
+#| warning: false
+#| fig-height: 6
+#| fig-width: 6
+ggplot(sleep, aes(y = extra, x = group, color = ID)) + 
+  geom_point(size=2) + 
+  geom_line(aes(group = ID), linewidth = 0.75)
+```
 :::
 
-### [see chapter 12](https://catterson.github.io/ystats/chapters/12R_LogisticRegression.html)
+::: {.column width="50%"}
+**Fixed Effects :** The "Average" across all the grouping variables.
+
+```{r}
+#| message: false
+#| warning: false
+#install.packages("lme4")
+library(lme4)
+library(lmerTest)
+library(Matrix)
+mlmod <- lmer(extra ~ as.factor(group) + (1 | ID), data = sleep)
+summary(mlmod)
+```
+:::
+:::::
+
+##### Random Effects
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| message: false
+#| warning: false
+#| fig-height: 6
+#| fig-width: 6
+ggplot(sleep, aes(y = extra, x = group, color = ID)) + 
+  geom_point(size=2) + 
+  geom_line(aes(group = ID), linewidth = 0.75)
+```
+:::
+
+::: {.column width="50%"}
+- ICC = Intraclass Correlation Coefficient = how much the variation in our grouping variable (here : subject) explains total variation.
+
+- To calculate : take variance of intercept / total variance
+
+  ```{r}
+  2.8483 / (2.8483 + 0.7564)
+  ```
+
+- OR :
+
+  ```{r}
+  library(performance)
+  icc(mlmod)
+  ```
+:::
+:::::
+::::::::::::
+
+# THE END.
 
 ![](images/frog-dance-ff7.gif){fig-align="center" width="439"}

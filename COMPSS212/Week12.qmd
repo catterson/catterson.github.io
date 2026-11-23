@@ -1,0 +1,51 @@
+---
+title: ""
+format: html
+editor: visual
+---
+
+# Week 12 - Monday, November 23rd
+
+::: {.callout-note collapse="true"}
+### Agenda & Announcements
+
+**Goals**
+
+- **10:10 - 10:40.** Check-In and GLM Review.
+
+- **10:40 - 11:00.** Project Review.
+
+- **11:00 - 11:10.** Break Time
+
+- **11:10 - End.** *Hierarchical* Linear Models
+
+**Announcements**
+
+- **TWO lectures left; NO CLASS 12/7.**
+
+- **PROFESSOR BONUS WORKSHOPS :**
+
+  - **11/23 after class :** grad school and working in industry
+
+  - **11/30 before class :** personal statements.
+:::
+
+### Class Slides and Materials
+
+```{=html}
+<iframe data-external="1" class="slide-deck" src="/COMPSS212/slides/hlm_slides.html" width="100%" height="650px" title=""></iframe>
+```
+
+- [**Check-In : Two Weeks. Still Learning**](https://docs.google.com/forms/d/e/1FAIpQLSciBOqZIhOAintascD8zbH-Y2Mc9FgrD6NAear_eK7d3KGsGw/viewform?usp=header)
+- [**Final Project Description and Rubric.**](https://docs.google.com/document/d/1N3WxMAZgvUOYIvR9lg-aTLW1NzrJayYiToyS19w7urc/edit?usp=sharing)We will discuss and work on this in class!
+- [**VISION BOARD**](https://docs.google.com/spreadsheets/d/14y4W9LJk1I9M3HFIOp3_94tdM0qUSYfkGdZnKK6L23c/edit?usp=sharing).
+- [**Professor Notes**](https://www.dropbox.com/scl/fo/7yhs2afoyisskz3eynnh8/ABO5kzYAdp8Y9cDBsqFU_TI?rlkey=hx72km35b6n02ep59vywdy7o4&dl=0). My R scripts and other notes, saved in real-time.
+
+# For Next Week
+
+### Milestone #2 (on the Vision Board)
+
+1.  **Think about the decisions you'll need to make about your analyses :** how are the data structured? what type of linear model might you want to use?
+2.  **Link to a pre-registration document.** Okay if you change this, and you will learn more about what to do as you analyze the project. But good to set some intentions!
+3.  **Graph your DV.** What do you learn from this distribution?
+4.  **Graph some predictive statistic (linear model).** What do you learn about the relationship between these two variables?
