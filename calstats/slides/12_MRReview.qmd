@@ -1,21 +1,21 @@
 ---
 title: ""
 format: 
+  html: default
   revealjs: 
+    output-file: "12_MRReview_slide.html"
     slide-level: 3
-    link-external-newwindow: true
-    chalkboard: true
+    smaller: true
+    code-overflow: wrap
     controls: true
+tbl-colwidths: [50,50]
 ---
 
-## More Regression{.smaller}
+### [Check-In : A Multivariate Regression Table](https://docs.google.com/forms/d/e/1FAIpQLSe4ksB7pNrEpdQcwRG-fOn5Ti5Q85a5ZFJwyC4EckVVhZkA6g/viewform?usp=header)
 
-[Check-In : Interpreting A Multivariate Regression Table](https://docs.google.com/forms/d/e/1FAIpQLSe4ksB7pNrEpdQcwRG-fOn5Ti5Q85a5ZFJwyC4EckVVhZkA6g/viewform?usp=header)
+*Note : number of friends = facebook friends. The numbers reported in parentheses are estimates of **sampling error**.*
 
-*Note : number of friends = facebook friends*
-
-![](images/clipboard-3796023116.png)
-
+![](images/clipboard-3796023116.png){width="655"}
 
 ### Interpreting the Regression Table
 
@@ -47,34 +47,24 @@ format:
 :::
 :::::
 
-### Multiple Regression Recap : Hair Length Predicts Height?!?!? {.smaller}
+### Multiple Regression : what's going on? {.smaller}
 
 ::::::::: panel-tabset
-#### QUESTIONS
-
-1.  **ICE-BREAKER :**
-
-    - *let's keep it light mode :* if you HAD to get a tattoo, what would you get? where would you get it? would it face toward you or other people?
-
-    - *bring on the heavy mode :* if you could change one thing about your childhood, what would you change?
-
-2.  **MODELS :** What Do You Observe in Model 1? Model 2? Model 3?
-
-3.  **Other Questions That You, the Students, Have?**
-
 #### Data Cleaning
 
 ```{r}
 #| echo: true
-#| fig-width: 12
+#| message: false
+#| warning: false
 #| fig-height: 4
+#| fig-width: 12
 ## Data Cleaning
 library(gplots)
-d <- read.csv("~/Dropbox/!WHY STATS/PREVIOUSLY/101 - class data - FA26/mini_DATA.csv", stringsAsFactors = T)
+d <- read.csv("~/Dropbox/!WHY STATS/0_Shared Folders/101 - Class Datasets/Mini Data/mini_cal_data.csv", stringsAsFactors = T)
 
-d$height[d$height < 10 | d$height > 100] <- NA
-levels(d$is.female)[1] <- NA
-levels(d$long.hair)[1] <- NA
+d$height[d$height < 40 | d$height > 100] <- NA
+d$is.female <- droplevels(d$is.female, exclude = NA)
+d$long.hair <- droplevels(d$long.hair, exclude = NA)
 
 par(mfrow = c(1,3))
 hist(d$height)
@@ -122,6 +112,13 @@ plotmeans(height ~ is.female, data = d, connect = F)
 :::
 :::::
 
+#### IV1 \~ IV2
+
+```{r}
+
+plot(d$long.hair ~ d$is.female)
+```
+
 #### Model 3
 
 ```{r}
@@ -130,33 +127,29 @@ modc <- lm(height ~ long.hair + is.female, data = d)
 summary(modc)
 ```
 
-#### IV1 \~ IV2
 
-```{r}
-
-plot(d$long.hair ~ d$is.female)
-```
 :::::::::
 
 ### Multiple Regression : Visualized in Multi-Dimensional Space!
 
-The code below may not work on your computer; see lecture recording for an interpretation / explanation!
+- See the class recording for an interpretation of the plot the code below generates.
 
-**NOTE : I used AI (Gemini) to generate the code for this graph! Here was my prompt :** "make an interactive 3d plot in R from the dataset d using the numeric outcome variable named height and two categorical predictor variables named long.hair and is.female. Generate a plane from the linear model to fill this 3D plot."
+- **NOTE : I used AI (Gemini) to generate the code for this graph! Here was my prompt :** "make an interactive 3d plot in R from the dataset d using the numeric outcome variable named height and two categorical predictor variables named long.hair and is.female. Generate a plane from the linear model to fill this 3D plot."
 
 ``` r
 
-d <- read.csv("~/Dropbox/!WHY STATS/Class Datasets/101 - Class Datasets/Mini Data/mini_DATA.csv", stringsAsFactors = T)
-library(plotly) # you will need to install this.
-d$height[d$height < 10 | d$height > 100] <- NA
-levels(d$is.female)[1] <- NA
-levels(d$long.hair)[1] <- NA
+d <- read.csv("~/Dropbox/!WHY STATS/0_Shared Folders/101 - Class Datasets/Mini Data/mini_cal_data.csv", stringsAsFactors = T)
+
+d$height[d$height < 40 | d$height > 100] <- NA
+d$is.female <- droplevels(d$is.female, exclude = NA)
+d$long.hair <- droplevels(d$long.hair, exclude = NA)
 
 # PROF used AI (gemini) to generate this code.
 ##### I used to use the function scatter3d from the "car" library 
 ##### ....but it stopped working.
 
 # Create the interactive 3D scatter plot
+library(plotly) # you may need to install this.
 model <- lm(height ~ long.hair + is.female, data = d)
 plot_ly(data = d, 
         x = ~long.hair, 
@@ -214,6 +207,9 @@ plot_ly(d, x = ~long.hair, y = ~is.female, z = ~height) %>%
 **Table 1.** Unstandardized Regression Coefficients; Predicting Height from Long.Hair and Is.Female.
 
 ```{r}
+#| echo: false
+#| message: false
+#| warning: false
 # install.packages("jtools") # a new package!!!
 library(jtools) # make sure you installed the new package first.
 export_summs(moda, modb, modc,
@@ -236,14 +232,59 @@ export_summs(moda, modb, modc,
 
 - **Key Idea :** the effect of the IV on the DV *depends on* another IV.
 
-- **Example :** Average Time to Solve Puzzle \~ Sex \* Culture + Error
+- **Example :** Does the relationship between hair lenght & height depend on whether the person is female or not?
 
-### Final Project Workshop
+:::{.panel-tabset}
 
+#### The Graph
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+modd <- lm(height ~ long.hair * is.female, data = d)
+library(interactions)
+library(ggplot2)
+interactions::cat_plot(modd, 
+                       modx = "long.hair",
+                       pred = "is.female",
+                       interval = TRUE,
+                       geom = "bar",
+                       colors = c("black", "gray")) + coord_cartesian(ylim = c(60,75))
+```
+
+#### The Model
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+jtools::export_summs(moda, modb, modc, modd,
+             coefs = c("Intercept" = "(Intercept)",
+                       "Long Hair (0 = No, 1 = Yes)" = "long.hairYes",
+                       "Is Female (0 = No, 1 = Yes)" = "is.femaleYes",
+                       "Long Hair * Is Female"= "long.hairYes:is.femaleYes"))
+```
+:::
+
+### Final Project Workshop : Talk to buddy
+
+::::: columns
+::: {.column width="50%"}
 ![](images/clipboard-834632379.png)
+:::
 
-- Reviewing Regression Tables —\> Writing Your Results
+::: {.column width="50%"}
+ICE-BREAKER :
 
-- Reviewing Introduction Outlines
+- light mode : if you HAD to get a tattoo, what would you get? where would you get it? would it face toward you or other people?
 
-- Reviewing Methods
+- heavy mode : if you could change one thing about your childhood, what would you change?
+
+FINAL PROEJCT :
+
+- what is your project model?
+
+- what multiple regression might make sense?
+
+- where are you feeling STRESSED?
+:::
+:::::
