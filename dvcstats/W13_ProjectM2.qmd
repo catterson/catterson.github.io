@@ -1,0 +1,66 @@
+---
+title: "Week 13 - Project Time"
+format: html
+editor: visual
+---
+
+:::::: {.callout-note collapse="true"}
+### Announcements and Agenda
+
+::::: columns
+::: {.column width="50%"}
+- **R Exam is GRADED.** Key + Learning From R Exam Assignment.
+- **TWO CLASSES REMAIN.** The end is near.
+- **BRAIN EXAM :** on Canvas. remind me to practice today if I forget.
+:::
+
+::: {.column width="50%"}
+**Today, on Psych 214...**
+
+- **8:55 - 10:00.** Check-In and Likert Scales.
+- **10:00 - 10:10.** Break Time.
+- **10:10 - 11:00.** More NHST Review. Whew.
+:::
+:::::
+::::::
+
+### Class Slides and Materials!!
+
+```{=html}
+<iframe data-external="1" class="slide-deck" src="/dvcstats/slides/m2_slides.html" width="100%" height="500px" title=""></iframe>
+```
+
+- [**Check-In : tinyurl.com/rpersonality**](https://docs.google.com/forms/d/e/1FAIpQLSecZbrcoW6-o6KxXmznpxSR7h50-akJ40JuDAwG-e51qIT_MQ/viewform?usp=header)
+  - [link to dataset](https://www.dropbox.com/scl/fi/votgtyh2artzcizdlsruz/personality_random_number_data.csv?rlkey=92yb6g8z26eo7qeo5f75bdxp5&dl=0) \[name it d when you load into R!\]
+  - [link to codebook](https://www.dropbox.com/scl/fi/rikbitdc4ixa9p9pp1jjf/codebook_personality_random_number.txt?rlkey=58lwgjbvnodxl18emby6x1j7p&dl=0)
+- **Professor R Scripts \[[Zoom Room](https://www.dropbox.com/scl/fo/ofchakmk3d1ep17u2r5r5/APTz8gRoQo9AHhw2XPY5TZs?rlkey=mdept9ym448grm4vya184bbrd&dl=0) + [Room Crew](https://www.dropbox.com/scl/fo/fa4okobq89jhhj0wthgy5/AHJsWr-fakA7N8JnlLZHKIs?rlkey=hfw992f7lj8nzfbcz6qp7n2og&dl=0)\]**
+
+### For Next Week
+
+#### Chapter 10 : Multiple Regression + Quiz
+
+- Last one. No R required for the quiz.
+
+- Quiz due after class; have a great week/end and holiday break :)
+
+#### [Final Project : Milestone #2](https://docs.google.com/document/d/1ScvG86PiyyqHO7Ob5bki04XGzCwLodQ4h57n9Jq5DYI/edit?usp=sharing)
+
+- **Data Cleaning :** look over the codebook to make sure that there aren’t any data-wide problems you need to resolve.
+
+  - **conspiracy beliefs :** 0 = NA (like the check-in)
+
+  - **attachment :** -1 = NA (similar to the check-in, but adapt the code.)
+
+- **DV =** a continuous variable defined by a likert scale.
+
+  - **conspiracy beliefs :** Q1 - Q15 (see the LAST TABLE of the article for the full questions)
+
+  - **attachment :** there are two scales….need to sort the questions into “Anxiety” and “Avoidance” and maybe reverse score a few (e.g., Q3 = negatively-keyed avoidance)
+
+- **IVs =** a categorical or numeric variable. make sure this variable is DIFFERENT FROM the DV :)
+
+  - **one numeric :** make sure the data look good and do any data cleaning (outlier removal; likert scale creation; etc.) necessary.
+
+  - **one categorical :** make sure there are not too many levels (e.g., “Country” has 186 categories…so you may want to choose a different variable or reduce the levels into larger categories (e.g., USA vs. not USA).
+
+  - can have more IVs if you want, but more work (e.g., extra graphs.)

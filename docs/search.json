@@ -8853,5 +8853,103 @@
     "title": "",
     "section": "CHECK-IN : Generalized Linear Models",
     "text": "CHECK-IN : Generalized Linear Models\nTry to interpret the linear model below, where we are predicting the probabiliyt of being in an Urban (vs. Rural) Environment from how much the person seeks out information about the science of climate change.\n\nthe modelthe slope?the “fit”??the graphthe code\n\n\n\n\n\nCall:\nglm(formula = residence ~ sci_info, family = \"binomial\", data = x)\n\nCoefficients:\n            Estimate Std. Error z value            Pr(&gt;|z|)    \n(Intercept)  0.36873    0.02378    15.5 &lt;0.0000000000000002 ***\nsci_info     0.19032    0.00672    28.3 &lt;0.0000000000000002 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 80636  on 69513  degrees of freedom\nResidual deviance: 79814  on 69512  degrees of freedom\n  (20 observations deleted due to missingness)\nAIC: 79818\n\nNumber of Fisher Scoring iterations: 4\n\n\n\n\n\n\n                               sci_info\nLM (Probability)                   0.04\nGLM/4 (Gelman & Hill Rule)         0.05\nExponentiated GLM (Odds-Ratio)     1.21\n\n\n\nLinear Model (LM) Slope - Probability coef(mod)*100 : Multiplying the coefficient by 100 gives you the percentage-point change in the probability that Y = 1 for a one-unit increase in the independent variable. (But violates assumption of heteroscedasticity….so need to check.)\nGeneralized Linear Model (GLM) Slope (Log-Odds) coef(cl_glmod)/4 : very confusing on its own. Gelman & Hill tell you that dividing this number by 4 gives you the upper bound of the predictive difference in Y that corresponds to a 1-unit increase in X.\nExponentiation Generalized Linear Model Slope (Odds-Ratio) exp(coef(cl_glmod)) : how the odds change between two different outcomes.\n\nOdds Ratio less than 1 = as X increases by 1, the probability of Y decreases (by the difference between the slope and 1).\nOdds Ratio greater than 1 = as X increases by 1, the probability of Y increases (by the difference between the slope and 1).\n\n\n\n\n\nDeviance = distance between an individual point and our line (non-linear)\nNull Deviance = 80636.45 = the total distances with just the intercept to make predictions\nResidual Deviance = 79814.33 the total distances after our model makes predictions\nPseudo \\(R^2\\) = (null deviance - residual deviance) / null deviance = 0.01 = a measure of improvement to the model\nAIC = Akaike Information Criterion = a measure of goodness of fit…lower is “better”.\n\n\n\n\n\n\n\n\n\nno peeking!!!!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n## Dataset and Settings\noptions(scipen = 999) # removes exponents\noptions(digits = 2) # rounds to two digits\nx &lt;- read.csv(\"https://www.dropbox.com/scl/fi/kxh61tvf01ur4shqb230h/trust_in_science.csv?rlkey=9ythtv5mz6medhkme3m88j6sk&dl=1\",\n              stringsAsFactors = T) \nx$numRes &lt;- as.numeric(x$residence)-1\ncl_glmod &lt;- glm(residence ~ sci_info, data = x, family = \"binomial\") # The generalized Linear model\nplot(numRes ~ sci_info, data = x,\n     xlab = \"Scientific Knowledge Seeking\",\n     ylab = \"Probability of Being in an Urban Environment\")\ncurve(predict(cl_glmod, data.frame(sci_info=x), type = \"resp\"), add = T, col = \"red\", lwd = 2)\n### Models\nmod &lt;- lm(numRes ~ sci_info, data = x) # Linear Probit Model\n\nsummary(cl_glmod)\n\n### Making The Tables\ncoefz &lt;- rbind(coef(mod)[2], coef(cl_glmod)[2]/4, exp(coef(cl_glmod)[2]))\nrow.names(coefz) &lt;- c(\"LM (Probability)\", \"GLM/4 (Gelman & Hill Rule)\", \"Exponentiated GLM (Odds-Ratio)\")\nround(coefz, 2)"
+  },
+  {
+    "objectID": "dvcstats/slides/m2.html",
+    "href": "dvcstats/slides/m2.html",
+    "title": "",
+    "section": "",
+    "text": "WE ARE BACK IN R 😈\n\n\n\n\n\nLoad the dataset. name it d to follow along.\nRemove all 0s from the dataset. different ways to do this; use your favorite internet tool. (Or think through how you might adapt indexing to remove outliers for the entire dataset.)"
+  },
+  {
+    "objectID": "dvcstats/slides/m2.html#check-in-normal-people",
+    "href": "dvcstats/slides/m2.html#check-in-normal-people",
+    "title": "",
+    "section": "",
+    "text": "WE ARE BACK IN R 😈\n\n\n\n\n\nLoad the dataset. name it d to follow along.\nRemove all 0s from the dataset. different ways to do this; use your favorite internet tool. (Or think through how you might adapt indexing to remove outliers for the entire dataset.)"
+  },
+  {
+    "objectID": "dvcstats/slides/m2.html#missing-data",
+    "href": "dvcstats/slides/m2.html#missing-data",
+    "title": "",
+    "section": "Missing Data",
+    "text": "Missing Data\nThe codebook for this data doesn’t say it, but zeros are coded as MISSING DATA.\n\nhow to knowindexing approachna.strings argument\n\n\n\nI’ve worked with datasets from this source that use this convention (and explain this feature in the codebook).\nThere is no missing data in the dataset, and it is very unlikely that all participants answered all questions.\nThe researchers measured personality with the Big Five, which is almost always measured on a 1-5 (or 1-7) scale, that allows for a “neutral” response.\n\n\n\nd == 0 # evaluates whether each entry in the dataframe is zero.\n\nd[d == 0] # finds these zeros in the dataset.\n\nd[d == 0] &lt;- NA # replaces with zero\n\n\nd &lt;- read.csv(\"personality_random_number_data.csv\", # your path goes here\n              stringsAsFactors = T,                 # same as before\n              na.strings = \"0\")                     # replaces 0 with NA"
+  },
+  {
+    "objectID": "dvcstats/slides/m2.html#likert-scales",
+    "href": "dvcstats/slides/m2.html#likert-scales",
+    "title": "",
+    "section": "Likert Scales",
+    "text": "Likert Scales\n\nthe codemultiple itemsreverse scoringalpha reliabilitydefining the scale\n\n\n\n\n\n\n\n\n\ngoal : all questions answered such that the higher number = higher extraversion\nproblem : for some questions, the higher number = less extraversion\nsolution : need to “flip” the questions that measure low extraversion around\n\nminimum of scale + maximum of scale = the number to subtract from\ne.g. a 1-5 scale = 1+5 = 6 - E2 —-&gt;"
+  },
+  {
+    "objectID": "dvcstats/slides/m2.html#part-2-project-time",
+    "href": "dvcstats/slides/m2.html#part-2-project-time",
+    "title": "",
+    "section": "PART 2 : Project Time",
+    "text": "PART 2 : Project Time\n\nFinal Project : Milestone #2\n\nData Cleaning : look over the codebook to make sure that there aren’t any data-wide problems you need to resolve.\n\nconspiracy beliefs : 0 = NA (like the check-in)\nattachment : -1 = NA (similar to the check-in, but adapt the code.)\n\nDV = a continuous variable defined by a likert scale.\n\nconspiracy beliefs : Q1 - Q15 (see the LAST TABLE of the article for the full questions)\nattachment : there are two scales….need to sort the questions into “Anxiety” and “Avoidance” and maybe reverse score a few (e.g., Q3 = negatively-keyed avoidance)\n\nIVs = a categorical or numeric variable. make sure this variable is DIFFERENT FROM the DV :)\n\none numeric : make sure the data look good and do any data cleaning (outlier removal; likert scale creation; etc.) necessary.\none categorical : make sure there are not too many levels (e.g., “Country” has 186 categories…so you may want to choose a different variable or reduce the levels into larger categories (e.g., USA vs. not USA).\ncan have more IVs if you want, but more work (e.g., extra graphs.)"
+  },
+  {
+    "objectID": "dvcstats/W13_ProjectM2.html",
+    "href": "dvcstats/W13_ProjectM2.html",
+    "title": "Week 13 - Project Time",
+    "section": "",
+    "text": "NoteAnnouncements and Agenda\n\n\n\n\n\n\n\n\nR Exam is GRADED. Key + Learning From R Exam Assignment.\nTWO CLASSES REMAIN. The end is near.\nBRAIN EXAM : on Canvas. remind me to practice today if I forget.\n\n\nToday, on Psych 214…\n\n8:55 - 10:00. Check-In and Likert Scales.\n10:00 - 10:10. Break Time.\n10:10 - 11:00. More NHST Review. Whew.\n\n\n\n\n\n\n\nClass Slides and Materials!!\n\n\nCheck-In : tinyurl.com/rpersonality\n\nlink to dataset [name it d when you load into R!]\nlink to codebook\n\nProfessor R Scripts [Zoom Room + Room Crew]\n\n\n\nFor Next Week\n\nChapter 10 : Multiple Regression + Quiz\n\nLast one. No R required for the quiz.\nQuiz due after class; have a great week/end and holiday break :)\n\n\n\nFinal Project : Milestone #2\n\nData Cleaning : look over the codebook to make sure that there aren’t any data-wide problems you need to resolve.\n\nconspiracy beliefs : 0 = NA (like the check-in)\nattachment : -1 = NA (similar to the check-in, but adapt the code.)\n\nDV = a continuous variable defined by a likert scale.\n\nconspiracy beliefs : Q1 - Q15 (see the LAST TABLE of the article for the full questions)\nattachment : there are two scales….need to sort the questions into “Anxiety” and “Avoidance” and maybe reverse score a few (e.g., Q3 = negatively-keyed avoidance)\n\nIVs = a categorical or numeric variable. make sure this variable is DIFFERENT FROM the DV :)\n\none numeric : make sure the data look good and do any data cleaning (outlier removal; likert scale creation; etc.) necessary.\none categorical : make sure there are not too many levels (e.g., “Country” has 186 categories…so you may want to choose a different variable or reduce the levels into larger categories (e.g., USA vs. not USA).\ncan have more IVs if you want, but more work (e.g., extra graphs.)"
+  },
+  {
+    "objectID": "dvcstats/slides/m2_slide.html#check-in-normal-people",
+    "href": "dvcstats/slides/m2_slide.html#check-in-normal-people",
+    "title": "",
+    "section": "Check-In : “Normal People”",
+    "text": "Check-In : “Normal People”\nWE ARE BACK IN R 😈\n\n\n\n\n\nLoad the dataset; name it d\nA score of 0 in the dataset represents MISSING data (and not that the person answered “zero”.) Set a timer for five minutes, and try to see if you can figure out how to replace all zeros in the dataset with zero. There are different ways to do this; feel free to use your favorite internet tool, because we haven’t learned exactly how to do this yet. (Though you could also think of how you might adapt indexing to remove outliers for the entire dataset.)"
+  },
+  {
+    "objectID": "dvcstats/slides/m2_slide.html#missing-data",
+    "href": "dvcstats/slides/m2_slide.html#missing-data",
+    "title": "",
+    "section": "Missing Data",
+    "text": "Missing Data\nThe codebook for this data doesn’t say it, but zeros are coded as MISSING DATA.\n\nhow to knowindexing approachna.strings argument\n\n\n\nI’ve worked with datasets from this source that use this convention (and explain this feature in the codebook).\nThere is no missing data in the dataset, and it is very unlikely that all participants answered all questions.\nThe researchers measured personality with the Big Five, which is almost always measured on a 1-5 (or 1-7) scale, that allows for a “neutral” response.\n\n\n\nd == 0 # evaluates whether each entry in the dataframe is zero.\n\nd[d == 0] # finds these zeros in the dataset.\n\nd[d == 0] &lt;- NA # replaces with zero\n\n\nd &lt;- read.csv(\"personality_random_number_data.csv\", # your path goes here\n              stringsAsFactors = T,                 # same as before\n              na.strings = \"0\")                     # replaces 0 with NA"
+  },
+  {
+    "objectID": "dvcstats/slides/m2_slide.html#likert-scales",
+    "href": "dvcstats/slides/m2_slide.html#likert-scales",
+    "title": "",
+    "section": "Likert Scales",
+    "text": "Likert Scales\n\nthe codemultiple itemsreverse scoringalpha reliabilitydefining the scale\n\n\n\n\n\n\n\n\n\ngoal : all questions answered such that the higher number = higher extraversion\nproblem : for some questions, the higher number = less extraversion\nsolution : need to “flip” the questions that measure low extraversion around\n\nminimum of scale + maximum of scale = the number to subtract from\ne.g. a 1-5 scale = 1+5 = 6 - E2 —-&gt;"
+  },
+  {
+    "objectID": "dvcstats/slides/m2_slide.html#part-2-project-time",
+    "href": "dvcstats/slides/m2_slide.html#part-2-project-time",
+    "title": "",
+    "section": "PART 2 : Project Time",
+    "text": "PART 2 : Project Time"
+  },
+  {
+    "objectID": "dvcstats/slides/m2_slides.html#check-in-normal-people",
+    "href": "dvcstats/slides/m2_slides.html#check-in-normal-people",
+    "title": "",
+    "section": "Check-In : “Normal People”",
+    "text": "Check-In : “Normal People”\nWE ARE BACK IN R 😈\n\n\n\n\n\nLoad the dataset. name it d to follow along.\nRemove all 0s from the dataset. different ways to do this; use your favorite internet tool. (Or think through how you might adapt indexing to remove outliers for the entire dataset.)"
+  },
+  {
+    "objectID": "dvcstats/slides/m2_slides.html#missing-data",
+    "href": "dvcstats/slides/m2_slides.html#missing-data",
+    "title": "",
+    "section": "Missing Data",
+    "text": "Missing Data\nThe codebook for this data doesn’t say it, but zeros are coded as MISSING DATA.\n\nhow to knowindexing approachna.strings argument\n\n\n\nI’ve worked with datasets from this source that use this convention (and explain this feature in the codebook).\nThere is no missing data in the dataset, and it is very unlikely that all participants answered all questions.\nThe researchers measured personality with the Big Five, which is almost always measured on a 1-5 (or 1-7) scale, that allows for a “neutral” response.\n\n\n\nd == 0 # evaluates whether each entry in the dataframe is zero.\n\nd[d == 0] # finds these zeros in the dataset.\n\nd[d == 0] &lt;- NA # replaces with zero\n\n\nd &lt;- read.csv(\"personality_random_number_data.csv\", # your path goes here\n              stringsAsFactors = T,                 # same as before\n              na.strings = \"0\")                     # replaces 0 with NA"
+  },
+  {
+    "objectID": "dvcstats/slides/m2_slides.html#likert-scales",
+    "href": "dvcstats/slides/m2_slides.html#likert-scales",
+    "title": "",
+    "section": "Likert Scales",
+    "text": "Likert Scales\n\nthe codemultiple itemsreverse scoringalpha reliabilitydefining the scale\n\n\n\n\n\n\n\n\n\ngoal : all questions answered such that the higher number = higher extraversion\nproblem : for some questions, the higher number = less extraversion\nsolution : need to “flip” the questions that measure low extraversion around\n\nminimum of scale + maximum of scale = the number to subtract from\ne.g. a 1-5 scale = 1+5 = 6 - E2 —-&gt;"
+  },
+  {
+    "objectID": "dvcstats/slides/m2_slides.html#part-2-project-time",
+    "href": "dvcstats/slides/m2_slides.html#part-2-project-time",
+    "title": "",
+    "section": "PART 2 : Project Time",
+    "text": "PART 2 : Project Time"
   }
 ]
